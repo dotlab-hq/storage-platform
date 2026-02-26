@@ -1,64 +1,61 @@
 
 import {
-  S3Client,
-  PutObjectCommand,
-  CreateBucketCommand,
-  DeleteObjectCommand,
-  DeleteBucketCommand,
-  paginateListObjectsV2,
-  GetObjectCommand,
+    S3Client,
+    PutObjectCommand,
+    DeleteObjectCommand,
+    GetObjectCommand,
 } from "@aws-sdk/client-s3";
 import { createServerOnlyFn } from "@tanstack/react-start";
 
-const BUCKET_NAME= "dot-storage"
+const BUCKET_NAME = "dot-storage"
 
-const s3Client = new S3Client({
+const s3Client = new S3Client( {
     region: process.env.S3_REGION,
     endpoint: process.env.S3_ENDPOINT,
+    forcePathStyle: true,
     bucketEndpoint: false,
 
-    credentials:{
+    credentials: {
         accessKeyId: process.env.S3_ACCESS_KEY_ID!,
         secretAccessKey: process.env.S3_SECRET_ACCESS_KEY!,
     }
-    
-});
+
+} );
 
 export const saveFileToS3 = createServerOnlyFn( async ( file: File, key: string ) => {
-    const command = new PutObjectCommand({
+    const command = new PutObjectCommand( {
         Bucket: BUCKET_NAME,
         Key: key,
         Body: file,
         ContentType: file.type,
-    });
+    } );
 
     await s3Client.send(
         command
     );
-})
+} )
 
 export const getFileFromS3 = createServerOnlyFn( async ( key: string ) => {
-    const command = new GetObjectCommand({
+    const command = new GetObjectCommand( {
         Bucket: BUCKET_NAME,
         Key: key,
-    });
+    } );
 
     const response = await s3Client.send(
         command
     );
     return response.Body;
-})
+} )
 
 
 export const deleteFileFromS3 = createServerOnlyFn( async ( key: string ) => {
-    const command = new DeleteObjectCommand({
+    const command = new DeleteObjectCommand( {
         Bucket: BUCKET_NAME,
         Key: key,
-    });
+    } );
 
     await s3Client.send(
         command
     );
-})
+} )
 
-    

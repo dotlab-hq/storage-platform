@@ -22,6 +22,7 @@ export async function uploadSingleFile( {
     const s3Client = new S3Client( {
         region: process.env.S3_REGION,
         endpoint: process.env.S3_ENDPOINT,
+        forcePathStyle: true,
         bucketEndpoint: false,
         credentials: {
             accessKeyId: process.env.S3_ACCESS_KEY_ID!,
@@ -35,6 +36,7 @@ export async function uploadSingleFile( {
         ? file.name.split( "." ).pop()
         : "bin"
     const objectKey = `${userId}/${crypto.randomUUID()}.${extension}`
+    const fileBytes = new Uint8Array( await file.arrayBuffer() )
 
     console.log( `[Server] S3 Key: ${objectKey}, Bucket: ${BUCKET_NAME}` )
     console.log( `[Server] S3 region: ${process.env.S3_REGION}, endpoint: ${process.env.S3_ENDPOINT}` )
@@ -43,8 +45,9 @@ export async function uploadSingleFile( {
         new PutObjectCommand( {
             Bucket: BUCKET_NAME,
             Key: objectKey,
-            Body: file,
-            ContentType: file.type,
+            Body: fileBytes,
+            ContentLength: fileBytes.byteLength,
+            ContentType: file.type || "application/octet-stream",
         } )
     )
 
