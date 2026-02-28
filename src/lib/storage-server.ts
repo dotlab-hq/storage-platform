@@ -73,6 +73,58 @@ export async function uploadSingleFile( {
     return insertedFile
 }
 
+type CreateFolderInput = {
+    userId: string
+    name: string
+    parentFolderId?: string | null
+}
+
+export async function createNewFolder( {
+    userId,
+    name,
+    parentFolderId = null,
+}: CreateFolderInput ) {
+    const [{ db }, { folder }] = await Promise.all( [
+        import( "@/db" ),
+        import( "@/db/schema/storage" ),
+    ] )
+
+    // Find existing folder names in the same directory to handle duplicates
+    const siblings = await db
+        .select( { name: folder.name } )
+        .from( folder )
+        .where(
+            parentFolderId
+                ? and( eq( folder.userId, userId ), eq( folder.parentFolderId, parentFolderId ), eq( folder.isDeleted, false ) )
+                : and( eq( folder.userId, userId ), isNull( folder.parentFolderId ), eq( folder.isDeleted, false ) )
+        )
+
+    const siblingNames = new Set( siblings.map( ( s ) => s.name ) )
+    let finalName = name
+    if ( siblingNames.has( finalName ) ) {
+        let counter = 1
+        while ( siblingNames.has( `${name} (${counter})` ) ) {
+            counter++
+        }
+        finalName = `${name} (${counter})`
+    }
+
+    const [created] = await db
+        .insert( folder )
+        .values( {
+            name: finalName,
+            userId,
+            parentFolderId,
+        } )
+        .returning( {
+            id: folder.id,
+            name: folder.name,
+            createdAt: folder.createdAt,
+        } )
+
+    return created
+}
+
 export async function listRootItems( userId: string ) {
     const [{ db }, { file: storageFile, folder }] = await Promise.all( [
         import( "@/db" ),
@@ -86,7 +138,7 @@ export async function listRootItems( userId: string ) {
             createdAt: folder.createdAt,
         } )
         .from( folder )
-        .where( and( eq( folder.userId, userId ), isNull( folder.parentFolderId ) ) )
+        .where( and( eq( folder.userId, userId ), isNull( folder.parentFolderId ), eq( folder.isDeleted, false ) ) )
         .orderBy( folder.createdAt )
 
     const rootFiles = await db
@@ -97,7 +149,7 @@ export async function listRootItems( userId: string ) {
             createdAt: storageFile.createdAt,
         } )
         .from( storageFile )
-        .where( and( eq( storageFile.userId, userId ), isNull( storageFile.folderId ) ) )
+        .where( and( eq( storageFile.userId, userId ), isNull( storageFile.folderId ), eq( storageFile.isDeleted, false ) ) )
         .orderBy( storageFile.createdAt )
 
     return {

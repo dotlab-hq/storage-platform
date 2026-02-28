@@ -10,9 +10,27 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TrashIndexRouteImport } from './routes/trash/index'
+import { Route as SharedIndexRouteImport } from './routes/shared/index'
+import { Route as RecentIndexRouteImport } from './routes/recent/index'
 import { Route as AuthIndexRouteImport } from './routes/auth/index'
+import { Route as ShareTokenRouteImport } from './routes/share/$token'
 import { Route as ApiUploadRouteImport } from './routes/api/upload'
+import { Route as ApiStorageTrashRestoreRouteImport } from './routes/api/storage/trash-restore'
+import { Route as ApiStorageTrashDeleteRouteImport } from './routes/api/storage/trash-delete'
+import { Route as ApiStorageTrashRouteImport } from './routes/api/storage/trash'
+import { Route as ApiStorageShareAccessRouteImport } from './routes/api/storage/share-access'
+import { Route as ApiStorageShareRouteImport } from './routes/api/storage/share'
+import { Route as ApiStorageSearchRouteImport } from './routes/api/storage/search'
 import { Route as ApiStorageRootItemsRouteImport } from './routes/api/storage/root-items'
+import { Route as ApiStorageRenameRouteImport } from './routes/api/storage/rename'
+import { Route as ApiStorageRecentRouteImport } from './routes/api/storage/recent'
+import { Route as ApiStoragePresignRouteImport } from './routes/api/storage/presign'
+import { Route as ApiStorageMoveRouteImport } from './routes/api/storage/move'
+import { Route as ApiStorageFolderItemsRouteImport } from './routes/api/storage/folder-items'
+import { Route as ApiStorageDeleteRouteImport } from './routes/api/storage/delete'
+import { Route as ApiStorageCreateFolderRouteImport } from './routes/api/storage/create-folder'
+import { Route as ApiStorageAllFoldersRouteImport } from './routes/api/storage/all-folders'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
 const IndexRoute = IndexRouteImport.update({
@@ -20,9 +38,29 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrashIndexRoute = TrashIndexRouteImport.update({
+  id: '/trash/',
+  path: '/trash/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SharedIndexRoute = SharedIndexRouteImport.update({
+  id: '/shared/',
+  path: '/shared/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecentIndexRoute = RecentIndexRouteImport.update({
+  id: '/recent/',
+  path: '/recent/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthIndexRoute = AuthIndexRouteImport.update({
   id: '/auth/',
   path: '/auth/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShareTokenRoute = ShareTokenRouteImport.update({
+  id: '/share/$token',
+  path: '/share/$token',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiUploadRoute = ApiUploadRouteImport.update({
@@ -30,9 +68,79 @@ const ApiUploadRoute = ApiUploadRouteImport.update({
   path: '/api/upload',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiStorageTrashRestoreRoute = ApiStorageTrashRestoreRouteImport.update({
+  id: '/api/storage/trash-restore',
+  path: '/api/storage/trash-restore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageTrashDeleteRoute = ApiStorageTrashDeleteRouteImport.update({
+  id: '/api/storage/trash-delete',
+  path: '/api/storage/trash-delete',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageTrashRoute = ApiStorageTrashRouteImport.update({
+  id: '/api/storage/trash',
+  path: '/api/storage/trash',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageShareAccessRoute = ApiStorageShareAccessRouteImport.update({
+  id: '/api/storage/share-access',
+  path: '/api/storage/share-access',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageShareRoute = ApiStorageShareRouteImport.update({
+  id: '/api/storage/share',
+  path: '/api/storage/share',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageSearchRoute = ApiStorageSearchRouteImport.update({
+  id: '/api/storage/search',
+  path: '/api/storage/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiStorageRootItemsRoute = ApiStorageRootItemsRouteImport.update({
   id: '/api/storage/root-items',
   path: '/api/storage/root-items',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageRenameRoute = ApiStorageRenameRouteImport.update({
+  id: '/api/storage/rename',
+  path: '/api/storage/rename',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageRecentRoute = ApiStorageRecentRouteImport.update({
+  id: '/api/storage/recent',
+  path: '/api/storage/recent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStoragePresignRoute = ApiStoragePresignRouteImport.update({
+  id: '/api/storage/presign',
+  path: '/api/storage/presign',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageMoveRoute = ApiStorageMoveRouteImport.update({
+  id: '/api/storage/move',
+  path: '/api/storage/move',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageFolderItemsRoute = ApiStorageFolderItemsRouteImport.update({
+  id: '/api/storage/folder-items',
+  path: '/api/storage/folder-items',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageDeleteRoute = ApiStorageDeleteRouteImport.update({
+  id: '/api/storage/delete',
+  path: '/api/storage/delete',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageCreateFolderRoute = ApiStorageCreateFolderRouteImport.update({
+  id: '/api/storage/create-folder',
+  path: '/api/storage/create-folder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageAllFoldersRoute = ApiStorageAllFoldersRouteImport.update({
+  id: '/api/storage/all-folders',
+  path: '/api/storage/all-folders',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
@@ -44,50 +152,181 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/api/upload': typeof ApiUploadRoute
+  '/share/$token': typeof ShareTokenRoute
   '/auth/': typeof AuthIndexRoute
+  '/recent/': typeof RecentIndexRoute
+  '/shared/': typeof SharedIndexRoute
+  '/trash/': typeof TrashIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/storage/all-folders': typeof ApiStorageAllFoldersRoute
+  '/api/storage/create-folder': typeof ApiStorageCreateFolderRoute
+  '/api/storage/delete': typeof ApiStorageDeleteRoute
+  '/api/storage/folder-items': typeof ApiStorageFolderItemsRoute
+  '/api/storage/move': typeof ApiStorageMoveRoute
+  '/api/storage/presign': typeof ApiStoragePresignRoute
+  '/api/storage/recent': typeof ApiStorageRecentRoute
+  '/api/storage/rename': typeof ApiStorageRenameRoute
   '/api/storage/root-items': typeof ApiStorageRootItemsRoute
+  '/api/storage/search': typeof ApiStorageSearchRoute
+  '/api/storage/share': typeof ApiStorageShareRoute
+  '/api/storage/share-access': typeof ApiStorageShareAccessRoute
+  '/api/storage/trash': typeof ApiStorageTrashRoute
+  '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
+  '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/api/upload': typeof ApiUploadRoute
+  '/share/$token': typeof ShareTokenRoute
   '/auth': typeof AuthIndexRoute
+  '/recent': typeof RecentIndexRoute
+  '/shared': typeof SharedIndexRoute
+  '/trash': typeof TrashIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/storage/all-folders': typeof ApiStorageAllFoldersRoute
+  '/api/storage/create-folder': typeof ApiStorageCreateFolderRoute
+  '/api/storage/delete': typeof ApiStorageDeleteRoute
+  '/api/storage/folder-items': typeof ApiStorageFolderItemsRoute
+  '/api/storage/move': typeof ApiStorageMoveRoute
+  '/api/storage/presign': typeof ApiStoragePresignRoute
+  '/api/storage/recent': typeof ApiStorageRecentRoute
+  '/api/storage/rename': typeof ApiStorageRenameRoute
   '/api/storage/root-items': typeof ApiStorageRootItemsRoute
+  '/api/storage/search': typeof ApiStorageSearchRoute
+  '/api/storage/share': typeof ApiStorageShareRoute
+  '/api/storage/share-access': typeof ApiStorageShareAccessRoute
+  '/api/storage/trash': typeof ApiStorageTrashRoute
+  '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
+  '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/api/upload': typeof ApiUploadRoute
+  '/share/$token': typeof ShareTokenRoute
   '/auth/': typeof AuthIndexRoute
+  '/recent/': typeof RecentIndexRoute
+  '/shared/': typeof SharedIndexRoute
+  '/trash/': typeof TrashIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/storage/all-folders': typeof ApiStorageAllFoldersRoute
+  '/api/storage/create-folder': typeof ApiStorageCreateFolderRoute
+  '/api/storage/delete': typeof ApiStorageDeleteRoute
+  '/api/storage/folder-items': typeof ApiStorageFolderItemsRoute
+  '/api/storage/move': typeof ApiStorageMoveRoute
+  '/api/storage/presign': typeof ApiStoragePresignRoute
+  '/api/storage/recent': typeof ApiStorageRecentRoute
+  '/api/storage/rename': typeof ApiStorageRenameRoute
   '/api/storage/root-items': typeof ApiStorageRootItemsRoute
+  '/api/storage/search': typeof ApiStorageSearchRoute
+  '/api/storage/share': typeof ApiStorageShareRoute
+  '/api/storage/share-access': typeof ApiStorageShareAccessRoute
+  '/api/storage/trash': typeof ApiStorageTrashRoute
+  '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
+  '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/api/upload'
+    | '/share/$token'
     | '/auth/'
+    | '/recent/'
+    | '/shared/'
+    | '/trash/'
     | '/api/auth/$'
+    | '/api/storage/all-folders'
+    | '/api/storage/create-folder'
+    | '/api/storage/delete'
+    | '/api/storage/folder-items'
+    | '/api/storage/move'
+    | '/api/storage/presign'
+    | '/api/storage/recent'
+    | '/api/storage/rename'
     | '/api/storage/root-items'
+    | '/api/storage/search'
+    | '/api/storage/share'
+    | '/api/storage/share-access'
+    | '/api/storage/trash'
+    | '/api/storage/trash-delete'
+    | '/api/storage/trash-restore'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/upload' | '/auth' | '/api/auth/$' | '/api/storage/root-items'
+  to:
+    | '/'
+    | '/api/upload'
+    | '/share/$token'
+    | '/auth'
+    | '/recent'
+    | '/shared'
+    | '/trash'
+    | '/api/auth/$'
+    | '/api/storage/all-folders'
+    | '/api/storage/create-folder'
+    | '/api/storage/delete'
+    | '/api/storage/folder-items'
+    | '/api/storage/move'
+    | '/api/storage/presign'
+    | '/api/storage/recent'
+    | '/api/storage/rename'
+    | '/api/storage/root-items'
+    | '/api/storage/search'
+    | '/api/storage/share'
+    | '/api/storage/share-access'
+    | '/api/storage/trash'
+    | '/api/storage/trash-delete'
+    | '/api/storage/trash-restore'
   id:
     | '__root__'
     | '/'
     | '/api/upload'
+    | '/share/$token'
     | '/auth/'
+    | '/recent/'
+    | '/shared/'
+    | '/trash/'
     | '/api/auth/$'
+    | '/api/storage/all-folders'
+    | '/api/storage/create-folder'
+    | '/api/storage/delete'
+    | '/api/storage/folder-items'
+    | '/api/storage/move'
+    | '/api/storage/presign'
+    | '/api/storage/recent'
+    | '/api/storage/rename'
     | '/api/storage/root-items'
+    | '/api/storage/search'
+    | '/api/storage/share'
+    | '/api/storage/share-access'
+    | '/api/storage/trash'
+    | '/api/storage/trash-delete'
+    | '/api/storage/trash-restore'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApiUploadRoute: typeof ApiUploadRoute
+  ShareTokenRoute: typeof ShareTokenRoute
   AuthIndexRoute: typeof AuthIndexRoute
+  RecentIndexRoute: typeof RecentIndexRoute
+  SharedIndexRoute: typeof SharedIndexRoute
+  TrashIndexRoute: typeof TrashIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  ApiStorageAllFoldersRoute: typeof ApiStorageAllFoldersRoute
+  ApiStorageCreateFolderRoute: typeof ApiStorageCreateFolderRoute
+  ApiStorageDeleteRoute: typeof ApiStorageDeleteRoute
+  ApiStorageFolderItemsRoute: typeof ApiStorageFolderItemsRoute
+  ApiStorageMoveRoute: typeof ApiStorageMoveRoute
+  ApiStoragePresignRoute: typeof ApiStoragePresignRoute
+  ApiStorageRecentRoute: typeof ApiStorageRecentRoute
+  ApiStorageRenameRoute: typeof ApiStorageRenameRoute
   ApiStorageRootItemsRoute: typeof ApiStorageRootItemsRoute
+  ApiStorageSearchRoute: typeof ApiStorageSearchRoute
+  ApiStorageShareRoute: typeof ApiStorageShareRoute
+  ApiStorageShareAccessRoute: typeof ApiStorageShareAccessRoute
+  ApiStorageTrashRoute: typeof ApiStorageTrashRoute
+  ApiStorageTrashDeleteRoute: typeof ApiStorageTrashDeleteRoute
+  ApiStorageTrashRestoreRoute: typeof ApiStorageTrashRestoreRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,11 +338,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/trash/': {
+      id: '/trash/'
+      path: '/trash'
+      fullPath: '/trash/'
+      preLoaderRoute: typeof TrashIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shared/': {
+      id: '/shared/'
+      path: '/shared'
+      fullPath: '/shared/'
+      preLoaderRoute: typeof SharedIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recent/': {
+      id: '/recent/'
+      path: '/recent'
+      fullPath: '/recent/'
+      preLoaderRoute: typeof RecentIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/auth/': {
       id: '/auth/'
       path: '/auth'
       fullPath: '/auth/'
       preLoaderRoute: typeof AuthIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/share/$token': {
+      id: '/share/$token'
+      path: '/share/$token'
+      fullPath: '/share/$token'
+      preLoaderRoute: typeof ShareTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/upload': {
@@ -113,11 +380,109 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiUploadRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/storage/trash-restore': {
+      id: '/api/storage/trash-restore'
+      path: '/api/storage/trash-restore'
+      fullPath: '/api/storage/trash-restore'
+      preLoaderRoute: typeof ApiStorageTrashRestoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/trash-delete': {
+      id: '/api/storage/trash-delete'
+      path: '/api/storage/trash-delete'
+      fullPath: '/api/storage/trash-delete'
+      preLoaderRoute: typeof ApiStorageTrashDeleteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/trash': {
+      id: '/api/storage/trash'
+      path: '/api/storage/trash'
+      fullPath: '/api/storage/trash'
+      preLoaderRoute: typeof ApiStorageTrashRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/share-access': {
+      id: '/api/storage/share-access'
+      path: '/api/storage/share-access'
+      fullPath: '/api/storage/share-access'
+      preLoaderRoute: typeof ApiStorageShareAccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/share': {
+      id: '/api/storage/share'
+      path: '/api/storage/share'
+      fullPath: '/api/storage/share'
+      preLoaderRoute: typeof ApiStorageShareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/search': {
+      id: '/api/storage/search'
+      path: '/api/storage/search'
+      fullPath: '/api/storage/search'
+      preLoaderRoute: typeof ApiStorageSearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/storage/root-items': {
       id: '/api/storage/root-items'
       path: '/api/storage/root-items'
       fullPath: '/api/storage/root-items'
       preLoaderRoute: typeof ApiStorageRootItemsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/rename': {
+      id: '/api/storage/rename'
+      path: '/api/storage/rename'
+      fullPath: '/api/storage/rename'
+      preLoaderRoute: typeof ApiStorageRenameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/recent': {
+      id: '/api/storage/recent'
+      path: '/api/storage/recent'
+      fullPath: '/api/storage/recent'
+      preLoaderRoute: typeof ApiStorageRecentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/presign': {
+      id: '/api/storage/presign'
+      path: '/api/storage/presign'
+      fullPath: '/api/storage/presign'
+      preLoaderRoute: typeof ApiStoragePresignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/move': {
+      id: '/api/storage/move'
+      path: '/api/storage/move'
+      fullPath: '/api/storage/move'
+      preLoaderRoute: typeof ApiStorageMoveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/folder-items': {
+      id: '/api/storage/folder-items'
+      path: '/api/storage/folder-items'
+      fullPath: '/api/storage/folder-items'
+      preLoaderRoute: typeof ApiStorageFolderItemsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/delete': {
+      id: '/api/storage/delete'
+      path: '/api/storage/delete'
+      fullPath: '/api/storage/delete'
+      preLoaderRoute: typeof ApiStorageDeleteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/create-folder': {
+      id: '/api/storage/create-folder'
+      path: '/api/storage/create-folder'
+      fullPath: '/api/storage/create-folder'
+      preLoaderRoute: typeof ApiStorageCreateFolderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/all-folders': {
+      id: '/api/storage/all-folders'
+      path: '/api/storage/all-folders'
+      fullPath: '/api/storage/all-folders'
+      preLoaderRoute: typeof ApiStorageAllFoldersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/auth/$': {
@@ -133,9 +498,27 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApiUploadRoute: ApiUploadRoute,
+  ShareTokenRoute: ShareTokenRoute,
   AuthIndexRoute: AuthIndexRoute,
+  RecentIndexRoute: RecentIndexRoute,
+  SharedIndexRoute: SharedIndexRoute,
+  TrashIndexRoute: TrashIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  ApiStorageAllFoldersRoute: ApiStorageAllFoldersRoute,
+  ApiStorageCreateFolderRoute: ApiStorageCreateFolderRoute,
+  ApiStorageDeleteRoute: ApiStorageDeleteRoute,
+  ApiStorageFolderItemsRoute: ApiStorageFolderItemsRoute,
+  ApiStorageMoveRoute: ApiStorageMoveRoute,
+  ApiStoragePresignRoute: ApiStoragePresignRoute,
+  ApiStorageRecentRoute: ApiStorageRecentRoute,
+  ApiStorageRenameRoute: ApiStorageRenameRoute,
   ApiStorageRootItemsRoute: ApiStorageRootItemsRoute,
+  ApiStorageSearchRoute: ApiStorageSearchRoute,
+  ApiStorageShareRoute: ApiStorageShareRoute,
+  ApiStorageShareAccessRoute: ApiStorageShareAccessRoute,
+  ApiStorageTrashRoute: ApiStorageTrashRoute,
+  ApiStorageTrashDeleteRoute: ApiStorageTrashDeleteRoute,
+  ApiStorageTrashRestoreRoute: ApiStorageTrashRestoreRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,5 +1,6 @@
 import { relations } from "drizzle-orm";
-import { bigint, boolean, index, text, timestamp, type AnyPgColumn } from "drizzle-orm/pg-core";
+import { bigint, boolean, index, text, timestamp, type AnyPgColumn, check } from "drizzle-orm/pg-core";
+import { sql } from "drizzle-orm";
 import { user } from "./auth-schema";
 import { schema } from "./schema";
 
@@ -19,6 +20,9 @@ export const folder = schema.table(
         parentFolderId: text( "parent_folder_id" ).references( (): AnyPgColumn => folder.id, {
             onDelete: "set null",
         } ),
+        isDeleted: boolean( "is_deleted" ).default( false ).notNull(),
+        deletedAt: timestamp( "deleted_at" ),
+        lastOpenedAt: timestamp( "last_opened_at" ),
         createdAt: timestamp( "created_at" ).defaultNow().notNull(),
         updatedAt: timestamp( "updated_at" )
             .defaultNow()
@@ -47,6 +51,9 @@ export const file = schema.table(
         folderId: text( "folder_id" ).references( () => folder.id, {
             onDelete: "set null",
         } ),
+        isDeleted: boolean( "is_deleted" ).default( false ).notNull(),
+        deletedAt: timestamp( "deleted_at" ),
+        lastOpenedAt: timestamp( "last_opened_at" ),
         createdAt: timestamp( "created_at" ).defaultNow().notNull(),
         updatedAt: timestamp( "updated_at" )
             .defaultNow()
@@ -59,26 +66,30 @@ export const file = schema.table(
     ],
 );
 
-export const fileShare = schema.table(
-    "file_share",
+export const shareLink = schema.table(
+    "share_link",
     {
         id: text( "id" )
             .$defaultFn( () => crypto.randomUUID() )
             .primaryKey(),
         fileId: text( "file_id" )
-            .notNull()
             .references( () => file.id, { onDelete: "cascade" } ),
+        folderId: text( "folder_id" )
+            .references( () => folder.id, { onDelete: "cascade" } ),
         sharedByUserId: text( "shared_by_user_id" )
             .notNull()
             .references( () => user.id, { onDelete: "cascade" } ),
         shareToken: text( "share_token" ).notNull().unique(),
+        requiresAuth: boolean( "requires_auth" ).default( false ).notNull(),
         isActive: boolean( "is_active" ).default( true ).notNull(),
         expiresAt: timestamp( "expires_at" ),
         createdAt: timestamp( "created_at" ).defaultNow().notNull(),
     },
     ( table ) => [
-        index( "fileShare_fileId_idx" ).on( table.fileId ),
-        index( "fileShare_sharedByUserId_idx" ).on( table.sharedByUserId ),
+        index( "shareLink_fileId_idx" ).on( table.fileId ),
+        index( "shareLink_folderId_idx" ).on( table.folderId ),
+        index( "shareLink_sharedByUserId_idx" ).on( table.sharedByUserId ),
+        check( "share_link_target_check", sql`("file_id" IS NOT NULL AND "folder_id" IS NULL) OR ("file_id" IS NULL AND "folder_id" IS NOT NULL)` ),
     ],
 );
 
@@ -118,6 +129,7 @@ export const folderRelations = relations( folder, ( { one, many } ) => ( {
         relationName: "folderParent",
     } ),
     files: many( file ),
+    shareLinks: many( shareLink ),
 } ) );
 
 export const fileRelations = relations( file, ( { one, many } ) => ( {
@@ -129,16 +141,20 @@ export const fileRelations = relations( file, ( { one, many } ) => ( {
         fields: [file.folderId],
         references: [folder.id],
     } ),
-    shares: many( fileShare ),
+    shares: many( shareLink ),
 } ) );
 
-export const fileShareRelations = relations( fileShare, ( { one } ) => ( {
+export const shareLinkRelations = relations( shareLink, ( { one } ) => ( {
     file: one( file, {
-        fields: [fileShare.fileId],
+        fields: [shareLink.fileId],
         references: [file.id],
     } ),
+    folder: one( folder, {
+        fields: [shareLink.folderId],
+        references: [folder.id],
+    } ),
     sharedByUser: one( user, {
-        fields: [fileShare.sharedByUserId],
+        fields: [shareLink.sharedByUserId],
         references: [user.id],
     } ),
 } ) );

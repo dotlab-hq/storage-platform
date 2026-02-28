@@ -6,8 +6,6 @@ import {
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 
-import Header from '../components/Header'
-
 import TanStackQueryProvider from '../integrations/tanstack-query/root-provider'
 
 import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
@@ -16,12 +14,17 @@ import appCss from '../styles.css?url'
 
 import type { QueryClient } from '@tanstack/react-query'
 import { TooltipProvider } from '@/components/ui/tooltip'
+import { Toaster } from '@/components/ui/sonner'
+import { AppErrorBoundary } from '@/components/error-boundary'
+import { NotFoundPage } from '@/components/not-found'
 
 interface MyRouterContext {
   queryClient: QueryClient
 }
 
 export const Route = createRootRouteWithContext<MyRouterContext>()( {
+  errorComponent: AppErrorBoundary,
+  notFoundComponent: NotFoundPage,
   head: () => ( {
     meta: [
       {
@@ -32,7 +35,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()( {
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: 'DOT. Storage',
       },
     ],
     links: [
@@ -55,6 +58,7 @@ function RootDocument( { children }: { children: React.ReactNode } ) {
         <TanStackQueryProvider>
 
           <TooltipProvider>{children}</TooltipProvider>
+          <Toaster />
 
           <TanStackDevtools
             config={{

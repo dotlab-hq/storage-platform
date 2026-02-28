@@ -1,152 +1,215 @@
-import { authClient } from '@/lib/auth-client'
-import { createFileRoute } from '@tanstack/react-router'
-import { createClientOnlyFn } from '@tanstack/react-start'
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from "react"
+import { createFileRoute, useNavigate } from "@tanstack/react-router"
 import { AppSidebar } from "@/components/app-sidebar"
-import { HeaderUploadMenu } from '@/components/header-upload-menu'
 import { Separator } from "@/components/ui/separator"
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { useState } from 'react'
+import { FileGrid } from "@/components/storage/file-grid"
+import { FloatingActionBar } from "@/components/storage/floating-action-bar"
+import { DragDropOverlay } from "@/components/storage/drag-drop-overlay"
+import { BreadcrumbNav } from "@/components/storage/breadcrumb-nav"
+import { ShareModal } from "@/components/storage/share-modal"
+import { MoveModal } from "@/components/storage/move-modal"
+import { ConfirmDeleteModal } from "@/components/storage/confirm-delete-modal"
+import { CommandPalette } from "@/components/storage/command-palette"
+import { TopbarActions } from "@/components/topbar-actions"
+import { useStorageData } from "@/hooks/use-storage-data"
+import { useFileSelection } from "@/hooks/use-file-selection"
+import { useDragDrop } from "@/hooks/use-drag-drop"
+import { useKeyboardShortcuts } from "@/hooks/use-keyboard-shortcuts"
+import { useStorageActions } from "@/hooks/use-storage-actions"
+import { useBulkActions } from "@/hooks/use-bulk-actions"
+import { useTheme } from "@/hooks/use-theme"
+import { decodeNavToken, encodeNavToken } from "@/lib/nav-token"
+import type { StorageItem } from "@/types/storage"
 
-export const Route = createFileRoute( '/' )( { component: App } )
+export const Route = createFileRoute( "/" )( { component: StoragePage } )
 
-function App() {
-  const [userId, setUserId] = useState<string | null>( null )
-  const [rootFolders, setRootFolders] = useState<
-    Array<{ id: string; name: string; createdAt: Date }>
-  >( [] )
-  const [rootFiles, setRootFiles] = useState<
-    Array<{ id: string; name: string; sizeInBytes: number; createdAt: Date }>
-  >( [] )
+function StoragePage() {
+  const navigate = useNavigate()
+  const { toggleTheme } = useTheme()
+  const storage = useStorageData()
+  const selection = useFileSelection( storage.items )
+  const dragDrop = useDragDrop( storage.userId, storage.currentFolderId, storage.setUploads, storage.refresh )
 
-  // check if the user is authenticated and redirect to /auth if not
-  const checkAuthSession = createClientOnlyFn( async () => {
-    const { data, error } = await authClient.getSession()
-    if ( error ) {
-      window.location.href = "/auth"
-      return null
-    }
+  const [shareItem, setShareItem] = useState<StorageItem | null>( null )
+  const [moveOpen, setMoveOpen] = useState( false )
+  const [deleteOpen, setDeleteOpen] = useState( false )
+  const [pendingDelete, setPendingDelete] = useState<{ ids: string[]; types: ( "file" | "folder" )[] } | null>( null )
+  const navInitRef = useRef( false )
 
-    if ( !data?.user ) {
-      window.location.href = "/auth"
-      return null
-    }
-
-    return data.user.id
-  } )
-
-  const fetchRootItems = createClientOnlyFn( async ( currentUserId: string ) => {
-    const response = await fetch( `/api/storage/root-items?userId=${encodeURIComponent( currentUserId )}` )
-    const data = await response.json() as {
-      folders?: Array<{ id: string; name: string; createdAt: string }>
-      files?: Array<{ id: string; name: string; sizeInBytes: number; createdAt: string }>
-      error?: string
-    }
-
-    if ( !response.ok ) {
-      throw new Error( data.error || `HTTP ${response.status}` )
-    }
-
-    return {
-      folders: ( data.folders ?? [] ).map( ( folder ) => ( {
-        ...folder,
-        createdAt: new Date( folder.createdAt ),
-      } ) ),
-      files: ( data.files ?? [] ).map( ( file ) => ( {
-        ...file,
-        createdAt: new Date( file.createdAt ),
-      } ) ),
-    }
-  } )
-
-  const refreshRootItems = async ( currentUserId: string ) => {
-    const rootItems = await fetchRootItems( currentUserId )
-    setRootFolders( rootItems.folders )
-    setRootFiles( rootItems.files )
-  }
-
+  /* ── Decode nav token on mount, then keep URL in sync ── */
   useEffect( () => {
-    void checkAuthSession().then( async ( authenticatedUserId ) => {
-      if ( !authenticatedUserId ) {
-        return
+    if ( !navInitRef.current ) {
+      navInitRef.current = true
+      const nav = new URLSearchParams( window.location.search ).get( "nav" )
+      if ( nav ) {
+        const p = decodeNavToken( nav )
+        if ( p?.folderId ) { storage.setCurrentFolderId( p.folderId ); return }
       }
+    }
+    if ( storage.currentFolderId ) {
+      window.history.replaceState( {}, "", `?nav=${encodeNavToken( { folderId: storage.currentFolderId } )}` )
+    } else {
+      window.history.replaceState( {}, "", window.location.pathname )
+    }
+  }, [storage.currentFolderId] )
 
-      setUserId( authenticatedUserId )
-      await refreshRootItems( authenticatedUserId )
-    } )
-  }, [] )
+  const actions = useStorageActions( {
+    userId: storage.userId,
+    currentFolderId: storage.currentFolderId,
+    setItems: storage.setItems,
+    refresh: storage.refresh,
+    setCurrentFolderId: storage.setCurrentFolderId,
+    select: selection.select,
+    clearSelection: selection.clearSelection,
+    selectedIds: selection.selectedIds,
+    onDeleteOpen: ( item: StorageItem ) => {
+      setPendingDelete( { ids: [item.id], types: [item.type] } )
+      setDeleteOpen( true )
+    },
+    onMoveOpen: () => setMoveOpen( true ),
+    onShareOpen: ( item ) => setShareItem( item ),
+  } )
 
+  const bulk = useBulkActions( {
+    userId: storage.userId,
+    items: storage.items,
+    selectedIds: selection.selectedIds,
+    setItems: storage.setItems,
+    clearSelection: selection.clearSelection,
+    refresh: storage.refresh,
+    setDeleteOpen,
+    setMoveOpen,
+  } )
+
+  useKeyboardShortcuts( {
+    "mod+a": () => selection.selectAll(),
+    escape: () => selection.clearSelection(),
+    delete: () => {
+      if ( selection.selectedCount > 0 ) {
+        const items = storage.items.filter( ( i ) => selection.selectedIds.has( i.id ) )
+        setPendingDelete( { ids: items.map( ( i ) => i.id ), types: items.map( ( i ) => i.type ) } )
+        setDeleteOpen( true )
+      }
+    },
+  } )
+
+  const selectedItems = storage.items.filter( ( i ) => selection.selectedIds.has( i.id ) )
 
   return (
-    <div className="min-h-screen ">
+    <div
+      className="min-h-screen"
+      onDragEnter={dragDrop.handleDragEnter}
+      onDragLeave={dragDrop.handleDragLeave}
+      onDragOver={dragDrop.handleDragOver}
+      onDrop={dragDrop.handleDrop}
+    >
       <SidebarProvider>
-        <AppSidebar />
+        <AppSidebar quota={storage.quota} />
         <SidebarInset>
-          <header className="flex h-16 shrink-0 items-center justify-between gap-2 px-4 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+          <header className="flex h-14 shrink-0 items-center justify-between gap-2 px-4 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
             <div className="flex items-center gap-2">
               <SidebarTrigger className="-ml-1" />
               <Separator
                 orientation="vertical"
                 className="mr-2 data-[orientation=vertical]:h-4"
               />
-            </div>
-            <HeaderUploadMenu
-              userId={userId}
-              onUploadComplete={async () => {
-                if ( !userId ) {
-                  return
+              <BreadcrumbNav
+                items={storage.breadcrumbs}
+                onNavigate={( folderId ) =>
+                  storage.setCurrentFolderId( folderId )
                 }
-
-                await refreshRootItems( userId )
+              />
+            </div>
+            <TopbarActions
+              userId={storage.userId}
+              currentFolderId={storage.currentFolderId}
+              setUploads={storage.setUploads}
+              onUploadComplete={storage.refresh}
+              onNewFolder={actions.handleNewFolder}
+              onSearch={( results ) => {
+                if ( results ) storage.setItems( results )
+                else void storage.refresh()
               }}
             />
           </header>
-          <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-            <div className="rounded-xl border p-4">
-              <h2 className="mb-3 text-sm font-semibold">Root folders</h2>
-              {rootFolders.length === 0 ? (
-                <p className="text-muted-foreground text-sm">No root folders.</p>
-              ) : (
-                <ul className="space-y-2">
-                  {rootFolders.map( ( currentFolder ) => (
-                    <li
-                      key={currentFolder.id}
-                      className="bg-muted/40 rounded-md px-3 py-2 text-sm"
-                    >
-                      {currentFolder.name}
-                    </li>
-                  ) )}
-                </ul>
-              )}
-            </div>
 
-            <div className="rounded-xl border p-4">
-              <h2 className="mb-3 text-sm font-semibold">Root files</h2>
-              {rootFiles.length === 0 ? (
-                <p className="text-muted-foreground text-sm">No root files.</p>
-              ) : (
-                <ul className="space-y-2">
-                  {rootFiles.map( ( currentFile ) => (
-                    <li
-                      key={currentFile.id}
-                      className="bg-muted/40 flex items-center justify-between rounded-md px-3 py-2 text-sm"
-                    >
-                      <span className="truncate">{currentFile.name}</span>
-                      <span className="text-muted-foreground ml-3 shrink-0 text-xs">
-                        {( currentFile.sizeInBytes / 1024 ).toFixed( 2 )} KB
-                      </span>
-                    </li>
-                  ) )}
-                </ul>
-              )}
-            </div>
+          <div
+            className="flex flex-1 flex-col gap-4 p-4 pt-0"
+            onClick={() => selection.clearSelection()}
+          >
+            <FileGrid
+              items={storage.items}
+              uploads={storage.uploads}
+              isLoading={storage.isLoading}
+              selectedIds={selection.selectedIds}
+              onSelect={( id, shift ) => selection.select( id, shift )}
+              onDoubleClick={actions.handleDoubleClick}
+              onContextAction={actions.handleContextAction}
+              renamingItemId={actions.renamingItemId}
+              onRename={actions.handleRename}
+              onRenameCancel={() => actions.setRenamingItemId( null )}
+              onDragMoveItem={bulk.handleDragMoveItem}
+            />
           </div>
         </SidebarInset>
       </SidebarProvider>
+
+      <DragDropOverlay isDragging={dragDrop.isDragging} />
+
+      <FloatingActionBar
+        selectedCount={selection.selectedCount}
+        onDelete={() => {
+          setPendingDelete( { ids: selectedItems.map( ( i ) => i.id ), types: selectedItems.map( ( i ) => i.type ) } )
+          setDeleteOpen( true )
+        }}
+        onShare={() => {
+          const first = selectedItems[0]
+          if ( first ) setShareItem( first )
+        }}
+        onClear={selection.clearSelection}
+      />
+
+      <ShareModal
+        open={!!shareItem}
+        onOpenChange={( open ) => !open && setShareItem( null )}
+        item={shareItem}
+        userId={storage.userId}
+      />
+
+      <MoveModal
+        open={moveOpen}
+        onOpenChange={setMoveOpen}
+        items={selectedItems}
+        folders={storage.folders}
+        currentFolderId={storage.currentFolderId}
+        onMove={bulk.handleMove}
+        userId={storage.userId}
+      />
+
+      <ConfirmDeleteModal
+        open={deleteOpen}
+        onOpenChange={( open ) => {
+          setDeleteOpen( open )
+          if ( !open ) setPendingDelete( null )
+        }}
+        isPermanent={false}
+        itemCount={pendingDelete?.ids.length ?? 0}
+        onConfirm={() => {
+          if ( pendingDelete ) {
+            void bulk.handleDelete( pendingDelete.ids, pendingDelete.types )
+          }
+        }}
+      />
+
+      <CommandPalette
+        onNavigate={( route ) => void navigate( { to: route } )}
+        onToggleTheme={toggleTheme}
+      />
     </div>
   )
 }
