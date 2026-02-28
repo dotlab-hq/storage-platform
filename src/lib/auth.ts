@@ -21,6 +21,7 @@ export const auth = betterAuth( {
       },
     },
   },
+  appName: "DOT Storage Platform",
   advanced: {
     cookies: {
       state: {
