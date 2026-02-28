@@ -115,16 +115,17 @@ function ActiveShareView( { shareUrl, onCopy, onDisable }: {
         <div className="space-y-4">
             <div className="space-y-2">
                 <Label>Share link</Label>
-                <div className="bg-muted flex items-center gap-2 rounded-md p-2 overflow-hidden">
-                    <Link2 className="text-muted-foreground h-4 w-4 shrink-0" />
-                    <span className="min-w-0 flex-1 truncate text-xs font-mono">{shareUrl}</span>
-                    <Button size="sm" variant="ghost" className="shrink-0" onClick={onCopy}>
+                <div className="bg-muted flex flex-col items-start gap-2 rounded-md p-2 sm:flex-row sm:items-center overflow-hidden">
+                    <Link2 className="text-muted-foreground h-4 w-4 shrink-0 mt-0.5" />
+                    <span className="min-w-0 flex-1 break-all text-xs font-mono">{shareUrl}</span>
+                    <Button size="sm" variant="ghost" className="shrink-0 w-full sm:w-auto" onClick={onCopy}>
                         <Copy className="h-3.5 w-3.5" />
+                        <span className="ml-1 sm:hidden">Copy</span>
                     </Button>
                 </div>
             </div>
             <div className="flex items-center gap-2">
-                <Globe className="h-4 w-4" />
+                <Globe className="h-4 w-4 shrink-0" />
                 <span className="text-sm">Anyone with this link can access</span>
             </div>
             <Button variant="destructive" size="sm" className="w-full" onClick={onDisable}>

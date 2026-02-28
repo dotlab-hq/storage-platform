@@ -52,23 +52,25 @@ export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
   const [navUser, setNavUser] = React.useState( defaultUser )
   const { theme, toggleTheme } = useTheme()
 
-  const getSessionUser = createClientOnlyFn( async () => {
-    const { data: session, error } = await authClient.getSession()
-    if ( error || !session?.user ) return null
-    return {
-      name: session.user.name,
-      email: session.user.email,
-      avatar: session.user.image ?? "",
-    }
-  } )
+  const getSessionUserRef = React.useRef(
+    createClientOnlyFn( async () => {
+      const { data: session, error } = await authClient.getSession()
+      if ( error || !session?.user ) return null
+      return {
+        name: session.user.name,
+        email: session.user.email,
+        avatar: session.user.image ?? "",
+      }
+    } )
+  )
 
   React.useEffect( () => {
     let mounted = true
-    void getSessionUser().then( ( sessionUser ) => {
+    void getSessionUserRef.current().then( ( sessionUser ) => {
       if ( mounted && sessionUser ) setNavUser( sessionUser )
     } )
     return () => { mounted = false }
-  }, [getSessionUser] )
+  }, [] )
 
   return (
     <Sidebar variant="inset" {...props}>
