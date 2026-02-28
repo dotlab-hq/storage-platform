@@ -15,7 +15,7 @@ import { Route as SharedIndexRouteImport } from './routes/shared/index'
 import { Route as RecentIndexRouteImport } from './routes/recent/index'
 import { Route as AuthIndexRouteImport } from './routes/auth/index'
 import { Route as ShareTokenRouteImport } from './routes/share/$token'
-import { Route as ApiUploadRouteImport } from './routes/api/upload'
+import { Route as ApiStorageUploadPresignRouteImport } from './routes/api/storage/upload-presign'
 import { Route as ApiStorageTrashRestoreRouteImport } from './routes/api/storage/trash-restore'
 import { Route as ApiStorageTrashDeleteRouteImport } from './routes/api/storage/trash-delete'
 import { Route as ApiStorageTrashRouteImport } from './routes/api/storage/trash'
@@ -24,6 +24,7 @@ import { Route as ApiStorageShareRouteImport } from './routes/api/storage/share'
 import { Route as ApiStorageSearchRouteImport } from './routes/api/storage/search'
 import { Route as ApiStorageRootItemsRouteImport } from './routes/api/storage/root-items'
 import { Route as ApiStorageRenameRouteImport } from './routes/api/storage/rename'
+import { Route as ApiStorageRegisterFileRouteImport } from './routes/api/storage/register-file'
 import { Route as ApiStorageRecentRouteImport } from './routes/api/storage/recent'
 import { Route as ApiStoragePresignRouteImport } from './routes/api/storage/presign'
 import { Route as ApiStorageMoveRouteImport } from './routes/api/storage/move'
@@ -63,9 +64,9 @@ const ShareTokenRoute = ShareTokenRouteImport.update({
   path: '/share/$token',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiUploadRoute = ApiUploadRouteImport.update({
-  id: '/api/upload',
-  path: '/api/upload',
+const ApiStorageUploadPresignRoute = ApiStorageUploadPresignRouteImport.update({
+  id: '/api/storage/upload-presign',
+  path: '/api/storage/upload-presign',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiStorageTrashRestoreRoute = ApiStorageTrashRestoreRouteImport.update({
@@ -106,6 +107,11 @@ const ApiStorageRootItemsRoute = ApiStorageRootItemsRouteImport.update({
 const ApiStorageRenameRoute = ApiStorageRenameRouteImport.update({
   id: '/api/storage/rename',
   path: '/api/storage/rename',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageRegisterFileRoute = ApiStorageRegisterFileRouteImport.update({
+  id: '/api/storage/register-file',
+  path: '/api/storage/register-file',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiStorageRecentRoute = ApiStorageRecentRouteImport.update({
@@ -151,7 +157,6 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/api/upload': typeof ApiUploadRoute
   '/share/$token': typeof ShareTokenRoute
   '/auth/': typeof AuthIndexRoute
   '/recent/': typeof RecentIndexRoute
@@ -165,6 +170,7 @@ export interface FileRoutesByFullPath {
   '/api/storage/move': typeof ApiStorageMoveRoute
   '/api/storage/presign': typeof ApiStoragePresignRoute
   '/api/storage/recent': typeof ApiStorageRecentRoute
+  '/api/storage/register-file': typeof ApiStorageRegisterFileRoute
   '/api/storage/rename': typeof ApiStorageRenameRoute
   '/api/storage/root-items': typeof ApiStorageRootItemsRoute
   '/api/storage/search': typeof ApiStorageSearchRoute
@@ -173,10 +179,10 @@ export interface FileRoutesByFullPath {
   '/api/storage/trash': typeof ApiStorageTrashRoute
   '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
   '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
+  '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/api/upload': typeof ApiUploadRoute
   '/share/$token': typeof ShareTokenRoute
   '/auth': typeof AuthIndexRoute
   '/recent': typeof RecentIndexRoute
@@ -190,6 +196,7 @@ export interface FileRoutesByTo {
   '/api/storage/move': typeof ApiStorageMoveRoute
   '/api/storage/presign': typeof ApiStoragePresignRoute
   '/api/storage/recent': typeof ApiStorageRecentRoute
+  '/api/storage/register-file': typeof ApiStorageRegisterFileRoute
   '/api/storage/rename': typeof ApiStorageRenameRoute
   '/api/storage/root-items': typeof ApiStorageRootItemsRoute
   '/api/storage/search': typeof ApiStorageSearchRoute
@@ -198,11 +205,11 @@ export interface FileRoutesByTo {
   '/api/storage/trash': typeof ApiStorageTrashRoute
   '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
   '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
+  '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/api/upload': typeof ApiUploadRoute
   '/share/$token': typeof ShareTokenRoute
   '/auth/': typeof AuthIndexRoute
   '/recent/': typeof RecentIndexRoute
@@ -216,6 +223,7 @@ export interface FileRoutesById {
   '/api/storage/move': typeof ApiStorageMoveRoute
   '/api/storage/presign': typeof ApiStoragePresignRoute
   '/api/storage/recent': typeof ApiStorageRecentRoute
+  '/api/storage/register-file': typeof ApiStorageRegisterFileRoute
   '/api/storage/rename': typeof ApiStorageRenameRoute
   '/api/storage/root-items': typeof ApiStorageRootItemsRoute
   '/api/storage/search': typeof ApiStorageSearchRoute
@@ -224,12 +232,12 @@ export interface FileRoutesById {
   '/api/storage/trash': typeof ApiStorageTrashRoute
   '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
   '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
+  '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/api/upload'
     | '/share/$token'
     | '/auth/'
     | '/recent/'
@@ -243,6 +251,7 @@ export interface FileRouteTypes {
     | '/api/storage/move'
     | '/api/storage/presign'
     | '/api/storage/recent'
+    | '/api/storage/register-file'
     | '/api/storage/rename'
     | '/api/storage/root-items'
     | '/api/storage/search'
@@ -251,10 +260,10 @@ export interface FileRouteTypes {
     | '/api/storage/trash'
     | '/api/storage/trash-delete'
     | '/api/storage/trash-restore'
+    | '/api/storage/upload-presign'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/api/upload'
     | '/share/$token'
     | '/auth'
     | '/recent'
@@ -268,6 +277,7 @@ export interface FileRouteTypes {
     | '/api/storage/move'
     | '/api/storage/presign'
     | '/api/storage/recent'
+    | '/api/storage/register-file'
     | '/api/storage/rename'
     | '/api/storage/root-items'
     | '/api/storage/search'
@@ -276,10 +286,10 @@ export interface FileRouteTypes {
     | '/api/storage/trash'
     | '/api/storage/trash-delete'
     | '/api/storage/trash-restore'
+    | '/api/storage/upload-presign'
   id:
     | '__root__'
     | '/'
-    | '/api/upload'
     | '/share/$token'
     | '/auth/'
     | '/recent/'
@@ -293,6 +303,7 @@ export interface FileRouteTypes {
     | '/api/storage/move'
     | '/api/storage/presign'
     | '/api/storage/recent'
+    | '/api/storage/register-file'
     | '/api/storage/rename'
     | '/api/storage/root-items'
     | '/api/storage/search'
@@ -301,11 +312,11 @@ export interface FileRouteTypes {
     | '/api/storage/trash'
     | '/api/storage/trash-delete'
     | '/api/storage/trash-restore'
+    | '/api/storage/upload-presign'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ApiUploadRoute: typeof ApiUploadRoute
   ShareTokenRoute: typeof ShareTokenRoute
   AuthIndexRoute: typeof AuthIndexRoute
   RecentIndexRoute: typeof RecentIndexRoute
@@ -319,6 +330,7 @@ export interface RootRouteChildren {
   ApiStorageMoveRoute: typeof ApiStorageMoveRoute
   ApiStoragePresignRoute: typeof ApiStoragePresignRoute
   ApiStorageRecentRoute: typeof ApiStorageRecentRoute
+  ApiStorageRegisterFileRoute: typeof ApiStorageRegisterFileRoute
   ApiStorageRenameRoute: typeof ApiStorageRenameRoute
   ApiStorageRootItemsRoute: typeof ApiStorageRootItemsRoute
   ApiStorageSearchRoute: typeof ApiStorageSearchRoute
@@ -327,6 +339,7 @@ export interface RootRouteChildren {
   ApiStorageTrashRoute: typeof ApiStorageTrashRoute
   ApiStorageTrashDeleteRoute: typeof ApiStorageTrashDeleteRoute
   ApiStorageTrashRestoreRoute: typeof ApiStorageTrashRestoreRoute
+  ApiStorageUploadPresignRoute: typeof ApiStorageUploadPresignRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -373,11 +386,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShareTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/upload': {
-      id: '/api/upload'
-      path: '/api/upload'
-      fullPath: '/api/upload'
-      preLoaderRoute: typeof ApiUploadRouteImport
+    '/api/storage/upload-presign': {
+      id: '/api/storage/upload-presign'
+      path: '/api/storage/upload-presign'
+      fullPath: '/api/storage/upload-presign'
+      preLoaderRoute: typeof ApiStorageUploadPresignRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/storage/trash-restore': {
@@ -434,6 +447,13 @@ declare module '@tanstack/react-router' {
       path: '/api/storage/rename'
       fullPath: '/api/storage/rename'
       preLoaderRoute: typeof ApiStorageRenameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/register-file': {
+      id: '/api/storage/register-file'
+      path: '/api/storage/register-file'
+      fullPath: '/api/storage/register-file'
+      preLoaderRoute: typeof ApiStorageRegisterFileRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/storage/recent': {
@@ -497,7 +517,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ApiUploadRoute: ApiUploadRoute,
   ShareTokenRoute: ShareTokenRoute,
   AuthIndexRoute: AuthIndexRoute,
   RecentIndexRoute: RecentIndexRoute,
@@ -511,6 +530,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiStorageMoveRoute: ApiStorageMoveRoute,
   ApiStoragePresignRoute: ApiStoragePresignRoute,
   ApiStorageRecentRoute: ApiStorageRecentRoute,
+  ApiStorageRegisterFileRoute: ApiStorageRegisterFileRoute,
   ApiStorageRenameRoute: ApiStorageRenameRoute,
   ApiStorageRootItemsRoute: ApiStorageRootItemsRoute,
   ApiStorageSearchRoute: ApiStorageSearchRoute,
@@ -519,6 +539,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiStorageTrashRoute: ApiStorageTrashRoute,
   ApiStorageTrashDeleteRoute: ApiStorageTrashDeleteRoute,
   ApiStorageTrashRestoreRoute: ApiStorageTrashRestoreRoute,
+  ApiStorageUploadPresignRoute: ApiStorageUploadPresignRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
