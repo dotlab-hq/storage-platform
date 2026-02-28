@@ -1,22 +1,35 @@
 import type { UploadingFile } from "@/types/storage"
+import { getS3PresignedUrl, registerUploadedFile } from "@/lib/s3-functions"
+import type React from "react"
 
 type UploadStateUpdater = React.Dispatch<React.SetStateAction<UploadingFile[]>>
 
 /**
- * Upload a single file via XMLHttpRequest so we get real `progress` events.
+ * Upload a single file directly to S3 using a presigned URL.
  */
-export function uploadFileXHR(
+export async function uploadFileToS3(
     file: File,
     userId: string,
     folderId: string | null,
     onProgress: ( progress: number ) => void
 ): Promise<void> {
+    // Generate object key
+    const extension = file.name.includes( "." )
+        ? file.name.split( "." ).pop()
+        : "bin"
+    const objectKey = `${userId}/${crypto.randomUUID()}.${extension}`
+
+    // Get presigned URL from server
+    const { presignedUrl } = await getS3PresignedUrl( {
+        userId,
+        objectKey,
+        contentType: file.type || "application/octet-stream",
+        fileSize: file.size,
+    } )
+
+    // Upload directly to S3
     return new Promise( ( resolve, reject ) => {
         const xhr = new XMLHttpRequest()
-        const fd = new FormData()
-        fd.append( "userId", userId )
-        fd.append( "file", file )
-        if ( folderId ) fd.append( "parentFolderId", folderId )
 
         xhr.upload.onprogress = ( e ) => {
             if ( e.lengthComputable ) {
@@ -26,20 +39,24 @@ export function uploadFileXHR(
 
         xhr.onload = () => {
             if ( xhr.status >= 200 && xhr.status < 300 ) {
-                resolve()
+                // Register the file in the database
+                registerUploadedFile( {
+                    userId,
+                    fileName: file.name,
+                    objectKey,
+                    mimeType: file.type || "application/octet-stream",
+                    fileSize: file.size,
+                    parentFolderId: folderId,
+                } ).then( () => resolve() ).catch( reject )
             } else {
-                try {
-                    const data = JSON.parse( xhr.responseText ) as { error?: string }
-                    reject( new Error( data.error ?? `HTTP ${xhr.status}` ) )
-                } catch {
-                    reject( new Error( `HTTP ${xhr.status}` ) )
-                }
+                reject( new Error( `S3 upload failed: HTTP ${xhr.status}` ) )
             }
         }
 
-        xhr.onerror = () => reject( new Error( "Network error" ) )
-        xhr.open( "POST", "/api/upload" )
-        xhr.send( fd )
+        xhr.onerror = () => reject( new Error( "Network error during S3 upload" ) )
+        xhr.open( "PUT", presignedUrl )
+        xhr.setRequestHeader( "Content-Type", file.type || "application/octet-stream" )
+        xhr.send( file )
     } )
 }
 
@@ -63,7 +80,7 @@ export async function uploadBatch(
             const task = queue.shift()
             if ( !task ) break
             try {
-                await uploadFileXHR( task.file, userId, folderId, ( progress ) => {
+                await uploadFileToS3( task.file, userId, folderId, ( progress ) => {
                     setUploads( ( prev ) =>
                         prev.map( ( u ) =>
                             u.id === task.id ? { ...u, progress } : u
