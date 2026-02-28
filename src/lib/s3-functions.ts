@@ -11,8 +11,9 @@ const S3PresignedUrlSchema = z.object( {
 type PresignedUrlInput = z.infer<typeof S3PresignedUrlSchema>
 
 export const getS3PresignedUrl = createServerFn( { method: 'POST' } )
-    .inputValidator( S3PresignedUrlSchema )
+    .inputValidator( ( d ) => S3PresignedUrlSchema.parse( d ) )
     .handler( async ( { data } ) => {
+        console.log( '[Server] Getting presigned URL for:', data )
         const { PutObjectCommand, S3Client } = await import( '@aws-sdk/client-s3' )
         const { getSignedUrl } = await import( '@aws-sdk/s3-request-presigner' )
 
@@ -35,6 +36,7 @@ export const getS3PresignedUrl = createServerFn( { method: 'POST' } )
         } )
 
         const presignedUrl = await getSignedUrl( s3Client, command, { expiresIn: 3600 } )
+        console.log( '[Server] Presigned URL generated successfully' )
         return { presignedUrl }
     } )
 
@@ -48,8 +50,9 @@ const RegisterFileSchema = z.object( {
 } )
 
 export const registerUploadedFile = createServerFn( { method: 'POST' } )
-    .inputValidator( RegisterFileSchema )
+    .inputValidator( ( d ) => RegisterFileSchema.parse( d ) )
     .handler( async ( { data } ) => {
+        console.log( '[Server] Registering file:', data.fileName )
         const [{ db }, { file: storageFile }] = await Promise.all( [
             import( '@/db' ),
             import( '@/db/schema/storage' ),
@@ -71,5 +74,6 @@ export const registerUploadedFile = createServerFn( { method: 'POST' } )
                 createdAt: storageFile.createdAt,
             } )
 
+        console.log( '[Server] File registered successfully' )
         return { file: insertedFile }
     } )

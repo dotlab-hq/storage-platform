@@ -13,51 +13,83 @@ export async function uploadFileToS3(
     folderId: string | null,
     onProgress: ( progress: number ) => void
 ): Promise<void> {
+    if ( !userId ) {
+        throw new Error( 'User ID is required for upload' )
+    }
+
     // Generate object key
     const extension = file.name.includes( "." )
         ? file.name.split( "." ).pop()
         : "bin"
     const objectKey = `${userId}/${crypto.randomUUID()}.${extension}`
 
-    // Get presigned URL from server
-    const { presignedUrl } = await getS3PresignedUrl( {
-        userId,
-        objectKey,
-        contentType: file.type || "application/octet-stream",
-        fileSize: file.size,
-    } )
+    console.log( '[Upload] Requesting presigned URL for:', objectKey )
 
-    // Upload directly to S3
-    return new Promise( ( resolve, reject ) => {
-        const xhr = new XMLHttpRequest()
+    try {
+        // Get presigned URL from server
+        const result = await getS3PresignedUrl( {
+            userId,
+            objectKey,
+            contentType: file.type || "application/octet-stream",
+            fileSize: file.size,
+        } )
 
-        xhr.upload.onprogress = ( e ) => {
-            if ( e.lengthComputable ) {
-                onProgress( Math.round( ( e.loaded / e.total ) * 100 ) )
-            }
+        if ( !result || !result.presignedUrl ) {
+            throw new Error( 'Failed to get presigned URL' )
         }
 
-        xhr.onload = () => {
-            if ( xhr.status >= 200 && xhr.status < 300 ) {
-                // Register the file in the database
-                registerUploadedFile( {
-                    userId,
-                    fileName: file.name,
-                    objectKey,
-                    mimeType: file.type || "application/octet-stream",
-                    fileSize: file.size,
-                    parentFolderId: folderId,
-                } ).then( () => resolve() ).catch( reject )
-            } else {
-                reject( new Error( `S3 upload failed: HTTP ${xhr.status}` ) )
-            }
-        }
+        const { presignedUrl } = result
+        console.log( '[Upload] Got presigned URL, uploading to S3' )
 
-        xhr.onerror = () => reject( new Error( "Network error during S3 upload" ) )
-        xhr.open( "PUT", presignedUrl )
-        xhr.setRequestHeader( "Content-Type", file.type || "application/octet-stream" )
-        xhr.send( file )
-    } )
+        // Upload directly to S3
+        return new Promise( ( resolve, reject ) => {
+            const xhr = new XMLHttpRequest()
+
+            xhr.upload.onprogress = ( e ) => {
+                if ( e.lengthComputable ) {
+                    onProgress( Math.round( ( e.loaded / e.total ) * 100 ) )
+                }
+            }
+
+            xhr.onload = async () => {
+                console.log( '[Upload] S3 upload completed with status:', xhr.status )
+                if ( xhr.status >= 200 && xhr.status < 300 ) {
+                    // Register the file in the database
+                    try {
+                        console.log( '[Upload] Registering file in database' )
+                        await registerUploadedFile( {
+                            userId,
+                            fileName: file.name,
+                            objectKey,
+                            mimeType: file.type || "application/octet-stream",
+                            fileSize: file.size,
+                            parentFolderId: folderId,
+                        } )
+                        console.log( '[Upload] File registration successful' )
+                        resolve()
+                    } catch ( err ) {
+                        console.error( '[Upload] File registration failed:', err )
+                        reject( new Error( `Failed to register file: ${err instanceof Error ? err.message : String( err )}` ) )
+                    }
+                } else {
+                    reject( new Error( `S3 upload failed: HTTP ${xhr.status}` ) )
+                }
+            }
+
+            xhr.onerror = () => {
+                console.error( '[Upload] XHR error during S3 upload' )
+                reject( new Error( "Network error during S3 upload" ) )
+            }
+
+            console.log( '[Upload] Starting XHR PUT request' )
+            xhr.open( "PUT", presignedUrl )
+            xhr.setRequestHeader( "Content-Type", file.type || "application/octet-stream" )
+            xhr.send( file )
+        } )
+    } catch ( err ) {
+        console.error( '[Upload] Error:', err )
+        throw err
+    }
 }
 
 /**
