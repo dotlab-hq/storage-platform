@@ -8,12 +8,11 @@ const S3PresignedUrlSchema = z.object( {
     fileSize: z.number().min( 1 ),
 } )
 
-type PresignedUrlInput = z.infer<typeof S3PresignedUrlSchema>
-
 export const getS3PresignedUrl = createServerFn( { method: 'POST' } )
-    .inputValidator( ( d ) => S3PresignedUrlSchema.parse( d ) )
+    .inputValidator( ( d: unknown ) => S3PresignedUrlSchema.parse( d ) )
     .handler( async ( { data } ) => {
         console.log( '[Server] Getting presigned URL for:', data )
+
         const { PutObjectCommand, S3Client } = await import( '@aws-sdk/client-s3' )
         const { getSignedUrl } = await import( '@aws-sdk/s3-request-presigner' )
 
@@ -50,9 +49,10 @@ const RegisterFileSchema = z.object( {
 } )
 
 export const registerUploadedFile = createServerFn( { method: 'POST' } )
-    .inputValidator( ( d ) => RegisterFileSchema.parse( d ) )
+    .inputValidator( ( d: unknown ) => RegisterFileSchema.parse( d ) )
     .handler( async ( { data } ) => {
         console.log( '[Server] Registering file:', data.fileName )
+
         const [{ db }, { file: storageFile }] = await Promise.all( [
             import( '@/db' ),
             import( '@/db/schema/storage' ),
