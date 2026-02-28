@@ -31,6 +31,9 @@ jobs:
           node-version: 20
           cache: pnpm
 
+      - name: Install Vercel CLI
+        run: pnpm add -g vercel@latest
+
       - name: Pull Vercel environment
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
