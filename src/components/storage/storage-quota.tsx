@@ -47,6 +47,9 @@ export function StorageQuota( { quota, className }: StorageQuotaProps ) {
                 variant={variant}
                 className="h-1.5"
             />
+            <p className="text-muted-foreground text-[10px]">
+                Max file size: {formatFileSize( quota.fileSizeLimit )}
+            </p>
             {isWarning && (
                 <p
                     className={cn(

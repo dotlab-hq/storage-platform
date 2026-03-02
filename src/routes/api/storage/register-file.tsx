@@ -28,10 +28,12 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
                         return Response.json( { error: "Invalid fileSize" }, { status: 400 } )
                     }
 
-                    const [{ db }, { file: storageFile }] = await Promise.all( [
+                    const [{ db }, { file: storageFile, userStorage }] = await Promise.all( [
                         import( "@/db" ),
                         import( "@/db/schema/storage" ),
                     ] )
+
+                    const { sql } = await import( "drizzle-orm" )
 
                     const [insertedFile] = await db
                         .insert( storageFile )
@@ -51,6 +53,25 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
                             objectKey: storageFile.objectKey,
                             createdAt: storageFile.createdAt,
                         } )
+
+                    // Upsert userStorage and increment usedStorage atomically
+                    // Best-effort: if this fails the quota will self-correct on next reconciliation
+                    try {
+                        await db
+                            .insert( userStorage )
+                            .values( {
+                                userId: body.userId,
+                                usedStorage: body.fileSize,
+                            } )
+                            .onConflictDoUpdate( {
+                                target: userStorage.userId,
+                                set: {
+                                    usedStorage: sql`${userStorage.usedStorage} + ${body.fileSize}`,
+                                },
+                            } )
+                    } catch ( storageErr ) {
+                        console.error( "[Server] Failed to update usedStorage:", storageErr )
+                    }
 
                     return Response.json( { file: insertedFile } )
                 } catch ( error ) {

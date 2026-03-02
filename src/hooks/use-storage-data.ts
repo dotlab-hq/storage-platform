@@ -46,6 +46,25 @@ const fetchFolderItems = createClientOnlyFn(
     }
 )
 
+const fetchUserQuota = createClientOnlyFn(
+    async ( uid: string ): Promise<UserQuota> => {
+        const params = new URLSearchParams( { userId: uid } )
+        const res = await fetch( `/api/storage/quota?${params}` )
+        const data = ( await res.json() ) as {
+            usedStorage?: number
+            allocatedStorage?: number
+            fileSizeLimit?: number
+            error?: string
+        }
+        if ( !res.ok ) throw new Error( data.error ?? `HTTP ${res.status}` )
+        return {
+            usedStorage: data.usedStorage ?? 0,
+            allocatedStorage: data.allocatedStorage ?? 250 * 1024 * 1024,
+            fileSizeLimit: data.fileSizeLimit ?? 10 * 1024 * 1024,
+        }
+    }
+)
+
 function mapItems( data: FetchResponse, uid: string ) {
     const folderItems: StorageItem[] = ( data.folders ?? [] ).map( ( f ) => ( {
         ...f,
@@ -105,11 +124,20 @@ export function useStorageData() {
         []
     )
 
+    const loadQuota = useCallback( async ( uid: string ) => {
+        try {
+            const q = await fetchUserQuota( uid )
+            setQuota( q )
+        } catch {
+            // quota fetch is non-critical; leave as null
+        }
+    }, [] )
+
     useEffect( () => {
         void checkAuthClient().then( async ( uid ) => {
             if ( !uid ) return
             setUserId( uid )
-            await loadItems( uid, null )
+            await Promise.all( [loadItems( uid, null ), loadQuota( uid )] )
         } )
     }, [] )
 
@@ -118,8 +146,13 @@ export function useStorageData() {
     }, [currentFolderId, userId, loadItems] )
 
     const refresh = useCallback( async () => {
-        if ( userId ) await loadItems( userId, currentFolderId )
-    }, [userId, currentFolderId, loadItems] )
+        if ( userId ) {
+            await Promise.all( [
+                loadItems( userId, currentFolderId ),
+                loadQuota( userId ),
+            ] )
+        }
+    }, [userId, currentFolderId, loadItems, loadQuota] )
 
     return {
         userId,
