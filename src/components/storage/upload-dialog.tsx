@@ -112,7 +112,8 @@ export function UploadDialog( {
         } )
         if ( count > 0 ) {
             toast.success( `${count} file${count > 1 ? "s" : ""} uploaded` )
-            // Only do a background refresh if we don't have setItems (fallback)
+            // Skip full refresh when setItems is provided because each completed
+            // file has already been optimistically added to the items list.
             if ( !setItems ) await onUploadComplete()
         }
     }

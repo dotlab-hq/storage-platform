@@ -62,7 +62,9 @@ export async function deleteItems(
     }
 
     if ( folderIds.length > 0 ) {
-        // BFS: recursively collect all descendant folder IDs
+        // BFS: recursively collect all descendant folder IDs.
+        // Each iteration queries one level of depth; for typical folder depths (< 10)
+        // this is acceptable. A recursive CTE would be more efficient for deeply nested trees.
         const allFolderIds: string[] = [...folderIds]
         let toProcess: string[] = [...folderIds]
 

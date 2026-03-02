@@ -77,6 +77,8 @@ export function useDragDrop(
                 toast.success(
                     `${successCount} file${successCount > 1 ? "s" : ""} uploaded`
                 )
+                // Skip full refresh when setItems is provided because each completed
+                // file has already been optimistically added to the items list.
                 if ( !setItems ) await onComplete()
             }
         },
