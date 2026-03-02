@@ -46,6 +46,9 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
                         .returning( {
                             id: storageFile.id,
                             name: storageFile.name,
+                            mimeType: storageFile.mimeType,
+                            sizeInBytes: storageFile.sizeInBytes,
+                            objectKey: storageFile.objectKey,
                             createdAt: storageFile.createdAt,
                         } )
 

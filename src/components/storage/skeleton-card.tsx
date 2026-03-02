@@ -4,10 +4,12 @@ export function SkeletonCard( { className }: { className?: string } ) {
     return (
         <div
             className={cn(
-                "bg-card animate-pulse rounded-xl border p-4",
+                "bg-card relative overflow-hidden rounded-xl border p-4",
                 className
             )}
         >
+            {/* shimmer overlay */}
+            <div className="skeleton-shimmer absolute inset-0" />
             <div className="bg-muted mb-3 h-10 w-10 rounded-lg" />
             <div className="space-y-2">
                 <div className="bg-muted h-4 w-3/4 rounded" />

@@ -15,7 +15,7 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog"
-import type { UploadingFile } from "@/types/storage"
+import type { StorageItem, UploadingFile } from "@/types/storage"
 
 type UploadDialogProps = {
     open: boolean
@@ -24,6 +24,7 @@ type UploadDialogProps = {
     currentFolderId: string | null
     setUploads: React.Dispatch<React.SetStateAction<UploadingFile[]>>
     onUploadComplete: () => Promise<void> | void
+    setItems?: React.Dispatch<React.SetStateAction<StorageItem[]>>
 }
 
 export function UploadDialog( {
@@ -33,6 +34,7 @@ export function UploadDialog( {
     currentFolderId,
     setUploads,
     onUploadComplete,
+    setItems,
 }: UploadDialogProps ) {
     const inputRef = React.useRef<HTMLInputElement>( null )
     const [isDragging, setIsDragging] = React.useState( false )
@@ -88,10 +90,30 @@ export function UploadDialog( {
         onOpenChange( false )
 
         const tasks = newUploads.map( ( u ) => ( { id: u.id, file: u.file } ) )
-        const count = await uploadBatch( tasks, uid, currentFolderId, 3, setUploads )
+        const count = await uploadBatch( tasks, uid, currentFolderId, 3, setUploads, ( fileInfo ) => {
+            // Optimistically add the completed file to the items list
+            if ( setItems ) {
+                setItems( ( prev ) => [
+                    ...prev,
+                    {
+                        id: fileInfo.id,
+                        name: fileInfo.name,
+                        objectKey: fileInfo.objectKey,
+                        mimeType: fileInfo.mimeType,
+                        sizeInBytes: fileInfo.sizeInBytes,
+                        userId: uid,
+                        folderId: currentFolderId,
+                        createdAt: fileInfo.createdAt,
+                        updatedAt: fileInfo.createdAt,
+                        type: "file" as const,
+                    },
+                ] )
+            }
+        } )
         if ( count > 0 ) {
             toast.success( `${count} file${count > 1 ? "s" : ""} uploaded` )
-            await onUploadComplete()
+            // Only do a background refresh if we don't have setItems (fallback)
+            if ( !setItems ) await onUploadComplete()
         }
     }
 

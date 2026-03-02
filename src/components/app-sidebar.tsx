@@ -9,6 +9,7 @@ import {
   StoneIcon,
   Moon,
   Sun,
+  Monitor,
 } from "lucide-react"
 import { ClientOnly, Link } from "@tanstack/react-router"
 import { createClientOnlyFn } from "@tanstack/react-start"
@@ -30,6 +31,7 @@ import {
   SidebarSeparator,
 } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 
 const navItems = [
   { title: "My Files", url: "/", icon: Home, isActive: true },
@@ -48,9 +50,15 @@ type AppSidebarProps = React.ComponentProps<typeof Sidebar> & {
   quota?: UserQuota | null
 }
 
+const themeConfig = {
+  light: { icon: Sun, label: "Light", next: "dark" as const },
+  dark: { icon: Moon, label: "Dark", next: "system" as const },
+  system: { icon: Monitor, label: "System", next: "light" as const },
+} as const
+
 export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
   const [navUser, setNavUser] = React.useState( defaultUser )
-  const { theme, toggleTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
 
   const getSessionUserRef = React.useRef(
     createClientOnlyFn( async () => {
@@ -71,6 +79,9 @@ export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
     } )
     return () => { mounted = false }
   }, [] )
+
+  const currentTheme = theme in themeConfig ? theme : "system"
+  const { icon: ThemeIcon, label: themeLabel, next } = themeConfig[currentTheme]
 
   return (
     <Sidebar variant="inset" {...props}>
@@ -100,19 +111,22 @@ export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
         <SidebarSeparator />
         <div className="flex items-center justify-between px-2 py-1">
           <span className="text-muted-foreground text-xs">Theme</span>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-7 w-7"
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-          >
-            {theme === "dark" ? (
-              <Sun className="h-3.5 w-3.5" />
-            ) : (
-              <Moon className="h-3.5 w-3.5" />
-            )}
-          </Button>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-7 w-7"
+                onClick={() => setTheme( next )}
+                aria-label={`Switch to ${next} theme`}
+              >
+                <ThemeIcon className="h-3.5 w-3.5" />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="right">
+              {themeLabel} — click for {next}
+            </TooltipContent>
+          </Tooltip>
         </div>
         <SidebarSeparator />
         <ClientOnly fallback={null}>

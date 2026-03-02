@@ -1,13 +1,14 @@
 import { useCallback, useRef, useState } from "react"
 import { toast } from "@/components/ui/sonner"
 import { uploadBatch } from "@/lib/upload-utils"
-import type { UploadingFile } from "@/types/storage"
+import type { StorageItem, UploadingFile } from "@/types/storage"
 
 export function useDragDrop(
     userId: string | null,
     currentFolderId: string | null,
     setUploads: React.Dispatch<React.SetStateAction<UploadingFile[]>>,
-    onComplete: () => Promise<void>
+    onComplete: () => Promise<void>,
+    setItems?: React.Dispatch<React.SetStateAction<StorageItem[]>>
 ) {
     const [isDragging, setIsDragging] = useState( false )
     const dragCounter = useRef( 0 )
@@ -50,17 +51,36 @@ export function useDragDrop(
 
             const tasks = newUploads.map( ( u ) => ( { id: u.id, file: u.file } ) )
             const successCount = await uploadBatch(
-                tasks, userId, currentFolderId, 3, setUploads
+                tasks, userId, currentFolderId, 3, setUploads,
+                setItems
+                    ? ( fileInfo ) => {
+                        setItems( ( prev ) => [
+                            ...prev,
+                            {
+                                id: fileInfo.id,
+                                name: fileInfo.name,
+                                objectKey: fileInfo.objectKey,
+                                mimeType: fileInfo.mimeType,
+                                sizeInBytes: fileInfo.sizeInBytes,
+                                userId,
+                                folderId: currentFolderId,
+                                createdAt: fileInfo.createdAt,
+                                updatedAt: fileInfo.createdAt,
+                                type: "file" as const,
+                            },
+                        ] )
+                    }
+                    : undefined
             )
 
             if ( successCount > 0 ) {
                 toast.success(
                     `${successCount} file${successCount > 1 ? "s" : ""} uploaded`
                 )
-                await onComplete()
+                if ( !setItems ) await onComplete()
             }
         },
-        [userId, currentFolderId, setUploads, onComplete]
+        [userId, currentFolderId, setUploads, onComplete, setItems]
     )
 
     return {

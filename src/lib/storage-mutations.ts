@@ -1,4 +1,4 @@
-import { eq, and } from "drizzle-orm"
+import { eq, and, inArray } from "drizzle-orm"
 
 export async function touchFolderOpened( userId: string, folderId: string ) {
     const [{ db }, { folder }] = await Promise.all( [
@@ -55,22 +55,43 @@ export async function deleteItems(
     }
 
     // Soft-delete files
-    await Promise.all(
-        fileIds.map( ( id ) =>
-            db.update( storageFile )
-                .set( { isDeleted: true, deletedAt: now } )
-                .where( and( eq( storageFile.id, id ), eq( storageFile.userId, userId ) ) )
-        )
-    )
+    if ( fileIds.length > 0 ) {
+        await db.update( storageFile )
+            .set( { isDeleted: true, deletedAt: now } )
+            .where( and( inArray( storageFile.id, fileIds ), eq( storageFile.userId, userId ) ) )
+    }
 
-    // Soft-delete folders
-    await Promise.all(
-        folderIds.map( ( id ) =>
-            db.update( folder )
-                .set( { isDeleted: true, deletedAt: now } )
-                .where( and( eq( folder.id, id ), eq( folder.userId, userId ) ) )
-        )
-    )
+    if ( folderIds.length > 0 ) {
+        // BFS: recursively collect all descendant folder IDs
+        const allFolderIds: string[] = [...folderIds]
+        let toProcess: string[] = [...folderIds]
+
+        while ( toProcess.length > 0 ) {
+            const children = await db
+                .select( { id: folder.id } )
+                .from( folder )
+                .where(
+                    and(
+                        eq( folder.userId, userId ),
+                        inArray( folder.parentFolderId, toProcess )
+                    )
+                )
+            const childIds = children.map( ( c ) => c.id )
+            if ( childIds.length === 0 ) break
+            allFolderIds.push( ...childIds )
+            toProcess = childIds
+        }
+
+        // Soft-delete all folders (including descendants)
+        await db.update( folder )
+            .set( { isDeleted: true, deletedAt: now } )
+            .where( and( inArray( folder.id, allFolderIds ), eq( folder.userId, userId ) ) )
+
+        // Soft-delete all files inside those folders
+        await db.update( storageFile )
+            .set( { isDeleted: true, deletedAt: now } )
+            .where( and( inArray( storageFile.folderId, allFolderIds ), eq( storageFile.userId, userId ) ) )
+    }
 
     return { deletedFiles: fileIds.length, deletedFolders: folderIds.length }
 }
