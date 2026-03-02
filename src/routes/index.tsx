@@ -136,6 +136,7 @@ function StoragePage() {
                 else void storage.refresh()
               }}
               setItems={storage.setItems}
+              fileSizeLimit={storage.quota?.fileSizeLimit ?? null}
             />
           </header>
 
