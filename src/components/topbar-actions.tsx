@@ -22,6 +22,7 @@ type TopbarActionsProps = {
     onUploadComplete: () => Promise<void> | void
     onNewFolder: ( name: string ) => Promise<void> | void
     onSearch?: ( results: StorageItem[] | null ) => void
+    setItems?: React.Dispatch<React.SetStateAction<StorageItem[]>>
 }
 
 type SearchResult = {
@@ -47,6 +48,7 @@ export function TopbarActions( {
     onUploadComplete,
     onNewFolder,
     onSearch,
+    setItems,
 }: TopbarActionsProps ) {
     const [uploadOpen, setUploadOpen] = React.useState( false )
     const [newFolderOpen, setNewFolderOpen] = React.useState( false )
@@ -147,6 +149,7 @@ export function TopbarActions( {
                 currentFolderId={currentFolderId}
                 setUploads={setUploads}
                 onUploadComplete={onUploadComplete}
+                setItems={setItems}
             />
 
             {/* New Folder dialog */}

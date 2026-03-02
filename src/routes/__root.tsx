@@ -5,6 +5,7 @@ import {
 } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
+import { ThemeProvider } from 'next-themes'
 
 import TanStackQueryProvider from '../integrations/tanstack-query/root-provider'
 
@@ -43,6 +44,14 @@ export const Route = createRootRouteWithContext<MyRouterContext>()( {
         rel: 'stylesheet',
         href: appCss,
       },
+      {
+        rel: 'manifest',
+        href: '/manifest.json',
+      },
+      {
+        rel: 'icon',
+        href: '/favicon.ico',
+      },
     ],
   } ),
   shellComponent: RootDocument,
@@ -50,29 +59,35 @@ export const Route = createRootRouteWithContext<MyRouterContext>()( {
 
 function RootDocument( { children }: { children: React.ReactNode } ) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
       <body>
-        <TanStackQueryProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange={false}
+        >
+          <TanStackQueryProvider>
+            <TooltipProvider>{children}</TooltipProvider>
+            <Toaster />
 
-          <TooltipProvider>{children}</TooltipProvider>
-          <Toaster />
-
-          <TanStackDevtools
-            config={{
-              position: 'bottom-right',
-            }}
-            plugins={[
-              {
-                name: 'Tanstack Router',
-                render: <TanStackRouterDevtoolsPanel />,
-              },
-              TanStackQueryDevtools,
-            ]}
-          />
-        </TanStackQueryProvider>
+            <TanStackDevtools
+              config={{
+                position: 'bottom-right',
+              }}
+              plugins={[
+                {
+                  name: 'Tanstack Router',
+                  render: <TanStackRouterDevtoolsPanel />,
+                },
+                TanStackQueryDevtools,
+              ]}
+            />
+          </TanStackQueryProvider>
+        </ThemeProvider>
         <Scripts />
       </body>
     </html>

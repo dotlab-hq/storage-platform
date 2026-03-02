@@ -4,7 +4,16 @@ import type React from "react"
 type UploadStateUpdater = React.Dispatch<React.SetStateAction<UploadingFile[]>>
 
 type PresignResponse = { presignedUrl?: string; error?: string }
-type RegisterResponse = { file?: { id: string; name: string }; error?: string }
+type RegisterResponse = { file?: { id: string; name: string; mimeType: string | null; sizeInBytes: number; objectKey: string }; error?: string }
+
+export type CompletedFileInfo = {
+    id: string
+    name: string
+    mimeType: string | null
+    sizeInBytes: number
+    objectKey: string
+    createdAt: Date
+}
 
 /**
  * Get a presigned URL for uploading a file to S3.
@@ -29,6 +38,7 @@ async function fetchPresignedUrl(
 
 /**
  * Register an uploaded file in the database.
+ * Returns the newly-created file record.
  */
 async function registerFileInDb(
     userId: string,
@@ -37,30 +47,36 @@ async function registerFileInDb(
     mimeType: string,
     fileSize: number,
     parentFolderId: string | null
-): Promise<void> {
+): Promise<CompletedFileInfo> {
     const res = await fetch( "/api/storage/register-file", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify( { userId, fileName, objectKey, mimeType, fileSize, parentFolderId } ),
     } )
     const data = ( await res.json() ) as RegisterResponse
-    if ( !res.ok || data.error ) {
+    if ( !res.ok || data.error || !data.file ) {
         throw new Error( data.error ?? "Failed to register file" )
+    }
+    return {
+        id: data.file.id,
+        name: data.file.name,
+        mimeType: data.file.mimeType,
+        sizeInBytes: data.file.sizeInBytes,
+        objectKey: data.file.objectKey,
+        createdAt: new Date(),
     }
 }
 
 /**
  * Upload a single file directly to S3 using a presigned URL.
- * 1. Get presigned URL from server
- * 2. PUT file directly to S3
- * 3. Register file metadata in database
+ * Returns the registered file record for optimistic UI updates.
  */
 export async function uploadFileToS3(
     file: File,
     userId: string,
     folderId: string | null,
     onProgress: ( progress: number ) => void
-): Promise<void> {
+): Promise<CompletedFileInfo> {
     if ( !userId ) {
         throw new Error( "User ID is required for upload" )
     }
@@ -98,13 +114,14 @@ export async function uploadFileToS3(
         xhr.send( file )
     } )
 
-    // Step 3: Register file in database
-    await registerFileInDb( userId, file.name, objectKey, contentType, file.size, folderId )
+    // Step 3: Register file in database and return file info
+    return registerFileInDb( userId, file.name, objectKey, contentType, file.size, folderId )
 }
 
 /**
  * Upload a batch of files with a concurrency limit (default 3).
  * Progress / status updates are pushed to the global uploads state.
+ * Calls onFileUploaded after each successful upload for optimistic UI.
  * Returns the number of successfully uploaded files.
  */
 export async function uploadBatch(
@@ -112,7 +129,8 @@ export async function uploadBatch(
     userId: string,
     folderId: string | null,
     concurrency: number,
-    setUploads: UploadStateUpdater
+    setUploads: UploadStateUpdater,
+    onFileUploaded?: ( file: CompletedFileInfo ) => void
 ): Promise<number> {
     let completed = 0
     const queue = [...files]
@@ -122,7 +140,7 @@ export async function uploadBatch(
             const task = queue.shift()
             if ( !task ) break
             try {
-                await uploadFileToS3( task.file, userId, folderId, ( progress ) => {
+                const fileInfo = await uploadFileToS3( task.file, userId, folderId, ( progress ) => {
                     setUploads( ( prev ) =>
                         prev.map( ( u ) =>
                             u.id === task.id ? { ...u, progress } : u
@@ -136,6 +154,7 @@ export async function uploadBatch(
                             : u
                     )
                 )
+                onFileUploaded?.( fileInfo )
                 completed++
                 setTimeout( () => {
                     setUploads( ( prev ) => prev.filter( ( u ) => u.id !== task.id ) )

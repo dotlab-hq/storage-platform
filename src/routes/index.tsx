@@ -33,7 +33,7 @@ function StoragePage() {
   const { toggleTheme } = useTheme()
   const storage = useStorageData()
   const selection = useFileSelection( storage.items )
-  const dragDrop = useDragDrop( storage.userId, storage.currentFolderId, storage.setUploads, storage.refresh )
+  const dragDrop = useDragDrop( storage.userId, storage.currentFolderId, storage.setUploads, storage.refresh, storage.setItems )
 
   const [shareItem, setShareItem] = useState<StorageItem | null>( null )
   const [moveOpen, setMoveOpen] = useState( false )
@@ -135,6 +135,7 @@ function StoragePage() {
                 if ( results ) storage.setItems( results )
                 else void storage.refresh()
               }}
+              setItems={storage.setItems}
             />
           </header>
 
