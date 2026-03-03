@@ -25,6 +25,7 @@ import { Route as ApiStorageSearchRouteImport } from './routes/api/storage/searc
 import { Route as ApiStorageRootItemsRouteImport } from './routes/api/storage/root-items'
 import { Route as ApiStorageRenameRouteImport } from './routes/api/storage/rename'
 import { Route as ApiStorageRegisterFileRouteImport } from './routes/api/storage/register-file'
+import { Route as ApiStorageQuotaRouteImport } from './routes/api/storage/quota'
 import { Route as ApiStorageRecentRouteImport } from './routes/api/storage/recent'
 import { Route as ApiStoragePresignRouteImport } from './routes/api/storage/presign'
 import { Route as ApiStorageMoveRouteImport } from './routes/api/storage/move'
@@ -114,6 +115,11 @@ const ApiStorageRegisterFileRoute = ApiStorageRegisterFileRouteImport.update({
   path: '/api/storage/register-file',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiStorageQuotaRoute = ApiStorageQuotaRouteImport.update({
+  id: '/api/storage/quota',
+  path: '/api/storage/quota',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiStorageRecentRoute = ApiStorageRecentRouteImport.update({
   id: '/api/storage/recent',
   path: '/api/storage/recent',
@@ -169,6 +175,7 @@ export interface FileRoutesByFullPath {
   '/api/storage/folder-items': typeof ApiStorageFolderItemsRoute
   '/api/storage/move': typeof ApiStorageMoveRoute
   '/api/storage/presign': typeof ApiStoragePresignRoute
+  '/api/storage/quota': typeof ApiStorageQuotaRoute
   '/api/storage/recent': typeof ApiStorageRecentRoute
   '/api/storage/register-file': typeof ApiStorageRegisterFileRoute
   '/api/storage/rename': typeof ApiStorageRenameRoute
@@ -195,6 +202,7 @@ export interface FileRoutesByTo {
   '/api/storage/folder-items': typeof ApiStorageFolderItemsRoute
   '/api/storage/move': typeof ApiStorageMoveRoute
   '/api/storage/presign': typeof ApiStoragePresignRoute
+  '/api/storage/quota': typeof ApiStorageQuotaRoute
   '/api/storage/recent': typeof ApiStorageRecentRoute
   '/api/storage/register-file': typeof ApiStorageRegisterFileRoute
   '/api/storage/rename': typeof ApiStorageRenameRoute
@@ -222,6 +230,7 @@ export interface FileRoutesById {
   '/api/storage/folder-items': typeof ApiStorageFolderItemsRoute
   '/api/storage/move': typeof ApiStorageMoveRoute
   '/api/storage/presign': typeof ApiStoragePresignRoute
+  '/api/storage/quota': typeof ApiStorageQuotaRoute
   '/api/storage/recent': typeof ApiStorageRecentRoute
   '/api/storage/register-file': typeof ApiStorageRegisterFileRoute
   '/api/storage/rename': typeof ApiStorageRenameRoute
@@ -250,6 +259,7 @@ export interface FileRouteTypes {
     | '/api/storage/folder-items'
     | '/api/storage/move'
     | '/api/storage/presign'
+    | '/api/storage/quota'
     | '/api/storage/recent'
     | '/api/storage/register-file'
     | '/api/storage/rename'
@@ -276,6 +286,7 @@ export interface FileRouteTypes {
     | '/api/storage/folder-items'
     | '/api/storage/move'
     | '/api/storage/presign'
+    | '/api/storage/quota'
     | '/api/storage/recent'
     | '/api/storage/register-file'
     | '/api/storage/rename'
@@ -302,6 +313,7 @@ export interface FileRouteTypes {
     | '/api/storage/folder-items'
     | '/api/storage/move'
     | '/api/storage/presign'
+    | '/api/storage/quota'
     | '/api/storage/recent'
     | '/api/storage/register-file'
     | '/api/storage/rename'
@@ -329,6 +341,7 @@ export interface RootRouteChildren {
   ApiStorageFolderItemsRoute: typeof ApiStorageFolderItemsRoute
   ApiStorageMoveRoute: typeof ApiStorageMoveRoute
   ApiStoragePresignRoute: typeof ApiStoragePresignRoute
+  ApiStorageQuotaRoute: typeof ApiStorageQuotaRoute
   ApiStorageRecentRoute: typeof ApiStorageRecentRoute
   ApiStorageRegisterFileRoute: typeof ApiStorageRegisterFileRoute
   ApiStorageRenameRoute: typeof ApiStorageRenameRoute
@@ -456,6 +469,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStorageRegisterFileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/storage/quota': {
+      id: '/api/storage/quota'
+      path: '/api/storage/quota'
+      fullPath: '/api/storage/quota'
+      preLoaderRoute: typeof ApiStorageQuotaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/storage/recent': {
       id: '/api/storage/recent'
       path: '/api/storage/recent'
@@ -529,6 +549,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiStorageFolderItemsRoute: ApiStorageFolderItemsRoute,
   ApiStorageMoveRoute: ApiStorageMoveRoute,
   ApiStoragePresignRoute: ApiStoragePresignRoute,
+  ApiStorageQuotaRoute: ApiStorageQuotaRoute,
   ApiStorageRecentRoute: ApiStorageRecentRoute,
   ApiStorageRegisterFileRoute: ApiStorageRegisterFileRoute,
   ApiStorageRenameRoute: ApiStorageRenameRoute,

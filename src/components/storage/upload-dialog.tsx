@@ -15,7 +15,8 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog"
-import type { UploadingFile } from "@/types/storage"
+import { formatFileSize } from "@/lib/file-utils"
+import type { StorageItem, UploadingFile } from "@/types/storage"
 
 type UploadDialogProps = {
     open: boolean
@@ -24,6 +25,8 @@ type UploadDialogProps = {
     currentFolderId: string | null
     setUploads: React.Dispatch<React.SetStateAction<UploadingFile[]>>
     onUploadComplete: () => Promise<void> | void
+    setItems?: React.Dispatch<React.SetStateAction<StorageItem[]>>
+    fileSizeLimit?: number | null
 }
 
 export function UploadDialog( {
@@ -33,6 +36,8 @@ export function UploadDialog( {
     currentFolderId,
     setUploads,
     onUploadComplete,
+    setItems,
+    fileSizeLimit,
 }: UploadDialogProps ) {
     const inputRef = React.useRef<HTMLInputElement>( null )
     const [isDragging, setIsDragging] = React.useState( false )
@@ -44,6 +49,20 @@ export function UploadDialog( {
     }, [open] )
 
     const dedupeAndAppend = React.useCallback( ( incoming: File[] ) => {
+        if ( fileSizeLimit ) {
+            const oversized = incoming.filter( ( f ) => f.size > fileSizeLimit )
+            if ( oversized.length > 0 ) {
+                const MAX_SHOWN = 3
+                const shown = oversized.slice( 0, MAX_SHOWN ).map( ( f ) => f.name )
+                const extra = oversized.length - MAX_SHOWN
+                const names = extra > 0 ? [...shown, `and ${extra} more`] : shown
+                setUploadError(
+                    `${oversized.length} file${oversized.length > 1 ? "s" : ""} exceed${oversized.length === 1 ? "s" : ""} the ${formatFileSize( fileSizeLimit )} limit: ${names.join( ", " )}`
+                )
+                incoming = incoming.filter( ( f ) => f.size <= fileSizeLimit )
+                if ( incoming.length === 0 ) return
+            }
+        }
         setSelectedFiles( ( cur ) => {
             const existing = new Set(
                 cur.map( ( f ) => `${f.name}-${f.size}-${f.lastModified}` )
@@ -53,7 +72,7 @@ export function UploadDialog( {
             )
             return [...cur, ...additions]
         } )
-    }, [] )
+    }, [fileSizeLimit] )
 
     const handleDrop = ( e: React.DragEvent<HTMLDivElement> ) => {
         e.preventDefault()
@@ -88,10 +107,31 @@ export function UploadDialog( {
         onOpenChange( false )
 
         const tasks = newUploads.map( ( u ) => ( { id: u.id, file: u.file } ) )
-        const count = await uploadBatch( tasks, uid, currentFolderId, 3, setUploads )
+        const count = await uploadBatch( tasks, uid, currentFolderId, 3, setUploads, ( fileInfo ) => {
+            // Optimistically add the completed file to the items list
+            if ( setItems ) {
+                setItems( ( prev ) => [
+                    ...prev,
+                    {
+                        id: fileInfo.id,
+                        name: fileInfo.name,
+                        objectKey: fileInfo.objectKey,
+                        mimeType: fileInfo.mimeType,
+                        sizeInBytes: fileInfo.sizeInBytes,
+                        userId: uid,
+                        folderId: currentFolderId,
+                        createdAt: fileInfo.createdAt,
+                        updatedAt: fileInfo.createdAt,
+                        type: "file" as const,
+                    },
+                ] )
+            }
+        } )
         if ( count > 0 ) {
             toast.success( `${count} file${count > 1 ? "s" : ""} uploaded` )
-            await onUploadComplete()
+            // Skip full refresh when setItems is provided because each completed
+            // file has already been optimistically added to the items list.
+            if ( !setItems ) await onUploadComplete()
         }
     }
 
@@ -102,6 +142,7 @@ export function UploadDialog( {
                     <DialogTitle>Upload Files</DialogTitle>
                     <DialogDescription>
                         Drag and drop files or click to browse.
+                        {fileSizeLimit ? ` Max file size: ${formatFileSize( fileSizeLimit )}.` : ""}
                     </DialogDescription>
                 </DialogHeader>
 
