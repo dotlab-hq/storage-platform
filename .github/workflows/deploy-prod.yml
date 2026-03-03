@@ -37,6 +37,30 @@ jobs:
       - name: Pull Vercel environment
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
+      - name: Update env-manager with production variables
+        run: |
+          curl -X POST \
+            "https://env.wpsadi.dev/api/wpsadi/dot-storage/.env" \
+            -H "Authorization: Bearer ${{ secrets.ENV_MANAGER_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "data": {
+                "DATABASE_URL": "${{ secrets.DATABASE_URL }}",
+                "BETTER_AUTH_URL": "${{ secrets.BETTER_AUTH_URL }}",
+                "BETTER_AUTH_SECRET": "${{ secrets.BETTER_AUTH_SECRET }}",
+                "S3_REGION": "${{ secrets.S3_REGION }}",
+                "S3_ENDPOINT": "${{ secrets.S3_ENDPOINT }}",
+                "S3_ACCESS_KEY_ID": "${{ secrets.S3_ACCESS_KEY_ID }}",
+                "S3_SECRET_ACCESS_KEY": "${{ secrets.S3_SECRET_ACCESS_KEY }}",
+                "VERCEL_ORG_ID": "${{ secrets.VERCEL_ORG_ID }}",
+                "VERCEL_PROJECT_ID": "${{ secrets.VERCEL_PROJECT_ID }}",
+                "VERCEL_TOKEN": "${{ secrets.VERCEL_TOKEN }}",
+                "_GITHUB_CLIENT_ID": "${{ secrets._GITHUB_CLIENT_ID }}",
+                "_GITHUB_CLIENT_SECRET": "${{ secrets._GITHUB_CLIENT_SECRET }}"
+
+              }
+            }'
+
       - name: Set environment variables on Vercel
         run: |
           printf '%s' "${{ secrets.DATABASE_URL }}" | vercel env add DATABASE_URL production --token=${{ secrets.VERCEL_TOKEN }} --force
