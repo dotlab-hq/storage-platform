@@ -51,6 +51,20 @@ export function formatFileSize( bytes: number ): string {
     return `${size.toFixed( i === 0 ? 0 : 1 )} ${units[i]}`
 }
 
+export async function downloadFromUrl( url: string, filename: string ): Promise<void> {
+    const response = await fetch( url )
+    if ( !response.ok ) throw new Error( `Failed to download: HTTP ${response.status} ${response.statusText}` )
+    const blob = await response.blob()
+    const blobUrl = URL.createObjectURL( blob )
+    const a = document.createElement( "a" )
+    a.href = blobUrl
+    a.download = filename
+    document.body.appendChild( a )
+    a.click()
+    document.body.removeChild( a )
+    URL.revokeObjectURL( blobUrl )
+}
+
 export function formatRelativeTime( date: Date ): string {
     const now = new Date()
     const diffMs = now.getTime() - date.getTime()

@@ -14,6 +14,7 @@ import { formatRelativeTime } from "@/lib/file-utils"
 import { authClient } from "@/lib/auth-client"
 import { toast } from "@/components/ui/sonner"
 import { encodeNavToken } from "@/lib/nav-token"
+import { useQuota } from "@/hooks/use-quota"
 
 type RecentFolder = { id: string; name: string; createdAt: string; parentFolderId: string | null; lastOpenedAt: string }
 type RecentFile = { id: string; name: string; sizeInBytes: number; mimeType: string | null; createdAt: string; lastOpenedAt: string }
@@ -36,6 +37,7 @@ export const Route = createFileRoute( "/recent/" )( { component: RecentPage } )
 
 function RecentPage() {
     const navigate = useNavigate()
+    const quota = useQuota()
     const [userId, setUserId] = useState<string | null>( null )
     const [items, setItems] = useState<RecentItem[]>( [] )
     const [isLoading, setIsLoading] = useState( true )
@@ -75,7 +77,7 @@ function RecentPage() {
     return (
         <div className="min-h-screen">
             <SidebarProvider>
-                <AppSidebar />
+                <AppSidebar quota={quota} />
                 <SidebarInset>
                     <header className="flex h-14 shrink-0 items-center gap-2 px-4">
                         <SidebarTrigger className="-ml-1" />

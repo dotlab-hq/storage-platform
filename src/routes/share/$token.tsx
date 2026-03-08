@@ -3,6 +3,8 @@ import { createFileRoute } from "@tanstack/react-router"
 import { createClientOnlyFn } from "@tanstack/react-start"
 import { Button } from "@/components/ui/button"
 import { FileText, Folder, Loader2, Link2Off, Download } from "lucide-react"
+import { downloadFromUrl } from "@/lib/file-utils"
+import { toast } from "@/components/ui/sonner"
 
 type ShareData =
     | { type: "file"; name: string; mimeType: string | null; sizeInBytes: number; presignedUrl: string }
@@ -73,7 +75,13 @@ function ShareAccessPage() {
                     <Button onClick={() => window.open( data.presignedUrl, "_blank" )}>
                         Open file
                     </Button>
-                    <Button variant="outline" onClick={() => downloadFile( data.presignedUrl, data.name )}>
+                    <Button
+                        variant="outline"
+                        onClick={() => {
+                            void downloadFromUrl( data.presignedUrl, data.name )
+                                .catch( () => toast.error( "Download failed" ) )
+                        }}
+                    >
                         <Download className="mr-2 h-4 w-4" /> Download
                     </Button>
                 </div>
@@ -102,11 +110,4 @@ function formatBytes( bytes: number ): string {
     if ( bytes < 1024 * 1024 ) return `${( bytes / 1024 ).toFixed( 1 )} KB`
     if ( bytes < 1024 * 1024 * 1024 ) return `${( bytes / ( 1024 * 1024 ) ).toFixed( 1 )} MB`
     return `${( bytes / ( 1024 * 1024 * 1024 ) ).toFixed( 1 )} GB`
-}
-
-function downloadFile( url: string, name: string ) {
-    const a = document.createElement( "a" )
-    a.href = url
-    a.download = name
-    a.click()
 }
