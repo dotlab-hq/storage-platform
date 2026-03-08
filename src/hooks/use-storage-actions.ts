@@ -2,6 +2,7 @@ import { useCallback, useState } from "react"
 import { createClientOnlyFn } from "@tanstack/react-start"
 import { toast } from "@/components/ui/sonner"
 import { buildNavUrl } from "@/lib/nav-token"
+import { downloadFromUrl } from "@/lib/file-utils"
 import type { StorageItem, ContextMenuAction } from "@/types/storage"
 
 type UseStorageActionsParams = {
@@ -128,12 +129,9 @@ export function useStorageActions( params: UseStorageActionsParams ) {
                     break
                 case "download":
                     if ( !userId || item.type !== "file" ) return
-                    void presignOnClient( userId, item.id ).then( ( url ) => {
-                        const a = document.createElement( "a" )
-                        a.href = url
-                        a.download = item.name
-                        a.click()
-                    } ).catch( () => toast.error( "Download failed" ) )
+                    void presignOnClient( userId, item.id ).then( ( url ) =>
+                        downloadFromUrl( url, item.name )
+                    ).catch( () => toast.error( "Download failed" ) )
                     break
             }
         },

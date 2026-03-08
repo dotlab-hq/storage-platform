@@ -12,10 +12,12 @@ import { ConfirmDeleteModal } from "@/components/storage/confirm-delete-modal"
 import { TrashContent } from "@/components/storage/trash-content"
 import { useState } from "react"
 import { useTrashData } from "@/hooks/use-trash-data"
+import { useQuota } from "@/hooks/use-quota"
 
 export const Route = createFileRoute( "/trash/" )( { component: TrashPage } )
 
 function TrashPage() {
+    const quota = useQuota()
     const [deleteOpen, setDeleteOpen] = useState( false )
     const [pendingDelete, setPendingDelete] = useState<{ ids: string[]; types: ( "file" | "folder" )[] } | null>( null )
     const [isDeleting, setIsDeleting] = useState( false )
@@ -62,7 +64,7 @@ function TrashPage() {
     return (
         <div className="min-h-screen">
             <SidebarProvider>
-                <AppSidebar />
+                <AppSidebar quota={quota} />
                 <SidebarInset>
                     <header className="flex h-14 shrink-0 items-center justify-between gap-2 px-4">
                         <div className="flex items-center gap-2">
