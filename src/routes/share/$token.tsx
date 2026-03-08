@@ -1,23 +1,75 @@
 import { useEffect, useState } from "react"
 import { createFileRoute } from "@tanstack/react-router"
-import { createClientOnlyFn } from "@tanstack/react-start"
+import { createServerFn } from "@tanstack/react-start"
+import { z } from "zod"
 import { Button } from "@/components/ui/button"
 import { FileText, Folder, Loader2, Link2Off, Download } from "lucide-react"
-import { downloadFromUrl } from "@/lib/file-utils"
 import { toast } from "@/components/ui/sonner"
+import {
+    getShareByToken,
+    getSharedFilePresignedUrl,
+    getSharedFileDownloadUrl,
+} from "@/lib/share-queries"
 
-type ShareData =
-    | { type: "file"; name: string; mimeType: string | null; sizeInBytes: number; presignedUrl: string }
-    | { type: "folder"; name: string; folderId: string }
+type FileShareData = {
+    type: "file"
+    name: string
+    mimeType: string | null
+    sizeInBytes: number
+    presignedUrl: string
+}
 
-const fetchShareAccess = createClientOnlyFn( async ( token: string ) => {
-    const res = await fetch( `/api/storage/share-access?token=${encodeURIComponent( token )}` )
-    if ( !res.ok ) {
-        const err = ( await res.json() ) as { error?: string }
-        throw new Error( err.error ?? `HTTP ${res.status}` )
-    }
-    return ( await res.json() ) as ShareData
-} )
+type FolderShareData = {
+    type: "folder"
+    name: string
+    folderId: string
+}
+
+type ShareData = FileShareData | FolderShareData
+
+type FileItem = {
+    id: string
+    name: string
+    mimeType: string | null
+    sizeInBytes: number
+    objectKey: string
+}
+
+type FolderItem = { id: string; name: string }
+
+const getShareAccessFn = createServerFn( { method: "GET" } )
+    .inputValidator( z.object( { token: z.string() } ) )
+    .handler( async ( { data } ) => {
+        const result = await getShareByToken( data.token )
+        if ( !result || !result.item ) throw new Error( "Share link not found or expired" )
+
+        if ( result.type === "file" ) {
+            const fileItem = result.item as FileItem
+            const presignedUrl = await getSharedFilePresignedUrl( fileItem.objectKey, fileItem.name )
+            return {
+                type: "file" as const,
+                name: fileItem.name,
+                mimeType: fileItem.mimeType,
+                sizeInBytes: fileItem.sizeInBytes,
+                presignedUrl,
+            }
+        }
+
+        const folderItem = result.item as FolderItem
+        return { type: "folder" as const, name: folderItem.name, folderId: folderItem.id }
+    } )
+
+const getShareDownloadUrlFn = createServerFn( { method: "GET" } )
+    .inputValidator( z.object( { token: z.string() } ) )
+    .handler( async ( { data } ) => {
+        const result = await getShareByToken( data.token )
+        if ( !result || !result.item || result.type !== "file" ) {
+            throw new Error( "File not found or invalid share link" )
+        }
+        const fileItem = result.item as FileItem
+        const url = await getSharedFileDownloadUrl( fileItem.objectKey, fileItem.name )
+        return { url, name: fileItem.name }
+    } )
 
 export const Route = createFileRoute( "/share/$token" )( { component: ShareAccessPage } )
 
@@ -26,13 +78,30 @@ function ShareAccessPage() {
     const [data, setData] = useState<ShareData | null>( null )
     const [error, setError] = useState<string | null>( null )
     const [loading, setLoading] = useState( true )
+    const [downloading, setDownloading] = useState( false )
 
     useEffect( () => {
-        void fetchShareAccess( token )
+        void getShareAccessFn( { data: { token } } )
             .then( setData )
             .catch( ( err: Error ) => setError( err.message ) )
             .finally( () => setLoading( false ) )
     }, [token] )
+
+    const handleDownload = async () => {
+        setDownloading( true )
+        try {
+            const { url } = await getShareDownloadUrlFn( { data: { token } } )
+            const a = document.createElement( "a" )
+            a.href = url
+            document.body.appendChild( a )
+            a.click()
+            document.body.removeChild( a )
+        } catch ( err ) {
+            toast.error( `Download failed: ${err instanceof Error ? err.message : "Unknown error"}` )
+        } finally {
+            setDownloading( false )
+        }
+    }
 
     if ( loading ) {
         return (
@@ -77,12 +146,13 @@ function ShareAccessPage() {
                     </Button>
                     <Button
                         variant="outline"
-                        onClick={() => {
-                            void downloadFromUrl( data.presignedUrl, data.name )
-                                .catch( () => toast.error( "Download failed" ) )
-                        }}
+                        onClick={() => void handleDownload()}
+                        disabled={downloading}
                     >
-                        <Download className="mr-2 h-4 w-4" /> Download
+                        {downloading
+                            ? <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            : <Download className="mr-2 h-4 w-4" />}
+                        Download
                     </Button>
                 </div>
             </div>

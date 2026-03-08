@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
 import { createFileRoute, useNavigate } from "@tanstack/react-router"
 import { AppSidebar } from "@/components/app-sidebar"
 import { Separator } from "@/components/ui/separator"
@@ -23,7 +23,7 @@ import { useKeyboardShortcuts } from "@/hooks/use-keyboard-shortcuts"
 import { useStorageActions } from "@/hooks/use-storage-actions"
 import { useBulkActions } from "@/hooks/use-bulk-actions"
 import { useTheme } from "@/hooks/use-theme"
-import { decodeNavToken, encodeNavToken } from "@/lib/nav-token"
+import { useFolderHistory } from "@/hooks/use-folder-history"
 import type { StorageItem } from "@/types/storage"
 
 export const Route = createFileRoute( "/" )( { component: StoragePage } )
@@ -39,24 +39,8 @@ function StoragePage() {
   const [moveOpen, setMoveOpen] = useState( false )
   const [deleteOpen, setDeleteOpen] = useState( false )
   const [pendingDelete, setPendingDelete] = useState<{ ids: string[]; types: ( "file" | "folder" )[] } | null>( null )
-  const navInitRef = useRef( false )
 
-  /* ── Decode nav token on mount, then keep URL in sync ── */
-  useEffect( () => {
-    if ( !navInitRef.current ) {
-      navInitRef.current = true
-      const nav = new URLSearchParams( window.location.search ).get( "nav" )
-      if ( nav ) {
-        const p = decodeNavToken( nav )
-        if ( p?.folderId ) { storage.setCurrentFolderId( p.folderId ); return }
-      }
-    }
-    if ( storage.currentFolderId ) {
-      window.history.replaceState( {}, "", `?nav=${encodeNavToken( { folderId: storage.currentFolderId } )}` )
-    } else {
-      window.history.replaceState( {}, "", window.location.pathname )
-    }
-  }, [storage.currentFolderId] )
+  useFolderHistory( storage.currentFolderId, storage.setCurrentFolderId )
 
   const actions = useStorageActions( {
     userId: storage.userId,
