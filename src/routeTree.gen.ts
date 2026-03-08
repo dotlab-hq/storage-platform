@@ -25,8 +25,8 @@ import { Route as ApiStorageSearchRouteImport } from './routes/api/storage/searc
 import { Route as ApiStorageRootItemsRouteImport } from './routes/api/storage/root-items'
 import { Route as ApiStorageRenameRouteImport } from './routes/api/storage/rename'
 import { Route as ApiStorageRegisterFileRouteImport } from './routes/api/storage/register-file'
-import { Route as ApiStorageQuotaRouteImport } from './routes/api/storage/quota'
 import { Route as ApiStorageRecentRouteImport } from './routes/api/storage/recent'
+import { Route as ApiStorageQuotaRouteImport } from './routes/api/storage/quota'
 import { Route as ApiStoragePresignRouteImport } from './routes/api/storage/presign'
 import { Route as ApiStorageMoveRouteImport } from './routes/api/storage/move'
 import { Route as ApiStorageFolderItemsRouteImport } from './routes/api/storage/folder-items'
@@ -115,14 +115,14 @@ const ApiStorageRegisterFileRoute = ApiStorageRegisterFileRouteImport.update({
   path: '/api/storage/register-file',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiStorageQuotaRoute = ApiStorageQuotaRouteImport.update({
-  id: '/api/storage/quota',
-  path: '/api/storage/quota',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiStorageRecentRoute = ApiStorageRecentRouteImport.update({
   id: '/api/storage/recent',
   path: '/api/storage/recent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageQuotaRoute = ApiStorageQuotaRouteImport.update({
+  id: '/api/storage/quota',
+  path: '/api/storage/quota',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiStoragePresignRoute = ApiStoragePresignRouteImport.update({
@@ -469,18 +469,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStorageRegisterFileRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/storage/quota': {
-      id: '/api/storage/quota'
-      path: '/api/storage/quota'
-      fullPath: '/api/storage/quota'
-      preLoaderRoute: typeof ApiStorageQuotaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/storage/recent': {
       id: '/api/storage/recent'
       path: '/api/storage/recent'
       fullPath: '/api/storage/recent'
       preLoaderRoute: typeof ApiStorageRecentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/quota': {
+      id: '/api/storage/quota'
+      path: '/api/storage/quota'
+      fullPath: '/api/storage/quota'
+      preLoaderRoute: typeof ApiStorageQuotaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/storage/presign': {
