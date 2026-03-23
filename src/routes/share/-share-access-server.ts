@@ -28,7 +28,7 @@ export const getShareAccessFn = createServerFn( { method: "GET" } )
     .inputValidator( z.object( { token: z.string() } ) )
     .handler( async ( { data } ) => {
         const result = await getShareByToken( data.token )
-        if ( !result ) throw new Error( "Share link not found or expired" )
+        if ( !result ) throw new Error( "Share link not found, expired, or inactive" )
 
         if ( result.type === "file" ) {
             const fileItem = result.item as FileItem
@@ -50,9 +50,8 @@ export const getFolderTreeAccessFn = createServerFn( { method: "GET" } )
     .inputValidator( z.object( { token: z.string() } ) )
     .handler( async ( { data } ) => {
         const result = await getShareByToken( data.token )
-        if ( !result || result.type !== "folder" ) {
-            throw new Error( "Share link not found or expired" )
-        }
+        if ( !result ) throw new Error( "Share link not found, expired, or inactive" )
+        if ( result.type !== "folder" ) throw new Error( "Share link is not a folder" )
         const folderItem = result.item as FolderItem
         const tree = await getSharedFolderTreeByToken( data.token )
         return {
@@ -67,9 +66,8 @@ export const getShareDownloadUrlFn = createServerFn( { method: "GET" } )
     .inputValidator( z.object( { token: z.string() } ) )
     .handler( async ( { data } ) => {
         const result = await getShareByToken( data.token )
-        if ( !result || result.type !== "file" ) {
-            throw new Error( "File not found or invalid share link" )
-        }
+        if ( !result ) throw new Error( "Share link not found, expired, or inactive" )
+        if ( result.type !== "file" ) throw new Error( "Share link is not a file" )
         const fileItem = result.item as FileItem
         const url = await getSharedFileDownloadUrl( fileItem.objectKey, fileItem.name )
         return { url, name: fileItem.name }

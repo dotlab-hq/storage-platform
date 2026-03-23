@@ -6,6 +6,11 @@ import { SkeletonGrid } from "./skeleton-card"
 import { useBoxSelection } from "@/hooks/use-box-selection"
 import type { StorageItem, UploadingFile, ContextMenuAction } from "@/types/storage"
 
+function isAppendModifierPressed( event: React.MouseEvent<HTMLDivElement> ) {
+    const isMac = typeof navigator !== "undefined" && navigator.platform.toLowerCase().includes( "mac" )
+    return isMac ? event.metaKey : event.ctrlKey
+}
+
 type FileGridProps = {
     items: StorageItem[]
     uploads: UploadingFile[]
@@ -41,7 +46,14 @@ export function FileGrid( {
 }: FileGridProps ) {
     const containerRef = useRef<HTMLDivElement | null>( null )
     const didBoxSelectRef = useRef( false )
-    const boxSelection = useBoxSelection()
+    const {
+        isSelecting,
+        selectionRect,
+        beginSelection,
+        updateSelection,
+        completeSelection,
+        cancelSelection,
+    } = useBoxSelection()
 
     const handleDropOnFolder = useCallback(
         ( draggedId: string, draggedType: "file" | "folder", targetFolderId: string ) => {
@@ -54,29 +66,29 @@ export function FileGrid( {
         if ( event.button !== 0 ) return
         const target = event.target as HTMLElement
         if ( target.closest( "[data-file-card='true']" ) ) return
-        boxSelection.beginSelection( event.clientX, event.clientY )
-    }, [boxSelection] )
+        beginSelection( event.clientX, event.clientY )
+    }, [beginSelection] )
 
     const handleMouseMove = useCallback( ( event: React.MouseEvent<HTMLDivElement> ) => {
-        if ( !boxSelection.isSelecting ) return
-        boxSelection.updateSelection( event.clientX, event.clientY )
-    }, [boxSelection] )
+        if ( !isSelecting ) return
+        updateSelection( event.clientX, event.clientY )
+    }, [isSelecting, updateSelection] )
 
     const commitBoxSelection = useCallback( ( event: React.MouseEvent<HTMLDivElement> ) => {
-        if ( !boxSelection.isSelecting ) return
+        if ( !isSelecting ) return
         const root = containerRef.current
         if ( !root ) {
-            boxSelection.cancelSelection()
+            cancelSelection()
             return
         }
         const elements = Array.from(
             root.querySelectorAll<HTMLElement>( "[data-storage-item-id]" )
         )
-        const ids = boxSelection.completeSelection( elements )
-        onBoxSelect?.( ids, event.shiftKey || event.metaKey || event.ctrlKey )
+        const ids = completeSelection( elements )
+        onBoxSelect?.( ids, event.shiftKey || isAppendModifierPressed( event ) )
         didBoxSelectRef.current = true
-        boxSelection.cancelSelection()
-    }, [boxSelection, onBoxSelect] )
+        cancelSelection()
+    }, [cancelSelection, completeSelection, isSelecting, onBoxSelect] )
 
     if ( isLoading ) {
         return <SkeletonGrid count={12} />
@@ -157,14 +169,14 @@ export function FileGrid( {
                     </FileContextMenu>
                 ) )}
             </div>
-            {boxSelection.selectionRect && (
+            {selectionRect && (
                 <div
                     className="pointer-events-none fixed z-30 border border-primary/60 bg-primary/20"
                     style={{
-                        left: boxSelection.selectionRect.left,
-                        top: boxSelection.selectionRect.top,
-                        width: boxSelection.selectionRect.width,
-                        height: boxSelection.selectionRect.height,
+                        left: selectionRect.left,
+                        top: selectionRect.top,
+                        width: selectionRect.width,
+                        height: selectionRect.height,
                     }}
                 />
             )}

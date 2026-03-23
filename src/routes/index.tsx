@@ -151,8 +151,7 @@ function StoragePage() {
           setDeleteOpen( true )
         }}
         onShare={() => {
-          const first = selectedItems[0]
-          setShareItem( first )
+          setShareItem( selectedItems.at( 0 ) ?? null )
         }}
         onClear={selection.clearSelection}
       />

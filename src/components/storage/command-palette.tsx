@@ -139,9 +139,8 @@ export function CommandPalette( {
     const grouped = allActions.reduce<Partial<Record<string, CommandPaletteAction[]>>>(
         ( acc, action ) => {
             const group = action.group
-            const actionsInGroup = acc[group] ?? []
-            actionsInGroup.push( action )
-            acc[group] = actionsInGroup
+            if ( !acc[group] ) acc[group] = []
+            acc[group].push( action )
             return acc
         },
         {}

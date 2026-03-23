@@ -30,32 +30,35 @@ export async function getShareByToken( token: string ) {
         import( "@/db/schema/storage" ),
     ] )
 
-    const links = await db.select().from( shareLink )
+    const linkRows = await db.select().from( shareLink )
         .where( eq( shareLink.shareToken, token ) )
         .limit( 1 )
-
-    if ( links.length === 0 ) return null
-    const link = links[0]
+    if ( linkRows.length === 0 ) return null
+    const link = linkRows[0]
     if ( !link.isActive ) return null
 
     if ( link.expiresAt && link.expiresAt < new Date() ) return null
 
     if ( link.fileId ) {
-        const [fileRow] = await db.select( {
+        const fileRows = await db.select( {
             id: storageFile.id,
             name: storageFile.name,
             mimeType: storageFile.mimeType,
             sizeInBytes: storageFile.sizeInBytes,
             objectKey: storageFile.objectKey,
         } ).from( storageFile ).where( eq( storageFile.id, link.fileId ) ).limit( 1 )
+        if ( fileRows.length === 0 ) return null
+        const fileRow = fileRows[0]
         return { type: "file" as const, link, item: fileRow }
     }
 
     if ( link.folderId ) {
-        const [folderRow] = await db.select( {
+        const folderRows = await db.select( {
             id: folder.id,
             name: folder.name,
         } ).from( folder ).where( eq( folder.id, link.folderId ) ).limit( 1 )
+        if ( folderRows.length === 0 ) return null
+        const folderRow = folderRows[0]
         return { type: "folder" as const, link, item: folderRow }
     }
 
@@ -135,7 +138,9 @@ export async function getSharedFolderTreeByToken( token: string ) {
     ` )
 
     const root = folderRows.rows.find( ( row ) => row.depth === 0 ) ?? null
-    if ( !root ) return null
+    if ( !root ) {
+        throw new Error( "Shared folder root is missing" )
+    }
 
     return {
         rootFolderId,
