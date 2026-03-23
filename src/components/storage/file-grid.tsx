@@ -1,8 +1,9 @@
-import { useCallback } from "react"
+import { useCallback, useRef } from "react"
 import { FileCard } from "./file-card"
 import { FileContextMenu } from "./file-context-menu"
 import { UploadingCard } from "./uploading-card"
 import { SkeletonGrid } from "./skeleton-card"
+import { useBoxSelection } from "@/hooks/use-box-selection"
 import type { StorageItem, UploadingFile, ContextMenuAction } from "@/types/storage"
 
 type FileGridProps = {
@@ -19,6 +20,7 @@ type FileGridProps = {
     onRename?: ( item: StorageItem, newName: string ) => void
     onRenameCancel?: () => void
     onDragMoveItem?: ( itemId: string, itemType: "file" | "folder", targetFolderId: string ) => void
+    onBoxSelect?: ( ids: string[], append: boolean ) => void
 }
 
 export function FileGrid( {
@@ -35,13 +37,47 @@ export function FileGrid( {
     onRename,
     onRenameCancel,
     onDragMoveItem,
+    onBoxSelect,
 }: FileGridProps ) {
+    const containerRef = useRef<HTMLDivElement | null>( null )
+    const didBoxSelectRef = useRef( false )
+    const boxSelection = useBoxSelection()
+
     const handleDropOnFolder = useCallback(
         ( draggedId: string, draggedType: "file" | "folder", targetFolderId: string ) => {
             onDragMoveItem?.( draggedId, draggedType, targetFolderId )
         },
         [onDragMoveItem]
     )
+
+    const handleMouseDown = useCallback( ( event: React.MouseEvent<HTMLDivElement> ) => {
+        if ( event.button !== 0 ) return
+        const target = event.target as HTMLElement
+        if ( target.closest( "[data-file-card='true']" ) ) return
+        boxSelection.beginSelection( event.clientX, event.clientY )
+    }, [boxSelection] )
+
+    const handleMouseMove = useCallback( ( event: React.MouseEvent<HTMLDivElement> ) => {
+        if ( !boxSelection.isSelecting ) return
+        boxSelection.updateSelection( event.clientX, event.clientY )
+    }, [boxSelection] )
+
+    const commitBoxSelection = useCallback( ( event: React.MouseEvent<HTMLDivElement> ) => {
+        if ( !boxSelection.isSelecting ) return
+        const root = containerRef.current
+        if ( !root ) {
+            boxSelection.cancelSelection()
+            return
+        }
+        const elements = Array.from(
+            root.querySelectorAll<HTMLElement>( "[data-storage-item-id]" )
+        )
+        const ids = boxSelection.completeSelection( elements )
+        onBoxSelect?.( ids, event.shiftKey || event.metaKey || event.ctrlKey )
+        didBoxSelectRef.current = true
+        boxSelection.cancelSelection()
+    }, [boxSelection, onBoxSelect] )
+
     if ( isLoading ) {
         return <SkeletonGrid count={12} />
     }
@@ -78,34 +114,60 @@ export function FileGrid( {
     }
 
     return (
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-            {activeUploads.map( ( upload ) => (
-                <UploadingCard
-                    key={upload.id}
-                    upload={upload}
-                    onRetry={onRetryUpload}
-                />
-            ) )}
-            {items.map( ( item ) => (
-                <FileContextMenu
-                    key={item.id}
-                    item={item}
-                    isTrash={isTrash}
-                    onAction={onContextAction}
-                >
-                    <FileCard
-                        item={item}
-                        isSelected={selectedIds.has( item.id )}
-                        onSelect={onSelect}
-                        onDoubleClick={onDoubleClick}
-                        onContextAction={onContextAction}
-                        isRenaming={renamingItemId === item.id}
-                        onRename={onRename}
-                        onRenameCancel={onRenameCancel}
-                        onDropOnFolder={handleDropOnFolder}
+        <div
+            ref={containerRef}
+            className="relative"
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={commitBoxSelection}
+            onMouseLeave={commitBoxSelection}
+            onClick={( event ) => {
+                if ( didBoxSelectRef.current ) {
+                    event.stopPropagation()
+                    didBoxSelectRef.current = false
+                }
+            }}
+        >
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+                {activeUploads.map( ( upload ) => (
+                    <UploadingCard
+                        key={upload.id}
+                        upload={upload}
+                        onRetry={onRetryUpload}
                     />
-                </FileContextMenu>
-            ) )}
+                ) )}
+                {items.map( ( item ) => (
+                    <FileContextMenu
+                        key={item.id}
+                        item={item}
+                        isTrash={isTrash}
+                        onAction={onContextAction}
+                    >
+                        <FileCard
+                            item={item}
+                            isSelected={selectedIds.has( item.id )}
+                            onSelect={onSelect}
+                            onDoubleClick={onDoubleClick}
+                            onContextAction={onContextAction}
+                            isRenaming={renamingItemId === item.id}
+                            onRename={onRename}
+                            onRenameCancel={onRenameCancel}
+                            onDropOnFolder={handleDropOnFolder}
+                        />
+                    </FileContextMenu>
+                ) )}
+            </div>
+            {boxSelection.selectionRect && (
+                <div
+                    className="pointer-events-none fixed z-30 border border-primary/60 bg-primary/20"
+                    style={{
+                        left: boxSelection.selectionRect.left,
+                        top: boxSelection.selectionRect.top,
+                        width: boxSelection.selectionRect.width,
+                        height: boxSelection.selectionRect.height,
+                    }}
+                />
+            )}
         </div>
     )
 }

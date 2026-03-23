@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react"
 import { createFileRoute } from "@tanstack/react-router"
-import { createServerFn } from "@tanstack/react-start"
-import { z } from "zod"
 import { Button } from "@/components/ui/button"
 import { FileText, Folder, Loader2, Link2Off, Download } from "lucide-react"
 import { toast } from "@/components/ui/sonner"
+import { ShareFolderTree } from "@/components/storage/share-folder-tree"
 import {
-    getShareByToken,
-    getSharedFilePresignedUrl,
-    getSharedFileDownloadUrl,
-} from "@/lib/share-queries"
+    getShareAccessFn,
+    getFolderTreeAccessFn,
+    getShareDownloadUrlFn,
+} from "./-share-access-server"
 
 type FileShareData = {
     type: "file"
@@ -23,53 +22,15 @@ type FolderShareData = {
     type: "folder"
     name: string
     folderId: string
+    tree?: {
+        rootFolderId: string
+        rootFolderName: string
+        folders: { id: string; name: string; parentFolderId: string | null; depth: number }[]
+        files: { id: string; name: string; mimeType: string | null; sizeInBytes: number; folderId: string | null }[]
+    } | null
 }
 
 type ShareData = FileShareData | FolderShareData
-
-type FileItem = {
-    id: string
-    name: string
-    mimeType: string | null
-    sizeInBytes: number
-    objectKey: string
-}
-
-type FolderItem = { id: string; name: string }
-
-const getShareAccessFn = createServerFn( { method: "GET" } )
-    .inputValidator( z.object( { token: z.string() } ) )
-    .handler( async ( { data } ) => {
-        const result = await getShareByToken( data.token )
-        if ( !result || !result.item ) throw new Error( "Share link not found or expired" )
-
-        if ( result.type === "file" ) {
-            const fileItem = result.item as FileItem
-            const presignedUrl = await getSharedFilePresignedUrl( fileItem.objectKey, fileItem.name )
-            return {
-                type: "file" as const,
-                name: fileItem.name,
-                mimeType: fileItem.mimeType,
-                sizeInBytes: fileItem.sizeInBytes,
-                presignedUrl,
-            }
-        }
-
-        const folderItem = result.item as FolderItem
-        return { type: "folder" as const, name: folderItem.name, folderId: folderItem.id }
-    } )
-
-const getShareDownloadUrlFn = createServerFn( { method: "GET" } )
-    .inputValidator( z.object( { token: z.string() } ) )
-    .handler( async ( { data } ) => {
-        const result = await getShareByToken( data.token )
-        if ( !result || !result.item || result.type !== "file" ) {
-            throw new Error( "File not found or invalid share link" )
-        }
-        const fileItem = result.item as FileItem
-        const url = await getSharedFileDownloadUrl( fileItem.objectKey, fileItem.name )
-        return { url, name: fileItem.name }
-    } )
 
 export const Route = createFileRoute( "/share/$token" )( { component: ShareAccessPage } )
 
@@ -82,7 +43,14 @@ function ShareAccessPage() {
 
     useEffect( () => {
         void getShareAccessFn( { data: { token } } )
-            .then( setData )
+            .then( async ( response ) => {
+                if ( response.type !== "folder" ) {
+                    setData( response )
+                    return
+                }
+                const folderData = await getFolderTreeAccessFn( { data: { token } } )
+                setData( folderData )
+            } )
             .catch( ( err: Error ) => setError( err.message ) )
             .finally( () => setLoading( false ) )
     }, [token] )
@@ -167,7 +135,15 @@ function ShareAccessPage() {
             <div className="space-y-1">
                 <h1 className="text-lg font-semibold">{data.name}</h1>
                 <p className="text-muted-foreground text-sm">Shared folder</p>
+                {data.tree && (
+                    <p className="text-muted-foreground text-xs">
+                        {data.tree.folders.length} folders · {data.tree.files.length} files exposed
+                    </p>
+                )}
             </div>
+            {data.tree && (
+                <ShareFolderTree tree={data.tree} formatBytes={formatBytes} />
+            )}
             <Button onClick={() => { window.location.href = `/?nav=${btoa( JSON.stringify( { folderId: data.folderId } ) )}` }}>
                 Open folder
             </Button>

@@ -35,7 +35,7 @@ export function FileCard( {
     const isFolder = item.type === "folder"
     const Icon = isFolder
         ? getFolderIcon()
-        : getFileIcon( item.type === "file" ? item.mimeType : null )
+        : getFileIcon( item.mimeType )
 
     const handleDragStart = useCallback( ( e: React.DragEvent ) => {
         e.dataTransfer.setData( "application/storage-item-id", item.id )
@@ -70,6 +70,8 @@ export function FileCard( {
                 isSelected && "ring-primary/50 border-primary/30 bg-primary/5 ring-2",
                 !isSelected && "bg-card"
             )}
+            data-file-card="true"
+            data-storage-item-id={item.id}
             draggable={!isRenaming}
             onClick={( e ) => onSelect( item.id, e.shiftKey )}
             onDoubleClick={() => onDoubleClick( item )}

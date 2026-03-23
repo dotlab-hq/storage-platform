@@ -1,5 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { getShareByToken, getSharedFilePresignedUrl } from "@/lib/share-queries"
+import {
+    getShareByToken,
+    getSharedFilePresignedUrl,
+    getSharedFolderTreeByToken,
+} from "@/lib/share-queries"
 
 export const Route = createFileRoute( "/api/storage/share-access" )( {
     component: () => null,
@@ -14,8 +18,9 @@ export const Route = createFileRoute( "/api/storage/share-access" )( {
                         return Response.json( { error: "Missing token" }, { status: 400 } )
                     }
 
+                    const includeTree = url.searchParams.get( "includeTree" ) === "1"
                     const result = await getShareByToken( token )
-                    if ( !result || !result.item ) {
+                    if ( !result ) {
                         return Response.json( { error: "Share link not found or expired" }, { status: 404 } )
                     }
 
@@ -32,10 +37,12 @@ export const Route = createFileRoute( "/api/storage/share-access" )( {
                     }
 
                     const folderItem = result.item as { id: string; name: string }
+                    const tree = includeTree ? await getSharedFolderTreeByToken( token ) : null
                     return Response.json( {
                         type: "folder",
                         name: folderItem.name,
                         folderId: folderItem.id,
+                        tree,
                     } )
                 } catch ( error ) {
                     console.error( "[Server] Share access error:", error )

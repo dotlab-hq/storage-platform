@@ -9,6 +9,7 @@ import {
     Clock,
     Share2,
     Home,
+    FolderOpen,
 } from "lucide-react"
 import {
     Command,
@@ -40,6 +41,7 @@ type CommandPaletteProps = {
     onToggleTheme?: () => void
     onUpload?: () => void
     onNewFolder?: () => void
+    onOpenSharedFolder?: () => void
 }
 
 export function CommandPalette( {
@@ -48,6 +50,7 @@ export function CommandPalette( {
     onToggleTheme,
     onUpload,
     onNewFolder,
+    onOpenSharedFolder,
 }: CommandPaletteProps ) {
     const [open, setOpen] = useState( false )
 
@@ -94,6 +97,13 @@ export function CommandPalette( {
             group: "Navigation",
         },
         {
+            id: "open-shared-folder-link",
+            label: "Open Shared Folder Link",
+            icon: <FolderOpen className="h-4 w-4" />,
+            onSelect: () => onOpenSharedFolder?.(),
+            group: "Navigation",
+        },
+        {
             id: "trash",
             label: "Go to Trash",
             icon: <Trash2 className="h-4 w-4" />,
@@ -126,11 +136,12 @@ export function CommandPalette( {
     ]
 
     const allActions = [...builtInActions, ...actions]
-    const grouped = allActions.reduce<Record<string, CommandPaletteAction[]>>(
+    const grouped = allActions.reduce<Partial<Record<string, CommandPaletteAction[]>>>(
         ( acc, action ) => {
             const group = action.group
-            if ( !acc[group] ) acc[group] = []
-            acc[group].push( action )
+            const actionsInGroup = acc[group] ?? []
+            actionsInGroup.push( action )
+            acc[group] = actionsInGroup
             return acc
         },
         {}

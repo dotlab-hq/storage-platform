@@ -24,10 +24,10 @@ import { useStorageActions } from "@/hooks/use-storage-actions"
 import { useBulkActions } from "@/hooks/use-bulk-actions"
 import { useTheme } from "@/hooks/use-theme"
 import { useFolderHistory } from "@/hooks/use-folder-history"
+import { parseShareToken } from "@/lib/share-navigation"
 import type { StorageItem } from "@/types/storage"
 
 export const Route = createFileRoute( "/" )( { component: StoragePage } )
-
 function StoragePage() {
   const navigate = useNavigate()
   const { toggleTheme } = useTheme()
@@ -39,9 +39,7 @@ function StoragePage() {
   const [moveOpen, setMoveOpen] = useState( false )
   const [deleteOpen, setDeleteOpen] = useState( false )
   const [pendingDelete, setPendingDelete] = useState<{ ids: string[]; types: ( "file" | "folder" )[] } | null>( null )
-
   useFolderHistory( storage.currentFolderId, storage.setCurrentFolderId )
-
   const actions = useStorageActions( {
     userId: storage.userId,
     currentFolderId: storage.currentFolderId,
@@ -58,7 +56,6 @@ function StoragePage() {
     onMoveOpen: () => setMoveOpen( true ),
     onShareOpen: ( item ) => setShareItem( item ),
   } )
-
   const bulk = useBulkActions( {
     userId: storage.userId,
     items: storage.items,
@@ -69,7 +66,6 @@ function StoragePage() {
     setDeleteOpen,
     setMoveOpen,
   } )
-
   useKeyboardShortcuts( {
     "mod+a": () => selection.selectAll(),
     escape: () => selection.clearSelection(),
@@ -81,9 +77,7 @@ function StoragePage() {
       }
     },
   } )
-
   const selectedItems = storage.items.filter( ( i ) => selection.selectedIds.has( i.id ) )
-
   return (
     <div
       className="min-h-screen"
@@ -126,7 +120,11 @@ function StoragePage() {
 
           <div
             className="flex flex-1 flex-col gap-4 p-4 pt-0"
-            onClick={() => selection.clearSelection()}
+            onClick={( event ) => {
+              const target = event.target as HTMLElement
+              if ( target.closest( "[data-file-card='true']" ) ) return
+              selection.clearSelection()
+            }}
           >
             <FileGrid
               items={storage.items}
@@ -134,6 +132,7 @@ function StoragePage() {
               isLoading={storage.isLoading}
               selectedIds={selection.selectedIds}
               onSelect={( id, shift ) => selection.select( id, shift )}
+              onBoxSelect={( ids, append ) => selection.selectMany( ids, append )}
               onDoubleClick={actions.handleDoubleClick}
               onContextAction={actions.handleContextAction}
               renamingItemId={actions.renamingItemId}
@@ -144,9 +143,7 @@ function StoragePage() {
           </div>
         </SidebarInset>
       </SidebarProvider>
-
       <DragDropOverlay isDragging={dragDrop.isDragging} />
-
       <FloatingActionBar
         selectedCount={selection.selectedCount}
         onDelete={() => {
@@ -155,18 +152,16 @@ function StoragePage() {
         }}
         onShare={() => {
           const first = selectedItems[0]
-          if ( first ) setShareItem( first )
+          setShareItem( first )
         }}
         onClear={selection.clearSelection}
       />
-
       <ShareModal
         open={!!shareItem}
         onOpenChange={( open ) => !open && setShareItem( null )}
         item={shareItem}
         userId={storage.userId}
       />
-
       <MoveModal
         open={moveOpen}
         onOpenChange={setMoveOpen}
@@ -176,7 +171,6 @@ function StoragePage() {
         onMove={bulk.handleMove}
         userId={storage.userId}
       />
-
       <ConfirmDeleteModal
         open={deleteOpen}
         onOpenChange={( open ) => {
@@ -191,10 +185,15 @@ function StoragePage() {
           }
         }}
       />
-
       <CommandPalette
         onNavigate={( route ) => void navigate( { to: route } )}
         onToggleTheme={toggleTheme}
+        onOpenSharedFolder={() => {
+          const raw = window.prompt( "Paste a shared folder token or full share URL" )
+          const token = raw ? parseShareToken( raw ) : null
+          if ( !token ) return
+          void navigate( { to: "/share/$token", params: { token } } )
+        }}
       />
     </div>
   )
