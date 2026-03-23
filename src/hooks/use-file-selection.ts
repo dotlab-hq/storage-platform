@@ -54,6 +54,15 @@ export function useFileSelection( items: StorageItem[] ) {
         setState( { selectedIds: new Set(), lastSelectedId: null } )
     }, [] )
 
+    const selectMany = useCallback( ( ids: string[], append = false ) => {
+        setState( ( prev ) => {
+            const nextSelected = append ? new Set( prev.selectedIds ) : new Set<string>()
+            ids.forEach( ( id ) => nextSelected.add( id ) )
+            const lastId = ids.length > 0 ? ids[ids.length - 1] : append ? prev.lastSelectedId : null
+            return { selectedIds: nextSelected, lastSelectedId: lastId }
+        } )
+    }, [] )
+
     const selectAll = useCallback( () => {
         setState( {
             selectedIds: new Set( items.map( ( item ) => item.id ) ),
@@ -71,6 +80,7 @@ export function useFileSelection( items: StorageItem[] ) {
         selectedCount: state.selectedIds.size,
         select,
         toggleSelect,
+        selectMany,
         clearSelection,
         selectAll,
         isSelected,
