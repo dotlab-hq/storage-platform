@@ -43,6 +43,7 @@ export function FileGrid( {
     onBoxSelect,
 }: FileGridProps ) {
     const containerRef = useRef<HTMLDivElement | null>( null )
+    const selectionYBoundsRef = useRef<{ top: number; bottom: number } | null>( null )
     const didBoxSelectRef = useRef( false )
     const {
         isSelecting,
@@ -64,12 +65,23 @@ export function FileGrid( {
         if ( event.button !== 0 ) return
         const target = event.target as HTMLElement
         if ( target.closest( "[data-file-card='true']" ) ) return
-        beginSelection( event.clientX, event.clientY )
+        const root = containerRef.current
+        if ( !root ) return
+        const cards = Array.from( root.querySelectorAll<HTMLElement>( "[data-storage-item-id]" ) )
+        if ( cards.length === 0 ) return
+        const bounds = cards.reduce( ( acc, card ) => {
+            const rect = card.getBoundingClientRect()
+            return { top: Math.min( acc.top, rect.top ), bottom: Math.max( acc.bottom, rect.bottom ) }
+        }, { top: Number.POSITIVE_INFINITY, bottom: Number.NEGATIVE_INFINITY } )
+        selectionYBoundsRef.current = bounds
+        beginSelection( event.clientX, bounds.top )
     }, [beginSelection] )
 
     const handleMouseMove = useCallback( ( event: React.MouseEvent<HTMLDivElement> ) => {
         if ( !isSelecting ) return
-        updateSelection( event.clientX, event.clientY )
+        const bounds = selectionYBoundsRef.current
+        if ( !bounds ) return
+        updateSelection( event.clientX, bounds.bottom )
     }, [isSelecting, updateSelection] )
 
     const commitBoxSelection = useCallback( ( event: React.MouseEvent<HTMLDivElement> ) => {
@@ -85,6 +97,7 @@ export function FileGrid( {
         const ids = completeSelection( elements )
         onBoxSelect?.( ids, event.shiftKey || isAppendModifierPressed( event ) )
         didBoxSelectRef.current = true
+        selectionYBoundsRef.current = null
         cancelSelection()
     }, [cancelSelection, completeSelection, isSelecting, onBoxSelect] )
 
