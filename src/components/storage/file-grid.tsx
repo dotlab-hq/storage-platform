@@ -43,7 +43,6 @@ export function FileGrid( {
     onBoxSelect,
 }: FileGridProps ) {
     const containerRef = useRef<HTMLDivElement | null>( null )
-    const cardAreaYBoundsRef = useRef<{ top: number; bottom: number } | null>( null )
     const didBoxSelectRef = useRef( false )
     const {
         isSelecting,
@@ -69,23 +68,13 @@ export function FileGrid( {
         if ( !root ) return
         const cards = Array.from( root.querySelectorAll<HTMLElement>( "[data-storage-item-id]" ) )
         if ( cards.length === 0 ) return
-        const bounds = cards.reduce( ( acc, card ) => {
-            const rect = card.getBoundingClientRect()
-            return { top: Math.min( acc.top, rect.top ), bottom: Math.max( acc.bottom, rect.bottom ) }
-        }, { top: Number.POSITIVE_INFINITY, bottom: Number.NEGATIVE_INFINITY } )
-        cardAreaYBoundsRef.current = bounds
-        beginSelection( event.clientX, bounds.top )
+        beginSelection( event.clientX, event.clientY )
     }, [beginSelection] )
 
     const handleMouseMove = useCallback( ( event: React.MouseEvent<HTMLDivElement> ) => {
         if ( !isSelecting ) return
-        const bounds = cardAreaYBoundsRef.current
-        if ( !bounds ) {
-            cancelSelection()
-            return
-        }
-        updateSelection( event.clientX, bounds.bottom )
-    }, [cancelSelection, isSelecting, updateSelection] )
+        updateSelection( event.clientX, event.clientY )
+    }, [isSelecting, updateSelection] )
 
     const commitBoxSelection = useCallback( ( event: React.MouseEvent<HTMLDivElement> ) => {
         if ( !isSelecting ) return
@@ -100,7 +89,6 @@ export function FileGrid( {
         const ids = completeSelection( elements )
         onBoxSelect?.( ids, event.shiftKey || isAppendModifierPressed( event ) )
         didBoxSelectRef.current = true
-        cardAreaYBoundsRef.current = null
         cancelSelection()
     }, [cancelSelection, completeSelection, isSelecting, onBoxSelect] )
 
@@ -146,7 +134,6 @@ export function FileGrid( {
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={commitBoxSelection}
-            onMouseLeave={commitBoxSelection}
             onClick={( event ) => {
                 if ( didBoxSelectRef.current ) {
                     event.stopPropagation()
