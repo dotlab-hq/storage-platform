@@ -43,7 +43,7 @@ export function FileGrid( {
     onBoxSelect,
 }: FileGridProps ) {
     const containerRef = useRef<HTMLDivElement | null>( null )
-    const selectionYBoundsRef = useRef<{ top: number; bottom: number } | null>( null )
+    const cardAreaYBoundsRef = useRef<{ top: number; bottom: number } | null>( null )
     const didBoxSelectRef = useRef( false )
     const {
         isSelecting,
@@ -73,16 +73,19 @@ export function FileGrid( {
             const rect = card.getBoundingClientRect()
             return { top: Math.min( acc.top, rect.top ), bottom: Math.max( acc.bottom, rect.bottom ) }
         }, { top: Number.POSITIVE_INFINITY, bottom: Number.NEGATIVE_INFINITY } )
-        selectionYBoundsRef.current = bounds
+        cardAreaYBoundsRef.current = bounds
         beginSelection( event.clientX, bounds.top )
     }, [beginSelection] )
 
     const handleMouseMove = useCallback( ( event: React.MouseEvent<HTMLDivElement> ) => {
         if ( !isSelecting ) return
-        const bounds = selectionYBoundsRef.current
-        if ( !bounds ) return
+        const bounds = cardAreaYBoundsRef.current
+        if ( !bounds ) {
+            cancelSelection()
+            return
+        }
         updateSelection( event.clientX, bounds.bottom )
-    }, [isSelecting, updateSelection] )
+    }, [cancelSelection, isSelecting, updateSelection] )
 
     const commitBoxSelection = useCallback( ( event: React.MouseEvent<HTMLDivElement> ) => {
         if ( !isSelecting ) return
@@ -97,7 +100,7 @@ export function FileGrid( {
         const ids = completeSelection( elements )
         onBoxSelect?.( ids, event.shiftKey || isAppendModifierPressed( event ) )
         didBoxSelectRef.current = true
-        selectionYBoundsRef.current = null
+        cardAreaYBoundsRef.current = null
         cancelSelection()
     }, [cancelSelection, completeSelection, isSelecting, onBoxSelect] )
 
