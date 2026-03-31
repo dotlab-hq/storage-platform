@@ -38,6 +38,14 @@ export const auth = betterAuth( {
       clientSecret: process.env._GITHUB_CLIENT_SECRET!,
     },
   },
+  user: {
+    additionalFields: {
+      isAdmin: {
+        type: "boolean",
+        default: false,
+      }
+    }
+  },
 
   plugins: [tanstackStartCookies()],
 } )
