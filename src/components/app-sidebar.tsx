@@ -7,6 +7,7 @@ import {
   Share2,
   Trash2,
   Shield,
+  Settings,
   StoneIcon,
   Moon,
   Sun,
@@ -39,6 +40,7 @@ const navItems = [
   { title: "Recent", url: "/recent", icon: Clock },
   { title: "Shared with Me", url: "/shared", icon: Share2 },
   { title: "Trash", url: "/trash", icon: Trash2 },
+  { title: "Settings", url: "/settings", icon: Settings },
 ]
 
 const defaultUser = {
@@ -67,11 +69,12 @@ export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
     createClientOnlyFn( async () => {
       const { data: session, error } = await authClient.getSession()
       if ( error || !session?.user ) return null
+      const sessionRole = session.user.role === "admin" ? "admin" : "user"
       return {
         name: session.user.name,
         email: session.user.email,
         avatar: session.user.image ?? "",
-        isAdmin: Boolean( session.user.isAdmin ),
+        isAdmin: sessionRole === "admin",
       }
     } )
   )
