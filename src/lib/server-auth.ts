@@ -16,7 +16,7 @@ export async function getAuthenticatedUser(): Promise<AuthenticatedUser> {
         id: session.user.id,
         email: session.user.email,
         name: session.user.name,
-        isAdmin: Boolean( session.user.isAdmin ),
+        isAdmin: Boolean( session.user.is_admin ),
     }
 }
 
