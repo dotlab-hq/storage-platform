@@ -1,6 +1,6 @@
 import { useCallback } from "react"
 import {
-    MoreHorizontal, Pencil, Share2,
+    MoreHorizontal, Pencil, Share2, Check,
     Trash2, Download, ExternalLink, Link,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -19,7 +19,6 @@ import type { StorageItem, ContextMenuAction } from "@/types/storage"
 type FileCardProps = {
     item: StorageItem
     isSelected: boolean
-    onSelect: ( id: string, shiftKey: boolean ) => void
     onDoubleClick: ( item: StorageItem ) => void
     onContextAction?: ( action: ContextMenuAction, item: StorageItem ) => void
     isRenaming?: boolean
@@ -29,7 +28,7 @@ type FileCardProps = {
 }
 
 export function FileCard( {
-    item, isSelected, onSelect, onDoubleClick,
+    item, isSelected, onDoubleClick,
     onContextAction, isRenaming = false, onRename, onRenameCancel, onDropOnFolder,
 }: FileCardProps ) {
     const isFolder = item.type === "folder"
@@ -73,7 +72,6 @@ export function FileCard( {
             data-file-card="true"
             data-storage-item-id={item.id}
             draggable={!isRenaming}
-            onClick={( e ) => onSelect( item.id, e.shiftKey )}
             onDoubleClick={() => onDoubleClick( item )}
             onDragStart={handleDragStart}
             onDragOver={handleDragOver}
@@ -89,6 +87,10 @@ export function FileCard( {
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end" className="w-44">
+                            <DropdownMenuItem onClick={() => onContextAction( "select", item )}>
+                                <Check className="mr-2 h-4 w-4" /> Select
+                            </DropdownMenuItem>
+                            <DropdownMenuSeparator />
                             <DropdownMenuItem onClick={() => onContextAction( "open", item )}>
                                 <ExternalLink className="mr-2 h-4 w-4" /> Open
                             </DropdownMenuItem>

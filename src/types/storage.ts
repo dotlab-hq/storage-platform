@@ -52,6 +52,7 @@ export type ShareLinkInfo = {
 }
 
 export type ContextMenuAction =
+    | "select"
     | "rename"
     | "move"
     | "share"

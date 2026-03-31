@@ -17,7 +17,6 @@ type FileGridProps = {
     isLoading: boolean
     isTrash?: boolean
     selectedIds: Set<string>
-    onSelect: ( id: string, shiftKey: boolean ) => void
     onDoubleClick: ( item: StorageItem ) => void
     onContextAction: ( action: ContextMenuAction, item: StorageItem ) => void
     onRetryUpload?: ( id: string ) => void
@@ -34,7 +33,6 @@ export function FileGrid( {
     isLoading,
     isTrash = false,
     selectedIds,
-    onSelect,
     onDoubleClick,
     onContextAction,
     onRetryUpload,
@@ -158,7 +156,6 @@ export function FileGrid( {
                         <FileCard
                             item={item}
                             isSelected={selectedIds.has( item.id )}
-                            onSelect={onSelect}
                             onDoubleClick={onDoubleClick}
                             onContextAction={onContextAction}
                             isRenaming={renamingItemId === item.id}

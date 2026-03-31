@@ -131,7 +131,6 @@ function StoragePage() {
               uploads={storage.uploads}
               isLoading={storage.isLoading}
               selectedIds={selection.selectedIds}
-              onSelect={( id, shift ) => selection.select( id, shift )}
               onBoxSelect={( ids, append ) => selection.selectMany( ids, append )}
               onDoubleClick={actions.handleDoubleClick}
               onContextAction={actions.handleContextAction}
