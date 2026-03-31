@@ -1,14 +1,21 @@
-import { useCallback, useRef } from "react"
+import { useCallback, useEffect, useRef } from "react"
 import { FileCard } from "./file-card"
 import { FileContextMenu } from "./file-context-menu"
 import { UploadingCard } from "./uploading-card"
 import { SkeletonGrid } from "./skeleton-card"
+import { FileGridEmptyState } from "./file-grid-empty-state"
 import { useBoxSelection } from "@/hooks/use-box-selection"
 import type { StorageItem, UploadingFile, ContextMenuAction } from "@/types/storage"
 
-function isAppendModifierPressed( event: React.MouseEvent<HTMLDivElement> ) {
+function isAppendModifierPressed( event: { metaKey: boolean; ctrlKey: boolean } ) {
     const isMac = typeof navigator !== "undefined" && navigator.platform.toLowerCase().includes( "mac" )
     return isMac ? event.metaKey : event.ctrlKey
+}
+
+type BoxSelectCommitContext = {
+    completeSelection: ( itemElements: HTMLElement[] ) => string[]
+    cancelSelection: () => void
+    onBoxSelect?: ( ids: string[], append: boolean ) => void
 }
 
 type FileGridProps = {
@@ -44,6 +51,11 @@ export function FileGrid( {
 }: FileGridProps ) {
     const containerRef = useRef<HTMLDivElement | null>( null )
     const didBoxSelectRef = useRef( false )
+    const boxSelectCommitContextRef = useRef<BoxSelectCommitContext>( {
+        completeSelection: () => [],
+        cancelSelection: () => undefined,
+        onBoxSelect: undefined,
+    } )
     const {
         isSelecting,
         selectionRect,
@@ -76,21 +88,49 @@ export function FileGrid( {
         updateSelection( event.clientX, event.clientY )
     }, [isSelecting, updateSelection] )
 
-    const commitBoxSelection = useCallback( ( event: React.MouseEvent<HTMLDivElement> ) => {
-        if ( !isSelecting ) return
+    const commitBoxSelection = useCallback( ( append: boolean ) => {
         const root = containerRef.current
         if ( !root ) {
-            cancelSelection()
+            boxSelectCommitContextRef.current.cancelSelection()
             return
         }
         const elements = Array.from(
             root.querySelectorAll<HTMLElement>( "[data-storage-item-id]" )
         )
-        const ids = completeSelection( elements )
-        onBoxSelect?.( ids, event.shiftKey || isAppendModifierPressed( event ) )
+        const ids = boxSelectCommitContextRef.current.completeSelection( elements )
+        boxSelectCommitContextRef.current.onBoxSelect?.( ids, append )
         didBoxSelectRef.current = true
-        cancelSelection()
-    }, [cancelSelection, completeSelection, isSelecting, onBoxSelect] )
+        boxSelectCommitContextRef.current.cancelSelection()
+    }, [] )
+
+    useEffect( () => {
+        boxSelectCommitContextRef.current = {
+            completeSelection,
+            cancelSelection,
+            onBoxSelect,
+        }
+    }, [cancelSelection, completeSelection, onBoxSelect] )
+
+    useEffect( () => {
+        if ( !isSelecting ) return
+
+        const handleWindowMouseMove = ( event: MouseEvent ) => {
+            updateSelection( event.clientX, event.clientY )
+        }
+
+        const handleWindowMouseUp = ( event: MouseEvent ) => {
+            const append = event.shiftKey || isAppendModifierPressed( event )
+            commitBoxSelection( append )
+        }
+
+        window.addEventListener( "mousemove", handleWindowMouseMove )
+        window.addEventListener( "mouseup", handleWindowMouseUp )
+
+        return () => {
+            window.removeEventListener( "mousemove", handleWindowMouseMove )
+            window.removeEventListener( "mouseup", handleWindowMouseUp )
+        }
+    }, [commitBoxSelection, isSelecting, updateSelection] )
 
     if ( isLoading ) {
         return <SkeletonGrid count={12} />
@@ -99,33 +139,7 @@ export function FileGrid( {
     const activeUploads = uploads.filter( ( u ) => u.status !== "completed" )
     const hasContent = items.length > 0 || activeUploads.length > 0
 
-    if ( !hasContent ) {
-        return (
-            <div className="flex flex-col items-center justify-center py-20 text-center">
-                <div className="bg-muted mb-4 rounded-full p-4">
-                    <svg
-                        className="text-muted-foreground h-8 w-8"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={1.5}
-                            d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
-                        />
-                    </svg>
-                </div>
-                <h3 className="text-foreground mb-1 text-sm font-medium">
-                    No files yet
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                    Upload files or create a folder to get started
-                </p>
-            </div>
-        )
-    }
+    if ( !hasContent ) return <FileGridEmptyState />
 
     return (
         <div
@@ -133,7 +147,6 @@ export function FileGrid( {
             className="relative"
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
-            onMouseUp={commitBoxSelection}
             onClick={( event ) => {
                 if ( didBoxSelectRef.current ) {
                     event.stopPropagation()
