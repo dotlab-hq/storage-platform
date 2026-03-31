@@ -58,14 +58,15 @@ export async function getProviderClientById( providerId: string | null ): Promis
     if ( !providerId ) {
         return fromEnvironment()
     }
-    const [provider] = await db
+    const providerRows = await db
         .select()
         .from( storageProvider )
         .where( and( eq( storageProvider.id, providerId ), eq( storageProvider.isActive, true ) ) )
         .limit( 1 )
-    if ( !provider ) {
+    if ( providerRows.length === 0 ) {
         throw new Error( "Storage provider not found or inactive" )
     }
+    const provider = providerRows[0]
     return fromProviderRow( provider )
 }
 
@@ -82,12 +83,12 @@ export async function selectProviderForUpload( incomingFileSize: number ): Promi
     const usageRows = await db
         .select( {
             providerId: file.providerId,
-            usedBytes: sql<number>`COALESCE(SUM(${file.sizeInBytes}), 0)::bigint`,
+            usedBytes: sql<number>`COALESCE(SUM(${file.sizeInBytes}), 0)::int8`,
         } )
         .from( file )
         .where( and( eq( file.isDeleted, false ), isNotNull( file.providerId ) ) )
         .groupBy( file.providerId )
-    const usageByProvider = new Map( usageRows.map( ( row ) => [row.providerId ?? "", row.usedBytes ?? 0] ) )
+    const usageByProvider = new Map( usageRows.map( ( row ) => [row.providerId ?? "", row.usedBytes] ) )
 
     const eligible = providers
         .map( ( provider ) => {

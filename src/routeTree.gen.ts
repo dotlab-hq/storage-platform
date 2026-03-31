@@ -170,8 +170,8 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/share/$token': typeof ShareTokenRoute
-  '/auth/': typeof AuthIndexRoute
   '/admin/': typeof AdminIndexRoute
+  '/auth/': typeof AuthIndexRoute
   '/recent/': typeof RecentIndexRoute
   '/shared/': typeof SharedIndexRoute
   '/trash/': typeof TrashIndexRoute
@@ -198,8 +198,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/share/$token': typeof ShareTokenRoute
-  '/auth': typeof AuthIndexRoute
   '/admin': typeof AdminIndexRoute
+  '/auth': typeof AuthIndexRoute
   '/recent': typeof RecentIndexRoute
   '/shared': typeof SharedIndexRoute
   '/trash': typeof TrashIndexRoute
@@ -227,8 +227,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/share/$token': typeof ShareTokenRoute
-  '/auth/': typeof AuthIndexRoute
   '/admin/': typeof AdminIndexRoute
+  '/auth/': typeof AuthIndexRoute
   '/recent/': typeof RecentIndexRoute
   '/shared/': typeof SharedIndexRoute
   '/trash/': typeof TrashIndexRoute
@@ -257,8 +257,8 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/share/$token'
-    | '/auth/'
     | '/admin/'
+    | '/auth/'
     | '/recent/'
     | '/shared/'
     | '/trash/'
@@ -285,8 +285,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/share/$token'
-    | '/auth'
     | '/admin'
+    | '/auth'
     | '/recent'
     | '/shared'
     | '/trash'
@@ -313,8 +313,8 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/share/$token'
-    | '/auth/'
     | '/admin/'
+    | '/auth/'
     | '/recent/'
     | '/shared/'
     | '/trash/'
@@ -342,8 +342,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ShareTokenRoute: typeof ShareTokenRoute
-  AuthIndexRoute: typeof AuthIndexRoute
   AdminIndexRoute: typeof AdminIndexRoute
+  AuthIndexRoute: typeof AuthIndexRoute
   RecentIndexRoute: typeof RecentIndexRoute
   SharedIndexRoute: typeof SharedIndexRoute
   TrashIndexRoute: typeof TrashIndexRoute
@@ -558,8 +558,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ShareTokenRoute: ShareTokenRoute,
-  AuthIndexRoute: AuthIndexRoute,
   AdminIndexRoute: AdminIndexRoute,
+  AuthIndexRoute: AuthIndexRoute,
   RecentIndexRoute: RecentIndexRoute,
   SharedIndexRoute: SharedIndexRoute,
   TrashIndexRoute: TrashIndexRoute,

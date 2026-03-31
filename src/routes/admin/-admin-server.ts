@@ -32,26 +32,21 @@ export const createStorageProviderFn = createServerFn( { method: "POST" } )
     .inputValidator( CreateProviderSchema )
     .handler( async ( { data } ) => {
         await requireAdminUser()
-        try {
-            const [provider] = await db
-                .insert( storageProvider )
-                .values( {
-                    name: data.name,
-                    endpoint: data.endpoint,
-                    region: data.region,
-                    bucketName: data.bucketName,
-                    accessKeyIdEncrypted: encryptProviderSecret( data.accessKeyId ),
-                    secretAccessKeyEncrypted: encryptProviderSecret( data.secretAccessKey ),
-                    storageLimitBytes: data.storageLimitBytes,
-                    isActive: data.isActive,
-                } )
-                .returning( {
-                    id: storageProvider.id,
-                    name: storageProvider.name,
-                } )
-            return { success: true, provider }
-        } catch ( error ) {
-            const message = error instanceof Error ? error.message : "Failed to create storage provider"
-            throw new Error( message )
-        }
+        const [provider] = await db
+            .insert( storageProvider )
+            .values( {
+                name: data.name,
+                endpoint: data.endpoint,
+                region: data.region,
+                bucketName: data.bucketName,
+                accessKeyIdEncrypted: encryptProviderSecret( data.accessKeyId ),
+                secretAccessKeyEncrypted: encryptProviderSecret( data.secretAccessKey ),
+                storageLimitBytes: data.storageLimitBytes,
+                isActive: data.isActive,
+            } )
+            .returning( {
+                id: storageProvider.id,
+                name: storageProvider.name,
+            } )
+        return { success: true, provider }
     } )

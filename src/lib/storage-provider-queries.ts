@@ -4,6 +4,9 @@ import { storageProvider } from "@/db/schema/storage-provider"
 import { count, eq, sql, sum } from "drizzle-orm"
 
 const FALLBACK_PROVIDER_NAME = "Default Provider"
+const FALLBACK_PROVIDER_BUCKET_NAME = process.env.S3_BUCKET_NAME || "dot-storage"
+const FALLBACK_PROVIDER_REGION = process.env.S3_REGION || "not-configured"
+const FALLBACK_PROVIDER_ENDPOINT = process.env.S3_ENDPOINT || "not-configured"
 
 export async function listProvidersWithUsage() {
     const providers = await db
@@ -28,8 +31,8 @@ export async function listProvidersWithUsage() {
         .where( eq( file.isDeleted, false ) )
         .groupBy( file.providerId )
 
-    const usageMap = new Map( usageByProvider.map( ( row ) => [row.providerId ?? "unassigned", row.usedBytes ?? 0] ) )
-    const defaultUsed = usageMap.get( "unassigned" ) ?? 0
+    const usageMap = new Map( usageByProvider.map( ( row ) => [row.providerId ?? "unassigned", row.usedBytes] ) )
+    const defaultUsed = usageMap.get( "unassigned" ) || 0
 
     const mappedProviders = providers.map( ( provider ) => ( {
         ...provider,
@@ -39,9 +42,9 @@ export async function listProvidersWithUsage() {
         {
             id: "default-provider",
             name: FALLBACK_PROVIDER_NAME,
-            region: process.env.S3_REGION ?? "unknown",
-            endpoint: process.env.S3_ENDPOINT ?? "unknown",
-            bucketName: process.env.S3_BUCKET_NAME ?? "dot-storage",
+            region: FALLBACK_PROVIDER_REGION,
+            endpoint: FALLBACK_PROVIDER_ENDPOINT,
+            bucketName: FALLBACK_PROVIDER_BUCKET_NAME,
             storageLimitBytes: Number.MAX_SAFE_INTEGER,
             isActive: true,
             createdAt: new Date(),
@@ -64,10 +67,13 @@ export async function getStorageAdminSummary() {
         .select( { total: sum( file.sizeInBytes ).mapWith( Number ) } )
         .from( file )
         .where( eq( file.isDeleted, false ) )
+    const providerCount = providerCountRow.count + 1
+    const userCount = userCountRows.rows[0].count
+    const totalUsedStorageBytes = totalUsedRow.total || 0
     return {
-        providerCount: ( providerCountRow?.count ?? 0 ) + 1,
-        userCount: userCountRows.rows[0]?.count ?? 0,
-        totalUsedStorageBytes: totalUsedRow?.total ?? 0,
+        providerCount,
+        userCount,
+        totalUsedStorageBytes,
     }
 }
 

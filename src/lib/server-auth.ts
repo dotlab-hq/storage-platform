@@ -1,6 +1,6 @@
 import { auth } from "@/lib/auth"
 import { getRequest } from "@tanstack/react-start/server"
-import { user } from "@/db/schema/auth-schema"
+import type { user } from "@/db/schema/auth-schema"
 
 type AuthUser = typeof user.$inferSelect
 export type AuthenticatedUser = Pick<AuthUser, "id" | "email" | "name" | "isAdmin">
@@ -21,9 +21,9 @@ export async function getAuthenticatedUser(): Promise<AuthenticatedUser> {
 }
 
 export async function requireAdminUser(): Promise<AuthenticatedUser> {
-    const user = await getAuthenticatedUser()
-    if ( !user.isAdmin ) {
+    const currentUser = await getAuthenticatedUser()
+    if ( !currentUser.isAdmin ) {
         throw new Error( "Forbidden: admin access required" )
     }
-    return user
+    return currentUser
 }

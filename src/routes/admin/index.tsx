@@ -9,13 +9,7 @@ import { Button } from "@/components/ui/button"
 import { toast } from "@/components/ui/sonner"
 import { createStorageProviderFn, getAdminDashboardDataFn } from "./-admin-server"
 import { MetricCard, ProvidersPanel, UsersPanel } from "@/components/admin/dashboard-panels"
-import type { AdminSummary } from "@/lib/storage-provider-queries"
-
-type AdminData = {
-    summary: AdminSummary
-    providers: Awaited<ReturnType<typeof getAdminDashboardDataFn>>["providers"]
-    users: Awaited<ReturnType<typeof getAdminDashboardDataFn>>["users"]
-}
+import { formatBytes } from "@/lib/format-bytes"
 
 const emptyProviderForm = {
     name: "",
@@ -33,12 +27,29 @@ export const Route = createFileRoute( "/admin/" )( {
 } )
 
 function AdminDashboardPage() {
-    const initial = Route.useLoaderData() as AdminData
+    const initial = Route.useLoaderData()
     const [data, setData] = useState( initial )
     const [isSaving, setIsSaving] = useState( false )
     const [form, setForm] = useState( emptyProviderForm )
+    const [storageLimitInput, setStorageLimitInput] = useState( String( emptyProviderForm.storageLimitBytes ) )
 
     const submitProvider = async () => {
+        const parsedLimit = Number( storageLimitInput )
+        if ( !Number.isFinite( parsedLimit ) || parsedLimit <= 0 ) {
+            toast.error( "Storage limit must be a positive number" )
+            return
+        }
+        if (
+            !form.name.trim() ||
+            !form.endpoint.trim() ||
+            !form.region.trim() ||
+            !form.bucketName.trim() ||
+            !form.accessKeyId.trim() ||
+            !form.secretAccessKey.trim()
+        ) {
+            toast.error( "Please fill in all provider fields" )
+            return
+        }
         const optimisticProviderCount = data.summary.providerCount + 1
         setIsSaving( true )
         setData( ( prev ) => ( {
@@ -47,12 +58,27 @@ function AdminDashboardPage() {
                 ...prev.summary,
                 providerCount: optimisticProviderCount,
             },
+            providers: [
+                ...prev.providers,
+                {
+                    id: `optimistic-${Date.now()}`,
+                    name: form.name || "New Provider",
+                    region: form.region || "pending",
+                    endpoint: form.endpoint || "pending",
+                    bucketName: form.bucketName || "pending",
+                    storageLimitBytes: parsedLimit,
+                    isActive: true,
+                    createdAt: new Date(),
+                    usedStorageBytes: 0,
+                },
+            ],
         } ) )
         try {
-            await createStorageProviderFn( { data: { ...form, isActive: true } } )
+            await createStorageProviderFn( { data: { ...form, storageLimitBytes: parsedLimit, isActive: true } } )
             const refreshed = await getAdminDashboardDataFn()
             setData( refreshed )
             setForm( emptyProviderForm )
+            setStorageLimitInput( String( emptyProviderForm.storageLimitBytes ) )
             toast.success( "Storage provider added" )
         } catch ( error ) {
             const latest = await getAdminDashboardDataFn()
@@ -95,11 +121,16 @@ function AdminDashboardPage() {
                                 <Field label="Region" value={form.region} onChange={( value ) => setForm( ( prev ) => ( { ...prev, region: value } ) )} />
                                 <Field label="Bucket Name" value={form.bucketName} onChange={( value ) => setForm( ( prev ) => ( { ...prev, bucketName: value } ) )} />
                                 <Field label="Access Key ID" value={form.accessKeyId} onChange={( value ) => setForm( ( prev ) => ( { ...prev, accessKeyId: value } ) )} />
-                                <Field label="Secret Access Key" value={form.secretAccessKey} onChange={( value ) => setForm( ( prev ) => ( { ...prev, secretAccessKey: value } ) )} />
+                                <Field
+                                    label="Secret Access Key"
+                                    value={form.secretAccessKey}
+                                    type="password"
+                                    onChange={( value ) => setForm( ( prev ) => ( { ...prev, secretAccessKey: value } ) )}
+                                />
                                 <Field
                                     label="Storage Limit (bytes)"
-                                    value={String( form.storageLimitBytes )}
-                                    onChange={( value ) => setForm( ( prev ) => ( { ...prev, storageLimitBytes: Number( value ) || 0 } ) )}
+                                    value={storageLimitInput}
+                                    onChange={setStorageLimitInput}
                                 />
                                 <div className="flex items-end">
                                     <Button onClick={() => void submitProvider()} disabled={isSaving}>
@@ -115,18 +146,21 @@ function AdminDashboardPage() {
     )
 }
 
-function Field( { label, value, onChange }: { label: string; value: string; onChange: (value: string) => void } ) {
+function Field( {
+    label,
+    value,
+    onChange,
+    type = "text",
+}: {
+    label: string
+    value: string
+    onChange: (value: string) => void
+    type?: "text" | "password"
+} ) {
     return (
         <div className="space-y-1">
             <Label>{label}</Label>
-            <Input value={value} onChange={( event ) => onChange( event.target.value )} />
+            <Input type={type} value={value} onChange={( event ) => onChange( event.target.value )} />
         </div>
     )
-}
-
-function formatBytes( bytes: number ) {
-    if ( bytes < 1024 ) return `${bytes} B`
-    if ( bytes < 1024 * 1024 ) return `${( bytes / 1024 ).toFixed( 1 )} KB`
-    if ( bytes < 1024 * 1024 * 1024 ) return `${( bytes / ( 1024 * 1024 ) ).toFixed( 1 )} MB`
-    return `${( bytes / ( 1024 * 1024 * 1024 ) ).toFixed( 1 )} GB`
 }

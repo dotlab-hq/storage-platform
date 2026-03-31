@@ -40,7 +40,6 @@ async function fetchPresignedUrl(
  * Returns the newly-created file record.
  */
 async function registerFileInDb(
-    userId: string,
     fileName: string,
     objectKey: string,
     mimeType: string,
@@ -51,7 +50,7 @@ async function registerFileInDb(
     const res = await fetch( "/api/storage/register-file", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify( { userId, fileName, objectKey, mimeType, fileSize, parentFolderId, providerId } ),
+        body: JSON.stringify( { fileName, objectKey, mimeType, fileSize, parentFolderId, providerId } ),
     } )
     const data = ( await res.json() ) as RegisterResponse
     if ( !res.ok || data.error || !data.file ) {
@@ -115,7 +114,7 @@ export async function uploadFileToS3(
     } )
 
     // Step 3: Register file in database and return file info
-    return registerFileInDb( userId, file.name, objectKey, contentType, file.size, folderId, providerId )
+    return registerFileInDb( file.name, objectKey, contentType, file.size, folderId, providerId )
 }
 
 /**

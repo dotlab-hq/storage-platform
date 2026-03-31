@@ -1,6 +1,6 @@
-import { relations } from "drizzle-orm";
-import { bigint, boolean, index, text, timestamp, type AnyPgColumn, check } from "drizzle-orm/pg-core";
-import { sql } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
+import { bigint, boolean, index, text, timestamp, check } from "drizzle-orm/pg-core";
+import type { AnyPgColumn } from "drizzle-orm/pg-core";
 import { user } from "./auth-schema";
 import { storageProvider } from "./storage-provider";
 import { schema } from "./schema";

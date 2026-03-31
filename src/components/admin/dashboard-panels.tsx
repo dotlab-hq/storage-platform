@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge"
 import type { AdminProvider, AdminUser } from "@/lib/storage-provider-queries"
+import { formatBytes } from "@/lib/format-bytes"
 
 type MetricCardProps = { title: string; value: string | number }
 
@@ -55,11 +56,4 @@ export function UsersPanel( { users }: { users: AdminUser[] } ) {
             </div>
         </div>
     )
-}
-
-function formatBytes( bytes: number ) {
-    if ( bytes < 1024 ) return `${bytes} B`
-    if ( bytes < 1024 * 1024 ) return `${( bytes / 1024 ).toFixed( 1 )} KB`
-    if ( bytes < 1024 * 1024 * 1024 ) return `${( bytes / ( 1024 * 1024 ) ).toFixed( 1 )} MB`
-    return `${( bytes / ( 1024 * 1024 * 1024 ) ).toFixed( 1 )} GB`
 }

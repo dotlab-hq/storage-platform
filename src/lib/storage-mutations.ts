@@ -133,7 +133,7 @@ export async function getFilePresignedUrl( userId: string, fileId: string ) {
         import( "@/db/schema/storage" ),
     ] )
 
-    const [row] = await db.select( {
+    const fileRows = await db.select( {
         objectKey: storageFile.objectKey,
         mimeType: storageFile.mimeType,
         name: storageFile.name,
@@ -141,8 +141,10 @@ export async function getFilePresignedUrl( userId: string, fileId: string ) {
     } ).from( storageFile )
         .where( and( eq( storageFile.id, fileId ), eq( storageFile.userId, userId ) ) )
         .limit( 1 )
-
-    if ( !row ) throw new Error( "File not found" )
+    if ( fileRows.length === 0 ) {
+        throw new Error( "File not found" )
+    }
+    const row = fileRows[0]
 
     // Update lastOpenedAt
     await db.update( storageFile )
