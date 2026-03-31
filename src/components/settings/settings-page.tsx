@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useMemo, useState } from "react";
 import {
   getAuthSettingsFn,
@@ -24,7 +22,9 @@ export function SettingsPage() {
 
   const authMethods = useMemo(() => {
     if (!state) return [];
-    const providerMethods = state.accounts.map((account: { providerId?: string }) => account.providerId ?? "unknown");
+    const providerMethods = state.accounts
+      .map((account: { providerId?: string }) => account.providerId)
+      .filter((providerId): providerId is string => providerId !== undefined);
     const twoFactorMethod = state.user.twoFactorEnabled ? ["totp-2fa"] : [];
     return [...new Set([...providerMethods, ...twoFactorMethod])];
   }, [state]);

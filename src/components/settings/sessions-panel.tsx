@@ -1,6 +1,5 @@
-"use client";
-
 import { createClientOnlyFn } from "@tanstack/react-start";
+import { useNavigate } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { revokeSessionFn } from "@/lib/auth-methods";
 import { runSettingsAction } from "@/components/settings/settings-utils";
@@ -17,6 +16,7 @@ type Props = {
 const signOutClient = createClientOnlyFn(async () => authClient.signOut());
 
 export function SessionsPanel({ sessions, isBusy, setIsBusy, onRefresh }: Props) {
+  const navigate = useNavigate();
   return (
     <section className="rounded-lg border p-4 space-y-3">
       <h2 className="font-medium">Active sessions</h2>
@@ -28,7 +28,16 @@ export function SessionsPanel({ sessions, isBusy, setIsBusy, onRefresh }: Props)
           </Button>
         </div>
       ))}
-      <Button variant="outline" onClick={() => void signOutClient().then(() => window.location.reload())}>Sign out current session</Button>
+      <Button
+        variant="outline"
+        onClick={() =>
+          void signOutClient().then(() =>
+            navigate({ to: "/auth" }),
+          )
+        }
+      >
+        Sign out current session
+      </Button>
     </section>
   );
 }

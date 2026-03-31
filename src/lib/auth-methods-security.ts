@@ -1,5 +1,5 @@
 import { auth } from "@/lib/auth";
-import { requireSessionUser } from "@/lib/auth-guard";
+import { requireSessionUserByHeaders } from "@/lib/auth-guard";
 
 type RequestHeaders = Headers;
 type ApiResult<T> = { data?: T | null; error?: { message?: string } | null };
@@ -68,7 +68,7 @@ export async function verifyBackupCode(headers: RequestHeaders, code: string) {
 }
 
 export async function revokeSession(headers: RequestHeaders, token: string) {
-  const user = await requireSessionUser(new Request("http://local", { headers }));
+  const user = await requireSessionUserByHeaders(headers);
   const sessionsRes = await auth.api.listSessions({ headers });
   const sessions = (sessionsRes as ApiResult<Array<{ token?: string; userId?: string }>>).data ?? [];
   const owned = sessions.some((sessionItem) => sessionItem.token === token && sessionItem.userId === user.id);

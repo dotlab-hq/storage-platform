@@ -10,14 +10,17 @@ type SessionUser = {
 };
 
 export async function requireSessionUser(request: Request): Promise<SessionUser> {
+  return requireSessionUserByHeaders(request.headers);
+}
+
+export async function requireSessionUserByHeaders(headers: Headers): Promise<SessionUser> {
   const session = await auth.api.getSession({
-    headers: request.headers,
+    headers,
   });
 
   if (!session?.user) {
     throw new Error("Unauthorized");
   }
-
   return session.user as SessionUser;
 }
 

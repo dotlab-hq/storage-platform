@@ -1,5 +1,3 @@
-"use client";
-
 import { toast } from "@/components/ui/sonner";
 
 export async function runSettingsAction(

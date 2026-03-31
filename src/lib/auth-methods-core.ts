@@ -1,5 +1,5 @@
 import { auth } from "@/lib/auth";
-import { requireSessionUser } from "@/lib/auth-guard";
+import { requireSessionUserByHeaders } from "@/lib/auth-guard";
 
 type RequestHeaders = Headers;
 type ApiResult<T> = { data?: T | null; error?: { message?: string } | null };
@@ -12,7 +12,7 @@ function assertResult<T>(result: ApiResult<T>, fallback: string): T {
 }
 
 export async function getAuthSettings(headers: RequestHeaders) {
-  const user = await requireSessionUser(new Request("http://local", { headers }));
+  const user = await requireSessionUserByHeaders(headers);
   const [accountsRes, sessionsRes] = await Promise.all([
     auth.api.listUserAccounts({ headers }),
     auth.api.listSessions({ headers }),
