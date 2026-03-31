@@ -15,7 +15,22 @@ CREATE TABLE "dot-storage"."storage_provider" (
 --> statement-breakpoint
 ALTER TABLE "dot-storage"."user" ADD COLUMN "is_admin" boolean DEFAULT false NOT NULL;
 --> statement-breakpoint
+ALTER TABLE "dot-storage"."user" ADD COLUMN "role" text DEFAULT 'user' NOT NULL;
+--> statement-breakpoint
+ALTER TABLE "dot-storage"."user" ADD COLUMN "two_factor_enabled" boolean DEFAULT false NOT NULL;
+--> statement-breakpoint
 ALTER TABLE "dot-storage"."file" ADD COLUMN "provider_id" text;
+--> statement-breakpoint
+CREATE TABLE "dot-storage"."two_factor" (
+	"id" text PRIMARY KEY NOT NULL,
+	"secret" text NOT NULL,
+	"backup_codes" text NOT NULL,
+	"user_id" text NOT NULL
+);
+--> statement-breakpoint
+ALTER TABLE "dot-storage"."two_factor" ADD CONSTRAINT "two_factor_user_id_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "dot-storage"."user"("id") ON DELETE cascade ON UPDATE no action;
+--> statement-breakpoint
+CREATE INDEX "twoFactor_userId_idx" ON "dot-storage"."two_factor" USING btree ("user_id");
 --> statement-breakpoint
 ALTER TABLE "dot-storage"."file" ADD CONSTRAINT "file_provider_id_storage_provider_id_fk" FOREIGN KEY ("provider_id") REFERENCES "dot-storage"."storage_provider"("id") ON DELETE set null ON UPDATE no action;
 --> statement-breakpoint
