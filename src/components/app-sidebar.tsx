@@ -19,6 +19,7 @@ import { createClientOnlyFn } from "@tanstack/react-start"
 import { NavMain } from "@/components/nav-main"
 import { NavUser } from "@/components/nav-user"
 import { StorageQuota } from "@/components/storage/storage-quota"
+import { normalizeUserRole } from "@/lib/authz"
 import { authClient } from "@/lib/auth-client"
 import { useTheme } from "@/hooks/use-theme"
 import type { UserQuota } from "@/types/storage"
@@ -69,7 +70,7 @@ export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
     createClientOnlyFn( async () => {
       const { data: session, error } = await authClient.getSession()
       if ( error || !session?.user ) return null
-      const sessionRole = session.user.role === "admin" ? "admin" : "user"
+      const sessionRole = normalizeUserRole( session.user.role )
       return {
         name: session.user.name,
         email: session.user.email,

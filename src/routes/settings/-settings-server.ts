@@ -6,7 +6,7 @@ import { z } from "zod"
 
 const ProfileSchema = z.object( {
   name: z.string().trim().min( 1 ).max( 120 ),
-  image: z.string().trim().url().or( z.literal( "" ) ).optional(),
+  image: z.string().trim().url().or( z.literal( "" ) ),
 } )
 
 const PasswordSchema = z.object( {
@@ -29,6 +29,11 @@ type AuthAccountMethod = {
   createdAt: Date
 }
 
+type SessionUserWith2FA = {
+  image?: string | null
+  twoFactorEnabled?: boolean
+}
+
 const toErrorMessage = ( error: unknown, fallback: string ): string => {
   if ( error instanceof Error && error.message ) return error.message
   return fallback
@@ -40,10 +45,14 @@ export const getSettingsSnapshotFn = createServerFn( { method: "GET" } ).handler
   const headers = request.headers
   const [session, methods] = await Promise.all( [
     auth.api.getSession( { headers } ),
-    auth.api.listUserAccounts( { headers } ).catch( () => [] as AuthAccountMethod[] ),
+    auth.api.listUserAccounts( { headers } ).catch( ( error: unknown ) => {
+      console.error( "[settings] listUserAccounts failed", error )
+      return [] as AuthAccountMethod[]
+    } ),
   ] )
   if ( !session?.user ) throw new Error( "Unauthorized" )
-  const twoFactorEnabled = Boolean( ( session.user as { twoFactorEnabled?: boolean } ).twoFactorEnabled )
+  const sessionUser = session.user as SessionUserWith2FA
+  const twoFactorEnabled = Boolean( sessionUser.twoFactorEnabled )
   return {
     user: {
       id: currentUser.id,
@@ -76,7 +85,7 @@ export const updateProfileSettingsFn = createServerFn( { method: "POST" } )
         headers,
         body: {
           name: data.name,
-          image: data.image?.trim() ? data.image.trim() : null,
+          image: data.image.trim() ? data.image.trim() : null,
         },
       } )
       return { success: true, message: "Profile updated." }

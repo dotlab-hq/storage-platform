@@ -108,6 +108,19 @@ function SettingsPage() {
     }
   }
 
+  const rotateBackupCodes = async () => {
+    setIsUpdating2FA( true )
+    try {
+      const result = await rotateBackupCodesSettingsFn( { data: { password: twoFactorPassword } } )
+      setBackupCodes( result.backupCodes )
+      toast.success( "Backup codes rotated." )
+    } catch ( error ) {
+      toast.error( error instanceof Error ? error.message : "Failed to rotate backup codes." )
+    } finally {
+      setIsUpdating2FA( false )
+    }
+  }
+
   return (
     <div className="min-h-screen">
       <SidebarProvider>
@@ -121,8 +134,14 @@ function SettingsPage() {
           <div className="grid gap-6 p-4 lg:grid-cols-2">
             <section className="space-y-3 rounded-lg border p-4">
               <h2 className="text-base font-semibold">Profile</h2>
-              <Label>Name</Label><Input value={name} onChange={( e ) => setName( e.target.value )} />
-              <Label>Avatar URL</Label><Input value={image} onChange={( e ) => setImage( e.target.value )} />
+              <div className="space-y-1">
+                <Label>Name</Label>
+                <Input value={name} onChange={( e ) => setName( e.target.value )} />
+              </div>
+              <div className="space-y-1">
+                <Label>Avatar URL</Label>
+                <Input value={image} onChange={( e ) => setImage( e.target.value )} />
+              </div>
               <Button disabled={isSavingProfile} onClick={() => void saveProfile()}>{isSavingProfile ? "Saving..." : "Save profile"}</Button>
             </section>
             <section className="space-y-3 rounded-lg border p-4">
@@ -138,12 +157,22 @@ function SettingsPage() {
             </section>
             <section className="space-y-3 rounded-lg border p-4">
               <h2 className="text-base font-semibold">Two-Factor Authentication</h2>
-              <Label>Account password</Label><Input type="password" value={twoFactorPassword} onChange={( e ) => setTwoFactorPassword( e.target.value )} />
+              <div className="space-y-1">
+                <Label>Account password</Label>
+                <Input
+                  type="password"
+                  value={twoFactorPassword}
+                  onChange={( e ) => setTwoFactorPassword( e.target.value )}
+                />
+              </div>
               <div className="flex gap-2">
                 <Button disabled={isUpdating2FA || twoFactorEnabled} onClick={() => void enable2FA()}>Enable 2FA</Button>
                 <Button variant="outline" disabled={isUpdating2FA || !twoFactorEnabled} onClick={() => void disable2FA()}>Disable 2FA</Button>
               </div>
-              <Label>Authenticator code</Label><Input value={totpCode} onChange={( e ) => setTotpCode( e.target.value )} />
+              <div className="space-y-1">
+                <Label>Authenticator code</Label>
+                <Input value={totpCode} onChange={( e ) => setTotpCode( e.target.value )} />
+              </div>
               <Button variant="outline" disabled={isUpdating2FA || !twoFactorEnabled} onClick={() => void verify2FA()}>Verify code</Button>
               {backupCodes.length > 0 && (
                 <div className="rounded-md bg-muted p-3 text-xs">
@@ -153,19 +182,28 @@ function SettingsPage() {
             </section>
             <section className="space-y-3 rounded-lg border p-4">
               <h2 className="text-base font-semibold">Password</h2>
-              <Label>Current password</Label><Input type="password" value={passwords.currentPassword} onChange={( e ) => setPasswords( ( prev ) => ( { ...prev, currentPassword: e.target.value } ) )} />
-              <Label>New password</Label><Input type="password" value={passwords.newPassword} onChange={( e ) => setPasswords( ( prev ) => ( { ...prev, newPassword: e.target.value } ) )} />
+              <div className="space-y-1">
+                <Label>Current password</Label>
+                <Input
+                  type="password"
+                  value={passwords.currentPassword}
+                  onChange={( e ) => setPasswords( ( prev ) => ( { ...prev, currentPassword: e.target.value } ) )}
+                />
+              </div>
+              <div className="space-y-1">
+                <Label>New password</Label>
+                <Input
+                  type="password"
+                  value={passwords.newPassword}
+                  onChange={( e ) => setPasswords( ( prev ) => ( { ...prev, newPassword: e.target.value } ) )}
+                />
+              </div>
               <div className="flex gap-2">
                 <Button disabled={isChangingPassword} onClick={() => void changePassword()}>{isChangingPassword ? "Updating..." : "Change password"}</Button>
                 <Button
                   variant="outline"
                   disabled={isUpdating2FA || !twoFactorEnabled}
-                  onClick={() => void rotateBackupCodesSettingsFn( { data: { password: twoFactorPassword } } ).then( ( result ) => {
-                    setBackupCodes( result.backupCodes )
-                    toast.success( "Backup codes rotated." )
-                  } ).catch( ( error: unknown ) => {
-                    toast.error( error instanceof Error ? error.message : "Failed to rotate backup codes." )
-                  } )}
+                  onClick={() => void rotateBackupCodes()}
                 >
                   Rotate backup codes
                 </Button>
