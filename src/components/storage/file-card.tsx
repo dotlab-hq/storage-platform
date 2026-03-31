@@ -1,6 +1,6 @@
 import { useCallback } from "react"
 import {
-    MoreHorizontal, Pencil, Share2,
+    MoreHorizontal, Pencil, Share2, Check,
     Trash2, Download, ExternalLink, Link,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -19,9 +19,8 @@ import type { StorageItem, ContextMenuAction } from "@/types/storage"
 type FileCardProps = {
     item: StorageItem
     isSelected: boolean
-    onSelect: ( id: string, shiftKey: boolean ) => void
     onDoubleClick: ( item: StorageItem ) => void
-    onContextAction?: ( action: ContextMenuAction, item: StorageItem ) => void
+    onContextAction: ( action: ContextMenuAction, item: StorageItem ) => void
     isRenaming?: boolean
     onRename?: ( item: StorageItem, newName: string ) => void
     onRenameCancel?: () => void
@@ -29,7 +28,7 @@ type FileCardProps = {
 }
 
 export function FileCard( {
-    item, isSelected, onSelect, onDoubleClick,
+    item, isSelected, onDoubleClick,
     onContextAction, isRenaming = false, onRename, onRenameCancel, onDropOnFolder,
 }: FileCardProps ) {
     const isFolder = item.type === "folder"
@@ -73,51 +72,52 @@ export function FileCard( {
             data-file-card="true"
             data-storage-item-id={item.id}
             draggable={!isRenaming}
-            onClick={( e ) => onSelect( item.id, e.shiftKey )}
             onDoubleClick={() => onDoubleClick( item )}
             onDragStart={handleDragStart}
             onDragOver={handleDragOver}
             onDrop={handleDrop}
         >
-            {onContextAction && (
-                <div className="absolute right-2 top-2 opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button size="icon" variant="ghost" className="h-7 w-7"
-                                onClick={( e ) => e.stopPropagation()}>
-                                <MoreHorizontal className="h-4 w-4" />
-                            </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end" className="w-44">
-                            <DropdownMenuItem onClick={() => onContextAction( "open", item )}>
-                                <ExternalLink className="mr-2 h-4 w-4" /> Open
+            <div className="absolute right-2 top-2 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                        <Button size="icon" variant="ghost" className="h-7 w-7"
+                            onClick={( e ) => e.stopPropagation()}>
+                            <MoreHorizontal className="h-4 w-4" />
+                        </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="w-44">
+                        <DropdownMenuItem onClick={() => onContextAction( "select", item )}>
+                            <Check className="mr-2 h-4 w-4" /> {isSelected ? "Selected" : "Select"}
+                        </DropdownMenuItem>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem onClick={() => onContextAction( "open", item )}>
+                            <ExternalLink className="mr-2 h-4 w-4" /> Open
+                        </DropdownMenuItem>
+                        {item.type === "file" && (
+                            <DropdownMenuItem onClick={() => onContextAction( "download", item )}>
+                                <Download className="mr-2 h-4 w-4" /> Download
                             </DropdownMenuItem>
-                            {item.type === "file" && (
-                                <DropdownMenuItem onClick={() => onContextAction( "download", item )}>
-                                    <Download className="mr-2 h-4 w-4" /> Download
-                                </DropdownMenuItem>
-                            )}
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem onClick={() => onContextAction( "rename", item )}>
-                                <Pencil className="mr-2 h-4 w-4" /> Rename
+                        )}
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem onClick={() => onContextAction( "rename", item )}>
+                            <Pencil className="mr-2 h-4 w-4" /> Rename
+                        </DropdownMenuItem>
+                        {item.type === "file" && (
+                            <DropdownMenuItem onClick={() => onContextAction( "share", item )}>
+                                <Share2 className="mr-2 h-4 w-4" /> Share
                             </DropdownMenuItem>
-                            {item.type === "file" && (
-                                <DropdownMenuItem onClick={() => onContextAction( "share", item )}>
-                                    <Share2 className="mr-2 h-4 w-4" /> Share
-                                </DropdownMenuItem>
-                            )}
-                            <DropdownMenuItem onClick={() => onContextAction( "copy-link", item )}>
-                                <Link className="mr-2 h-4 w-4" /> Copy Link
-                            </DropdownMenuItem>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem className="text-destructive focus:text-destructive"
-                                onClick={() => onContextAction( "delete", item )}>
-                                <Trash2 className="mr-2 h-4 w-4" /> Delete
-                            </DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
-                </div>
-            )}
+                        )}
+                        <DropdownMenuItem onClick={() => onContextAction( "copy-link", item )}>
+                            <Link className="mr-2 h-4 w-4" /> Copy Link
+                        </DropdownMenuItem>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem className="text-destructive focus:text-destructive"
+                            onClick={() => onContextAction( "delete", item )}>
+                            <Trash2 className="mr-2 h-4 w-4" /> Delete
+                        </DropdownMenuItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
+            </div>
 
             <div className={cn(
                 "mb-3 flex h-10 w-10 items-center justify-center rounded-lg transition-colors",

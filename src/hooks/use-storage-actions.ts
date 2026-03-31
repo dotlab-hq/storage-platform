@@ -108,6 +108,9 @@ export function useStorageActions( params: UseStorageActionsParams ) {
                 case "rename":
                     setRenamingItemId( item.id )
                     break
+                case "select":
+                    select( item.id, false )
+                    break
                 case "move":
                     select( item.id, false )
                     onMoveOpen()
