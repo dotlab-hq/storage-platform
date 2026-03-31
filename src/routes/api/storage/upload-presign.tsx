@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router"
-
-const BUCKET_NAME = "dot-storage"
+import { getAuthenticatedUser } from "@/lib/server-auth"
+import { selectProviderForUpload } from "@/lib/s3-provider-client"
 
 export const Route = createFileRoute( "/api/storage/upload-presign" )( {
     component: () => null,
@@ -8,16 +8,13 @@ export const Route = createFileRoute( "/api/storage/upload-presign" )( {
         handlers: {
             POST: async ( { request } ) => {
                 try {
+                    await getAuthenticatedUser()
                     const body = ( await request.json() ) as {
-                        userId?: string
                         objectKey?: string
                         contentType?: string
                         fileSize?: number
                     }
 
-                    if ( !body.userId || typeof body.userId !== "string" ) {
-                        return Response.json( { error: "Missing userId" }, { status: 400 } )
-                    }
                     if ( !body.objectKey || typeof body.objectKey !== "string" ) {
                         return Response.json( { error: "Missing objectKey" }, { status: 400 } )
                     }
@@ -28,30 +25,20 @@ export const Route = createFileRoute( "/api/storage/upload-presign" )( {
                         return Response.json( { error: "Invalid fileSize" }, { status: 400 } )
                     }
 
-                    const { PutObjectCommand, S3Client } = await import( "@aws-sdk/client-s3" )
+                    const { PutObjectCommand } = await import( "@aws-sdk/client-s3" )
                     const { getSignedUrl } = await import( "@aws-sdk/s3-request-presigner" )
-
-                    const s3Client = new S3Client( {
-                        region: process.env.S3_REGION,
-                        endpoint: process.env.S3_ENDPOINT,
-                        forcePathStyle: true,
-                        bucketEndpoint: false,
-                        credentials: {
-                            accessKeyId: process.env.S3_ACCESS_KEY_ID!,
-                            secretAccessKey: process.env.S3_SECRET_ACCESS_KEY!,
-                        },
-                    } )
+                    const provider = await selectProviderForUpload( body.fileSize )
 
                     const command = new PutObjectCommand( {
-                        Bucket: BUCKET_NAME,
+                        Bucket: provider.bucketName,
                         Key: body.objectKey,
                         ContentType: body.contentType,
                         ContentLength: body.fileSize,
                     } )
 
-                    const presignedUrl = await getSignedUrl( s3Client, command, { expiresIn: 3600 } )
+                    const presignedUrl = await getSignedUrl( provider.client, command, { expiresIn: 3600 } )
 
-                    return Response.json( { presignedUrl } )
+                    return Response.json( { presignedUrl, providerId: provider.providerId } )
                 } catch ( error ) {
                     console.error( "[Server] Upload presign error:", error )
                     const msg = error instanceof Error ? error.message : String( error )

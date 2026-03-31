@@ -34,6 +34,7 @@ export function NavUser( {
     name: string
     email: string
     avatar: string
+    isAdmin: boolean
   }
 } ) {
   const { isMobile } = useSidebar()

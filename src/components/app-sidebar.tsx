@@ -6,6 +6,7 @@ import {
   Clock,
   Share2,
   Trash2,
+  Shield,
   StoneIcon,
   Moon,
   Sun,
@@ -44,6 +45,7 @@ const defaultUser = {
   name: "shadcn",
   email: "m@example.com",
   avatar: "/avatars/shadcn.jpg",
+  isAdmin: false,
 }
 
 type AppSidebarProps = React.ComponentProps<typeof Sidebar> & {
@@ -58,6 +60,7 @@ const themeConfig = {
 
 export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
   const [navUser, setNavUser] = React.useState( defaultUser )
+  const [items, setItems] = React.useState( navItems )
   const { theme, setTheme } = useTheme()
 
   const getSessionUserRef = React.useRef(
@@ -68,6 +71,7 @@ export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
         name: session.user.name,
         email: session.user.email,
         avatar: session.user.image ?? "",
+        isAdmin: Boolean( session.user.isAdmin ),
       }
     } )
   )
@@ -75,7 +79,15 @@ export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
   React.useEffect( () => {
     let mounted = true
     void getSessionUserRef.current().then( ( sessionUser ) => {
-      if ( mounted && sessionUser ) setNavUser( sessionUser )
+      if ( mounted && sessionUser ) {
+        setNavUser( sessionUser )
+        if ( sessionUser.isAdmin ) {
+          setItems( ( prev ) => {
+            if ( prev.some( ( item ) => item.url === "/admin" ) ) return prev
+            return [...prev, { title: "Admin", url: "/admin", icon: Shield }]
+          } )
+        }
+      }
     } )
     return () => { mounted = false }
   }, [] )
@@ -103,7 +115,7 @@ export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
       </SidebarHeader>
 
       <SidebarContent>
-        <NavMain items={navItems} />
+        <NavMain items={items} />
       </SidebarContent>
 
       <SidebarFooter>

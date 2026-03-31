@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
+import { getAuthenticatedUser } from "@/lib/server-auth"
 
 export const Route = createFileRoute( "/api/storage/register-file" )( {
     component: () => null,
@@ -6,18 +7,16 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
         handlers: {
             POST: async ( { request } ) => {
                 try {
+                    const authUser = await getAuthenticatedUser()
                     const body = ( await request.json() ) as {
-                        userId?: string
                         fileName?: string
                         objectKey?: string
                         mimeType?: string
                         fileSize?: number
                         parentFolderId?: string | null
+                        providerId?: string | null
                     }
 
-                    if ( !body.userId || typeof body.userId !== "string" ) {
-                        return Response.json( { error: "Missing userId" }, { status: 400 } )
-                    }
                     if ( !body.fileName || typeof body.fileName !== "string" ) {
                         return Response.json( { error: "Missing fileName" }, { status: 400 } )
                     }
@@ -42,8 +41,9 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
                             objectKey: body.objectKey,
                             mimeType: body.mimeType || null,
                             sizeInBytes: body.fileSize,
-                            userId: body.userId,
+                            userId: authUser.id,
                             folderId: body.parentFolderId || null,
+                            providerId: body.providerId || null,
                         } )
                         .returning( {
                             id: storageFile.id,
@@ -60,7 +60,7 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
                         await db
                             .insert( userStorage )
                             .values( {
-                                userId: body.userId,
+                                userId: authUser.id,
                                 usedStorage: body.fileSize,
                             } )
                             .onConflictDoUpdate( {

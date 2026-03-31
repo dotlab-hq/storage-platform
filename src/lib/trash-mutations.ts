@@ -1,4 +1,5 @@
 import { eq, and } from "drizzle-orm"
+import { getProviderClientById } from "@/lib/s3-provider-client"
 
 export async function restoreItems(
     userId: string,
@@ -43,18 +44,7 @@ export async function permanentDeleteItems(
         import( "@/db/schema/storage" ),
     ] )
 
-    const { DeleteObjectCommand, S3Client } = await import( "@aws-sdk/client-s3" )
-
-    const s3Client = new S3Client( {
-        region: process.env.S3_REGION,
-        endpoint: process.env.S3_ENDPOINT,
-        forcePathStyle: true,
-        bucketEndpoint: false,
-        credentials: {
-            accessKeyId: process.env.S3_ACCESS_KEY_ID!,
-            secretAccessKey: process.env.S3_SECRET_ACCESS_KEY!,
-        },
-    } )
+    const { DeleteObjectCommand } = await import( "@aws-sdk/client-s3" )
 
     const fileIds: string[] = []
     const folderIds: string[] = []
@@ -67,27 +57,31 @@ export async function permanentDeleteItems(
 
     // Delete files from S3 + DB
     for ( const id of fileIds ) {
-        const [row] = await db.select( {
+        const fileRows = await db.select( {
             objectKey: storageFile.objectKey,
             sizeInBytes: storageFile.sizeInBytes,
+            providerId: storageFile.providerId,
         } )
             .from( storageFile )
             .where( and( eq( storageFile.id, id ), eq( storageFile.userId, userId ) ) )
             .limit( 1 )
-
-        if ( row ) {
-            try {
-                await s3Client.send( new DeleteObjectCommand( {
-                    Bucket: "dot-storage",
-                    Key: row.objectKey,
-                } ) )
-            } catch ( err ) {
-                console.error( `[Server] S3 delete failed for key=${row.objectKey}:`, err )
-            }
-            freedBytes += row.sizeInBytes
-            await db.delete( storageFile )
-                .where( and( eq( storageFile.id, id ), eq( storageFile.userId, userId ) ) )
+        if ( fileRows.length === 0 ) {
+            continue
         }
+        const row = fileRows[0]
+
+        try {
+            const provider = await getProviderClientById( row.providerId ?? null )
+            await provider.client.send( new DeleteObjectCommand( {
+                Bucket: provider.bucketName,
+                Key: row.objectKey,
+            } ) )
+        } catch ( err ) {
+            console.error( `[Server] S3 delete failed for key=${row.objectKey}:`, err )
+        }
+        freedBytes += row.sizeInBytes
+        await db.delete( storageFile )
+            .where( and( eq( storageFile.id, id ), eq( storageFile.userId, userId ) ) )
     }
 
     // Delete folders from DB
@@ -98,17 +92,19 @@ export async function permanentDeleteItems(
 
     // Update used storage
     if ( freedBytes > 0 ) {
-        const [currentStorage] = await db.select( { usedStorage: userStorage.usedStorage } )
+        const currentStorageRows = await db.select( { usedStorage: userStorage.usedStorage } )
             .from( userStorage )
             .where( eq( userStorage.userId, userId ) )
             .limit( 1 )
-
-        if ( currentStorage ) {
-            const newUsed = Math.max( 0, currentStorage.usedStorage - freedBytes )
-            await db.update( userStorage )
-                .set( { usedStorage: newUsed } )
-                .where( eq( userStorage.userId, userId ) )
+        if ( currentStorageRows.length === 0 ) {
+            return { deletedFiles: fileIds.length, deletedFolders: folderIds.length, freedBytes }
         }
+        const currentStorage = currentStorageRows[0]
+
+        const newUsed = Math.max( 0, currentStorage.usedStorage - freedBytes )
+        await db.update( userStorage )
+            .set( { usedStorage: newUsed } )
+            .where( eq( userStorage.userId, userId ) )
     }
 
     return { deletedFiles: fileIds.length, deletedFolders: folderIds.length, freedBytes }

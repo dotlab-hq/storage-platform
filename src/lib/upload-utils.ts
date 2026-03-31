@@ -3,7 +3,7 @@ import type React from "react"
 
 type UploadStateUpdater = React.Dispatch<React.SetStateAction<UploadingFile[]>>
 
-type PresignResponse = { presignedUrl?: string; error?: string }
+type PresignResponse = { presignedUrl?: string; providerId?: string | null; error?: string }
 type RegisterResponse = { file?: { id: string; name: string; mimeType: string | null; sizeInBytes: number; objectKey: string }; error?: string }
 
 export type CompletedFileInfo = {
@@ -19,21 +19,20 @@ export type CompletedFileInfo = {
  * Get a presigned URL for uploading a file to S3.
  */
 async function fetchPresignedUrl(
-    userId: string,
     objectKey: string,
     contentType: string,
     fileSize: number
-): Promise<string> {
+): Promise<{ presignedUrl: string; providerId: string | null }> {
     const res = await fetch( "/api/storage/upload-presign", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify( { userId, objectKey, contentType, fileSize } ),
+        body: JSON.stringify( { objectKey, contentType, fileSize } ),
     } )
     const data = ( await res.json() ) as PresignResponse
     if ( !res.ok || !data.presignedUrl ) {
         throw new Error( data.error ?? "Failed to get presigned URL" )
     }
-    return data.presignedUrl
+    return { presignedUrl: data.presignedUrl, providerId: data.providerId ?? null }
 }
 
 /**
@@ -41,17 +40,17 @@ async function fetchPresignedUrl(
  * Returns the newly-created file record.
  */
 async function registerFileInDb(
-    userId: string,
     fileName: string,
     objectKey: string,
     mimeType: string,
     fileSize: number,
-    parentFolderId: string | null
+    parentFolderId: string | null,
+    providerId: string | null
 ): Promise<CompletedFileInfo> {
     const res = await fetch( "/api/storage/register-file", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify( { userId, fileName, objectKey, mimeType, fileSize, parentFolderId } ),
+        body: JSON.stringify( { fileName, objectKey, mimeType, fileSize, parentFolderId, providerId } ),
     } )
     const data = ( await res.json() ) as RegisterResponse
     if ( !res.ok || data.error || !data.file ) {
@@ -88,7 +87,7 @@ export async function uploadFileToS3(
     const contentType = file.type || "application/octet-stream"
 
     // Step 1: Get presigned URL
-    const presignedUrl = await fetchPresignedUrl( userId, objectKey, contentType, file.size )
+    const { presignedUrl, providerId } = await fetchPresignedUrl( objectKey, contentType, file.size )
 
     // Step 2: Upload directly to S3
     await new Promise<void>( ( resolve, reject ) => {
@@ -115,7 +114,7 @@ export async function uploadFileToS3(
     } )
 
     // Step 3: Register file in database and return file info
-    return registerFileInDb( userId, file.name, objectKey, contentType, file.size, folderId )
+    return registerFileInDb( file.name, objectKey, contentType, file.size, folderId, providerId )
 }
 
 /**

@@ -1,4 +1,5 @@
 import { eq, and, inArray } from "drizzle-orm"
+import { getProviderClientById } from "@/lib/s3-provider-client"
 
 export async function touchFolderOpened( userId: string, folderId: string ) {
     const [{ db }, { folder }] = await Promise.all( [
@@ -132,41 +133,34 @@ export async function getFilePresignedUrl( userId: string, fileId: string ) {
         import( "@/db/schema/storage" ),
     ] )
 
-    const [row] = await db.select( {
+    const fileRows = await db.select( {
         objectKey: storageFile.objectKey,
         mimeType: storageFile.mimeType,
         name: storageFile.name,
+        providerId: storageFile.providerId,
     } ).from( storageFile )
         .where( and( eq( storageFile.id, fileId ), eq( storageFile.userId, userId ) ) )
         .limit( 1 )
-
-    if ( !row ) throw new Error( "File not found" )
+    if ( fileRows.length === 0 ) {
+        throw new Error( "File not found" )
+    }
+    const row = fileRows[0]
 
     // Update lastOpenedAt
     await db.update( storageFile )
         .set( { lastOpenedAt: new Date() } )
         .where( eq( storageFile.id, fileId ) )
 
-    const { GetObjectCommand, S3Client } = await import( "@aws-sdk/client-s3" )
+    const { GetObjectCommand } = await import( "@aws-sdk/client-s3" )
     const { getSignedUrl } = await import( "@aws-sdk/s3-request-presigner" )
-
-    const s3Client = new S3Client( {
-        region: process.env.S3_REGION,
-        endpoint: process.env.S3_ENDPOINT,
-        forcePathStyle: true,
-        bucketEndpoint: false,
-        credentials: {
-            accessKeyId: process.env.S3_ACCESS_KEY_ID!,
-            secretAccessKey: process.env.S3_SECRET_ACCESS_KEY!,
-        },
-    } )
+    const provider = await getProviderClientById( row.providerId ?? null )
 
     const command = new GetObjectCommand( {
-        Bucket: "dot-storage",
+        Bucket: provider.bucketName,
         Key: row.objectKey,
         ResponseContentDisposition: `inline; filename="${row.name}"`,
     } )
 
-    const url = await getSignedUrl( s3Client, command, { expiresIn: 3600 } )
+    const url = await getSignedUrl( provider.client, command, { expiresIn: 3600 } )
     return { url, name: row.name, mimeType: row.mimeType }
 }
