@@ -1,9 +1,11 @@
 import { betterAuth } from 'better-auth'
+import { admin, twoFactor } from "better-auth/plugins";
 import { tanstackStartCookies } from 'better-auth/tanstack-start'
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "@/db"; // your drizzle instance
 import * as schema from "@/db/schema/auth-schema"; // your drizzle schema
 import { userStorage } from "@/db/schema/storage";
+
 export const auth = betterAuth( {
   database: drizzleAdapter( db, {
     provider: "pg", // or "mysql", "sqlite"
@@ -39,5 +41,12 @@ export const auth = betterAuth( {
     },
   },
 
-  plugins: [tanstackStartCookies()],
+  plugins: [
+    tanstackStartCookies(),
+    admin( {
+      defaultRole: "user",
+      adminRoles: ["admin"],
+    } ),
+    twoFactor(),
+  ],
 } )

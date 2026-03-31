@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
+import { getAuthAwareStatus, requireSessionUser } from "@/lib/auth-guard"
 
 const BUCKET_NAME = "dot-storage"
 
@@ -9,15 +10,11 @@ export const Route = createFileRoute( "/api/storage/upload-presign" )( {
             POST: async ( { request } ) => {
                 try {
                     const body = ( await request.json() ) as {
-                        userId?: string
                         objectKey?: string
                         contentType?: string
                         fileSize?: number
                     }
-
-                    if ( !body.userId || typeof body.userId !== "string" ) {
-                        return Response.json( { error: "Missing userId" }, { status: 400 } )
-                    }
+                    await requireSessionUser( request )
                     if ( !body.objectKey || typeof body.objectKey !== "string" ) {
                         return Response.json( { error: "Missing objectKey" }, { status: 400 } )
                     }
@@ -55,7 +52,7 @@ export const Route = createFileRoute( "/api/storage/upload-presign" )( {
                 } catch ( error ) {
                     console.error( "[Server] Upload presign error:", error )
                     const msg = error instanceof Error ? error.message : String( error )
-                    return Response.json( { error: msg }, { status: 500 } )
+                    return Response.json( { error: msg }, { status: getAuthAwareStatus( error ) } )
                 }
             },
         },

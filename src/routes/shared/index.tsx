@@ -10,8 +10,12 @@ import { Share2 } from "lucide-react"
 import { SkeletonGrid } from "@/components/storage/skeleton-card"
 import { Badge } from "@/components/ui/badge"
 import { useQuota } from "@/hooks/use-quota"
+import { requireAuthBeforeLoad } from "@/lib/auth-route-guards"
 
-export const Route = createFileRoute( "/shared/" )( { component: SharedPage } )
+export const Route = createFileRoute( "/shared/" )( {
+    beforeLoad: requireAuthBeforeLoad,
+    component: SharedPage,
+} )
 
 function SharedPage() {
     const quota = useQuota()

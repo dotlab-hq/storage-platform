@@ -25,9 +25,13 @@ import { useBulkActions } from "@/hooks/use-bulk-actions"
 import { useTheme } from "@/hooks/use-theme"
 import { useFolderHistory } from "@/hooks/use-folder-history"
 import { parseShareToken } from "@/lib/share-navigation"
+import { requireAuthBeforeLoad } from "@/lib/auth-route-guards"
 import type { StorageItem } from "@/types/storage"
 
-export const Route = createFileRoute( "/" )( { component: StoragePage } )
+export const Route = createFileRoute( "/" )( {
+  beforeLoad: requireAuthBeforeLoad,
+  component: StoragePage,
+} )
 function StoragePage() {
   const navigate = useNavigate()
   const { toggleTheme } = useTheme()

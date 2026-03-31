@@ -6,6 +6,7 @@ import {
   Clock,
   Share2,
   Trash2,
+  Settings,
   StoneIcon,
   Moon,
   Sun,
@@ -38,6 +39,7 @@ const navItems = [
   { title: "Recent", url: "/recent", icon: Clock },
   { title: "Shared with Me", url: "/shared", icon: Share2 },
   { title: "Trash", url: "/trash", icon: Trash2 },
+  { title: "Settings", url: "/settings", icon: Settings },
 ]
 
 const defaultUser = {

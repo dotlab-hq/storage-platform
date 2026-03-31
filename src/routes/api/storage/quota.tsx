@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { eq } from "drizzle-orm"
+import { getAuthAwareStatus, requireSessionUser } from "@/lib/auth-guard"
 
 export const Route = createFileRoute( "/api/storage/quota" )( {
     component: () => null,
@@ -7,12 +8,8 @@ export const Route = createFileRoute( "/api/storage/quota" )( {
         handlers: {
             GET: async ( { request } ) => {
                 try {
-                    const url = new URL( request.url )
-                    const userId = url.searchParams.get( "userId" )
-
-                    if ( !userId ) {
-                        return Response.json( { error: "Missing userId" }, { status: 400 } )
-                    }
+                    const user = await requireSessionUser( request )
+                    const userId = user.id
 
                     const [{ db }, { userStorage }] = await Promise.all( [
                         import( "@/db" ),
@@ -55,7 +52,7 @@ export const Route = createFileRoute( "/api/storage/quota" )( {
                 } catch ( error ) {
                     console.error( "[Server] Quota error:", error )
                     const msg = error instanceof Error ? error.message : String( error )
-                    return Response.json( { error: msg }, { status: 500 } )
+                    return Response.json( { error: msg }, { status: getAuthAwareStatus( error ) } )
                 }
             },
         },

@@ -2,10 +2,14 @@ import { relations } from "drizzle-orm";
 import { text, timestamp, boolean, index } from "drizzle-orm/pg-core";
 import { schema } from "./schema";
 
+export const USER_ROLES = ["user", "admin"] as const;
+export type UserRole = ( typeof USER_ROLES )[number];
+
 export const user = schema.table("user", {
   id: text("id").primaryKey(),
   name: text("name").notNull(),
   email: text("email").notNull().unique(),
+  role: text("role").default("user").notNull(),
   
   emailVerified: boolean("email_verified").default(false).notNull(),
   image: text("image"),

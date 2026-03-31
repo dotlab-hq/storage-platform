@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { renameItem } from "@/lib/storage-mutations"
+import { getAuthAwareStatus, requireSessionUser } from "@/lib/auth-guard"
 
 export const Route = createFileRoute( "/api/storage/rename" )( {
     component: () => null,
@@ -8,17 +9,17 @@ export const Route = createFileRoute( "/api/storage/rename" )( {
             POST: async ( { request } ) => {
                 try {
                     const body = ( await request.json() ) as {
-                        userId?: string
                         itemId?: string
                         newName?: string
                         itemType?: "file" | "folder"
                     }
+                    const user = await requireSessionUser( request )
 
-                    if ( !body.userId || !body.itemId || !body.newName || !body.itemType ) {
+                    if ( !body.itemId || !body.newName || !body.itemType ) {
                         return Response.json( { error: "Missing required fields" }, { status: 400 } )
                     }
 
-                    const result = await renameItem( body.userId, body.itemId, body.newName.trim(), body.itemType )
+                    const result = await renameItem( user.id, body.itemId, body.newName.trim(), body.itemType )
                     if ( !result ) {
                         return Response.json( { error: "Item not found" }, { status: 404 } )
                     }
@@ -27,7 +28,7 @@ export const Route = createFileRoute( "/api/storage/rename" )( {
                 } catch ( error ) {
                     console.error( "[Server] Rename error:", error )
                     const msg = error instanceof Error ? error.message : String( error )
-                    return Response.json( { error: msg }, { status: 500 } )
+                    return Response.json( { error: msg }, { status: getAuthAwareStatus( error ) } )
                 }
             },
         },

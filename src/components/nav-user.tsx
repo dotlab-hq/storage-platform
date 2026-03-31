@@ -3,6 +3,7 @@
 import {
   ChevronsUpDown,
   LogOut,
+  Settings,
 } from "lucide-react"
 import { createClientOnlyFn } from "@tanstack/react-start"
 import { authClient } from "@/lib/auth-client"
@@ -81,7 +82,13 @@ export function NavUser( {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-
+            <DropdownMenuItem asChild>
+              <a href="/settings">
+                <Settings />
+                Settings
+              </a>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
 
             <DropdownMenuItem onClick={() => void logout()}>
               <LogOut />

@@ -13,8 +13,12 @@ import { TrashContent } from "@/components/storage/trash-content"
 import { useState } from "react"
 import { useTrashData } from "@/hooks/use-trash-data"
 import { useQuota } from "@/hooks/use-quota"
+import { requireAuthBeforeLoad } from "@/lib/auth-route-guards"
 
-export const Route = createFileRoute( "/trash/" )( { component: TrashPage } )
+export const Route = createFileRoute( "/trash/" )( {
+    beforeLoad: requireAuthBeforeLoad,
+    component: TrashPage,
+} )
 
 function TrashPage() {
     const quota = useQuota()

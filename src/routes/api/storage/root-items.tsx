@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 
 import { listRootItems } from "@/lib/storage-server"
+import { getAuthAwareStatus, requireSessionUser } from "@/lib/auth-guard"
 
 export const Route = createFileRoute( "/api/storage/root-items" )( {
     component: () => null,
@@ -8,19 +9,14 @@ export const Route = createFileRoute( "/api/storage/root-items" )( {
         handlers: {
             GET: async ( { request } ) => {
                 try {
-                    const url = new URL( request.url )
-                    const userId = url.searchParams.get( "userId" )
-
-                    if ( !userId ) {
-                        return Response.json( { error: "Missing userId" }, { status: 400 } )
-                    }
-
+                    const user = await requireSessionUser( request )
+                    const userId = user.id
                     const items = await listRootItems( userId )
                     return Response.json( items )
                 } catch ( error ) {
                     console.error( "[Server] Root items API error:", error )
                     const errorMessage = error instanceof Error ? error.message : String( error )
-                    return Response.json( { error: errorMessage }, { status: 500 } )
+                    return Response.json( { error: errorMessage }, { status: getAuthAwareStatus( error ) } )
                 }
             },
         },

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { listFolderItems, getFolderBreadcrumbs } from "@/lib/storage-queries"
 import { touchFolderOpened } from "@/lib/storage-mutations"
+import { getAuthAwareStatus, requireSessionUser } from "@/lib/auth-guard"
 
 export const Route = createFileRoute( "/api/storage/folder-items" )( {
     component: () => null,
@@ -9,12 +10,9 @@ export const Route = createFileRoute( "/api/storage/folder-items" )( {
             GET: async ( { request } ) => {
                 try {
                     const url = new URL( request.url )
-                    const userId = url.searchParams.get( "userId" )
+                    const user = await requireSessionUser( request )
+                    const userId = user.id
                     const folderId = url.searchParams.get( "folderId" )
-
-                    if ( !userId ) {
-                        return Response.json( { error: "Missing userId" }, { status: 400 } )
-                    }
 
                     const items = await listFolderItems( userId, folderId || null )
 
@@ -28,7 +26,7 @@ export const Route = createFileRoute( "/api/storage/folder-items" )( {
                 } catch ( error ) {
                     console.error( "[Server] Folder items error:", error )
                     const msg = error instanceof Error ? error.message : String( error )
-                    return Response.json( { error: msg }, { status: 500 } )
+                    return Response.json( { error: msg }, { status: getAuthAwareStatus( error ) } )
                 }
             },
         },

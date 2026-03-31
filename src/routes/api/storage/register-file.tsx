@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
+import { getAuthAwareStatus, requireSessionUser } from "@/lib/auth-guard"
 
 export const Route = createFileRoute( "/api/storage/register-file" )( {
     component: () => null,
@@ -7,17 +8,13 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
             POST: async ( { request } ) => {
                 try {
                     const body = ( await request.json() ) as {
-                        userId?: string
                         fileName?: string
                         objectKey?: string
                         mimeType?: string
                         fileSize?: number
                         parentFolderId?: string | null
                     }
-
-                    if ( !body.userId || typeof body.userId !== "string" ) {
-                        return Response.json( { error: "Missing userId" }, { status: 400 } )
-                    }
+                    const user = await requireSessionUser( request )
                     if ( !body.fileName || typeof body.fileName !== "string" ) {
                         return Response.json( { error: "Missing fileName" }, { status: 400 } )
                     }
@@ -42,7 +39,7 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
                             objectKey: body.objectKey,
                             mimeType: body.mimeType || null,
                             sizeInBytes: body.fileSize,
-                            userId: body.userId,
+                            userId: user.id,
                             folderId: body.parentFolderId || null,
                         } )
                         .returning( {
@@ -60,7 +57,7 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
                         await db
                             .insert( userStorage )
                             .values( {
-                                userId: body.userId,
+                                userId: user.id,
                                 usedStorage: body.fileSize,
                             } )
                             .onConflictDoUpdate( {
@@ -77,7 +74,7 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
                 } catch ( error ) {
                     console.error( "[Server] Register file error:", error )
                     const msg = error instanceof Error ? error.message : String( error )
-                    return Response.json( { error: msg }, { status: 500 } )
+                    return Response.json( { error: msg }, { status: getAuthAwareStatus( error ) } )
                 }
             },
         },

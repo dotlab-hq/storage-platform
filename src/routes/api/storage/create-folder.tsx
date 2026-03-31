@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 
 import { createNewFolder } from "@/lib/storage-server"
+import { getAuthAwareStatus, requireSessionUser } from "@/lib/auth-guard"
 
 export const Route = createFileRoute( "/api/storage/create-folder" )( {
     component: () => null,
@@ -9,21 +10,17 @@ export const Route = createFileRoute( "/api/storage/create-folder" )( {
             POST: async ( { request } ) => {
                 try {
                     const body = ( await request.json() ) as {
-                        userId?: string
                         name?: string
                         parentFolderId?: string | null
                     }
-
-                    if ( !body.userId || typeof body.userId !== "string" ) {
-                        return Response.json( { error: "Missing userId" }, { status: 400 } )
-                    }
+                    const user = await requireSessionUser( request )
 
                     if ( !body.name || typeof body.name !== "string" || body.name.trim().length === 0 ) {
                         return Response.json( { error: "Missing folder name" }, { status: 400 } )
                     }
 
                     const folder = await createNewFolder( {
-                        userId: body.userId,
+                        userId: user.id,
                         name: body.name.trim(),
                         parentFolderId: body.parentFolderId ?? null,
                     } )
@@ -32,7 +29,7 @@ export const Route = createFileRoute( "/api/storage/create-folder" )( {
                 } catch ( error ) {
                     console.error( "[Server] Create folder API error:", error )
                     const errorMessage = error instanceof Error ? error.message : String( error )
-                    return Response.json( { error: errorMessage }, { status: 500 } )
+                    return Response.json( { error: errorMessage }, { status: getAuthAwareStatus( error ) } )
                 }
             },
         },

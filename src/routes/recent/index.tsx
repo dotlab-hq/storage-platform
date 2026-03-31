@@ -15,6 +15,7 @@ import { authClient } from "@/lib/auth-client"
 import { toast } from "@/components/ui/sonner"
 import { encodeNavToken } from "@/lib/nav-token"
 import { useQuota } from "@/hooks/use-quota"
+import { requireAuthBeforeLoad } from "@/lib/auth-route-guards"
 
 type RecentFolder = { id: string; name: string; createdAt: string; parentFolderId: string | null; lastOpenedAt: string }
 type RecentFile = { id: string; name: string; sizeInBytes: number; mimeType: string | null; createdAt: string; lastOpenedAt: string }
@@ -33,7 +34,10 @@ const presignOnClient = createClientOnlyFn( async ( userId: string, fileId: stri
     return data.url!
 } )
 
-export const Route = createFileRoute( "/recent/" )( { component: RecentPage } )
+export const Route = createFileRoute( "/recent/" )( {
+    beforeLoad: requireAuthBeforeLoad,
+    component: RecentPage,
+} )
 
 function RecentPage() {
     const navigate = useNavigate()
