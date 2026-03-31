@@ -1,9 +1,14 @@
 import { auth } from "@/lib/auth"
 import { getRequest } from "@tanstack/react-start/server"
+import { isAdminRole, normalizeUserRole } from "@/lib/authz"
+import type { UserRole } from "@/lib/authz"
 import type { user } from "@/db/schema/auth-schema"
 
 type AuthUser = typeof user.$inferSelect
-export type AuthenticatedUser = Pick<AuthUser, "id" | "email" | "name" | "isAdmin">
+export type AuthenticatedUser = Pick<AuthUser, "id" | "email" | "name"> & {
+    role: UserRole
+    isAdmin: boolean
+}
 
 export async function getAuthenticatedUser(): Promise<AuthenticatedUser> {
     const request = getRequest()
@@ -12,11 +17,14 @@ export async function getAuthenticatedUser(): Promise<AuthenticatedUser> {
     if ( !session?.user ) {
         throw new Error( "Unauthorized" )
     }
+    const role = normalizeUserRole( session.user.role )
+    const isAdmin = isAdminRole( role )
     return {
         id: session.user.id,
         email: session.user.email,
         name: session.user.name,
-        isAdmin: Boolean( session.user.is_admin ),
+        role,
+        isAdmin,
     }
 }
 

@@ -7,6 +7,7 @@ import {
   Share2,
   Trash2,
   Shield,
+  Settings,
   StoneIcon,
   Moon,
   Sun,
@@ -18,6 +19,7 @@ import { createClientOnlyFn } from "@tanstack/react-start"
 import { NavMain } from "@/components/nav-main"
 import { NavUser } from "@/components/nav-user"
 import { StorageQuota } from "@/components/storage/storage-quota"
+import { normalizeUserRole } from "@/lib/authz"
 import { authClient } from "@/lib/auth-client"
 import { useTheme } from "@/hooks/use-theme"
 import type { UserQuota } from "@/types/storage"
@@ -39,6 +41,7 @@ const navItems = [
   { title: "Recent", url: "/recent", icon: Clock },
   { title: "Shared with Me", url: "/shared", icon: Share2 },
   { title: "Trash", url: "/trash", icon: Trash2 },
+  { title: "Settings", url: "/settings", icon: Settings },
 ]
 
 const defaultUser = {
@@ -67,11 +70,12 @@ export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
     createClientOnlyFn( async () => {
       const { data: session, error } = await authClient.getSession()
       if ( error || !session?.user ) return null
+      const sessionRole = normalizeUserRole( session.user.role )
       return {
         name: session.user.name,
         email: session.user.email,
         avatar: session.user.image ?? "",
-        isAdmin: Boolean( session.user.isAdmin ),
+        isAdmin: sessionRole === "admin",
       }
     } )
   )
