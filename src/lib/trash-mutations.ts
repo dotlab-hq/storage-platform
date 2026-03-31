@@ -1,4 +1,5 @@
 import { eq, and } from "drizzle-orm"
+import { getProviderClientById } from "@/lib/s3-provider-client"
 
 export async function restoreItems(
     userId: string,
@@ -43,18 +44,7 @@ export async function permanentDeleteItems(
         import( "@/db/schema/storage" ),
     ] )
 
-    const { DeleteObjectCommand, S3Client } = await import( "@aws-sdk/client-s3" )
-
-    const s3Client = new S3Client( {
-        region: process.env.S3_REGION,
-        endpoint: process.env.S3_ENDPOINT,
-        forcePathStyle: true,
-        bucketEndpoint: false,
-        credentials: {
-            accessKeyId: process.env.S3_ACCESS_KEY_ID!,
-            secretAccessKey: process.env.S3_SECRET_ACCESS_KEY!,
-        },
-    } )
+    const { DeleteObjectCommand } = await import( "@aws-sdk/client-s3" )
 
     const fileIds: string[] = []
     const folderIds: string[] = []
@@ -70,6 +60,7 @@ export async function permanentDeleteItems(
         const [row] = await db.select( {
             objectKey: storageFile.objectKey,
             sizeInBytes: storageFile.sizeInBytes,
+            providerId: storageFile.providerId,
         } )
             .from( storageFile )
             .where( and( eq( storageFile.id, id ), eq( storageFile.userId, userId ) ) )
@@ -77,8 +68,9 @@ export async function permanentDeleteItems(
 
         if ( row ) {
             try {
-                await s3Client.send( new DeleteObjectCommand( {
-                    Bucket: "dot-storage",
+                const provider = await getProviderClientById( row.providerId ?? null )
+                await provider.client.send( new DeleteObjectCommand( {
+                    Bucket: provider.bucketName,
                     Key: row.objectKey,
                 } ) )
             } catch ( err ) {

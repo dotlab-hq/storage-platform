@@ -14,6 +14,7 @@ import { Route as TrashIndexRouteImport } from './routes/trash/index'
 import { Route as SharedIndexRouteImport } from './routes/shared/index'
 import { Route as RecentIndexRouteImport } from './routes/recent/index'
 import { Route as AuthIndexRouteImport } from './routes/auth/index'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as ShareTokenRouteImport } from './routes/share/$token'
 import { Route as ApiStorageUploadPresignRouteImport } from './routes/api/storage/upload-presign'
 import { Route as ApiStorageTrashRestoreRouteImport } from './routes/api/storage/trash-restore'
@@ -58,6 +59,11 @@ const RecentIndexRoute = RecentIndexRouteImport.update({
 const AuthIndexRoute = AuthIndexRouteImport.update({
   id: '/auth/',
   path: '/auth/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShareTokenRoute = ShareTokenRouteImport.update({
@@ -165,6 +171,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/share/$token': typeof ShareTokenRoute
   '/auth/': typeof AuthIndexRoute
+  '/admin/': typeof AdminIndexRoute
   '/recent/': typeof RecentIndexRoute
   '/shared/': typeof SharedIndexRoute
   '/trash/': typeof TrashIndexRoute
@@ -192,6 +199,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/share/$token': typeof ShareTokenRoute
   '/auth': typeof AuthIndexRoute
+  '/admin': typeof AdminIndexRoute
   '/recent': typeof RecentIndexRoute
   '/shared': typeof SharedIndexRoute
   '/trash': typeof TrashIndexRoute
@@ -220,6 +228,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/share/$token': typeof ShareTokenRoute
   '/auth/': typeof AuthIndexRoute
+  '/admin/': typeof AdminIndexRoute
   '/recent/': typeof RecentIndexRoute
   '/shared/': typeof SharedIndexRoute
   '/trash/': typeof TrashIndexRoute
@@ -249,6 +258,7 @@ export interface FileRouteTypes {
     | '/'
     | '/share/$token'
     | '/auth/'
+    | '/admin/'
     | '/recent/'
     | '/shared/'
     | '/trash/'
@@ -276,6 +286,7 @@ export interface FileRouteTypes {
     | '/'
     | '/share/$token'
     | '/auth'
+    | '/admin'
     | '/recent'
     | '/shared'
     | '/trash'
@@ -303,6 +314,7 @@ export interface FileRouteTypes {
     | '/'
     | '/share/$token'
     | '/auth/'
+    | '/admin/'
     | '/recent/'
     | '/shared/'
     | '/trash/'
@@ -331,6 +343,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ShareTokenRoute: typeof ShareTokenRoute
   AuthIndexRoute: typeof AuthIndexRoute
+  AdminIndexRoute: typeof AdminIndexRoute
   RecentIndexRoute: typeof RecentIndexRoute
   SharedIndexRoute: typeof SharedIndexRoute
   TrashIndexRoute: typeof TrashIndexRoute
@@ -390,6 +403,13 @@ declare module '@tanstack/react-router' {
       path: '/auth'
       fullPath: '/auth/'
       preLoaderRoute: typeof AuthIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/share/$token': {
@@ -539,6 +559,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ShareTokenRoute: ShareTokenRoute,
   AuthIndexRoute: AuthIndexRoute,
+  AdminIndexRoute: AdminIndexRoute,
   RecentIndexRoute: RecentIndexRoute,
   SharedIndexRoute: SharedIndexRoute,
   TrashIndexRoute: TrashIndexRoute,

@@ -13,6 +13,7 @@ type FileItem = {
     mimeType: string | null
     sizeInBytes: number
     objectKey: string
+    providerId: string | null
 }
 
 type FolderItem = { id: string; name: string }
@@ -32,7 +33,7 @@ export const getShareAccessFn = createServerFn( { method: "GET" } )
 
         if ( result.type === "file" ) {
             const fileItem = result.item as FileItem
-            const presignedUrl = await getSharedFilePresignedUrl( fileItem.objectKey, fileItem.name )
+            const presignedUrl = await getSharedFilePresignedUrl( fileItem.objectKey, fileItem.name, fileItem.providerId )
             return {
                 type: "file" as const,
                 name: fileItem.name,
@@ -69,6 +70,6 @@ export const getShareDownloadUrlFn = createServerFn( { method: "GET" } )
         if ( !result ) throw new Error( "Share link not found, expired, or inactive" )
         if ( result.type !== "file" ) throw new Error( "Share link is not a file" )
         const fileItem = result.item as FileItem
-        const url = await getSharedFileDownloadUrl( fileItem.objectKey, fileItem.name )
+        const url = await getSharedFileDownloadUrl( fileItem.objectKey, fileItem.name, fileItem.providerId )
         return { url, name: fileItem.name }
     } )

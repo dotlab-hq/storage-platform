@@ -2,6 +2,7 @@ import { relations } from "drizzle-orm";
 import { bigint, boolean, index, text, timestamp, type AnyPgColumn, check } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
 import { user } from "./auth-schema";
+import { storageProvider } from "./storage-provider";
 import { schema } from "./schema";
 
 const DEFAULT_ALLOCATED_STORAGE_BYTES = 250 * 1024 * 1024;
@@ -48,6 +49,9 @@ export const file = schema.table(
         userId: text( "user_id" )
             .notNull()
             .references( () => user.id, { onDelete: "cascade" } ),
+        providerId: text( "provider_id" ).references( () => storageProvider.id, {
+            onDelete: "set null",
+        } ),
         folderId: text( "folder_id" ).references( () => folder.id, {
             onDelete: "set null",
         } ),
@@ -62,6 +66,7 @@ export const file = schema.table(
     },
     ( table ) => [
         index( "file_userId_idx" ).on( table.userId ),
+        index( "file_providerId_idx" ).on( table.providerId ),
         index( "file_folderId_idx" ).on( table.folderId ),
     ],
 );

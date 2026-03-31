@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
+import { getAuthenticatedUser } from "@/lib/server-auth"
 
 export const Route = createFileRoute( "/api/storage/register-file" )( {
     component: () => null,
@@ -6,6 +7,7 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
         handlers: {
             POST: async ( { request } ) => {
                 try {
+                    const authUser = await getAuthenticatedUser()
                     const body = ( await request.json() ) as {
                         userId?: string
                         fileName?: string
@@ -13,10 +15,14 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
                         mimeType?: string
                         fileSize?: number
                         parentFolderId?: string | null
+                        providerId?: string | null
                     }
 
                     if ( !body.userId || typeof body.userId !== "string" ) {
                         return Response.json( { error: "Missing userId" }, { status: 400 } )
+                    }
+                    if ( body.userId !== authUser.id ) {
+                        return Response.json( { error: "Forbidden" }, { status: 403 } )
                     }
                     if ( !body.fileName || typeof body.fileName !== "string" ) {
                         return Response.json( { error: "Missing fileName" }, { status: 400 } )
@@ -44,6 +50,7 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
                             sizeInBytes: body.fileSize,
                             userId: body.userId,
                             folderId: body.parentFolderId || null,
+                            providerId: body.providerId || null,
                         } )
                         .returning( {
                             id: storageFile.id,

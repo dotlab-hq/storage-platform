@@ -1,27 +1,23 @@
 import { eq, sql } from "drizzle-orm"
+import { getProviderClientById } from "@/lib/s3-provider-client"
 
-async function buildPresignedUrl( objectKey: string, fileName: string, disposition: "inline" | "attachment" ) {
-    const { GetObjectCommand, S3Client } = await import( "@aws-sdk/client-s3" )
+async function buildPresignedUrl(
+    objectKey: string,
+    fileName: string,
+    providerId: string | null,
+    disposition: "inline" | "attachment"
+) {
+    const { GetObjectCommand } = await import( "@aws-sdk/client-s3" )
     const { getSignedUrl } = await import( "@aws-sdk/s3-request-presigner" )
-
-    const s3Client = new S3Client( {
-        region: process.env.S3_REGION,
-        endpoint: process.env.S3_ENDPOINT,
-        forcePathStyle: true,
-        bucketEndpoint: false,
-        credentials: {
-            accessKeyId: process.env.S3_ACCESS_KEY_ID!,
-            secretAccessKey: process.env.S3_SECRET_ACCESS_KEY!,
-        },
-    } )
+    const provider = await getProviderClientById( providerId )
 
     const command = new GetObjectCommand( {
-        Bucket: "dot-storage",
+        Bucket: provider.bucketName,
         Key: objectKey,
         ResponseContentDisposition: `${disposition}; filename="${fileName}"`,
     } )
 
-    return getSignedUrl( s3Client, command, { expiresIn: 3600 } )
+    return getSignedUrl( provider.client, command, { expiresIn: 3600 } )
 }
 
 export async function getShareByToken( token: string ) {
@@ -46,6 +42,7 @@ export async function getShareByToken( token: string ) {
             mimeType: storageFile.mimeType,
             sizeInBytes: storageFile.sizeInBytes,
             objectKey: storageFile.objectKey,
+            providerId: storageFile.providerId,
         } ).from( storageFile ).where( eq( storageFile.id, link.fileId ) ).limit( 1 )
         if ( fileRows.length === 0 ) return null
         const fileRow = fileRows[0]
@@ -65,12 +62,12 @@ export async function getShareByToken( token: string ) {
     return null
 }
 
-export async function getSharedFilePresignedUrl( objectKey: string, fileName: string ) {
-    return buildPresignedUrl( objectKey, fileName, "inline" )
+export async function getSharedFilePresignedUrl( objectKey: string, fileName: string, providerId: string | null ) {
+    return buildPresignedUrl( objectKey, fileName, providerId, "inline" )
 }
 
-export async function getSharedFileDownloadUrl( objectKey: string, fileName: string ) {
-    return buildPresignedUrl( objectKey, fileName, "attachment" )
+export async function getSharedFileDownloadUrl( objectKey: string, fileName: string, providerId: string | null ) {
+    return buildPresignedUrl( objectKey, fileName, providerId, "attachment" )
 }
 
 type SharedFolderNode = {
