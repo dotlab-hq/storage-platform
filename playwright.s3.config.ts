@@ -10,7 +10,7 @@ export default defineConfig( {
     retries: 1,
     reporter: [["list"], ["html", { open: "never" }]],
     use: {
-        baseURL: process.env.S3_TEST_ENDPOINT ?? "https://storage.wpsadi.dev",
+        baseURL: process.env.S3_TEST_ENDPOINT ?? "https://storage.wpsadi.dev/api/storage/s3",
         trace: "retain-on-failure",
     },
 } )

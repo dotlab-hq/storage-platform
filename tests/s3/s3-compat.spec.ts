@@ -25,7 +25,7 @@ function readRequiredEnv( key: string ): string {
 }
 
 function createS3Client(): S3Client {
-    const endpoint = process.env.S3_TEST_ENDPOINT ?? "https://storage.wpsadi.dev"
+    const endpoint = process.env.S3_TEST_ENDPOINT ?? "https://storage.wpsadi.dev/api/storage/s3"
     const region = process.env.S3_TEST_REGION ?? "auto"
     return new S3Client( {
         endpoint,

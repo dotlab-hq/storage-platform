@@ -1,6 +1,6 @@
 # S3 Compatibility Playwright Suite
 
-This suite validates S3 compatibility endpoints against the hosted gateway at `https://storage.wpsadi.dev` using Playwright + AWS SDK.
+This suite validates S3 compatibility endpoints against the hosted gateway at `https://storage.wpsadi.dev/api/storage/s3` using Playwright + AWS SDK.
 
 ## Covered operations
 
@@ -17,7 +17,7 @@ This suite validates S3 compatibility endpoints against the hosted gateway at `h
 
 Set environment variables:
 
-- `S3_TEST_ENDPOINT` (default: `https://storage.wpsadi.dev`)
+- `S3_TEST_ENDPOINT` (default: `https://storage.wpsadi.dev/api/storage/s3`)
 - `S3_TEST_REGION` (default: `auto`)
 - `S3_TEST_BUCKET` (required)
 - `S3_TEST_ACCESS_KEY_ID` (required)
