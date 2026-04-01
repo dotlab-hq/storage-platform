@@ -50,7 +50,7 @@ export function BucketCredentialsDialog( props: BucketCredentialsDialogProps ) {
                         </div>
                         <p className="text-muted-foreground">Bucket: {credentials.bucket}</p>
                         <p className="text-muted-foreground">S3 Endpoint: {credentials.endpoint}</p>
-                        <p className="text-muted-foreground">Region: auto</p>
+                        <p className="text-muted-foreground">Region: {credentials.region}</p>
                     </div>
                 )}
             </DialogContent>

@@ -25,8 +25,8 @@ function readRequiredEnv( key: string ): string {
 }
 
 function createS3Client(): S3Client {
-    const endpoint = process.env.S3_TEST_ENDPOINT ?? "https://storage.wpsrde.dev"
-    const region = process.env.S3_TEST_REGION ?? "us-east-1"
+    const endpoint = process.env.S3_TEST_ENDPOINT ?? "https://storage.wpsadi.dev"
+    const region = process.env.S3_TEST_REGION ?? "auto"
     return new S3Client( {
         endpoint,
         region,
@@ -47,8 +47,11 @@ function readFixtureBytes(): Uint8Array {
 
 test.describe( "S3 compatibility endpoints", () => {
     const bucketName = process.env.S3_TEST_BUCKET ?? ""
+    const sdCompartmentPrefix = process.env.S3_TEST_SD_COMPARTMENT_PREFIX ?? "sd"
     const prefix = `playwright/${Date.now()}`
+    const sdPrefix = `${sdCompartmentPrefix}/${prefix}`
     const key = `${prefix}/dummy-upload.txt`
+    const sdKey = `${sdPrefix}/dummy-upload.txt`
     const multipartKey = `${prefix}/multipart-upload.bin`
 
     test.beforeAll( async () => {
@@ -108,6 +111,48 @@ test.describe( "S3 compatibility endpoints", () => {
         await expect( client.send( new HeadObjectCommand( {
             Bucket: bucketName,
             Key: key,
+        } ) ) ).rejects.toBeDefined()
+    } )
+
+    test( "SD compartment prefix can Put/Get/List/Delete objects", async () => {
+        const client = createS3Client()
+        const bytes = readFixtureBytes()
+
+        await client.send( new PutObjectCommand( {
+            Bucket: bucketName,
+            Key: sdKey,
+            Body: bytes,
+            ContentType: "text/plain",
+        } ) )
+
+        const sdHead = await client.send( new HeadObjectCommand( {
+            Bucket: bucketName,
+            Key: sdKey,
+        } ) )
+        expect( Number( sdHead.ContentLength ?? 0 ) ).toBe( bytes.byteLength )
+
+        const sdObject = await client.send( new GetObjectCommand( {
+            Bucket: bucketName,
+            Key: sdKey,
+        } ) )
+        const sdContent = await sdObject.Body?.transformToString()
+        expect( sdContent ?? "" ).toContain( "Dummy payload for S3 compatibility tests." )
+
+        const listed = await client.send( new ListObjectsV2Command( {
+            Bucket: bucketName,
+            Prefix: sdPrefix,
+        } ) )
+        const objectKeys = ( listed.Contents ?? [] ).map( ( item ) => item.Key )
+        expect( objectKeys ).toContain( sdKey )
+
+        await client.send( new DeleteObjectCommand( {
+            Bucket: bucketName,
+            Key: sdKey,
+        } ) )
+
+        await expect( client.send( new HeadObjectCommand( {
+            Bucket: bucketName,
+            Key: sdKey,
         } ) ) ).rejects.toBeDefined()
     } )
 

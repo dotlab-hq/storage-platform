@@ -29,6 +29,38 @@ function resolveCredentialSecret(): string {
     return secret
 }
 
+function normalizeEndpoint( rawEndpoint: string ): string {
+    const trimmed = rawEndpoint.trim()
+    if ( trimmed.length === 0 ) {
+        throw new Error( "S3 compatibility endpoint is empty" )
+    }
+
+    const withoutTrailingSlash = trimmed.endsWith( "/" )
+        ? trimmed.slice( 0, -1 )
+        : trimmed
+
+    if ( withoutTrailingSlash.endsWith( "/api/storage/s3" ) ) {
+        throw new Error( "S3_COMPAT_ENDPOINT must be the S3 root endpoint, not /api/storage/s3" )
+    }
+
+    return withoutTrailingSlash
+}
+
+function resolveCompatEndpoint(): string {
+    const candidate = process.env.S3_COMPAT_ENDPOINT
+        ?? process.env.PUBLIC_S3_COMPAT_ENDPOINT
+        ?? "https://storage.wpsadi.dev"
+    return normalizeEndpoint( candidate )
+}
+
+function resolveCompatRegion(): string {
+    const region = process.env.S3_COMPAT_REGION?.trim()
+    if ( region && region.length > 0 ) {
+        return region
+    }
+    return "us-east-1"
+}
+
 function createBucketCredentials( userId: string, bucketId: string, bucketName: string ): S3BucketCredentials {
     const digest = createHmac( "sha256", resolveCredentialSecret() )
         .update( `${userId}:${bucketId}:${bucketName}` )
@@ -39,8 +71,8 @@ function createBucketCredentials( userId: string, bucketId: string, bucketName: 
         accessKeyId: `sp_${compactBucketId}`,
         secretAccessKey: `${digest}${digest.slice( 0, 24 )}`,
         bucket: bucketName,
-        endpoint: process.env.S3_COMPAT_ENDPOINT ?? process.env.PUBLIC_S3_COMPAT_ENDPOINT ?? "https://storage.wpsadi.dev",
-        region: "auto",
+        endpoint: resolveCompatEndpoint(),
+        region: resolveCompatRegion(),
     }
 }
 
