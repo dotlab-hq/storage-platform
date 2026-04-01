@@ -7,6 +7,7 @@ import { db } from "@/db"; // your drizzle instance
 import { USER_ROLES } from "@/lib/authz"
 import * as schema from "@/db/schema/auth-schema"; // your drizzle schema
 import { userStorage } from "@/db/schema/storage";
+import { sendResetPasswordEmail } from "@/lib/email/send-reset-password-email";
 
 export const auth = betterAuth( {
   database: drizzleAdapter( db, {
@@ -40,6 +41,17 @@ export const auth = betterAuth( {
     github: {
       clientId: process.env._GITHUB_CLIENT_ID!,
       clientSecret: process.env._GITHUB_CLIENT_SECRET!,
+    },
+  },
+  emailAndPassword: {
+    enabled: true,
+    sendResetPassword: async ( { user, url, token } ) => {
+      await sendResetPasswordEmail( {
+        to: user.email,
+        resetUrl: url,
+        token,
+        recipientName: user.name,
+      } )
     },
   },
   user: {
