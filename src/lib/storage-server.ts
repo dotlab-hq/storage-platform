@@ -36,7 +36,7 @@ export async function uploadSingleFile( {
             Bucket: provider.bucketName,
             Key: objectKey,
             Body: fileBytes,
-            ContentLength: fileBytes.byteLength,
+            // ContentLength: fileBytes.byteLength,
             ContentType: file.type || "application/octet-stream",
         } )
     )

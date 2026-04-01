@@ -33,7 +33,7 @@ export const Route = createFileRoute( "/api/storage/upload-presign" )( {
                         Bucket: provider.bucketName,
                         Key: body.objectKey,
                         ContentType: body.contentType,
-                        ContentLength: body.fileSize,
+                        // ContentLength: body.fileSize,
                     } )
 
                     const presignedUrl = await getSignedUrl( provider.client, command, { expiresIn: 3600 } )
