@@ -1,12 +1,14 @@
 import { db } from "@/db"
 import { file } from "@/db/schema/storage"
 import { storageProvider } from "@/db/schema/storage-provider"
+import { DEFAULT_PROVIDER_ID, UNDETERMINED_PROVIDER_VALUE } from "@/lib/storage-provider-constants"
 import { count, eq, sql, sum } from "drizzle-orm"
 
 const FALLBACK_PROVIDER_NAME = "Default Provider"
 const FALLBACK_PROVIDER_BUCKET_NAME = process.env.S3_BUCKET_NAME || "dot-storage"
 const FALLBACK_PROVIDER_REGION = process.env.S3_REGION || "not-configured"
 const FALLBACK_PROVIDER_ENDPOINT = process.env.S3_ENDPOINT || "not-configured"
+const FALLBACK_PROVIDER_LIMIT_BYTES = Number.MAX_SAFE_INTEGER
 
 export async function listProvidersWithUsage() {
     const providers = await db
@@ -34,26 +36,27 @@ export async function listProvidersWithUsage() {
     const usageMap = new Map( usageByProvider.map( ( row ) => [row.providerId ?? "unassigned", row.usedBytes] ) )
     const defaultUsed = usageMap.get( "unassigned" ) || 0
 
-    const mappedProviders = providers.map( ( provider ) => ( {
-        ...provider,
-        usedStorageBytes: usageMap.get( provider.id ) ?? 0,
-        availableStorageBytes: provider.storageLimitBytes - ( usageMap.get( provider.id ) ?? 0 ),
-    } ) )
-    return [
-        {
-            id: "default-provider",
-            name: FALLBACK_PROVIDER_NAME,
-            region: FALLBACK_PROVIDER_REGION,
-            endpoint: FALLBACK_PROVIDER_ENDPOINT,
-            bucketName: FALLBACK_PROVIDER_BUCKET_NAME,
-            storageLimitBytes: Number.MAX_SAFE_INTEGER,
-            isActive: true,
-            createdAt: new Date(),
-            usedStorageBytes: defaultUsed,
-            availableStorageBytes: Number.MAX_SAFE_INTEGER,
-        },
-        ...mappedProviders,
-    ]
+    const mappedProviders = providers.map( ( provider ) => {
+        const usedStorageBytes = usageMap.get( provider.id ) ?? 0
+        const availableStorageBytes = provider.storageLimitBytes - usedStorageBytes
+        return { ...provider, usedStorageBytes, availableStorageBytes }
+    } )
+    const existingDefault = mappedProviders.find( ( provider ) => provider.id === DEFAULT_PROVIDER_ID || provider.name === FALLBACK_PROVIDER_NAME )
+    if ( existingDefault ) {
+        return mappedProviders
+    }
+    return [{
+        id: DEFAULT_PROVIDER_ID,
+        name: FALLBACK_PROVIDER_NAME,
+        region: process.env.S3_REGION ?? UNDETERMINED_PROVIDER_VALUE,
+        endpoint: process.env.S3_ENDPOINT ?? UNDETERMINED_PROVIDER_VALUE,
+        bucketName: process.env.S3_BUCKET_NAME ?? UNDETERMINED_PROVIDER_VALUE,
+        storageLimitBytes: FALLBACK_PROVIDER_LIMIT_BYTES,
+        isActive: true,
+        createdAt: new Date(),
+        usedStorageBytes: defaultUsed,
+        availableStorageBytes: FALLBACK_PROVIDER_LIMIT_BYTES,
+    }, ...mappedProviders]
 }
 
 export type AdminProvider = Awaited<ReturnType<typeof listProvidersWithUsage>>[number]
@@ -69,7 +72,7 @@ export async function getStorageAdminSummary() {
         .select( { total: sum( file.sizeInBytes ).mapWith( Number ) } )
         .from( file )
         .where( eq( file.isDeleted, false ) )
-    const providerCount = providerCountRow.count + 1
+    const providerCount = providerCountRow.count
     const userCount = userCountRows.rows[0].count
     const totalUsedStorageBytes = totalUsedRow.total || 0
     return {

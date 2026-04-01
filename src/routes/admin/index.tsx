@@ -3,13 +3,12 @@ import { useState } from "react"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { Separator } from "@/components/ui/separator"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { toast } from "@/components/ui/sonner"
 import { createStorageProviderFn, deleteStorageProviderFn, getAdminDashboardDataFn, setStorageProviderAvailabilityFn } from "./-admin-server"
 import { MetricCard, ProvidersPanel, UsersPanel } from "@/components/admin/dashboard-panels"
 import { formatBytes } from "@/lib/format-bytes"
+import { ProviderFormField } from "@/components/admin/provider-form-field"
 
 const emptyProviderForm = {
     name: "",
@@ -39,15 +38,8 @@ function AdminDashboardPage() {
             toast.error( "Storage limit must be a positive number" )
             return
         }
-        if (
-            !form.name.trim() ||
-            !form.endpoint.trim() ||
-            !form.region.trim() ||
-            !form.bucketName.trim() ||
-            !form.accessKeyId.trim() ||
-            !form.secretAccessKey.trim()
-        ) {
-            toast.error( "Please fill in all provider fields" )
+        if ( !form.name.trim() ) {
+            toast.error( "Provider name is required" )
             return
         }
         const optimisticProviderCount = data.summary.providerCount + 1
@@ -74,12 +66,12 @@ function AdminDashboardPage() {
             ],
         } ) )
         try {
-            await createStorageProviderFn( { data: { ...form, storageLimitBytes: parsedLimit, isActive: true } } )
+            const result = await createStorageProviderFn( { data: { ...form, storageLimitBytes: parsedLimit, isActive: true } } )
             const refreshed = await getAdminDashboardDataFn()
             setData( refreshed )
             setForm( emptyProviderForm )
             setStorageLimitInput( String( emptyProviderForm.storageLimitBytes ) )
-            toast.success( "Storage provider added" )
+            toast.success( result.operation === "updated" ? "Storage provider updated" : "Storage provider added" )
         } catch ( error ) {
             const latest = await getAdminDashboardDataFn()
             setData( latest )
@@ -150,25 +142,25 @@ function AdminDashboardPage() {
                                 <p className="text-muted-foreground text-sm">Credentials are encrypted at rest.</p>
                             </div>
                             <div className="grid gap-3 md:grid-cols-2">
-                                <Field label="Name" value={form.name} onChange={( value ) => setForm( ( prev ) => ( { ...prev, name: value } ) )} />
-                                <Field label="Endpoint" value={form.endpoint} onChange={( value ) => setForm( ( prev ) => ( { ...prev, endpoint: value } ) )} />
-                                <Field label="Region" value={form.region} onChange={( value ) => setForm( ( prev ) => ( { ...prev, region: value } ) )} />
-                                <Field label="Bucket Name" value={form.bucketName} onChange={( value ) => setForm( ( prev ) => ( { ...prev, bucketName: value } ) )} />
-                                <Field label="Access Key ID" value={form.accessKeyId} onChange={( value ) => setForm( ( prev ) => ( { ...prev, accessKeyId: value } ) )} />
-                                <Field
+                                <ProviderFormField label="Name" value={form.name} onChange={( value ) => setForm( ( prev ) => ( { ...prev, name: value } ) )} />
+                                <ProviderFormField label="Endpoint" value={form.endpoint} onChange={( value ) => setForm( ( prev ) => ( { ...prev, endpoint: value } ) )} />
+                                <ProviderFormField label="Region" value={form.region} onChange={( value ) => setForm( ( prev ) => ( { ...prev, region: value } ) )} />
+                                <ProviderFormField label="Bucket Name" value={form.bucketName} onChange={( value ) => setForm( ( prev ) => ( { ...prev, bucketName: value } ) )} />
+                                <ProviderFormField label="Access Key ID" value={form.accessKeyId} onChange={( value ) => setForm( ( prev ) => ( { ...prev, accessKeyId: value } ) )} />
+                                <ProviderFormField
                                     label="Secret Access Key"
                                     value={form.secretAccessKey}
                                     type="password"
                                     onChange={( value ) => setForm( ( prev ) => ( { ...prev, secretAccessKey: value } ) )}
                                 />
-                                <Field
+                                <ProviderFormField
                                     label="Storage Limit (bytes)"
                                     value={storageLimitInput}
                                     onChange={setStorageLimitInput}
                                 />
                                 <div className="flex items-end">
                                     <Button onClick={() => void submitProvider()} disabled={isSaving}>
-                                        {isSaving ? "Saving..." : "Add Provider"}
+                                        {isSaving ? "Saving..." : "Add / Update Provider"}
                                     </Button>
                                 </div>
                             </div>
@@ -176,25 +168,6 @@ function AdminDashboardPage() {
                     </div>
                 </SidebarInset>
             </SidebarProvider>
-        </div>
-    )
-}
-
-function Field( {
-    label,
-    value,
-    onChange,
-    type = "text",
-}: {
-    label: string
-    value: string
-    onChange: (value: string) => void
-    type?: "text" | "password"
-} ) {
-    return (
-        <div className="space-y-1">
-            <Label>{label}</Label>
-            <Input type={type} value={value} onChange={( event ) => onChange( event.target.value )} />
         </div>
     )
 }

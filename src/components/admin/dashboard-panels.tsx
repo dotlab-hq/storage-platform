@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { DEFAULT_PROVIDER_ID } from "@/lib/storage-provider-constants"
 import type { AdminProvider, AdminUser } from "@/lib/storage-provider-queries"
 import { formatBytes } from "@/lib/format-bytes"
 
@@ -35,7 +36,7 @@ export function ProvidersPanel( {
                                 <Badge variant={provider.isActive ? "default" : "secondary"}>
                                     {provider.isActive ? "Active" : "Inactive"}
                                 </Badge>
-                                {provider.id !== "default-provider" ? (
+                                {provider.id !== DEFAULT_PROVIDER_ID ? (
                                     <>
                                         <Button
                                             type="button"

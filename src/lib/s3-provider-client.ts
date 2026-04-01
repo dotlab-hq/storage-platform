@@ -2,6 +2,7 @@ import { S3Client } from "@aws-sdk/client-s3"
 import { db } from "@/db"
 import { file } from "@/db/schema/storage"
 import { storageProvider } from "@/db/schema/storage-provider"
+import { UNDETERMINED_PROVIDER_VALUE } from "@/lib/storage-provider-constants"
 import { decryptProviderSecret } from "@/lib/provider-crypto"
 import { and, eq, isNotNull, sql } from "drizzle-orm"
 
@@ -37,18 +38,29 @@ function fromEnvironment(): ProviderClientConfig {
 }
 
 function fromProviderRow( row: ProviderRow ): ProviderClientConfig {
+    const accessKeyId = row.accessKeyIdEncrypted === UNDETERMINED_PROVIDER_VALUE
+        ? process.env.S3_ACCESS_KEY_ID
+        : decryptProviderSecret( row.accessKeyIdEncrypted )
+    const secretAccessKey = row.secretAccessKeyEncrypted === UNDETERMINED_PROVIDER_VALUE
+        ? process.env.S3_SECRET_ACCESS_KEY
+        : decryptProviderSecret( row.secretAccessKeyEncrypted )
+    const region = row.region === UNDETERMINED_PROVIDER_VALUE ? process.env.S3_REGION : row.region
+    const endpoint = row.endpoint === UNDETERMINED_PROVIDER_VALUE ? process.env.S3_ENDPOINT : row.endpoint
+    if ( !accessKeyId || !secretAccessKey || !region || !endpoint ) {
+        throw new Error( `Storage provider "${row.name}" is missing required credentials` )
+    }
     return {
         providerId: row.id,
         providerName: row.name,
-        bucketName: row.bucketName,
+        bucketName: row.bucketName === UNDETERMINED_PROVIDER_VALUE ? ( process.env.S3_BUCKET_NAME ?? "dot-storage" ) : row.bucketName,
         client: new S3Client( {
-            region: row.region,
-            endpoint: row.endpoint,
+            region,
+            endpoint,
             forcePathStyle: true,
             bucketEndpoint: false,
             credentials: {
-                accessKeyId: decryptProviderSecret( row.accessKeyIdEncrypted ),
-                secretAccessKey: decryptProviderSecret( row.secretAccessKeyEncrypted ),
+                accessKeyId,
+                secretAccessKey,
             },
         } ),
     }

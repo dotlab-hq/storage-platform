@@ -7,14 +7,15 @@ import { requireAdminUser } from "@/lib/server-auth"
 import { createServerFn } from "@tanstack/react-start"
 import { and, count, eq } from "drizzle-orm"
 import { z } from "zod"
+import { UNDETERMINED_PROVIDER_VALUE } from "@/lib/storage-provider-constants"
 
 const CreateProviderSchema = z.object( {
     name: z.string().min( 2 ),
-    endpoint: z.string().url(),
-    region: z.string().min( 2 ),
-    bucketName: z.string().min( 3 ),
-    accessKeyId: z.string().min( 3 ),
-    secretAccessKey: z.string().min( 3 ),
+    endpoint: z.string(),
+    region: z.string(),
+    bucketName: z.string(),
+    accessKeyId: z.string(),
+    secretAccessKey: z.string(),
     storageLimitBytes: z.number().int().positive(),
     isActive: z.boolean().default( true ),
 } )
@@ -43,23 +44,50 @@ export const createStorageProviderFn = createServerFn( { method: "POST" } )
     .inputValidator( CreateProviderSchema )
     .handler( async ( { data } ) => {
         await requireAdminUser()
-        const [provider] = await db
-            .insert( storageProvider )
+        const endpoint = data.endpoint.trim() || UNDETERMINED_PROVIDER_VALUE
+        const region = data.region.trim() || UNDETERMINED_PROVIDER_VALUE
+        const bucketName = data.bucketName.trim() || UNDETERMINED_PROVIDER_VALUE
+        const accessKeyId = data.accessKeyId.trim()
+        const secretAccessKey = data.secretAccessKey.trim()
+        const accessKeyIdEncrypted = accessKeyId ? encryptProviderSecret( accessKeyId ) : UNDETERMINED_PROVIDER_VALUE
+        const secretAccessKeyEncrypted = secretAccessKey ? encryptProviderSecret( secretAccessKey ) : UNDETERMINED_PROVIDER_VALUE
+
+        const existingRows = await db
+            .select( { id: storageProvider.id } )
+            .from( storageProvider )
+            .where( eq( storageProvider.name, data.name ) )
+            .limit( 1 )
+
+        if ( existingRows.length > 0 ) {
+            const [provider] = await db
+                .update( storageProvider )
+                .set( {
+                    endpoint,
+                    region,
+                    bucketName,
+                    accessKeyIdEncrypted,
+                    secretAccessKeyEncrypted,
+                    storageLimitBytes: data.storageLimitBytes,
+                    isActive: data.isActive,
+                } )
+                .where( eq( storageProvider.id, existingRows[0].id ) )
+                .returning( { id: storageProvider.id, name: storageProvider.name } )
+            return { success: true, provider, operation: "updated" as const }
+        }
+
+        const [provider] = await db.insert( storageProvider )
             .values( {
                 name: data.name,
-                endpoint: data.endpoint,
-                region: data.region,
-                bucketName: data.bucketName,
-                accessKeyIdEncrypted: encryptProviderSecret( data.accessKeyId ),
-                secretAccessKeyEncrypted: encryptProviderSecret( data.secretAccessKey ),
+                endpoint,
+                region,
+                bucketName,
+                accessKeyIdEncrypted,
+                secretAccessKeyEncrypted,
                 storageLimitBytes: data.storageLimitBytes,
                 isActive: data.isActive,
             } )
-            .returning( {
-                id: storageProvider.id,
-                name: storageProvider.name,
-            } )
-        return { success: true, provider }
+            .returning( { id: storageProvider.id, name: storageProvider.name } )
+        return { success: true, provider, operation: "created" as const }
     } )
 
 export const setStorageProviderAvailabilityFn = createServerFn( { method: "POST" } )
