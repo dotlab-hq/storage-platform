@@ -14,7 +14,7 @@ export async function uploadSingleFile( {
     parentFolderId = null,
 }: UploadFileInput ) {
     const { PutObjectCommand, S3Client } = await import( "@aws-sdk/client-s3" )
-    const [{ db }, { file: storageFile }] = await Promise.all( [
+    const [{ db }, { file: storageFile, folder }] = await Promise.all( [
         import( "@/db" ),
         import( "@/db/schema/storage" ),
     ] )
@@ -53,6 +53,17 @@ export async function uploadSingleFile( {
 
     console.log( `[Server] S3 upload successful for: ${file.name}` )
 
+    let isPrivatelyLocked = false
+    if ( parentFolderId ) {
+        const parentRows = await db.select( { isPrivatelyLocked: folder.isPrivatelyLocked } )
+            .from( folder )
+            .where( and( eq( folder.id, parentFolderId ), eq( folder.userId, userId ) ) )
+            .limit( 1 )
+        if ( parentRows.length > 0 ) {
+            isPrivatelyLocked = parentRows[0].isPrivatelyLocked
+        }
+    }
+
     const [insertedFile] = await db
         .insert( storageFile )
         .values( {
@@ -62,6 +73,7 @@ export async function uploadSingleFile( {
             sizeInBytes: file.size,
             userId,
             folderId: parentFolderId,
+            isPrivatelyLocked,
         } )
         .returning( {
             id: storageFile.id,
@@ -115,6 +127,7 @@ export async function createNewFolder( {
             name: finalName,
             userId,
             parentFolderId,
+            isPrivatelyLocked: false,
         } )
         .returning( {
             id: folder.id,
@@ -136,6 +149,7 @@ export async function listRootItems( userId: string ) {
             id: folder.id,
             name: folder.name,
             createdAt: folder.createdAt,
+            isPrivatelyLocked: folder.isPrivatelyLocked,
         } )
         .from( folder )
         .where( and( eq( folder.userId, userId ), isNull( folder.parentFolderId ), eq( folder.isDeleted, false ) ) )
@@ -147,6 +161,7 @@ export async function listRootItems( userId: string ) {
             name: storageFile.name,
             sizeInBytes: storageFile.sizeInBytes,
             createdAt: storageFile.createdAt,
+            isPrivatelyLocked: storageFile.isPrivatelyLocked,
         } )
         .from( storageFile )
         .where( and( eq( storageFile.userId, userId ), isNull( storageFile.folderId ), eq( storageFile.isDeleted, false ) ) )

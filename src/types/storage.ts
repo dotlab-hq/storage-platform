@@ -9,6 +9,7 @@ export type StorageFile = {
     createdAt: Date
     updatedAt: Date
     isShared?: boolean
+    isPrivatelyLocked?: boolean
     isDeleted?: boolean
     deletedAt?: Date | null
 }
@@ -20,6 +21,7 @@ export type StorageFolder = {
     parentFolderId: string | null
     createdAt: Date
     updatedAt: Date
+    isPrivatelyLocked?: boolean
 }
 
 export type StorageItem =
@@ -46,6 +48,7 @@ export type ShareLinkInfo = {
     folderId: string | null
     sharedByUserId: string
     shareToken: string
+    consentedPrivatelyUnlock?: boolean
     isActive: boolean
     expiresAt: Date | null
     createdAt: Date
@@ -56,6 +59,7 @@ export type ContextMenuAction =
     | "rename"
     | "move"
     | "share"
+    | "private-lock"
     | "copy-link"
     | "delete"
     | "download"

@@ -25,8 +25,19 @@ export const Route = createFileRoute( "/api/storage/share-access" )( {
                     }
 
                     if ( result.type === "file" ) {
-                        const fileItem = result.item as { id: string; name: string; mimeType: string | null; sizeInBytes: number; objectKey: string }
-                        const presignedUrl = await getSharedFilePresignedUrl( fileItem.objectKey, fileItem.name )
+                        const fileItem = result.item as {
+                            id: string
+                            name: string
+                            mimeType: string | null
+                            sizeInBytes: number
+                            objectKey: string
+                            providerId: string | null
+                        }
+                        const presignedUrl = await getSharedFilePresignedUrl(
+                            fileItem.objectKey,
+                            fileItem.name,
+                            fileItem.providerId
+                        )
                         return Response.json( {
                             type: "file",
                             name: fileItem.name,

@@ -43,9 +43,13 @@ export async function getShareByToken( token: string ) {
             sizeInBytes: storageFile.sizeInBytes,
             objectKey: storageFile.objectKey,
             providerId: storageFile.providerId,
+            isPrivatelyLocked: storageFile.isPrivatelyLocked,
         } ).from( storageFile ).where( eq( storageFile.id, link.fileId ) ).limit( 1 )
         if ( fileRows.length === 0 ) return null
         const fileRow = fileRows[0]
+        if ( fileRow.isPrivatelyLocked && !link.consentedPrivatelyUnlock ) {
+            throw new Error( "File is privately locked" )
+        }
         return { type: "file" as const, link, item: fileRow }
     }
 
@@ -83,6 +87,7 @@ type SharedFolderFile = {
     mimeType: string | null
     sizeInBytes: number
     folderId: string | null
+    isPrivatelyLocked: boolean
 }
 
 export async function getSharedFolderTreeByToken( token: string ) {
@@ -126,11 +131,13 @@ export async function getSharedFolderTreeByToken( token: string ) {
             WHERE child.user_id = ${ownerId}
               AND child.is_deleted = false
         )
-        SELECT fl.id, fl.name, fl.mime_type AS "mimeType", fl.size_in_bytes AS "sizeInBytes", fl.folder_id AS "folderId"
+        SELECT fl.id, fl.name, fl.mime_type AS "mimeType", fl.size_in_bytes AS "sizeInBytes", fl.folder_id AS "folderId",
+               fl.is_privately_locked AS "isPrivatelyLocked"
         FROM "dot-storage"."file" fl
         INNER JOIN folder_tree ON fl.folder_id = folder_tree.id
         WHERE fl.user_id = ${ownerId}
           AND fl.is_deleted = false
+          AND (fl.is_privately_locked = false OR ${share.link.consentedPrivatelyUnlock} = true)
         ORDER BY fl.name ASC
     ` )
 

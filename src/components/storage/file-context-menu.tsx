@@ -1,6 +1,7 @@
 import {
     Pencil,
     Share2,
+    ShieldCheck,
     Trash2,
     Download,
     ExternalLink,
@@ -75,6 +76,12 @@ export function FileContextMenu( {
                     <ContextMenuItem onClick={() => onAction( "share", item )}>
                         <Share2 className="mr-2 h-4 w-4" />
                         Share
+                    </ContextMenuItem>
+                )}
+                {item.type === "folder" && (
+                    <ContextMenuItem onClick={() => onAction( "private-lock", item )}>
+                        <ShieldCheck className="mr-2 h-4 w-4" />
+                        {item.isPrivatelyLocked ? "Remove private lock" : "Mark private lock"}
                     </ContextMenuItem>
                 )}
                 <ContextMenuItem onClick={() => onAction( "copy-link", item )}>

@@ -1,6 +1,6 @@
 import { useCallback } from "react"
 import {
-    MoreHorizontal, Pencil, Share2, Check,
+    MoreHorizontal, Pencil, Share2, Check, ShieldCheck,
     Trash2, Download, ExternalLink, Link,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -107,6 +107,12 @@ export function FileCard( {
                                 <Share2 className="mr-2 h-4 w-4" /> Share
                             </DropdownMenuItem>
                         )}
+                        {item.type === "folder" && (
+                            <DropdownMenuItem onClick={() => onContextAction( "private-lock", item )}>
+                                <ShieldCheck className="mr-2 h-4 w-4" />
+                                {item.isPrivatelyLocked ? "Remove private lock" : "Mark private lock"}
+                            </DropdownMenuItem>
+                        )}
                         <DropdownMenuItem onClick={() => onContextAction( "copy-link", item )}>
                             <Link className="mr-2 h-4 w-4" /> Copy Link
                         </DropdownMenuItem>
@@ -142,6 +148,11 @@ export function FileCard( {
 
             {item.type === "file" && item.isShared && (
                 <Badge variant="secondary" className="mt-2 text-[10px]">Shared</Badge>
+            )}
+            {item.isPrivatelyLocked && (
+                <Badge className="mt-2 bg-green-600 text-white hover:bg-green-600 text-[10px]">
+                    Private lock
+                </Badge>
             )}
         </div>
     )

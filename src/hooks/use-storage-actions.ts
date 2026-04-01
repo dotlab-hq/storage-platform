@@ -3,6 +3,7 @@ import { createClientOnlyFn } from "@tanstack/react-start"
 import { toast } from "@/components/ui/sonner"
 import { buildNavUrl } from "@/lib/nav-token"
 import { downloadFromUrl } from "@/lib/file-utils"
+import { setFolderPrivateLockClient } from "@/lib/private-lock-client"
 import type { StorageItem, ContextMenuAction } from "@/types/storage"
 
 type UseStorageActionsParams = {
@@ -118,6 +119,17 @@ export function useStorageActions( params: UseStorageActionsParams ) {
                 case "share":
                     onShareOpen( item )
                     break
+                case "private-lock":
+                    if ( !userId || item.type !== "folder" ) return
+                    void setFolderPrivateLockClient( userId, item.id, !item.isPrivatelyLocked )
+                        .then( () => {
+                            toast.success( !item.isPrivatelyLocked ? "Private lock enabled" : "Private lock removed" )
+                            void params.refresh()
+                        } )
+                        .catch( ( err: Error ) => {
+                            toast.error( `Private lock update failed: ${err.message}` )
+                        } )
+                    break
                 case "copy-link": {
                     const payload = item.type === "folder"
                         ? { folderId: item.id }
@@ -138,7 +150,7 @@ export function useStorageActions( params: UseStorageActionsParams ) {
                     break
             }
         },
-        [handleDoubleClick, select, onMoveOpen, onShareOpen, onDeleteOpen, userId]
+        [currentFolderId, handleDoubleClick, onDeleteOpen, onMoveOpen, onShareOpen, params, select, userId]
     )
 
     const handleNewFolder = useCallback(

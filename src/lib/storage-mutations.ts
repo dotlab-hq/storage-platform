@@ -110,6 +110,17 @@ export async function moveItems(
         import( "@/db/schema/storage" ),
     ] )
 
+    let targetIsPrivatelyLocked = false
+    if ( targetFolderId ) {
+        const targetFolderRows = await db.select( { isPrivatelyLocked: folder.isPrivatelyLocked } )
+            .from( folder )
+            .where( and( eq( folder.id, targetFolderId ), eq( folder.userId, userId ) ) )
+            .limit( 1 )
+        if ( targetFolderRows.length > 0 ) {
+            targetIsPrivatelyLocked = targetFolderRows[0].isPrivatelyLocked
+        }
+    }
+
     for ( let i = 0; i < itemIds.length; i++ ) {
         const id = itemIds[i]
         const type = itemTypes[i]
@@ -119,7 +130,7 @@ export async function moveItems(
                 .where( and( eq( folder.id, id ), eq( folder.userId, userId ) ) )
         } else {
             await db.update( storageFile )
-                .set( { folderId: targetFolderId } )
+                .set( { folderId: targetFolderId, isPrivatelyLocked: targetIsPrivatelyLocked } )
                 .where( and( eq( storageFile.id, id ), eq( storageFile.userId, userId ) ) )
         }
     }

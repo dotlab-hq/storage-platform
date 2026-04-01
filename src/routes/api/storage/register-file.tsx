@@ -27,12 +27,24 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
                         return Response.json( { error: "Invalid fileSize" }, { status: 400 } )
                     }
 
-                    const [{ db }, { file: storageFile, userStorage }] = await Promise.all( [
+                    const [{ db }, { file: storageFile, folder, userStorage }] = await Promise.all( [
                         import( "@/db" ),
                         import( "@/db/schema/storage" ),
                     ] )
 
                     const { sql } = await import( "drizzle-orm" )
+
+                    let isPrivatelyLocked = false
+                    if ( body.parentFolderId ) {
+                        const { and, eq } = await import( "drizzle-orm" )
+                        const parentRows = await db.select( { isPrivatelyLocked: folder.isPrivatelyLocked } )
+                            .from( folder )
+                            .where( and( eq( folder.id, body.parentFolderId ), eq( folder.userId, authUser.id ) ) )
+                            .limit( 1 )
+                        if ( parentRows.length > 0 ) {
+                            isPrivatelyLocked = parentRows[0].isPrivatelyLocked
+                        }
+                    }
 
                     const [insertedFile] = await db
                         .insert( storageFile )
@@ -44,6 +56,7 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
                             userId: authUser.id,
                             folderId: body.parentFolderId || null,
                             providerId: body.providerId || null,
+                            isPrivatelyLocked,
                         } )
                         .returning( {
                             id: storageFile.id,
