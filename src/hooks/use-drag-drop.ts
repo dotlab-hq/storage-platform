@@ -1,6 +1,7 @@
 import { useCallback, useRef, useState } from "react"
 import { toast } from "@/components/ui/sonner"
 import { uploadBatch } from "@/lib/upload-utils"
+import { formatFileSize } from "@/lib/file-utils"
 import type { StorageItem, UploadingFile } from "@/types/storage"
 
 export function useDragDrop(
@@ -8,7 +9,8 @@ export function useDragDrop(
     currentFolderId: string | null,
     setUploads: React.Dispatch<React.SetStateAction<UploadingFile[]>>,
     onComplete: () => Promise<void>,
-    setItems?: React.Dispatch<React.SetStateAction<StorageItem[]>>
+    setItems?: React.Dispatch<React.SetStateAction<StorageItem[]>>,
+    fileSizeLimit?: number | null,
 ) {
     const [isDragging, setIsDragging] = useState( false )
     const dragCounter = useRef( 0 )
@@ -40,7 +42,23 @@ export function useDragDrop(
             const files = Array.from( e.dataTransfer.files )
             if ( files.length === 0 ) return
 
-            const newUploads: UploadingFile[] = files.map( ( file ) => ( {
+            let allowedFiles = files
+            if ( fileSizeLimit ) {
+                const oversized = files.filter( ( file ) => file.size > fileSizeLimit )
+                if ( oversized.length > 0 ) {
+                    const MAX_SHOWN = 3
+                    const shown = oversized.slice( 0, MAX_SHOWN ).map( ( file ) => file.name )
+                    const extra = oversized.length - MAX_SHOWN
+                    const names = extra > 0 ? `${shown.join( ", " )}, and ${extra} more` : shown.join( ", " )
+                    toast.error( `Warning: ${oversized.length} file${oversized.length > 1 ? "s" : ""} exceed your ${formatFileSize( fileSizeLimit )} limit: ${names}` )
+                }
+                allowedFiles = files.filter( ( file ) => file.size <= fileSizeLimit )
+                if ( allowedFiles.length === 0 ) {
+                    return
+                }
+            }
+
+            const newUploads: UploadingFile[] = allowedFiles.map( ( file ) => ( {
                 id: crypto.randomUUID(),
                 file,
                 progress: 0,
@@ -82,7 +100,7 @@ export function useDragDrop(
                 if ( !setItems ) await onComplete()
             }
         },
-        [userId, currentFolderId, setUploads, onComplete, setItems]
+        [userId, currentFolderId, setUploads, onComplete, setItems, fileSizeLimit]
     )
 
     return {

@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router"
 import { getAuthenticatedUser } from "@/lib/server-auth"
 import { resolveProviderId } from "@/lib/s3-provider-client"
 
+const DEFAULT_FILE_SIZE_LIMIT_BYTES = 10 * 1024 * 1024
+
 export const Route = createFileRoute( "/api/storage/register-file" )( {
     component: () => null,
     server: {
@@ -33,14 +35,29 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
                         import( "@/db/schema/storage" ),
                     ] )
 
-                    const { sql } = await import( "drizzle-orm" )
+                    const { eq, sql } = await import( "drizzle-orm" )
+
+                    const storageRows = await db
+                        .select( { fileSizeLimit: userStorage.fileSizeLimit } )
+                        .from( userStorage )
+                        .where( eq( userStorage.userId, authUser.id ) )
+                        .limit( 1 )
+                    const fileSizeLimit = storageRows[0]?.fileSizeLimit ?? DEFAULT_FILE_SIZE_LIMIT_BYTES
+
+                    if ( body.fileSize > fileSizeLimit ) {
+                        return Response.json( {
+                            error: `File exceeds your maximum allowed size (${fileSizeLimit} bytes)`,
+                            code: "FILE_SIZE_LIMIT_EXCEEDED",
+                            fileSizeLimit,
+                        }, { status: 403 } )
+                    }
 
                     let isPrivatelyLocked = false
                     if ( body.parentFolderId ) {
-                        const { and, eq } = await import( "drizzle-orm" )
+                        const { and, eq: eqForFolder } = await import( "drizzle-orm" )
                         const parentRows = await db.select( { isPrivatelyLocked: folder.isPrivatelyLocked } )
                             .from( folder )
-                            .where( and( eq( folder.id, body.parentFolderId ), eq( folder.userId, authUser.id ) ) )
+                            .where( and( eqForFolder( folder.id, body.parentFolderId ), eqForFolder( folder.userId, authUser.id ) ) )
                             .limit( 1 )
                         if ( parentRows.length > 0 ) {
                             isPrivatelyLocked = parentRows[0].isPrivatelyLocked

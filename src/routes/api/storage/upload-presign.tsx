@@ -2,13 +2,15 @@ import { createFileRoute } from "@tanstack/react-router"
 import { getAuthenticatedUser } from "@/lib/server-auth"
 import { selectProviderForUpload } from "@/lib/s3-provider-client"
 
+const DEFAULT_FILE_SIZE_LIMIT_BYTES = 10 * 1024 * 1024
+
 export const Route = createFileRoute( "/api/storage/upload-presign" )( {
     component: () => null,
     server: {
         handlers: {
             POST: async ( { request } ) => {
                 try {
-                    await getAuthenticatedUser()
+                    const authUser = await getAuthenticatedUser()
                     const body = ( await request.json() ) as {
                         objectKey?: string
                         contentType?: string
@@ -23,6 +25,27 @@ export const Route = createFileRoute( "/api/storage/upload-presign" )( {
                     }
                     if ( typeof body.fileSize !== "number" || body.fileSize <= 0 ) {
                         return Response.json( { error: "Invalid fileSize" }, { status: 400 } )
+                    }
+
+                    const [{ db }, { userStorage }] = await Promise.all( [
+                        import( "@/db" ),
+                        import( "@/db/schema/storage" ),
+                    ] )
+                    const { eq } = await import( "drizzle-orm" )
+
+                    const storageRows = await db
+                        .select( { fileSizeLimit: userStorage.fileSizeLimit } )
+                        .from( userStorage )
+                        .where( eq( userStorage.userId, authUser.id ) )
+                        .limit( 1 )
+                    const fileSizeLimit = storageRows[0]?.fileSizeLimit ?? DEFAULT_FILE_SIZE_LIMIT_BYTES
+
+                    if ( body.fileSize > fileSizeLimit ) {
+                        return Response.json( {
+                            error: `File exceeds your maximum allowed size (${fileSizeLimit} bytes)`,
+                            code: "FILE_SIZE_LIMIT_EXCEEDED",
+                            fileSizeLimit,
+                        }, { status: 403 } )
                     }
 
                     const { PutObjectCommand } = await import( "@aws-sdk/client-s3" )
