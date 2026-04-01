@@ -47,7 +47,12 @@ function fromProviderRow( row: ProviderRow ): ProviderClientConfig {
     const region = row.region === UNDETERMINED_PROVIDER_VALUE ? process.env.S3_REGION : row.region
     const endpoint = row.endpoint === UNDETERMINED_PROVIDER_VALUE ? process.env.S3_ENDPOINT : row.endpoint
     if ( !accessKeyId || !secretAccessKey || !region || !endpoint ) {
-        throw new Error( `Storage provider "${row.name}" is missing required credentials` )
+        const missing: string[] = []
+        if ( !accessKeyId ) missing.push( "accessKeyId" )
+        if ( !secretAccessKey ) missing.push( "secretAccessKey" )
+        if ( !region ) missing.push( "region" )
+        if ( !endpoint ) missing.push( "endpoint" )
+        throw new Error( `Storage provider "${row.name}" is missing required credentials: ${missing}` )
     }
     return {
         providerId: row.id,

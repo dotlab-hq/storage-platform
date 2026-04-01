@@ -1,8 +1,8 @@
 import { bigint, boolean, index, text, timestamp } from "drizzle-orm/pg-core"
 import { schema } from "./schema"
+import { UNDETERMINED_PROVIDER_VALUE } from "@/lib/storage-provider-constants"
 
 const DEFAULT_PROVIDER_LIMIT_BYTES = 50 * 1024 * 1024 * 1024
-const UNDETERMINED_PROVIDER_VALUE = "undetermined"
 
 export const storageProvider = schema.table(
     "storage_provider",
@@ -11,6 +11,7 @@ export const storageProvider = schema.table(
             .$defaultFn( () => crypto.randomUUID() )
             .primaryKey(),
         name: text( "name" ).notNull().unique(),
+        // "undetermined" means this value can be supplied from environment configuration at runtime.
         endpoint: text( "endpoint" ).default( UNDETERMINED_PROVIDER_VALUE ).notNull(),
         region: text( "region" ).default( UNDETERMINED_PROVIDER_VALUE ).notNull(),
         bucketName: text( "bucket_name" ).default( UNDETERMINED_PROVIDER_VALUE ).notNull(),

@@ -65,14 +65,17 @@ export type AdminUser = Awaited<ReturnType<typeof getUsersWithUsage>>[number]
 
 export async function getStorageAdminSummary() {
     const [providerCountRow] = await db
-        .select( { count: count() } )
+        .select( {
+            count: count(),
+            defaultCount: sql<number>`COALESCE(SUM(CASE WHEN ${storageProvider.id} = ${DEFAULT_PROVIDER_ID} OR ${storageProvider.name} = ${FALLBACK_PROVIDER_NAME} THEN 1 ELSE 0 END), 0)::int`,
+        } )
         .from( storageProvider )
     const userCountRows = await db.execute<{ count: number }>( sql`SELECT COUNT(*)::int AS count FROM "dot-storage"."user"` )
     const [totalUsedRow] = await db
         .select( { total: sum( file.sizeInBytes ).mapWith( Number ) } )
         .from( file )
         .where( eq( file.isDeleted, false ) )
-    const providerCount = providerCountRow.count
+    const providerCount = providerCountRow.defaultCount > 0 ? providerCountRow.count : providerCountRow.count + 1
     const userCount = userCountRows.rows[0].count
     const totalUsedStorageBytes = totalUsedRow.total || 0
     return {
