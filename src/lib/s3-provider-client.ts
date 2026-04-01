@@ -2,6 +2,7 @@ import { S3Client } from "@aws-sdk/client-s3"
 import { db } from "@/db"
 import { file } from "@/db/schema/storage"
 import { storageProvider } from "@/db/schema/storage-provider"
+import { UNDETERMINED_PROVIDER_VALUE } from "@/lib/storage-provider-constants"
 import { decryptProviderSecret } from "@/lib/provider-crypto"
 import { and, eq, isNotNull, sql } from "drizzle-orm"
 
@@ -46,7 +47,7 @@ function fromEnvironment(): ProviderClientConfig {
     const region = process.env.S3_REGION
     const endpoint = process.env.S3_ENDPOINT
     if ( !accessKeyId || !secretAccessKey || !region || !endpoint ) {
-        throw new Error( "S3 provider is not configured" )
+        throw new Error( "No storage provider exists for uploads" )
     }
     return {
         providerId: null,
@@ -63,18 +64,34 @@ function fromEnvironment(): ProviderClientConfig {
 }
 
 function fromProviderRow( row: ProviderRow ): ProviderClientConfig {
+    const accessKeyId = row.accessKeyIdEncrypted === UNDETERMINED_PROVIDER_VALUE
+        ? process.env.S3_ACCESS_KEY_ID
+        : decryptProviderSecret( row.accessKeyIdEncrypted )
+    const secretAccessKey = row.secretAccessKeyEncrypted === UNDETERMINED_PROVIDER_VALUE
+        ? process.env.S3_SECRET_ACCESS_KEY
+        : decryptProviderSecret( row.secretAccessKeyEncrypted )
+    const region = row.region === UNDETERMINED_PROVIDER_VALUE ? process.env.S3_REGION : row.region
+    const endpoint = row.endpoint === UNDETERMINED_PROVIDER_VALUE ? process.env.S3_ENDPOINT : row.endpoint
+    if ( !accessKeyId || !secretAccessKey || !region || !endpoint ) {
+        const missing: string[] = []
+        if ( !accessKeyId ) missing.push( "accessKeyId" )
+        if ( !secretAccessKey ) missing.push( "secretAccessKey" )
+        if ( !region ) missing.push( "region" )
+        if ( !endpoint ) missing.push( "endpoint" )
+        throw new Error( `Storage provider "${row.name}" is missing required credentials: ${missing}` )
+    }
     return {
         providerId: row.id,
         providerName: row.name,
-        bucketName: row.bucketName,
+        bucketName: row.bucketName === UNDETERMINED_PROVIDER_VALUE ? ( process.env.S3_BUCKET_NAME ?? "dot-storage" ) : row.bucketName,
         client: new S3Client( {
-            region: row.region,
-            endpoint: row.endpoint,
+            region,
+            endpoint,
             forcePathStyle: true,
             bucketEndpoint: false,
             credentials: {
-                accessKeyId: decryptProviderSecret( row.accessKeyIdEncrypted ),
-                secretAccessKey: decryptProviderSecret( row.secretAccessKeyEncrypted ),
+                accessKeyId,
+                secretAccessKey,
             },
         } ),
     }
@@ -91,10 +108,10 @@ export async function getProviderClientById( providerId: string | null ): Promis
     const providerRows = await db
         .select()
         .from( storageProvider )
-        .where( and( eq( storageProvider.id, providerId ), eq( storageProvider.isActive, true ) ) )
+        .where( eq( storageProvider.id, providerId ) )
         .limit( 1 )
     if ( providerRows.length === 0 ) {
-        throw new Error( "Storage provider not found or inactive" )
+        throw new Error( "Storage provider not found" )
     }
     const provider = providerRows[0]
     return fromProviderRow( provider )
@@ -143,7 +160,7 @@ export async function selectProviderForUpload( incomingFileSize: number ): Promi
         .sort( ( a, b ) => b.available - a.available )
 
     if ( eligible.length === 0 ) {
-        throw new Error( "No storage provider has enough available capacity for this upload" )
+        throw new Error( "No available storage provider has enough capacity for this upload" )
     }
 
     return fromProviderRow( eligible[0].provider )
