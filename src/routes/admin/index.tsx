@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { toast } from "@/components/ui/sonner"
-import { createStorageProviderFn, getAdminDashboardDataFn } from "./-admin-server"
+import { createStorageProviderFn, deleteStorageProviderFn, getAdminDashboardDataFn, setStorageProviderAvailabilityFn } from "./-admin-server"
 import { MetricCard, ProvidersPanel, UsersPanel } from "@/components/admin/dashboard-panels"
 import { formatBytes } from "@/lib/format-bytes"
 
@@ -90,6 +90,36 @@ function AdminDashboardPage() {
         }
     }
 
+    const toggleProviderAvailability = async ( providerId: string, isActive: boolean ) => {
+        setData( ( prev ) => ( {
+            ...prev,
+            providers: prev.providers.map( ( provider ) => (
+                provider.id === providerId ? { ...provider, isActive } : provider
+            ) ),
+        } ) )
+        try {
+            await setStorageProviderAvailabilityFn( { data: { providerId, isActive } } )
+            toast.success( `Provider marked as ${isActive ? "available" : "not available"}` )
+        } catch ( error ) {
+            const refreshed = await getAdminDashboardDataFn()
+            setData( refreshed )
+            const message = error instanceof Error ? error.message : "Failed to update provider availability"
+            toast.error( message )
+        }
+    }
+
+    const deleteProvider = async ( providerId: string ) => {
+        try {
+            await deleteStorageProviderFn( { data: { providerId } } )
+            const refreshed = await getAdminDashboardDataFn()
+            setData( refreshed )
+            toast.success( "Storage provider deleted" )
+        } catch ( error ) {
+            const message = error instanceof Error ? error.message : "Failed to delete provider"
+            toast.error( message )
+        }
+    }
+
     return (
         <div className="min-h-screen">
             <SidebarProvider>
@@ -106,7 +136,11 @@ function AdminDashboardPage() {
                         <MetricCard title="Total Used" value={formatBytes( data.summary.totalUsedStorageBytes )} />
                     </div>
                     <div className="grid gap-4 p-4 lg:grid-cols-2">
-                        <ProvidersPanel providers={data.providers} />
+                        <ProvidersPanel
+                            providers={data.providers}
+                            onToggleAvailability={toggleProviderAvailability}
+                            onDelete={deleteProvider}
+                        />
                         <UsersPanel users={data.users} />
                     </div>
                     <div className="p-4">

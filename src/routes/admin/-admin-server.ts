@@ -66,7 +66,7 @@ export const setStorageProviderAvailabilityFn = createServerFn( { method: "POST"
     .inputValidator( UpdateProviderAvailabilitySchema )
     .handler( async ( { data } ) => {
         await requireAdminUser()
-        const [provider] = await db
+        const providers = await db
             .update( storageProvider )
             .set( { isActive: data.isActive } )
             .where( eq( storageProvider.id, data.providerId ) )
@@ -74,9 +74,10 @@ export const setStorageProviderAvailabilityFn = createServerFn( { method: "POST"
                 id: storageProvider.id,
                 isActive: storageProvider.isActive,
             } )
-        if ( !provider ) {
+        if ( providers.length === 0 ) {
             throw new Error( "Storage provider not found" )
         }
+        const provider = providers[0]
         return { success: true, provider }
     } )
 

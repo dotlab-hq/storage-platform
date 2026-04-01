@@ -20,7 +20,7 @@ function fromEnvironment(): ProviderClientConfig {
     const region = process.env.S3_REGION
     const endpoint = process.env.S3_ENDPOINT
     if ( !accessKeyId || !secretAccessKey || !region || !endpoint ) {
-        throw new Error( "S3 provider is not configured" )
+        throw new Error( "No storage provider exists for uploads" )
     }
     return {
         providerId: null,
@@ -61,10 +61,10 @@ export async function getProviderClientById( providerId: string | null ): Promis
     const providerRows = await db
         .select()
         .from( storageProvider )
-        .where( and( eq( storageProvider.id, providerId ), eq( storageProvider.isActive, true ) ) )
+        .where( eq( storageProvider.id, providerId ) )
         .limit( 1 )
     if ( providerRows.length === 0 ) {
-        throw new Error( "Storage provider not found or inactive" )
+        throw new Error( "Storage provider not found" )
     }
     const provider = providerRows[0]
     return fromProviderRow( provider )
@@ -100,7 +100,7 @@ export async function selectProviderForUpload( incomingFileSize: number ): Promi
         .sort( ( a, b ) => b.available - a.available )
 
     if ( eligible.length === 0 ) {
-        throw new Error( "No storage provider has enough available capacity for this upload" )
+        throw new Error( "No available storage provider has enough capacity for this upload" )
     }
 
     return fromProviderRow( eligible[0].provider )
