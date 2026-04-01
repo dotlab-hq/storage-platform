@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { z } from "zod"
 import { getAuthenticatedUser } from "@/lib/server-auth"
-import { deleteVirtualBucket } from "@/lib/s3-gateway/virtual-buckets"
+import { getVirtualBucketCredentials } from "@/lib/s3-gateway/virtual-buckets"
 
 const BucketActionSchema = z.object( {
     bucketName: z.string().trim().min( 3 ).max( 63 ),
@@ -14,10 +14,10 @@ function errorToMessage( error: unknown ): string {
     if ( error instanceof Error ) {
         return error.message
     }
-    return "Failed to delete bucket"
+    return "Failed to issue credentials"
 }
 
-export const Route = createFileRoute( "/api/storage/s3/delete-bucket" as never )( {
+export const Route = createFileRoute( "/api/storage/s3/bucket-credentials" as never )( {
     component: () => null,
     server: {
         handlers: {
@@ -25,8 +25,8 @@ export const Route = createFileRoute( "/api/storage/s3/delete-bucket" as never )
                 try {
                     const currentUser = await getAuthenticatedUser()
                     const payload = BucketActionSchema.parse( await request.json() )
-                    await deleteVirtualBucket( currentUser.id, payload.bucketName )
-                    return Response.json( { ok: true } )
+                    const credentials = await getVirtualBucketCredentials( currentUser.id, payload.bucketName )
+                    return Response.json( { ok: true, credentials } )
                 } catch ( error ) {
                     const status = error instanceof z.ZodError ? 400 : 500
                     return Response.json( { ok: false, error: errorToMessage( error ) }, { status } )

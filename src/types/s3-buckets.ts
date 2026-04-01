@@ -1,6 +1,17 @@
 export type S3BucketItem = {
+    id: string
     name: string
+    mappedFolderId: string | null
+    isActive: boolean
     createdAt: string | null
+}
+
+export type S3BucketCredentials = {
+    accessKeyId: string
+    secretAccessKey: string
+    endpoint: string
+    region: string
+    bucket: string
 }
 
 export type S3BucketListResponse = {
@@ -10,6 +21,14 @@ export type S3BucketListResponse = {
 export type S3BucketActionResponse = {
     ok: true
     bucket: S3BucketItem
+} | {
+    ok: false
+    error: string
+}
+
+export type S3BucketCredentialsResponse = {
+    ok: true
+    credentials: S3BucketCredentials
 } | {
     ok: false
     error: string

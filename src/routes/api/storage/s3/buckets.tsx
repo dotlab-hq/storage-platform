@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { z } from "zod"
 import { getAuthenticatedUser } from "@/lib/server-auth"
-import { createBucket, listBuckets } from "@/lib/s3-bucket-admin"
+import { createVirtualBucket, listVirtualBuckets } from "@/lib/s3-gateway/virtual-buckets"
 
 const CreateBucketSchema = z.object( {
     bucketName: z
@@ -28,8 +28,8 @@ export const Route = createFileRoute( "/api/storage/s3/buckets" as never )( {
         handlers: {
             GET: async () => {
                 try {
-                    await getAuthenticatedUser()
-                    const buckets = await listBuckets()
+                    const currentUser = await getAuthenticatedUser()
+                    const buckets = await listVirtualBuckets( currentUser.id )
                     return Response.json( { buckets } )
                 } catch ( error ) {
                     return Response.json( { error: errorToMessage( error, "Failed to list buckets" ) }, { status: 500 } )
@@ -37,9 +37,9 @@ export const Route = createFileRoute( "/api/storage/s3/buckets" as never )( {
             },
             POST: async ( { request } ) => {
                 try {
-                    await getAuthenticatedUser()
+                    const currentUser = await getAuthenticatedUser()
                     const payload = CreateBucketSchema.parse( await request.json() )
-                    const bucket = await createBucket( payload.bucketName )
+                    const bucket = await createVirtualBucket( currentUser.id, payload.bucketName )
                     return Response.json( { ok: true, bucket } )
                 } catch ( error ) {
                     const status = error instanceof z.ZodError ? 400 : 500

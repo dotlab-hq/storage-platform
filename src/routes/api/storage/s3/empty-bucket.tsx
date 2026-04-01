@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { z } from "zod"
 import { getAuthenticatedUser } from "@/lib/server-auth"
-import { emptyBucket } from "@/lib/s3-bucket-admin"
+import { emptyVirtualBucket } from "@/lib/s3-gateway/virtual-buckets"
 
 const BucketActionSchema = z.object( {
     bucketName: z.string().trim().min( 3 ).max( 63 ),
@@ -23,9 +23,9 @@ export const Route = createFileRoute( "/api/storage/s3/empty-bucket" as never )(
         handlers: {
             POST: async ( { request } ) => {
                 try {
-                    await getAuthenticatedUser()
+                    const currentUser = await getAuthenticatedUser()
                     const payload = BucketActionSchema.parse( await request.json() )
-                    await emptyBucket( payload.bucketName )
+                    await emptyVirtualBucket( currentUser.id, payload.bucketName )
                     return Response.json( { ok: true } )
                 } catch ( error ) {
                     const status = error instanceof z.ZodError ? 400 : 500

@@ -1,5 +1,11 @@
 import { useCallback, useMemo, useState } from "react"
-import type { S3BucketItem, S3BucketActionResponse, S3BucketListResponse } from "@/types/s3-buckets"
+import type {
+    S3BucketItem,
+    S3BucketActionResponse,
+    S3BucketCredentials,
+    S3BucketCredentialsResponse,
+    S3BucketListResponse,
+} from "@/types/s3-buckets"
 
 type PendingAction = "create" | "empty" | "delete"
 type PendingByBucket = Record<string, PendingAction | undefined>
@@ -19,6 +25,7 @@ export function useS3Buckets() {
     const [isRefreshing, setIsRefreshing] = useState<boolean>( false )
     const [isCreating, setIsCreating] = useState<boolean>( false )
     const [pendingByBucket, setPendingByBucket] = useState<PendingByBucket>( {} )
+    const [credentialByBucket, setCredentialByBucket] = useState<Record<string, S3BucketCredentials | undefined>>( {} )
     const [error, setError] = useState<string | null>( null )
 
     const refreshBuckets = useCallback( async () => {
@@ -45,7 +52,10 @@ export function useS3Buckets() {
 
         const normalizedName = bucketName.trim()
         const tempBucket: S3BucketItem = {
+            id: `temp-${crypto.randomUUID()}`,
             name: normalizedName,
+            mappedFolderId: null,
+            isActive: true,
             createdAt: new Date().toISOString(),
         }
 
@@ -113,16 +123,42 @@ export function useS3Buckets() {
 
     const hasBuckets = useMemo( () => buckets.length > 0, [buckets] )
 
+    const fetchCredentials = useCallback( async ( bucketName: string ) => {
+        try {
+            const response = await fetch( "/api/storage/s3/bucket-credentials", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify( { bucketName } ),
+            } )
+            const payload = await parseJson<S3BucketCredentialsResponse>( response )
+            if ( !response.ok || !payload.ok ) {
+                const message = payload.ok ? "Failed to fetch credentials" : payload.error
+                throw new Error( message )
+            }
+
+            setCredentialByBucket( ( previous ) => ( {
+                ...previous,
+                [bucketName]: payload.credentials,
+            } ) )
+            return payload.credentials
+        } catch ( fetchError ) {
+            setError( fetchError instanceof Error ? fetchError.message : "Failed to fetch credentials" )
+            return null
+        }
+    }, [] )
+
     return {
         buckets,
         isLoading,
         isRefreshing,
         isCreating,
         pendingByBucket,
+        credentialByBucket,
         error,
         hasBuckets,
         refreshBuckets,
         createNewBucket,
         runBucketAction,
+        fetchCredentials,
     }
 }

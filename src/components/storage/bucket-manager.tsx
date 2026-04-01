@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react"
-import { Loader2, Plus, RefreshCw, Trash2, Eraser } from "lucide-react"
+import { Copy, Eraser, KeyRound, Loader2, Plus, RefreshCw, Trash2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useS3Buckets } from "@/hooks/use-s3-buckets"
@@ -25,11 +25,13 @@ export function BucketManager() {
         isRefreshing,
         isCreating,
         pendingByBucket,
+        credentialByBucket,
         error,
         hasBuckets,
         refreshBuckets,
         createNewBucket,
         runBucketAction,
+        fetchCredentials,
     } = useS3Buckets()
 
     useEffect( () => {
@@ -63,12 +65,16 @@ export function BucketManager() {
         await runBucketAction( name, "delete" )
     }
 
+    const copyValue = async ( value: string ) => {
+        await navigator.clipboard.writeText( value )
+    }
+
     return (
         <section className="space-y-4 rounded-xl border bg-card/70 p-4 shadow-sm backdrop-blur-sm sm:p-5">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                     <h2 className="text-base font-semibold">S3 Buckets</h2>
-                    <p className="text-muted-foreground text-sm">Create, empty, and delete buckets for the active provider.</p>
+                    <p className="text-muted-foreground text-sm">Create virtual buckets and issue platform credentials for S3-compatible uploads.</p>
                 </div>
                 <Button variant="outline" onClick={() => void refreshBuckets()} disabled={isRefreshing || isLoading}>
                     {isRefreshing ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCw className="h-4 w-4" />}
@@ -101,7 +107,7 @@ export function BucketManager() {
 
             {!isLoading && !hasBuckets && (
                 <div className="text-muted-foreground rounded-lg border border-dashed p-6 text-sm">
-                    No buckets found for the configured provider.
+                    No virtual buckets found for your account.
                 </div>
             )}
 
@@ -121,6 +127,15 @@ export function BucketManager() {
                                         variant="outline"
                                         size="sm"
                                         disabled={isPending}
+                                        onClick={() => void fetchCredentials( bucket.name )}
+                                    >
+                                        <KeyRound className="h-4 w-4" />
+                                        Credentials
+                                    </Button>
+                                    <Button
+                                        variant="outline"
+                                        size="sm"
+                                        disabled={isPending}
                                         onClick={() => void handleEmpty( bucket.name )}
                                     >
                                         {pendingAction === "empty" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Eraser className="h-4 w-4" />}
@@ -136,6 +151,32 @@ export function BucketManager() {
                                         Delete
                                     </Button>
                                 </div>
+                                {credentialByBucket[bucket.name] && (
+                                    <div className="bg-muted/50 mt-3 space-y-2 rounded-md border p-3 text-xs">
+                                        <div className="space-y-1">
+                                            <p className="text-muted-foreground">Access Key ID</p>
+                                            <div className="flex items-center gap-2">
+                                                <p className="truncate font-mono">{credentialByBucket[bucket.name]?.accessKeyId}</p>
+                                                <Button size="icon-xs" variant="ghost" onClick={() => void copyValue( credentialByBucket[bucket.name]?.accessKeyId ?? "" )}>
+                                                    <Copy className="h-3 w-3" />
+                                                </Button>
+                                            </div>
+                                        </div>
+                                        <div className="space-y-1">
+                                            <p className="text-muted-foreground">Secret Access Key</p>
+                                            <div className="flex items-center gap-2">
+                                                <p className="truncate font-mono">{credentialByBucket[bucket.name]?.secretAccessKey}</p>
+                                                <Button size="icon-xs" variant="ghost" onClick={() => void copyValue( credentialByBucket[bucket.name]?.secretAccessKey ?? "" )}>
+                                                    <Copy className="h-3 w-3" />
+                                                </Button>
+                                            </div>
+                                        </div>
+                                        <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
+                                            <p className="text-muted-foreground">Endpoint: {credentialByBucket[bucket.name]?.endpoint}</p>
+                                            <p className="text-muted-foreground">Region: {credentialByBucket[bucket.name]?.region}</p>
+                                        </div>
+                                    </div>
+                                )}
                             </article>
                         )
                     } )}
