@@ -2,6 +2,13 @@ import { createFileRoute } from "@tanstack/react-router"
 import { eq } from "drizzle-orm"
 import { DEFAULT_ALLOCATED_STORAGE_BYTES, DEFAULT_FILE_SIZE_LIMIT_BYTES } from "@/lib/storage-quota-constants"
 
+function toNonNegativeBytes( value: number | null | undefined, fallback: number ): number {
+    if ( typeof value !== "number" || !Number.isFinite( value ) ) {
+        return fallback
+    }
+    return Math.max( 0, value )
+}
+
 export const Route = createFileRoute( "/api/storage/quota" )( {
     component: () => null,
     server: {
@@ -54,9 +61,9 @@ export const Route = createFileRoute( "/api/storage/quota" )( {
                     }
 
                     return Response.json( {
-                        usedStorage: row.usedStorage,
-                        allocatedStorage: row.allocatedStorage,
-                        fileSizeLimit: row.fileSizeLimit,
+                        usedStorage: toNonNegativeBytes( row.usedStorage, 0 ),
+                        allocatedStorage: toNonNegativeBytes( row.allocatedStorage, DEFAULT_ALLOCATED_STORAGE_BYTES ),
+                        fileSizeLimit: toNonNegativeBytes( row.fileSizeLimit, DEFAULT_FILE_SIZE_LIMIT_BYTES ),
                     } )
                 } catch ( error ) {
                     console.error( "[Server] Quota error:", error )

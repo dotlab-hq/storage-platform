@@ -9,11 +9,13 @@ import { MetricCard, ProvidersPanel, UsersPanel } from "@/components/admin/dashb
 import { formatBytes } from "@/lib/format-bytes"
 import type { AdminProvider } from "@/lib/storage-provider-queries"
 import { ProviderEditorCard } from "@/components/admin/provider-editor-card"
+import { useQuota } from "@/hooks/use-quota"
 
 const emptyProviderForm = { name: "", endpoint: "", region: "", bucketName: "", accessKeyId: "", secretAccessKey: "", storageLimitBytes: 10 * 1024 * 1024 * 1024, fileSizeLimitBytes: 100 * 1024 * 1024 }
 export const Route = createFileRoute( "/admin/" )( { component: AdminDashboardPage, loader: () => getAdminDashboardDataFn() } )
 
 function AdminDashboardPage() {
+    const quota = useQuota()
     const initial = Route.useLoaderData()
     const [data, setData] = useState( initial )
     const [isSaving, setIsSaving] = useState( false )
@@ -152,7 +154,7 @@ function AdminDashboardPage() {
     return (
         <div className="min-h-screen">
             <SidebarProvider>
-                <AppSidebar />
+                <AppSidebar quota={quota} />
                 <SidebarInset>
                     <header className="flex h-14 shrink-0 items-center gap-2 px-4">
                         <SidebarTrigger className="-ml-1" />

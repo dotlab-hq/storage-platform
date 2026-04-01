@@ -43,11 +43,12 @@ export function getFolderIcon(): LucideIcon {
     return Folder
 }
 
-export function formatFileSize( bytes: number ): string {
-    if ( bytes === 0 ) return "0 B"
+export function formatFileSize( bytes: number | null | undefined ): string {
+    const safeBytes = Number.isFinite( bytes ) && typeof bytes === "number" ? Math.max( 0, bytes ) : 0
+    if ( safeBytes === 0 ) return "0 bytes"
     const units = ["B", "KB", "MB", "GB", "TB"]
-    const i = Math.floor( Math.log( bytes ) / Math.log( 1024 ) )
-    const size = bytes / Math.pow( 1024, i )
+    const i = Math.floor( Math.log( safeBytes ) / Math.log( 1024 ) )
+    const size = safeBytes / Math.pow( 1024, i )
     return `${size.toFixed( i === 0 ? 0 : 1 )} ${units[i]}`
 }
 

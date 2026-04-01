@@ -18,7 +18,10 @@ export function StorageQuota( { quota, className }: StorageQuotaProps ) {
         )
     }
 
-    const percentage = ( quota.usedStorage / quota.allocatedStorage ) * 100
+    const usedStorage = Number.isFinite( quota.usedStorage ) ? Math.max( 0, quota.usedStorage ) : 0
+    const allocatedStorage = Number.isFinite( quota.allocatedStorage ) ? Math.max( 0, quota.allocatedStorage ) : 0
+    const fileSizeLimit = Number.isFinite( quota.fileSizeLimit ) ? Math.max( 0, quota.fileSizeLimit ) : 0
+    const percentage = allocatedStorage > 0 ? ( usedStorage / allocatedStorage ) * 100 : 0
     const isWarning = percentage >= 80
     const isDanger = percentage >= 95
 
@@ -37,18 +40,18 @@ export function StorageQuota( { quota, className }: StorageQuotaProps ) {
                         isWarning && !isDanger && "text-amber-500"
                     )}
                 >
-                    {formatFileSize( quota.usedStorage )} /{" "}
-                    {formatFileSize( quota.allocatedStorage )}
+                    {formatFileSize( usedStorage )} /{" "}
+                    {formatFileSize( allocatedStorage )}
                 </span>
             </div>
             <Progress
-                value={quota.usedStorage}
-                max={quota.allocatedStorage}
+                value={usedStorage}
+                max={allocatedStorage > 0 ? allocatedStorage : 1}
                 variant={variant}
                 className="h-1.5"
             />
             <p className="text-muted-foreground text-[10px]">
-                Max file size: {formatFileSize( quota.fileSizeLimit )}
+                Max file size: {formatFileSize( fileSizeLimit )}
             </p>
             {isWarning && (
                 <p
