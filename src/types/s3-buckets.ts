@@ -9,8 +9,6 @@ export type S3BucketItem = {
 export type S3BucketCredentials = {
     accessKeyId: string
     secretAccessKey: string
-    endpoint: string
-    region: string
     bucket: string
 }
 

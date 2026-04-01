@@ -38,8 +38,6 @@ function createBucketCredentials( userId: string, bucketId: string, bucketName: 
     return {
         accessKeyId: `sp_${compactBucketId}`,
         secretAccessKey: `${digest}${digest.slice( 0, 24 )}`,
-        endpoint: process.env.S3_ENDPOINT ?? "",
-        region: process.env.S3_REGION ?? "us-east-1",
         bucket: bucketName,
     }
 }

@@ -74,7 +74,7 @@ export function BucketManager() {
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                     <h2 className="text-base font-semibold">S3 Buckets</h2>
-                    <p className="text-muted-foreground text-sm">Create virtual buckets and issue platform credentials for S3-compatible uploads.</p>
+                    <p className="text-muted-foreground text-sm">Create virtual buckets and issue platform credentials. Files are tracked in your platform bucket mapping.</p>
                 </div>
                 <Button variant="outline" onClick={() => void refreshBuckets()} disabled={isRefreshing || isLoading}>
                     {isRefreshing ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCw className="h-4 w-4" />}
@@ -170,10 +170,6 @@ export function BucketManager() {
                                                     <Copy className="h-3 w-3" />
                                                 </Button>
                                             </div>
-                                        </div>
-                                        <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
-                                            <p className="text-muted-foreground">Endpoint: {credentialByBucket[bucket.name]?.endpoint}</p>
-                                            <p className="text-muted-foreground">Region: {credentialByBucket[bucket.name]?.region}</p>
                                         </div>
                                     </div>
                                 )}
