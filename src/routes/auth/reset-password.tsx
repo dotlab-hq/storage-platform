@@ -37,12 +37,17 @@ function ResetPasswordPage() {
       <div className="w-full max-w-sm space-y-4 rounded-lg border p-6">
         <h1 className="text-xl font-semibold">Reset password</h1>
         <div className="space-y-2">
-          <Label>Reset token</Label>
-          <Input value={token} onChange={( event ) => setToken( event.target.value )} />
+          <Label htmlFor="reset-token">Reset token</Label>
+          <Input id="reset-token" type="text" value={token} onChange={( event ) => setToken( event.target.value )} />
         </div>
         <div className="space-y-2">
-          <Label>New password</Label>
-          <Input type="password" value={newPassword} onChange={( event ) => setNewPassword( event.target.value )} />
+          <Label htmlFor="reset-new-password">New password</Label>
+          <Input
+            id="reset-new-password"
+            type="password"
+            value={newPassword}
+            onChange={( event ) => setNewPassword( event.target.value )}
+          />
         </div>
         <Button className="w-full" disabled={isSubmitting} onClick={() => void reset()}>
           {isSubmitting ? "Resetting..." : "Reset password"}

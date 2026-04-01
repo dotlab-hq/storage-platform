@@ -32,14 +32,12 @@ function LoginPage() {
   }
 
   const login = async () => {
-    const previousEmail = email
     setIsSubmitting( true )
     try {
       await loginWithPasswordFn( { data: { email, password } } )
       toast.success( "Welcome back!" )
       setPassword( "" )
     } catch ( error ) {
-      setEmail( previousEmail )
       toast.error( error instanceof Error ? error.message : "Login failed." )
     } finally {
       setIsSubmitting( false )
@@ -51,12 +49,12 @@ function LoginPage() {
       <div className="w-full max-w-sm space-y-4 rounded-lg border p-6">
         <h1 className="text-xl font-semibold">Login</h1>
         <div className="space-y-2">
-          <Label>Email</Label>
-          <Input value={email} onChange={( event ) => setEmail( event.target.value )} />
+          <Label htmlFor="login-email">Email</Label>
+          <Input id="login-email" type="email" value={email} onChange={( event ) => setEmail( event.target.value )} />
         </div>
         <div className="space-y-2">
-          <Label>Password</Label>
-          <Input type="password" value={password} onChange={( event ) => setPassword( event.target.value )} />
+          <Label htmlFor="login-password">Password</Label>
+          <Input id="login-password" type="password" value={password} onChange={( event ) => setPassword( event.target.value )} />
         </div>
         <Button className="w-full" disabled={isSubmitting} onClick={() => void login()}>
           {isSubmitting ? "Signing in..." : "Sign in"}

@@ -7,6 +7,7 @@ type SendResetPasswordEmailArgs = {
   resetUrl: string
   token: string
   recipientName: string
+  placement: "top" | "bottom"
 }
 
 export async function sendResetPasswordEmail( args: SendResetPasswordEmailArgs ): Promise<void> {
@@ -14,7 +15,7 @@ export async function sendResetPasswordEmail( args: SendResetPasswordEmailArgs )
     <ResetPasswordEmail
       name={args.recipientName}
       resetUrl={args.resetUrl}
-      placement="top"
+      placement={args.placement}
     />,
   )
 
@@ -22,6 +23,6 @@ export async function sendResetPasswordEmail( args: SendResetPasswordEmailArgs )
     to: args.to,
     subject: "Set your password",
     html: `<!-- token:${args.token} -->${html}`,
-    placement: "top",
+    placement: args.placement,
   } )
 }

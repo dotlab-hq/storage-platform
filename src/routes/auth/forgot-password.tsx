@@ -31,8 +31,8 @@ function ForgotPasswordPage() {
       <div className="w-full max-w-sm space-y-4 rounded-lg border p-6">
         <h1 className="text-xl font-semibold">Forgot password</h1>
         <div className="space-y-2">
-          <Label>Email</Label>
-          <Input value={email} onChange={( event ) => setEmail( event.target.value )} />
+          <Label htmlFor="forgot-password-email">Email</Label>
+          <Input id="forgot-password-email" type="email" value={email} onChange={( event ) => setEmail( event.target.value )} />
         </div>
         <Button className="w-full" disabled={isSubmitting} onClick={() => void requestReset()}>
           {isSubmitting ? "Sending..." : "Send reset link"}

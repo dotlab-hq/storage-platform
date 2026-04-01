@@ -51,6 +51,7 @@ export const auth = betterAuth( {
         resetUrl: url,
         token,
         recipientName: user.name,
+        placement: "top",
       } )
     },
   },

@@ -13,7 +13,7 @@ const ProfileSchema = z.object( {
 } )
 
 const PasswordSchema = z.object( {
-  currentPassword: z.string(),
+  currentPassword: z.string().optional(),
   newPassword: z.string().min( 8, "Password must be at least 8 characters." ),
 } )
 
@@ -119,7 +119,17 @@ export const changePasswordSettingsFn = createServerFn( { method: "POST" } )
     try {
       const hasPassword = await hasPasswordCredential( currentUser.id )
       if ( hasPassword ) {
-        await auth.api.changePassword( { headers, body: { ...data, revokeOtherSessions: true } } )
+        if ( !data.currentPassword?.trim() ) {
+          throw new Error( "Current password is required." )
+        }
+        await auth.api.changePassword( {
+          headers,
+          body: {
+            currentPassword: data.currentPassword,
+            newPassword: data.newPassword,
+            revokeOtherSessions: true,
+          },
+        } )
       } else {
         await auth.api.setPassword( { headers, body: { newPassword: data.newPassword } } )
       }

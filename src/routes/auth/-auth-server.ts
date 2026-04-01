@@ -4,18 +4,18 @@ import { getRequest } from "@tanstack/react-start/server"
 import { z } from "zod"
 
 const LoginSchema = z.object( {
-  email: z.email( "Enter a valid email." ),
+  email: z.string().email( "Enter a valid email." ),
   password: z.string().min( 1, "Password is required." ),
 } )
 
 const SignupSchema = z.object( {
   name: z.string().trim().min( 1, "Name is required." ).max( 120 ),
-  email: z.email( "Enter a valid email." ),
+  email: z.string().email( "Enter a valid email." ),
   password: z.string().min( 8, "Password must be at least 8 characters." ),
 } )
 
 const ForgotPasswordSchema = z.object( {
-  email: z.email( "Enter a valid email." ),
+  email: z.string().email( "Enter a valid email." ),
 } )
 
 const ResetPasswordSchema = z.object( {

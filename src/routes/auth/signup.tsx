@@ -34,16 +34,16 @@ function SignupPage() {
       <div className="w-full max-w-sm space-y-4 rounded-lg border p-6">
         <h1 className="text-xl font-semibold">Sign up</h1>
         <div className="space-y-2">
-          <Label>Name</Label>
-          <Input value={name} onChange={( event ) => setName( event.target.value )} />
+          <Label htmlFor="signup-name">Name</Label>
+          <Input id="signup-name" type="text" value={name} onChange={( event ) => setName( event.target.value )} />
         </div>
         <div className="space-y-2">
-          <Label>Email</Label>
-          <Input value={email} onChange={( event ) => setEmail( event.target.value )} />
+          <Label htmlFor="signup-email">Email</Label>
+          <Input id="signup-email" type="email" value={email} onChange={( event ) => setEmail( event.target.value )} />
         </div>
         <div className="space-y-2">
-          <Label>Password</Label>
-          <Input type="password" value={password} onChange={( event ) => setPassword( event.target.value )} />
+          <Label htmlFor="signup-password">Password</Label>
+          <Input id="signup-password" type="password" value={password} onChange={( event ) => setPassword( event.target.value )} />
         </div>
         <Button className="w-full" disabled={isSubmitting} onClick={() => void signup()}>
           {isSubmitting ? "Creating account..." : "Create account"}
