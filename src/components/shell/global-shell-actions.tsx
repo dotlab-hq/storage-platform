@@ -31,6 +31,10 @@ const DEFAULT_CONFIG: ShellViewConfig = {
     contextActions: [],
 }
 
+const MENU_WIDTH_PX = 240
+const MENU_HEIGHT_PX = 260
+const VIEWPORT_MARGIN_PX = 8
+
 let activeView: ShellView = "other"
 const configs: Partial<Record<ShellView, ShellViewConfig>> = {}
 
@@ -45,6 +49,15 @@ function isMacOS(): boolean {
 function isFileCardTarget( target: EventTarget | null ): boolean {
     if ( !( target instanceof Element ) ) return false
     return Boolean( target.closest( "[data-file-card='true']" ) )
+}
+
+function clampToViewport( x: number, y: number ) {
+    const maxX = Math.max( VIEWPORT_MARGIN_PX, window.innerWidth - MENU_WIDTH_PX - VIEWPORT_MARGIN_PX )
+    const maxY = Math.max( VIEWPORT_MARGIN_PX, window.innerHeight - MENU_HEIGHT_PX - VIEWPORT_MARGIN_PX )
+    return {
+        x: Math.min( Math.max( x, VIEWPORT_MARGIN_PX ), maxX ),
+        y: Math.min( Math.max( y, VIEWPORT_MARGIN_PX ), maxY ),
+    }
 }
 
 export function registerShellView( view: ShellView, config: ShellViewConfig ): () => void {
@@ -93,6 +106,9 @@ export function GlobalShellActions( { children }: { children: React.ReactNode } 
         const onContextMenu = ( event: MouseEvent ) => {
             if ( isFileCardTarget( event.target ) ) return
             event.preventDefault()
+            const { x, y } = clampToViewport( event.clientX + 2, event.clientY + 2 )
+            document.documentElement.style.setProperty( "--dot-shell-menu-x", `${x}px` )
+            document.documentElement.style.setProperty( "--dot-shell-menu-y", `${y}px` )
             setContextOpen( true )
         }
 
@@ -123,7 +139,7 @@ export function GlobalShellActions( { children }: { children: React.ReactNode } 
             {contextOpen && (
                 <div
                     className={cn(
-                        "bg-popover text-popover-foreground fixed bottom-4 left-4 z-50 min-w-52 rounded-md border p-1 shadow-md"
+                        "bg-popover text-popover-foreground fixed left-(--dot-shell-menu-x) top-(--dot-shell-menu-y) z-50 min-w-52 rounded-md border p-1 shadow-md"
                     )}
                 >
                     {activeConfig.contextActions.length > 0 ? activeConfig.contextActions.map( ( action ) => (
