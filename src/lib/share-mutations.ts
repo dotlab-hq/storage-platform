@@ -22,7 +22,7 @@ export async function createShareLink(
         }
         const fileRow = fileRows[0]
         if ( fileRow.isPrivatelyLocked && !consentedPrivatelyUnlock ) {
-            throw new Error( "File is privately locked" )
+            throw new Error( "Cannot share privately locked file without consent" )
         }
     } else {
         const folderRows = await db.select( { isPrivatelyLocked: folder.isPrivatelyLocked } )

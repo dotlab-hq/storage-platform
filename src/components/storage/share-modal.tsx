@@ -67,8 +67,12 @@ export function ShareModal( { open, onOpenChange, item, userId }: ShareModalProp
                 itemType: item.type,
                 consentedPrivatelyUnlock,
             } )
-            if ( data.link ) { setLink( data.link ); toast.success( "Share link created" ) }
-            else if ( data.error ) toast.error( data.error )
+            if ( data.link ) {
+                setLink( data.link )
+                toast.success( "Share link created" )
+            } else if ( data.error ) {
+                toast.error( data.error )
+            }
         } finally { setLoading( false ) }
     }
 

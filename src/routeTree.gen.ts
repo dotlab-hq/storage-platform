@@ -194,8 +194,8 @@ export interface FileRoutesByFullPath {
   '/api/storage/delete': typeof ApiStorageDeleteRoute
   '/api/storage/folder-items': typeof ApiStorageFolderItemsRoute
   '/api/storage/move': typeof ApiStorageMoveRoute
-  '/api/storage/private-lock': typeof ApiStoragePrivateLockRoute
   '/api/storage/presign': typeof ApiStoragePresignRoute
+  '/api/storage/private-lock': typeof ApiStoragePrivateLockRoute
   '/api/storage/quota': typeof ApiStorageQuotaRoute
   '/api/storage/recent': typeof ApiStorageRecentRoute
   '/api/storage/register-file': typeof ApiStorageRegisterFileRoute
@@ -224,8 +224,8 @@ export interface FileRoutesByTo {
   '/api/storage/delete': typeof ApiStorageDeleteRoute
   '/api/storage/folder-items': typeof ApiStorageFolderItemsRoute
   '/api/storage/move': typeof ApiStorageMoveRoute
-  '/api/storage/private-lock': typeof ApiStoragePrivateLockRoute
   '/api/storage/presign': typeof ApiStoragePresignRoute
+  '/api/storage/private-lock': typeof ApiStoragePrivateLockRoute
   '/api/storage/quota': typeof ApiStorageQuotaRoute
   '/api/storage/recent': typeof ApiStorageRecentRoute
   '/api/storage/register-file': typeof ApiStorageRegisterFileRoute
@@ -255,8 +255,8 @@ export interface FileRoutesById {
   '/api/storage/delete': typeof ApiStorageDeleteRoute
   '/api/storage/folder-items': typeof ApiStorageFolderItemsRoute
   '/api/storage/move': typeof ApiStorageMoveRoute
-  '/api/storage/private-lock': typeof ApiStoragePrivateLockRoute
   '/api/storage/presign': typeof ApiStoragePresignRoute
+  '/api/storage/private-lock': typeof ApiStoragePrivateLockRoute
   '/api/storage/quota': typeof ApiStorageQuotaRoute
   '/api/storage/recent': typeof ApiStorageRecentRoute
   '/api/storage/register-file': typeof ApiStorageRegisterFileRoute
@@ -287,8 +287,8 @@ export interface FileRouteTypes {
     | '/api/storage/delete'
     | '/api/storage/folder-items'
     | '/api/storage/move'
-    | '/api/storage/private-lock'
     | '/api/storage/presign'
+    | '/api/storage/private-lock'
     | '/api/storage/quota'
     | '/api/storage/recent'
     | '/api/storage/register-file'
@@ -317,8 +317,8 @@ export interface FileRouteTypes {
     | '/api/storage/delete'
     | '/api/storage/folder-items'
     | '/api/storage/move'
-    | '/api/storage/private-lock'
     | '/api/storage/presign'
+    | '/api/storage/private-lock'
     | '/api/storage/quota'
     | '/api/storage/recent'
     | '/api/storage/register-file'
@@ -347,8 +347,8 @@ export interface FileRouteTypes {
     | '/api/storage/delete'
     | '/api/storage/folder-items'
     | '/api/storage/move'
-    | '/api/storage/private-lock'
     | '/api/storage/presign'
+    | '/api/storage/private-lock'
     | '/api/storage/quota'
     | '/api/storage/recent'
     | '/api/storage/register-file'
@@ -378,8 +378,8 @@ export interface RootRouteChildren {
   ApiStorageDeleteRoute: typeof ApiStorageDeleteRoute
   ApiStorageFolderItemsRoute: typeof ApiStorageFolderItemsRoute
   ApiStorageMoveRoute: typeof ApiStorageMoveRoute
-  ApiStoragePrivateLockRoute: typeof ApiStoragePrivateLockRoute
   ApiStoragePresignRoute: typeof ApiStoragePresignRoute
+  ApiStoragePrivateLockRoute: typeof ApiStoragePrivateLockRoute
   ApiStorageQuotaRoute: typeof ApiStorageQuotaRoute
   ApiStorageRecentRoute: typeof ApiStorageRecentRoute
   ApiStorageRegisterFileRoute: typeof ApiStorageRegisterFileRoute
@@ -536,6 +536,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStorageQuotaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/storage/private-lock': {
+      id: '/api/storage/private-lock'
+      path: '/api/storage/private-lock'
+      fullPath: '/api/storage/private-lock'
+      preLoaderRoute: typeof ApiStoragePrivateLockRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/storage/presign': {
       id: '/api/storage/presign'
       path: '/api/storage/presign'
@@ -548,13 +555,6 @@ declare module '@tanstack/react-router' {
       path: '/api/storage/move'
       fullPath: '/api/storage/move'
       preLoaderRoute: typeof ApiStorageMoveRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/private-lock': {
-      id: '/api/storage/private-lock'
-      path: '/api/storage/private-lock'
-      fullPath: '/api/storage/private-lock'
-      preLoaderRoute: typeof ApiStoragePrivateLockRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/storage/folder-items': {
@@ -610,8 +610,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiStorageDeleteRoute: ApiStorageDeleteRoute,
   ApiStorageFolderItemsRoute: ApiStorageFolderItemsRoute,
   ApiStorageMoveRoute: ApiStorageMoveRoute,
-  ApiStoragePrivateLockRoute: ApiStoragePrivateLockRoute,
   ApiStoragePresignRoute: ApiStoragePresignRoute,
+  ApiStoragePrivateLockRoute: ApiStoragePrivateLockRoute,
   ApiStorageQuotaRoute: ApiStorageQuotaRoute,
   ApiStorageRecentRoute: ApiStorageRecentRoute,
   ApiStorageRegisterFileRoute: ApiStorageRegisterFileRoute,

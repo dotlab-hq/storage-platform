@@ -26,7 +26,7 @@ export const Route = createFileRoute( "/api/storage/share" )( {
             POST: async ( { request } ) => {
                 try {
                     const body = await request.json() as {
-                        action: "create" | "toggle"
+                        action: string
                         userId: string
                         itemId?: string
                         itemType?: "file" | "folder"
@@ -49,15 +49,17 @@ export const Route = createFileRoute( "/api/storage/share" )( {
                         return Response.json( { link } )
                     }
 
-                    else {
+                    if ( body.action !== "toggle" ) {
+                        return Response.json( { error: "Invalid action" }, { status: 400 } )
+                    }
+
+                    {
                         if ( !body.userId || !body.linkId || body.isActive === undefined ) {
                             return Response.json( { error: "Missing params" }, { status: 400 } )
                         }
                         const link = await toggleShareLink( body.userId, body.linkId, body.isActive )
                         return Response.json( { link } )
                     }
-
-                    return Response.json( { error: "Invalid action" }, { status: 400 } )
                 } catch ( error ) {
                     const msg = error instanceof Error ? error.message : String( error )
                     return Response.json( { error: msg }, { status: 500 } )
