@@ -7,6 +7,8 @@ import { and, eq } from "drizzle-orm"
 import { upsertCommittedFile } from "./upload-file-records"
 import { buildUpstreamObjectKey, deriveFileName } from "./upload-key-utils"
 
+const MULTIPART_UPLOAD_EXPIRY_MS = 60 * 60 * 1000
+
 export async function createMultipartUpload( bucket: BucketContext, objectKey: string, contentType: string | null ): Promise<string> {
     const attemptId = crypto.randomUUID()
     const provider = await selectProviderForUpload( 1 )
@@ -20,7 +22,7 @@ export async function createMultipartUpload( bucket: BucketContext, objectKey: s
         expectedSize: 0,
         contentType,
         status: "pending",
-        expiresAt: new Date( Date.now() + 60 * 60 * 1000 ),
+        expiresAt: new Date( Date.now() + MULTIPART_UPLOAD_EXPIRY_MS ),
     } )
 
     return attemptId
@@ -44,7 +46,7 @@ export async function uploadPart(
         .limit( 1 )
 
     if ( rows.length === 0 ) {
-        throw new Error( "UploadId not found" )
+        throw new Error( "Invalid or expired upload ID" )
     }
 
     const attempt = rows[0]
@@ -85,7 +87,7 @@ export async function completeMultipartUpload( bucket: BucketContext, uploadId: 
         .limit( 1 )
 
     if ( rows.length === 0 ) {
-        throw new Error( "UploadId not found" )
+        throw new Error( "Invalid or expired upload ID" )
     }
 
     const attempt = rows[0]
