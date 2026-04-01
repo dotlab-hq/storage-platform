@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react"
-import { Copy, Eraser, KeyRound, Loader2, Plus, RefreshCw, Trash2 } from "lucide-react"
+import { Eraser, KeyRound, Loader2, Plus, RefreshCw, Trash2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { BucketCredentialsDialog } from "@/components/storage/bucket-credentials-dialog"
 import { useS3Buckets } from "@/hooks/use-s3-buckets"
 
 function formatCreatedAt( value: string | null ): string {
@@ -19,6 +20,7 @@ function formatCreatedAt( value: string | null ): string {
 
 export function BucketManager() {
     const [bucketName, setBucketName] = useState<string>( "" )
+    const [activeCredentialsBucket, setActiveCredentialsBucket] = useState<string | null>( null )
     const {
         buckets,
         isLoading,
@@ -68,6 +70,17 @@ export function BucketManager() {
     const copyValue = async ( value: string ) => {
         await navigator.clipboard.writeText( value )
     }
+
+    const openCredentialsDialog = async ( name: string ) => {
+        const credentials = await fetchCredentials( name )
+        if ( credentials ) {
+            setActiveCredentialsBucket( name )
+        }
+    }
+
+    const activeCredentials = activeCredentialsBucket
+        ? credentialByBucket[activeCredentialsBucket]
+        : undefined
 
     return (
         <section className="space-y-4 rounded-xl border bg-card/70 p-4 shadow-sm backdrop-blur-sm sm:p-5">
@@ -136,7 +149,7 @@ export function BucketManager() {
                                         variant="outline"
                                         size="sm"
                                         disabled={isPending}
-                                        onClick={() => void fetchCredentials( bucket.name )}
+                                        onClick={() => void openCredentialsDialog( bucket.name )}
                                     >
                                         <KeyRound className="h-4 w-4" />
                                         Credentials
@@ -160,33 +173,22 @@ export function BucketManager() {
                                         Delete
                                     </Button>
                                 </div>
-                                {credentialByBucket[bucket.name] && (
-                                    <div className="bg-muted/50 mt-3 space-y-2 rounded-md border p-3 text-xs">
-                                        <div className="space-y-1">
-                                            <p className="text-muted-foreground">Access Key ID</p>
-                                            <div className="flex items-center gap-2">
-                                                <p className="truncate font-mono">{credentialByBucket[bucket.name]?.accessKeyId}</p>
-                                                <Button size="icon-xs" variant="ghost" onClick={() => void copyValue( credentialByBucket[bucket.name]?.accessKeyId ?? "" )}>
-                                                    <Copy className="h-3 w-3" />
-                                                </Button>
-                                            </div>
-                                        </div>
-                                        <div className="space-y-1">
-                                            <p className="text-muted-foreground">Secret Access Key</p>
-                                            <div className="flex items-center gap-2">
-                                                <p className="truncate font-mono">{credentialByBucket[bucket.name]?.secretAccessKey}</p>
-                                                <Button size="icon-xs" variant="ghost" onClick={() => void copyValue( credentialByBucket[bucket.name]?.secretAccessKey ?? "" )}>
-                                                    <Copy className="h-3 w-3" />
-                                                </Button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
                             </article>
                         )
                     } )}
                 </div>
             )}
+
+            <BucketCredentialsDialog
+                bucketName={activeCredentialsBucket}
+                credentials={activeCredentials}
+                onCopy={copyValue}
+                onOpenChange={( open ) => {
+                    if ( !open ) {
+                        setActiveCredentialsBucket( null )
+                    }
+                }}
+            />
         </section>
     )
 }

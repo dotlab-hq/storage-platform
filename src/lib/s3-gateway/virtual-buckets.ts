@@ -39,6 +39,8 @@ function createBucketCredentials( userId: string, bucketId: string, bucketName: 
         accessKeyId: `sp_${compactBucketId}`,
         secretAccessKey: `${digest}${digest.slice( 0, 24 )}`,
         bucket: bucketName,
+        endpoint: process.env.S3_COMPAT_ENDPOINT ?? process.env.PUBLIC_S3_COMPAT_ENDPOINT ?? "https://storage.wpsadi.dev",
+        region: "auto",
     }
 }
 

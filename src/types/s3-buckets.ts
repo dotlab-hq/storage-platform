@@ -10,6 +10,8 @@ export type S3BucketCredentials = {
     accessKeyId: string
     secretAccessKey: string
     bucket: string
+    endpoint: string
+    region: "auto"
 }
 
 export type S3BucketListResponse = {
