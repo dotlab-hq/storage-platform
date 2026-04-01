@@ -59,13 +59,18 @@ export async function listVirtualBuckets( userId: string ): Promise<S3BucketItem
 }
 
 export async function createVirtualBucket( userId: string, bucketName: string ): Promise<S3BucketItem> {
+    const bucketId = crypto.randomUUID()
+
     const createdFolders = await db.insert( folder ).values( {
+        id: crypto.randomUUID(),
         userId,
         name: bucketName,
         parentFolderId: null,
+        virtualBucketId: bucketId,
     } ).returning( { id: folder.id } )
 
     const createdRows = await db.insert( virtualBucket ).values( {
+        id: bucketId,
         userId,
         name: bucketName,
         mappedFolderId: createdFolders[0].id,

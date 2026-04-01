@@ -98,8 +98,8 @@ export async function createNewFolder( {
         .from( folder )
         .where(
             parentFolderId
-                ? and( eq( folder.userId, userId ), eq( folder.parentFolderId, parentFolderId ), eq( folder.isDeleted, false ) )
-                : and( eq( folder.userId, userId ), isNull( folder.parentFolderId ), eq( folder.isDeleted, false ) )
+                ? and( eq( folder.userId, userId ), eq( folder.parentFolderId, parentFolderId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ) )
+                : and( eq( folder.userId, userId ), isNull( folder.parentFolderId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ) )
         )
 
     const siblingNames = new Set( siblings.map( ( s ) => s.name ) )
@@ -143,7 +143,7 @@ export async function listRootItems( userId: string ) {
             isPrivatelyLocked: folder.isPrivatelyLocked,
         } )
         .from( folder )
-        .where( and( eq( folder.userId, userId ), isNull( folder.parentFolderId ), eq( folder.isDeleted, false ) ) )
+        .where( and( eq( folder.userId, userId ), isNull( folder.parentFolderId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ) ) )
         .orderBy( folder.createdAt )
 
     const rootFiles = await db

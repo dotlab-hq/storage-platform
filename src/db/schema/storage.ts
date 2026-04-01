@@ -19,6 +19,7 @@ export const folder = schema.table(
         parentFolderId: text( "parent_folder_id" ).references( (): AnyPgColumn => folder.id, {
             onDelete: "set null",
         } ),
+        virtualBucketId: text( "virtual_bucket_id" ).unique(),
         isPrivatelyLocked: boolean( "is_privately_locked" ).default( false ).notNull(),
         isDeleted: boolean( "is_deleted" ).default( false ).notNull(),
         deletedAt: timestamp( "deleted_at" ),

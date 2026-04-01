@@ -7,8 +7,8 @@ export async function listFolderItems( userId: string, folderId: string | null )
     ] )
 
     const folderWhere = folderId
-        ? and( eq( folder.userId, userId ), eq( folder.parentFolderId, folderId ), eq( folder.isDeleted, false ) )
-        : and( eq( folder.userId, userId ), isNull( folder.parentFolderId ), eq( folder.isDeleted, false ) )
+        ? and( eq( folder.userId, userId ), eq( folder.parentFolderId, folderId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ) )
+        : and( eq( folder.userId, userId ), isNull( folder.parentFolderId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ) )
 
     const fileWhere = folderId
         ? and( eq( storageFile.userId, userId ), eq( storageFile.folderId, folderId ), eq( storageFile.isDeleted, false ) )
@@ -52,7 +52,7 @@ export async function searchItems( userId: string, query: string ) {
             parentFolderId: folder.parentFolderId,
             isPrivatelyLocked: folder.isPrivatelyLocked,
         } ).from( folder )
-            .where( and( eq( folder.userId, userId ), ilike( folder.name, pattern ), eq( folder.isDeleted, false ) ) )
+            .where( and( eq( folder.userId, userId ), ilike( folder.name, pattern ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ) ) )
             .limit( 50 ),
         db.select( {
             id: storageFile.id,
@@ -109,7 +109,7 @@ export async function getAllFolders( userId: string ) {
         parentFolderId: folder.parentFolderId,
         isPrivatelyLocked: folder.isPrivatelyLocked,
     } ).from( folder )
-        .where( and( eq( folder.userId, userId ), eq( folder.isDeleted, false ) ) )
+        .where( and( eq( folder.userId, userId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ) ) )
         .orderBy( folder.name )
 }
 
@@ -133,6 +133,7 @@ export async function getRecentItems( userId: string ) {
             .where( and(
                 eq( folder.userId, userId ),
                 eq( folder.isDeleted, false ),
+                isNull( folder.virtualBucketId ),
                 gte( folder.lastOpenedAt, cutoff )
             ) )
             .orderBy( desc( folder.lastOpenedAt ) )

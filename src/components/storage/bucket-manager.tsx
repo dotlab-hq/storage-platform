@@ -124,6 +124,15 @@ export function BucketManager() {
                                 </div>
                                 <div className="mt-4 flex flex-wrap gap-2">
                                     <Button
+                                        variant="secondary"
+                                        size="sm"
+                                        onClick={() => {
+                                            window.location.href = `/buckets/${encodeURIComponent( bucket.name )}`
+                                        }}
+                                    >
+                                        View Files
+                                    </Button>
+                                    <Button
                                         variant="outline"
                                         size="sm"
                                         disabled={isPending}
