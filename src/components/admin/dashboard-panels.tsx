@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import type { AdminProvider, AdminUser } from "@/lib/storage-provider-queries"
 import { formatBytes } from "@/lib/format-bytes"
 
@@ -35,26 +36,29 @@ export function ProvidersPanel( {
                                     {provider.isActive ? "Active" : "Inactive"}
                                 </Badge>
                                 {provider.id !== "default-provider" ? (
-                                    <button
-                                        type="button"
-                                        className="rounded border px-2 py-0.5 text-xs"
-                                        onClick={() => {
-                                            void onToggleAvailability( provider.id, !provider.isActive )
-                                        }}
-                                    >
-                                        {provider.isActive ? "Mark Unavailable" : "Mark Available"}
-                                    </button>
-                                ) : null}
-                                {provider.id !== "default-provider" ? (
-                                    <button
-                                        type="button"
-                                        className="rounded border px-2 py-0.5 text-xs text-red-600"
-                                        onClick={() => {
-                                            void onDelete( provider.id )
-                                        }}
-                                    >
-                                        Delete
-                                    </button>
+                                    <>
+                                        <Button
+                                            type="button"
+                                            variant="outline"
+                                            size="sm"
+                                            onClick={() => {
+                                                void onToggleAvailability( provider.id, !provider.isActive )
+                                            }}
+                                        >
+                                            {provider.isActive ? "Mark Unavailable" : "Mark Available"}
+                                        </Button>
+                                        <Button
+                                            type="button"
+                                            variant="outline"
+                                            size="sm"
+                                            className="text-red-600"
+                                            onClick={() => {
+                                                void onDelete( provider.id )
+                                            }}
+                                        >
+                                            Delete
+                                        </Button>
+                                    </>
                                 ) : null}
                             </div>
                         </div>

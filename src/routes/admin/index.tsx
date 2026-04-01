@@ -99,7 +99,7 @@ function AdminDashboardPage() {
         } ) )
         try {
             await setStorageProviderAvailabilityFn( { data: { providerId, isActive } } )
-            toast.success( `Provider marked as ${isActive ? "available" : "not available"}` )
+            toast.success( `Provider marked as ${isActive ? "available" : "unavailable"}` )
         } catch ( error ) {
             const refreshed = await getAdminDashboardDataFn()
             setData( refreshed )
