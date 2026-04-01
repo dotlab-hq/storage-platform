@@ -77,10 +77,9 @@ export function ProvidersPanel( {
                         </div>
                         <p className="text-muted-foreground text-xs">
                             Storage: {formatBytes( provider.usedStorageBytes )} / {formatBytes( provider.storageLimitBytes )}
-                            {" "}( {provider.storageLimitBytes} B )
                         </p>
                         <p className="text-muted-foreground text-xs">
-                            Max file size: {formatBytes( provider.fileSizeLimitBytes )} ( {provider.fileSizeLimitBytes} B )
+                            Max file size: {formatBytes( provider.fileSizeLimitBytes )}
                         </p>
                         <p className="text-muted-foreground text-xs">
                             Available: {formatBytes( provider.availableStorageBytes )}

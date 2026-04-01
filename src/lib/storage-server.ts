@@ -1,7 +1,5 @@
 import { and, eq, isNull } from "drizzle-orm"
-import { resolveProviderId } from "@/lib/s3-provider-client"
-
-const BUCKET_NAME = "dot-storage"
+import { selectProviderForUpload } from "@/lib/s3-provider-client"
 
 type UploadFileInput = {
     userId: string
@@ -14,22 +12,13 @@ export async function uploadSingleFile( {
     file,
     parentFolderId = null,
 }: UploadFileInput ) {
-    const { PutObjectCommand, S3Client } = await import( "@aws-sdk/client-s3" )
+    const { PutObjectCommand } = await import( "@aws-sdk/client-s3" )
     const [{ db }, { file: storageFile, folder }] = await Promise.all( [
         import( "@/db" ),
         import( "@/db/schema/storage" ),
     ] )
 
-    const s3Client = new S3Client( {
-        region: process.env.S3_REGION,
-        endpoint: process.env.S3_ENDPOINT,
-        forcePathStyle: true,
-        bucketEndpoint: false,
-        credentials: {
-            accessKeyId: process.env.S3_ACCESS_KEY_ID!,
-            secretAccessKey: process.env.S3_SECRET_ACCESS_KEY!,
-        },
-    } )
+    const provider = await selectProviderForUpload( file.size )
 
     console.log( `[Server] Starting upload for file: ${file.name} (${file.size} bytes)` )
 
@@ -39,12 +28,12 @@ export async function uploadSingleFile( {
     const objectKey = `${userId}/${crypto.randomUUID()}.${extension}`
     const fileBytes = new Uint8Array( await file.arrayBuffer() )
 
-    console.log( `[Server] S3 Key: ${objectKey}, Bucket: ${BUCKET_NAME}` )
-    console.log( `[Server] S3 region: ${process.env.S3_REGION}, endpoint: ${process.env.S3_ENDPOINT}` )
+    console.log( `[Server] S3 Key: ${objectKey}, Bucket: ${provider.bucketName}` )
+    console.log( `[Server] Selected provider: ${provider.providerName}` )
 
-    await s3Client.send(
+    await provider.client.send(
         new PutObjectCommand( {
-            Bucket: BUCKET_NAME,
+            Bucket: provider.bucketName,
             Key: objectKey,
             Body: fileBytes,
             ContentLength: fileBytes.byteLength,
@@ -74,7 +63,7 @@ export async function uploadSingleFile( {
             sizeInBytes: file.size,
             userId,
             folderId: parentFolderId,
-            providerId: await resolveProviderId( null ),
+            providerId: provider.providerId,
             isPrivatelyLocked,
         } )
         .returning( {

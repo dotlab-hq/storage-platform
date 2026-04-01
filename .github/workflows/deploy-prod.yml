@@ -69,10 +69,6 @@ jobs:
           printf '%s' "${{ secrets.BETTER_AUTH_SECRET }}" | vercel env add BETTER_AUTH_SECRET production --token=${{ secrets.VERCEL_TOKEN }} --force
           printf '%s' "${{ secrets._GITHUB_CLIENT_ID }}" | vercel env add _GITHUB_CLIENT_ID production --token=${{ secrets.VERCEL_TOKEN }} --force
           printf '%s' "${{ secrets._GITHUB_CLIENT_SECRET }}" | vercel env add _GITHUB_CLIENT_SECRET production --token=${{ secrets.VERCEL_TOKEN }} --force
-          printf '%s' "${{ secrets.S3_REGION }}" | vercel env add S3_REGION production --token=${{ secrets.VERCEL_TOKEN }} --force
-          printf '%s' "${{ secrets.S3_ENDPOINT }}" | vercel env add S3_ENDPOINT production --token=${{ secrets.VERCEL_TOKEN }} --force
-          printf '%s' "${{ secrets.S3_ACCESS_KEY_ID }}" | vercel env add S3_ACCESS_KEY_ID production --token=${{ secrets.VERCEL_TOKEN }} --force
-          printf '%s' "${{ secrets.S3_SECRET_ACCESS_KEY }}" | vercel env add S3_SECRET_ACCESS_KEY production --token=${{ secrets.VERCEL_TOKEN }} --force
           printf '%s' "${{ secrets.STORAGE_PROVIDER_ENCRYPTION_KEY }}" | vercel env add STORAGE_PROVIDER_ENCRYPTION_KEY production --token=${{ secrets.VERCEL_TOKEN }} --force
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
