@@ -1,5 +1,14 @@
-import { and, eq, isNull } from "drizzle-orm"
+import { and, eq, isNull, sql } from "drizzle-orm"
 import { selectProviderForUpload } from "@/lib/s3-provider-client"
+
+const EXCLUDE_VIRTUAL_BUCKET_FOLDERS = sql<boolean>`
+    NOT EXISTS (
+        SELECT 1
+        FROM "dot-storage"."virtual_bucket" vb
+        WHERE vb."mapped_folder_id" = "dot-storage"."folder"."id"
+          AND vb."is_active" = true
+    )
+`
 
 type UploadFileInput = {
     userId: string
@@ -98,8 +107,8 @@ export async function createNewFolder( {
         .from( folder )
         .where(
             parentFolderId
-                ? and( eq( folder.userId, userId ), eq( folder.parentFolderId, parentFolderId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ) )
-                : and( eq( folder.userId, userId ), isNull( folder.parentFolderId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ) )
+                ? and( eq( folder.userId, userId ), eq( folder.parentFolderId, parentFolderId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ), EXCLUDE_VIRTUAL_BUCKET_FOLDERS )
+                : and( eq( folder.userId, userId ), isNull( folder.parentFolderId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ), EXCLUDE_VIRTUAL_BUCKET_FOLDERS )
         )
 
     const siblingNames = new Set( siblings.map( ( s ) => s.name ) )
@@ -143,7 +152,7 @@ export async function listRootItems( userId: string ) {
             isPrivatelyLocked: folder.isPrivatelyLocked,
         } )
         .from( folder )
-        .where( and( eq( folder.userId, userId ), isNull( folder.parentFolderId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ) ) )
+        .where( and( eq( folder.userId, userId ), isNull( folder.parentFolderId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ), EXCLUDE_VIRTUAL_BUCKET_FOLDERS ) )
         .orderBy( folder.createdAt )
 
     const rootFiles = await db

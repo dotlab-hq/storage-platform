@@ -1,4 +1,13 @@
-import { and, eq, isNull, ilike, gte, desc } from "drizzle-orm"
+import { and, eq, isNull, ilike, gte, desc, sql } from "drizzle-orm"
+
+const EXCLUDE_VIRTUAL_BUCKET_FOLDERS = sql<boolean>`
+    NOT EXISTS (
+        SELECT 1
+        FROM "dot-storage"."virtual_bucket" vb
+        WHERE vb."mapped_folder_id" = "dot-storage"."folder"."id"
+          AND vb."is_active" = true
+    )
+`
 
 export async function listFolderItems( userId: string, folderId: string | null ) {
     const [{ db }, { file: storageFile, folder }] = await Promise.all( [
@@ -7,8 +16,8 @@ export async function listFolderItems( userId: string, folderId: string | null )
     ] )
 
     const folderWhere = folderId
-        ? and( eq( folder.userId, userId ), eq( folder.parentFolderId, folderId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ) )
-        : and( eq( folder.userId, userId ), isNull( folder.parentFolderId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ) )
+        ? and( eq( folder.userId, userId ), eq( folder.parentFolderId, folderId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ), EXCLUDE_VIRTUAL_BUCKET_FOLDERS )
+        : and( eq( folder.userId, userId ), isNull( folder.parentFolderId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ), EXCLUDE_VIRTUAL_BUCKET_FOLDERS )
 
     const fileWhere = folderId
         ? and( eq( storageFile.userId, userId ), eq( storageFile.folderId, folderId ), eq( storageFile.isDeleted, false ) )
@@ -52,7 +61,7 @@ export async function searchItems( userId: string, query: string ) {
             parentFolderId: folder.parentFolderId,
             isPrivatelyLocked: folder.isPrivatelyLocked,
         } ).from( folder )
-            .where( and( eq( folder.userId, userId ), ilike( folder.name, pattern ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ) ) )
+            .where( and( eq( folder.userId, userId ), ilike( folder.name, pattern ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ), EXCLUDE_VIRTUAL_BUCKET_FOLDERS ) )
             .limit( 50 ),
         db.select( {
             id: storageFile.id,
@@ -109,7 +118,7 @@ export async function getAllFolders( userId: string ) {
         parentFolderId: folder.parentFolderId,
         isPrivatelyLocked: folder.isPrivatelyLocked,
     } ).from( folder )
-        .where( and( eq( folder.userId, userId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ) ) )
+        .where( and( eq( folder.userId, userId ), eq( folder.isDeleted, false ), isNull( folder.virtualBucketId ), EXCLUDE_VIRTUAL_BUCKET_FOLDERS ) )
         .orderBy( folder.name )
 }
 
@@ -134,6 +143,7 @@ export async function getRecentItems( userId: string ) {
                 eq( folder.userId, userId ),
                 eq( folder.isDeleted, false ),
                 isNull( folder.virtualBucketId ),
+                EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
                 gte( folder.lastOpenedAt, cutoff )
             ) )
             .orderBy( desc( folder.lastOpenedAt ) )
