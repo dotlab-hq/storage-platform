@@ -37,6 +37,7 @@ export async function listProvidersWithUsage() {
     const mappedProviders = providers.map( ( provider ) => ( {
         ...provider,
         usedStorageBytes: usageMap.get( provider.id ) ?? 0,
+        availableStorageBytes: provider.storageLimitBytes - ( usageMap.get( provider.id ) ?? 0 ),
     } ) )
     return [
         {
@@ -49,6 +50,7 @@ export async function listProvidersWithUsage() {
             isActive: true,
             createdAt: new Date(),
             usedStorageBytes: defaultUsed,
+            availableStorageBytes: Number.MAX_SAFE_INTEGER,
         },
         ...mappedProviders,
     ]
