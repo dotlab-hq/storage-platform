@@ -1,7 +1,10 @@
 import { auth } from "@/lib/auth"
 import { getAuthenticatedUser } from "@/lib/server-auth"
+import { db } from "@/db"
+import { account } from "@/db/schema/auth-schema"
 import { createServerFn } from "@tanstack/react-start"
 import { getRequest } from "@tanstack/react-start/server"
+import { and, eq } from "drizzle-orm"
 import { z } from "zod"
 
 const ProfileSchema = z.object( {
@@ -10,8 +13,8 @@ const ProfileSchema = z.object( {
 } )
 
 const PasswordSchema = z.object( {
-  currentPassword: z.string().min( 8 ),
-  newPassword: z.string().min( 8 ),
+  currentPassword: z.string().optional(),
+  newPassword: z.string().min( 8, "Password must be at least 8 characters." ),
 } )
 
 const TwoFactorPasswordSchema = z.object( {
@@ -35,8 +38,21 @@ type SessionUserWith2FA = {
 }
 
 const toErrorMessage = ( error: unknown, fallback: string ): string => {
-  if ( error instanceof Error && error.message ) return error.message
+  if ( error instanceof Error && error.message ) {
+    if ( /at least 8|minPasswordLength|password length/i.test( error.message ) ) {
+      return "Password must be at least 8 characters."
+    }
+    return error.message
+  }
   return fallback
+}
+
+const hasPasswordCredential = async ( userId: string ): Promise<boolean> => {
+  const credentialAccount = await db.query.account.findFirst( {
+    columns: { password: true },
+    where: and( eq( account.userId, userId ), eq( account.providerId, "credential" ) ),
+  } )
+  return Boolean( credentialAccount?.password )
 }
 
 export const getSettingsSnapshotFn = createServerFn( { method: "GET" } ).handler( async () => {
@@ -97,14 +113,29 @@ export const updateProfileSettingsFn = createServerFn( { method: "POST" } )
 export const changePasswordSettingsFn = createServerFn( { method: "POST" } )
   .inputValidator( PasswordSchema )
   .handler( async ( { data } ) => {
-    await getAuthenticatedUser()
+    const currentUser = await getAuthenticatedUser()
     const request = getRequest()
     const headers = request.headers
     try {
-      await auth.api.changePassword( { headers, body: { ...data, revokeOtherSessions: true } } )
-      return { success: true, message: "Password changed." }
+      const hasPassword = await hasPasswordCredential( currentUser.id )
+      if ( hasPassword ) {
+        if ( !data.currentPassword?.trim() ) {
+          throw new Error( "Current password is required." )
+        }
+        await auth.api.changePassword( {
+          headers,
+          body: {
+            currentPassword: data.currentPassword,
+            newPassword: data.newPassword,
+            revokeOtherSessions: true,
+          },
+        } )
+      } else {
+        await auth.api.setPassword( { headers, body: { newPassword: data.newPassword } } )
+      }
+      return { success: true, message: "Password updated." }
     } catch ( error ) {
-      throw new Error( toErrorMessage( error, "Failed to change password." ) )
+      throw new Error( toErrorMessage( error, "Failed to update password." ) )
     }
   } )
 
