@@ -1,4 +1,5 @@
 import { and, eq, isNull } from "drizzle-orm"
+import { resolveProviderId } from "@/lib/s3-provider-client"
 
 const BUCKET_NAME = "dot-storage"
 
@@ -73,6 +74,7 @@ export async function uploadSingleFile( {
             sizeInBytes: file.size,
             userId,
             folderId: parentFolderId,
+            providerId: await resolveProviderId( null ),
             isPrivatelyLocked,
         } )
         .returning( {

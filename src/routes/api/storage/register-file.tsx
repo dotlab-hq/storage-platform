@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { getAuthenticatedUser } from "@/lib/server-auth"
+import { resolveProviderId } from "@/lib/s3-provider-client"
 
 export const Route = createFileRoute( "/api/storage/register-file" )( {
     component: () => null,
@@ -46,6 +47,8 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
                         }
                     }
 
+                    const resolvedProviderId = await resolveProviderId( body.providerId )
+
                     const [insertedFile] = await db
                         .insert( storageFile )
                         .values( {
@@ -55,7 +58,7 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
                             sizeInBytes: body.fileSize,
                             userId: authUser.id,
                             folderId: body.parentFolderId || null,
-                            providerId: body.providerId || null,
+                            providerId: resolvedProviderId,
                             isPrivatelyLocked,
                         } )
                         .returning( {

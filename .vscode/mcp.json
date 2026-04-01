@@ -1,0 +1,30 @@
+{
+    "servers": {
+        "better-auth": {
+            "url": "https://mcp.better-auth.com/mcp",
+            "type": "http"
+        },
+        "chrome-devtools": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "chrome-devtools-mcp@latest"
+            ]
+        },
+        "playwright": {
+            "command": "npx",
+            "args": [
+                "@playwright/mcp@latest"
+            ]
+        },
+        "motion": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "https://api.motion.dev/registry.tgz?package=motion-studio-mcp&version=latest"
+            ]
+        }
+    
+},
+"inputs": []
+}

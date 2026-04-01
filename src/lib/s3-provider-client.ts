@@ -14,6 +14,32 @@ type ProviderClientConfig = {
 
 type ProviderRow = typeof storageProvider.$inferSelect
 
+const DEFAULT_PROVIDER_NAME = "default provider"
+const MAIN_PROVIDER_NAME = "main"
+
+async function getDefaultActiveProvider(): Promise<ProviderRow | null> {
+    const providerRows = await db
+        .select()
+        .from( storageProvider )
+        .where( eq( storageProvider.isActive, true ) )
+        .orderBy(
+            sql`CASE
+                WHEN lower(${storageProvider.name}) = ${DEFAULT_PROVIDER_NAME} THEN 0
+                WHEN lower(${storageProvider.name}) = ${MAIN_PROVIDER_NAME} THEN 1
+                ELSE 2
+            END`,
+            storageProvider.createdAt,
+            storageProvider.id,
+        )
+        .limit( 1 )
+
+    if ( providerRows.length === 0 ) {
+        return null
+    }
+
+    return providerRows[0]
+}
+
 function fromEnvironment(): ProviderClientConfig {
     const accessKeyId = process.env.S3_ACCESS_KEY_ID
     const secretAccessKey = process.env.S3_SECRET_ACCESS_KEY
@@ -56,6 +82,10 @@ function fromProviderRow( row: ProviderRow ): ProviderClientConfig {
 
 export async function getProviderClientById( providerId: string | null ): Promise<ProviderClientConfig> {
     if ( !providerId ) {
+        const defaultProvider = await getDefaultActiveProvider()
+        if ( defaultProvider ) {
+            return fromProviderRow( defaultProvider )
+        }
         return fromEnvironment()
     }
     const providerRows = await db
@@ -68,6 +98,19 @@ export async function getProviderClientById( providerId: string | null ): Promis
     }
     const provider = providerRows[0]
     return fromProviderRow( provider )
+}
+
+export async function resolveProviderId( providerId: string | null | undefined ): Promise<string | null> {
+    if ( providerId ) {
+        return providerId
+    }
+
+    const defaultProvider = await getDefaultActiveProvider()
+    if ( !defaultProvider ) {
+        return null
+    }
+
+    return defaultProvider.id
 }
 
 export async function selectProviderForUpload( incomingFileSize: number ): Promise<ProviderClientConfig> {
