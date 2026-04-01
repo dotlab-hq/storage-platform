@@ -78,6 +78,7 @@ export async function completeMultipartUpload( bucket: BucketContext, uploadId: 
             upstreamObjectKey: uploadAttempt.upstreamObjectKey,
             contentType: uploadAttempt.contentType,
             status: uploadAttempt.status,
+            etag: uploadAttempt.etag,
         } )
         .from( uploadAttempt )
         .where( and( eq( uploadAttempt.id, uploadId ), eq( uploadAttempt.userId, bucket.userId ), eq( uploadAttempt.bucketId, bucket.bucketId ) ) )

@@ -14,9 +14,11 @@ import { Route as TrashIndexRouteImport } from './routes/trash/index'
 import { Route as SharedIndexRouteImport } from './routes/shared/index'
 import { Route as SettingsIndexRouteImport } from './routes/settings/index'
 import { Route as RecentIndexRouteImport } from './routes/recent/index'
+import { Route as BucketsIndexRouteImport } from './routes/buckets/index'
 import { Route as AuthIndexRouteImport } from './routes/auth/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as ShareTokenRouteImport } from './routes/share/$token'
+import { Route as BucketsBucketNameRouteImport } from './routes/buckets/$bucketName'
 import { Route as AuthSignupRouteImport } from './routes/auth/signup'
 import { Route as AuthResetPasswordRouteImport } from './routes/auth/reset-password'
 import { Route as AuthLoginRouteImport } from './routes/auth/login'
@@ -41,6 +43,16 @@ import { Route as ApiStorageDeleteRouteImport } from './routes/api/storage/delet
 import { Route as ApiStorageCreateFolderRouteImport } from './routes/api/storage/create-folder'
 import { Route as ApiStorageAllFoldersRouteImport } from './routes/api/storage/all-folders'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as ApiStorageS3IndexRouteImport } from './routes/api/storage/s3/index'
+import { Route as ApiStorageS3UploadStatusRouteImport } from './routes/api/storage/s3/upload-status'
+import { Route as ApiStorageS3InitiateUploadRouteImport } from './routes/api/storage/s3/initiate-upload'
+import { Route as ApiStorageS3EmptyBucketRouteImport } from './routes/api/storage/s3/empty-bucket'
+import { Route as ApiStorageS3DeleteBucketRouteImport } from './routes/api/storage/s3/delete-bucket'
+import { Route as ApiStorageS3CompleteUploadRouteImport } from './routes/api/storage/s3/complete-upload'
+import { Route as ApiStorageS3BucketsRouteImport } from './routes/api/storage/s3/buckets'
+import { Route as ApiStorageS3BucketItemsRouteImport } from './routes/api/storage/s3/bucket-items'
+import { Route as ApiStorageS3BucketCredentialsRouteImport } from './routes/api/storage/s3/bucket-credentials'
+import { Route as ApiStorageS3SplatRouteImport } from './routes/api/storage/s3/$'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -67,6 +79,11 @@ const RecentIndexRoute = RecentIndexRouteImport.update({
   path: '/recent/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BucketsIndexRoute = BucketsIndexRouteImport.update({
+  id: '/buckets/',
+  path: '/buckets/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthIndexRoute = AuthIndexRouteImport.update({
   id: '/auth/',
   path: '/auth/',
@@ -80,6 +97,11 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
 const ShareTokenRoute = ShareTokenRouteImport.update({
   id: '/share/$token',
   path: '/share/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BucketsBucketNameRoute = BucketsBucketNameRouteImport.update({
+  id: '/buckets/$bucketName',
+  path: '/buckets/$bucketName',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthSignupRoute = AuthSignupRouteImport.update({
@@ -202,6 +224,61 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiStorageS3IndexRoute = ApiStorageS3IndexRouteImport.update({
+  id: '/api/storage/s3/',
+  path: '/api/storage/s3/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageS3UploadStatusRoute =
+  ApiStorageS3UploadStatusRouteImport.update({
+    id: '/api/storage/s3/upload-status',
+    path: '/api/storage/s3/upload-status',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiStorageS3InitiateUploadRoute =
+  ApiStorageS3InitiateUploadRouteImport.update({
+    id: '/api/storage/s3/initiate-upload',
+    path: '/api/storage/s3/initiate-upload',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiStorageS3EmptyBucketRoute = ApiStorageS3EmptyBucketRouteImport.update({
+  id: '/api/storage/s3/empty-bucket',
+  path: '/api/storage/s3/empty-bucket',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageS3DeleteBucketRoute =
+  ApiStorageS3DeleteBucketRouteImport.update({
+    id: '/api/storage/s3/delete-bucket',
+    path: '/api/storage/s3/delete-bucket',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiStorageS3CompleteUploadRoute =
+  ApiStorageS3CompleteUploadRouteImport.update({
+    id: '/api/storage/s3/complete-upload',
+    path: '/api/storage/s3/complete-upload',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiStorageS3BucketsRoute = ApiStorageS3BucketsRouteImport.update({
+  id: '/api/storage/s3/buckets',
+  path: '/api/storage/s3/buckets',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageS3BucketItemsRoute = ApiStorageS3BucketItemsRouteImport.update({
+  id: '/api/storage/s3/bucket-items',
+  path: '/api/storage/s3/bucket-items',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageS3BucketCredentialsRoute =
+  ApiStorageS3BucketCredentialsRouteImport.update({
+    id: '/api/storage/s3/bucket-credentials',
+    path: '/api/storage/s3/bucket-credentials',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiStorageS3SplatRoute = ApiStorageS3SplatRouteImport.update({
+  id: '/api/storage/s3/$',
+  path: '/api/storage/s3/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -209,9 +286,11 @@ export interface FileRoutesByFullPath {
   '/auth/login': typeof AuthLoginRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
   '/auth/signup': typeof AuthSignupRoute
+  '/buckets/$bucketName': typeof BucketsBucketNameRoute
   '/share/$token': typeof ShareTokenRoute
   '/admin/': typeof AdminIndexRoute
   '/auth/': typeof AuthIndexRoute
+  '/buckets/': typeof BucketsIndexRoute
   '/recent/': typeof RecentIndexRoute
   '/settings/': typeof SettingsIndexRoute
   '/shared/': typeof SharedIndexRoute
@@ -236,6 +315,16 @@ export interface FileRoutesByFullPath {
   '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
   '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
   '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
+  '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
+  '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
+  '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
+  '/api/storage/s3/buckets': typeof ApiStorageS3BucketsRoute
+  '/api/storage/s3/complete-upload': typeof ApiStorageS3CompleteUploadRoute
+  '/api/storage/s3/delete-bucket': typeof ApiStorageS3DeleteBucketRoute
+  '/api/storage/s3/empty-bucket': typeof ApiStorageS3EmptyBucketRoute
+  '/api/storage/s3/initiate-upload': typeof ApiStorageS3InitiateUploadRoute
+  '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
+  '/api/storage/s3/': typeof ApiStorageS3IndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -243,9 +332,11 @@ export interface FileRoutesByTo {
   '/auth/login': typeof AuthLoginRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
   '/auth/signup': typeof AuthSignupRoute
+  '/buckets/$bucketName': typeof BucketsBucketNameRoute
   '/share/$token': typeof ShareTokenRoute
   '/admin': typeof AdminIndexRoute
   '/auth': typeof AuthIndexRoute
+  '/buckets': typeof BucketsIndexRoute
   '/recent': typeof RecentIndexRoute
   '/settings': typeof SettingsIndexRoute
   '/shared': typeof SharedIndexRoute
@@ -270,6 +361,16 @@ export interface FileRoutesByTo {
   '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
   '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
   '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
+  '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
+  '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
+  '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
+  '/api/storage/s3/buckets': typeof ApiStorageS3BucketsRoute
+  '/api/storage/s3/complete-upload': typeof ApiStorageS3CompleteUploadRoute
+  '/api/storage/s3/delete-bucket': typeof ApiStorageS3DeleteBucketRoute
+  '/api/storage/s3/empty-bucket': typeof ApiStorageS3EmptyBucketRoute
+  '/api/storage/s3/initiate-upload': typeof ApiStorageS3InitiateUploadRoute
+  '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
+  '/api/storage/s3': typeof ApiStorageS3IndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -278,9 +379,11 @@ export interface FileRoutesById {
   '/auth/login': typeof AuthLoginRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
   '/auth/signup': typeof AuthSignupRoute
+  '/buckets/$bucketName': typeof BucketsBucketNameRoute
   '/share/$token': typeof ShareTokenRoute
   '/admin/': typeof AdminIndexRoute
   '/auth/': typeof AuthIndexRoute
+  '/buckets/': typeof BucketsIndexRoute
   '/recent/': typeof RecentIndexRoute
   '/settings/': typeof SettingsIndexRoute
   '/shared/': typeof SharedIndexRoute
@@ -305,6 +408,16 @@ export interface FileRoutesById {
   '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
   '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
   '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
+  '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
+  '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
+  '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
+  '/api/storage/s3/buckets': typeof ApiStorageS3BucketsRoute
+  '/api/storage/s3/complete-upload': typeof ApiStorageS3CompleteUploadRoute
+  '/api/storage/s3/delete-bucket': typeof ApiStorageS3DeleteBucketRoute
+  '/api/storage/s3/empty-bucket': typeof ApiStorageS3EmptyBucketRoute
+  '/api/storage/s3/initiate-upload': typeof ApiStorageS3InitiateUploadRoute
+  '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
+  '/api/storage/s3/': typeof ApiStorageS3IndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -314,9 +427,11 @@ export interface FileRouteTypes {
     | '/auth/login'
     | '/auth/reset-password'
     | '/auth/signup'
+    | '/buckets/$bucketName'
     | '/share/$token'
     | '/admin/'
     | '/auth/'
+    | '/buckets/'
     | '/recent/'
     | '/settings/'
     | '/shared/'
@@ -341,6 +456,16 @@ export interface FileRouteTypes {
     | '/api/storage/trash-delete'
     | '/api/storage/trash-restore'
     | '/api/storage/upload-presign'
+    | '/api/storage/s3/$'
+    | '/api/storage/s3/bucket-credentials'
+    | '/api/storage/s3/bucket-items'
+    | '/api/storage/s3/buckets'
+    | '/api/storage/s3/complete-upload'
+    | '/api/storage/s3/delete-bucket'
+    | '/api/storage/s3/empty-bucket'
+    | '/api/storage/s3/initiate-upload'
+    | '/api/storage/s3/upload-status'
+    | '/api/storage/s3/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -348,9 +473,11 @@ export interface FileRouteTypes {
     | '/auth/login'
     | '/auth/reset-password'
     | '/auth/signup'
+    | '/buckets/$bucketName'
     | '/share/$token'
     | '/admin'
     | '/auth'
+    | '/buckets'
     | '/recent'
     | '/settings'
     | '/shared'
@@ -375,6 +502,16 @@ export interface FileRouteTypes {
     | '/api/storage/trash-delete'
     | '/api/storage/trash-restore'
     | '/api/storage/upload-presign'
+    | '/api/storage/s3/$'
+    | '/api/storage/s3/bucket-credentials'
+    | '/api/storage/s3/bucket-items'
+    | '/api/storage/s3/buckets'
+    | '/api/storage/s3/complete-upload'
+    | '/api/storage/s3/delete-bucket'
+    | '/api/storage/s3/empty-bucket'
+    | '/api/storage/s3/initiate-upload'
+    | '/api/storage/s3/upload-status'
+    | '/api/storage/s3'
   id:
     | '__root__'
     | '/'
@@ -382,9 +519,11 @@ export interface FileRouteTypes {
     | '/auth/login'
     | '/auth/reset-password'
     | '/auth/signup'
+    | '/buckets/$bucketName'
     | '/share/$token'
     | '/admin/'
     | '/auth/'
+    | '/buckets/'
     | '/recent/'
     | '/settings/'
     | '/shared/'
@@ -409,6 +548,16 @@ export interface FileRouteTypes {
     | '/api/storage/trash-delete'
     | '/api/storage/trash-restore'
     | '/api/storage/upload-presign'
+    | '/api/storage/s3/$'
+    | '/api/storage/s3/bucket-credentials'
+    | '/api/storage/s3/bucket-items'
+    | '/api/storage/s3/buckets'
+    | '/api/storage/s3/complete-upload'
+    | '/api/storage/s3/delete-bucket'
+    | '/api/storage/s3/empty-bucket'
+    | '/api/storage/s3/initiate-upload'
+    | '/api/storage/s3/upload-status'
+    | '/api/storage/s3/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -417,9 +566,11 @@ export interface RootRouteChildren {
   AuthLoginRoute: typeof AuthLoginRoute
   AuthResetPasswordRoute: typeof AuthResetPasswordRoute
   AuthSignupRoute: typeof AuthSignupRoute
+  BucketsBucketNameRoute: typeof BucketsBucketNameRoute
   ShareTokenRoute: typeof ShareTokenRoute
   AdminIndexRoute: typeof AdminIndexRoute
   AuthIndexRoute: typeof AuthIndexRoute
+  BucketsIndexRoute: typeof BucketsIndexRoute
   RecentIndexRoute: typeof RecentIndexRoute
   SettingsIndexRoute: typeof SettingsIndexRoute
   SharedIndexRoute: typeof SharedIndexRoute
@@ -444,6 +595,16 @@ export interface RootRouteChildren {
   ApiStorageTrashDeleteRoute: typeof ApiStorageTrashDeleteRoute
   ApiStorageTrashRestoreRoute: typeof ApiStorageTrashRestoreRoute
   ApiStorageUploadPresignRoute: typeof ApiStorageUploadPresignRoute
+  ApiStorageS3SplatRoute: typeof ApiStorageS3SplatRoute
+  ApiStorageS3BucketCredentialsRoute: typeof ApiStorageS3BucketCredentialsRoute
+  ApiStorageS3BucketItemsRoute: typeof ApiStorageS3BucketItemsRoute
+  ApiStorageS3BucketsRoute: typeof ApiStorageS3BucketsRoute
+  ApiStorageS3CompleteUploadRoute: typeof ApiStorageS3CompleteUploadRoute
+  ApiStorageS3DeleteBucketRoute: typeof ApiStorageS3DeleteBucketRoute
+  ApiStorageS3EmptyBucketRoute: typeof ApiStorageS3EmptyBucketRoute
+  ApiStorageS3InitiateUploadRoute: typeof ApiStorageS3InitiateUploadRoute
+  ApiStorageS3UploadStatusRoute: typeof ApiStorageS3UploadStatusRoute
+  ApiStorageS3IndexRoute: typeof ApiStorageS3IndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -483,6 +644,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RecentIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/buckets/': {
+      id: '/buckets/'
+      path: '/buckets'
+      fullPath: '/buckets/'
+      preLoaderRoute: typeof BucketsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/auth/': {
       id: '/auth/'
       path: '/auth'
@@ -502,6 +670,13 @@ declare module '@tanstack/react-router' {
       path: '/share/$token'
       fullPath: '/share/$token'
       preLoaderRoute: typeof ShareTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/buckets/$bucketName': {
+      id: '/buckets/$bucketName'
+      path: '/buckets/$bucketName'
+      fullPath: '/buckets/$bucketName'
+      preLoaderRoute: typeof BucketsBucketNameRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth/signup': {
@@ -672,6 +847,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/storage/s3/': {
+      id: '/api/storage/s3/'
+      path: '/api/storage/s3'
+      fullPath: '/api/storage/s3/'
+      preLoaderRoute: typeof ApiStorageS3IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/s3/upload-status': {
+      id: '/api/storage/s3/upload-status'
+      path: '/api/storage/s3/upload-status'
+      fullPath: '/api/storage/s3/upload-status'
+      preLoaderRoute: typeof ApiStorageS3UploadStatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/s3/initiate-upload': {
+      id: '/api/storage/s3/initiate-upload'
+      path: '/api/storage/s3/initiate-upload'
+      fullPath: '/api/storage/s3/initiate-upload'
+      preLoaderRoute: typeof ApiStorageS3InitiateUploadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/s3/empty-bucket': {
+      id: '/api/storage/s3/empty-bucket'
+      path: '/api/storage/s3/empty-bucket'
+      fullPath: '/api/storage/s3/empty-bucket'
+      preLoaderRoute: typeof ApiStorageS3EmptyBucketRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/s3/delete-bucket': {
+      id: '/api/storage/s3/delete-bucket'
+      path: '/api/storage/s3/delete-bucket'
+      fullPath: '/api/storage/s3/delete-bucket'
+      preLoaderRoute: typeof ApiStorageS3DeleteBucketRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/s3/complete-upload': {
+      id: '/api/storage/s3/complete-upload'
+      path: '/api/storage/s3/complete-upload'
+      fullPath: '/api/storage/s3/complete-upload'
+      preLoaderRoute: typeof ApiStorageS3CompleteUploadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/s3/buckets': {
+      id: '/api/storage/s3/buckets'
+      path: '/api/storage/s3/buckets'
+      fullPath: '/api/storage/s3/buckets'
+      preLoaderRoute: typeof ApiStorageS3BucketsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/s3/bucket-items': {
+      id: '/api/storage/s3/bucket-items'
+      path: '/api/storage/s3/bucket-items'
+      fullPath: '/api/storage/s3/bucket-items'
+      preLoaderRoute: typeof ApiStorageS3BucketItemsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/s3/bucket-credentials': {
+      id: '/api/storage/s3/bucket-credentials'
+      path: '/api/storage/s3/bucket-credentials'
+      fullPath: '/api/storage/s3/bucket-credentials'
+      preLoaderRoute: typeof ApiStorageS3BucketCredentialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/s3/$': {
+      id: '/api/storage/s3/$'
+      path: '/api/storage/s3/$'
+      fullPath: '/api/storage/s3/$'
+      preLoaderRoute: typeof ApiStorageS3SplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -681,9 +926,11 @@ const rootRouteChildren: RootRouteChildren = {
   AuthLoginRoute: AuthLoginRoute,
   AuthResetPasswordRoute: AuthResetPasswordRoute,
   AuthSignupRoute: AuthSignupRoute,
+  BucketsBucketNameRoute: BucketsBucketNameRoute,
   ShareTokenRoute: ShareTokenRoute,
   AdminIndexRoute: AdminIndexRoute,
   AuthIndexRoute: AuthIndexRoute,
+  BucketsIndexRoute: BucketsIndexRoute,
   RecentIndexRoute: RecentIndexRoute,
   SettingsIndexRoute: SettingsIndexRoute,
   SharedIndexRoute: SharedIndexRoute,
@@ -708,16 +955,17 @@ const rootRouteChildren: RootRouteChildren = {
   ApiStorageTrashDeleteRoute: ApiStorageTrashDeleteRoute,
   ApiStorageTrashRestoreRoute: ApiStorageTrashRestoreRoute,
   ApiStorageUploadPresignRoute: ApiStorageUploadPresignRoute,
+  ApiStorageS3SplatRoute: ApiStorageS3SplatRoute,
+  ApiStorageS3BucketCredentialsRoute: ApiStorageS3BucketCredentialsRoute,
+  ApiStorageS3BucketItemsRoute: ApiStorageS3BucketItemsRoute,
+  ApiStorageS3BucketsRoute: ApiStorageS3BucketsRoute,
+  ApiStorageS3CompleteUploadRoute: ApiStorageS3CompleteUploadRoute,
+  ApiStorageS3DeleteBucketRoute: ApiStorageS3DeleteBucketRoute,
+  ApiStorageS3EmptyBucketRoute: ApiStorageS3EmptyBucketRoute,
+  ApiStorageS3InitiateUploadRoute: ApiStorageS3InitiateUploadRoute,
+  ApiStorageS3UploadStatusRoute: ApiStorageS3UploadStatusRoute,
+  ApiStorageS3IndexRoute: ApiStorageS3IndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
