@@ -9,7 +9,13 @@ import type {
     BreadcrumbItem,
 } from "@/types/storage"
 
-type RawFolder = { id: string; name: string; createdAt: string; parentFolderId: string | null }
+type RawFolder = {
+    id: string
+    name: string
+    createdAt: string
+    parentFolderId: string | null
+    isPrivatelyLocked?: boolean
+}
 type RawFile = {
     id: string
     name: string
@@ -17,6 +23,7 @@ type RawFile = {
     mimeType?: string | null
     objectKey?: string
     createdAt: string
+    isPrivatelyLocked?: boolean
 }
 
 type FetchResponse = {
@@ -73,6 +80,7 @@ function mapItems( data: FetchResponse, uid: string ) {
         parentFolderId: f.parentFolderId ?? null,
         createdAt: new Date( f.createdAt ),
         updatedAt: new Date( f.createdAt ),
+        isPrivatelyLocked: Boolean( f.isPrivatelyLocked ),
     } ) )
     const fileItems: StorageItem[] = ( data.files ?? [] ).map( ( f ) => ( {
         ...f,
@@ -83,6 +91,7 @@ function mapItems( data: FetchResponse, uid: string ) {
         folderId: null,
         createdAt: new Date( f.createdAt ),
         updatedAt: new Date( f.createdAt ),
+        isPrivatelyLocked: Boolean( f.isPrivatelyLocked ),
     } ) )
     const folders: StorageFolder[] = ( data.folders ?? [] ).map( ( f ) => ( {
         ...f,
@@ -90,6 +99,7 @@ function mapItems( data: FetchResponse, uid: string ) {
         parentFolderId: f.parentFolderId ?? null,
         createdAt: new Date( f.createdAt ),
         updatedAt: new Date( f.createdAt ),
+        isPrivatelyLocked: Boolean( f.isPrivatelyLocked ),
     } ) )
     return { items: [...folderItems, ...fileItems], folders }
 }

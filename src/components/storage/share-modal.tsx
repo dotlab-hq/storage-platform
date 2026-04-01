@@ -40,6 +40,7 @@ const postShareAction = createClientOnlyFn( async ( body: Record<string, unknown
 export function ShareModal( { open, onOpenChange, item, userId }: ShareModalProps ) {
     const [link, setLink] = useState<ShareLinkInfo | null>( null )
     const [loading, setLoading] = useState( false )
+    const [consentedPrivatelyUnlock, setConsentedPrivatelyUnlock] = useState( false )
 
     const loadLink = useCallback( async () => {
         if ( !item || !userId ) return
@@ -51,13 +52,23 @@ export function ShareModal( { open, onOpenChange, item, userId }: ShareModalProp
     }, [item, userId] )
 
     useEffect( () => { if ( open ) void loadLink() }, [open, loadLink] )
+    useEffect( () => {
+        if ( !open ) setConsentedPrivatelyUnlock( false )
+    }, [open] )
 
     const handleCreate = async () => {
         if ( !item || !userId ) return
         setLoading( true )
         try {
-            const data = await postShareAction( { action: "create", userId, itemId: item.id, itemType: item.type } )
+            const data = await postShareAction( {
+                action: "create",
+                userId,
+                itemId: item.id,
+                itemType: item.type,
+                consentedPrivatelyUnlock,
+            } )
             if ( data.link ) { setLink( data.link ); toast.success( "Share link created" ) }
+            else if ( data.error ) toast.error( data.error )
         } finally { setLoading( false ) }
     }
 
@@ -101,7 +112,12 @@ export function ShareModal( { open, onOpenChange, item, userId }: ShareModalProp
                         onDisable={handleToggleOff}
                     />
                 ) : (
-                    <NoShareView onCreate={handleCreate} />
+                    <NoShareView
+                        onCreate={handleCreate}
+                        isPrivatelyLocked={Boolean( item.isPrivatelyLocked )}
+                        consentedPrivatelyUnlock={consentedPrivatelyUnlock}
+                        onConsentedChange={setConsentedPrivatelyUnlock}
+                    />
                 )}
             </DialogContent>
         </Dialog>
@@ -135,7 +151,17 @@ function ActiveShareView( { shareUrl, onCopy, onDisable }: {
     )
 }
 
-function NoShareView( { onCreate }: { onCreate: () => void } ) {
+function NoShareView( {
+    onCreate,
+    isPrivatelyLocked,
+    consentedPrivatelyUnlock,
+    onConsentedChange,
+}: {
+    onCreate: () => void
+    isPrivatelyLocked: boolean
+    consentedPrivatelyUnlock: boolean
+    onConsentedChange: ( value: boolean ) => void
+} ) {
     return (
         <div className="flex flex-col items-center gap-4 py-4">
             <div className="bg-muted rounded-full p-3">
@@ -144,7 +170,19 @@ function NoShareView( { onCreate }: { onCreate: () => void } ) {
             <p className="text-muted-foreground text-center text-sm">
                 No active share link. Create one to allow read-only access.
             </p>
-            <Button onClick={onCreate}>Create share link</Button>
+            {isPrivatelyLocked && (
+                <label className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <input
+                        type="checkbox"
+                        checked={consentedPrivatelyUnlock}
+                        onChange={( event ) => onConsentedChange( event.target.checked )}
+                    />
+                    I consent to privately unlock this item for sharing.
+                </label>
+            )}
+            <Button onClick={onCreate} disabled={isPrivatelyLocked && !consentedPrivatelyUnlock}>
+                Create share link
+            </Button>
         </div>
     )
 }

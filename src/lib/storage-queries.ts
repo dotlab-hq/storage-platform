@@ -20,6 +20,7 @@ export async function listFolderItems( userId: string, folderId: string | null )
             name: folder.name,
             createdAt: folder.createdAt,
             parentFolderId: folder.parentFolderId,
+            isPrivatelyLocked: folder.isPrivatelyLocked,
         } ).from( folder ).where( folderWhere ).orderBy( folder.name ),
         db.select( {
             id: storageFile.id,
@@ -28,6 +29,7 @@ export async function listFolderItems( userId: string, folderId: string | null )
             mimeType: storageFile.mimeType,
             objectKey: storageFile.objectKey,
             createdAt: storageFile.createdAt,
+            isPrivatelyLocked: storageFile.isPrivatelyLocked,
         } ).from( storageFile ).where( fileWhere ).orderBy( storageFile.name ),
     ] )
 
@@ -48,6 +50,7 @@ export async function searchItems( userId: string, query: string ) {
             name: folder.name,
             createdAt: folder.createdAt,
             parentFolderId: folder.parentFolderId,
+            isPrivatelyLocked: folder.isPrivatelyLocked,
         } ).from( folder )
             .where( and( eq( folder.userId, userId ), ilike( folder.name, pattern ), eq( folder.isDeleted, false ) ) )
             .limit( 50 ),
@@ -58,6 +61,7 @@ export async function searchItems( userId: string, query: string ) {
             mimeType: storageFile.mimeType,
             objectKey: storageFile.objectKey,
             createdAt: storageFile.createdAt,
+            isPrivatelyLocked: storageFile.isPrivatelyLocked,
         } ).from( storageFile )
             .where( and( eq( storageFile.userId, userId ), ilike( storageFile.name, pattern ), eq( storageFile.isDeleted, false ) ) )
             .limit( 50 ),
@@ -76,7 +80,7 @@ export async function getFolderBreadcrumbs( userId: string, folderId: string ) {
     let currentId: string | null = folderId
 
     while ( currentId ) {
-        const [row] = await db.select( {
+        const rows = await db.select( {
             id: folder.id,
             name: folder.name,
             parentFolderId: folder.parentFolderId,
@@ -84,7 +88,8 @@ export async function getFolderBreadcrumbs( userId: string, folderId: string ) {
             .where( and( eq( folder.id, currentId ), eq( folder.userId, userId ) ) )
             .limit( 1 )
 
-        if ( !row ) break
+        if ( rows.length === 0 ) break
+        const row = rows[0]
         crumbs.unshift( { id: row.id, name: row.name } )
         currentId = row.parentFolderId
     }
@@ -102,6 +107,7 @@ export async function getAllFolders( userId: string ) {
         id: folder.id,
         name: folder.name,
         parentFolderId: folder.parentFolderId,
+        isPrivatelyLocked: folder.isPrivatelyLocked,
     } ).from( folder )
         .where( and( eq( folder.userId, userId ), eq( folder.isDeleted, false ) ) )
         .orderBy( folder.name )
@@ -122,6 +128,7 @@ export async function getRecentItems( userId: string ) {
             createdAt: folder.createdAt,
             parentFolderId: folder.parentFolderId,
             lastOpenedAt: folder.lastOpenedAt,
+            isPrivatelyLocked: folder.isPrivatelyLocked,
         } ).from( folder )
             .where( and(
                 eq( folder.userId, userId ),
@@ -137,6 +144,7 @@ export async function getRecentItems( userId: string ) {
             mimeType: storageFile.mimeType,
             createdAt: storageFile.createdAt,
             lastOpenedAt: storageFile.lastOpenedAt,
+            isPrivatelyLocked: storageFile.isPrivatelyLocked,
         } ).from( storageFile )
             .where( and(
                 eq( storageFile.userId, userId ),

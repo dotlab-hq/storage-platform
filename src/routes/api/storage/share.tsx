@@ -32,17 +32,24 @@ export const Route = createFileRoute( "/api/storage/share" )( {
                         itemType?: "file" | "folder"
                         linkId?: string
                         isActive?: boolean
+                        consentedPrivatelyUnlock?: boolean
                     }
 
                     if ( body.action === "create" ) {
                         if ( !body.userId || !body.itemId || !body.itemType ) {
                             return Response.json( { error: "Missing params" }, { status: 400 } )
                         }
-                        const link = await createShareLink( body.userId, body.itemId, body.itemType, false )
+                        const link = await createShareLink(
+                            body.userId,
+                            body.itemId,
+                            body.itemType,
+                            false,
+                            Boolean( body.consentedPrivatelyUnlock )
+                        )
                         return Response.json( { link } )
                     }
 
-                    if ( body.action === "toggle" ) {
+                    else {
                         if ( !body.userId || !body.linkId || body.isActive === undefined ) {
                             return Response.json( { error: "Missing params" }, { status: 400 } )
                         }
