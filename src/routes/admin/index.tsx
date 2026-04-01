@@ -3,46 +3,46 @@ import { useState } from "react"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { Separator } from "@/components/ui/separator"
-import { Button } from "@/components/ui/button"
 import { toast } from "@/components/ui/sonner"
-import { createStorageProviderFn, deleteStorageProviderFn, getAdminDashboardDataFn, setStorageProviderAvailabilityFn } from "./-admin-server"
+import { deleteStorageProviderFn, getAdminDashboardDataFn, saveStorageProviderFn, setStorageProviderAvailabilityFn } from "./-admin-server"
 import { MetricCard, ProvidersPanel, UsersPanel } from "@/components/admin/dashboard-panels"
 import { formatBytes } from "@/lib/format-bytes"
-import { ProviderFormField } from "@/components/admin/provider-form-field"
+import type { AdminProvider } from "@/lib/storage-provider-queries"
+import { ProviderEditorCard } from "@/components/admin/provider-editor-card"
 
-const emptyProviderForm = {
-    name: "",
-    endpoint: "",
-    region: "",
-    bucketName: "",
-    accessKeyId: "",
-    secretAccessKey: "",
-    storageLimitBytes: 10 * 1024 * 1024 * 1024,
-}
-
-export const Route = createFileRoute( "/admin/" )( {
-    component: AdminDashboardPage,
-    loader: () => getAdminDashboardDataFn(),
-} )
+const emptyProviderForm = { name: "", endpoint: "", region: "", bucketName: "", accessKeyId: "", secretAccessKey: "", storageLimitBytes: 10 * 1024 * 1024 * 1024, fileSizeLimitBytes: 100 * 1024 * 1024 }
+export const Route = createFileRoute( "/admin/" )( { component: AdminDashboardPage, loader: () => getAdminDashboardDataFn() } )
 
 function AdminDashboardPage() {
     const initial = Route.useLoaderData()
     const [data, setData] = useState( initial )
     const [isSaving, setIsSaving] = useState( false )
     const [form, setForm] = useState( emptyProviderForm )
+    const [editingProviderId, setEditingProviderId] = useState<string | null>( null )
     const [storageLimitInput, setStorageLimitInput] = useState( String( emptyProviderForm.storageLimitBytes ) )
-
+    const [fileSizeLimitInput, setFileSizeLimitInput] = useState( String( emptyProviderForm.fileSizeLimitBytes ) )
+    type ProviderTextField = "name" | "endpoint" | "region" | "bucketName" | "accessKeyId" | "secretAccessKey"
+    const setProviderField = ( field: ProviderTextField, value: string ) => { setForm( ( prev ) => ( { ...prev, [field]: value } ) ) }
     const submitProvider = async () => {
         const parsedLimit = Number( storageLimitInput )
+        const parsedFileSizeLimit = Number( fileSizeLimitInput )
         if ( !Number.isFinite( parsedLimit ) || parsedLimit <= 0 ) {
             toast.error( "Storage limit must be a positive number" )
+            return
+        }
+        if ( !Number.isFinite( parsedFileSizeLimit ) || parsedFileSizeLimit <= 0 ) {
+            toast.error( "File-size limit must be a positive number" )
+            return
+        }
+        if ( parsedFileSizeLimit > parsedLimit ) {
+            toast.error( "File-size limit cannot exceed storage limit" )
             return
         }
         if ( !form.name.trim() ) {
             toast.error( "Provider name is required" )
             return
         }
-        const optimisticProviderCount = data.summary.providerCount + 1
+        const optimisticProviderCount = editingProviderId ? data.summary.providerCount : data.summary.providerCount + 1
         setIsSaving( true )
         setData( ( prev ) => ( {
             ...prev,
@@ -50,27 +50,54 @@ function AdminDashboardPage() {
                 ...prev.summary,
                 providerCount: optimisticProviderCount,
             },
-            providers: [
-                ...prev.providers,
-                {
-                    id: `optimistic-${Date.now()}`,
-                    name: form.name || "New Provider",
-                    region: form.region || "pending",
-                    endpoint: form.endpoint || "pending",
-                    bucketName: form.bucketName || "pending",
-                    storageLimitBytes: parsedLimit,
-                    isActive: true,
-                    createdAt: new Date(),
-                    usedStorageBytes: 0,
-                },
-            ],
+            providers: editingProviderId
+                ? prev.providers.map( ( provider ) => (
+                    provider.id === editingProviderId
+                        ? {
+                            ...provider,
+                            name: form.name,
+                            region: form.region || "pending",
+                            endpoint: form.endpoint || "pending",
+                            bucketName: form.bucketName || "pending",
+                            storageLimitBytes: parsedLimit,
+                            fileSizeLimitBytes: parsedFileSizeLimit,
+                            availableStorageBytes: parsedLimit - provider.usedStorageBytes,
+                        }
+                        : provider
+                ) )
+                : [
+                    ...prev.providers,
+                    {
+                        id: `optimistic-${Date.now()}`,
+                        name: form.name || "New Provider",
+                        region: form.region || "pending",
+                        endpoint: form.endpoint || "pending",
+                        bucketName: form.bucketName || "pending",
+                        storageLimitBytes: parsedLimit,
+                        fileSizeLimitBytes: parsedFileSizeLimit,
+                        isActive: true,
+                        createdAt: new Date(),
+                        usedStorageBytes: 0,
+                        availableStorageBytes: parsedLimit,
+                    },
+                ],
         } ) )
         try {
-            const result = await createStorageProviderFn( { data: { ...form, storageLimitBytes: parsedLimit, isActive: true } } )
+            const result = await saveStorageProviderFn( {
+                data: {
+                    providerId: editingProviderId ?? undefined,
+                    ...form,
+                    storageLimitBytes: parsedLimit,
+                    fileSizeLimitBytes: parsedFileSizeLimit,
+                    isActive: true,
+                },
+            } )
             const refreshed = await getAdminDashboardDataFn()
             setData( refreshed )
             setForm( emptyProviderForm )
+            setEditingProviderId( null )
             setStorageLimitInput( String( emptyProviderForm.storageLimitBytes ) )
+            setFileSizeLimitInput( String( emptyProviderForm.fileSizeLimitBytes ) )
             toast.success( result.operation === "updated" ? "Storage provider updated" : "Storage provider added" )
         } catch ( error ) {
             const latest = await getAdminDashboardDataFn()
@@ -81,7 +108,18 @@ function AdminDashboardPage() {
             setIsSaving( false )
         }
     }
-
+    const startEditingProvider = ( provider: AdminProvider ) => {
+        setEditingProviderId( provider.id )
+        setForm( { name: provider.name, endpoint: provider.endpoint, region: provider.region, bucketName: provider.bucketName, accessKeyId: "", secretAccessKey: "", storageLimitBytes: provider.storageLimitBytes, fileSizeLimitBytes: provider.fileSizeLimitBytes } )
+        setStorageLimitInput( String( provider.storageLimitBytes ) )
+        setFileSizeLimitInput( String( provider.fileSizeLimitBytes ) )
+    }
+    const resetProviderForm = () => {
+        setEditingProviderId( null )
+        setForm( emptyProviderForm )
+        setStorageLimitInput( String( emptyProviderForm.storageLimitBytes ) )
+        setFileSizeLimitInput( String( emptyProviderForm.fileSizeLimitBytes ) )
+    }
     const toggleProviderAvailability = async ( providerId: string, isActive: boolean ) => {
         setData( ( prev ) => ( {
             ...prev,
@@ -99,7 +137,6 @@ function AdminDashboardPage() {
             toast.error( message )
         }
     }
-
     const deleteProvider = async ( providerId: string ) => {
         try {
             await deleteStorageProviderFn( { data: { providerId } } )
@@ -128,43 +165,22 @@ function AdminDashboardPage() {
                         <MetricCard title="Total Used" value={formatBytes( data.summary.totalUsedStorageBytes )} />
                     </div>
                     <div className="grid gap-4 p-4 lg:grid-cols-2">
-                        <ProvidersPanel
-                            providers={data.providers}
-                            onToggleAvailability={toggleProviderAvailability}
-                            onDelete={deleteProvider}
-                        />
+                        <ProvidersPanel providers={data.providers} onToggleAvailability={toggleProviderAvailability} onDelete={deleteProvider} onEdit={startEditingProvider} />
                         <UsersPanel users={data.users} />
                     </div>
                     <div className="p-4">
-                        <div className="rounded-lg border bg-card p-4">
-                            <div className="mb-4">
-                                <h2 className="text-base font-semibold">Add Storage Provider</h2>
-                                <p className="text-muted-foreground text-sm">Credentials are encrypted at rest.</p>
-                            </div>
-                            <div className="grid gap-3 md:grid-cols-2">
-                                <ProviderFormField label="Name" value={form.name} onChange={( value ) => setForm( ( prev ) => ( { ...prev, name: value } ) )} />
-                                <ProviderFormField label="Endpoint" value={form.endpoint} onChange={( value ) => setForm( ( prev ) => ( { ...prev, endpoint: value } ) )} />
-                                <ProviderFormField label="Region" value={form.region} onChange={( value ) => setForm( ( prev ) => ( { ...prev, region: value } ) )} />
-                                <ProviderFormField label="Bucket Name" value={form.bucketName} onChange={( value ) => setForm( ( prev ) => ( { ...prev, bucketName: value } ) )} />
-                                <ProviderFormField label="Access Key ID" value={form.accessKeyId} onChange={( value ) => setForm( ( prev ) => ( { ...prev, accessKeyId: value } ) )} />
-                                <ProviderFormField
-                                    label="Secret Access Key"
-                                    value={form.secretAccessKey}
-                                    type="password"
-                                    onChange={( value ) => setForm( ( prev ) => ( { ...prev, secretAccessKey: value } ) )}
-                                />
-                                <ProviderFormField
-                                    label="Storage Limit (bytes)"
-                                    value={storageLimitInput}
-                                    onChange={setStorageLimitInput}
-                                />
-                                <div className="flex items-end">
-                                    <Button onClick={() => void submitProvider()} disabled={isSaving}>
-                                        {isSaving ? "Saving..." : "Add / Update Provider"}
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
+                        <ProviderEditorCard
+                            form={form}
+                            isEditing={Boolean( editingProviderId )}
+                            isSaving={isSaving}
+                            storageLimitInput={storageLimitInput}
+                            fileSizeLimitInput={fileSizeLimitInput}
+                            onChange={setProviderField}
+                            onStorageLimitChange={setStorageLimitInput}
+                            onFileSizeLimitChange={setFileSizeLimitInput}
+                            onSubmit={() => { void submitProvider() }}
+                            onCancel={resetProviderForm}
+                        />
                     </div>
                 </SidebarInset>
             </SidebarProvider>

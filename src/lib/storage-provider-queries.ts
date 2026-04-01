@@ -19,6 +19,7 @@ export async function listProvidersWithUsage() {
             endpoint: storageProvider.endpoint,
             bucketName: storageProvider.bucketName,
             storageLimitBytes: storageProvider.storageLimitBytes,
+            fileSizeLimitBytes: storageProvider.fileSizeLimitBytes,
             isActive: storageProvider.isActive,
             createdAt: storageProvider.createdAt,
         } )
@@ -52,6 +53,7 @@ export async function listProvidersWithUsage() {
         endpoint: process.env.S3_ENDPOINT ?? UNDETERMINED_PROVIDER_VALUE,
         bucketName: process.env.S3_BUCKET_NAME ?? UNDETERMINED_PROVIDER_VALUE,
         storageLimitBytes: FALLBACK_PROVIDER_LIMIT_BYTES,
+        fileSizeLimitBytes: FALLBACK_PROVIDER_LIMIT_BYTES,
         isActive: true,
         createdAt: new Date(),
         usedStorageBytes: defaultUsed,

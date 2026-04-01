@@ -3,6 +3,7 @@ import { schema } from "./schema"
 import { UNDETERMINED_PROVIDER_VALUE } from "@/lib/storage-provider-constants"
 
 const DEFAULT_PROVIDER_LIMIT_BYTES = 50 * 1024 * 1024 * 1024
+const DEFAULT_PROVIDER_FILE_SIZE_LIMIT_BYTES = DEFAULT_PROVIDER_LIMIT_BYTES
 
 export const storageProvider = schema.table(
     "storage_provider",
@@ -19,6 +20,9 @@ export const storageProvider = schema.table(
         secretAccessKeyEncrypted: text( "secret_access_key_encrypted" ).default( UNDETERMINED_PROVIDER_VALUE ).notNull(),
         storageLimitBytes: bigint( "storage_limit_bytes", { mode: "number" } )
             .default( DEFAULT_PROVIDER_LIMIT_BYTES )
+            .notNull(),
+        fileSizeLimitBytes: bigint( "file_size_limit_bytes", { mode: "number" } )
+            .default( DEFAULT_PROVIDER_FILE_SIZE_LIMIT_BYTES )
             .notNull(),
         isActive: boolean( "is_active" ).default( true ).notNull(),
         createdAt: timestamp( "created_at" ).defaultNow().notNull(),

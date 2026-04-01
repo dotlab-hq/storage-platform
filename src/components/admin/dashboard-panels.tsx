@@ -19,10 +19,12 @@ export function ProvidersPanel( {
     providers,
     onToggleAvailability,
     onDelete,
+    onEdit,
 }: {
     providers: AdminProvider[]
-    onToggleAvailability: (providerId: string, isActive: boolean) => Promise<void>
-    onDelete: (providerId: string) => Promise<void>
+    onToggleAvailability: ( providerId: string, isActive: boolean ) => Promise<void>
+    onDelete: ( providerId: string ) => Promise<void>
+    onEdit: ( provider: AdminProvider ) => void
 } ) {
     return (
         <div className="rounded-lg border bg-card p-4">
@@ -38,6 +40,16 @@ export function ProvidersPanel( {
                                 </Badge>
                                 {provider.id !== DEFAULT_PROVIDER_ID ? (
                                     <>
+                                        <Button
+                                            type="button"
+                                            variant="outline"
+                                            size="sm"
+                                            onClick={() => {
+                                                onEdit( provider )
+                                            }}
+                                        >
+                                            Edit
+                                        </Button>
                                         <Button
                                             type="button"
                                             variant="outline"
@@ -64,7 +76,11 @@ export function ProvidersPanel( {
                             </div>
                         </div>
                         <p className="text-muted-foreground text-xs">
-                            {formatBytes( provider.usedStorageBytes )} / {formatBytes( provider.storageLimitBytes )}
+                            Storage: {formatBytes( provider.usedStorageBytes )} / {formatBytes( provider.storageLimitBytes )}
+                            {" "}( {provider.storageLimitBytes} B )
+                        </p>
+                        <p className="text-muted-foreground text-xs">
+                            Max file size: {formatBytes( provider.fileSizeLimitBytes )} ( {provider.fileSizeLimitBytes} B )
                         </p>
                         <p className="text-muted-foreground text-xs">
                             Available: {formatBytes( provider.availableStorageBytes )}

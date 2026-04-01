@@ -156,11 +156,11 @@ export async function selectProviderForUpload( incomingFileSize: number ): Promi
             const available = provider.storageLimitBytes - used
             return { provider, available }
         } )
-        .filter( ( item ) => item.available >= incomingFileSize )
+        .filter( ( item ) => item.available >= incomingFileSize && item.provider.fileSizeLimitBytes >= incomingFileSize )
         .sort( ( a, b ) => b.available - a.available )
 
     if ( eligible.length === 0 ) {
-        throw new Error( "No available storage provider has enough capacity for this upload" )
+        throw new Error( "No available storage provider can accept this file size and capacity" )
     }
 
     return fromProviderRow( eligible[0].provider )

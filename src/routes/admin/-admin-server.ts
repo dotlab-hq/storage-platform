@@ -5,11 +5,12 @@ import { encryptProviderSecret } from "@/lib/provider-crypto"
 import { getStorageAdminSummary, getUsersWithUsage, listProvidersWithUsage } from "@/lib/storage-provider-queries"
 import { requireAdminUser } from "@/lib/server-auth"
 import { createServerFn } from "@tanstack/react-start"
-import { and, count, eq } from "drizzle-orm"
+import { and, count, eq, ne } from "drizzle-orm"
 import { z } from "zod"
 import { UNDETERMINED_PROVIDER_VALUE } from "@/lib/storage-provider-constants"
 
-const CreateProviderSchema = z.object( {
+const SaveProviderSchema = z.object( {
+    providerId: z.string().min( 1 ).optional(),
     name: z.string().min( 2 ),
     endpoint: z.string().default( "" ),
     region: z.string().default( "" ),
@@ -17,6 +18,7 @@ const CreateProviderSchema = z.object( {
     accessKeyId: z.string().default( "" ),
     secretAccessKey: z.string().default( "" ),
     storageLimitBytes: z.number().int().positive(),
+    fileSizeLimitBytes: z.number().int().positive(),
     isActive: z.boolean().default( true ),
 } )
 
@@ -40,10 +42,19 @@ export const getAdminDashboardDataFn = createServerFn( { method: "GET" } )
         return { summary, providers, users }
     } )
 
-export const createStorageProviderFn = createServerFn( { method: "POST" } )
-    .inputValidator( CreateProviderSchema )
+export const saveStorageProviderFn = createServerFn( { method: "POST" } )
+    .inputValidator( SaveProviderSchema )
     .handler( async ( { data } ) => {
         await requireAdminUser()
+        if ( data.fileSizeLimitBytes > data.storageLimitBytes ) {
+            throw new Error( "File-size limit cannot exceed storage limit" )
+        }
+
+        const trimmedName = data.name.trim()
+        if ( !trimmedName ) {
+            throw new Error( "Provider name is required" )
+        }
+
         const endpoint = data.endpoint.trim() || UNDETERMINED_PROVIDER_VALUE
         const region = data.region.trim() || UNDETERMINED_PROVIDER_VALUE
         const bucketName = data.bucketName.trim() || UNDETERMINED_PROVIDER_VALUE
@@ -52,21 +63,35 @@ export const createStorageProviderFn = createServerFn( { method: "POST" } )
         const nextAccessKeyIdEncrypted = accessKeyId ? encryptProviderSecret( accessKeyId ) : UNDETERMINED_PROVIDER_VALUE
         const nextSecretAccessKeyEncrypted = secretAccessKey ? encryptProviderSecret( secretAccessKey ) : UNDETERMINED_PROVIDER_VALUE
 
-        const existingRows = await db
-            .select( {
-                id: storageProvider.id,
-                accessKeyIdEncrypted: storageProvider.accessKeyIdEncrypted,
-                secretAccessKeyEncrypted: storageProvider.secretAccessKeyEncrypted,
-            } )
-            .from( storageProvider )
-            .where( eq( storageProvider.name, data.name ) )
-            .limit( 1 )
+        if ( data.providerId ) {
+            const duplicateRows = await db
+                .select( { id: storageProvider.id } )
+                .from( storageProvider )
+                .where( and( eq( storageProvider.name, trimmedName ), ne( storageProvider.id, data.providerId ) ) )
+                .limit( 1 )
+            if ( duplicateRows.length > 0 ) {
+                throw new Error( "Storage provider name already exists" )
+            }
 
-        if ( existingRows.length > 0 ) {
+            const existingRows = await db
+                .select( {
+                    id: storageProvider.id,
+                    accessKeyIdEncrypted: storageProvider.accessKeyIdEncrypted,
+                    secretAccessKeyEncrypted: storageProvider.secretAccessKeyEncrypted,
+                } )
+                .from( storageProvider )
+                .where( eq( storageProvider.id, data.providerId ) )
+                .limit( 1 )
+
+            if ( existingRows.length === 0 ) {
+                throw new Error( "Storage provider not found" )
+            }
+
             const existing = existingRows[0]
             const [provider] = await db
                 .update( storageProvider )
                 .set( {
+                    name: trimmedName,
                     endpoint,
                     region,
                     bucketName,
@@ -74,6 +99,7 @@ export const createStorageProviderFn = createServerFn( { method: "POST" } )
                     accessKeyIdEncrypted: accessKeyId ? nextAccessKeyIdEncrypted : existing.accessKeyIdEncrypted,
                     secretAccessKeyEncrypted: secretAccessKey ? nextSecretAccessKeyEncrypted : existing.secretAccessKeyEncrypted,
                     storageLimitBytes: data.storageLimitBytes,
+                    fileSizeLimitBytes: data.fileSizeLimitBytes,
                     isActive: data.isActive,
                 } )
                 .where( eq( storageProvider.id, existing.id ) )
@@ -81,15 +107,25 @@ export const createStorageProviderFn = createServerFn( { method: "POST" } )
             return { success: true, provider, operation: "updated" as const }
         }
 
+        const duplicateRows = await db
+            .select( { id: storageProvider.id } )
+            .from( storageProvider )
+            .where( eq( storageProvider.name, trimmedName ) )
+            .limit( 1 )
+        if ( duplicateRows.length > 0 ) {
+            throw new Error( "Storage provider name already exists" )
+        }
+
         const [provider] = await db.insert( storageProvider )
             .values( {
-                name: data.name,
+                name: trimmedName,
                 endpoint,
                 region,
                 bucketName,
                 accessKeyIdEncrypted: nextAccessKeyIdEncrypted,
                 secretAccessKeyEncrypted: nextSecretAccessKeyEncrypted,
                 storageLimitBytes: data.storageLimitBytes,
+                fileSizeLimitBytes: data.fileSizeLimitBytes,
                 isActive: data.isActive,
             } )
             .returning( { id: storageProvider.id, name: storageProvider.name } )
