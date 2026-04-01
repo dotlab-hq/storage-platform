@@ -58,6 +58,17 @@ export function TopbarActions( {
     const [searchQuery, setSearchQuery] = React.useState( "" )
     const debounceRef = React.useRef<ReturnType<typeof setTimeout> | null>( null )
 
+    React.useEffect( () => {
+        const openUpload = () => setUploadOpen( true )
+        const openNewFolder = () => setNewFolderOpen( true )
+        window.addEventListener( "dot:open-upload", openUpload )
+        window.addEventListener( "dot:open-new-folder", openNewFolder )
+        return () => {
+            window.removeEventListener( "dot:open-upload", openUpload )
+            window.removeEventListener( "dot:open-new-folder", openNewFolder )
+        }
+    }, [] )
+
     const handleSearchChange = React.useCallback(
         ( value: string ) => {
             setSearchQuery( value )

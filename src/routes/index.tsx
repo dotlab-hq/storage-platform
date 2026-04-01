@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { createFileRoute, useNavigate } from "@tanstack/react-router"
+import { createFileRoute } from "@tanstack/react-router"
 import { AppSidebar } from "@/components/app-sidebar"
 import { Separator } from "@/components/ui/separator"
 import {
@@ -14,7 +14,6 @@ import { BreadcrumbNav } from "@/components/storage/breadcrumb-nav"
 import { ShareModal } from "@/components/storage/share-modal"
 import { MoveModal } from "@/components/storage/move-modal"
 import { ConfirmDeleteModal } from "@/components/storage/confirm-delete-modal"
-import { CommandPalette } from "@/components/storage/command-palette"
 import { TopbarActions } from "@/components/topbar-actions"
 import { useStorageData } from "@/hooks/use-storage-data"
 import { useFileSelection } from "@/hooks/use-file-selection"
@@ -22,15 +21,12 @@ import { useDragDrop } from "@/hooks/use-drag-drop"
 import { useKeyboardShortcuts } from "@/hooks/use-keyboard-shortcuts"
 import { useStorageActions } from "@/hooks/use-storage-actions"
 import { useBulkActions } from "@/hooks/use-bulk-actions"
-import { useTheme } from "@/hooks/use-theme"
 import { useFolderHistory } from "@/hooks/use-folder-history"
-import { parseShareToken } from "@/lib/share-navigation"
+import { useHomeShellActions } from "@/hooks/use-home-shell-actions"
 import type { StorageItem } from "@/types/storage"
 
 export const Route = createFileRoute( "/" )( { component: StoragePage } )
 function StoragePage() {
-  const navigate = useNavigate()
-  const { toggleTheme } = useTheme()
   const storage = useStorageData()
   const selection = useFileSelection( storage.items )
   const dragDrop = useDragDrop(
@@ -84,6 +80,7 @@ function StoragePage() {
       }
     },
   } )
+  useHomeShellActions()
   const selectedItems = storage.items.filter( ( i ) => selection.selectedIds.has( i.id ) )
   return (
     <div
@@ -188,16 +185,6 @@ function StoragePage() {
           if ( pendingDelete ) {
             void bulk.handleDelete( pendingDelete.ids, pendingDelete.types )
           }
-        }}
-      />
-      <CommandPalette
-        onNavigate={( route ) => void navigate( { to: route } )}
-        onToggleTheme={toggleTheme}
-        onOpenSharedFolder={() => {
-          const raw = window.prompt( "Paste a shared folder token or full share URL" )
-          const token = raw ? parseShareToken( raw ) : null
-          if ( !token ) return
-          void navigate( { to: "/share/$token", params: { token } } )
         }}
       />
     </div>

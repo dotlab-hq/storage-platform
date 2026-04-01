@@ -13,6 +13,8 @@ import { TrashContent } from "@/components/storage/trash-content"
 import { useState } from "react"
 import { useTrashData } from "@/hooks/use-trash-data"
 import { useQuota } from "@/hooks/use-quota"
+import { useMemo } from "react"
+import { useShellView } from "@/components/shell/global-shell-actions"
 
 export const Route = createFileRoute( "/trash/" )( { component: TrashPage } )
 
@@ -60,6 +62,24 @@ function TrashPage() {
             setPendingDelete( null )
         }
     }
+
+    const trashShellActions = useMemo( () => ( {
+        commandActions: [],
+        contextActions: [
+            {
+                id: "ctx-trash-restore-all",
+                label: "Restore All",
+                onSelect: handleRestoreAll,
+            },
+            {
+                id: "ctx-trash-empty",
+                label: "Empty Trash",
+                onSelect: handleEmptyTrash,
+                destructive: true,
+            },
+        ],
+    } ), [handleRestoreAll, handleEmptyTrash] )
+    useShellView( "trash", trashShellActions )
 
     return (
         <div className="min-h-screen">

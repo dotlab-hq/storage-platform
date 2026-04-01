@@ -15,6 +15,8 @@ import { authClient } from "@/lib/auth-client"
 import { toast } from "@/components/ui/sonner"
 import { encodeNavToken } from "@/lib/nav-token"
 import { useQuota } from "@/hooks/use-quota"
+import { useMemo } from "react"
+import { useShellView } from "@/components/shell/global-shell-actions"
 
 type RecentFolder = { id: string; name: string; createdAt: string; parentFolderId: string | null; lastOpenedAt: string }
 type RecentFile = { id: string; name: string; sizeInBytes: number; mimeType: string | null; createdAt: string; lastOpenedAt: string }
@@ -41,6 +43,11 @@ function RecentPage() {
     const [userId, setUserId] = useState<string | null>( null )
     const [items, setItems] = useState<RecentItem[]>( [] )
     const [isLoading, setIsLoading] = useState( true )
+    const recentActions = useMemo( () => ( {
+        commandActions: [],
+        contextActions: [],
+    } ), [] )
+    useShellView( "recent", recentActions )
 
     const load = useCallback( async () => {
         const { data } = await authClient.getSession()

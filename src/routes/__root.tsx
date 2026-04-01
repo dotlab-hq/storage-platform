@@ -18,6 +18,7 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 import { Toaster } from '@/components/ui/sonner'
 import { AppErrorBoundary } from '@/components/error-boundary'
 import { NotFoundPage } from '@/components/not-found'
+import { GlobalShellActions } from '@/components/shell/global-shell-actions'
 
 interface MyRouterContext {
   queryClient: QueryClient
@@ -66,12 +67,14 @@ function RootDocument( { children }: { children: React.ReactNode } ) {
       <body>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange={false}
         >
           <TanStackQueryProvider>
-            <TooltipProvider>{children}</TooltipProvider>
+            <TooltipProvider>
+              <GlobalShellActions>{children}</GlobalShellActions>
+            </TooltipProvider>
             <Toaster />
 
             <TanStackDevtools

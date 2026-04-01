@@ -1,0 +1,175 @@
+"use client"
+
+import { useCallback, useEffect, useMemo, useState } from "react"
+import { Dialog, DialogContent } from "@/components/ui/dialog"
+import {
+    Command,
+    CommandEmpty,
+    CommandGroup,
+    CommandInput,
+    CommandItem,
+    CommandList,
+} from "@/components/ui/command"
+import { cn } from "@/lib/utils"
+
+export type ShellAction = {
+    id: string
+    label: string
+    onSelect: () => void
+    destructive?: boolean
+}
+
+type ShellView = "home" | "recent" | "trash" | "other"
+
+type ShellViewConfig = {
+    commandActions: ShellAction[]
+    contextActions: ShellAction[]
+}
+
+const DEFAULT_CONFIG: ShellViewConfig = {
+    commandActions: [],
+    contextActions: [],
+}
+
+let activeView: ShellView = "other"
+const configs: Partial<Record<ShellView, ShellViewConfig>> = {}
+
+function getActiveConfig(): ShellViewConfig {
+    return configs[activeView] ?? DEFAULT_CONFIG
+}
+
+function isMacOS(): boolean {
+    return typeof navigator !== "undefined" && navigator.platform.toLowerCase().includes( "mac" )
+}
+
+function isFileCardTarget( target: EventTarget | null ): boolean {
+    if ( !( target instanceof Element ) ) return false
+    return Boolean( target.closest( "[data-file-card='true']" ) )
+}
+
+export function registerShellView( view: ShellView, config: ShellViewConfig ): () => void {
+    configs[view] = config
+    activeView = view
+    window.dispatchEvent( new Event( "dot:shell-actions-changed" ) )
+
+    return () => {
+        delete configs[view]
+        if ( activeView === view ) {
+            activeView = "other"
+            window.dispatchEvent( new Event( "dot:shell-actions-changed" ) )
+        }
+    }
+}
+
+export function useShellView( view: ShellView, config: ShellViewConfig ) {
+    useEffect( () => registerShellView( view, config ), [view, config] )
+}
+
+export function GlobalShellActions( { children }: { children: React.ReactNode } ) {
+    const [commandOpen, setCommandOpen] = useState( false )
+    const [contextOpen, setContextOpen] = useState( false )
+    const [version, setVersion] = useState( 0 )
+
+    useEffect( () => {
+        const sync = () => setVersion( ( prev ) => prev + 1 )
+        window.addEventListener( "dot:shell-actions-changed", sync )
+        return () => window.removeEventListener( "dot:shell-actions-changed", sync )
+    }, [] )
+
+    const activeConfig = useMemo( () => getActiveConfig(), [version] )
+
+    const closeContextMenu = useCallback( () => {
+        setContextOpen( false )
+    }, [] )
+
+    useEffect( () => {
+        const onKeyDown = ( event: KeyboardEvent ) => {
+            if ( event.key.toLowerCase() !== "k" || ( !event.ctrlKey && !event.metaKey ) ) return
+            event.preventDefault()
+            if ( getActiveConfig().commandActions.length === 0 ) return
+            setCommandOpen( true )
+        }
+
+        const onContextMenu = ( event: MouseEvent ) => {
+            if ( isFileCardTarget( event.target ) ) return
+            event.preventDefault()
+            setContextOpen( true )
+        }
+
+        const onPointerDown = () => closeContextMenu()
+        const onEscape = ( event: KeyboardEvent ) => {
+            if ( event.key === "Escape" ) closeContextMenu()
+        }
+
+        document.addEventListener( "keydown", onKeyDown )
+        document.addEventListener( "contextmenu", onContextMenu )
+        document.addEventListener( "pointerdown", onPointerDown )
+        document.addEventListener( "keydown", onEscape )
+
+        return () => {
+            document.removeEventListener( "keydown", onKeyDown )
+            document.removeEventListener( "contextmenu", onContextMenu )
+            document.removeEventListener( "pointerdown", onPointerDown )
+            document.removeEventListener( "keydown", onEscape )
+        }
+    }, [closeContextMenu] )
+
+    const commandHint = isMacOS() ? "Cmd+K" : "Ctrl+K"
+
+    return (
+        <>
+            {children}
+
+            {contextOpen && (
+                <div
+                    className={cn(
+                        "bg-popover text-popover-foreground fixed bottom-4 left-4 z-50 min-w-52 rounded-md border p-1 shadow-md"
+                    )}
+                >
+                    {activeConfig.contextActions.length > 0 ? activeConfig.contextActions.map( ( action ) => (
+                        <button
+                            key={action.id}
+                            type="button"
+                            className={cn(
+                                "focus-visible:ring-ring hover:bg-accent hover:text-accent-foreground flex w-full rounded-sm px-2 py-1.5 text-left text-sm outline-none focus-visible:ring-1",
+                                action.destructive && "text-destructive"
+                            )}
+                            onClick={() => {
+                                closeContextMenu()
+                                action.onSelect()
+                            }}
+                        >
+                            {action.label}
+                        </button>
+                    ) ) : (
+                        <div className="text-muted-foreground px-2 py-1.5 text-sm">No actions here</div>
+                    )}
+                </div>
+            )}
+
+            <Dialog open={commandOpen} onOpenChange={setCommandOpen}>
+                <DialogContent className="overflow-hidden p-0 shadow-lg">
+                    <Command>
+                        <CommandInput placeholder={`Type a command (${commandHint})`} />
+                        <CommandList>
+                            <CommandEmpty>No commands in this view.</CommandEmpty>
+                            <CommandGroup heading="Commands">
+                                {activeConfig.commandActions.map( ( action ) => (
+                                    <CommandItem
+                                        key={action.id}
+                                        onSelect={() => {
+                                            setCommandOpen( false )
+                                            action.onSelect()
+                                        }}
+                                    >
+                                        <span>{action.label}</span>
+                                    </CommandItem>
+                                ) )}
+                            </CommandGroup>
+                        </CommandList>
+                    </Command>
+                </DialogContent>
+            </Dialog>
+        </>
+    )
+}
