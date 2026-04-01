@@ -8,6 +8,7 @@ import {
   Trash2,
   Shield,
   Settings,
+  Database,
   StoneIcon,
   Moon,
   Sun,
@@ -38,6 +39,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 
 const navItems = [
   { title: "My Files", url: "/", icon: Home, isActive: true },
+  { title: "Buckets", url: "/buckets", icon: Database },
   { title: "Recent", url: "/recent", icon: Clock },
   { title: "Shared with Me", url: "/shared", icon: Share2 },
   { title: "Trash", url: "/trash", icon: Trash2 },
