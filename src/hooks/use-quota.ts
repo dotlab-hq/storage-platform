@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
 import { createClientOnlyFn } from "@tanstack/react-start"
 import { authClient } from "@/lib/auth-client"
+import { DEFAULT_ALLOCATED_STORAGE_BYTES, DEFAULT_FILE_SIZE_LIMIT_BYTES } from "@/lib/storage-quota-constants"
 import type { UserQuota } from "@/types/storage"
 
 const fetchUserQuota = createClientOnlyFn(
@@ -16,8 +17,8 @@ const fetchUserQuota = createClientOnlyFn(
         if ( !res.ok ) throw new Error( data.error ?? `HTTP ${res.status}` )
         return {
             usedStorage: data.usedStorage ?? 0,
-            allocatedStorage: data.allocatedStorage ?? 250 * 1024 * 1024,
-            fileSizeLimit: data.fileSizeLimit ?? 10 * 1024 * 1024,
+            allocatedStorage: data.allocatedStorage ?? DEFAULT_ALLOCATED_STORAGE_BYTES,
+            fileSizeLimit: data.fileSizeLimit ?? DEFAULT_FILE_SIZE_LIMIT_BYTES,
         }
     }
 )

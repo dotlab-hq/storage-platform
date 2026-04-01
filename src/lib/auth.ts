@@ -7,6 +7,7 @@ import { db } from "@/db"; // your drizzle instance
 import { USER_ROLES } from "@/lib/authz"
 import * as schema from "@/db/schema/auth-schema"; // your drizzle schema
 import { userStorage } from "@/db/schema/storage";
+import { DEFAULT_ALLOCATED_STORAGE_BYTES, DEFAULT_FILE_SIZE_LIMIT_BYTES } from "@/lib/storage-quota-constants";
 import { sendResetPasswordEmail } from "@/lib/email/send-reset-password-email";
 
 export const auth = betterAuth( {
@@ -20,7 +21,12 @@ export const auth = betterAuth( {
         after: async ( createdUser ) => {
           await db
             .insert( userStorage )
-            .values( { userId: createdUser.id } )
+            .values( {
+              userId: createdUser.id,
+              allocatedStorage: DEFAULT_ALLOCATED_STORAGE_BYTES,
+              fileSizeLimit: DEFAULT_FILE_SIZE_LIMIT_BYTES,
+              usedStorage: 0,
+            } )
             .onConflictDoNothing( { target: userStorage.userId } );
         },
       },

@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { getAuthenticatedUser } from "@/lib/server-auth"
 import { resolveProviderId } from "@/lib/s3-provider-client"
-
-const DEFAULT_FILE_SIZE_LIMIT_BYTES = 10 * 1024 * 1024
+import { DEFAULT_FILE_SIZE_LIMIT_BYTES } from "@/lib/storage-quota-constants"
 
 export const Route = createFileRoute( "/api/storage/register-file" )( {
     component: () => null,

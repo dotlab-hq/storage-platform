@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { eq } from "drizzle-orm"
+import { DEFAULT_ALLOCATED_STORAGE_BYTES, DEFAULT_FILE_SIZE_LIMIT_BYTES } from "@/lib/storage-quota-constants"
 
 export const Route = createFileRoute( "/api/storage/quota" )( {
     component: () => null,
@@ -33,7 +34,12 @@ export const Route = createFileRoute( "/api/storage/quota" )( {
                     if ( !row ) {
                         const [inserted] = await db
                             .insert( userStorage )
-                            .values( { userId } )
+                            .values( {
+                                userId,
+                                allocatedStorage: DEFAULT_ALLOCATED_STORAGE_BYTES,
+                                fileSizeLimit: DEFAULT_FILE_SIZE_LIMIT_BYTES,
+                                usedStorage: 0,
+                            } )
                             .onConflictDoNothing()
                             .returning( {
                                 usedStorage: userStorage.usedStorage,
@@ -42,8 +48,8 @@ export const Route = createFileRoute( "/api/storage/quota" )( {
                             } )
                         row = inserted ?? {
                             usedStorage: 0,
-                            allocatedStorage: 250 * 1024 * 1024,
-                            fileSizeLimit: 10 * 1024 * 1024,
+                            allocatedStorage: DEFAULT_ALLOCATED_STORAGE_BYTES,
+                            fileSizeLimit: DEFAULT_FILE_SIZE_LIMIT_BYTES,
                         }
                     }
 

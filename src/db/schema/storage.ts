@@ -4,9 +4,7 @@ import type { AnyPgColumn } from "drizzle-orm/pg-core";
 import { user } from "./auth-schema";
 import { storageProvider } from "./storage-provider";
 import { schema } from "./schema";
-
-const DEFAULT_ALLOCATED_STORAGE_BYTES = 250 * 1024 * 1024;
-const DEFAULT_FILE_SIZE_LIMIT_BYTES = 10 * 1024 * 1024;
+import { DEFAULT_ALLOCATED_STORAGE_BYTES, DEFAULT_FILE_SIZE_LIMIT_BYTES } from "@/lib/storage-quota-constants";
 
 export const folder = schema.table(
     "folder",
