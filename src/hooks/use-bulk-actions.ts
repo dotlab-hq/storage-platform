@@ -32,7 +32,7 @@ function getItemTypes( ids: string[], items: StorageItem[] ) {
     return ids.map( ( id ) => {
         const item = items.find( ( i ) => i.id === id )
         return item?.type ?? "file"
-    } ) as ( "file" | "folder" )[]
+    } )
 }
 
 type UseBulkActionsParams = {
