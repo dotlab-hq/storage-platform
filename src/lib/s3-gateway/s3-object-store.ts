@@ -1,13 +1,14 @@
 import {
-    GetObjectCommand,
     HeadObjectCommand,
     PutObjectCommand,
+    GetObjectCommand,
 } from "@aws-sdk/client-s3"
 import type { BucketContext } from "@/lib/s3-gateway/s3-context"
-import { buildCacheHeaders, isStatusMetadataError, parseHttpDate } from "@/lib/s3-gateway/s3-conditional-cache"
+import { buildCacheHeaders, shouldReturnNotModified } from "@/lib/s3-gateway/s3-conditional-cache"
 import { findStoredObject } from "@/lib/s3-gateway/s3-stored-object"
 import type { ObjectConditionalHeaders } from "@/lib/s3-gateway/s3-conditional-cache"
 import { getProviderClientById, selectProviderForUpload } from "@/lib/s3-provider-client"
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner"
 import { and, eq, like } from "drizzle-orm"
 import { db } from "@/db"
 import { file } from "@/db/schema/storage"
@@ -36,6 +37,8 @@ export async function listObjectsV2( bucket: BucketContext, prefix: string ): Pr
         .select( {
             objectKey: file.objectKey,
             sizeInBytes: file.sizeInBytes,
+            etag: file.etag,
+            lastModified: file.lastModified,
             updatedAt: file.updatedAt,
         } )
         .from( file )
@@ -49,8 +52,8 @@ export async function listObjectsV2( bucket: BucketContext, prefix: string ): Pr
             return {
                 key,
                 size: row.sizeInBytes,
-                eTag: null,
-                lastModified: row.updatedAt,
+                eTag: row.etag,
+                lastModified: row.lastModified ?? row.updatedAt,
             }
         } )
         .filter( ( row ) => row.key.startsWith( prefix ) )
@@ -66,6 +69,10 @@ export async function putObject( bucket: BucketContext, objectKey: string, body:
         Body: body,
         ContentType: contentType ?? "application/octet-stream",
     } ), { abortSignal } ) )
+    const metadata = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new HeadObjectCommand( {
+        Bucket: provider.bucketName,
+        Key: upstreamKey,
+    } ), { abortSignal } ) )
 
     await upsertCommittedFile( {
         userId: bucket.userId,
@@ -75,19 +82,20 @@ export async function putObject( bucket: BucketContext, objectKey: string, body:
         mappedFolderId: bucket.mappedFolderId,
         fileName: deriveFileName( objectKey ),
         sizeInBytes: body.byteLength,
+        etag: metadata.ETag ?? result.ETag ?? null,
+        cacheControl: metadata.CacheControl ?? null,
+        lastModified: metadata.LastModified ?? new Date(),
     } )
 
     return result.ETag ?? null
 }
 
-async function headProviderObject( input: {
-    provider: Awaited<ReturnType<typeof getProviderClientById>>
-    objectKey: string
-} ) {
-    return sendWithProviderTimeout( ( abortSignal ) => input.provider.client.send( new HeadObjectCommand( {
-        Bucket: input.provider.bucketName,
-        Key: input.objectKey,
-    } ), { abortSignal } ) )
+function assertPresignedUrlEndpoint( presignedUrl: string, providerEndpoint: string ): void {
+    const signedUrl = new URL( presignedUrl )
+    const expected = new URL( providerEndpoint )
+    if ( signedUrl.protocol !== expected.protocol || signedUrl.host !== expected.host ) {
+        throw new Error( "Generated redirect URL endpoint does not match configured provider endpoint" )
+    }
 }
 
 export async function getObject( bucket: BucketContext, objectKey: string, conditionals: ObjectConditionalHeaders ): Promise<Response | null> {
@@ -97,42 +105,45 @@ export async function getObject( bucket: BucketContext, objectKey: string, condi
     }
 
     const provider = await getProviderClientById( stored.providerId )
-    let eTag: string | null | undefined
-    let lastModified: Date | undefined
-    let cacheControl: string | null | undefined
-
-    try {
-        const result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new GetObjectCommand( {
-            Bucket: provider.bucketName,
-            Key: stored.objectKey,
-            IfNoneMatch: conditionals.ifNoneMatch ?? undefined,
-            IfModifiedSince: parseHttpDate( conditionals.ifModifiedSince ),
-        } ), { abortSignal } ) )
-
-        eTag = result.ETag
-        lastModified = result.LastModified
-        cacheControl = result.CacheControl
-        const headers = buildCacheHeaders( { eTag, lastModified, cacheControl } )
-        headers.set( "Content-Type", stored.mimeType ?? "application/octet-stream" )
-        headers.set( "Content-Length", String( stored.sizeInBytes ) )
-
-        return new Response( result.Body as ReadableStream, {
-            status: 200,
-            headers,
+    const effectiveLastModified = stored.lastModified ?? stored.updatedAt
+    const should304 = shouldReturnNotModified( {
+        eTag: stored.etag,
+        lastModified: effectiveLastModified,
+        ifNoneMatch: conditionals.ifNoneMatch,
+        ifModifiedSince: conditionals.ifModifiedSince,
+    } )
+    if ( should304 ) {
+        return new Response( null, {
+            status: 304,
+            headers: buildCacheHeaders( {
+                eTag: stored.etag,
+                lastModified: effectiveLastModified,
+                cacheControl: stored.cacheControl,
+                includeDefaultCacheControl: false,
+            } ),
         } )
-    } catch ( error: unknown ) {
-        if ( isStatusMetadataError( error ) && error.$metadata?.httpStatusCode === 304 ) {
-            const metadata = await headProviderObject( { provider, objectKey: stored.objectKey } )
-            eTag = metadata.ETag
-            lastModified = metadata.LastModified
-            cacheControl = metadata.CacheControl
-            return new Response( null, {
-                status: 304,
-                headers: buildCacheHeaders( { eTag, lastModified, cacheControl, includeDefaultCacheControl: false } ),
-            } )
-        }
-        throw error
     }
+
+    const command = new GetObjectCommand( {
+        Bucket: provider.bucketName,
+        Key: stored.objectKey,
+        ResponseContentType: stored.mimeType ?? undefined,
+    } )
+    const presignedUrl = await getSignedUrl( provider.client, command, { expiresIn: 60 } )
+    assertPresignedUrlEndpoint( presignedUrl, provider.endpoint )
+    const headers = buildCacheHeaders( {
+        eTag: stored.etag,
+        lastModified: effectiveLastModified,
+        cacheControl: stored.cacheControl,
+    } )
+    headers.set( "Content-Type", stored.mimeType ?? "application/octet-stream" )
+    headers.set( "Content-Length", String( stored.sizeInBytes ) )
+    headers.set( "Location", presignedUrl )
+
+    return new Response( null, {
+        status: 302,
+        headers,
+    } )
 }
 
 export async function headObject( bucket: BucketContext, objectKey: string, conditionals: ObjectConditionalHeaders ): Promise<Response | null> {
@@ -141,43 +152,36 @@ export async function headObject( bucket: BucketContext, objectKey: string, cond
         return null
     }
 
-    const provider = await getProviderClientById( stored.providerId )
-    let eTag: string | null | undefined
-    let lastModified: Date | undefined
-    let cacheControl: string | null | undefined
-
-    try {
-        const result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new HeadObjectCommand( {
-            Bucket: provider.bucketName,
-            Key: stored.objectKey,
-            IfNoneMatch: conditionals.ifNoneMatch ?? undefined,
-            IfModifiedSince: parseHttpDate( conditionals.ifModifiedSince ),
-        } ), { abortSignal } ) )
-
-        eTag = result.ETag
-        lastModified = result.LastModified
-        cacheControl = result.CacheControl
-        const headers = buildCacheHeaders( { eTag, lastModified, cacheControl } )
-        headers.set( "Content-Type", stored.mimeType ?? "application/octet-stream" )
-        headers.set( "Content-Length", String( result.ContentLength ?? stored.sizeInBytes ) )
-
+    const effectiveLastModified = stored.lastModified ?? stored.updatedAt
+    const should304 = shouldReturnNotModified( {
+        eTag: stored.etag,
+        lastModified: effectiveLastModified,
+        ifNoneMatch: conditionals.ifNoneMatch,
+        ifModifiedSince: conditionals.ifModifiedSince,
+    } )
+    if ( should304 ) {
         return new Response( null, {
-            status: 200,
-            headers,
+            status: 304,
+            headers: buildCacheHeaders( {
+                eTag: stored.etag,
+                lastModified: effectiveLastModified,
+                cacheControl: stored.cacheControl,
+                includeDefaultCacheControl: false,
+            } ),
         } )
-    } catch ( error: unknown ) {
-        if ( isStatusMetadataError( error ) && error.$metadata?.httpStatusCode === 304 ) {
-            const metadata = await headProviderObject( { provider, objectKey: stored.objectKey } )
-            eTag = metadata.ETag
-            lastModified = metadata.LastModified
-            cacheControl = metadata.CacheControl
-            return new Response( null, {
-                status: 304,
-                headers: buildCacheHeaders( { eTag, lastModified, cacheControl, includeDefaultCacheControl: false } ),
-            } )
-        }
-        throw error
     }
+    const headers = buildCacheHeaders( {
+        eTag: stored.etag,
+        lastModified: effectiveLastModified,
+        cacheControl: stored.cacheControl,
+    } )
+    headers.set( "Content-Type", stored.mimeType ?? "application/octet-stream" )
+    headers.set( "Content-Length", String( stored.sizeInBytes ) )
+
+    return new Response( null, {
+        status: 200,
+        headers,
+    } )
 }
 
 export async function deleteObject( bucket: BucketContext, objectKey: string ): Promise<void> {

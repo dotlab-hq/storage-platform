@@ -109,6 +109,9 @@ export async function completeMultipartUpload( bucket: BucketContext, uploadId: 
         mappedFolderId: bucket.mappedFolderId,
         fileName: deriveFileName( attempt.objectKey ),
         sizeInBytes: observedSize,
+        etag: eTag || null,
+        cacheControl: head.CacheControl ?? null,
+        lastModified: head.LastModified ?? new Date(),
     } )
 
     await db

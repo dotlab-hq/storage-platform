@@ -139,6 +139,9 @@ export async function completeUpload( userId: string, uploadId: string, clientEt
         mappedFolderId: attempt.mappedFolderId,
         fileName: deriveFileName( attempt.objectKey ),
         sizeInBytes: observedSize,
+        etag: head.ETag ?? finalizedEtag,
+        cacheControl: head.CacheControl ?? null,
+        lastModified: head.LastModified ?? new Date(),
     } )
 
     await db
