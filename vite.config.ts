@@ -16,16 +16,21 @@ const config = defineConfig( {
       rollupConfig: { external: [/^@sentry\//] },
 
       cloudflare: {
-        deployConfig: true,
+        deployConfig: true,        
         wrangler: {
           name: 'storage',
           keep_vars: true,
           "compatibility_date": "2026-03-10",
           compatibility_flags: [
             "nodejs_compat",
+            "nodejs_compat_v2",
             "no_handle_cross_request_promise_resolution"
           ],
-          preview_urls:false,
+          "placement": {
+            mode:"off",
+            hint:"aws:ap-south-1"
+          },
+          preview_urls: false,
           workers_dev: false,
           "observability": {
             "enabled": false,
