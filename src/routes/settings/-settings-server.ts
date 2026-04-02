@@ -1,4 +1,4 @@
-import { createAuthFromRequest } from "@/lib/auth"
+import { auth } from "@/lib/auth"
 import { getAuthenticatedUser } from "@/lib/server-auth"
 import { db } from "@/db"
 import { account } from "@/db/schema/auth-schema"
@@ -59,7 +59,6 @@ export const getSettingsSnapshotFn = createServerFn( { method: "GET" } ).handler
   const currentUser = await getAuthenticatedUser()
   const request = getRequest()
   const headers = request.headers
-  const auth = createAuthFromRequest( request )
   const [session, methods] = await Promise.all( [
     auth.api.getSession( { headers } ),
     auth.api.listUserAccounts( { headers } ).catch( ( error: unknown ) => {
@@ -97,7 +96,6 @@ export const updateProfileSettingsFn = createServerFn( { method: "POST" } )
     await getAuthenticatedUser()
     const request = getRequest()
     const headers = request.headers
-    const auth = createAuthFromRequest( request )
     try {
       await auth.api.updateUser( {
         headers,
@@ -118,7 +116,6 @@ export const changePasswordSettingsFn = createServerFn( { method: "POST" } )
     const currentUser = await getAuthenticatedUser()
     const request = getRequest()
     const headers = request.headers
-    const auth = createAuthFromRequest( request )
     try {
       const hasPassword = await hasPasswordCredential( currentUser.id )
       if ( hasPassword ) {
@@ -148,7 +145,6 @@ export const enableTwoFactorSettingsFn = createServerFn( { method: "POST" } )
     await getAuthenticatedUser()
     const request = getRequest()
     const headers = request.headers
-    const auth = createAuthFromRequest( request )
     try {
       return await auth.api.enableTwoFactor( {
         headers,
@@ -168,7 +164,6 @@ export const verifyTwoFactorSettingsFn = createServerFn( { method: "POST" } )
     await getAuthenticatedUser()
     const request = getRequest()
     const headers = request.headers
-    const auth = createAuthFromRequest( request )
     try {
       await auth.api.verifyTOTP( { headers, body: { code: data.code } } )
       return { success: true, message: "2FA verified and enabled." }
@@ -183,7 +178,6 @@ export const disableTwoFactorSettingsFn = createServerFn( { method: "POST" } )
     await getAuthenticatedUser()
     const request = getRequest()
     const headers = request.headers
-    const auth = createAuthFromRequest( request )
     try {
       await auth.api.disableTwoFactor( { headers, body: { password: data.password } } )
       return { success: true, message: "2FA disabled." }
@@ -198,7 +192,6 @@ export const rotateBackupCodesSettingsFn = createServerFn( { method: "POST" } )
     await getAuthenticatedUser()
     const request = getRequest()
     const headers = request.headers
-    const auth = createAuthFromRequest( request )
     try {
       return await auth.api.generateBackupCodes( { headers, body: { password: data.password } } )
     } catch ( error ) {
