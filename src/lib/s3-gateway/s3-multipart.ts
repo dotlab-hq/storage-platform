@@ -7,6 +7,7 @@ import { and, eq } from "drizzle-orm"
 import { upsertCommittedFile } from "./upload-file-records"
 import { buildUpstreamObjectKey, deriveFileName } from "./upload-key-utils"
 import { sendWithProviderTimeout } from "./s3-provider-timeout"
+import { normalizeETag } from "./s3-conditional-cache"
 
 const MULTIPART_UPLOAD_EXPIRY_MS = 60 * 60 * 1000
 
@@ -99,7 +100,12 @@ export async function completeMultipartUpload( bucket: BucketContext, uploadId: 
     } ), { abortSignal } ) )
 
     const observedSize = Number( head.ContentLength ?? 0 )
-    const eTag = head.ETag ?? attempt.etag ?? ""
+    let eTag = ""
+    if ( head.ETag ) {
+        eTag = normalizeETag( head.ETag )
+    } else if ( attempt.etag ) {
+        eTag = normalizeETag( attempt.etag )
+    }
 
     await upsertCommittedFile( {
         userId: bucket.userId,
@@ -109,6 +115,9 @@ export async function completeMultipartUpload( bucket: BucketContext, uploadId: 
         mappedFolderId: bucket.mappedFolderId,
         fileName: deriveFileName( attempt.objectKey ),
         sizeInBytes: observedSize,
+        etag: eTag || null,
+        cacheControl: head.CacheControl ?? null,
+        lastModified: head.LastModified ?? new Date(),
     } )
 
     await db

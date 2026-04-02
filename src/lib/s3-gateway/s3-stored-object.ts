@@ -9,6 +9,10 @@ export type StoredObject = {
     providerId: string | null
     mimeType: string | null
     sizeInBytes: number
+    etag: string | null
+    cacheControl: string | null
+    lastModified: Date | null
+    updatedAt: Date
 }
 
 export async function findStoredObject( bucket: BucketContext, objectKey: string ): Promise<StoredObject | null> {
@@ -19,6 +23,10 @@ export async function findStoredObject( bucket: BucketContext, objectKey: string
             providerId: file.providerId,
             mimeType: file.mimeType,
             sizeInBytes: file.sizeInBytes,
+            etag: file.etag,
+            cacheControl: file.cacheControl,
+            lastModified: file.lastModified,
+            updatedAt: file.updatedAt,
         } )
         .from( file )
         .where( and( eq( file.userId, bucket.userId ), eq( file.objectKey, upstreamKey ), eq( file.isDeleted, false ) ) )

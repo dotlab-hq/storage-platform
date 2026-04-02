@@ -8,6 +8,9 @@ export type CompletedUpload = {
     objectKey: string
     sizeInBytes: number
     providerId: string | null
+    etag: string | null
+    cacheControl: string | null
+    lastModified: Date | null
 }
 
 export async function findCommittedFile( userId: string, upstreamObjectKey: string ): Promise<CompletedUpload | null> {
@@ -18,6 +21,9 @@ export async function findCommittedFile( userId: string, upstreamObjectKey: stri
             objectKey: file.objectKey,
             sizeInBytes: file.sizeInBytes,
             providerId: file.providerId,
+            etag: file.etag,
+            cacheControl: file.cacheControl,
+            lastModified: file.lastModified,
         } )
         .from( file )
         .where( and( eq( file.userId, userId ), eq( file.objectKey, upstreamObjectKey ), eq( file.isDeleted, false ) ) )
@@ -34,6 +40,9 @@ export async function upsertCommittedFile( input: {
     mappedFolderId: string | null
     fileName: string
     sizeInBytes: number
+    etag?: string | null
+    cacheControl?: string | null
+    lastModified?: Date | null
 } ): Promise<CompletedUpload> {
     const existing = await findCommittedFile( input.userId, input.objectKey )
 
@@ -46,6 +55,9 @@ export async function upsertCommittedFile( input: {
                 mimeType: input.contentType,
                 providerId: input.providerId,
                 folderId: input.mappedFolderId,
+                etag: input.etag ?? null,
+                cacheControl: input.cacheControl ?? null,
+                lastModified: input.lastModified ?? null,
                 isDeleted: false,
                 deletedAt: null,
             } )
@@ -56,6 +68,9 @@ export async function upsertCommittedFile( input: {
                 objectKey: file.objectKey,
                 sizeInBytes: file.sizeInBytes,
                 providerId: file.providerId,
+                etag: file.etag,
+                cacheControl: file.cacheControl,
+                lastModified: file.lastModified,
             } )
         return updatedRows[0]
     }
@@ -70,6 +85,9 @@ export async function upsertCommittedFile( input: {
             mimeType: input.contentType,
             providerId: input.providerId,
             folderId: input.mappedFolderId,
+            etag: input.etag ?? null,
+            cacheControl: input.cacheControl ?? null,
+            lastModified: input.lastModified ?? null,
             isDeleted: false,
         } )
         .returning( {
@@ -78,6 +96,9 @@ export async function upsertCommittedFile( input: {
             objectKey: file.objectKey,
             sizeInBytes: file.sizeInBytes,
             providerId: file.providerId,
+            etag: file.etag,
+            cacheControl: file.cacheControl,
+            lastModified: file.lastModified,
         } )
 
     return insertedRows[0]

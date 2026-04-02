@@ -10,6 +10,7 @@ type ProviderClientConfig = {
     providerId: string | null
     providerName: string
     bucketName: string
+    endpoint: string
     client: S3Client
 }
 
@@ -53,6 +54,7 @@ function fromEnvironment(): ProviderClientConfig {
         providerId: null,
         providerName: "Default Provider",
         bucketName: process.env.S3_BUCKET_NAME ?? "dot-storage",
+        endpoint,
         client: new S3Client( {
             region,
             endpoint,
@@ -84,6 +86,7 @@ function fromProviderRow( row: ProviderRow ): ProviderClientConfig {
         providerId: row.id,
         providerName: row.name,
         bucketName: row.bucketName === UNDETERMINED_PROVIDER_VALUE ? ( process.env.S3_BUCKET_NAME ?? "dot-storage" ) : row.bucketName,
+        endpoint,
         client: new S3Client( {
             region,
             endpoint,

@@ -45,6 +45,9 @@ export const file = schema.table(
         name: text( "name" ).notNull(),
         objectKey: text( "object_key" ).notNull(),
         mimeType: text( "mime_type" ),
+        etag: text( "etag" ),
+        cacheControl: text( "cache_control" ),
+        lastModified: timestamp( "last_modified" ),
         sizeInBytes: bigint( "size_in_bytes", { mode: "number" } ).notNull(),
         userId: text( "user_id" )
             .notNull()

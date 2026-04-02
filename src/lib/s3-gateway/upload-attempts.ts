@@ -4,6 +4,7 @@ import { getProviderClientById, selectProviderForUpload } from "@/lib/s3-provide
 import { and, eq } from "drizzle-orm"
 import { findCommittedFile, upsertCommittedFile } from "./upload-file-records"
 import { buildUpstreamObjectKey, deriveFileName } from "./upload-key-utils"
+import { normalizeETag } from "./s3-conditional-cache"
 
 type InitiateUploadInput = {
     userId: string
@@ -130,7 +131,11 @@ export async function completeUpload( userId: string, uploadId: string, clientEt
         throw new Error( "Uploaded object size did not match expected size" )
     }
 
-    const finalizedEtag = clientEtag ?? ( head.ETag?.replaceAll( '"', "" ) ?? null )
+    const completedUploadEtag = clientEtag
+        ? normalizeETag( clientEtag )
+        : head.ETag
+            ? normalizeETag( head.ETag )
+            : null
     const committed = await upsertCommittedFile( {
         userId,
         providerId: attempt.providerId,
@@ -139,13 +144,16 @@ export async function completeUpload( userId: string, uploadId: string, clientEt
         mappedFolderId: attempt.mappedFolderId,
         fileName: deriveFileName( attempt.objectKey ),
         sizeInBytes: observedSize,
+        etag: completedUploadEtag,
+        cacheControl: head.CacheControl ?? null,
+        lastModified: head.LastModified ?? new Date(),
     } )
 
     await db
         .update( uploadAttempt )
         .set( {
             status: "uploaded",
-            etag: finalizedEtag,
+            etag: completedUploadEtag,
             completedAt: new Date(),
             errorMessage: null,
         } )
