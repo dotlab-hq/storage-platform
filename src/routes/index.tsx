@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { createFileRoute } from "@tanstack/react-router"
+import { createFileRoute, redirect } from "@tanstack/react-router"
 import { AppSidebar } from "@/components/app-sidebar"
 import { Separator } from "@/components/ui/separator"
 import {
@@ -27,7 +27,20 @@ import type { StorageItem } from "@/types/storage"
 import { HomeRoutePending } from "./-home-pending"
 import { getHomeSnapshotFn } from "./-home-server"
 
-export const Route = createFileRoute( "/" )( { component: StoragePage, loader: () => getHomeSnapshotFn(), pendingComponent: HomeRoutePending } )
+export const Route = createFileRoute( "/" )( {
+  component: StoragePage,
+  loader: async () => {
+    try {
+      return await getHomeSnapshotFn()
+    } catch ( error ) {
+      if ( error instanceof Error && error.message === "Unauthorized" ) {
+        throw redirect( { to: "/auth" } )
+      }
+      throw error
+    }
+  },
+  pendingComponent: HomeRoutePending,
+} )
 function StoragePage() {
   const initial = Route.useLoaderData()
   const storage = useStorageData( initial )
