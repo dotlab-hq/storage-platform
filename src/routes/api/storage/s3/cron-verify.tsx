@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { z } from "zod"
-import { verifyExpiredPendingUploads } from "@/lib/s3-gateway/upload-reconciliation"
+import { verifyExpiredPendingUploads } from "@/lib/s3-gateway/upload-reconciliation-status"
 
 const CronVerifySchema = z.object( {
     limit: z.number().int().positive().max( 500 ).optional(),
@@ -15,7 +15,6 @@ function isCronAuthorized( request: Request ): boolean {
 }
 
 export const Route = createFileRoute( "/api/storage/s3/cron-verify" as never )( {
-    component: () => null,
     server: {
         handlers: {
             POST: async ( { request } ) => {
@@ -23,7 +22,16 @@ export const Route = createFileRoute( "/api/storage/s3/cron-verify" as never )( 
                     if ( !isCronAuthorized( request ) ) {
                         return Response.json( { error: "Unauthorized cron request" }, { status: 401 } )
                     }
-                    const payloadRaw = await request.json().catch( () => ( {} ) )
+                    const contentLength = request.headers.get( "content-length" )
+                    const hasBody = contentLength !== "0"
+                    let payloadRaw: unknown = {}
+                    if ( hasBody ) {
+                        try {
+                            payloadRaw = await request.json()
+                        } catch {
+                            return Response.json( { error: "Invalid JSON payload" }, { status: 400 } )
+                        }
+                    }
                     const payload = CronVerifySchema.parse( payloadRaw )
                     const summary = await verifyExpiredPendingUploads( payload.limit )
                     return Response.json( summary )

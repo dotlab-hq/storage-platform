@@ -3,7 +3,8 @@ import { uploadAttempt, virtualBucket } from "@/db/schema/s3-gateway"
 import { selectProviderForUpload } from "@/lib/s3-provider-client"
 import { and, eq } from "drizzle-orm"
 import { buildUpstreamObjectKey } from "./upload-key-utils"
-import { finalizeUploadAttempt, resolveUploadStatus } from "./upload-reconciliation"
+import { finalizeUploadAttempt } from "./upload-reconciliation"
+import { resolveUploadStatus } from "./upload-reconciliation-status"
 
 type InitiateUploadInput = {
     userId: string

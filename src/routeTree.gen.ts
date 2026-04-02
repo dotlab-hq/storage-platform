@@ -48,6 +48,7 @@ import { Route as ApiStorageS3UploadStatusRouteImport } from './routes/api/stora
 import { Route as ApiStorageS3InitiateUploadRouteImport } from './routes/api/storage/s3/initiate-upload'
 import { Route as ApiStorageS3EmptyBucketRouteImport } from './routes/api/storage/s3/empty-bucket'
 import { Route as ApiStorageS3DeleteBucketRouteImport } from './routes/api/storage/s3/delete-bucket'
+import { Route as ApiStorageS3CronVerifyRouteImport } from './routes/api/storage/s3/cron-verify'
 import { Route as ApiStorageS3CompleteUploadRouteImport } from './routes/api/storage/s3/complete-upload'
 import { Route as ApiStorageS3BucketsRouteImport } from './routes/api/storage/s3/buckets'
 import { Route as ApiStorageS3BucketItemsRouteImport } from './routes/api/storage/s3/bucket-items'
@@ -252,6 +253,11 @@ const ApiStorageS3DeleteBucketRoute =
     path: '/api/storage/s3/delete-bucket',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiStorageS3CronVerifyRoute = ApiStorageS3CronVerifyRouteImport.update({
+  id: '/api/storage/s3/cron-verify',
+  path: '/api/storage/s3/cron-verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiStorageS3CompleteUploadRoute =
   ApiStorageS3CompleteUploadRouteImport.update({
     id: '/api/storage/s3/complete-upload',
@@ -320,6 +326,7 @@ export interface FileRoutesByFullPath {
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
   '/api/storage/s3/buckets': typeof ApiStorageS3BucketsRoute
   '/api/storage/s3/complete-upload': typeof ApiStorageS3CompleteUploadRoute
+  '/api/storage/s3/cron-verify': typeof ApiStorageS3CronVerifyRoute
   '/api/storage/s3/delete-bucket': typeof ApiStorageS3DeleteBucketRoute
   '/api/storage/s3/empty-bucket': typeof ApiStorageS3EmptyBucketRoute
   '/api/storage/s3/initiate-upload': typeof ApiStorageS3InitiateUploadRoute
@@ -366,6 +373,7 @@ export interface FileRoutesByTo {
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
   '/api/storage/s3/buckets': typeof ApiStorageS3BucketsRoute
   '/api/storage/s3/complete-upload': typeof ApiStorageS3CompleteUploadRoute
+  '/api/storage/s3/cron-verify': typeof ApiStorageS3CronVerifyRoute
   '/api/storage/s3/delete-bucket': typeof ApiStorageS3DeleteBucketRoute
   '/api/storage/s3/empty-bucket': typeof ApiStorageS3EmptyBucketRoute
   '/api/storage/s3/initiate-upload': typeof ApiStorageS3InitiateUploadRoute
@@ -413,6 +421,7 @@ export interface FileRoutesById {
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
   '/api/storage/s3/buckets': typeof ApiStorageS3BucketsRoute
   '/api/storage/s3/complete-upload': typeof ApiStorageS3CompleteUploadRoute
+  '/api/storage/s3/cron-verify': typeof ApiStorageS3CronVerifyRoute
   '/api/storage/s3/delete-bucket': typeof ApiStorageS3DeleteBucketRoute
   '/api/storage/s3/empty-bucket': typeof ApiStorageS3EmptyBucketRoute
   '/api/storage/s3/initiate-upload': typeof ApiStorageS3InitiateUploadRoute
@@ -461,6 +470,7 @@ export interface FileRouteTypes {
     | '/api/storage/s3/bucket-items'
     | '/api/storage/s3/buckets'
     | '/api/storage/s3/complete-upload'
+    | '/api/storage/s3/cron-verify'
     | '/api/storage/s3/delete-bucket'
     | '/api/storage/s3/empty-bucket'
     | '/api/storage/s3/initiate-upload'
@@ -507,6 +517,7 @@ export interface FileRouteTypes {
     | '/api/storage/s3/bucket-items'
     | '/api/storage/s3/buckets'
     | '/api/storage/s3/complete-upload'
+    | '/api/storage/s3/cron-verify'
     | '/api/storage/s3/delete-bucket'
     | '/api/storage/s3/empty-bucket'
     | '/api/storage/s3/initiate-upload'
@@ -553,6 +564,7 @@ export interface FileRouteTypes {
     | '/api/storage/s3/bucket-items'
     | '/api/storage/s3/buckets'
     | '/api/storage/s3/complete-upload'
+    | '/api/storage/s3/cron-verify'
     | '/api/storage/s3/delete-bucket'
     | '/api/storage/s3/empty-bucket'
     | '/api/storage/s3/initiate-upload'
@@ -600,6 +612,7 @@ export interface RootRouteChildren {
   ApiStorageS3BucketItemsRoute: typeof ApiStorageS3BucketItemsRoute
   ApiStorageS3BucketsRoute: typeof ApiStorageS3BucketsRoute
   ApiStorageS3CompleteUploadRoute: typeof ApiStorageS3CompleteUploadRoute
+  ApiStorageS3CronVerifyRoute: typeof ApiStorageS3CronVerifyRoute
   ApiStorageS3DeleteBucketRoute: typeof ApiStorageS3DeleteBucketRoute
   ApiStorageS3EmptyBucketRoute: typeof ApiStorageS3EmptyBucketRoute
   ApiStorageS3InitiateUploadRoute: typeof ApiStorageS3InitiateUploadRoute
@@ -882,6 +895,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStorageS3DeleteBucketRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/storage/s3/cron-verify': {
+      id: '/api/storage/s3/cron-verify'
+      path: '/api/storage/s3/cron-verify'
+      fullPath: '/api/storage/s3/cron-verify'
+      preLoaderRoute: typeof ApiStorageS3CronVerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/storage/s3/complete-upload': {
       id: '/api/storage/s3/complete-upload'
       path: '/api/storage/s3/complete-upload'
@@ -960,6 +980,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiStorageS3BucketItemsRoute: ApiStorageS3BucketItemsRoute,
   ApiStorageS3BucketsRoute: ApiStorageS3BucketsRoute,
   ApiStorageS3CompleteUploadRoute: ApiStorageS3CompleteUploadRoute,
+  ApiStorageS3CronVerifyRoute: ApiStorageS3CronVerifyRoute,
   ApiStorageS3DeleteBucketRoute: ApiStorageS3DeleteBucketRoute,
   ApiStorageS3EmptyBucketRoute: ApiStorageS3EmptyBucketRoute,
   ApiStorageS3InitiateUploadRoute: ApiStorageS3InitiateUploadRoute,

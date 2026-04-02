@@ -15,8 +15,8 @@ import { file } from "@/db/schema/storage"
 import { sendWithProviderTimeout } from "./s3-provider-timeout"
 import { upsertCommittedFile } from "./upload-file-records"
 import { buildUpstreamObjectKey, deriveFileName } from "./upload-key-utils"
-import { findUploadAttemptByObjectKey } from "./upload-reconciliation-queries"
-import { finalizeUploadAttempt } from "./upload-reconciliation"
+import { assertPresignedUrlEndpoint, resolvePersistedETag } from "./s3-object-helpers"
+import { resolvePendingGetObject, resolvePendingHeadObject } from "./s3-object-pending-resolution"
 
 /**
  * Short redirect TTL limits exposure of presigned URLs in transit or logs
@@ -99,46 +99,10 @@ export async function putObject( bucket: BucketContext, objectKey: string, body:
     return result.ETag ?? null
 }
 
-function assertPresignedUrlEndpoint( presignedUrl: string, providerEndpoint: string ): void {
-    const signedUrl = new URL( presignedUrl )
-    const expected = new URL( providerEndpoint )
-    if ( signedUrl.protocol !== expected.protocol || signedUrl.host !== expected.host ) {
-        throw new Error( "Generated redirect URL endpoint does not match configured provider endpoint" )
-    }
-}
-
-/**
- * Persists ETag with provider HEAD result taking precedence over PUT response ETag.
- * Some providers omit ETag on PUT, while HEAD is more reliable after object commit.
- */
-function resolvePersistedETag( metadataETag: string | undefined, putResultETag: string | undefined ): string | null {
-    if ( metadataETag !== undefined ) return normalizeETag( metadataETag )
-    if ( putResultETag !== undefined ) return normalizeETag( putResultETag )
-    return null
-}
-
 export async function getObject( bucket: BucketContext, objectKey: string, conditionals: ObjectConditionalHeaders ): Promise<Response | null> {
     const stored = await findStoredObject( bucket, objectKey )
     if ( !stored ) {
-        const attempt = await findUploadAttemptByObjectKey( bucket.userId, bucket.bucketId, objectKey )
-        if ( attempt?.status === "pending" ) {
-            try {
-                await finalizeUploadAttempt( bucket.userId, attempt.id )
-            } catch ( error ) {
-                if ( !( error instanceof Error ) || !/expired and object is missing/i.test( error.message ) ) {
-                    return new Response( JSON.stringify( { status: "uploading", message: "Upload is still processing" } ), {
-                        status: 202,
-                        headers: { "Content-Type": "application/json" },
-                    } )
-                }
-                return null
-            }
-            return getObject( bucket, objectKey, conditionals )
-        }
-        if ( attempt?.status === "failed" ) {
-            return null
-        }
-        return null
+        return resolvePendingGetObject( bucket, objectKey, conditionals, getObject )
     }
 
     const provider = await getProviderClientById( stored.providerId )
@@ -186,19 +150,7 @@ export async function getObject( bucket: BucketContext, objectKey: string, condi
 export async function headObject( bucket: BucketContext, objectKey: string, conditionals: ObjectConditionalHeaders ): Promise<Response | null> {
     const stored = await findStoredObject( bucket, objectKey )
     if ( !stored ) {
-        const attempt = await findUploadAttemptByObjectKey( bucket.userId, bucket.bucketId, objectKey )
-        if ( attempt?.status === "pending" ) {
-            try {
-                await finalizeUploadAttempt( bucket.userId, attempt.id )
-            } catch ( error ) {
-                if ( !( error instanceof Error ) || !/expired and object is missing/i.test( error.message ) ) {
-                    return new Response( null, { status: 202 } )
-                }
-                return null
-            }
-            return headObject( bucket, objectKey, conditionals )
-        }
-        return null
+        return resolvePendingHeadObject( bucket, objectKey, conditionals, headObject )
     }
 
     const effectiveLastModified = stored.lastModified ?? stored.updatedAt
