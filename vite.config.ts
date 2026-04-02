@@ -27,7 +27,7 @@ const config = defineConfig( {
             "no_handle_cross_request_promise_resolution"
           ],
           "placement": {
-            mode:"off",
+            mode:"smart",
             hint:"aws:ap-south-1"
           },
           preview_urls: false,
