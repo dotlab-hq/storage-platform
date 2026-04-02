@@ -47,9 +47,9 @@ const navItems = [
 ]
 
 const defaultUser = {
-  name: "shadcn",
-  email: "m@example.com",
-  avatar: "/avatars/shadcn.jpg",
+  name: "User",
+  email: "user@example.com",
+  avatar: "/avatars/user.jpg",
   isAdmin: false,
 }
 

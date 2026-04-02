@@ -1,28 +1,37 @@
 {
-  "short_name": "DOT. Storage",
+  "short_name": "DOT",
   "name": "DOT. Storage — Secure Cloud Storage",
-  "description": "Secure, fast, and simple cloud file storage.",
+  "description": "Secure, fast, and simple cloud file storage with end-to-end encryption. Store, share, and manage files safely in the cloud.",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "theme_color": "#6229ff",
   "background_color": "#0e0e11",
-  "categories": ["productivity", "utilities"],
-  "orientation": "any"
+  "categories": [
+    "productivity",
+    "utilities"
+  ],
+  "orientation": "any",
+  "screenshots": [
+    {
+      "src": "logo.svg",
+      "sizes": "540x720",
+      "type": "image/svg+xml",
+      "form_factor": "narrow"
+    }
+  ]
 }
