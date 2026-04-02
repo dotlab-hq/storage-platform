@@ -16,6 +16,8 @@ import { sendWithProviderTimeout } from "./s3-provider-timeout"
 import { upsertCommittedFile } from "./upload-file-records"
 import { buildUpstreamObjectKey, deriveFileName } from "./upload-key-utils"
 
+const GET_OBJECT_REDIRECT_TTL_SECONDS = 60
+
 function upstreamKeyFor( bucket: BucketContext, objectKey: string ): string {
     return buildUpstreamObjectKey( bucket.userId, bucket.bucketId, objectKey )
 }
@@ -83,7 +85,7 @@ export async function putObject( bucket: BucketContext, objectKey: string, body:
         fileName: deriveFileName( objectKey ),
         sizeInBytes: body.byteLength,
         // Prefer HEAD metadata ETag because provider PutObject responses may omit ETag in some configurations.
-        etag: metadata.ETag ? normalizeETag( metadata.ETag ) : result.ETag ? normalizeETag( result.ETag ) : null,
+        etag: resolvePersistedETag( metadata.ETag, result.ETag ),
         cacheControl: metadata.CacheControl ?? null,
         lastModified: metadata.LastModified ?? new Date(),
     } )
@@ -97,6 +99,12 @@ function assertPresignedUrlEndpoint( presignedUrl: string, providerEndpoint: str
     if ( signedUrl.protocol !== expected.protocol || signedUrl.host !== expected.host ) {
         throw new Error( "Generated redirect URL endpoint does not match configured provider endpoint" )
     }
+}
+
+function resolvePersistedETag( metadataETag: string | undefined, putResultETag: string | undefined ): string | null {
+    if ( metadataETag ) return normalizeETag( metadataETag )
+    if ( putResultETag ) return normalizeETag( putResultETag )
+    return null
 }
 
 export async function getObject( bucket: BucketContext, objectKey: string, conditionals: ObjectConditionalHeaders ): Promise<Response | null> {
@@ -131,7 +139,7 @@ export async function getObject( bucket: BucketContext, objectKey: string, condi
         ResponseContentType: stored.mimeType ?? undefined,
     } )
     // Keep redirects short-lived to reduce leaked URL risk while still allowing normal immediate download flows.
-    const presignedUrl = await getSignedUrl( provider.client, command, { expiresIn: 60 } )
+    const presignedUrl = await getSignedUrl( provider.client, command, { expiresIn: GET_OBJECT_REDIRECT_TTL_SECONDS } )
     assertPresignedUrlEndpoint( presignedUrl, provider.endpoint )
     const headers = buildCacheHeaders( {
         eTag: stored.etag,
