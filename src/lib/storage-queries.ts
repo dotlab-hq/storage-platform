@@ -87,8 +87,15 @@ export async function getFolderBreadcrumbs( userId: string, folderId: string ) {
 
     const crumbs: { id: string; name: string }[] = []
     let currentId: string | null = folderId
+    const visited = new Set<string>()
+    let hops = 0
 
     while ( currentId ) {
+        if ( visited.has( currentId ) ) {
+            throw new Error( "Detected cyclic folder relationship while building breadcrumbs" )
+        }
+        visited.add( currentId )
+
         const rows = await db.select( {
             id: folder.id,
             name: folder.name,
@@ -101,6 +108,11 @@ export async function getFolderBreadcrumbs( userId: string, folderId: string ) {
         const row = rows[0]
         crumbs.unshift( { id: row.id, name: row.name } )
         currentId = row.parentFolderId
+        hops += 1
+
+        if ( hops > 1024 ) {
+            throw new Error( "Folder breadcrumb traversal exceeded safe depth" )
+        }
     }
 
     return crumbs

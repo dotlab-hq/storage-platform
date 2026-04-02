@@ -1,6 +1,7 @@
 import { eq, and, inArray } from "drizzle-orm"
 import { getProviderClientById } from "@/lib/s3-provider-client"
 import { isDescendantFolder } from "@/lib/folder-paths"
+
 export async function touchFolderOpened( userId: string, folderId: string ) {
     const [{ db }, { folder }] = await Promise.all( [
         import( "@/db" ),
@@ -67,7 +68,9 @@ export async function deleteItems(
         // Each iteration queries one level of depth; for typical folder depths (< 10)
         // this is acceptable. A recursive CTE would be more efficient for deeply nested trees.
         const allFolderIds: string[] = [...folderIds]
+        const visitedFolderIds = new Set<string>( folderIds )
         let toProcess: string[] = [...folderIds]
+        let depth = 0
 
         while ( toProcess.length > 0 ) {
             const children = await db
@@ -79,10 +82,28 @@ export async function deleteItems(
                         inArray( folder.parentFolderId, toProcess )
                     )
                 )
-            const childIds = children.map( ( c ) => c.id )
-            if ( childIds.length === 0 ) break
+            const childIds = children
+                .map( ( c ) => c.id )
+                .filter( ( childId ) => {
+                    if ( visitedFolderIds.has( childId ) ) {
+                        return false
+                    }
+
+                    visitedFolderIds.add( childId )
+                    return true
+                } )
+
+            if ( childIds.length === 0 ) {
+                break
+            }
+
             allFolderIds.push( ...childIds )
             toProcess = childIds
+            depth += 1
+
+            if ( depth > 1024 ) {
+                throw new Error( "Folder deletion traversal exceeded safe depth" )
+            }
         }
 
         // Soft-delete all folders (including descendants)
