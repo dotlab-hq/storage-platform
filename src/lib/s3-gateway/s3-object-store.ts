@@ -6,6 +6,8 @@ import {
 import { db } from "@/db"
 import { file } from "@/db/schema/storage"
 import type { BucketContext } from "@/lib/s3-gateway/s3-context"
+import { buildCacheHeaders, isStatusMetadataError, parseHttpDate } from "@/lib/s3-gateway/s3-conditional-cache"
+import type { ObjectConditionalHeaders } from "@/lib/s3-gateway/s3-conditional-cache"
 import { getProviderClientById, selectProviderForUpload } from "@/lib/s3-provider-client"
 import { and, eq, like } from "drizzle-orm"
 import { sendWithProviderTimeout } from "./s3-provider-timeout"
@@ -100,48 +102,88 @@ async function findStoredObject( bucket: BucketContext, objectKey: string ): Pro
     return rows[0] ?? null
 }
 
-export async function getObject( bucket: BucketContext, objectKey: string ): Promise<Response | null> {
+export async function getObject( bucket: BucketContext, objectKey: string, conditionals: ObjectConditionalHeaders ): Promise<Response | null> {
     const stored = await findStoredObject( bucket, objectKey )
     if ( !stored ) {
         return null
     }
 
     const provider = await getProviderClientById( stored.providerId )
-    const result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new GetObjectCommand( {
-        Bucket: provider.bucketName,
-        Key: stored.objectKey,
-    } ), { abortSignal } ) )
+    try {
+        const result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new GetObjectCommand( {
+            Bucket: provider.bucketName,
+            Key: stored.objectKey,
+            IfNoneMatch: conditionals.ifNoneMatch ?? undefined,
+            IfModifiedSince: parseHttpDate( conditionals.ifModifiedSince ),
+        } ), { abortSignal } ) )
 
-    return new Response( result.Body as ReadableStream, {
-        status: 200,
-        headers: {
-            "Content-Type": stored.mimeType ?? "application/octet-stream",
-            "Content-Length": String( stored.sizeInBytes ),
-            ETag: result.ETag ?? "",
-        },
-    } )
+        const headers = buildCacheHeaders( {
+            eTag: result.ETag,
+            lastModified: result.LastModified,
+            cacheControl: result.CacheControl,
+        } )
+        headers.set( "Content-Type", stored.mimeType ?? "application/octet-stream" )
+        headers.set( "Content-Length", String( stored.sizeInBytes ) )
+
+        return new Response( result.Body as ReadableStream, {
+            status: 200,
+            headers,
+        } )
+    } catch ( error: unknown ) {
+        if ( isStatusMetadataError( error ) && error.$metadata?.httpStatusCode === 304 ) {
+            return new Response( null, {
+                status: 304,
+                headers: buildCacheHeaders( {
+                    eTag: conditionals.ifNoneMatch,
+                    lastModified: undefined,
+                    cacheControl: undefined,
+                } ),
+            } )
+        }
+        throw error
+    }
 }
 
-export async function headObject( bucket: BucketContext, objectKey: string ): Promise<Response | null> {
+export async function headObject( bucket: BucketContext, objectKey: string, conditionals: ObjectConditionalHeaders ): Promise<Response | null> {
     const stored = await findStoredObject( bucket, objectKey )
     if ( !stored ) {
         return null
     }
 
     const provider = await getProviderClientById( stored.providerId )
-    const result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new HeadObjectCommand( {
-        Bucket: provider.bucketName,
-        Key: stored.objectKey,
-    } ), { abortSignal } ) )
+    try {
+        const result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new HeadObjectCommand( {
+            Bucket: provider.bucketName,
+            Key: stored.objectKey,
+            IfNoneMatch: conditionals.ifNoneMatch ?? undefined,
+            IfModifiedSince: parseHttpDate( conditionals.ifModifiedSince ),
+        } ), { abortSignal } ) )
 
-    return new Response( null, {
-        status: 200,
-        headers: {
-            "Content-Type": stored.mimeType ?? "application/octet-stream",
-            "Content-Length": String( result.ContentLength ?? stored.sizeInBytes ),
-            ETag: result.ETag ?? "",
-        },
-    } )
+        const headers = buildCacheHeaders( {
+            eTag: result.ETag,
+            lastModified: result.LastModified,
+            cacheControl: result.CacheControl,
+        } )
+        headers.set( "Content-Type", stored.mimeType ?? "application/octet-stream" )
+        headers.set( "Content-Length", String( result.ContentLength ?? stored.sizeInBytes ) )
+
+        return new Response( null, {
+            status: 200,
+            headers,
+        } )
+    } catch ( error: unknown ) {
+        if ( isStatusMetadataError( error ) && error.$metadata?.httpStatusCode === 304 ) {
+            return new Response( null, {
+                status: 304,
+                headers: buildCacheHeaders( {
+                    eTag: conditionals.ifNoneMatch,
+                    lastModified: undefined,
+                    cacheControl: undefined,
+                } ),
+            } )
+        }
+        throw error
+    }
 }
 
 export async function deleteObject( bucket: BucketContext, objectKey: string ): Promise<void> {
