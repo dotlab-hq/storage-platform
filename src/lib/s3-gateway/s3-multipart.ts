@@ -6,6 +6,7 @@ import { getProviderClientById, selectProviderForUpload } from "@/lib/s3-provide
 import { and, eq } from "drizzle-orm"
 import { upsertCommittedFile } from "./upload-file-records"
 import { buildUpstreamObjectKey, deriveFileName } from "./upload-key-utils"
+import { sendWithProviderTimeout } from "./s3-provider-timeout"
 
 const MULTIPART_UPLOAD_EXPIRY_MS = 60 * 60 * 1000
 
@@ -51,12 +52,12 @@ export async function uploadPart(
 
     const attempt = rows[0]
     const provider = await getProviderClientById( attempt.providerId )
-    const result = await provider.client.send( new PutObjectCommand( {
+    const result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new PutObjectCommand( {
         Bucket: provider.bucketName,
         Key: attempt.upstreamObjectKey,
         Body: body,
         ContentType: contentType ?? "application/octet-stream",
-    } ) )
+    } ), { abortSignal } ) )
 
     await db
         .update( uploadAttempt )
@@ -92,10 +93,10 @@ export async function completeMultipartUpload( bucket: BucketContext, uploadId: 
 
     const attempt = rows[0]
     const provider = await getProviderClientById( attempt.providerId )
-    const head = await provider.client.send( new HeadObjectCommand( {
+    const head = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new HeadObjectCommand( {
         Bucket: provider.bucketName,
         Key: attempt.upstreamObjectKey,
-    } ) )
+    } ), { abortSignal } ) )
 
     const observedSize = Number( head.ContentLength ?? 0 )
     const eTag = head.ETag ?? attempt.etag ?? ""

@@ -8,6 +8,7 @@ import { file } from "@/db/schema/storage"
 import type { BucketContext } from "@/lib/s3-gateway/s3-context"
 import { getProviderClientById, selectProviderForUpload } from "@/lib/s3-provider-client"
 import { and, eq, like } from "drizzle-orm"
+import { sendWithProviderTimeout } from "./s3-provider-timeout"
 import { upsertCommittedFile } from "./upload-file-records"
 import { buildUpstreamObjectKey, deriveFileName } from "./upload-key-utils"
 
@@ -56,12 +57,12 @@ export async function putObject( bucket: BucketContext, objectKey: string, body:
     const provider = await selectProviderForUpload( body.byteLength )
     const upstreamKey = upstreamKeyFor( bucket, objectKey )
 
-    const result = await provider.client.send( new PutObjectCommand( {
+    const result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new PutObjectCommand( {
         Bucket: provider.bucketName,
         Key: upstreamKey,
         Body: body,
         ContentType: contentType ?? "application/octet-stream",
-    } ) )
+    } ), { abortSignal } ) )
 
     await upsertCommittedFile( {
         userId: bucket.userId,
@@ -106,10 +107,10 @@ export async function getObject( bucket: BucketContext, objectKey: string ): Pro
     }
 
     const provider = await getProviderClientById( stored.providerId )
-    const result = await provider.client.send( new GetObjectCommand( {
+    const result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new GetObjectCommand( {
         Bucket: provider.bucketName,
         Key: stored.objectKey,
-    } ) )
+    } ), { abortSignal } ) )
 
     return new Response( result.Body as ReadableStream, {
         status: 200,
@@ -128,10 +129,10 @@ export async function headObject( bucket: BucketContext, objectKey: string ): Pr
     }
 
     const provider = await getProviderClientById( stored.providerId )
-    const result = await provider.client.send( new HeadObjectCommand( {
+    const result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new HeadObjectCommand( {
         Bucket: provider.bucketName,
         Key: stored.objectKey,
-    } ) )
+    } ), { abortSignal } ) )
 
     return new Response( null, {
         status: 200,

@@ -114,10 +114,20 @@ async function handlePost( request: Request ): Promise<Response> {
 }
 
 export async function handleS3Request( request: Request ): Promise<Response> {
-    if ( request.method === "GET" ) return handleGet( request )
-    if ( request.method === "HEAD" ) return handleHead( request )
-    if ( request.method === "PUT" ) return handlePut( request )
-    if ( request.method === "DELETE" ) return handleDelete( request )
-    if ( request.method === "POST" ) return handlePost( request )
-    return new Response( null, { status: 405 } )
+    try {
+        if ( request.method === "GET" ) return handleGet( request )
+        if ( request.method === "HEAD" ) return handleHead( request )
+        if ( request.method === "PUT" ) return handlePut( request )
+        if ( request.method === "DELETE" ) return handleDelete( request )
+        if ( request.method === "POST" ) return handlePost( request )
+        return s3ErrorResponse( 405, "MethodNotAllowed", "The specified method is not allowed against this resource", new URL( request.url ).pathname )
+    } catch ( error ) {
+        const message = error instanceof Error ? error.message : "Unknown server error"
+        const resource = new URL( request.url ).pathname
+        if ( /Invalid or expired upload ID/i.test( message ) ) {
+            return s3ErrorResponse( 404, "NoSuchUpload", message, resource )
+        }
+        console.error( "[S3 Gateway] Unhandled request error:", error )
+        return s3ErrorResponse( 500, "InternalError", message, resource )
+    }
 }
