@@ -83,7 +83,10 @@ async function handleGet( request: Request ): Promise<Response> {
         return xmlResponse( listObjectsV2Xml( bucket.bucketName, prefix, objects ) )
     }
 
-    const object = await getObject( bucket, parsed.objectKey )
+    const object = await getObject( bucket, parsed.objectKey, {
+        ifNoneMatch: request.headers.get( "if-none-match" ),
+        ifModifiedSince: request.headers.get( "if-modified-since" ),
+    } )
     if ( !object ) {
         return s3ErrorResponse( 404, "NoSuchKey", "The specified key does not exist", `/${bucket.bucketName}/${parsed.objectKey}` )
     }
@@ -96,7 +99,10 @@ async function handleHead( request: Request ): Promise<Response> {
     const bucket = await resolveAuthorizedBucket( request, parsed.bucketName )
     if ( !bucket ) return new Response( null, { status: 403 } )
     if ( !parsed.objectKey ) return new Response( null, { status: 200 } )
-    return ( await headObject( bucket, parsed.objectKey ) ) ?? new Response( null, { status: 404 } )
+    return ( await headObject( bucket, parsed.objectKey, {
+        ifNoneMatch: request.headers.get( "if-none-match" ),
+        ifModifiedSince: request.headers.get( "if-modified-since" ),
+    } ) ) ?? new Response( null, { status: 404 } )
 }
 
 async function handlePut( request: Request ): Promise<Response> {
