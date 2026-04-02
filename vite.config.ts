@@ -41,7 +41,7 @@ const config = defineConfig( {
             },
           }
         },
-        nodeCompat: true
+        // nodeCompat: true
       }
       // output: {
       //   dir: ".vercel/output",
