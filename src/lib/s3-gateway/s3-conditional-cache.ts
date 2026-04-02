@@ -16,8 +16,8 @@ export function isStatusMetadataError( error: unknown ): error is StatusMetadata
     return typeof withMetadata.$metadata === "object" || typeof withMetadata.$metadata === "undefined"
 }
 
-function normalizeETag( value: string ): string {
-    return value.trim().replaceAll( /^W\//, "" ).replaceAll( /^"(.*)"$/, "$1" )
+export function normalizeETag( value: string ): string {
+    return value.trim().replace( /^W\//, "" ).replace( /^"(.*)"$/, "$1" )
 }
 
 function etagMatches( expected: string, providedList: string ): boolean {
@@ -55,7 +55,7 @@ export function buildCacheHeaders( input: {
 } ): Headers {
     const headers = new Headers()
     if ( input.eTag ) {
-        headers.set( "ETag", input.eTag )
+        headers.set( "ETag", `"${normalizeETag( input.eTag )}"` )
     }
     if ( input.cacheControl ) {
         headers.set( "Cache-Control", input.cacheControl )

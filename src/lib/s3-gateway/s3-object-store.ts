@@ -4,7 +4,7 @@ import {
     GetObjectCommand,
 } from "@aws-sdk/client-s3"
 import type { BucketContext } from "@/lib/s3-gateway/s3-context"
-import { buildCacheHeaders, shouldReturnNotModified } from "@/lib/s3-gateway/s3-conditional-cache"
+import { buildCacheHeaders, normalizeETag, shouldReturnNotModified } from "@/lib/s3-gateway/s3-conditional-cache"
 import { findStoredObject } from "@/lib/s3-gateway/s3-stored-object"
 import type { ObjectConditionalHeaders } from "@/lib/s3-gateway/s3-conditional-cache"
 import { getProviderClientById, selectProviderForUpload } from "@/lib/s3-provider-client"
@@ -83,7 +83,7 @@ export async function putObject( bucket: BucketContext, objectKey: string, body:
         fileName: deriveFileName( objectKey ),
         sizeInBytes: body.byteLength,
         // Prefer HEAD metadata ETag because provider PutObject responses may omit ETag in some configurations.
-        etag: metadata.ETag ?? result.ETag ?? null,
+        etag: metadata.ETag ? normalizeETag( metadata.ETag ) : result.ETag ? normalizeETag( result.ETag ) : null,
         cacheControl: metadata.CacheControl ?? null,
         lastModified: metadata.LastModified ?? new Date(),
     } )
