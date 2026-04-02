@@ -25,10 +25,10 @@ const config = defineConfig( {
             "nodejs_compat",
             "no_handle_cross_request_promise_resolution"
           ],
-          "placement": {
-            mode: "smart",
-            hint: "aws:ap-south-1"
-          },
+          // "placement": {
+          //   mode: "smart",
+          //   hint: "aws:ap-south-1"
+          // },
           hyperdrive: [
             {
               "binding": "DB",
