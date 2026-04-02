@@ -1,7 +1,10 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { createClientOnlyFn } from "@tanstack/react-start"
 import { authClient } from "@/lib/auth-client"
 import { DEFAULT_ALLOCATED_STORAGE_BYTES, DEFAULT_FILE_SIZE_LIMIT_BYTES } from "@/lib/storage-quota-constants"
+import type { HomeLoaderData } from "@/routes/-home-server"
+import { mapBreadcrumbs, mapItems } from "./storage-data-mapper"
+import type { FetchResponse } from "./storage-data-mapper"
 import type {
     StorageItem,
     StorageFolder,
@@ -9,30 +12,6 @@ import type {
     UserQuota,
     BreadcrumbItem,
 } from "@/types/storage"
-
-type RawFolder = {
-    id: string
-    name: string
-    createdAt: string
-    parentFolderId: string | null
-    isPrivatelyLocked?: boolean
-}
-type RawFile = {
-    id: string
-    name: string
-    sizeInBytes: number
-    mimeType?: string | null
-    objectKey?: string
-    createdAt: string
-    isPrivatelyLocked?: boolean
-}
-
-type FetchResponse = {
-    folders?: RawFolder[]
-    files?: RawFile[]
-    breadcrumbs?: { id: string; name: string }[]
-    error?: string
-}
 
 const checkAuthClient = createClientOnlyFn( async () => {
     const { data, error } = await authClient.getSession()
@@ -73,47 +52,36 @@ const fetchUserQuota = createClientOnlyFn(
     }
 )
 
-function mapItems( data: FetchResponse, uid: string ) {
-    const folderItems: StorageItem[] = ( data.folders ?? [] ).map( ( f ) => ( {
-        ...f,
-        type: "folder" as const,
-        userId: uid,
-        parentFolderId: f.parentFolderId ?? null,
-        createdAt: new Date( f.createdAt ),
-        updatedAt: new Date( f.createdAt ),
-        isPrivatelyLocked: Boolean( f.isPrivatelyLocked ),
-    } ) )
-    const fileItems: StorageItem[] = ( data.files ?? [] ).map( ( f ) => ( {
-        ...f,
-        type: "file" as const,
-        objectKey: f.objectKey ?? "",
-        mimeType: f.mimeType ?? null,
-        userId: uid,
-        folderId: null,
-        createdAt: new Date( f.createdAt ),
-        updatedAt: new Date( f.createdAt ),
-        isPrivatelyLocked: Boolean( f.isPrivatelyLocked ),
-    } ) )
-    const folders: StorageFolder[] = ( data.folders ?? [] ).map( ( f ) => ( {
-        ...f,
-        userId: uid,
-        parentFolderId: f.parentFolderId ?? null,
-        createdAt: new Date( f.createdAt ),
-        updatedAt: new Date( f.createdAt ),
-        isPrivatelyLocked: Boolean( f.isPrivatelyLocked ),
-    } ) )
-    return { items: [...folderItems, ...fileItems], folders }
-}
+export function useStorageData( initialData?: HomeLoaderData ) {
+    const initialMapped = useMemo( () => {
+        if ( !initialData ) return null
+        const mapped = mapItems(
+            {
+                folders: initialData.folders,
+                files: initialData.files,
+                breadcrumbs: initialData.breadcrumbs,
+            },
+            initialData.userId,
+        )
 
-export function useStorageData() {
-    const [userId, setUserId] = useState<string | null>( null )
-    const [items, setItems] = useState<StorageItem[]>( [] )
-    const [folders, setFolders] = useState<StorageFolder[]>( [] )
+        return {
+            userId: initialData.userId,
+            items: mapped.items,
+            folders: mapped.folders,
+            breadcrumbs: mapBreadcrumbs( initialData.breadcrumbs ),
+            quota: initialData.quota,
+        }
+    }, [initialData] )
+
+    const skipFirstLoadRef = useRef( Boolean( initialMapped ) )
+    const [userId, setUserId] = useState<string | null>( initialMapped?.userId ?? null )
+    const [items, setItems] = useState<StorageItem[]>( initialMapped?.items ?? [] )
+    const [folders, setFolders] = useState<StorageFolder[]>( initialMapped?.folders ?? [] )
     const [uploads, setUploads] = useState<UploadingFile[]>( [] )
-    const [quota, setQuota] = useState<UserQuota | null>( null )
-    const [isLoading, setIsLoading] = useState( true )
+    const [quota, setQuota] = useState<UserQuota | null>( initialMapped?.quota ?? null )
+    const [isLoading, setIsLoading] = useState( !initialMapped )
     const [currentFolderId, setCurrentFolderId] = useState<string | null>( null )
-    const [breadcrumbs, setBreadcrumbs] = useState<BreadcrumbItem[]>( [] )
+    const [breadcrumbs, setBreadcrumbs] = useState<BreadcrumbItem[]>( initialMapped?.breadcrumbs ?? [] )
 
     const loadItems = useCallback(
         async ( uid: string, folderId: string | null ) => {
@@ -123,11 +91,7 @@ export function useStorageData() {
                 const mapped = mapItems( data, uid )
                 setItems( mapped.items )
                 setFolders( mapped.folders )
-                setBreadcrumbs(
-                    ( data.breadcrumbs ?? [] ).map( ( b ) => ( {
-                        id: b.id, name: b.name, path: "",
-                    } ) )
-                )
+                setBreadcrumbs( mapBreadcrumbs( data.breadcrumbs ?? [] ) )
             } finally {
                 setIsLoading( false )
             }
@@ -145,15 +109,21 @@ export function useStorageData() {
     }, [] )
 
     useEffect( () => {
+        if ( initialMapped ) return
         void checkAuthClient().then( async ( uid ) => {
             if ( !uid ) return
             setUserId( uid )
-            await Promise.all( [loadItems( uid, null ), loadQuota( uid )] )
+            await loadQuota( uid )
         } )
-    }, [] )
+    }, [initialMapped, loadQuota] )
 
     useEffect( () => {
-        if ( userId ) void loadItems( userId, currentFolderId )
+        if ( !userId ) return
+        if ( skipFirstLoadRef.current ) {
+            skipFirstLoadRef.current = false
+            return
+        }
+        void loadItems( userId, currentFolderId )
     }, [currentFolderId, userId, loadItems] )
 
     const refresh = useCallback( async () => {

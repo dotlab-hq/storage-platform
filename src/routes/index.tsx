@@ -24,10 +24,13 @@ import { useBulkActions } from "@/hooks/use-bulk-actions"
 import { useFolderHistory } from "@/hooks/use-folder-history"
 import { useHomeShellActions } from "@/hooks/use-home-shell-actions"
 import type { StorageItem } from "@/types/storage"
+import { HomeRoutePending } from "./-home-pending"
+import { getHomeSnapshotFn } from "./-home-server"
 
-export const Route = createFileRoute( "/" )( { component: StoragePage } )
+export const Route = createFileRoute( "/" )( { component: StoragePage, loader: () => getHomeSnapshotFn(), pendingComponent: HomeRoutePending } )
 function StoragePage() {
-  const storage = useStorageData()
+  const initial = Route.useLoaderData()
+  const storage = useStorageData( initial )
   const selection = useFileSelection( storage.items )
   const dragDrop = useDragDrop(
     storage.userId,
