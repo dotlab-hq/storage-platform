@@ -9,6 +9,7 @@ jobs:
   s3-compat:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    environment: production
 
     env:
       S3_TEST_ENDPOINT: https://storage.wpsadi.dev/api/storage/s3
