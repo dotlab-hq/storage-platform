@@ -5,8 +5,12 @@ import * as authSchema from './schema/auth-schema.ts'
 import * as storageSchema from './schema/storage.ts'
 import * as storageProviderSchema from './schema/storage-provider.ts'
 import * as s3GatewaySchema from './schema/s3-gateway.ts'
+import { env } from 'cloudflare:workers'
+import { Client } from 'pg'
 
-export const db = drizzle( process.env.DATABASE_URL!, {
+
+const client = new Client({ connectionString: env.DB.connectionString })
+export const db = drizzle( client, {
     schema: {
         ...baseSchema,
         ...authSchema,

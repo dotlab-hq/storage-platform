@@ -1,0 +1,41 @@
+{
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "storage",
+    "main": "@tanstack/react-start/server-entry",
+    "compatibility_date": "2026-03-24",
+    "compatibility_flags": [
+        "nodejs_compat"
+    ],
+    "upload_source_maps": true,
+    "observability": {
+        "enabled": false,
+        "head_sampling_rate": 1,
+        "logs": {
+            "enabled": true,
+            "head_sampling_rate": 1,
+            "invocation_logs": true
+        },
+    },
+    "placement": {
+        "region": "aws:ap-south-1"
+    },
+    "keep_vars": true,
+    // "vars": {
+    //   "MY_VAR": "my-variable"
+    // },
+    "hyperdrive": [
+        {
+            "binding": "DB",
+            "id": "3c26563cafef4f44a700a5ec0b63b693",
+        }
+    ]
+    // "kv_namespaces": [
+        
+    // ],
+    // "r2_buckets": [
+    //   {
+    //     "binding": "MY_BUCKET",
+    //     "bucket_name": "my-bucket"
+    //   }
+    // ],
+}

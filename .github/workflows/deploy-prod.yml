@@ -107,4 +107,4 @@ jobs:
           STORAGE_PROVIDER_ENCRYPTION_KEY: ${{ secrets.STORAGE_PROVIDER_ENCRYPTION_KEY }}
 
       - name: Deploy to Cloudflare Workers
-        run: pnpm dlx nitro deploy --prebuilt
+        run: pnpm dlx wrangler deploy
