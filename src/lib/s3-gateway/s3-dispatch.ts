@@ -6,6 +6,43 @@ import { hasMultipartCreateFlag, listPrefix, listTypeIsV2, multipartPartNumber, 
 import { ProviderRequestTimeoutError } from "@/lib/s3-gateway/s3-provider-timeout"
 import { completeMultipartUploadXml, createMultipartUploadXml, listBucketsXml, listObjectsV2Xml, s3ErrorResponse, xmlResponse } from "@/lib/s3-gateway/s3-xml"
 
+function appendVary( headers: Headers, value: string ): void {
+    const existing = headers.get( "Vary" )
+    if ( !existing ) {
+        headers.set( "Vary", value )
+        return
+    }
+    const values = existing.split( "," ).map( ( item ) => item.trim().toLowerCase() )
+    if ( !values.includes( value.toLowerCase() ) ) {
+        headers.set( "Vary", `${existing}, ${value}` )
+    }
+}
+
+function withCors( request: Request, response: Response ): Response {
+    const origin = request.headers.get( "origin" )
+    if ( !origin ) return response
+
+    const headers = new Headers( response.headers )
+    headers.set( "Access-Control-Allow-Origin", origin )
+    headers.set( "Access-Control-Allow-Credentials", "true" )
+    headers.set( "Access-Control-Allow-Methods", "GET,HEAD,PUT,POST,DELETE,OPTIONS" )
+    headers.set(
+        "Access-Control-Allow-Headers",
+        request.headers.get( "access-control-request-headers" )
+        ?? "Authorization,Content-Type,X-Amz-Date,X-Amz-Content-Sha256,X-Amz-Security-Token,X-Amz-User-Agent,X-S3-Secret-Access-Key",
+    )
+    headers.set( "Access-Control-Expose-Headers", "ETag,x-amz-request-id,x-amz-id-2" )
+    headers.set( "Access-Control-Max-Age", "86400" )
+    appendVary( headers, "Origin" )
+    appendVary( headers, "Access-Control-Request-Headers" )
+
+    return new Response( response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers,
+    } )
+}
+
 async function readBodyBytes( request: Request ): Promise<Uint8Array> {
     return new Uint8Array( await request.arrayBuffer() )
 }
@@ -116,22 +153,31 @@ async function handlePost( request: Request ): Promise<Response> {
 
 export async function handleS3Request( request: Request ): Promise<Response> {
     try {
-        if ( request.method === "GET" ) return handleGet( request )
-        if ( request.method === "HEAD" ) return handleHead( request )
-        if ( request.method === "PUT" ) return handlePut( request )
-        if ( request.method === "DELETE" ) return handleDelete( request )
-        if ( request.method === "POST" ) return handlePost( request )
-        return s3ErrorResponse( 405, "MethodNotAllowed", "The specified method is not allowed against this resource", new URL( request.url ).pathname )
+        if ( request.method === "OPTIONS" ) {
+            return withCors( request, new Response( null, { status: 204 } ) )
+        }
+
+        let response: Response
+        if ( request.method === "GET" ) response = await handleGet( request )
+        else if ( request.method === "HEAD" ) response = await handleHead( request )
+        else if ( request.method === "PUT" ) response = await handlePut( request )
+        else if ( request.method === "DELETE" ) response = await handleDelete( request )
+        else if ( request.method === "POST" ) response = await handlePost( request )
+        else {
+            response = s3ErrorResponse( 405, "MethodNotAllowed", "The specified method is not allowed against this resource", new URL( request.url ).pathname )
+        }
+
+        return withCors( request, response )
     } catch ( error ) {
         const message = error instanceof Error ? error.message : "Unknown server error"
         const resource = new URL( request.url ).pathname
         if ( error instanceof ProviderRequestTimeoutError ) {
-            return s3ErrorResponse( 504, "RequestTimeout", message, resource )
+            return withCors( request, s3ErrorResponse( 504, "RequestTimeout", message, resource ) )
         }
         if ( /Invalid or expired upload ID/i.test( message ) ) {
-            return s3ErrorResponse( 404, "NoSuchUpload", message, resource )
+            return withCors( request, s3ErrorResponse( 404, "NoSuchUpload", message, resource ) )
         }
         console.error( "[S3 Gateway] Unhandled request error:", error )
-        return s3ErrorResponse( 500, "InternalError", message, resource )
+        return withCors( request, s3ErrorResponse( 500, "InternalError", message, resource ) )
     }
 }

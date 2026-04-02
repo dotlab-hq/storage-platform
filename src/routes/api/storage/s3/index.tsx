@@ -10,6 +10,7 @@ export const Route = createFileRoute( "/api/storage/s3/" as never )( {
             PUT: async ( { request } ) => handleS3Request( request ),
             DELETE: async ( { request } ) => handleS3Request( request ),
             POST: async ( { request } ) => handleS3Request( request ),
+            OPTIONS: async ( { request } ) => handleS3Request( request ),
         },
     },
 } )
