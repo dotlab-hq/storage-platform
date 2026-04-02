@@ -15,6 +15,8 @@ import { file } from "@/db/schema/storage"
 import { sendWithProviderTimeout } from "./s3-provider-timeout"
 import { upsertCommittedFile } from "./upload-file-records"
 import { buildUpstreamObjectKey, deriveFileName } from "./upload-key-utils"
+import { findUploadAttemptByObjectKey } from "./upload-reconciliation-queries"
+import { finalizeUploadAttempt } from "./upload-reconciliation"
 
 /**
  * Short redirect TTL limits exposure of presigned URLs in transit or logs
@@ -118,6 +120,24 @@ function resolvePersistedETag( metadataETag: string | undefined, putResultETag: 
 export async function getObject( bucket: BucketContext, objectKey: string, conditionals: ObjectConditionalHeaders ): Promise<Response | null> {
     const stored = await findStoredObject( bucket, objectKey )
     if ( !stored ) {
+        const attempt = await findUploadAttemptByObjectKey( bucket.userId, bucket.bucketId, objectKey )
+        if ( attempt?.status === "pending" ) {
+            try {
+                await finalizeUploadAttempt( bucket.userId, attempt.id )
+            } catch ( error ) {
+                if ( !( error instanceof Error ) || !/expired and object is missing/i.test( error.message ) ) {
+                    return new Response( JSON.stringify( { status: "uploading", message: "Upload is still processing" } ), {
+                        status: 202,
+                        headers: { "Content-Type": "application/json" },
+                    } )
+                }
+                return null
+            }
+            return getObject( bucket, objectKey, conditionals )
+        }
+        if ( attempt?.status === "failed" ) {
+            return null
+        }
         return null
     }
 
@@ -166,6 +186,18 @@ export async function getObject( bucket: BucketContext, objectKey: string, condi
 export async function headObject( bucket: BucketContext, objectKey: string, conditionals: ObjectConditionalHeaders ): Promise<Response | null> {
     const stored = await findStoredObject( bucket, objectKey )
     if ( !stored ) {
+        const attempt = await findUploadAttemptByObjectKey( bucket.userId, bucket.bucketId, objectKey )
+        if ( attempt?.status === "pending" ) {
+            try {
+                await finalizeUploadAttempt( bucket.userId, attempt.id )
+            } catch ( error ) {
+                if ( !( error instanceof Error ) || !/expired and object is missing/i.test( error.message ) ) {
+                    return new Response( null, { status: 202 } )
+                }
+                return null
+            }
+            return headObject( bucket, objectKey, conditionals )
+        }
         return null
     }
 

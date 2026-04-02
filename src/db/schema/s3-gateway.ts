@@ -55,6 +55,8 @@ export const uploadAttempt = schema.table(
         status: text( "status" ).default( "pending" ).notNull(),
         errorMessage: text( "error_message" ),
         expiresAt: timestamp( "expires_at" ).notNull(),
+        lastCheckedAt: timestamp( "last_checked_at" ),
+        nextCheckAfter: timestamp( "next_check_after" ),
         completedAt: timestamp( "completed_at" ),
         createdAt: timestamp( "created_at" ).defaultNow().notNull(),
         updatedAt: timestamp( "updated_at" )
@@ -67,6 +69,7 @@ export const uploadAttempt = schema.table(
         index( "uploadAttempt_bucketId_idx" ).on( table.bucketId ),
         index( "uploadAttempt_status_idx" ).on( table.status ),
         index( "uploadAttempt_providerId_idx" ).on( table.providerId ),
+        index( "uploadAttempt_pendingScan_idx" ).on( table.status, table.nextCheckAfter, table.expiresAt ),
     ],
 )
 
