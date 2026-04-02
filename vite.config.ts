@@ -18,6 +18,7 @@ const config = defineConfig( {
       cloudflare: {
         deployConfig: true,
         wrangler: {
+          name: 'storage',
           keep_vars: true,
           "compatibility_date": "2026-03-10",
           compatibility_flags: [

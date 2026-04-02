@@ -99,4 +99,4 @@ jobs:
         run: pnpm build
 
       - name: Deploy to Cloudflare Workers
-        run: pnpm dlx wrangler@4 deploy --project-name=storage
+        run: pnpm dlx wrangler@4 deploy
