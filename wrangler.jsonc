@@ -2,6 +2,10 @@
     "$schema": "node_modules/wrangler/config-schema.json",
     "name": "storage",
     "main": "@tanstack/react-start/server-entry",
+    "assets": {
+        "binding": "ASSETS",
+        "directory": "./public"
+    },
     "compatibility_date": "2026-03-24",
     "compatibility_flags": [
         "nodejs_compat"
@@ -30,7 +34,6 @@
         }
     ]
     // "kv_namespaces": [
-        
     // ],
     // "r2_buckets": [
     //   {
