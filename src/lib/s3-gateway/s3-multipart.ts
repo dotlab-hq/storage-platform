@@ -100,7 +100,12 @@ export async function completeMultipartUpload( bucket: BucketContext, uploadId: 
     } ), { abortSignal } ) )
 
     const observedSize = Number( head.ContentLength ?? 0 )
-    const eTag = head.ETag ? normalizeETag( head.ETag ) : attempt.etag ? normalizeETag( attempt.etag ) : ""
+    let eTag = ""
+    if ( head.ETag ) {
+        eTag = normalizeETag( head.ETag )
+    } else if ( attempt.etag ) {
+        eTag = normalizeETag( attempt.etag )
+    }
 
     await upsertCommittedFile( {
         userId: bucket.userId,

@@ -101,6 +101,10 @@ function assertPresignedUrlEndpoint( presignedUrl: string, providerEndpoint: str
     }
 }
 
+/**
+ * Persists ETag with provider HEAD result taking precedence over PUT response ETag.
+ * Some providers omit ETag on PUT, while HEAD is more reliable after object commit.
+ */
 function resolvePersistedETag( metadataETag: string | undefined, putResultETag: string | undefined ): string | null {
     if ( metadataETag !== undefined ) return normalizeETag( metadataETag )
     if ( putResultETag !== undefined ) return normalizeETag( putResultETag )
