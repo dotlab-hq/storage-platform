@@ -3,6 +3,9 @@ import { z } from "zod"
 import { getAuthenticatedUser } from "@/lib/server-auth"
 import { getVirtualBucketCredentials } from "@/lib/s3-gateway/virtual-buckets"
 
+const S3_COMPAT_ENDPOINT = "https://storage.wpsadi.dev/api/storage/s3"
+const S3_COMPAT_REGION = "auto"
+
 const BucketActionSchema = z.object( {
     bucketName: z.string().trim().min( 3 ).max( 63 ),
 } )
@@ -26,7 +29,14 @@ export const Route = createFileRoute( "/api/storage/s3/bucket-credentials" as ne
                     const currentUser = await getAuthenticatedUser()
                     const payload = BucketActionSchema.parse( await request.json() )
                     const credentials = await getVirtualBucketCredentials( currentUser.id, payload.bucketName )
-                    return Response.json( { ok: true, credentials } )
+                    return Response.json( {
+                        ok: true,
+                        credentials: {
+                            ...credentials,
+                            endpoint: S3_COMPAT_ENDPOINT,
+                            region: S3_COMPAT_REGION,
+                        },
+                    } )
                 } catch ( error ) {
                     const status = error instanceof z.ZodError ? 400 : 500
                     return Response.json( { ok: false, error: errorToMessage( error ) }, { status } )
