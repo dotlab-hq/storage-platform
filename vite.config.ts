@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import { devtools } from '@tanstack/devtools-vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
-
+import { cloudflare } from '@cloudflare/vite-plugin'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import svgr from 'vite-plugin-svgr'
 import viteReact from '@vitejs/plugin-react'
@@ -70,6 +70,7 @@ const config = defineConfig( {
     tailwindcss(),
     tanstackStart(),
     svgr(),
+    cloudflare({ viteEnvironment: { name: 'ssr' } }),
     viteReact(),
   ],
 } )
