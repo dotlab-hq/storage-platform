@@ -102,8 +102,8 @@ function assertPresignedUrlEndpoint( presignedUrl: string, providerEndpoint: str
 }
 
 function resolvePersistedETag( metadataETag: string | undefined, putResultETag: string | undefined ): string | null {
-    if ( metadataETag ) return normalizeETag( metadataETag )
-    if ( putResultETag ) return normalizeETag( putResultETag )
+    if ( metadataETag !== undefined ) return normalizeETag( metadataETag )
+    if ( putResultETag !== undefined ) return normalizeETag( putResultETag )
     return null
 }
 
