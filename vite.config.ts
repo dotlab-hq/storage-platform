@@ -22,7 +22,8 @@ const config = defineConfig( {
           keep_vars: true,
           "compatibility_date": "2026-03-10",
           compatibility_flags: [
-            "nodejs_compat"
+            "nodejs_compat",
+            "no_handle_cross_request_promise_resolution"
           ],
           "observability": {
             "enabled": false,

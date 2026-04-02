@@ -49,7 +49,7 @@ const navItems = [
 const defaultUser = {
   name: "User",
   email: "user@example.com",
-  avatar: "/avatars/user.jpg",
+  avatar: "/logo.svg",
   isAdmin: false,
 }
 
@@ -76,7 +76,7 @@ export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
       return {
         name: session.user.name,
         email: session.user.email,
-        avatar: session.user.image ?? "",
+        avatar: session.user.image ?? "/logo.svg",
         isAdmin: sessionRole === "admin",
       }
     } )
