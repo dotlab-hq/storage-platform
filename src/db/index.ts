@@ -7,7 +7,6 @@ import * as authSchema from './schema/auth-schema'
 import * as storageSchema from './schema/storage'
 import * as storageProviderSchema from './schema/storage-provider'
 import * as s3GatewaySchema from './schema/s3-gateway'
-import { getRequest } from '@tanstack/react-start/server'
 import type { Env } from '@/types'
 
 const dbSchema = {
@@ -58,17 +57,8 @@ function getCloudflareEnvFromEvent( event?: EventCloudflare ): Env | undefined {
     return event?.req?.runtime?.cloudflare?.env
 }
 
-function getCurrentRequestEnv(): Env | undefined {
-    try {
-        const request = getRequest()
-        return getCloudflareEnvFromRequest( request )
-    } catch ( _error: unknown ) {
-        return undefined
-    }
-}
-
 function getConnectionString( env?: Env ): string {
-    const resolvedEnv = env ?? getCurrentRequestEnv()
+    const resolvedEnv = env
     if ( resolvedEnv?.DB?.connectionString ) return resolvedEnv.DB.connectionString
     if ( resolvedEnv?.HYPERDRIVE?.connectionString ) return resolvedEnv.HYPERDRIVE.connectionString
     if ( resolvedEnv?.DATABASE_URL ) return resolvedEnv.DATABASE_URL

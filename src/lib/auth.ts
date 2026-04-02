@@ -13,8 +13,6 @@ import {
   DEFAULT_FILE_SIZE_LIMIT_BYTES
 } from "@/lib/storage-quota-constants"
 import { sendResetPasswordEmail } from "@/lib/email/send-reset-password-email"
-
-import { getRequest } from '@tanstack/react-start/server'
 import type { Env } from '@/types'
 
 type RuntimeCloudflare = {
@@ -44,17 +42,8 @@ function getCloudflareEnvFromEvent( event?: EventCloudflare ): Env | undefined {
   return event?.req?.runtime?.cloudflare?.env
 }
 
-function getCurrentRequestEnv(): Env | undefined {
-  try {
-    const request = getRequest()
-    return getCloudflareEnvFromRequest( request )
-  } catch ( _error: unknown ) {
-    return undefined
-  }
-}
-
 export function createAuth( env?: Env ) {
-  const db = getDb( env ?? getCurrentRequestEnv() )
+  const db = getDb( env )
 
   return betterAuth( {
     database: drizzleAdapter( db, {
