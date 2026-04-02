@@ -16,6 +16,10 @@ import { sendWithProviderTimeout } from "./s3-provider-timeout"
 import { upsertCommittedFile } from "./upload-file-records"
 import { buildUpstreamObjectKey, deriveFileName } from "./upload-key-utils"
 
+/**
+ * Short redirect TTL limits exposure of presigned URLs in transit or logs
+ * while still allowing normal immediate client follow-redirect download behavior.
+ */
 const GET_OBJECT_REDIRECT_TTL_SECONDS = 60
 
 function upstreamKeyFor( bucket: BucketContext, objectKey: string ): string {
@@ -142,7 +146,6 @@ export async function getObject( bucket: BucketContext, objectKey: string, condi
         Key: stored.objectKey,
         ResponseContentType: stored.mimeType ?? undefined,
     } )
-    // Keep redirects short-lived to reduce leaked URL risk while still allowing normal immediate download flows.
     const presignedUrl = await getSignedUrl( provider.client, command, { expiresIn: GET_OBJECT_REDIRECT_TTL_SECONDS } )
     assertPresignedUrlEndpoint( presignedUrl, provider.endpoint )
     const headers = buildCacheHeaders( {
