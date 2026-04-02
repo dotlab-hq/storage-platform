@@ -83,14 +83,11 @@ export async function resolveBucketByAccessKey( accessKeyId: string ): Promise<B
 export function parseAccessKeyId( request: Request ): string | null {
     const authorization = request.headers.get( "authorization" )
     if ( authorization ) {
-        const credentialPart = authorization.split( "," ).map( ( part ) => part.trim() )
-            .find( ( part ) => part.startsWith( "Credential=" ) )
-        if ( credentialPart ) {
-            const credential = credentialPart.slice( "Credential=".length )
-            const accessKey = credential.split( "/" )[0]
-            if ( accessKey ) {
-                return accessKey
-            }
+        const credentialMatch = authorization.match( /Credential=([^,\s]+)/ )
+        const credential = credentialMatch?.[1]
+        const accessKey = credential?.split( "/" )[0]
+        if ( accessKey ) {
+            return accessKey
         }
     }
 

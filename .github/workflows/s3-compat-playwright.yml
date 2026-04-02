@@ -12,9 +12,9 @@ jobs:
     environment: production
 
     env:
-      S3_TEST_ENDPOINT: https://storage.wpsadi.dev/api/storage/s3
-      S3_TEST_REGION: auto
-      S3_TEST_BUCKET: ${{ secrets.S3_BUCKET || secrets.S3_BUCKET_NAME }}
+      S3_TEST_ENDPOINT: ${{ secrets.S3_ENDPOINT || 'https://storage.wpsadi.dev/api/storage/s3' }}
+      S3_TEST_REGION: ${{ secrets.S3_REGION || 'auto' }}
+      S3_TEST_BUCKET: ${{ secrets.S3_BUCKET }}
       S3_TEST_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
       S3_TEST_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
       S3_TEST_DUMMY_FILE_PATH: tests/s3/fixtures/dummy-upload.txt
@@ -54,6 +54,16 @@ jobs:
             fi
           done
           if [ "$missing" -ne 0 ]; then
+            exit 1
+          fi
+
+          if [[ "${S3_TEST_ENDPOINT}" != *"/api/storage/s3"* ]]; then
+            echo "::error title=Invalid S3_TEST_ENDPOINT::S3 compatibility tests require the gateway endpoint ending in /api/storage/s3. Current value is incompatible."
+            exit 1
+          fi
+
+          if [[ "${S3_TEST_ACCESS_KEY_ID}" != sp_* ]]; then
+            echo "::error title=Invalid S3_TEST_ACCESS_KEY_ID::Expected virtual-bucket access key (prefix sp_). Provider keys are not valid for the S3 compatibility gateway."
             exit 1
           fi
 
