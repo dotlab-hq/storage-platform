@@ -36,8 +36,10 @@ const toAuthErrorMessage = ( error: unknown, fallback: string ): string => {
 export const loginWithPasswordFn = createServerFn( { method: "POST" } )
   .inputValidator( LoginSchema )
   .handler( async ( { data } ) => {
+    const request = getRequest()
     try {
       await auth.api.signInEmail( {
+        headers: request.headers,
         body: {
           email: data.email,
           password: data.password,
@@ -53,12 +55,15 @@ export const loginWithPasswordFn = createServerFn( { method: "POST" } )
 export const signupWithPasswordFn = createServerFn( { method: "POST" } )
   .inputValidator( SignupSchema )
   .handler( async ( { data } ) => {
+    const request = getRequest()
     try {
       await auth.api.signUpEmail( {
+        headers: request.headers,
         body: {
           name: data.name,
           email: data.email,
           password: data.password,
+          isAdmin: false,
         },
       } )
       return { success: true, message: "Account created successfully." }

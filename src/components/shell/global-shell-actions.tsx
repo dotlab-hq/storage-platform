@@ -18,7 +18,16 @@ const MENU_HEIGHT_PX = 260
 const VIEWPORT_MARGIN_PX = 8
 
 function isMacOS(): boolean {
-    return typeof navigator !== "undefined" && navigator.platform.toLowerCase().includes( "mac" )
+    if ( typeof navigator === "undefined" ) return false
+    const browserNavigator = navigator as Navigator & {
+        userAgentData?: {
+            platform?: string
+        }
+    }
+    if ( browserNavigator.userAgentData?.platform ) {
+        return browserNavigator.userAgentData.platform.toLowerCase().includes( "mac" )
+    }
+    return /Mac|iPod|iPhone|iPad/.test( navigator.userAgent )
 }
 
 function isFileCardTarget( target: EventTarget | null ): boolean {
