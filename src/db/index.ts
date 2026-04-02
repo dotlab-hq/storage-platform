@@ -1,13 +1,14 @@
 import { drizzle } from 'drizzle-orm/node-postgres'
 import type { NodePgDatabase } from 'drizzle-orm/node-postgres'
-import type { AsyncLocalStorage } from 'node:async_hooks'
 import { Pool } from 'pg'
 
-import * as baseSchema from './schema/schema.ts'
-import * as authSchema from './schema/auth-schema.ts'
-import * as storageSchema from './schema/storage.ts'
-import * as storageProviderSchema from './schema/storage-provider.ts'
-import * as s3GatewaySchema from './schema/s3-gateway.ts'
+import * as baseSchema from './schema/schema'
+import * as authSchema from './schema/auth-schema'
+import * as storageSchema from './schema/storage'
+import * as storageProviderSchema from './schema/storage-provider'
+import * as s3GatewaySchema from './schema/s3-gateway'
+import { getRequest } from '@tanstack/react-start/server'
+import type { Env } from '@/types'
 
 const dbSchema = {
     ...baseSchema,
@@ -19,94 +20,95 @@ const dbSchema = {
 
 type DbClient = NodePgDatabase<typeof dbSchema>
 
-type HyperdriveBinding = {
-    connectionString: string
-}
-
-type CloudflareRequestContext = {
-    cloudflare?: {
-        env?: {
-            DB?: HyperdriveBinding
-            HYPERDRIVE?: HyperdriveBinding
+type RuntimeCloudflare = {
+    runtime?: {
+        cloudflare?: {
+            env?: Env
         }
     }
 }
 
-type StartStorageContext = {
-    contextAfterGlobalMiddlewares?: CloudflareRequestContext
+type EventCloudflare = {
+    req?: {
+        runtime?: {
+            cloudflare?: {
+                env?: Env
+            }
+        }
+    }
 }
 
-const poolCache = new Map<string, Pool>()
-const dbCache = new Map<string, DbClient>()
-
-const START_STORAGE_CONTEXT_KEY = Symbol.for( 'tanstack-start:start-storage-context' )
-
-type StartStorageContextGlobal = typeof globalThis & {
-    [START_STORAGE_CONTEXT_KEY]?: AsyncLocalStorage<StartStorageContext>
+type PoolCacheEntry = {
+    pool: Pool
+    db: DbClient
 }
 
-function isHyperdriveBinding( value: unknown ): value is HyperdriveBinding {
-    if ( typeof value !== 'object' || value === null ) {
-        return false
+const dbCache = new Map<string, PoolCacheEntry>()
+
+
+
+
+
+function getCloudflareEnvFromRequest( request?: Request ): Env | undefined {
+    const runtimeRequest = request as Request & RuntimeCloudflare
+    return runtimeRequest.runtime?.cloudflare?.env
+}
+
+function getCloudflareEnvFromEvent( event?: EventCloudflare ): Env | undefined {
+    return event?.req?.runtime?.cloudflare?.env
+}
+
+function getCurrentRequestEnv(): Env | undefined {
+    try {
+        const request = getRequest()
+        return getCloudflareEnvFromRequest( request )
+    } catch ( _error: unknown ) {
+        return undefined
+    }
+}
+
+function getConnectionString( env?: Env ): string {
+    const resolvedEnv = env ?? getCurrentRequestEnv()
+    if ( resolvedEnv?.DB?.connectionString ) return resolvedEnv.DB.connectionString
+    if ( resolvedEnv?.HYPERDRIVE?.connectionString ) return resolvedEnv.HYPERDRIVE.connectionString
+    if ( resolvedEnv?.DATABASE_URL ) return resolvedEnv.DATABASE_URL
+    if ( process.env.DATABASE_URL ) return process.env.DATABASE_URL
+
+    throw new Error( 'No database connection string found' )
+}
+
+export function getDb( env?: Env ): DbClient {
+    const url = getConnectionString( env )
+    const cached = dbCache.get( url )
+    if ( cached ) {
+        return cached.db
     }
 
-    const candidate = value as { connectionString?: unknown }
-    return typeof candidate.connectionString === 'string' && candidate.connectionString.length > 0
+    const pool = new Pool( {
+        connectionString: url,
+        max: Number( process.env.DATABASE_POOL_MAX ?? 2 ),
+        idleTimeoutMillis: Number( process.env.DATABASE_POOL_IDLE_TIMEOUT_MS ?? 5000 ),
+        connectionTimeoutMillis: Number( process.env.DATABASE_POOL_CONNECTION_TIMEOUT_MS ?? 10000 ),
+    } )
+
+    const db = drizzle( pool, { schema: dbSchema } )
+    dbCache.set( url, { pool, db } )
+    return db
 }
 
-function getConnectionStringFromRequestContext(): string | null {
-    const startStorage = ( globalThis as StartStorageContextGlobal )[START_STORAGE_CONTEXT_KEY]
-    const startContext = startStorage?.getStore()
-    const context = startContext?.contextAfterGlobalMiddlewares
-
-    const dbBinding = context?.cloudflare?.env?.DB
-    if ( isHyperdriveBinding( dbBinding ) ) {
-        return dbBinding.connectionString
-    }
-
-    const hyperdriveBinding = context?.cloudflare?.env?.HYPERDRIVE
-    if ( isHyperdriveBinding( hyperdriveBinding ) ) {
-        return hyperdriveBinding.connectionString
-    }
-
-    return null
+export function getDbFromRequest( request?: Request ): DbClient {
+    return getDb( getCloudflareEnvFromRequest( request ) )
 }
 
-function getConnectionString(): string {
-    const runtimeConnectionString = getConnectionStringFromRequestContext()
-    if ( runtimeConnectionString ) {
-        return runtimeConnectionString
-    }
-
-    if ( process.env.DATABASE_URL ) {
-        return process.env.DATABASE_URL
-    }
-
-    throw new Error( 'Database connection is not configured. Expected Cloudflare Hyperdrive binding (DB/HYPERDRIVE) or DATABASE_URL.' )
+export function getDbFromEvent( event?: EventCloudflare ): DbClient {
+    return getDb( getCloudflareEnvFromEvent( event ) )
 }
 
-function createDbClient( connectionString: string ): DbClient {
-    const existingDb = dbCache.get( connectionString )
-    if ( existingDb ) {
-        return existingDb
-    }
-
-    const pool = new Pool( { connectionString } )
-    poolCache.set( connectionString, pool )
-
-    const dbClient = drizzle( pool, { schema: dbSchema } )
-    dbCache.set( connectionString, dbClient )
-    return dbClient
-}
-
-export function getDb(): DbClient {
-    return createDbClient( getConnectionString() )
-}
-
-export const db = new Proxy( {}, {
+const dbProxyHandler: ProxyHandler<DbClient> = {
     get( _target, property, receiver ) {
-        const activeDb = getDb() as unknown as object
-        const value = Reflect.get( activeDb, property, receiver )
-        return typeof value === 'function' ? value.bind( activeDb ) : value
+        const resolvedDb = getDb()
+        return Reflect.get( resolvedDb, property, receiver )
     },
-} ) as DbClient
+}
+
+export const db = new Proxy( {} as DbClient, dbProxyHandler )

@@ -1,4 +1,4 @@
-import { auth } from "@/lib/auth"
+import { createAuthFromRequest } from "@/lib/auth"
 import { createServerFn } from "@tanstack/react-start"
 import { getRequest } from "@tanstack/react-start/server"
 import { z } from "zod"
@@ -36,6 +36,8 @@ const toAuthErrorMessage = ( error: unknown, fallback: string ): string => {
 export const loginWithPasswordFn = createServerFn( { method: "POST" } )
   .inputValidator( LoginSchema )
   .handler( async ( { data } ) => {
+    const request = getRequest()
+    const auth = createAuthFromRequest( request )
     try {
       await auth.api.signInEmail( {
         body: {
@@ -53,9 +55,13 @@ export const loginWithPasswordFn = createServerFn( { method: "POST" } )
 export const signupWithPasswordFn = createServerFn( { method: "POST" } )
   .inputValidator( SignupSchema )
   .handler( async ( { data } ) => {
+    const request = getRequest()
+    const auth = createAuthFromRequest( request )
     try {
       await auth.api.signUpEmail( {
         body: {
+          callbackURL: undefined,
+          rememberMe: true,
           name: data.name,
           email: data.email,
           password: data.password,
@@ -70,6 +76,8 @@ export const signupWithPasswordFn = createServerFn( { method: "POST" } )
 export const requestPasswordResetFn = createServerFn( { method: "POST" } )
   .inputValidator( ForgotPasswordSchema )
   .handler( async ( { data } ) => {
+    const request = getRequest()
+    const auth = createAuthFromRequest( request )
     try {
       await auth.api.requestPasswordReset( {
         body: {
@@ -87,6 +95,7 @@ export const resetPasswordFn = createServerFn( { method: "POST" } )
   .inputValidator( ResetPasswordSchema )
   .handler( async ( { data } ) => {
     const request = getRequest()
+    const auth = createAuthFromRequest( request )
     try {
       await auth.api.resetPassword( {
         headers: request.headers,

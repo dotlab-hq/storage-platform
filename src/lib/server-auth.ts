@@ -1,4 +1,4 @@
-import { auth } from "@/lib/auth"
+import { createAuthFromRequest } from "@/lib/auth"
 import { getRequest } from "@tanstack/react-start/server"
 import { isAdminRole, normalizeUserRole } from "@/lib/authz"
 import type { UserRole } from "@/lib/authz"
@@ -13,6 +13,7 @@ export type AuthenticatedUser = Pick<AuthUser, "id" | "email" | "name"> & {
 export async function getAuthenticatedUser(): Promise<AuthenticatedUser> {
     const request = getRequest()
     const headers = request.headers
+    const auth = createAuthFromRequest( request )
     const session = await auth.api.getSession( { headers } )
     if ( !session?.user ) {
         throw new Error( "Unauthorized" )
