@@ -9,6 +9,11 @@ import tailwindcss from '@tailwindcss/vite'
 // import { nitro } from 'nitro/vite'
 
 const config = defineConfig( {
+  build: {
+    rollupOptions: {
+      external: ["cloudflare:workers"],
+    },
+  },
   plugins: [
     devtools(),
     // nitro( {
@@ -70,7 +75,7 @@ const config = defineConfig( {
     tailwindcss(),
     tanstackStart(),
     svgr(),
-    cloudflare({ viteEnvironment: { name: 'ssr' } }),
+    cloudflare( { viteEnvironment: { name: 'ssr' }, } ),
     viteReact(),
   ],
 } )
