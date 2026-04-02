@@ -3,13 +3,14 @@ import {
     HeadObjectCommand,
     PutObjectCommand,
 } from "@aws-sdk/client-s3"
-import { db } from "@/db"
-import { file } from "@/db/schema/storage"
 import type { BucketContext } from "@/lib/s3-gateway/s3-context"
 import { buildCacheHeaders, isStatusMetadataError, parseHttpDate } from "@/lib/s3-gateway/s3-conditional-cache"
+import { findStoredObject } from "@/lib/s3-gateway/s3-stored-object"
 import type { ObjectConditionalHeaders } from "@/lib/s3-gateway/s3-conditional-cache"
 import { getProviderClientById, selectProviderForUpload } from "@/lib/s3-provider-client"
 import { and, eq, like } from "drizzle-orm"
+import { db } from "@/db"
+import { file } from "@/db/schema/storage"
 import { sendWithProviderTimeout } from "./s3-provider-timeout"
 import { upsertCommittedFile } from "./upload-file-records"
 import { buildUpstreamObjectKey, deriveFileName } from "./upload-key-utils"
@@ -79,27 +80,14 @@ export async function putObject( bucket: BucketContext, objectKey: string, body:
     return result.ETag ?? null
 }
 
-type StoredObject = {
+async function headProviderObject( input: {
+    provider: Awaited<ReturnType<typeof getProviderClientById>>
     objectKey: string
-    providerId: string | null
-    mimeType: string | null
-    sizeInBytes: number
-}
-
-async function findStoredObject( bucket: BucketContext, objectKey: string ): Promise<StoredObject | null> {
-    const upstreamKey = upstreamKeyFor( bucket, objectKey )
-    const rows = await db
-        .select( {
-            objectKey: file.objectKey,
-            providerId: file.providerId,
-            mimeType: file.mimeType,
-            sizeInBytes: file.sizeInBytes,
-        } )
-        .from( file )
-        .where( and( eq( file.userId, bucket.userId ), eq( file.objectKey, upstreamKey ), eq( file.isDeleted, false ) ) )
-        .limit( 1 )
-
-    return rows[0] ?? null
+} ) {
+    return sendWithProviderTimeout( ( abortSignal ) => input.provider.client.send( new HeadObjectCommand( {
+        Bucket: input.provider.bucketName,
+        Key: input.objectKey,
+    } ), { abortSignal } ) )
 }
 
 export async function getObject( bucket: BucketContext, objectKey: string, conditionals: ObjectConditionalHeaders ): Promise<Response | null> {
@@ -109,6 +97,10 @@ export async function getObject( bucket: BucketContext, objectKey: string, condi
     }
 
     const provider = await getProviderClientById( stored.providerId )
+    let eTag: string | null | undefined
+    let lastModified: Date | undefined
+    let cacheControl: string | null | undefined
+
     try {
         const result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new GetObjectCommand( {
             Bucket: provider.bucketName,
@@ -117,11 +109,10 @@ export async function getObject( bucket: BucketContext, objectKey: string, condi
             IfModifiedSince: parseHttpDate( conditionals.ifModifiedSince ),
         } ), { abortSignal } ) )
 
-        const headers = buildCacheHeaders( {
-            eTag: result.ETag,
-            lastModified: result.LastModified,
-            cacheControl: result.CacheControl,
-        } )
+        eTag = result.ETag
+        lastModified = result.LastModified
+        cacheControl = result.CacheControl
+        const headers = buildCacheHeaders( { eTag, lastModified, cacheControl } )
         headers.set( "Content-Type", stored.mimeType ?? "application/octet-stream" )
         headers.set( "Content-Length", String( stored.sizeInBytes ) )
 
@@ -131,13 +122,13 @@ export async function getObject( bucket: BucketContext, objectKey: string, condi
         } )
     } catch ( error: unknown ) {
         if ( isStatusMetadataError( error ) && error.$metadata?.httpStatusCode === 304 ) {
+            const metadata = await headProviderObject( { provider, objectKey: stored.objectKey } )
+            eTag = metadata.ETag
+            lastModified = metadata.LastModified
+            cacheControl = metadata.CacheControl
             return new Response( null, {
                 status: 304,
-                headers: buildCacheHeaders( {
-                    eTag: conditionals.ifNoneMatch,
-                    lastModified: undefined,
-                    cacheControl: undefined,
-                } ),
+                headers: buildCacheHeaders( { eTag, lastModified, cacheControl, includeDefaultCacheControl: false } ),
             } )
         }
         throw error
@@ -151,6 +142,10 @@ export async function headObject( bucket: BucketContext, objectKey: string, cond
     }
 
     const provider = await getProviderClientById( stored.providerId )
+    let eTag: string | null | undefined
+    let lastModified: Date | undefined
+    let cacheControl: string | null | undefined
+
     try {
         const result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new HeadObjectCommand( {
             Bucket: provider.bucketName,
@@ -159,11 +154,10 @@ export async function headObject( bucket: BucketContext, objectKey: string, cond
             IfModifiedSince: parseHttpDate( conditionals.ifModifiedSince ),
         } ), { abortSignal } ) )
 
-        const headers = buildCacheHeaders( {
-            eTag: result.ETag,
-            lastModified: result.LastModified,
-            cacheControl: result.CacheControl,
-        } )
+        eTag = result.ETag
+        lastModified = result.LastModified
+        cacheControl = result.CacheControl
+        const headers = buildCacheHeaders( { eTag, lastModified, cacheControl } )
         headers.set( "Content-Type", stored.mimeType ?? "application/octet-stream" )
         headers.set( "Content-Length", String( result.ContentLength ?? stored.sizeInBytes ) )
 
@@ -173,13 +167,13 @@ export async function headObject( bucket: BucketContext, objectKey: string, cond
         } )
     } catch ( error: unknown ) {
         if ( isStatusMetadataError( error ) && error.$metadata?.httpStatusCode === 304 ) {
+            const metadata = await headProviderObject( { provider, objectKey: stored.objectKey } )
+            eTag = metadata.ETag
+            lastModified = metadata.LastModified
+            cacheControl = metadata.CacheControl
             return new Response( null, {
                 status: 304,
-                headers: buildCacheHeaders( {
-                    eTag: conditionals.ifNoneMatch,
-                    lastModified: undefined,
-                    cacheControl: undefined,
-                } ),
+                headers: buildCacheHeaders( { eTag, lastModified, cacheControl, includeDefaultCacheControl: false } ),
             } )
         }
         throw error
