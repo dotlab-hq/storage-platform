@@ -97,6 +97,14 @@ jobs:
             }'
       - name: Build project with pnpm
         run: pnpm build
+        env:
+          NODE_ENV: production
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          BETTER_AUTH_URL: ${{ secrets.BETTER_AUTH_URL }}
+          BETTER_AUTH_SECRET: ${{ secrets.BETTER_AUTH_SECRET }}
+          _GITHUB_CLIENT_ID: ${{ secrets._GITHUB_CLIENT_ID }}
+          _GITHUB_CLIENT_SECRET: ${{ secrets._GITHUB_CLIENT_SECRET }}
+          STORAGE_PROVIDER_ENCRYPTION_KEY: ${{ secrets.STORAGE_PROVIDER_ENCRYPTION_KEY }}
 
       - name: Deploy to Cloudflare Workers
-        run: pnpm dlx wrangler@4 deploy
+        run: pnpm dlx nitro deploy --prebuilt
