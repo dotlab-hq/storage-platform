@@ -17,7 +17,7 @@ export function isStatusMetadataError( error: unknown ): error is StatusMetadata
 }
 
 function normalizeETag( value: string ): string {
-    return value.trim().replaceAll( /^W\//g, "" ).replaceAll( /^"(.*)"$/g, "$1" )
+    return value.trim().replaceAll( /^W\//, "" ).replaceAll( /^"(.*)"$/, "$1" )
 }
 
 function etagMatches( expected: string, providedList: string ): boolean {

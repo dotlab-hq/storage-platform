@@ -130,7 +130,7 @@ export async function completeUpload( userId: string, uploadId: string, clientEt
         throw new Error( "Uploaded object size did not match expected size" )
     }
 
-    const finalizedEtag = clientEtag ?? ( head.ETag?.replaceAll( '"', "" ) ?? null )
+    const completedUploadEtag = clientEtag ?? ( head.ETag?.replaceAll( '"', "" ) ?? null )
     const committed = await upsertCommittedFile( {
         userId,
         providerId: attempt.providerId,
@@ -139,7 +139,7 @@ export async function completeUpload( userId: string, uploadId: string, clientEt
         mappedFolderId: attempt.mappedFolderId,
         fileName: deriveFileName( attempt.objectKey ),
         sizeInBytes: observedSize,
-        etag: head.ETag ?? finalizedEtag,
+        etag: head.ETag ?? completedUploadEtag,
         cacheControl: head.CacheControl ?? null,
         lastModified: head.LastModified ?? new Date(),
     } )
@@ -148,7 +148,7 @@ export async function completeUpload( userId: string, uploadId: string, clientEt
         .update( uploadAttempt )
         .set( {
             status: "uploaded",
-            etag: finalizedEtag,
+            etag: completedUploadEtag,
             completedAt: new Date(),
             errorMessage: null,
         } )

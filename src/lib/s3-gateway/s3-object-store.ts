@@ -82,6 +82,7 @@ export async function putObject( bucket: BucketContext, objectKey: string, body:
         mappedFolderId: bucket.mappedFolderId,
         fileName: deriveFileName( objectKey ),
         sizeInBytes: body.byteLength,
+        // Prefer HEAD metadata ETag because provider PutObject responses may omit ETag in some configurations.
         etag: metadata.ETag ?? result.ETag ?? null,
         cacheControl: metadata.CacheControl ?? null,
         lastModified: metadata.LastModified ?? new Date(),
@@ -129,6 +130,7 @@ export async function getObject( bucket: BucketContext, objectKey: string, condi
         Key: stored.objectKey,
         ResponseContentType: stored.mimeType ?? undefined,
     } )
+    // Keep redirects short-lived to reduce leaked URL risk while still allowing normal immediate download flows.
     const presignedUrl = await getSignedUrl( provider.client, command, { expiresIn: 60 } )
     assertPresignedUrlEndpoint( presignedUrl, provider.endpoint )
     const headers = buildCacheHeaders( {
