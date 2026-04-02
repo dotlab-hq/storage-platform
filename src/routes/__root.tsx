@@ -3,13 +3,10 @@ import {
   Scripts,
   createRootRouteWithContext,
 } from '@tanstack/react-router'
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { TanStackDevtools } from '@tanstack/react-devtools'
+import { lazy, Suspense } from 'react'
 import { ThemeProvider } from 'next-themes'
 
 import TanStackQueryProvider from '../integrations/tanstack-query/root-provider'
-
-import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 
 import appCss from '../styles.css?url'
 
@@ -18,11 +15,24 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 import { Toaster } from '@/components/ui/sonner'
 import { AppErrorBoundary } from '@/components/error-boundary'
 import { NotFoundPage } from '@/components/not-found'
-import { GlobalShellActions } from '@/components/shell/global-shell-actions'
 
 interface MyRouterContext {
   queryClient: QueryClient
 }
+
+const Devtools = import.meta.env.DEV
+  ? lazy( () =>
+    import( '@/components/devtools/tanstack-devtools' ).then( ( module ) => ( {
+      default: module.TanstackDevtools,
+    } ) )
+  )
+  : null
+
+const GlobalShellActions = lazy( () =>
+  import( '@/components/shell/global-shell-actions' ).then( ( module ) => ( {
+    default: module.GlobalShellActions,
+  } ) )
+)
 
 export const Route = createRootRouteWithContext<MyRouterContext>()( {
   errorComponent: AppErrorBoundary,
@@ -73,22 +83,16 @@ function RootDocument( { children }: { children: React.ReactNode } ) {
         >
           <TanStackQueryProvider>
             <TooltipProvider>
-              <GlobalShellActions>{children}</GlobalShellActions>
+              <Suspense fallback={children}>
+                <GlobalShellActions>{children}</GlobalShellActions>
+              </Suspense>
             </TooltipProvider>
             <Toaster />
-
-            <TanStackDevtools
-              config={{
-                position: 'bottom-right',
-              }}
-              plugins={[
-                {
-                  name: 'Tanstack Router',
-                  render: <TanStackRouterDevtoolsPanel />,
-                },
-                TanStackQueryDevtools,
-              ]}
-            />
+            {Devtools ? (
+              <Suspense fallback={null}>
+                <Devtools />
+              </Suspense>
+            ) : null}
           </TanStackQueryProvider>
         </ThemeProvider>
         <Scripts />

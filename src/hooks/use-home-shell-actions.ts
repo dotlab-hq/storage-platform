@@ -1,5 +1,5 @@
 import { useMemo } from "react"
-import { useShellView } from "@/components/shell/global-shell-actions"
+import { useShellView } from "@/components/shell/shell-actions-registry"
 
 export function useHomeShellActions() {
     const homeActions = useMemo( () => ( {

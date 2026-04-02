@@ -12,7 +12,7 @@ import { formatRelativeTime } from "@/lib/file-utils"
 import { toast } from "@/components/ui/sonner"
 import { encodeNavToken } from "@/lib/nav-token"
 import { useQuota } from "@/hooks/use-quota"
-import { useShellView } from "@/components/shell/global-shell-actions"
+import { useShellView } from "@/components/shell/shell-actions-registry"
 import { getRecentFileUrlFn, getRecentSnapshotFn } from "./-recent-server"
 
 type RecentItem = { id: string; name: string; lastOpenedAt: Date; kind: "file" | "folder"; mimeType: string | null }

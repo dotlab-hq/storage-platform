@@ -11,36 +11,11 @@ import {
     CommandList,
 } from "@/components/ui/command"
 import { cn } from "@/lib/utils"
-
-export type ShellAction = {
-    id: string
-    label: string
-    onSelect: () => void
-    destructive?: boolean
-}
-
-type ShellView = "home" | "recent" | "trash" | "other"
-
-type ShellViewConfig = {
-    commandActions: ShellAction[]
-    contextActions: ShellAction[]
-}
-
-const DEFAULT_CONFIG: ShellViewConfig = {
-    commandActions: [],
-    contextActions: [],
-}
+import { getActiveConfig } from "@/components/shell/shell-actions-registry"
 
 const MENU_WIDTH_PX = 240
 const MENU_HEIGHT_PX = 260
 const VIEWPORT_MARGIN_PX = 8
-
-let activeView: ShellView = "other"
-const configs: Partial<Record<ShellView, ShellViewConfig>> = {}
-
-function getActiveConfig(): ShellViewConfig {
-    return configs[activeView] ?? DEFAULT_CONFIG
-}
 
 function isMacOS(): boolean {
     return typeof navigator !== "undefined" && navigator.platform.toLowerCase().includes( "mac" )
@@ -63,24 +38,6 @@ function clampToViewport( x: number, y: number ) {
         x: Math.min( Math.max( x, VIEWPORT_MARGIN_PX ), maxX ),
         y: Math.min( Math.max( y, VIEWPORT_MARGIN_PX ), maxY ),
     }
-}
-
-export function registerShellView( view: ShellView, config: ShellViewConfig ): () => void {
-    configs[view] = config
-    activeView = view
-    window.dispatchEvent( new Event( "dot:shell-actions-changed" ) )
-
-    return () => {
-        delete configs[view]
-        if ( activeView === view ) {
-            activeView = "other"
-            window.dispatchEvent( new Event( "dot:shell-actions-changed" ) )
-        }
-    }
-}
-
-export function useShellView( view: ShellView, config: ShellViewConfig ) {
-    useEffect( () => registerShellView( view, config ), [view, config] )
 }
 
 export function GlobalShellActions( { children }: { children: React.ReactNode } ) {

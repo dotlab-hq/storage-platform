@@ -14,7 +14,7 @@ import { useState } from "react"
 import { useTrashData } from "@/hooks/use-trash-data"
 import { useQuota } from "@/hooks/use-quota"
 import { useMemo } from "react"
-import { useShellView } from "@/components/shell/global-shell-actions"
+import { useShellView } from "@/components/shell/shell-actions-registry"
 
 export const Route = createFileRoute( "/trash/" )( { component: TrashPage } )
 
