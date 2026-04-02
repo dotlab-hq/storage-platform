@@ -58,6 +58,7 @@ export type ContextMenuAction =
     | "select"
     | "rename"
     | "move"
+    | "update-path"
     | "share"
     | "private-lock"
     | "copy-link"

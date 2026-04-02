@@ -16,7 +16,7 @@ type UseStorageActionsParams = {
     clearSelection: () => void
     selectedIds: Set<string>
     onDeleteOpen: ( item: StorageItem ) => void
-    onMoveOpen: () => void
+    onMoveOpen: ( mode?: "move" | "update-path" ) => void
     onShareOpen: ( item: StorageItem ) => void
 }
 
@@ -114,7 +114,11 @@ export function useStorageActions( params: UseStorageActionsParams ) {
                     break
                 case "move":
                     select( item.id, false )
-                    onMoveOpen()
+                    onMoveOpen( "move" )
+                    break
+                case "update-path":
+                    select( item.id, false )
+                    onMoveOpen( "update-path" )
                     break
                 case "share":
                     onShareOpen( item )

@@ -3,6 +3,7 @@ import { parseAccessKeyId, resolveBucketByAccessKey, resolveBucketByName, isSecr
 import { abortMultipartUpload, completeMultipartUpload, createMultipartUpload, uploadPart } from "@/lib/s3-gateway/s3-multipart"
 import { deleteObject, getObject, headObject, listObjectsV2, putObject } from "@/lib/s3-gateway/s3-object-store"
 import { hasMultipartCreateFlag, listPrefix, listTypeIsV2, multipartPartNumber, multipartUploadId, parseS3Path } from "@/lib/s3-gateway/s3-request"
+import { ProviderRequestTimeoutError } from "@/lib/s3-gateway/s3-provider-timeout"
 import { completeMultipartUploadXml, createMultipartUploadXml, listBucketsXml, listObjectsV2Xml, s3ErrorResponse, xmlResponse } from "@/lib/s3-gateway/s3-xml"
 
 async function readBodyBytes( request: Request ): Promise<Uint8Array> {
@@ -124,6 +125,9 @@ export async function handleS3Request( request: Request ): Promise<Response> {
     } catch ( error ) {
         const message = error instanceof Error ? error.message : "Unknown server error"
         const resource = new URL( request.url ).pathname
+        if ( error instanceof ProviderRequestTimeoutError ) {
+            return s3ErrorResponse( 504, "RequestTimeout", message, resource )
+        }
         if ( /Invalid or expired upload ID/i.test( message ) ) {
             return s3ErrorResponse( 404, "NoSuchUpload", message, resource )
         }

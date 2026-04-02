@@ -1,6 +1,6 @@
 import { eq, and, inArray } from "drizzle-orm"
 import { getProviderClientById } from "@/lib/s3-provider-client"
-
+import { isDescendantFolder } from "@/lib/folder-paths"
 export async function touchFolderOpened( userId: string, folderId: string ) {
     const [{ db }, { folder }] = await Promise.all( [
         import( "@/db" ),
@@ -110,14 +110,38 @@ export async function moveItems(
         import( "@/db/schema/storage" ),
     ] )
 
+    const movingFolderIds = itemIds.filter( ( _, index ) => itemTypes[index] === "folder" )
     let targetIsPrivatelyLocked = false
+    let allUserFolders: { id: string; parentFolderId: string | null }[] = []
+
     if ( targetFolderId ) {
-        const targetFolderRows = await db.select( { isPrivatelyLocked: folder.isPrivatelyLocked } )
+        const targetFolderRows = await db.select( {
+            id: folder.id,
+            isPrivatelyLocked: folder.isPrivatelyLocked,
+        } )
             .from( folder )
             .where( and( eq( folder.id, targetFolderId ), eq( folder.userId, userId ) ) )
             .limit( 1 )
-        if ( targetFolderRows.length > 0 ) {
-            targetIsPrivatelyLocked = targetFolderRows[0].isPrivatelyLocked
+
+        if ( targetFolderRows.length === 0 ) {
+            throw new Error( "Target folder not found" )
+        }
+
+        targetIsPrivatelyLocked = targetFolderRows[0].isPrivatelyLocked
+
+        if ( movingFolderIds.length > 0 ) {
+            allUserFolders = await db.select( {
+                id: folder.id,
+                parentFolderId: folder.parentFolderId,
+            } )
+                .from( folder )
+                .where( eq( folder.userId, userId ) )
+
+            for ( const movingFolderId of movingFolderIds ) {
+                if ( isDescendantFolder( movingFolderId, targetFolderId, allUserFolders ) ) {
+                    throw new Error( "Cannot move a folder into itself or its descendant" )
+                }
+            }
         }
     }
 
@@ -134,7 +158,6 @@ export async function moveItems(
                 .where( and( eq( storageFile.id, id ), eq( storageFile.userId, userId ) ) )
         }
     }
-
     return { moved: itemIds.length }
 }
 

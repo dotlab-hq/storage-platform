@@ -40,6 +40,7 @@ function StoragePage() {
 
   const [shareItem, setShareItem] = useState<StorageItem | null>( null )
   const [moveOpen, setMoveOpen] = useState( false )
+  const [moveMode, setMoveMode] = useState<"move" | "update-path">( "move" )
   const [deleteOpen, setDeleteOpen] = useState( false )
   const [pendingDelete, setPendingDelete] = useState<{ ids: string[]; types: ( "file" | "folder" )[] } | null>( null )
   useFolderHistory( storage.currentFolderId, storage.setCurrentFolderId )
@@ -56,7 +57,10 @@ function StoragePage() {
       setPendingDelete( { ids: [item.id], types: [item.type] } )
       setDeleteOpen( true )
     },
-    onMoveOpen: () => setMoveOpen( true ),
+    onMoveOpen: ( mode = "move" ) => {
+      setMoveMode( mode )
+      setMoveOpen( true )
+    },
     onShareOpen: ( item ) => setShareItem( item ),
   } )
   const bulk = useBulkActions( {
@@ -168,10 +172,10 @@ function StoragePage() {
         open={moveOpen}
         onOpenChange={setMoveOpen}
         items={selectedItems}
-        folders={storage.folders}
         currentFolderId={storage.currentFolderId}
         onMove={bulk.handleMove}
         userId={storage.userId}
+        mode={moveMode}
       />
       <ConfirmDeleteModal
         open={deleteOpen}

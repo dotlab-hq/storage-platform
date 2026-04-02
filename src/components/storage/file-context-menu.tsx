@@ -1,5 +1,7 @@
 import {
+    ArrowRightLeft,
     Pencil,
+    Route,
     Share2,
     ShieldCheck,
     Trash2,
@@ -71,6 +73,14 @@ export function FileContextMenu( {
                 <ContextMenuItem onClick={() => onAction( "rename", item )}>
                     <Pencil className="mr-2 h-4 w-4" />
                     Rename
+                </ContextMenuItem>
+                <ContextMenuItem onClick={() => onAction( "move", item )}>
+                    <ArrowRightLeft className="mr-2 h-4 w-4" />
+                    Move
+                </ContextMenuItem>
+                <ContextMenuItem onClick={() => onAction( "update-path", item )}>
+                    <Route className="mr-2 h-4 w-4" />
+                    Update Path & Move
                 </ContextMenuItem>
                 {item.type === "file" && (
                     <ContextMenuItem onClick={() => onAction( "share", item )}>

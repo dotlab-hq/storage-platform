@@ -1,7 +1,7 @@
 import { useCallback } from "react"
 import {
     MoreHorizontal, Pencil, Share2, Check, ShieldCheck,
-    Trash2, Download, ExternalLink, Link,
+    Trash2, Download, ExternalLink, Link, Route, ArrowRightLeft,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import {
@@ -101,6 +101,12 @@ export function FileCard( {
                         <DropdownMenuSeparator />
                         <DropdownMenuItem onClick={() => onContextAction( "rename", item )}>
                             <Pencil className="mr-2 h-4 w-4" /> Rename
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => onContextAction( "move", item )}>
+                            <ArrowRightLeft className="mr-2 h-4 w-4" /> Move
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => onContextAction( "update-path", item )}>
+                            <Route className="mr-2 h-4 w-4" /> Update Path & Move
                         </DropdownMenuItem>
                         {item.type === "file" && (
                             <DropdownMenuItem onClick={() => onContextAction( "share", item )}>
