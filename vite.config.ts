@@ -25,6 +25,8 @@ const config = defineConfig( {
             "nodejs_compat",
             "no_handle_cross_request_promise_resolution"
           ],
+          preview_urls:false,
+          workers_dev: false,
           "observability": {
             "enabled": false,
             "head_sampling_rate": 1,
