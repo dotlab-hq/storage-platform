@@ -166,8 +166,8 @@
   }
 
   body {
-    --sb-track-color: #232E33;
-    --sb-thumb-color: #6BAF8D;
+    --sb-track-color: var(--muted);
+    --sb-thumb-color: var(--primary);
     --sb-size: 8px;
   }
 
@@ -183,7 +183,7 @@
   body::-webkit-scrollbar-thumb {
     background: var(--sb-thumb-color);
     border-radius: 10px;
-    border: 1px solid #232e33;
+    border: 1px solid var(--sb-thumb-color);
   }
 
   @supports not selector(::-webkit-scrollbar) {
