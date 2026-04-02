@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { createFileRoute } from "@tanstack/react-router"
 import { Button } from "@/components/ui/button"
 import { FileText, Folder, Loader2, Link2Off, Download } from "lucide-react"
 import { toast } from "@/components/ui/sonner"
 import { ShareFolderTree } from "@/components/storage/share-folder-tree"
 import {
-    getShareAccessFn,
-    getFolderTreeAccessFn,
+    getSharePageDataFn,
     getShareDownloadUrlFn,
+    type SharePagePayload,
 } from "./-share-access-server"
 
 type FileShareData = {
@@ -32,28 +32,30 @@ type FolderShareData = {
 
 type ShareData = FileShareData | FolderShareData
 
-export const Route = createFileRoute( "/share/$token" )( { component: ShareAccessPage } )
+type ShareLoaderData = {
+    data: SharePagePayload | null
+    error: string | null
+}
+
+export const Route = createFileRoute( "/share/$token" )( {
+    component: ShareAccessPage,
+    loader: async ( { params } ): Promise<ShareLoaderData> => {
+        try {
+            const data = await getSharePageDataFn( { data: { token: params.token } } )
+            return { data, error: null }
+        } catch ( error ) {
+            return {
+                data: null,
+                error: error instanceof Error ? error.message : "This share link is invalid, expired, or has been disabled.",
+            }
+        }
+    },
+} )
 
 function ShareAccessPage() {
     const { token } = Route.useParams()
-    const [data, setData] = useState<ShareData | null>( null )
-    const [error, setError] = useState<string | null>( null )
-    const [loading, setLoading] = useState( true )
+    const { data, error } = Route.useLoaderData()
     const [downloading, setDownloading] = useState( false )
-
-    useEffect( () => {
-        void getShareAccessFn( { data: { token } } )
-            .then( async ( response ) => {
-                if ( response.type !== "folder" ) {
-                    setData( response )
-                    return
-                }
-                const folderData = await getFolderTreeAccessFn( { data: { token } } )
-                setData( folderData )
-            } )
-            .catch( ( err: Error ) => setError( err.message ) )
-            .finally( () => setLoading( false ) )
-    }, [token] )
 
     const handleDownload = async () => {
         setDownloading( true )
@@ -69,14 +71,6 @@ function ShareAccessPage() {
         } finally {
             setDownloading( false )
         }
-    }
-
-    if ( loading ) {
-        return (
-            <div className="flex min-h-screen items-center justify-center">
-                <Loader2 className="text-muted-foreground h-8 w-8 animate-spin" />
-            </div>
-        )
     }
 
     if ( error || !data ) {
@@ -96,20 +90,22 @@ function ShareAccessPage() {
         )
     }
 
-    if ( data.type === "file" ) {
+    const typedData = data as ShareData
+
+    if ( typedData.type === "file" ) {
         return (
             <div className="flex min-h-screen flex-col items-center justify-center gap-6 p-4 text-center">
                 <div className="bg-muted rounded-full p-4">
                     <FileText className="text-muted-foreground h-10 w-10" />
                 </div>
                 <div className="space-y-1">
-                    <h1 className="text-lg font-semibold">{data.name}</h1>
+                    <h1 className="text-lg font-semibold">{typedData.name}</h1>
                     <p className="text-muted-foreground text-sm">
-                        {data.mimeType ?? "File"} &middot; {formatBytes( data.sizeInBytes )}
+                        {typedData.mimeType ?? "File"} &middot; {formatBytes( typedData.sizeInBytes )}
                     </p>
                 </div>
                 <div className="flex gap-3">
-                    <Button onClick={() => window.open( data.presignedUrl, "_blank" )}>
+                    <Button onClick={() => window.open( typedData.presignedUrl, "_blank" )}>
                         Open file
                     </Button>
                     <Button
@@ -133,18 +129,18 @@ function ShareAccessPage() {
                 <Folder className="text-muted-foreground h-10 w-10" />
             </div>
             <div className="space-y-1">
-                <h1 className="text-lg font-semibold">{data.name}</h1>
+                <h1 className="text-lg font-semibold">{typedData.name}</h1>
                 <p className="text-muted-foreground text-sm">Shared folder</p>
-                {data.tree && (
+                {typedData.tree && (
                     <p className="text-muted-foreground text-xs">
-                        {data.tree.folders.length} folders · {data.tree.files.length} files exposed
+                        {typedData.tree.folders.length} folders · {typedData.tree.files.length} files exposed
                     </p>
                 )}
             </div>
-            {data.tree && (
-                <ShareFolderTree tree={data.tree} formatBytes={formatBytes} />
+            {typedData.tree && (
+                <ShareFolderTree tree={typedData.tree} formatBytes={formatBytes} />
             )}
-            <Button onClick={() => { window.location.href = `/?nav=${btoa( JSON.stringify( { folderId: data.folderId } ) )}` }}>
+            <Button onClick={() => { window.location.href = `/?nav=${btoa( JSON.stringify( { folderId: typedData.folderId } ) )}` }}>
                 Open folder
             </Button>
         </div>

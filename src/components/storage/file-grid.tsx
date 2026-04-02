@@ -18,6 +18,13 @@ type BoxSelectCommitContext = {
     onBoxSelect?: ( ids: string[], append: boolean ) => void
 }
 
+type SelectionRect = {
+    left: number
+    top: number
+    width: number
+    height: number
+}
+
 type FileGridProps = {
     items: StorageItem[]
     uploads: UploadingFile[]
@@ -183,16 +190,24 @@ export function FileGrid( {
                 ) )}
             </div>
             {selectionRect && (
-                <div
-                    className="pointer-events-none fixed z-30 border border-primary/60 bg-primary/20"
-                    style={{
-                        left: selectionRect.left,
-                        top: selectionRect.top,
-                        width: selectionRect.width,
-                        height: selectionRect.height,
-                    }}
-                />
+                <SelectionOverlay rect={selectionRect} />
             )}
         </div>
     )
+}
+
+function SelectionOverlay( { rect }: { rect: SelectionRect } ) {
+    const overlayRef = useRef<HTMLDivElement | null>( null )
+
+    useEffect( () => {
+        const element = overlayRef.current
+        if ( !element ) return
+
+        element.style.left = `${rect.left}px`
+        element.style.top = `${rect.top}px`
+        element.style.width = `${rect.width}px`
+        element.style.height = `${rect.height}px`
+    }, [rect.height, rect.left, rect.top, rect.width] )
+
+    return <div ref={overlayRef} className="pointer-events-none fixed z-30 border border-primary/60 bg-primary/20" />
 }

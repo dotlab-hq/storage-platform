@@ -51,6 +51,11 @@ function isFileCardTarget( target: EventTarget | null ): boolean {
     return Boolean( target.closest( "[data-file-card='true']" ) )
 }
 
+function isShellMenuTarget( target: EventTarget | null ): boolean {
+    if ( !( target instanceof Element ) ) return false
+    return Boolean( target.closest( "[data-shell-context-menu='true']" ) )
+}
+
 function clampToViewport( x: number, y: number ) {
     const maxX = Math.max( VIEWPORT_MARGIN_PX, window.innerWidth - MENU_WIDTH_PX - VIEWPORT_MARGIN_PX )
     const maxY = Math.max( VIEWPORT_MARGIN_PX, window.innerHeight - MENU_HEIGHT_PX - VIEWPORT_MARGIN_PX )
@@ -112,7 +117,10 @@ export function GlobalShellActions( { children }: { children: React.ReactNode } 
             setContextOpen( true )
         }
 
-        const onPointerDown = () => closeContextMenu()
+        const onPointerDown = ( event: PointerEvent ) => {
+            if ( isShellMenuTarget( event.target ) ) return
+            closeContextMenu()
+        }
         const onEscape = ( event: KeyboardEvent ) => {
             if ( event.key === "Escape" ) closeContextMenu()
         }
@@ -138,6 +146,7 @@ export function GlobalShellActions( { children }: { children: React.ReactNode } 
 
             {contextOpen && (
                 <div
+                    data-shell-context-menu="true"
                     className={cn(
                         "bg-popover text-popover-foreground fixed left-(--dot-shell-menu-x) top-(--dot-shell-menu-y) z-50 min-w-52 rounded-md border p-1 shadow-md"
                     )}

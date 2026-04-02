@@ -25,6 +25,19 @@ export type FolderTreePayload = {
     files: { id: string; name: string; mimeType: string | null; sizeInBytes: number; folderId: string | null }[]
 }
 
+export type SharePagePayload = {
+    type: "file"
+    name: string
+    mimeType: string | null
+    sizeInBytes: number
+    presignedUrl: string
+} | {
+    type: "folder"
+    name: string
+    folderId: string
+    tree: FolderTreePayload | null
+}
+
 export const getShareAccessFn = createServerFn( { method: "GET" } )
     .inputValidator( z.object( { token: z.string() } ) )
     .handler( async ( { data } ) => {
@@ -72,4 +85,34 @@ export const getShareDownloadUrlFn = createServerFn( { method: "GET" } )
         const fileItem = result.item as FileItem
         const url = await getSharedFileDownloadUrl( fileItem.objectKey, fileItem.name, fileItem.providerId )
         return { url, name: fileItem.name }
+    } )
+
+export const getSharePageDataFn = createServerFn( { method: "GET" } )
+    .inputValidator( z.object( { token: z.string() } ) )
+    .handler( async ( { data } ) => {
+        const result = await getShareByToken( data.token )
+        if ( !result ) {
+            throw new Error( "Share link not found, expired, or inactive" )
+        }
+
+        if ( result.type === "file" ) {
+            const fileItem = result.item as FileItem
+            const presignedUrl = await getSharedFilePresignedUrl( fileItem.objectKey, fileItem.name, fileItem.providerId )
+            return {
+                type: "file",
+                name: fileItem.name,
+                mimeType: fileItem.mimeType,
+                sizeInBytes: fileItem.sizeInBytes,
+                presignedUrl,
+            } as SharePagePayload
+        }
+
+        const folderItem = result.item as FolderItem
+        const tree = await getSharedFolderTreeByToken( data.token )
+        return {
+            type: "folder",
+            name: folderItem.name,
+            folderId: folderItem.id,
+            tree,
+        } as SharePagePayload
     } )

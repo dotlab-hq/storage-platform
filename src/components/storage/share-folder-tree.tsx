@@ -8,6 +8,22 @@ type ShareFolderTreeProps = {
     formatBytes: ( bytes: number ) => string
 }
 
+const DEPTH_PADDING_CLASSES = [
+    "pl-0",
+    "pl-3",
+    "pl-6",
+    "pl-9",
+    "pl-12",
+    "pl-16",
+    "pl-20",
+    "pl-24",
+] as const
+
+function depthPaddingClass( depth: number ): string {
+    const bounded = Math.max( 0, Math.min( depth, DEPTH_PADDING_CLASSES.length - 1 ) )
+    return DEPTH_PADDING_CLASSES[bounded]
+}
+
 export function ShareFolderTree( { tree, formatBytes }: ShareFolderTreeProps ) {
     const folderDepthMap = new Map<string, number>()
     tree.folders.forEach( ( folder ) => {
@@ -19,8 +35,7 @@ export function ShareFolderTree( { tree, formatBytes }: ShareFolderTreeProps ) {
             {tree.folders.map( ( folder ) => (
                 <div
                     key={folder.id}
-                    className="text-sm"
-                    style={{ paddingLeft: `${Math.max( 0, folder.depth ) * 12}px` }}
+                    className={`text-sm ${depthPaddingClass( folder.depth )}`}
                 >
                     📁 {folder.name}
                 </div>
@@ -28,8 +43,7 @@ export function ShareFolderTree( { tree, formatBytes }: ShareFolderTreeProps ) {
             {tree.files.map( ( file ) => (
                 <div
                     key={file.id}
-                    className="text-muted-foreground text-xs"
-                    style={{ paddingLeft: `${( folderDepthMap.get( file.folderId ?? "" ) ?? 0 ) * 12 + 12}px` }}
+                    className={`text-muted-foreground text-xs ${depthPaddingClass( ( folderDepthMap.get( file.folderId ?? "" ) ?? 0 ) + 1 )}`}
                 >
                     📄 {file.name} ({formatBytes( file.sizeInBytes )})
                 </div>

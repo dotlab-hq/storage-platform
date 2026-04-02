@@ -38,14 +38,14 @@ export function FileContextMenu( {
             <ContextMenu>
                 <ContextMenuTrigger asChild><div>{children}</div></ContextMenuTrigger>
                 <ContextMenuContent className="w-48">
-                    <ContextMenuItem onClick={() => onAction( "restore", item )}>
+                    <ContextMenuItem onSelect={() => onAction( "restore", item )}>
                         <RotateCcw className="mr-2 h-4 w-4" />
                         Restore
                     </ContextMenuItem>
                     <ContextMenuSeparator />
                     <ContextMenuItem
                         className="text-destructive focus:text-destructive"
-                        onClick={() => onAction( "delete-permanent", item )}
+                        onSelect={() => onAction( "delete-permanent", item )}
                     >
                         <AlertTriangle className="mr-2 h-4 w-4" />
                         Delete permanently
@@ -59,49 +59,49 @@ export function FileContextMenu( {
         <ContextMenu>
             <ContextMenuTrigger asChild><div>{children}</div></ContextMenuTrigger>
             <ContextMenuContent className="w-48">
-                <ContextMenuItem onClick={() => onAction( "open", item )}>
+                <ContextMenuItem onSelect={() => onAction( "open", item )}>
                     <ExternalLink className="mr-2 h-4 w-4" />
                     Open
                 </ContextMenuItem>
                 {item.type === "file" && (
-                    <ContextMenuItem onClick={() => onAction( "download", item )}>
+                    <ContextMenuItem onSelect={() => onAction( "download", item )}>
                         <Download className="mr-2 h-4 w-4" />
                         Download
                     </ContextMenuItem>
                 )}
                 <ContextMenuSeparator />
-                <ContextMenuItem onClick={() => onAction( "rename", item )}>
+                <ContextMenuItem onSelect={() => onAction( "rename", item )}>
                     <Pencil className="mr-2 h-4 w-4" />
                     Rename
                 </ContextMenuItem>
-                <ContextMenuItem onClick={() => onAction( "move", item )}>
+                <ContextMenuItem onSelect={() => onAction( "move", item )}>
                     <ArrowRightLeft className="mr-2 h-4 w-4" />
                     Move
                 </ContextMenuItem>
-                <ContextMenuItem onClick={() => onAction( "update-path", item )}>
+                <ContextMenuItem onSelect={() => onAction( "update-path", item )}>
                     <Route className="mr-2 h-4 w-4" />
                     Update Path & Move
                 </ContextMenuItem>
                 {item.type === "file" && (
-                    <ContextMenuItem onClick={() => onAction( "share", item )}>
+                    <ContextMenuItem onSelect={() => onAction( "share", item )}>
                         <Share2 className="mr-2 h-4 w-4" />
                         Share
                     </ContextMenuItem>
                 )}
                 {item.type === "folder" && (
-                    <ContextMenuItem onClick={() => onAction( "private-lock", item )}>
+                    <ContextMenuItem onSelect={() => onAction( "private-lock", item )}>
                         <ShieldCheck className="mr-2 h-4 w-4" />
                         {item.isPrivatelyLocked ? "Remove private lock" : "Mark private lock"}
                     </ContextMenuItem>
                 )}
-                <ContextMenuItem onClick={() => onAction( "copy-link", item )}>
+                <ContextMenuItem onSelect={() => onAction( "copy-link", item )}>
                     <Link className="mr-2 h-4 w-4" />
                     Copy Link
                 </ContextMenuItem>
                 <ContextMenuSeparator />
                 <ContextMenuItem
                     className="text-destructive focus:text-destructive"
-                    onClick={() => onAction( "delete", item )}
+                    onSelect={() => onAction( "delete", item )}
                 >
                     <Trash2 className="mr-2 h-4 w-4" />
                     Delete
