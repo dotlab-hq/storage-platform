@@ -16,7 +16,7 @@ const config = defineConfig( {
       rollupConfig: { external: [/^@sentry\//] },
 
       cloudflare: {
-        deployConfig: true,        
+        deployConfig: true,
         wrangler: {
           name: 'storage',
           keep_vars: true,
@@ -26,9 +26,18 @@ const config = defineConfig( {
             "no_handle_cross_request_promise_resolution"
           ],
           "placement": {
-            mode:"smart",
-            hint:"aws:ap-south-1"
+            mode: "smart",
+            hint: "aws:ap-south-1"
           },
+          hyperdrive: [
+            {
+              "binding": "DB",
+              "id": "3c26563cafef4f44a700a5ec0b63b693",
+
+              // Optional. Can be used to connect to a local database for local development with `wrangler dev`
+              // "localConnectionString": "<LOCAL_CONNECTION_STRING_FOR_LOCAL_DEVELOPMENT_HERE>"
+            }
+          ],
           preview_urls: false,
           workers_dev: false,
           "observability": {
@@ -41,7 +50,8 @@ const config = defineConfig( {
             },
           }
         },
-        // nodeCompat: true
+
+        nodeCompat: true
       }
       // output: {
       //   dir: ".vercel/output",
