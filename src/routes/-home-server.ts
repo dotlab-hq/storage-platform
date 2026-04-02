@@ -1,5 +1,5 @@
 import { createServerFn } from "@tanstack/react-start"
-import { getUserQuotaSnapshotFn } from "@/lib/server-functions/quota"
+import { getUserQuotaSnapshotByUserId } from "@/lib/server-functions/quota"
 import { getAuthenticatedUser } from "@/lib/server-auth"
 import { listFolderItems } from "@/lib/storage-queries"
 import type { UserQuota } from "@/types/storage"
@@ -35,7 +35,7 @@ export const getHomeSnapshotFn = createServerFn( { method: "GET" } )
         const currentUser = await getAuthenticatedUser()
         const [items, quota] = await Promise.all( [
             listFolderItems( currentUser.id, null ),
-            getUserQuotaSnapshotFn(),
+            getUserQuotaSnapshotByUserId( currentUser.id ),
         ] )
 
         return {
