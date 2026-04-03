@@ -80,8 +80,14 @@ export async function uploadFileToS3(
         throw new Error( "User ID is required for upload" )
     }
 
-    const safeName = file.name.replace( /\s+/g, "_" ).replace( /[^a-zA-Z0-9._-]/g, "" ) || "file"
-    const objectKey = `${userId}/${crypto.randomUUID()}-${safeName}`
+    const dotIndex = file.name.lastIndexOf( "." )
+    const base = ( dotIndex > 0 ? file.name.slice( 0, dotIndex ) : file.name )
+        .replace( /\s+/g, "_" )
+        .replace( /[^a-zA-Z0-9._-]/g, "" ) || "file"
+    const ext = dotIndex > 0
+        ? `.${file.name.slice( dotIndex + 1 ).replace( /[^a-zA-Z0-9]/g, "" )}`
+        : ""
+    const objectKey = `${userId}/${crypto.randomUUID()}-${base}${ext}`
     const contentType = file.type || "application/octet-stream"
 
     // Step 1: Get presigned URL
