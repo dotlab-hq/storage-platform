@@ -43,7 +43,7 @@ function toNodeReadable( stream: ReadableStream<Uint8Array> ): Readable {
 export async function createMultipartUpload( bucket: BucketContext, objectKey: string, contentType: string | null ): Promise<string> {
     const attemptId = crypto.randomUUID()
     const provider = await selectProviderForUpload( 1 )
-    const upstreamObjectKey = buildUpstreamObjectKey( bucket.userId, bucket.bucketId, objectKey )
+    const upstreamObjectKey = buildUpstreamObjectKey( bucket.userId, bucket.bucketId, bucket.mappedFolderId, objectKey )
     const create = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new CreateMultipartUploadCommand( {
         Bucket: provider.bucketName,
         Key: upstreamObjectKey,

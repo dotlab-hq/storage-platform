@@ -45,11 +45,12 @@ function toNodeReadable( stream: ReadableStream<Uint8Array> ): Readable {
 }
 
 function upstreamKeyFor( bucket: BucketContext, objectKey: string ): string {
-    return buildUpstreamObjectKey( bucket.userId, bucket.bucketId, objectKey )
+    return buildUpstreamObjectKey( bucket.userId, bucket.bucketId, bucket.mappedFolderId, objectKey )
 }
 
 function bucketPrefix( bucket: BucketContext ): string {
-    return `s3/${bucket.userId}/${bucket.bucketId}/`
+    const folderSegment = bucket.mappedFolderId ? `${bucket.mappedFolderId}/` : ""
+    return `s3/${bucket.userId}/${bucket.bucketId}/${folderSegment}`
 }
 
 export type ListedS3Object = {

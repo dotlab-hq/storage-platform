@@ -16,7 +16,7 @@ export type StoredObject = {
 }
 
 export async function findStoredObject( bucket: BucketContext, objectKey: string ): Promise<StoredObject | null> {
-    const upstreamKey = buildUpstreamObjectKey( bucket.userId, bucket.bucketId, objectKey )
+    const upstreamKey = buildUpstreamObjectKey( bucket.userId, bucket.bucketId, bucket.mappedFolderId, objectKey )
     const rows = await db
         .select( {
             objectKey: file.objectKey,
