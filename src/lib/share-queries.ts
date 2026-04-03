@@ -1,6 +1,58 @@
 import { eq, sql } from "drizzle-orm"
 import { getProviderClientById } from "@/lib/s3-provider-client"
 
+function normalizeShareToken( token: string ): string {
+    const trimmed = token.trim()
+    if ( !trimmed ) return ""
+
+    if ( trimmed.startsWith( "http://" ) || trimmed.startsWith( "https://" ) ) {
+        try {
+            const parsed = new URL( trimmed )
+            const segments = parsed.pathname.split( "/" ).filter( Boolean )
+            return decodeURIComponent( segments[segments.length - 1] ?? "" ).trim()
+        } catch {
+            return ""
+        }
+    }
+
+    try {
+        return decodeURIComponent( trimmed )
+    } catch {
+        return trimmed
+    }
+}
+
+async function findShareLinkByToken( token: string ) {
+    const [{ db }, { shareLink }] = await Promise.all( [
+        import( "@/db" ),
+        import( "@/db/schema/storage" ),
+    ] )
+
+    const normalizedToken = normalizeShareToken( token )
+    if ( !normalizedToken ) return null
+
+    const candidates = [
+        normalizedToken,
+        normalizedToken.toLowerCase(),
+    ]
+
+    for ( const candidate of candidates ) {
+        const rows = await db.select().from( shareLink )
+            .where( eq( shareLink.shareToken, candidate ) )
+            .limit( 1 )
+        if ( rows.length > 0 ) {
+            return rows[0]
+        }
+    }
+
+    // Legacy fallback in case old links were shared using the row id.
+    const byIdRows = await db.select().from( shareLink )
+        .where( eq( shareLink.id, normalizedToken ) )
+        .limit( 1 )
+
+    return byIdRows.length > 0 ? byIdRows[0] : null
+}
+
 async function buildPresignedUrl(
     objectKey: string,
     fileName: string,
@@ -21,16 +73,13 @@ async function buildPresignedUrl(
 }
 
 export async function getShareByToken( token: string ) {
-    const [{ db }, { shareLink, file: storageFile, folder }] = await Promise.all( [
+    const [{ db }, { file: storageFile, folder }] = await Promise.all( [
         import( "@/db" ),
         import( "@/db/schema/storage" ),
     ] )
 
-    const linkRows = await db.select().from( shareLink )
-        .where( eq( shareLink.shareToken, token ) )
-        .limit( 1 )
-    if ( linkRows.length === 0 ) return null
-    const link = linkRows[0]
+    const link = await findShareLinkByToken( token )
+    if ( !link ) return null
     if ( !link.isActive ) return null
 
     if ( link.expiresAt && link.expiresAt < new Date() ) return null
