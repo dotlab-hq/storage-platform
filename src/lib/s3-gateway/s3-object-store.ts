@@ -3,6 +3,7 @@ import {
     PutObjectCommand,
     GetObjectCommand,
     CopyObjectCommand,
+    DeleteObjectCommand,
     ListObjectsV2Command,
 } from "@aws-sdk/client-s3"
 import { Readable } from "node:stream"
@@ -221,7 +222,18 @@ function copySourcePath( bucketName: string, key: string ): string {
         .split( "/" )
         .map( ( part ) => encodeURIComponent( part ) )
         .join( "/" )
-    return `${bucketName}/${encodedKey}`
+    return `/${bucketName}/${encodedKey}`
+}
+
+function toProviderPutBody( body: unknown ): Readable | ReadableStream<Uint8Array> {
+    if ( body instanceof ReadableStream ) {
+        return toNodeReadable( body )
+    }
+    if ( typeof body === "object" && body !== null && "transformToWebStream" in body && typeof ( body as { transformToWebStream?: unknown } ).transformToWebStream === "function" ) {
+        const webStream = ( body as { transformToWebStream: () => ReadableStream<Uint8Array> } ).transformToWebStream()
+        return toNodeReadable( webStream )
+    }
+    throw new Error( "Unsupported provider response body for copy fallback" )
 }
 
 function toBodyInit( body: unknown ): BodyInit | null {
@@ -339,6 +351,22 @@ export async function headObject( bucket: BucketContext, objectKey: string, cond
 
 export async function deleteObject( bucket: BucketContext, objectKey: string ): Promise<void> {
     const upstreamKey = upstreamKeyFor( bucket, objectKey )
+    const stored = await findStoredObject( bucket, objectKey )
+    const provider = await getProviderClientById( stored?.providerId ?? null )
+
+    try {
+        await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new DeleteObjectCommand( {
+            Bucket: provider.bucketName,
+            Key: upstreamKey,
+        } ), { abortSignal } ) )
+    } catch ( error ) {
+        if ( error instanceof ProviderRequestTimeoutError ) {
+            throw error
+        }
+        const providerMessage = error instanceof Error ? `${error.name}: ${error.message}` : "Unknown provider delete error"
+        console.warn( "[S3 Gateway] deleteObject upstream delete non-fatal failure:", providerMessage )
+    }
+
     try {
         await db
             .update( file )
@@ -368,19 +396,46 @@ export async function copyObject(
     const destinationUpstreamKey = upstreamKeyFor( destinationBucket, destinationObjectKey )
     const sourceProvider = await getProviderClientById( sourceStored?.providerId ?? null )
 
-    const copied = await sendWithProviderTimeout( ( abortSignal ) => sourceProvider.client.send( new CopyObjectCommand( {
-        Bucket: sourceProvider.bucketName,
-        Key: destinationUpstreamKey,
-        CopySource: copySourcePath( sourceProvider.bucketName, sourceUpstreamKey ),
-    } ), { abortSignal } ) )
+    let copiedEtag: string | undefined
+    let copiedLastModified: Date | undefined
+    try {
+        const copied = await sendWithProviderTimeout( ( abortSignal ) => sourceProvider.client.send( new CopyObjectCommand( {
+            Bucket: sourceProvider.bucketName,
+            Key: destinationUpstreamKey,
+            CopySource: copySourcePath( sourceProvider.bucketName, sourceUpstreamKey ),
+        } ), { abortSignal } ) )
+        copiedEtag = copied.CopyObjectResult?.ETag
+        copiedLastModified = copied.CopyObjectResult?.LastModified
+    } catch ( error ) {
+        if ( error instanceof ProviderRequestTimeoutError ) {
+            throw error
+        }
+
+        const message = error instanceof Error ? `${error.name}: ${error.message}` : "Unknown provider copy error"
+        console.warn( "[S3 Gateway] CopyObject command failed; falling back to streamed GET+PUT copy:", message )
+
+        const sourceGet = await sendWithProviderTimeout( ( abortSignal ) => sourceProvider.client.send( new GetObjectCommand( {
+            Bucket: sourceProvider.bucketName,
+            Key: sourceUpstreamKey,
+        } ), { abortSignal } ) )
+
+        await sendWithProviderTimeout( ( abortSignal ) => sourceProvider.client.send( new PutObjectCommand( {
+            Bucket: sourceProvider.bucketName,
+            Key: destinationUpstreamKey,
+            Body: toProviderPutBody( sourceGet.Body ),
+            ContentType: sourceGet.ContentType ?? sourceStored?.mimeType ?? "application/octet-stream",
+            CacheControl: sourceGet.CacheControl ?? sourceStored?.cacheControl ?? undefined,
+            ContentLength: typeof sourceGet.ContentLength === "number" ? sourceGet.ContentLength : undefined,
+        } ), { abortSignal } ) )
+    }
 
     const head = await sendWithProviderTimeout( ( abortSignal ) => sourceProvider.client.send( new HeadObjectCommand( {
         Bucket: sourceProvider.bucketName,
         Key: destinationUpstreamKey,
     } ), { abortSignal } ) )
 
-    const persistedEtag = resolvePersistedETag( head.ETag, copied.CopyObjectResult?.ETag )
-    const persistedLastModified = head.LastModified ?? copied.CopyObjectResult?.LastModified ?? new Date()
+    const persistedEtag = resolvePersistedETag( head.ETag, copiedEtag )
+    const persistedLastModified = head.LastModified ?? copiedLastModified ?? new Date()
 
     await upsertCommittedFile( {
         userId: destinationBucket.userId,
