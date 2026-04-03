@@ -62,16 +62,45 @@ export type ListedS3Object = {
 
 export async function listObjectsV2( bucket: BucketContext, prefix: string ): Promise<ListedS3Object[]> {
     const basePrefix = bucketPrefix( bucket )
-    const rows = await db
-        .select( {
-            objectKey: file.objectKey,
-            sizeInBytes: file.sizeInBytes,
-            etag: file.etag,
-            lastModified: file.lastModified,
-            updatedAt: file.updatedAt,
-        } )
-        .from( file )
-        .where( and( eq( file.userId, bucket.userId ), eq( file.isDeleted, false ), like( file.objectKey, `${basePrefix}%` ) ) )
+    let rows: Array<{
+        objectKey: string
+        sizeInBytes: number
+        etag: string | null
+        lastModified: Date | null
+        updatedAt: Date
+    }>
+
+    try {
+        rows = await db
+            .select( {
+                objectKey: file.objectKey,
+                sizeInBytes: file.sizeInBytes,
+                etag: file.etag,
+                lastModified: file.lastModified,
+                updatedAt: file.updatedAt,
+            } )
+            .from( file )
+            .where( and( eq( file.userId, bucket.userId ), eq( file.isDeleted, false ), like( file.objectKey, `${basePrefix}%` ) ) )
+    } catch ( error ) {
+        const message = error instanceof Error ? `${error.name}: ${error.message}` : "Unknown query error"
+        console.warn( "[S3 Gateway] listObjectsV2 fell back to minimal file query due to schema mismatch:", message )
+        const fallbackRows = await db
+            .select( {
+                objectKey: file.objectKey,
+                sizeInBytes: file.sizeInBytes,
+                updatedAt: file.updatedAt,
+            } )
+            .from( file )
+            .where( and( eq( file.userId, bucket.userId ), like( file.objectKey, `${basePrefix}%` ) ) )
+
+        rows = fallbackRows.map( ( row ) => ( {
+            objectKey: row.objectKey,
+            sizeInBytes: row.sizeInBytes,
+            etag: null,
+            lastModified: null,
+            updatedAt: row.updatedAt,
+        } ) )
+    }
 
     return rows
         .map( ( row ) => {
