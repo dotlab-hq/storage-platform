@@ -1,4 +1,4 @@
-import { bigint, boolean, index, text, timestamp } from "drizzle-orm/pg-core"
+import { integer, index, text } from "drizzle-orm/sqlite-core"
 import { schema } from "./schema"
 import { UNDETERMINED_PROVIDER_VALUE } from "@/lib/storage-provider-constants"
 
@@ -18,16 +18,16 @@ export const storageProvider = schema.table(
         bucketName: text( "bucket_name" ).default( UNDETERMINED_PROVIDER_VALUE ).notNull(),
         accessKeyIdEncrypted: text( "access_key_id_encrypted" ).default( UNDETERMINED_PROVIDER_VALUE ).notNull(),
         secretAccessKeyEncrypted: text( "secret_access_key_encrypted" ).default( UNDETERMINED_PROVIDER_VALUE ).notNull(),
-        storageLimitBytes: bigint( "storage_limit_bytes", { mode: "number" } )
+        storageLimitBytes: integer( "storage_limit_bytes", { mode: "number" } )
             .default( DEFAULT_PROVIDER_LIMIT_BYTES )
             .notNull(),
-        fileSizeLimitBytes: bigint( "file_size_limit_bytes", { mode: "number" } )
+        fileSizeLimitBytes: integer( "file_size_limit_bytes", { mode: "number" } )
             .default( DEFAULT_PROVIDER_FILE_SIZE_LIMIT_BYTES )
             .notNull(),
-        isActive: boolean( "is_active" ).default( true ).notNull(),
-        createdAt: timestamp( "created_at" ).defaultNow().notNull(),
-        updatedAt: timestamp( "updated_at" )
-            .defaultNow()
+        isActive: integer( "is_active", { mode: "boolean" } ).default( true ).notNull(),
+        createdAt: integer( "created_at", { mode: "timestamp" } ).$defaultFn( () => new Date() ).notNull(),
+        updatedAt: integer( "updated_at", { mode: "timestamp" } )
+            .$defaultFn( () => new Date() )
             .$onUpdate( () => /* @__PURE__ */ new Date() )
             .notNull(),
     },

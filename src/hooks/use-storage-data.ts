@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { createClientOnlyFn } from "@tanstack/react-start"
 import { authClient } from "@/lib/auth-client"
 import { DEFAULT_ALLOCATED_STORAGE_BYTES, DEFAULT_FILE_SIZE_LIMIT_BYTES } from "@/lib/storage-quota-constants"
@@ -27,7 +27,7 @@ const fetchFolderItems = createClientOnlyFn(
         const params = new URLSearchParams( { userId: uid } )
         if ( folderId ) params.set( "folderId", folderId )
         const res = await fetch( `/api/storage/folder-items?${params}` )
-        const data = ( await res.json() ) as FetchResponse
+        const data: FetchResponse = await res.json()
         if ( !res.ok ) throw new Error( data.error ?? `HTTP ${res.status}` )
         return data
     }
@@ -37,12 +37,12 @@ const fetchUserQuota = createClientOnlyFn(
     async ( uid: string ): Promise<UserQuota> => {
         const params = new URLSearchParams( { userId: uid } )
         const res = await fetch( `/api/storage/quota?${params}` )
-        const data = ( await res.json() ) as {
+        const data: {
             usedStorage?: number
             allocatedStorage?: number
             fileSizeLimit?: number
             error?: string
-        }
+        } = await res.json()
         if ( !res.ok ) throw new Error( data.error ?? `HTTP ${res.status}` )
         return {
             usedStorage: data.usedStorage ?? 0,
@@ -52,26 +52,29 @@ const fetchUserQuota = createClientOnlyFn(
     }
 )
 
-export function useStorageData( initialData?: HomeLoaderData ) {
-    const initialMapped = useMemo( () => {
-        if ( !initialData ) return null
-        const mapped = mapItems(
-            {
-                folders: initialData.folders,
-                files: initialData.files,
-                breadcrumbs: initialData.breadcrumbs,
-            },
-            initialData.userId,
-        )
+function mapInitialData( initialData?: HomeLoaderData ) {
+    if ( !initialData ) return null
 
-        return {
-            userId: initialData.userId,
-            items: mapped.items,
-            folders: mapped.folders,
-            breadcrumbs: mapBreadcrumbs( initialData.breadcrumbs ),
-            quota: initialData.quota,
-        }
-    }, [initialData] )
+    const mapped = mapItems(
+        {
+            folders: initialData.folders,
+            files: initialData.files,
+            breadcrumbs: initialData.breadcrumbs,
+        },
+        initialData.userId,
+    )
+
+    return {
+        userId: initialData.userId,
+        items: mapped.items,
+        folders: mapped.folders,
+        breadcrumbs: mapBreadcrumbs( initialData.breadcrumbs ),
+        quota: initialData.quota,
+    }
+}
+
+export function useStorageData( initialData?: HomeLoaderData ) {
+    const initialMapped = mapInitialData( initialData )
 
     const skipFirstLoadRef = useRef( Boolean( initialMapped ) )
     const [userId, setUserId] = useState<string | null>( initialMapped?.userId ?? null )

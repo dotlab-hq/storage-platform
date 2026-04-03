@@ -4,8 +4,8 @@ import { selectProviderForUpload } from "@/lib/s3-provider-client"
 const EXCLUDE_VIRTUAL_BUCKET_FOLDERS = sql<boolean>`
     NOT EXISTS (
         SELECT 1
-        FROM "dot-storage"."virtual_bucket" vb
-        WHERE vb."mapped_folder_id" = "dot-storage"."folder"."id"
+        FROM "virtual_bucket" vb
+        WHERE vb."mapped_folder_id" = "folder"."id"
           AND vb."is_active" = true
     )
 `

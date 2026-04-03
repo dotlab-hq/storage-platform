@@ -1,5 +1,4 @@
 import { S3Client } from "@aws-sdk/client-s3"
-import { db } from "@/db"
 import { file } from "@/db/schema/storage"
 import { storageProvider } from "@/db/schema/storage-provider"
 import { UNDETERMINED_PROVIDER_VALUE } from "@/lib/storage-provider-constants"
@@ -19,7 +18,13 @@ type ProviderRow = typeof storageProvider.$inferSelect
 const DEFAULT_PROVIDER_NAME = "default provider"
 const MAIN_PROVIDER_NAME = "main"
 
+async function loadDb() {
+    const { db } = await import( "@/db" )
+    return db
+}
+
 async function getDefaultActiveProvider(): Promise<ProviderRow | null> {
+    const db = await loadDb()
     const providerRows = await db
         .select()
         .from( storageProvider )
@@ -101,6 +106,7 @@ function fromProviderRow( row: ProviderRow ): ProviderClientConfig {
 }
 
 export async function getProviderClientById( providerId: string | null ): Promise<ProviderClientConfig> {
+    const db = await loadDb()
     if ( !providerId ) {
         const defaultProvider = await getDefaultActiveProvider()
         if ( defaultProvider ) {
@@ -134,6 +140,7 @@ export async function resolveProviderId( providerId: string | null | undefined )
 }
 
 export async function selectProviderForUpload( incomingFileSize: number ): Promise<ProviderClientConfig> {
+    const db = await loadDb()
     const providers = await db
         .select()
         .from( storageProvider )
@@ -146,7 +153,7 @@ export async function selectProviderForUpload( incomingFileSize: number ): Promi
     const usageRows = await db
         .select( {
             providerId: file.providerId,
-            usedBytes: sql<number>`COALESCE(SUM(${file.sizeInBytes}), 0)::int8`,
+            usedBytes: sql<number>`COALESCE(SUM(${file.sizeInBytes}), 0)`,
         } )
         .from( file )
         .where( and( eq( file.isDeleted, false ), isNotNull( file.providerId ) ) )

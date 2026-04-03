@@ -1,2 +1,0 @@
-ALTER TABLE "dot-storage"."folder" ADD COLUMN "virtual_bucket_id" text;--> statement-breakpoint
-ALTER TABLE "dot-storage"."folder" ADD CONSTRAINT "folder_virtual_bucket_id_unique" UNIQUE("virtual_bucket_id");

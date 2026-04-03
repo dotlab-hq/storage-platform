@@ -15,6 +15,7 @@
     "test:s3:compat": "playwright test -c playwright.s3.config.ts",
     "test:s3:compat:headed": "playwright test -c playwright.s3.config.ts --headed",
     "lint": "eslint",
+    "types": "tsc --noEmit",
     "format": "prettier --check .",
     "check": "prettier --write . && eslint --fix",
     "db:generate": "drizzle-kit generate",

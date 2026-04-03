@@ -1,4 +1,4 @@
-import { bigint, boolean, index, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core"
+import { integer, index, text, uniqueIndex } from "drizzle-orm/sqlite-core"
 import { relations } from "drizzle-orm"
 import { schema } from "./schema"
 import { user } from "./auth-schema"
@@ -18,10 +18,10 @@ export const virtualBucket = schema.table(
         mappedFolderId: text( "mapped_folder_id" ).references( () => folder.id, {
             onDelete: "set null",
         } ),
-        isActive: boolean( "is_active" ).default( true ).notNull(),
-        createdAt: timestamp( "created_at" ).defaultNow().notNull(),
-        updatedAt: timestamp( "updated_at" )
-            .defaultNow()
+        isActive: integer( "is_active", { mode: "boolean" } ).default( true ).notNull(),
+        createdAt: integer( "created_at", { mode: "timestamp" } ).$defaultFn( () => new Date() ).notNull(),
+        updatedAt: integer( "updated_at", { mode: "timestamp" } )
+            .$defaultFn( () => new Date() )
             .$onUpdate( () => /* @__PURE__ */ new Date() )
             .notNull(),
     },
@@ -49,16 +49,16 @@ export const uploadAttempt = schema.table(
         } ),
         objectKey: text( "object_key" ).notNull(),
         upstreamObjectKey: text( "upstream_object_key" ).notNull(),
-        expectedSize: bigint( "expected_size", { mode: "number" } ).notNull(),
+        expectedSize: integer( "expected_size", { mode: "number" } ).notNull(),
         contentType: text( "content_type" ),
         etag: text( "etag" ),
         status: text( "status" ).default( "pending" ).notNull(),
         errorMessage: text( "error_message" ),
-        expiresAt: timestamp( "expires_at" ).notNull(),
-        completedAt: timestamp( "completed_at" ),
-        createdAt: timestamp( "created_at" ).defaultNow().notNull(),
-        updatedAt: timestamp( "updated_at" )
-            .defaultNow()
+        expiresAt: integer( "expires_at", { mode: "timestamp" } ).notNull(),
+        completedAt: integer( "completed_at", { mode: "timestamp" } ),
+        createdAt: integer( "created_at", { mode: "timestamp" } ).$defaultFn( () => new Date() ).notNull(),
+        updatedAt: integer( "updated_at", { mode: "timestamp" } )
+            .$defaultFn( () => new Date() )
             .$onUpdate( () => /* @__PURE__ */ new Date() )
             .notNull(),
     },

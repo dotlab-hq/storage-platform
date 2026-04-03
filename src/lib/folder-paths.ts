@@ -79,7 +79,7 @@ export function buildFolderPathOptions( folders: FolderNode[] ) {
 export function isDescendantFolder(
     ancestorFolderId: string,
     maybeDescendantId: string,
-    folders: FolderNode[]
+    folders: Array<Pick<FolderNode, "id" | "parentFolderId">>
 ) {
     const parentMap = new Map<string, string | null>()
     folders.forEach( ( folder ) => parentMap.set( folder.id, folder.parentFolderId ) )

@@ -1,7 +1,12 @@
-import { db } from "@/db"
+import { user } from "@/db/schema/auth-schema"
 import { file } from "@/db/schema/storage"
 import { storageProvider } from "@/db/schema/storage-provider"
 import { count, eq, sql, sum } from "drizzle-orm"
+
+async function loadDb() {
+    const { db } = await import( "@/db" )
+    return db
+}
 
 function toNonNegativeBytes( value: number | string | null | undefined ): number {
     const parsed = typeof value === "string" ? Number( value ) : value
@@ -12,6 +17,7 @@ function toNonNegativeBytes( value: number | string | null | undefined ): number
 }
 
 export async function listProvidersWithUsage() {
+    const db = await loadDb()
     const providers = await db
         .select( {
             id: storageProvider.id,
@@ -57,18 +63,23 @@ export type AdminSummary = Awaited<ReturnType<typeof getStorageAdminSummary>>
 export type AdminUser = Awaited<ReturnType<typeof getUsersWithUsage>>[number]
 
 export async function getStorageAdminSummary() {
+    const db = await loadDb()
     const [providerCountRow] = await db
         .select( {
             count: count(),
         } )
         .from( storageProvider )
-    const userCountRows = await db.execute<{ count: number }>( sql`SELECT COUNT(*)::int AS count FROM "dot-storage"."user"` )
+    const [userCountRow] = await db
+        .select( {
+            count: count(),
+        } )
+        .from( user )
     const [totalUsedRow] = await db
         .select( { total: sum( file.sizeInBytes ).mapWith( Number ) } )
         .from( file )
         .where( eq( file.isDeleted, false ) )
     const providerCount = providerCountRow.count
-    const userCount = userCountRows.rows[0].count
+    const userCount = userCountRow.count
     const totalUsedStorageBytes = toNonNegativeBytes( totalUsedRow.total )
     return {
         providerCount,
@@ -78,7 +89,8 @@ export async function getStorageAdminSummary() {
 }
 
 export async function getUsersWithUsage() {
-    const rows = await db.execute<{
+    const db = await loadDb()
+    const rows = await db.all<{
         id: string
         name: string
         email: string
@@ -90,13 +102,13 @@ export async function getUsersWithUsage() {
           u.name,
           u.email,
           u.is_admin AS "isAdmin",
-          COALESCE(SUM(f.size_in_bytes), 0)::bigint AS "usedStorage"
-        FROM "dot-storage"."user" u
-        LEFT JOIN "dot-storage"."file" f ON f.user_id = u.id AND f.is_deleted = false
+                    COALESCE(SUM(f.size_in_bytes), 0) AS "usedStorage"
+                FROM "user" u
+                LEFT JOIN "file" f ON f.user_id = u.id AND f.is_deleted = false
         GROUP BY u.id, u.name, u.email, u.is_admin
         ORDER BY u.created_at DESC
     ` )
-    return rows.rows.map( ( row ) => ( {
+    return rows.map( ( row ) => ( {
         ...row,
         usedStorage: toNonNegativeBytes( row.usedStorage ),
     } ) )

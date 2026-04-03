@@ -1,4 +1,5 @@
 import {
+  ClientOnly,
   HeadContent,
   Scripts,
   createRootRouteWithContext,
@@ -83,7 +84,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()( {
       },
       {
         property: 'og:url',
-        content: 'https://dot-storage.com',
+        content: 'https://storage.wpsadi.dev',
       },
       {
         property: 'og:site_name',
@@ -148,7 +149,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()( {
       },
       {
         rel: 'canonical',
-        href: 'https://dot-storage.com',
+        href: 'https://storage.wpsadi.dev',
       },
       {
         rel: 'preconnect',
@@ -172,7 +173,7 @@ function RootDocument( { children }: { children: React.ReactNode } ) {
               '@type': 'SoftwareApplication',
               name: 'DOT. Storage',
               description: 'Secure, fast, and simple cloud file storage with end-to-end encryption',
-              url: 'https://dot-storage.com',
+              url: 'https://storage.wpsadi.dev',
               applicationCategory: 'BusinessApplication',
               offers: {
                 '@type': 'Offer',
@@ -186,7 +187,7 @@ function RootDocument( { children }: { children: React.ReactNode } ) {
               author: {
                 '@type': 'Organization',
                 name: 'DOT. Storage',
-                logo: 'https://dot-storage.com/logo.svg',
+                logo: 'https://storage.wpsadi.dev/logo.svg',
               },
             } ),
           }}
@@ -201,9 +202,11 @@ function RootDocument( { children }: { children: React.ReactNode } ) {
         >
           <TanStackQueryProvider>
             <TooltipProvider>
-              <Suspense fallback={children}>
-                <GlobalShellActions>{children}</GlobalShellActions>
-              </Suspense>
+              <ClientOnly fallback={children}>
+                <Suspense fallback={children}>
+                  <GlobalShellActions>{children}</GlobalShellActions>
+                </Suspense>
+              </ClientOnly>
             </TooltipProvider>
             <Toaster />
             {Devtools ? (

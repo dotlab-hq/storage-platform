@@ -1,2 +1,0 @@
-ALTER TABLE "dot-storage"."user_storage" ALTER COLUMN "allocated_storage" SET DEFAULT 262144000;--> statement-breakpoint
-ALTER TABLE "dot-storage"."user_storage" ADD COLUMN "file_size_limit" bigint DEFAULT 10485760 NOT NULL;

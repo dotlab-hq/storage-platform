@@ -3,8 +3,8 @@ import { and, eq, isNull, ilike, gte, desc, sql } from "drizzle-orm"
 const EXCLUDE_VIRTUAL_BUCKET_FOLDERS = sql<boolean>`
     NOT EXISTS (
         SELECT 1
-        FROM "dot-storage"."virtual_bucket" vb
-        WHERE vb."mapped_folder_id" = "dot-storage"."folder"."id"
+        FROM "virtual_bucket" vb
+        WHERE vb."mapped_folder_id" = "folder"."id"
           AND vb."is_active" = true
     )
 `
@@ -96,7 +96,7 @@ export async function getFolderBreadcrumbs( userId: string, folderId: string ) {
         }
         visited.add( currentId )
 
-        const rows = await db.select( {
+        const rows: { id: string; name: string; parentFolderId: string | null }[] = await db.select( {
             id: folder.id,
             name: folder.name,
             parentFolderId: folder.parentFolderId,
@@ -105,7 +105,7 @@ export async function getFolderBreadcrumbs( userId: string, folderId: string ) {
             .limit( 1 )
 
         if ( rows.length === 0 ) break
-        const row = rows[0]
+        const row: { id: string; name: string; parentFolderId: string | null } = rows[0]
         crumbs.unshift( { id: row.id, name: row.name } )
         currentId = row.parentFolderId
         hops += 1

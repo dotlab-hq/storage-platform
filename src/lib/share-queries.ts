@@ -98,16 +98,16 @@ export async function getSharedFolderTreeByToken( token: string ) {
     const ownerId = share.link.sharedByUserId
     const rootFolderId = share.link.folderId
 
-    const folderRows = await db.execute<SharedFolderNode>( sql`
+    const folderRows = await db.all<SharedFolderNode>( sql`
         WITH RECURSIVE folder_tree AS (
-            SELECT f.id, f.name, f.parent_folder_id AS "parentFolderId", 0::int AS depth
-            FROM "dot-storage"."folder" f
+                        SELECT f.id, f.name, f.parent_folder_id AS "parentFolderId", CAST(0 AS INTEGER) AS depth
+                        FROM "folder" f
             WHERE f.id = ${rootFolderId}
               AND f.user_id = ${ownerId}
               AND f.is_deleted = false
             UNION ALL
             SELECT child.id, child.name, child.parent_folder_id AS "parentFolderId", folder_tree.depth + 1 AS depth
-            FROM "dot-storage"."folder" child
+                        FROM "folder" child
             INNER JOIN folder_tree ON child.parent_folder_id = folder_tree.id
             WHERE child.user_id = ${ownerId}
               AND child.is_deleted = false
@@ -117,23 +117,23 @@ export async function getSharedFolderTreeByToken( token: string ) {
         ORDER BY depth ASC, name ASC
     ` )
 
-    const fileRows = await db.execute<SharedFolderFile>( sql`
+    const fileRows = await db.all<SharedFolderFile>( sql`
         WITH RECURSIVE folder_tree AS (
             SELECT f.id
-            FROM "dot-storage"."folder" f
+                        FROM "folder" f
             WHERE f.id = ${rootFolderId}
               AND f.user_id = ${ownerId}
               AND f.is_deleted = false
             UNION ALL
             SELECT child.id
-            FROM "dot-storage"."folder" child
+                        FROM "folder" child
             INNER JOIN folder_tree ON child.parent_folder_id = folder_tree.id
             WHERE child.user_id = ${ownerId}
               AND child.is_deleted = false
         )
         SELECT fl.id, fl.name, fl.mime_type AS "mimeType", fl.size_in_bytes AS "sizeInBytes", fl.folder_id AS "folderId",
                fl.is_privately_locked AS "isPrivatelyLocked"
-        FROM "dot-storage"."file" fl
+                FROM "file" fl
         INNER JOIN folder_tree ON fl.folder_id = folder_tree.id
         WHERE fl.user_id = ${ownerId}
           AND fl.is_deleted = false
@@ -141,7 +141,7 @@ export async function getSharedFolderTreeByToken( token: string ) {
         ORDER BY fl.name ASC
     ` )
 
-    const root = folderRows.rows.find( ( row ) => row.depth === 0 ) ?? null
+    const root = folderRows.find( ( row ) => row.depth === 0 ) ?? null
     if ( !root ) {
         throw new Error( "Shared folder root is missing" )
     }
@@ -149,7 +149,7 @@ export async function getSharedFolderTreeByToken( token: string ) {
     return {
         rootFolderId,
         rootFolderName: root.name,
-        folders: folderRows.rows,
-        files: fileRows.rows,
+        folders: folderRows,
+        files: fileRows,
     }
 }

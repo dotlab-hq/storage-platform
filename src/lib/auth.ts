@@ -12,8 +12,9 @@ import { sendResetPasswordEmail } from "@/lib/email/send-reset-password-email";
 
 export const auth = betterAuth( {
   database: drizzleAdapter( db, {
-    provider: "pg", // or "mysql", "sqlite"
+    provider: "sqlite",
     schema: schema,
+    debugLogs: process.env.NODE_ENV !== "production",
   } ),
   databaseHooks: {
     user: {
@@ -45,8 +46,17 @@ export const auth = betterAuth( {
   },
   socialProviders: {
     github: {
-      clientId: process.env._GITHUB_CLIENT_ID!,
-      clientSecret: process.env._GITHUB_CLIENT_SECRET!,
+      clientId: process.env._GITHUB_CLIENT_ID,
+      clientSecret: process.env._GITHUB_CLIENT_SECRET,
+    },
+  },
+  account: {
+    accountLinking: {
+      enabled: true,
+      
+
+      trustedProviders: ["github", "email-password"],
+      allowDifferentEmails: false,
     },
   },
   emailAndPassword: {
@@ -65,7 +75,7 @@ export const auth = betterAuth( {
     additionalFields: {
       isAdmin: {
         type: "boolean",
-        default: false,
+        defaultValue: false,
       }
     }
   },

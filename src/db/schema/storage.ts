@@ -1,6 +1,6 @@
 import { relations, sql } from "drizzle-orm";
-import { bigint, boolean, index, text, timestamp, check } from "drizzle-orm/pg-core";
-import type { AnyPgColumn } from "drizzle-orm/pg-core";
+import { integer, index, text, check } from "drizzle-orm/sqlite-core";
+import type { AnySQLiteColumn } from "drizzle-orm/sqlite-core";
 import { user } from "./auth-schema";
 import { storageProvider } from "./storage-provider";
 import { schema } from "./schema";
@@ -16,17 +16,17 @@ export const folder = schema.table(
         userId: text( "user_id" )
             .notNull()
             .references( () => user.id, { onDelete: "cascade" } ),
-        parentFolderId: text( "parent_folder_id" ).references( (): AnyPgColumn => folder.id, {
+        parentFolderId: text( "parent_folder_id" ).references( (): AnySQLiteColumn => folder.id, {
             onDelete: "set null",
         } ),
         virtualBucketId: text( "virtual_bucket_id" ).unique(),
-        isPrivatelyLocked: boolean( "is_privately_locked" ).default( false ).notNull(),
-        isDeleted: boolean( "is_deleted" ).default( false ).notNull(),
-        deletedAt: timestamp( "deleted_at" ),
-        lastOpenedAt: timestamp( "last_opened_at" ),
-        createdAt: timestamp( "created_at" ).defaultNow().notNull(),
-        updatedAt: timestamp( "updated_at" )
-            .defaultNow()
+        isPrivatelyLocked: integer( "is_privately_locked", { mode: "boolean" } ).default( false ).notNull(),
+        isDeleted: integer( "is_deleted", { mode: "boolean" } ).default( false ).notNull(),
+        deletedAt: integer( "deleted_at", { mode: "timestamp" } ),
+        lastOpenedAt: integer( "last_opened_at", { mode: "timestamp" } ),
+        createdAt: integer( "created_at", { mode: "timestamp" } ).$defaultFn( () => new Date() ).notNull(),
+        updatedAt: integer( "updated_at", { mode: "timestamp" } )
+            .$defaultFn( () => new Date() )
             .$onUpdate( () => /* @__PURE__ */ new Date() )
             .notNull(),
     },
@@ -47,8 +47,8 @@ export const file = schema.table(
         mimeType: text( "mime_type" ),
         etag: text( "etag" ),
         cacheControl: text( "cache_control" ),
-        lastModified: timestamp( "last_modified" ),
-        sizeInBytes: bigint( "size_in_bytes", { mode: "number" } ).notNull(),
+        lastModified: integer( "last_modified", { mode: "timestamp" } ),
+        sizeInBytes: integer( "size_in_bytes", { mode: "number" } ).notNull(),
         userId: text( "user_id" )
             .notNull()
             .references( () => user.id, { onDelete: "cascade" } ),
@@ -58,13 +58,13 @@ export const file = schema.table(
         folderId: text( "folder_id" ).references( () => folder.id, {
             onDelete: "set null",
         } ),
-        isPrivatelyLocked: boolean( "is_privately_locked" ).default( false ).notNull(),
-        isDeleted: boolean( "is_deleted" ).default( false ).notNull(),
-        deletedAt: timestamp( "deleted_at" ),
-        lastOpenedAt: timestamp( "last_opened_at" ),
-        createdAt: timestamp( "created_at" ).defaultNow().notNull(),
-        updatedAt: timestamp( "updated_at" )
-            .defaultNow()
+        isPrivatelyLocked: integer( "is_privately_locked", { mode: "boolean" } ).default( false ).notNull(),
+        isDeleted: integer( "is_deleted", { mode: "boolean" } ).default( false ).notNull(),
+        deletedAt: integer( "deleted_at", { mode: "timestamp" } ),
+        lastOpenedAt: integer( "last_opened_at", { mode: "timestamp" } ),
+        createdAt: integer( "created_at", { mode: "timestamp" } ).$defaultFn( () => new Date() ).notNull(),
+        updatedAt: integer( "updated_at", { mode: "timestamp" } )
+            .$defaultFn( () => new Date() )
             .$onUpdate( () => /* @__PURE__ */ new Date() )
             .notNull(),
     },
@@ -89,11 +89,11 @@ export const shareLink = schema.table(
             .notNull()
             .references( () => user.id, { onDelete: "cascade" } ),
         shareToken: text( "share_token" ).notNull().unique(),
-        requiresAuth: boolean( "requires_auth" ).default( false ).notNull(),
-        consentedPrivatelyUnlock: boolean( "consented_privately_unlock" ).default( false ).notNull(),
-        isActive: boolean( "is_active" ).default( true ).notNull(),
-        expiresAt: timestamp( "expires_at" ),
-        createdAt: timestamp( "created_at" ).defaultNow().notNull(),
+        requiresAuth: integer( "requires_auth", { mode: "boolean" } ).default( false ).notNull(),
+        consentedPrivatelyUnlock: integer( "consented_privately_unlock", { mode: "boolean" } ).default( false ).notNull(),
+        isActive: integer( "is_active", { mode: "boolean" } ).default( true ).notNull(),
+        expiresAt: integer( "expires_at", { mode: "timestamp" } ),
+        createdAt: integer( "created_at", { mode: "timestamp" } ).$defaultFn( () => new Date() ).notNull(),
     },
     ( table ) => [
         index( "shareLink_fileId_idx" ).on( table.fileId ),
@@ -109,16 +109,16 @@ export const userStorage = schema.table(
         userId: text( "user_id" )
             .primaryKey()
             .references( () => user.id, { onDelete: "cascade" } ),
-        allocatedStorage: bigint( "allocated_storage", { mode: "number" } )
+        allocatedStorage: integer( "allocated_storage", { mode: "number" } )
             .default( DEFAULT_ALLOCATED_STORAGE_BYTES )
             .notNull(),
-        fileSizeLimit: bigint( "file_size_limit", { mode: "number" } )
+        fileSizeLimit: integer( "file_size_limit", { mode: "number" } )
             .default( DEFAULT_FILE_SIZE_LIMIT_BYTES )
             .notNull(),
-        usedStorage: bigint( "used_storage", { mode: "number" } ).default( 0 ).notNull(),
-        createdAt: timestamp( "created_at" ).defaultNow().notNull(),
-        updatedAt: timestamp( "updated_at" )
-            .defaultNow()
+        usedStorage: integer( "used_storage", { mode: "number" } ).default( 0 ).notNull(),
+        createdAt: integer( "created_at", { mode: "timestamp" } ).$defaultFn( () => new Date() ).notNull(),
+        updatedAt: integer( "updated_at", { mode: "timestamp" } )
+            .$defaultFn( () => new Date() )
             .$onUpdate( () => /* @__PURE__ */ new Date() )
             .notNull(),
     },

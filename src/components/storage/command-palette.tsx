@@ -136,7 +136,7 @@ export function CommandPalette( {
     ]
 
     const allActions = [...builtInActions, ...actions]
-    const grouped = allActions.reduce<Partial<Record<string, CommandPaletteAction[]>>>(
+    const grouped = allActions.reduce<Record<string, CommandPaletteAction[]>>(
         ( acc, action ) => {
             const group = action.group
             if ( !acc[group] ) acc[group] = []

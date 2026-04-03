@@ -19,21 +19,21 @@ export async function setFolderPrivateLock(
         throw new Error( "Folder not found" )
     }
 
-    await db.execute( sql`
+    await db.run( sql`
         WITH RECURSIVE folder_tree AS (
             SELECT f.id
-            FROM "dot-storage"."folder" f
+                        FROM "folder" f
             WHERE f.id = ${folderId}
               AND f.user_id = ${userId}
               AND f.is_deleted = false
             UNION ALL
             SELECT child.id
-            FROM "dot-storage"."folder" child
+                        FROM "folder" child
             INNER JOIN folder_tree ON child.parent_folder_id = folder_tree.id
             WHERE child.user_id = ${userId}
               AND child.is_deleted = false
         )
-        UPDATE "dot-storage"."file" fl
+                UPDATE "file" fl
         SET is_privately_locked = ${isPrivatelyLocked}
         FROM folder_tree
         WHERE fl.folder_id = folder_tree.id
