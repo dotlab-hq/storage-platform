@@ -32,7 +32,7 @@ export async function initiateUpload( input: InitiateUploadInput ) {
     const provider = await selectProviderForUpload( input.fileSize )
     const attemptId = crypto.randomUUID()
     const expiresAt = new Date( Date.now() + 15 * 60 * 1000 )
-    const upstreamObjectKey = buildUpstreamObjectKey( input.userId, bucket.id, input.objectKey )
+    const upstreamObjectKey = buildUpstreamObjectKey( input.userId, bucket.id, bucket.mappedFolderId, input.objectKey )
 
     await db.insert( uploadAttempt ).values( {
         id: attemptId,
