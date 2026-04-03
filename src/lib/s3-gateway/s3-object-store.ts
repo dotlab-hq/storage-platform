@@ -82,21 +82,41 @@ export async function listObjectsV2( bucket: BucketContext, prefix: string ): Pr
     } catch ( error ) {
         const message = error instanceof Error ? `${error.name}: ${error.message}` : "Unknown query error"
         console.warn( "[S3 Gateway] listObjectsV2 fell back to minimal file query due to schema mismatch:", message )
-        const fallbackRows = await db
-            .select( {
-                objectKey: file.objectKey,
-                sizeInBytes: file.sizeInBytes,
-            } )
-            .from( file )
-            .where( like( file.objectKey, `${basePrefix}%` ) )
+        try {
+            const fallbackRows = await db
+                .select( {
+                    objectKey: file.objectKey,
+                    sizeInBytes: file.sizeInBytes,
+                } )
+                .from( file )
+                .where( like( file.objectKey, `${basePrefix}%` ) )
 
-        rows = fallbackRows.map( ( row ) => ( {
-            objectKey: row.objectKey,
-            sizeInBytes: row.sizeInBytes,
-            etag: null,
-            lastModified: null,
-            updatedAt: null,
-        } ) )
+            rows = fallbackRows.map( ( row ) => ( {
+                objectKey: row.objectKey,
+                sizeInBytes: row.sizeInBytes,
+                etag: null,
+                lastModified: null,
+                updatedAt: null,
+            } ) )
+        } catch ( fallbackError ) {
+            const fallbackMessage = fallbackError instanceof Error ? `${fallbackError.name}: ${fallbackError.message}` : "Unknown fallback query error"
+            console.warn( "[S3 Gateway] listObjectsV2 degraded to object_key-only query due to legacy schema mismatch:", fallbackMessage )
+
+            const keyOnlyRows = await db
+                .select( {
+                    objectKey: file.objectKey,
+                } )
+                .from( file )
+                .where( like( file.objectKey, `${basePrefix}%` ) )
+
+            rows = keyOnlyRows.map( ( row ) => ( {
+                objectKey: row.objectKey,
+                sizeInBytes: 0,
+                etag: null,
+                lastModified: null,
+                updatedAt: null,
+            } ) )
+        }
     }
 
     return rows

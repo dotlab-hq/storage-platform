@@ -136,13 +136,13 @@ export async function emptyVirtualBucket( userId: string, bucketName: string ): 
 
     const prefix = `s3/${userId}/${bucketRows[0].id}/%`
     let activeFiles: Array<{
-        id: string
+        objectKey: string
         sizeInBytes: number
     }>
     try {
         activeFiles = await db
             .select( {
-                id: file.id,
+                objectKey: file.objectKey,
                 sizeInBytes: file.sizeInBytes,
             } )
             .from( file )
@@ -153,15 +153,24 @@ export async function emptyVirtualBucket( userId: string, bucketName: string ): 
         try {
             activeFiles = await db
                 .select( {
-                    id: file.id,
+                    objectKey: file.objectKey,
                     sizeInBytes: file.sizeInBytes,
                 } )
                 .from( file )
                 .where( like( file.objectKey, prefix ) )
         } catch ( fallbackError ) {
             const fallbackMessage = fallbackError instanceof Error ? `${fallbackError.name}: ${fallbackError.message}` : "Unknown fallback query error"
-            console.warn( "[S3 Gateway] emptyVirtualBucket could not enumerate objects due to legacy file schema mismatch:", fallbackMessage )
-            activeFiles = []
+            console.warn( "[S3 Gateway] emptyVirtualBucket degraded to object_key-only lookup due to legacy file schema mismatch:", fallbackMessage )
+            const keyOnlyRows = await db
+                .select( {
+                    objectKey: file.objectKey,
+                } )
+                .from( file )
+                .where( like( file.objectKey, prefix ) )
+            activeFiles = keyOnlyRows.map( ( row ) => ( {
+                objectKey: row.objectKey,
+                sizeInBytes: 0,
+            } ) )
         }
     }
 
@@ -217,7 +226,7 @@ export async function deleteVirtualBucket( userId: string, bucketName: string ):
     let hasActiveObjects = false
     try {
         const remainingRows = await db
-            .select( { id: file.id } )
+            .select( { objectKey: file.objectKey } )
             .from( file )
             .where( and( eq( file.userId, userId ), eq( file.isDeleted, false ), like( file.objectKey, prefix ) ) )
             .limit( 1 )
@@ -227,7 +236,7 @@ export async function deleteVirtualBucket( userId: string, bucketName: string ):
         console.warn( "[S3 Gateway] deleteVirtualBucket fell back to prefix-only emptiness check due to schema mismatch:", message )
         try {
             const remainingRows = await db
-                .select( { id: file.id } )
+                .select( { objectKey: file.objectKey } )
                 .from( file )
                 .where( like( file.objectKey, prefix ) )
                 .limit( 1 )
