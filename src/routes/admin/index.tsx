@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router"
+import { createFileRoute, redirect } from "@tanstack/react-router"
 import { useState } from "react"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
@@ -12,7 +12,16 @@ import { ProviderEditorCard } from "@/components/admin/provider-editor-card"
 import { useQuota } from "@/hooks/use-quota"
 
 const emptyProviderForm = { name: "", endpoint: "", region: "", bucketName: "", accessKeyId: "", secretAccessKey: "", storageLimitBytes: 10 * 1024 * 1024 * 1024, fileSizeLimitBytes: 100 * 1024 * 1024 }
-export const Route = createFileRoute( "/admin/" )( { component: AdminDashboardPage, loader: () => getAdminDashboardDataFn() } )
+export const Route = createFileRoute( "/admin/" )( {
+    component: AdminDashboardPage,
+    loader: async () => {
+        try {
+            return await getAdminDashboardDataFn()
+        } catch {
+            throw redirect( { to: "/auth/login" } )
+        }
+    },
+} )
 
 function AdminDashboardPage() {
     const quota = useQuota()

@@ -1,5 +1,5 @@
 import { createServerFn } from "@tanstack/react-start"
-import { getUserQuotaSnapshotByUserId } from "@/lib/server-functions/quota"
+import { getUserQuotaSnapshotByUserId } from "@/lib/server-functions/quota.server"
 import { getAuthenticatedUser } from "@/lib/server-auth"
 import { listFolderItems } from "@/lib/storage-queries"
 import type { UserQuota } from "@/types/storage"

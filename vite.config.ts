@@ -76,7 +76,7 @@ const config = defineConfig( {
     // } ),
     tsconfigPaths( { projects: ['./tsconfig.json'] } ),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart({ prerender: { enabled: true } }),
     svgr(),
     cloudflare( { viteEnvironment: { name: 'ssr' }, } ),
     viteReact(),
