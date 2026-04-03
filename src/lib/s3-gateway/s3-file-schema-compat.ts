@@ -11,11 +11,19 @@ type MissingColumn = {
 }
 
 const REQUIRED_FILE_COLUMNS: MissingColumn[] = [
+    { name: "id", statement: sql`ALTER TABLE "file" ADD COLUMN "id" text` },
+    { name: "name", statement: sql`ALTER TABLE "file" ADD COLUMN "name" text DEFAULT '' NOT NULL` },
+    { name: "object_key", statement: sql`ALTER TABLE "file" ADD COLUMN "object_key" text DEFAULT '' NOT NULL` },
+    { name: "mime_type", statement: sql`ALTER TABLE "file" ADD COLUMN "mime_type" text` },
+    { name: "size_in_bytes", statement: sql`ALTER TABLE "file" ADD COLUMN "size_in_bytes" integer DEFAULT 0 NOT NULL` },
+    { name: "user_id", statement: sql`ALTER TABLE "file" ADD COLUMN "user_id" text` },
+    { name: "provider_id", statement: sql`ALTER TABLE "file" ADD COLUMN "provider_id" text` },
     { name: "etag", statement: sql`ALTER TABLE "file" ADD COLUMN "etag" text` },
     { name: "cache_control", statement: sql`ALTER TABLE "file" ADD COLUMN "cache_control" text` },
     { name: "last_modified", statement: sql`ALTER TABLE "file" ADD COLUMN "last_modified" integer` },
     { name: "is_deleted", statement: sql`ALTER TABLE "file" ADD COLUMN "is_deleted" integer DEFAULT 0 NOT NULL` },
     { name: "deleted_at", statement: sql`ALTER TABLE "file" ADD COLUMN "deleted_at" integer` },
+    { name: "created_at", statement: sql`ALTER TABLE "file" ADD COLUMN "created_at" integer DEFAULT 0` },
     { name: "updated_at", statement: sql`ALTER TABLE "file" ADD COLUMN "updated_at" integer DEFAULT 0` },
 ]
 

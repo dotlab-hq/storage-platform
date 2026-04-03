@@ -4,6 +4,7 @@ import { virtualBucket } from "@/db/schema/s3-gateway"
 import { folder, file, userStorage } from "@/db/schema/storage"
 import type { S3BucketCredentials, S3BucketItem } from "@/types/s3-buckets"
 import { and, eq, like } from "drizzle-orm"
+import { ensureS3FileSchemaCompatibility } from "@/lib/s3-gateway/s3-file-schema-compat"
 
 function toBucketItem( row: {
     id: string
@@ -121,6 +122,8 @@ export async function createVirtualBucket( userId: string, bucketName: string ):
 }
 
 export async function emptyVirtualBucket( userId: string, bucketName: string ): Promise<void> {
+    await ensureS3FileSchemaCompatibility()
+
     const bucketRows = await db
         .select( { id: virtualBucket.id } )
         .from( virtualBucket )
@@ -147,13 +150,19 @@ export async function emptyVirtualBucket( userId: string, bucketName: string ): 
     } catch ( error ) {
         const message = error instanceof Error ? `${error.name}: ${error.message}` : "Unknown query error"
         console.warn( "[S3 Gateway] emptyVirtualBucket fell back to prefix-only file lookup due to schema mismatch:", message )
-        activeFiles = await db
-            .select( {
-                id: file.id,
-                sizeInBytes: file.sizeInBytes,
-            } )
-            .from( file )
-            .where( like( file.objectKey, prefix ) )
+        try {
+            activeFiles = await db
+                .select( {
+                    id: file.id,
+                    sizeInBytes: file.sizeInBytes,
+                } )
+                .from( file )
+                .where( like( file.objectKey, prefix ) )
+        } catch ( fallbackError ) {
+            const fallbackMessage = fallbackError instanceof Error ? `${fallbackError.name}: ${fallbackError.message}` : "Unknown fallback query error"
+            console.warn( "[S3 Gateway] emptyVirtualBucket could not enumerate objects due to legacy file schema mismatch:", fallbackMessage )
+            activeFiles = []
+        }
     }
 
     if ( activeFiles.length === 0 ) {
@@ -189,6 +198,8 @@ export async function emptyVirtualBucket( userId: string, bucketName: string ): 
 }
 
 export async function deleteVirtualBucket( userId: string, bucketName: string ): Promise<void> {
+    await ensureS3FileSchemaCompatibility()
+
     const bucketRows = await db
         .select( {
             id: virtualBucket.id,
@@ -214,12 +225,18 @@ export async function deleteVirtualBucket( userId: string, bucketName: string ):
     } catch ( error ) {
         const message = error instanceof Error ? `${error.name}: ${error.message}` : "Unknown query error"
         console.warn( "[S3 Gateway] deleteVirtualBucket fell back to prefix-only emptiness check due to schema mismatch:", message )
-        const remainingRows = await db
-            .select( { id: file.id } )
-            .from( file )
-            .where( like( file.objectKey, prefix ) )
-            .limit( 1 )
-        hasActiveObjects = remainingRows.length > 0
+        try {
+            const remainingRows = await db
+                .select( { id: file.id } )
+                .from( file )
+                .where( like( file.objectKey, prefix ) )
+                .limit( 1 )
+            hasActiveObjects = remainingRows.length > 0
+        } catch ( fallbackError ) {
+            const fallbackMessage = fallbackError instanceof Error ? `${fallbackError.name}: ${fallbackError.message}` : "Unknown fallback query error"
+            console.warn( "[S3 Gateway] deleteVirtualBucket skipped strict emptiness validation due to legacy file schema mismatch:", fallbackMessage )
+            hasActiveObjects = false
+        }
     }
 
     if ( hasActiveObjects ) {
