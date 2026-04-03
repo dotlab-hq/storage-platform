@@ -65,8 +65,14 @@ export async function listObjectsV2( bucket: BucketContext, prefix: string ): Pr
         .filter( ( row ) => row.key.startsWith( prefix ) )
 }
 
-export async function putObject( bucket: BucketContext, objectKey: string, body: Uint8Array, contentType: string | null ): Promise<string | null> {
-    const provider = await selectProviderForUpload( body.byteLength )
+export async function putObject(
+    bucket: BucketContext,
+    objectKey: string,
+    body: ReadableStream<Uint8Array>,
+    contentType: string | null,
+    contentLength: number | null,
+): Promise<string | null> {
+    const provider = await selectProviderForUpload( contentLength ?? 0 )
     const upstreamKey = upstreamKeyFor( bucket, objectKey )
 
     const result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new PutObjectCommand( {
@@ -79,6 +85,7 @@ export async function putObject( bucket: BucketContext, objectKey: string, body:
     let metadataETag: string | undefined
     let metadataCacheControl: string | undefined
     let metadataLastModified: Date | undefined
+    let metadataContentLength: number | undefined
     try {
         const metadata = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new HeadObjectCommand( {
             Bucket: provider.bucketName,
@@ -87,6 +94,7 @@ export async function putObject( bucket: BucketContext, objectKey: string, body:
         metadataETag = metadata.ETag
         metadataCacheControl = metadata.CacheControl
         metadataLastModified = metadata.LastModified
+        metadataContentLength = typeof metadata.ContentLength === "number" ? metadata.ContentLength : undefined
     } catch ( error ) {
         if ( error instanceof ProviderRequestTimeoutError ) {
             throw error
@@ -102,7 +110,7 @@ export async function putObject( bucket: BucketContext, objectKey: string, body:
         contentType,
         mappedFolderId: bucket.mappedFolderId,
         fileName: deriveFileName( objectKey ),
-        sizeInBytes: body.byteLength,
+        sizeInBytes: metadataContentLength ?? contentLength ?? 0,
         // Prefer HEAD metadata ETag because provider PutObject responses may omit ETag in some configurations.
         etag: resolvePersistedETag( metadataETag, result.ETag ),
         cacheControl: metadataCacheControl ?? null,

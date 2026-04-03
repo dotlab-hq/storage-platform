@@ -34,8 +34,9 @@ export async function uploadPart(
     bucket: BucketContext,
     objectKey: string,
     uploadId: string,
-    body: Uint8Array,
+    body: ReadableStream<Uint8Array>,
     contentType: string | null,
+    contentLength: number | null,
 ): Promise<string | null> {
     const rows = await db
         .select( {
@@ -64,7 +65,7 @@ export async function uploadPart(
         .update( uploadAttempt )
         .set( {
             objectKey,
-            expectedSize: body.byteLength,
+            expectedSize: contentLength ?? 0,
             etag: result.ETag ?? null,
             contentType,
         } )

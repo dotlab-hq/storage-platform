@@ -71,8 +71,12 @@ function withCors( request: Request, response: Response ): Response {
     } )
 }
 
-async function readBodyBytes( request: Request ): Promise<Uint8Array> {
-    return new Uint8Array( await request.arrayBuffer() )
+function parseContentLength( request: Request ): number | null {
+    const raw = request.headers.get( "content-length" )
+    if ( !raw ) return null
+    const parsed = Number.parseInt( raw, 10 )
+    if ( !Number.isFinite( parsed ) || parsed < 0 ) return null
+    return parsed
 }
 
 async function resolveAuthorizedBucket( request: Request, bucketName: string | null ): Promise<BucketContext | null> {
@@ -139,13 +143,17 @@ async function handlePut( request: Request ): Promise<Response> {
     const bucket = await resolveAuthorizedBucket( request, parsed.bucketName )
     if ( !bucket ) return s3ErrorResponse( 403, "AccessDenied", "Access denied", `/${parsed.bucketName}/${parsed.objectKey}` )
 
-    const body = await readBodyBytes( request )
+    if ( !request.body ) {
+        return s3ErrorResponse( 400, "InvalidRequest", "Request body stream is required", `/${parsed.bucketName}/${parsed.objectKey}` )
+    }
+    const body = request.body
+    const contentLength = parseContentLength( request )
     const contentType = request.headers.get( "content-type" )
     const uploadId = multipartUploadId( request.url )
     const partNumber = multipartPartNumber( request.url )
     const eTag = uploadId && partNumber
-        ? await uploadPart( bucket, parsed.objectKey, uploadId, body, contentType )
-        : await putObject( bucket, parsed.objectKey, body, contentType )
+        ? await uploadPart( bucket, parsed.objectKey, uploadId, body, contentType, contentLength )
+        : await putObject( bucket, parsed.objectKey, body, contentType, contentLength )
     return new Response( null, { status: 200, headers: { ETag: eTag ?? "" } } )
 }
 
