@@ -3,7 +3,7 @@ import { db } from "@/db"
 import { virtualBucket } from "@/db/schema/s3-gateway"
 import { folder, file, userStorage } from "@/db/schema/storage"
 import type { S3BucketCredentials, S3BucketItem } from "@/types/s3-buckets"
-import { and, eq, like, sql } from "drizzle-orm"
+import { and, eq, like } from "drizzle-orm"
 
 function toBucketItem( row: {
     id: string
@@ -132,13 +132,29 @@ export async function emptyVirtualBucket( userId: string, bucketName: string ): 
     }
 
     const prefix = `s3/${userId}/${bucketRows[0].id}/%`
-    const activeFiles = await db
-        .select( {
-            id: file.id,
-            sizeInBytes: file.sizeInBytes,
-        } )
-        .from( file )
-        .where( and( eq( file.userId, userId ), eq( file.isDeleted, false ), like( file.objectKey, prefix ) ) )
+    let activeFiles: Array<{
+        id: string
+        sizeInBytes: number
+    }>
+    try {
+        activeFiles = await db
+            .select( {
+                id: file.id,
+                sizeInBytes: file.sizeInBytes,
+            } )
+            .from( file )
+            .where( and( eq( file.userId, userId ), eq( file.isDeleted, false ), like( file.objectKey, prefix ) ) )
+    } catch ( error ) {
+        const message = error instanceof Error ? `${error.name}: ${error.message}` : "Unknown query error"
+        console.warn( "[S3 Gateway] emptyVirtualBucket fell back to prefix-only file lookup due to schema mismatch:", message )
+        activeFiles = await db
+            .select( {
+                id: file.id,
+                sizeInBytes: file.sizeInBytes,
+            } )
+            .from( file )
+            .where( like( file.objectKey, prefix ) )
+    }
 
     if ( activeFiles.length === 0 ) {
         return
@@ -147,10 +163,18 @@ export async function emptyVirtualBucket( userId: string, bucketName: string ): 
     const totalBytes = activeFiles.reduce( ( sum, item ) => sum + item.sizeInBytes, 0 )
     const now = new Date()
 
-    await db
-        .update( file )
-        .set( { isDeleted: true, deletedAt: now } )
-        .where( and( eq( file.userId, userId ), eq( file.isDeleted, false ), like( file.objectKey, prefix ) ) )
+    try {
+        await db
+            .update( file )
+            .set( { isDeleted: true, deletedAt: now } )
+            .where( and( eq( file.userId, userId ), eq( file.isDeleted, false ), like( file.objectKey, prefix ) ) )
+    } catch ( error ) {
+        const message = error instanceof Error ? `${error.name}: ${error.message}` : "Unknown query error"
+        console.warn( "[S3 Gateway] emptyVirtualBucket fell back to hard delete due to schema mismatch:", message )
+        await db
+            .delete( file )
+            .where( like( file.objectKey, prefix ) )
+    }
 
     const storageRows = await db
         .select( { usedStorage: userStorage.usedStorage } )
@@ -179,12 +203,26 @@ export async function deleteVirtualBucket( userId: string, bucketName: string ):
     }
 
     const prefix = `s3/${userId}/${bucketRows[0].id}/%`
-    const countRows = await db
-        .select( { count: sql<number>`count(*)::int` } )
-        .from( file )
-        .where( and( eq( file.userId, userId ), eq( file.isDeleted, false ), like( file.objectKey, prefix ) ) )
+    let hasActiveObjects = false
+    try {
+        const remainingRows = await db
+            .select( { id: file.id } )
+            .from( file )
+            .where( and( eq( file.userId, userId ), eq( file.isDeleted, false ), like( file.objectKey, prefix ) ) )
+            .limit( 1 )
+        hasActiveObjects = remainingRows.length > 0
+    } catch ( error ) {
+        const message = error instanceof Error ? `${error.name}: ${error.message}` : "Unknown query error"
+        console.warn( "[S3 Gateway] deleteVirtualBucket fell back to prefix-only emptiness check due to schema mismatch:", message )
+        const remainingRows = await db
+            .select( { id: file.id } )
+            .from( file )
+            .where( like( file.objectKey, prefix ) )
+            .limit( 1 )
+        hasActiveObjects = remainingRows.length > 0
+    }
 
-    if ( ( countRows[0]?.count ?? 0 ) > 0 ) {
+    if ( hasActiveObjects ) {
         throw new Error( "Bucket is not empty. Empty it before deleting." )
     }
 

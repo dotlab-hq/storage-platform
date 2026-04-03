@@ -88,7 +88,7 @@ export async function listObjectsV2( bucket: BucketContext, prefix: string ): Pr
                 sizeInBytes: file.sizeInBytes,
             } )
             .from( file )
-            .where( and( eq( file.userId, bucket.userId ), like( file.objectKey, `${basePrefix}%` ) ) )
+            .where( like( file.objectKey, `${basePrefix}%` ) )
 
         rows = fallbackRows.map( ( row ) => ( {
             objectKey: row.objectKey,
@@ -275,11 +275,20 @@ export async function headObject( bucket: BucketContext, objectKey: string, cond
 
 export async function deleteObject( bucket: BucketContext, objectKey: string ): Promise<void> {
     const upstreamKey = upstreamKeyFor( bucket, objectKey )
-    await db
-        .update( file )
-        .set( {
-            isDeleted: true,
-            deletedAt: new Date(),
-        } )
-        .where( and( eq( file.userId, bucket.userId ), eq( file.objectKey, upstreamKey ), eq( file.isDeleted, false ) ) )
+    try {
+        await db
+            .update( file )
+            .set( {
+                isDeleted: true,
+                deletedAt: new Date(),
+            } )
+            .where( and( eq( file.userId, bucket.userId ), eq( file.objectKey, upstreamKey ), eq( file.isDeleted, false ) ) )
+    } catch ( error ) {
+        const message = error instanceof Error ? `${error.name}: ${error.message}` : "Unknown query error"
+        console.warn( "[S3 Gateway] deleteObject fell back to hard delete due to schema mismatch:", message )
+
+        await db
+            .delete( file )
+            .where( eq( file.objectKey, upstreamKey ) )
+    }
 }

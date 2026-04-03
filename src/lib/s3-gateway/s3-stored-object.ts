@@ -46,7 +46,7 @@ export async function findStoredObject( bucket: BucketContext, objectKey: string
                 sizeInBytes: file.sizeInBytes,
             } )
             .from( file )
-            .where( and( eq( file.userId, bucket.userId ), eq( file.objectKey, upstreamKey ) ) )
+            .where( eq( file.objectKey, upstreamKey ) )
             .limit( 1 )
 
         const row = fallbackRows[0]
