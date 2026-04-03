@@ -175,13 +175,19 @@ export async function handleS3Request( request: Request ): Promise<Response> {
 
         return withCors( request, response )
     } catch ( error ) {
-        const message = error instanceof Error ? error.message : "Unknown server error"
+        const message = error instanceof Error
+            ? `${error.name}: ${error.message}`
+            : "Unknown server error"
         const resource = new URL( request.url ).pathname
         if ( error instanceof ProviderRequestTimeoutError ) {
             return withCors( request, s3ErrorResponse( 504, "RequestTimeout", message, resource ) )
         }
         if ( /Invalid or expired upload ID/i.test( message ) ) {
             return withCors( request, s3ErrorResponse( 404, "NoSuchUpload", message, resource ) )
+        }
+        if ( error && typeof error === "object" && "$metadata" in error ) {
+            const metadata = ( error as { $metadata?: unknown } ).$metadata
+            console.error( "[S3 Gateway] Unhandled request error metadata:", metadata )
         }
         console.error( "[S3 Gateway] Unhandled request error:", error )
         return withCors( request, s3ErrorResponse( 500, "InternalError", message, resource ) )

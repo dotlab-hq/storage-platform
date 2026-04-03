@@ -65,6 +65,8 @@ function fromEnvironment(): ProviderClientConfig {
             endpoint,
             forcePathStyle: true,
             bucketEndpoint: false,
+            requestChecksumCalculation: "WHEN_REQUIRED",
+            responseChecksumValidation: "WHEN_REQUIRED",
             credentials: { accessKeyId, secretAccessKey },
         } ),
     }
@@ -97,6 +99,8 @@ function fromProviderRow( row: ProviderRow ): ProviderClientConfig {
             endpoint,
             forcePathStyle: true,
             bucketEndpoint: false,
+            requestChecksumCalculation: "WHEN_REQUIRED",
+            responseChecksumValidation: "WHEN_REQUIRED",
             credentials: {
                 accessKeyId,
                 secretAccessKey,
