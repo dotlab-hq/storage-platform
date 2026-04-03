@@ -67,5 +67,6 @@ export function listPrefix( requestUrl: string ): string {
 
 export function listTypeIsV2( requestUrl: string ): boolean {
     const url = new URL( requestUrl )
-    return url.searchParams.get( "list-type" ) === "2"
+    const listType = url.searchParams.get( "list-type" )
+    return listType === null || listType === "2"
 }
