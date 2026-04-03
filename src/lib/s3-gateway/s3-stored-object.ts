@@ -44,7 +44,6 @@ export async function findStoredObject( bucket: BucketContext, objectKey: string
                 providerId: file.providerId,
                 mimeType: file.mimeType,
                 sizeInBytes: file.sizeInBytes,
-                updatedAt: file.updatedAt,
             } )
             .from( file )
             .where( and( eq( file.userId, bucket.userId ), eq( file.objectKey, upstreamKey ) ) )
@@ -63,7 +62,7 @@ export async function findStoredObject( bucket: BucketContext, objectKey: string
             etag: null,
             cacheControl: null,
             lastModified: null,
-            updatedAt: row.updatedAt,
+            updatedAt: new Date( 0 ),
         }
     }
 }

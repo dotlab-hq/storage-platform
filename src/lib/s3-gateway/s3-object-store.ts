@@ -26,14 +26,12 @@ const GET_OBJECT_REDIRECT_TTL_SECONDS = 60
 async function* streamWebChunks( stream: ReadableStream<Uint8Array> ): AsyncGenerator<Uint8Array> {
     const reader = stream.getReader()
     try {
-        while ( true ) {
+        for ( ; ; ) {
             const { done, value } = await reader.read()
             if ( done ) {
                 return
             }
-            if ( value ) {
-                yield value
-            }
+            yield value
         }
     } finally {
         reader.releaseLock()
@@ -67,7 +65,7 @@ export async function listObjectsV2( bucket: BucketContext, prefix: string ): Pr
         sizeInBytes: number
         etag: string | null
         lastModified: Date | null
-        updatedAt: Date
+        updatedAt: Date | null
     }>
 
     try {
@@ -88,7 +86,6 @@ export async function listObjectsV2( bucket: BucketContext, prefix: string ): Pr
             .select( {
                 objectKey: file.objectKey,
                 sizeInBytes: file.sizeInBytes,
-                updatedAt: file.updatedAt,
             } )
             .from( file )
             .where( and( eq( file.userId, bucket.userId ), like( file.objectKey, `${basePrefix}%` ) ) )
@@ -98,7 +95,7 @@ export async function listObjectsV2( bucket: BucketContext, prefix: string ): Pr
             sizeInBytes: row.sizeInBytes,
             etag: null,
             lastModified: null,
-            updatedAt: row.updatedAt,
+            updatedAt: null,
         } ) )
     }
 
@@ -111,7 +108,7 @@ export async function listObjectsV2( bucket: BucketContext, prefix: string ): Pr
                 key,
                 size: row.sizeInBytes,
                 eTag: row.etag,
-                lastModified: row.lastModified ?? row.updatedAt,
+                lastModified: row.lastModified ?? row.updatedAt ?? new Date( 0 ),
             }
         } )
         .filter( ( row ) => row.key.startsWith( prefix ) )

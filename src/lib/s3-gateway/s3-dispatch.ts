@@ -3,6 +3,7 @@ import { parseAccessKeyId, resolveBucketByAccessKey, resolveBucketByName, isSecr
 import { abortMultipartUpload, completeMultipartUpload, createMultipartUpload, uploadPart } from "@/lib/s3-gateway/s3-multipart"
 import { deleteObject, getObject, headObject, listObjectsV2, putObject } from "@/lib/s3-gateway/s3-object-store"
 import { parseCompleteMultipartUploadParts } from "@/lib/s3-gateway/s3-multipart-complete-parser"
+import { ensureS3FileSchemaCompatibility } from "@/lib/s3-gateway/s3-file-schema-compat"
 import { hasMultipartCreateFlag, listPrefix, listTypeIsV2, multipartPartNumber, multipartUploadId, parseS3Path } from "@/lib/s3-gateway/s3-request"
 import { ProviderRequestTimeoutError } from "@/lib/s3-gateway/s3-provider-timeout"
 import { completeMultipartUploadXml, createMultipartUploadXml, listBucketsXml, listObjectsV2Xml, s3ErrorResponse, xmlResponse } from "@/lib/s3-gateway/s3-xml"
@@ -203,6 +204,8 @@ async function handlePost( request: Request ): Promise<Response> {
 
 export async function handleS3Request( request: Request ): Promise<Response> {
     try {
+        await ensureS3FileSchemaCompatibility()
+
         if ( request.method === "OPTIONS" ) {
             return withCors( request, new Response( null, { status: 204 } ) )
         }
