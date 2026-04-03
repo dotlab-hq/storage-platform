@@ -73,17 +73,6 @@ async function* streamWebChunks( stream: ReadableStream<Uint8Array> ): AsyncGene
 }
 
 function toNodeReadable( stream: ReadableStream<Uint8Array> ): Readable {
-    const fromWeb = Readable.fromWeb
-    if ( typeof fromWeb === "function" ) {
-        try {
-            const nodeStream = fromWeb( stream )
-            if ( nodeStream instanceof Readable ) {
-                return nodeStream
-            }
-        } catch {
-            // Fallback below handles environments where fromWeb cannot adapt this stream implementation.
-        }
-    }
     return Readable.from( streamWebChunks( stream ) )
 }
 

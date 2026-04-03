@@ -88,15 +88,8 @@ function parseContentLength( request: Request ): number | null {
 }
 
 function buildUploadBodyAttempts( request: Request, maxAttempts: number ): ReadableStream<Uint8Array>[] {
-    if ( maxAttempts <= 1 ) {
-        return request.body ? [request.body] : []
-    }
-
     const bodyAttempts: ReadableStream<Uint8Array>[] = []
-    if ( request.body ) {
-        bodyAttempts.push( request.body )
-    }
-    for ( let index = 1; index < maxAttempts; index += 1 ) {
+    for ( let index = 0; index < maxAttempts; index += 1 ) {
         const cloneBody = request.clone().body
         if ( cloneBody ) {
             bodyAttempts.push( cloneBody )

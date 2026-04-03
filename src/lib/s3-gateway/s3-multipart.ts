@@ -7,7 +7,7 @@ import { getProviderClientById, selectProviderForUpload } from "@/lib/s3-provide
 import { and, eq } from "drizzle-orm"
 import { upsertCommittedFile } from "./upload-file-records"
 import { buildUpstreamObjectKey, deriveFileName } from "./upload-key-utils"
-import { sendWithProviderTimeout } from "./s3-provider-timeout"
+import { ProviderRequestTimeoutError, sendWithProviderTimeout } from "./s3-provider-timeout"
 import { normalizeETag } from "./s3-conditional-cache"
 
 const MULTIPART_UPLOAD_EXPIRY_MS = 60 * 60 * 1000
@@ -31,6 +31,9 @@ function uploadErrorStatusCode( error: unknown ): number | null {
 }
 
 function isRetryableUploadError( error: unknown ): boolean {
+    if ( error instanceof ProviderRequestTimeoutError ) {
+        return true
+    }
     const statusCode = uploadErrorStatusCode( error )
     if ( statusCode !== null && RETRYABLE_UPLOAD_STATUS_CODES.has( statusCode ) ) {
         return true
@@ -59,17 +62,6 @@ async function* streamWebChunks( stream: ReadableStream<Uint8Array> ): AsyncGene
 }
 
 function toNodeReadable( stream: ReadableStream<Uint8Array> ): Readable {
-    const fromWeb = Readable.fromWeb
-    if ( typeof fromWeb === "function" ) {
-        try {
-            const nodeStream = fromWeb( stream )
-            if ( nodeStream instanceof Readable ) {
-                return nodeStream
-            }
-        } catch {
-            // Fallback below handles environments where fromWeb cannot adapt this stream implementation.
-        }
-    }
     return Readable.from( streamWebChunks( stream ) )
 }
 
