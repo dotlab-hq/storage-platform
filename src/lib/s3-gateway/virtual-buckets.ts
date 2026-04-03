@@ -161,16 +161,22 @@ export async function emptyVirtualBucket( userId: string, bucketName: string ): 
         } catch ( fallbackError ) {
             const fallbackMessage = fallbackError instanceof Error ? `${fallbackError.name}: ${fallbackError.message}` : "Unknown fallback query error"
             console.warn( "[S3 Gateway] emptyVirtualBucket degraded to object_key-only lookup due to legacy file schema mismatch:", fallbackMessage )
-            const keyOnlyRows = await db
-                .select( {
-                    objectKey: file.objectKey,
-                } )
-                .from( file )
-                .where( like( file.objectKey, prefix ) )
-            activeFiles = keyOnlyRows.map( ( row ) => ( {
-                objectKey: row.objectKey,
-                sizeInBytes: 0,
-            } ) )
+            try {
+                const keyOnlyRows = await db
+                    .select( {
+                        objectKey: file.objectKey,
+                    } )
+                    .from( file )
+                    .where( like( file.objectKey, prefix ) )
+                activeFiles = keyOnlyRows.map( ( row ) => ( {
+                    objectKey: row.objectKey,
+                    sizeInBytes: 0,
+                } ) )
+            } catch ( finalFallbackError ) {
+                const finalFallbackMessage = finalFallbackError instanceof Error ? `${finalFallbackError.name}: ${finalFallbackError.message}` : "Unknown final fallback query error"
+                console.warn( "[S3 Gateway] emptyVirtualBucket could not enumerate rows due to incompatible legacy schema:", finalFallbackMessage )
+                activeFiles = []
+            }
         }
     }
 

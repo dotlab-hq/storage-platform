@@ -101,21 +101,26 @@ export async function listObjectsV2( bucket: BucketContext, prefix: string ): Pr
         } catch ( fallbackError ) {
             const fallbackMessage = fallbackError instanceof Error ? `${fallbackError.name}: ${fallbackError.message}` : "Unknown fallback query error"
             console.warn( "[S3 Gateway] listObjectsV2 degraded to object_key-only query due to legacy schema mismatch:", fallbackMessage )
+            try {
+                const keyOnlyRows = await db
+                    .select( {
+                        objectKey: file.objectKey,
+                    } )
+                    .from( file )
+                    .where( like( file.objectKey, `${basePrefix}%` ) )
 
-            const keyOnlyRows = await db
-                .select( {
-                    objectKey: file.objectKey,
-                } )
-                .from( file )
-                .where( like( file.objectKey, `${basePrefix}%` ) )
-
-            rows = keyOnlyRows.map( ( row ) => ( {
-                objectKey: row.objectKey,
-                sizeInBytes: 0,
-                etag: null,
-                lastModified: null,
-                updatedAt: null,
-            } ) )
+                rows = keyOnlyRows.map( ( row ) => ( {
+                    objectKey: row.objectKey,
+                    sizeInBytes: 0,
+                    etag: null,
+                    lastModified: null,
+                    updatedAt: null,
+                } ) )
+            } catch ( finalFallbackError ) {
+                const finalFallbackMessage = finalFallbackError instanceof Error ? `${finalFallbackError.name}: ${finalFallbackError.message}` : "Unknown final fallback query error"
+                console.warn( "[S3 Gateway] listObjectsV2 could not query file rows due to incompatible legacy schema:", finalFallbackMessage )
+                rows = []
+            }
         }
     }
 
