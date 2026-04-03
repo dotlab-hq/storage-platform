@@ -159,7 +159,8 @@ test.describe( "S3 compatibility endpoints", () => {
     test( "Multipart lifecycle works", async () => {
         test.skip( process.env.S3_TEST_ENABLE_MULTIPART !== "true", "Set S3_TEST_ENABLE_MULTIPART=true to run multipart checks" )
         const client = createS3Client()
-        const partBody = new Uint8Array( Buffer.from( "multipart-content-for-s3-compat-tests" ) )
+        const partOne = new Uint8Array( Buffer.from( "multipart-part-1-" ) )
+        const partTwo = new Uint8Array( Buffer.from( "multipart-part-2" ) )
 
         const createResult = await client.send( new CreateMultipartUploadCommand( {
             Bucket: bucketName,
@@ -173,17 +174,30 @@ test.describe( "S3 compatibility endpoints", () => {
         }
 
         try {
-            const partResult = await client.send( new UploadPartCommand( {
+            const partOneResult = await client.send( new UploadPartCommand( {
                 Bucket: bucketName,
                 Key: multipartKey,
                 UploadId: uploadId,
                 PartNumber: 1,
-                Body: partBody,
+                Body: partOne,
             } ) )
 
-            const eTag = partResult.ETag
-            if ( !eTag ) {
-                throw new Error( "Multipart part upload did not return ETag" )
+            const partOneETag = partOneResult.ETag
+            if ( !partOneETag ) {
+                throw new Error( "Multipart part 1 upload did not return ETag" )
+            }
+
+            const partTwoResult = await client.send( new UploadPartCommand( {
+                Bucket: bucketName,
+                Key: multipartKey,
+                UploadId: uploadId,
+                PartNumber: 2,
+                Body: partTwo,
+            } ) )
+
+            const partTwoETag = partTwoResult.ETag
+            if ( !partTwoETag ) {
+                throw new Error( "Multipart part 2 upload did not return ETag" )
             }
 
             await client.send( new CompleteMultipartUploadCommand( {
@@ -191,9 +205,19 @@ test.describe( "S3 compatibility endpoints", () => {
                 Key: multipartKey,
                 UploadId: uploadId,
                 MultipartUpload: {
-                    Parts: [{ ETag: eTag, PartNumber: 1 }],
+                    Parts: [
+                        { ETag: partOneETag, PartNumber: 1 },
+                        { ETag: partTwoETag, PartNumber: 2 },
+                    ],
                 },
             } ) )
+
+            const object = await client.send( new GetObjectCommand( {
+                Bucket: bucketName,
+                Key: multipartKey,
+            } ) )
+            const content = await object.Body?.transformToString()
+            expect( content ?? "" ).toBe( "multipart-part-1-multipart-part-2" )
 
             await client.send( new DeleteObjectCommand( {
                 Bucket: bucketName,

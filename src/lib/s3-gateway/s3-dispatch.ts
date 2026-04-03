@@ -2,6 +2,7 @@ import type { BucketContext } from "@/lib/s3-gateway/s3-context"
 import { parseAccessKeyId, resolveBucketByAccessKey, resolveBucketByName, isSecretValid } from "@/lib/s3-gateway/s3-context"
 import { abortMultipartUpload, completeMultipartUpload, createMultipartUpload, uploadPart } from "@/lib/s3-gateway/s3-multipart"
 import { deleteObject, getObject, headObject, listObjectsV2, putObject } from "@/lib/s3-gateway/s3-object-store"
+import { parseCompleteMultipartUploadParts } from "@/lib/s3-gateway/s3-multipart-complete-parser"
 import { hasMultipartCreateFlag, listPrefix, listTypeIsV2, multipartPartNumber, multipartUploadId, parseS3Path } from "@/lib/s3-gateway/s3-request"
 import { ProviderRequestTimeoutError } from "@/lib/s3-gateway/s3-provider-timeout"
 import { completeMultipartUploadXml, createMultipartUploadXml, listBucketsXml, listObjectsV2Xml, s3ErrorResponse, xmlResponse } from "@/lib/s3-gateway/s3-xml"
@@ -11,14 +12,6 @@ type ErrorWithMetadata = {
         httpStatusCode?: number
     }
 }
-
-const UPLOAD_MAX_ATTEMPTS = ( () => {
-    const raw = process.env.S3_UPLOAD_MAX_ATTEMPTS
-    if ( !raw ) return 3
-    const parsed = Number.parseInt( raw, 10 )
-    if ( !Number.isFinite( parsed ) || parsed < 1 ) return 3
-    return parsed
-} )()
 
 function providerHttpStatusCode( error: unknown ): number | null {
     if ( !error || typeof error !== "object" ) {
@@ -87,17 +80,6 @@ function parseContentLength( request: Request ): number | null {
     return parsed
 }
 
-function buildUploadBodyAttempts( request: Request, maxAttempts: number ): ReadableStream<Uint8Array>[] {
-    const bodyAttempts: ReadableStream<Uint8Array>[] = []
-    for ( let index = 0; index < maxAttempts; index += 1 ) {
-        const cloneBody = request.clone().body
-        if ( cloneBody ) {
-            bodyAttempts.push( cloneBody )
-        }
-    }
-    return bodyAttempts
-}
-
 async function resolveAuthorizedBucket( request: Request, bucketName: string | null ): Promise<BucketContext | null> {
     const accessKeyId = parseAccessKeyId( request )
     if ( !accessKeyId ) return null
@@ -162,17 +144,22 @@ async function handlePut( request: Request ): Promise<Response> {
     const bucket = await resolveAuthorizedBucket( request, parsed.bucketName )
     if ( !bucket ) return s3ErrorResponse( 403, "AccessDenied", "Access denied", `/${parsed.bucketName}/${parsed.objectKey}` )
 
-    const bodyAttempts = buildUploadBodyAttempts( request, UPLOAD_MAX_ATTEMPTS )
-    if ( bodyAttempts.length === 0 ) {
+    const body = request.body
+    if ( !body ) {
         return s3ErrorResponse( 400, "InvalidRequest", "Request body stream is required", `/${parsed.bucketName}/${parsed.objectKey}` )
     }
     const contentLength = parseContentLength( request )
     const contentType = request.headers.get( "content-type" )
     const uploadId = multipartUploadId( request.url )
     const partNumber = multipartPartNumber( request.url )
+    const hasMultipartFlags = uploadId !== null || partNumber !== null
+    if ( hasMultipartFlags && ( uploadId === null || partNumber === null ) ) {
+        return s3ErrorResponse( 400, "InvalidRequest", "Both uploadId and partNumber are required for multipart part upload", `/${parsed.bucketName}/${parsed.objectKey}` )
+    }
+
     const eTag = uploadId && partNumber
-        ? await uploadPart( bucket, parsed.objectKey, uploadId, bodyAttempts, contentType, contentLength )
-        : await putObject( bucket, parsed.objectKey, bodyAttempts, contentType, contentLength )
+        ? await uploadPart( bucket, parsed.objectKey, uploadId, partNumber, body, contentType, contentLength )
+        : await putObject( bucket, parsed.objectKey, body, contentType, contentLength )
     return new Response( null, { status: 200, headers: { ETag: eTag ?? "" } } )
 }
 
@@ -205,7 +192,9 @@ async function handlePost( request: Request ): Promise<Response> {
 
     const uploadId = multipartUploadId( request.url )
     if ( uploadId ) {
-        const eTag = await completeMultipartUpload( bucket, uploadId )
+        const requestBody = await request.text()
+        const parts = parseCompleteMultipartUploadParts( requestBody )
+        const eTag = await completeMultipartUpload( bucket, uploadId, parts )
         return xmlResponse( completeMultipartUploadXml( bucket.bucketName, parsed.objectKey, eTag ) )
     }
 
@@ -239,6 +228,9 @@ export async function handleS3Request( request: Request ): Promise<Response> {
         }
         if ( /Invalid or expired upload ID/i.test( message ) ) {
             return withCors( request, s3ErrorResponse( 404, "NoSuchUpload", message, resource ) )
+        }
+        if ( /MalformedXML|InvalidPart/i.test( message ) ) {
+            return withCors( request, s3ErrorResponse( 400, "MalformedXML", message, resource ) )
         }
         const upstreamStatusCode = providerHttpStatusCode( error )
         if ( upstreamStatusCode !== null ) {
