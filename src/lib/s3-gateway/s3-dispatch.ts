@@ -1,12 +1,12 @@
 import type { BucketContext } from "@/lib/s3-gateway/s3-context"
 import { parseAccessKeyId, resolveBucketByAccessKey, resolveBucketByName, isSecretValid } from "@/lib/s3-gateway/s3-context"
 import { abortMultipartUpload, completeMultipartUpload, createMultipartUpload, uploadPart } from "@/lib/s3-gateway/s3-multipart"
-import { deleteObject, getObject, headObject, listObjectsV2, putObject } from "@/lib/s3-gateway/s3-object-store"
+import { copyObject, deleteObject, getObject, headObject, listObjectsV2, putObject } from "@/lib/s3-gateway/s3-object-store"
 import { parseCompleteMultipartUploadParts } from "@/lib/s3-gateway/s3-multipart-complete-parser"
 import { ensureS3FileSchemaCompatibility } from "@/lib/s3-gateway/s3-file-schema-compat"
-import { hasMultipartCreateFlag, listPrefix, listTypeIsV2, multipartPartNumber, multipartUploadId, parseS3Path } from "@/lib/s3-gateway/s3-request"
+import { hasMultipartCreateFlag, listPrefix, listTypeIsV2, multipartPartNumber, multipartUploadId, parseCopySource, parseS3Path } from "@/lib/s3-gateway/s3-request"
 import { ProviderRequestTimeoutError } from "@/lib/s3-gateway/s3-provider-timeout"
-import { completeMultipartUploadXml, createMultipartUploadXml, listBucketsXml, listObjectsV2Xml, s3ErrorResponse, xmlResponse } from "@/lib/s3-gateway/s3-xml"
+import { completeMultipartUploadXml, copyObjectXml, createMultipartUploadXml, listBucketsXml, listObjectsV2Xml, s3ErrorResponse, xmlResponse } from "@/lib/s3-gateway/s3-xml"
 
 type ErrorWithMetadata = {
     $metadata?: {
@@ -144,6 +144,25 @@ async function handlePut( request: Request ): Promise<Response> {
     if ( !parsed.bucketName || !parsed.objectKey ) return s3ErrorResponse( 400, "InvalidRequest", "Bucket and key are required", "/" )
     const bucket = await resolveAuthorizedBucket( request, parsed.bucketName )
     if ( !bucket ) return s3ErrorResponse( 403, "AccessDenied", "Access denied", `/${parsed.bucketName}/${parsed.objectKey}` )
+
+    const copySourceHeader = request.headers.get( "x-amz-copy-source" )
+    if ( copySourceHeader ) {
+        const parsedCopySource = parseCopySource( copySourceHeader )
+        if ( !parsedCopySource ) {
+            return s3ErrorResponse( 400, "InvalidRequest", "x-amz-copy-source must be in the format /bucket/key", `/${parsed.bucketName}/${parsed.objectKey}` )
+        }
+
+        const sourceBucket = await resolveAuthorizedBucket( request, parsedCopySource.bucketName )
+        if ( !sourceBucket ) {
+            return s3ErrorResponse( 403, "AccessDenied", "Access denied to source bucket", `/${parsedCopySource.bucketName}/${parsedCopySource.objectKey}` )
+        }
+
+        const copied = await copyObject( sourceBucket, parsedCopySource.objectKey, bucket, parsed.objectKey )
+        const responseXml = copyObjectXml( copied.eTag ?? "", copied.lastModified )
+        return xmlResponse( responseXml, 200, {
+            ETag: copied.eTag ?? "",
+        } )
+    }
 
     const body = request.body
     if ( !body ) {

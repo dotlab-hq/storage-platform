@@ -2,6 +2,8 @@ import {
     HeadObjectCommand,
     PutObjectCommand,
     GetObjectCommand,
+    CopyObjectCommand,
+    ListObjectsV2Command,
 } from "@aws-sdk/client-s3"
 import { Readable } from "node:stream"
 import type { BucketContext } from "@/lib/s3-gateway/s3-context"
@@ -9,19 +11,12 @@ import { buildCacheHeaders, normalizeETag, shouldReturnNotModified } from "@/lib
 import { findStoredObject } from "@/lib/s3-gateway/s3-stored-object"
 import type { ObjectConditionalHeaders } from "@/lib/s3-gateway/s3-conditional-cache"
 import { getProviderClientById, selectProviderForUpload } from "@/lib/s3-provider-client"
-import { getSignedUrl } from "@aws-sdk/s3-request-presigner"
 import { and, eq, like } from "drizzle-orm"
 import { db } from "@/db"
 import { file } from "@/db/schema/storage"
 import { ProviderRequestTimeoutError, sendWithProviderTimeout } from "./s3-provider-timeout"
 import { upsertCommittedFile } from "./upload-file-records"
 import { buildUpstreamObjectKey, deriveFileName } from "./upload-key-utils"
-
-/**
- * Short redirect TTL limits exposure of presigned URLs in transit or logs
- * while still allowing normal immediate client follow-redirect download behavior.
- */
-const GET_OBJECT_REDIRECT_TTL_SECONDS = 60
 
 async function* streamWebChunks( stream: ReadableStream<Uint8Array> ): AsyncGenerator<Uint8Array> {
     const reader = stream.getReader()
@@ -119,7 +114,7 @@ export async function listObjectsV2( bucket: BucketContext, prefix: string ): Pr
             } catch ( finalFallbackError ) {
                 const finalFallbackMessage = finalFallbackError instanceof Error ? `${finalFallbackError.name}: ${finalFallbackError.message}` : "Unknown final fallback query error"
                 console.warn( "[S3 Gateway] listObjectsV2 could not query file rows due to incompatible legacy schema:", finalFallbackMessage )
-                rows = []
+                rows = await listObjectsFromProvider( bucket, prefix )
             }
         }
     }
@@ -137,6 +132,33 @@ export async function listObjectsV2( bucket: BucketContext, prefix: string ): Pr
             }
         } )
         .filter( ( row ) => row.key.startsWith( prefix ) )
+}
+
+async function listObjectsFromProvider( bucket: BucketContext, prefix: string ): Promise<Array<{
+    objectKey: string
+    sizeInBytes: number
+    etag: string | null
+    lastModified: Date | null
+    updatedAt: Date | null
+}>> {
+    const basePrefix = bucketPrefix( bucket )
+    const providerPrefix = `${basePrefix}${prefix}`
+    const provider = await getProviderClientById( null )
+    const listed = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new ListObjectsV2Command( {
+        Bucket: provider.bucketName,
+        Prefix: providerPrefix,
+        MaxKeys: 1000,
+    } ), { abortSignal } ) )
+
+    return ( listed.Contents ?? [] )
+        .filter( ( item ) => typeof item.Key === "string" )
+        .map( ( item ) => ( {
+            objectKey: item.Key as string,
+            sizeInBytes: typeof item.Size === "number" ? item.Size : 0,
+            etag: typeof item.ETag === "string" ? normalizeETag( item.ETag ) : null,
+            lastModified: item.LastModified ?? null,
+            updatedAt: null,
+        } ) )
 }
 
 export async function putObject(
@@ -194,12 +216,31 @@ export async function putObject(
     return result.ETag ?? null
 }
 
-function assertPresignedUrlEndpoint( presignedUrl: string, providerEndpoint: string ): void {
-    const signedUrl = new URL( presignedUrl )
-    const expected = new URL( providerEndpoint )
-    if ( signedUrl.protocol !== expected.protocol || signedUrl.host !== expected.host ) {
-        throw new Error( "Generated redirect URL endpoint does not match configured provider endpoint" )
+function copySourcePath( bucketName: string, key: string ): string {
+    const encodedKey = key
+        .split( "/" )
+        .map( ( part ) => encodeURIComponent( part ) )
+        .join( "/" )
+    return `${bucketName}/${encodedKey}`
+}
+
+function toBodyInit( body: unknown ): BodyInit | null {
+    if ( body === null || body === undefined ) {
+        return null
     }
+    if ( body instanceof ReadableStream || body instanceof Blob || body instanceof ArrayBuffer || typeof body === "string" || body instanceof URLSearchParams || body instanceof FormData ) {
+        return body
+    }
+    if ( body instanceof Uint8Array ) {
+        const cloned = new Uint8Array( body.byteLength )
+        cloned.set( body )
+        return cloned.buffer
+    }
+    if ( typeof body === "object" && "transformToWebStream" in body && typeof ( body as { transformToWebStream?: unknown } ).transformToWebStream === "function" ) {
+        const transformed = ( body as { transformToWebStream: () => ReadableStream<Uint8Array> } ).transformToWebStream()
+        return transformed
+    }
+    return null
 }
 
 /**
@@ -243,19 +284,17 @@ export async function getObject( bucket: BucketContext, objectKey: string, condi
         Key: stored.objectKey,
         ResponseContentType: stored.mimeType ?? undefined,
     } )
-    const presignedUrl = await getSignedUrl( provider.client, command, { expiresIn: GET_OBJECT_REDIRECT_TTL_SECONDS } )
-    assertPresignedUrlEndpoint( presignedUrl, provider.endpoint )
+    const upstream = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( command, { abortSignal } ) )
     const headers = buildCacheHeaders( {
         eTag: stored.etag,
         lastModified: effectiveLastModified,
         cacheControl: stored.cacheControl,
     } )
-    headers.set( "Content-Type", stored.mimeType ?? "application/octet-stream" )
-    headers.set( "Content-Length", String( stored.sizeInBytes ) )
-    headers.set( "Location", presignedUrl )
+    headers.set( "Content-Type", upstream.ContentType ?? stored.mimeType ?? "application/octet-stream" )
+    headers.set( "Content-Length", String( upstream.ContentLength ?? stored.sizeInBytes ) )
 
-    return new Response( null, {
-        status: 302,
+    return new Response( toBodyInit( upstream.Body ), {
+        status: 200,
         headers,
     } )
 }
@@ -315,5 +354,49 @@ export async function deleteObject( bucket: BucketContext, objectKey: string ): 
         await db
             .delete( file )
             .where( eq( file.objectKey, upstreamKey ) )
+    }
+}
+
+export async function copyObject(
+    sourceBucket: BucketContext,
+    sourceObjectKey: string,
+    destinationBucket: BucketContext,
+    destinationObjectKey: string,
+): Promise<{ eTag: string | null, lastModified: Date }> {
+    const sourceStored = await findStoredObject( sourceBucket, sourceObjectKey )
+    const sourceUpstreamKey = sourceStored?.objectKey ?? upstreamKeyFor( sourceBucket, sourceObjectKey )
+    const destinationUpstreamKey = upstreamKeyFor( destinationBucket, destinationObjectKey )
+    const sourceProvider = await getProviderClientById( sourceStored?.providerId ?? null )
+
+    const copied = await sendWithProviderTimeout( ( abortSignal ) => sourceProvider.client.send( new CopyObjectCommand( {
+        Bucket: sourceProvider.bucketName,
+        Key: destinationUpstreamKey,
+        CopySource: copySourcePath( sourceProvider.bucketName, sourceUpstreamKey ),
+    } ), { abortSignal } ) )
+
+    const head = await sendWithProviderTimeout( ( abortSignal ) => sourceProvider.client.send( new HeadObjectCommand( {
+        Bucket: sourceProvider.bucketName,
+        Key: destinationUpstreamKey,
+    } ), { abortSignal } ) )
+
+    const persistedEtag = resolvePersistedETag( head.ETag, copied.CopyObjectResult?.ETag )
+    const persistedLastModified = head.LastModified ?? copied.CopyObjectResult?.LastModified ?? new Date()
+
+    await upsertCommittedFile( {
+        userId: destinationBucket.userId,
+        providerId: sourceProvider.providerId,
+        objectKey: destinationUpstreamKey,
+        contentType: head.ContentType ?? sourceStored?.mimeType ?? null,
+        mappedFolderId: destinationBucket.mappedFolderId,
+        fileName: deriveFileName( destinationObjectKey ),
+        sizeInBytes: typeof head.ContentLength === "number" ? head.ContentLength : ( sourceStored?.sizeInBytes ?? 0 ),
+        etag: persistedEtag,
+        cacheControl: head.CacheControl ?? sourceStored?.cacheControl ?? null,
+        lastModified: persistedLastModified,
+    } )
+
+    return {
+        eTag: persistedEtag,
+        lastModified: persistedLastModified,
     }
 }

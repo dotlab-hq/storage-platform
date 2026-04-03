@@ -51,3 +51,7 @@ export function createMultipartUploadXml( bucketName: string, key: string, uploa
 export function completeMultipartUploadXml( bucketName: string, key: string, eTag: string ): string {
     return `<?xml version="1.0" encoding="UTF-8"?>\n<CompleteMultipartUploadResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Location></Location><Bucket>${escapeXml( bucketName )}</Bucket><Key>${escapeXml( key )}</Key><ETag>${escapeXml( eTag )}</ETag></CompleteMultipartUploadResult>`
 }
+
+export function copyObjectXml( eTag: string, lastModified: Date ): string {
+    return `<?xml version="1.0" encoding="UTF-8"?>\n<CopyObjectResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><LastModified>${escapeXml( lastModified.toISOString() )}</LastModified><ETag>${escapeXml( eTag )}</ETag></CopyObjectResult>`
+}

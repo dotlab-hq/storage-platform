@@ -3,6 +3,11 @@ export type ParsedS3Path = {
     objectKey: string | null
 }
 
+export type ParsedCopySource = {
+    bucketName: string
+    objectKey: string
+}
+
 const S3_BASE_PATH = "/api/storage/s3"
 
 export function parseS3Path( requestUrl: string ): ParsedS3Path {
@@ -69,4 +74,23 @@ export function listTypeIsV2( requestUrl: string ): boolean {
     const url = new URL( requestUrl )
     const listType = url.searchParams.get( "list-type" )
     return listType === null || listType === "2"
+}
+
+export function parseCopySource( headerValue: string ): ParsedCopySource | null {
+    const withoutQuery = headerValue.split( "?" )[0]
+    const decoded = decodeURIComponent( withoutQuery ).trim()
+    const normalized = decoded.startsWith( "/" ) ? decoded.slice( 1 ) : decoded
+    if ( normalized.length === 0 ) {
+        return null
+    }
+
+    const slashIndex = normalized.indexOf( "/" )
+    if ( slashIndex <= 0 || slashIndex >= normalized.length - 1 ) {
+        return null
+    }
+
+    return {
+        bucketName: normalized.slice( 0, slashIndex ),
+        objectKey: normalized.slice( slashIndex + 1 ),
+    }
 }
