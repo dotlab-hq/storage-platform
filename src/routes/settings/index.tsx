@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { createFileRoute } from "@tanstack/react-router"
+import { createFileRoute, redirect } from "@tanstack/react-router"
 import { toast } from "@/components/ui/sonner"
 import { AppSidebar } from "@/components/app-sidebar"
 import { Button } from "@/components/ui/button"
@@ -19,7 +19,13 @@ import {
 
 export const Route = createFileRoute( "/settings/" )( {
   component: SettingsPage,
-  loader: () => getSettingsSnapshotFn(),
+  loader: async () => {
+    try {
+      return await getSettingsSnapshotFn()
+    } catch {
+      throw redirect( { to: "/auth/login" } )
+    }
+  },
 } )
 
 function SettingsPage() {

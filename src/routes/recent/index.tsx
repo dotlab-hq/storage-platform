@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from "react"
-import { createFileRoute, useNavigate } from "@tanstack/react-router"
+import { createFileRoute, redirect, useNavigate } from "@tanstack/react-router"
 import { AppSidebar } from "@/components/app-sidebar"
 import { Separator } from "@/components/ui/separator"
 import {
@@ -19,7 +19,13 @@ type RecentItem = { id: string; name: string; lastOpenedAt: Date; kind: "file" |
 
 export const Route = createFileRoute( "/recent/" )( {
     component: RecentPage,
-    loader: () => getRecentSnapshotFn(),
+    loader: async () => {
+        try {
+            return await getRecentSnapshotFn()
+        } catch {
+            throw redirect( { to: "/auth/login" } )
+        }
+    },
 } )
 
 function RecentPage() {
