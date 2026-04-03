@@ -4,7 +4,6 @@ import {
     GetObjectCommand,
 } from "@aws-sdk/client-s3"
 import { Readable } from "node:stream"
-import type { ReadableStream as NodeWebReadableStream } from "node:stream/web"
 import type { BucketContext } from "@/lib/s3-gateway/s3-context"
 import { buildCacheHeaders, normalizeETag, shouldReturnNotModified } from "@/lib/s3-gateway/s3-conditional-cache"
 import { findStoredObject } from "@/lib/s3-gateway/s3-stored-object"
@@ -54,6 +53,38 @@ function isRetryableUploadError( error: unknown ): boolean {
         return false
     }
     return /timeout|econnreset|ehostunreach|enetunreach|network/i.test( `${error.name} ${error.message}` )
+}
+
+async function* streamWebChunks( stream: ReadableStream<Uint8Array> ): AsyncGenerator<Uint8Array> {
+    const reader = stream.getReader()
+    try {
+        while ( true ) {
+            const { done, value } = await reader.read()
+            if ( done ) {
+                return
+            }
+            if ( value ) {
+                yield value
+            }
+        }
+    } finally {
+        reader.releaseLock()
+    }
+}
+
+function toNodeReadable( stream: ReadableStream<Uint8Array> ): Readable {
+    const fromWeb = Readable.fromWeb
+    if ( typeof fromWeb === "function" ) {
+        try {
+            const nodeStream = fromWeb( stream )
+            if ( nodeStream instanceof Readable ) {
+                return nodeStream
+            }
+        } catch {
+            // Fallback below handles environments where fromWeb cannot adapt this stream implementation.
+        }
+    }
+    return Readable.from( streamWebChunks( stream ) )
 }
 
 function upstreamKeyFor( bucket: BucketContext, objectKey: string ): string {
@@ -120,7 +151,7 @@ export async function putObject(
             result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new PutObjectCommand( {
                 Bucket: provider.bucketName,
                 Key: upstreamKey,
-                Body: Readable.fromWeb( attemptBody as unknown as NodeWebReadableStream ),
+                Body: toNodeReadable( attemptBody ),
                 ContentType: contentType ?? "application/octet-stream",
                 ContentLength: contentLength ?? undefined,
             } ), { abortSignal } ) )
