@@ -12,7 +12,7 @@ import { getSignedUrl } from "@aws-sdk/s3-request-presigner"
 import { and, eq, like } from "drizzle-orm"
 import { db } from "@/db"
 import { file } from "@/db/schema/storage"
-import { sendWithProviderTimeout } from "./s3-provider-timeout"
+import { ProviderRequestTimeoutError, sendWithProviderTimeout } from "./s3-provider-timeout"
 import { upsertCommittedFile } from "./upload-file-records"
 import { buildUpstreamObjectKey, deriveFileName } from "./upload-key-utils"
 
@@ -75,10 +75,25 @@ export async function putObject( bucket: BucketContext, objectKey: string, body:
         Body: body,
         ContentType: contentType ?? "application/octet-stream",
     } ), { abortSignal } ) )
-    const metadata = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new HeadObjectCommand( {
-        Bucket: provider.bucketName,
-        Key: upstreamKey,
-    } ), { abortSignal } ) )
+
+    let metadataETag: string | undefined
+    let metadataCacheControl: string | undefined
+    let metadataLastModified: Date | undefined
+    try {
+        const metadata = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new HeadObjectCommand( {
+            Bucket: provider.bucketName,
+            Key: upstreamKey,
+        } ), { abortSignal } ) )
+        metadataETag = metadata.ETag
+        metadataCacheControl = metadata.CacheControl
+        metadataLastModified = metadata.LastModified
+    } catch ( error ) {
+        if ( error instanceof ProviderRequestTimeoutError ) {
+            throw error
+        }
+        const message = error instanceof Error ? `${error.name}: ${error.message}` : "Unknown provider metadata error"
+        console.warn( "[S3 Gateway] Non-fatal HeadObject metadata fetch failure after PUT:", message )
+    }
 
     await upsertCommittedFile( {
         userId: bucket.userId,
@@ -89,9 +104,9 @@ export async function putObject( bucket: BucketContext, objectKey: string, body:
         fileName: deriveFileName( objectKey ),
         sizeInBytes: body.byteLength,
         // Prefer HEAD metadata ETag because provider PutObject responses may omit ETag in some configurations.
-        etag: resolvePersistedETag( metadata.ETag, result.ETag ),
-        cacheControl: metadata.CacheControl ?? null,
-        lastModified: metadata.LastModified ?? new Date(),
+        etag: resolvePersistedETag( metadataETag, result.ETag ),
+        cacheControl: metadataCacheControl ?? null,
+        lastModified: metadataLastModified ?? new Date(),
     } )
 
     return result.ETag ?? null

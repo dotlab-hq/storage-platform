@@ -6,6 +6,34 @@ import { hasMultipartCreateFlag, listPrefix, listTypeIsV2, multipartPartNumber, 
 import { ProviderRequestTimeoutError } from "@/lib/s3-gateway/s3-provider-timeout"
 import { completeMultipartUploadXml, createMultipartUploadXml, listBucketsXml, listObjectsV2Xml, s3ErrorResponse, xmlResponse } from "@/lib/s3-gateway/s3-xml"
 
+type ErrorWithMetadata = {
+    $metadata?: {
+        httpStatusCode?: number
+    }
+}
+
+function providerHttpStatusCode( error: unknown ): number | null {
+    if ( !error || typeof error !== "object" ) {
+        return null
+    }
+    const metadata = ( error as ErrorWithMetadata ).$metadata
+    if ( !metadata || typeof metadata.httpStatusCode !== "number" ) {
+        return null
+    }
+    return metadata.httpStatusCode
+}
+
+function mapProviderStatusToS3Error( statusCode: number ): { status: number, code: string, message: string } {
+    if ( statusCode === 400 ) return { status: 400, code: "InvalidRequest", message: "The request sent to the upstream storage provider was invalid" }
+    if ( statusCode === 401 || statusCode === 403 ) return { status: 403, code: "AccessDenied", message: "Access denied by upstream storage provider" }
+    if ( statusCode === 404 ) return { status: 404, code: "NoSuchKey", message: "The specified key does not exist" }
+    if ( statusCode === 409 ) return { status: 409, code: "Conflict", message: "The request conflicts with the current state of the resource" }
+    if ( statusCode === 413 ) return { status: 413, code: "EntityTooLarge", message: "Your proposed upload exceeds the maximum allowed object size" }
+    if ( statusCode === 429 ) return { status: 503, code: "SlowDown", message: "Please reduce your request rate" }
+    if ( statusCode >= 500 ) return { status: 503, code: "ServiceUnavailable", message: "Upstream storage provider is temporarily unavailable" }
+    return { status: 502, code: "BadGateway", message: "Upstream storage provider request failed" }
+}
+
 function appendVary( headers: Headers, value: string ): void {
     const existing = headers.get( "Vary" )
     if ( !existing ) {
@@ -184,6 +212,11 @@ export async function handleS3Request( request: Request ): Promise<Response> {
         }
         if ( /Invalid or expired upload ID/i.test( message ) ) {
             return withCors( request, s3ErrorResponse( 404, "NoSuchUpload", message, resource ) )
+        }
+        const upstreamStatusCode = providerHttpStatusCode( error )
+        if ( upstreamStatusCode !== null ) {
+            const mapped = mapProviderStatusToS3Error( upstreamStatusCode )
+            return withCors( request, s3ErrorResponse( mapped.status, mapped.code, mapped.message, resource ) )
         }
         if ( error && typeof error === "object" && "$metadata" in error ) {
             const metadata = ( error as { $metadata?: unknown } ).$metadata
