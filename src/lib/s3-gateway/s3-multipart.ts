@@ -1,4 +1,6 @@
 import { PutObjectCommand, HeadObjectCommand } from "@aws-sdk/client-s3"
+import { Readable } from "node:stream"
+import type { ReadableStream as NodeWebReadableStream } from "node:stream/web"
 import { db } from "@/db"
 import { uploadAttempt } from "@/db/schema/s3-gateway"
 import type { BucketContext } from "@/lib/s3-gateway/s3-context"
@@ -10,6 +12,35 @@ import { sendWithProviderTimeout } from "./s3-provider-timeout"
 import { normalizeETag } from "./s3-conditional-cache"
 
 const MULTIPART_UPLOAD_EXPIRY_MS = 60 * 60 * 1000
+const RETRYABLE_UPLOAD_STATUS_CODES = new Set<number>( [408, 429, 500, 502, 503, 504] )
+
+type ErrorWithMetadata = {
+    $metadata?: {
+        httpStatusCode?: number
+    }
+}
+
+function uploadErrorStatusCode( error: unknown ): number | null {
+    if ( !error || typeof error !== "object" ) {
+        return null
+    }
+    const metadata = ( error as ErrorWithMetadata ).$metadata
+    if ( !metadata || typeof metadata.httpStatusCode !== "number" ) {
+        return null
+    }
+    return metadata.httpStatusCode
+}
+
+function isRetryableUploadError( error: unknown ): boolean {
+    const statusCode = uploadErrorStatusCode( error )
+    if ( statusCode !== null && RETRYABLE_UPLOAD_STATUS_CODES.has( statusCode ) ) {
+        return true
+    }
+    if ( !( error instanceof Error ) ) {
+        return false
+    }
+    return /timeout|econnreset|ehostunreach|enetunreach|network/i.test( `${error.name} ${error.message}` )
+}
 
 export async function createMultipartUpload( bucket: BucketContext, objectKey: string, contentType: string | null ): Promise<string> {
     const attemptId = crypto.randomUUID()
@@ -34,7 +65,7 @@ export async function uploadPart(
     bucket: BucketContext,
     objectKey: string,
     uploadId: string,
-    body: ReadableStream<Uint8Array>,
+    bodyAttempts: ReadableStream<Uint8Array>[],
     contentType: string | null,
     contentLength: number | null,
 ): Promise<string | null> {
@@ -54,12 +85,35 @@ export async function uploadPart(
 
     const attempt = rows[0]
     const provider = await getProviderClientById( attempt.providerId )
-    const result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new PutObjectCommand( {
-        Bucket: provider.bucketName,
-        Key: attempt.upstreamObjectKey,
-        Body: body,
-        ContentType: contentType ?? "application/octet-stream",
-    } ), { abortSignal } ) )
+    if ( bodyAttempts.length === 0 ) {
+        throw new Error( "Request body stream is required" )
+    }
+
+    let result: { ETag?: string } | null = null
+    let lastError: unknown = null
+    for ( let index = 0; index < bodyAttempts.length; index += 1 ) {
+        const attemptBody = bodyAttempts[index]
+        try {
+            result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new PutObjectCommand( {
+                Bucket: provider.bucketName,
+                Key: attempt.upstreamObjectKey,
+                Body: Readable.fromWeb( attemptBody as unknown as NodeWebReadableStream ),
+                ContentType: contentType ?? "application/octet-stream",
+                ContentLength: contentLength ?? undefined,
+            } ), { abortSignal } ) )
+            break
+        } catch ( error ) {
+            lastError = error
+            const canRetry = index < bodyAttempts.length - 1 && isRetryableUploadError( error )
+            if ( !canRetry ) {
+                throw error
+            }
+        }
+    }
+
+    if ( !result ) {
+        throw lastError instanceof Error ? lastError : new Error( "Part upload failed after retry attempts" )
+    }
 
     await db
         .update( uploadAttempt )

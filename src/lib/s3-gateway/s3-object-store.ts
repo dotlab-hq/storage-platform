@@ -3,6 +3,8 @@ import {
     PutObjectCommand,
     GetObjectCommand,
 } from "@aws-sdk/client-s3"
+import { Readable } from "node:stream"
+import type { ReadableStream as NodeWebReadableStream } from "node:stream/web"
 import type { BucketContext } from "@/lib/s3-gateway/s3-context"
 import { buildCacheHeaders, normalizeETag, shouldReturnNotModified } from "@/lib/s3-gateway/s3-conditional-cache"
 import { findStoredObject } from "@/lib/s3-gateway/s3-stored-object"
@@ -21,6 +23,38 @@ import { buildUpstreamObjectKey, deriveFileName } from "./upload-key-utils"
  * while still allowing normal immediate client follow-redirect download behavior.
  */
 const GET_OBJECT_REDIRECT_TTL_SECONDS = 60
+const RETRYABLE_UPLOAD_STATUS_CODES = new Set<number>( [408, 429, 500, 502, 503, 504] )
+
+type ErrorWithMetadata = {
+    $metadata?: {
+        httpStatusCode?: number
+    }
+}
+
+function uploadErrorStatusCode( error: unknown ): number | null {
+    if ( !error || typeof error !== "object" ) {
+        return null
+    }
+    const metadata = ( error as ErrorWithMetadata ).$metadata
+    if ( !metadata || typeof metadata.httpStatusCode !== "number" ) {
+        return null
+    }
+    return metadata.httpStatusCode
+}
+
+function isRetryableUploadError( error: unknown ): boolean {
+    if ( error instanceof ProviderRequestTimeoutError ) {
+        return true
+    }
+    const statusCode = uploadErrorStatusCode( error )
+    if ( statusCode !== null && RETRYABLE_UPLOAD_STATUS_CODES.has( statusCode ) ) {
+        return true
+    }
+    if ( !( error instanceof Error ) ) {
+        return false
+    }
+    return /timeout|econnreset|ehostunreach|enetunreach|network/i.test( `${error.name} ${error.message}` )
+}
 
 function upstreamKeyFor( bucket: BucketContext, objectKey: string ): string {
     return buildUpstreamObjectKey( bucket.userId, bucket.bucketId, objectKey )
@@ -68,19 +102,41 @@ export async function listObjectsV2( bucket: BucketContext, prefix: string ): Pr
 export async function putObject(
     bucket: BucketContext,
     objectKey: string,
-    body: ReadableStream<Uint8Array>,
+    bodyAttempts: ReadableStream<Uint8Array>[],
     contentType: string | null,
     contentLength: number | null,
 ): Promise<string | null> {
     const provider = await selectProviderForUpload( contentLength ?? 0 )
     const upstreamKey = upstreamKeyFor( bucket, objectKey )
+    if ( bodyAttempts.length === 0 ) {
+        throw new Error( "Request body stream is required" )
+    }
 
-    const result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new PutObjectCommand( {
-        Bucket: provider.bucketName,
-        Key: upstreamKey,
-        Body: body,
-        ContentType: contentType ?? "application/octet-stream",
-    } ), { abortSignal } ) )
+    let result: { ETag?: string } | null = null
+    let lastError: unknown = null
+    for ( let index = 0; index < bodyAttempts.length; index += 1 ) {
+        const attemptBody = bodyAttempts[index]
+        try {
+            result = await sendWithProviderTimeout( ( abortSignal ) => provider.client.send( new PutObjectCommand( {
+                Bucket: provider.bucketName,
+                Key: upstreamKey,
+                Body: Readable.fromWeb( attemptBody as unknown as NodeWebReadableStream ),
+                ContentType: contentType ?? "application/octet-stream",
+                ContentLength: contentLength ?? undefined,
+            } ), { abortSignal } ) )
+            break
+        } catch ( error ) {
+            lastError = error
+            const canRetry = index < bodyAttempts.length - 1 && isRetryableUploadError( error )
+            if ( !canRetry ) {
+                throw error
+            }
+        }
+    }
+
+    if ( !result ) {
+        throw lastError instanceof Error ? lastError : new Error( "Upload failed after retry attempts" )
+    }
 
     let metadataETag: string | undefined
     let metadataCacheControl: string | undefined

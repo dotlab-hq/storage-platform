@@ -12,6 +12,14 @@ type ErrorWithMetadata = {
     }
 }
 
+const UPLOAD_MAX_ATTEMPTS = ( () => {
+    const raw = process.env.S3_UPLOAD_MAX_ATTEMPTS
+    if ( !raw ) return 3
+    const parsed = Number.parseInt( raw, 10 )
+    if ( !Number.isFinite( parsed ) || parsed < 1 ) return 3
+    return parsed
+} )()
+
 function providerHttpStatusCode( error: unknown ): number | null {
     if ( !error || typeof error !== "object" ) {
         return null
@@ -79,6 +87,24 @@ function parseContentLength( request: Request ): number | null {
     return parsed
 }
 
+function buildUploadBodyAttempts( request: Request, maxAttempts: number ): ReadableStream<Uint8Array>[] {
+    if ( maxAttempts <= 1 ) {
+        return request.body ? [request.body] : []
+    }
+
+    const bodyAttempts: ReadableStream<Uint8Array>[] = []
+    if ( request.body ) {
+        bodyAttempts.push( request.body )
+    }
+    for ( let index = 1; index < maxAttempts; index += 1 ) {
+        const cloneBody = request.clone().body
+        if ( cloneBody ) {
+            bodyAttempts.push( cloneBody )
+        }
+    }
+    return bodyAttempts
+}
+
 async function resolveAuthorizedBucket( request: Request, bucketName: string | null ): Promise<BucketContext | null> {
     const accessKeyId = parseAccessKeyId( request )
     if ( !accessKeyId ) return null
@@ -143,17 +169,17 @@ async function handlePut( request: Request ): Promise<Response> {
     const bucket = await resolveAuthorizedBucket( request, parsed.bucketName )
     if ( !bucket ) return s3ErrorResponse( 403, "AccessDenied", "Access denied", `/${parsed.bucketName}/${parsed.objectKey}` )
 
-    if ( !request.body ) {
+    const bodyAttempts = buildUploadBodyAttempts( request, UPLOAD_MAX_ATTEMPTS )
+    if ( bodyAttempts.length === 0 ) {
         return s3ErrorResponse( 400, "InvalidRequest", "Request body stream is required", `/${parsed.bucketName}/${parsed.objectKey}` )
     }
-    const body = request.body
     const contentLength = parseContentLength( request )
     const contentType = request.headers.get( "content-type" )
     const uploadId = multipartUploadId( request.url )
     const partNumber = multipartPartNumber( request.url )
     const eTag = uploadId && partNumber
-        ? await uploadPart( bucket, parsed.objectKey, uploadId, body, contentType, contentLength )
-        : await putObject( bucket, parsed.objectKey, body, contentType, contentLength )
+        ? await uploadPart( bucket, parsed.objectKey, uploadId, bodyAttempts, contentType, contentLength )
+        : await putObject( bucket, parsed.objectKey, bodyAttempts, contentType, contentLength )
     return new Response( null, { status: 200, headers: { ETag: eTag ?? "" } } )
 }
 
