@@ -1,14 +1,22 @@
 import { AuthForm } from '@/components/auth/auth-form'
-import { createFileRoute } from '@tanstack/react-router'
+import { Link, createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/auth/')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  return (<div className="bg-background flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
+  return (
+    <div className="bg-background flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
       <div className="w-full max-w-sm">
         <AuthForm />
+        <p className="text-muted-foreground mt-4 text-center text-sm">
+          Prefer QR login?{' '}
+          <Link to="/hot" search={() => ({})} className="text-primary">
+            Open /hot for a tiny 10-minute session.
+          </Link>
+        </p>
       </div>
-    </div>)
+    </div>
+  )
 }

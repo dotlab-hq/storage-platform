@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import * as React from "react"
+import * as React from 'react'
 import {
   Home,
   Clock,
@@ -13,17 +13,17 @@ import {
   Moon,
   Sun,
   Monitor,
-} from "lucide-react"
-import { ClientOnly, Link } from "@tanstack/react-router"
-import { createClientOnlyFn } from "@tanstack/react-start"
+} from 'lucide-react'
+import { ClientOnly, Link } from '@tanstack/react-router'
+import { createClientOnlyFn } from '@tanstack/react-start'
 
-import { NavMain } from "@/components/nav-main"
-import { NavUser } from "@/components/nav-user"
-import { StorageQuota } from "@/components/storage/storage-quota"
-import { normalizeUserRole } from "@/lib/authz"
-import { authClient } from "@/lib/auth-client"
-import { useTheme } from "@/hooks/use-theme"
-import type { UserQuota } from "@/types/storage"
+import { NavMain } from '@/components/nav-main'
+import { NavUser } from '@/components/nav-user'
+import { StorageQuota } from '@/components/storage/storage-quota'
+import { normalizeUserRole } from '@/lib/authz'
+import { authClient } from '@/lib/auth-client'
+import { useTheme } from '@/hooks/use-theme'
+import type { UserQuota } from '@/types/storage'
 import {
   Sidebar,
   SidebarContent,
@@ -33,23 +33,28 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarSeparator,
-} from "@/components/ui/sidebar"
-import { Button } from "@/components/ui/button"
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+} from '@/components/ui/sidebar'
+import { Button } from '@/components/ui/button'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
+import { ScanQrDialog } from '@/components/qr/scan-qr-dialog'
 
 const navItems = [
-  { title: "My Files", url: "/", icon: Home, isActive: true },
-  { title: "Buckets", url: "/buckets", icon: Database },
-  { title: "Recent", url: "/recent", icon: Clock },
-  { title: "Shared with Me", url: "/shared", icon: Share2 },
-  { title: "Trash", url: "/trash", icon: Trash2 },
-  { title: "Settings", url: "/settings", icon: Settings },
+  { title: 'My Files', url: '/', icon: Home, isActive: true },
+  { title: 'Buckets', url: '/buckets', icon: Database },
+  { title: 'Recent', url: '/recent', icon: Clock },
+  { title: 'Shared with Me', url: '/shared', icon: Share2 },
+  { title: 'Trash', url: '/trash', icon: Trash2 },
+  { title: 'Settings', url: '/settings', icon: Settings },
 ]
 
 const defaultUser = {
-  name: "User",
-  email: "user@example.com",
-  avatar: "/logo.svg",
+  name: 'User',
+  email: 'user@example.com',
+  avatar: '/logo.svg',
   isAdmin: false,
 }
 
@@ -58,47 +63,49 @@ type AppSidebarProps = React.ComponentProps<typeof Sidebar> & {
 }
 
 const themeConfig = {
-  light: { icon: Sun, label: "Light", next: "dark" as const },
-  dark: { icon: Moon, label: "Dark", next: "system" as const },
-  system: { icon: Monitor, label: "System", next: "light" as const },
+  light: { icon: Sun, label: 'Light', next: 'dark' as const },
+  dark: { icon: Moon, label: 'Dark', next: 'system' as const },
+  system: { icon: Monitor, label: 'System', next: 'light' as const },
 } as const
 
-export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
-  const [navUser, setNavUser] = React.useState( defaultUser )
-  const [items, setItems] = React.useState( navItems )
+export function AppSidebar({ quota = null, ...props }: AppSidebarProps) {
+  const [navUser, setNavUser] = React.useState(defaultUser)
+  const [items, setItems] = React.useState(navItems)
   const { theme, setTheme } = useTheme()
 
   const getSessionUserRef = React.useRef(
-    createClientOnlyFn( async () => {
+    createClientOnlyFn(async () => {
       const { data: session, error } = await authClient.getSession()
-      if ( error || !session?.user ) return null
-      const sessionRole = normalizeUserRole( session.user.role )
+      if (error || !session?.user) return null
+      const sessionRole = normalizeUserRole(session.user.role)
       return {
         name: session.user.name,
         email: session.user.email,
-        avatar: session.user.image ?? "/logo.svg",
-        isAdmin: sessionRole === "admin",
+        avatar: session.user.image ?? '/logo.svg',
+        isAdmin: sessionRole === 'admin',
       }
-    } )
+    }),
   )
 
-  React.useEffect( () => {
+  React.useEffect(() => {
     let mounted = true
-    void getSessionUserRef.current().then( ( sessionUser ) => {
-      if ( mounted && sessionUser ) {
-        setNavUser( sessionUser )
-        if ( sessionUser.isAdmin ) {
-          setItems( ( prev ) => {
-            if ( prev.some( ( item ) => item.url === "/admin" ) ) return prev
-            return [...prev, { title: "Admin", url: "/admin", icon: Shield }]
-          } )
+    void getSessionUserRef.current().then((sessionUser) => {
+      if (mounted && sessionUser) {
+        setNavUser(sessionUser)
+        if (sessionUser.isAdmin) {
+          setItems((prev) => {
+            if (prev.some((item) => item.url === '/admin')) return prev
+            return [...prev, { title: 'Admin', url: '/admin', icon: Shield }]
+          })
         }
       }
-    } )
-    return () => { mounted = false }
-  }, [] )
+    })
+    return () => {
+      mounted = false
+    }
+  }, [])
 
-  const currentTheme = theme in themeConfig ? theme : "system"
+  const currentTheme = theme in themeConfig ? theme : 'system'
   const { icon: ThemeIcon, label: themeLabel, next } = themeConfig[currentTheme]
 
   return (
@@ -127,6 +134,23 @@ export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
       <SidebarFooter>
         <StorageQuota quota={quota} className="mb-2" />
         <SidebarSeparator />
+        <div className="space-y-2 px-2 py-1">
+          <p className="text-muted-foreground text-xs font-medium">
+            Scan-based login
+          </p>
+          <div className="flex gap-2">
+            <ScanQrDialog
+              triggerLabel="Scan now"
+              className="h-7 px-2 text-xs"
+            />
+            <ScanQrDialog
+              triggerLabel="Scan QR"
+              triggerVariant="ghost"
+              className="h-7 px-2 text-xs"
+            />
+          </div>
+        </div>
+        <SidebarSeparator />
         <div className="flex items-center justify-between px-2 py-1">
           <span className="text-muted-foreground text-xs">Theme</span>
           <Tooltip>
@@ -135,7 +159,7 @@ export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
                 variant="ghost"
                 size="icon"
                 className="h-7 w-7"
-                onClick={() => setTheme( next )}
+                onClick={() => setTheme(next)}
                 aria-label={`Switch to ${next} theme`}
               >
                 <ThemeIcon className="h-3.5 w-3.5" />

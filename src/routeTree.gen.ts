@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as HotRouteImport } from './routes/hot'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TrashIndexRouteImport } from './routes/trash/index'
 import { Route as SharedIndexRouteImport } from './routes/shared/index'
@@ -47,6 +48,9 @@ import { Route as ApiStorageFileLinkRouteImport } from './routes/api/storage/fil
 import { Route as ApiStorageDeleteRouteImport } from './routes/api/storage/delete'
 import { Route as ApiStorageCreateFolderRouteImport } from './routes/api/storage/create-folder'
 import { Route as ApiStorageAllFoldersRouteImport } from './routes/api/storage/all-folders'
+import { Route as ApiQrAuthScanRouteImport } from './routes/api/qr-auth/scan'
+import { Route as ApiQrAuthPollRouteImport } from './routes/api/qr-auth/poll'
+import { Route as ApiQrAuthCreateOfferRouteImport } from './routes/api/qr-auth/create-offer'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as ApiStorageS3IndexRouteImport } from './routes/api/storage/s3/index'
 import { Route as ApiStorageS3UploadStatusRouteImport } from './routes/api/storage/s3/upload-status'
@@ -59,6 +63,11 @@ import { Route as ApiStorageS3BucketItemsRouteImport } from './routes/api/storag
 import { Route as ApiStorageS3BucketCredentialsRouteImport } from './routes/api/storage/s3/bucket-credentials'
 import { Route as ApiStorageS3SplatRouteImport } from './routes/api/storage/s3/$'
 
+const HotRoute = HotRouteImport.update({
+  id: '/hot',
+  path: '/hot',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -251,6 +260,21 @@ const ApiStorageAllFoldersRoute = ApiStorageAllFoldersRouteImport.update({
   path: '/api/storage/all-folders',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiQrAuthScanRoute = ApiQrAuthScanRouteImport.update({
+  id: '/api/qr-auth/scan',
+  path: '/api/qr-auth/scan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiQrAuthPollRoute = ApiQrAuthPollRouteImport.update({
+  id: '/api/qr-auth/poll',
+  path: '/api/qr-auth/poll',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiQrAuthCreateOfferRoute = ApiQrAuthCreateOfferRouteImport.update({
+  id: '/api/qr-auth/create-offer',
+  path: '/api/qr-auth/create-offer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
@@ -314,6 +338,7 @@ const ApiStorageS3SplatRoute = ApiStorageS3SplatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/hot': typeof HotRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
@@ -328,6 +353,9 @@ export interface FileRoutesByFullPath {
   '/shared/': typeof SharedIndexRoute
   '/trash/': typeof TrashIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/qr-auth/create-offer': typeof ApiQrAuthCreateOfferRoute
+  '/api/qr-auth/poll': typeof ApiQrAuthPollRoute
+  '/api/qr-auth/scan': typeof ApiQrAuthScanRoute
   '/api/storage/all-folders': typeof ApiStorageAllFoldersRoute
   '/api/storage/create-folder': typeof ApiStorageCreateFolderRoute
   '/api/storage/delete': typeof ApiStorageDeleteRoute
@@ -365,6 +393,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/hot': typeof HotRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
@@ -379,6 +408,9 @@ export interface FileRoutesByTo {
   '/shared': typeof SharedIndexRoute
   '/trash': typeof TrashIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/qr-auth/create-offer': typeof ApiQrAuthCreateOfferRoute
+  '/api/qr-auth/poll': typeof ApiQrAuthPollRoute
+  '/api/qr-auth/scan': typeof ApiQrAuthScanRoute
   '/api/storage/all-folders': typeof ApiStorageAllFoldersRoute
   '/api/storage/create-folder': typeof ApiStorageCreateFolderRoute
   '/api/storage/delete': typeof ApiStorageDeleteRoute
@@ -417,6 +449,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/hot': typeof HotRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
@@ -431,6 +464,9 @@ export interface FileRoutesById {
   '/shared/': typeof SharedIndexRoute
   '/trash/': typeof TrashIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/qr-auth/create-offer': typeof ApiQrAuthCreateOfferRoute
+  '/api/qr-auth/poll': typeof ApiQrAuthPollRoute
+  '/api/qr-auth/scan': typeof ApiQrAuthScanRoute
   '/api/storage/all-folders': typeof ApiStorageAllFoldersRoute
   '/api/storage/create-folder': typeof ApiStorageCreateFolderRoute
   '/api/storage/delete': typeof ApiStorageDeleteRoute
@@ -470,6 +506,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/hot'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/reset-password'
@@ -484,6 +521,9 @@ export interface FileRouteTypes {
     | '/shared/'
     | '/trash/'
     | '/api/auth/$'
+    | '/api/qr-auth/create-offer'
+    | '/api/qr-auth/poll'
+    | '/api/qr-auth/scan'
     | '/api/storage/all-folders'
     | '/api/storage/create-folder'
     | '/api/storage/delete'
@@ -521,6 +561,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/hot'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/reset-password'
@@ -535,6 +576,9 @@ export interface FileRouteTypes {
     | '/shared'
     | '/trash'
     | '/api/auth/$'
+    | '/api/qr-auth/create-offer'
+    | '/api/qr-auth/poll'
+    | '/api/qr-auth/scan'
     | '/api/storage/all-folders'
     | '/api/storage/create-folder'
     | '/api/storage/delete'
@@ -572,6 +616,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/hot'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/reset-password'
@@ -586,6 +631,9 @@ export interface FileRouteTypes {
     | '/shared/'
     | '/trash/'
     | '/api/auth/$'
+    | '/api/qr-auth/create-offer'
+    | '/api/qr-auth/poll'
+    | '/api/qr-auth/scan'
     | '/api/storage/all-folders'
     | '/api/storage/create-folder'
     | '/api/storage/delete'
@@ -624,6 +672,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  HotRoute: typeof HotRoute
   AuthForgotPasswordRoute: typeof AuthForgotPasswordRoute
   AuthLoginRoute: typeof AuthLoginRoute
   AuthResetPasswordRoute: typeof AuthResetPasswordRoute
@@ -638,6 +687,9 @@ export interface RootRouteChildren {
   SharedIndexRoute: typeof SharedIndexRoute
   TrashIndexRoute: typeof TrashIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  ApiQrAuthCreateOfferRoute: typeof ApiQrAuthCreateOfferRoute
+  ApiQrAuthPollRoute: typeof ApiQrAuthPollRoute
+  ApiQrAuthScanRoute: typeof ApiQrAuthScanRoute
   ApiStorageAllFoldersRoute: typeof ApiStorageAllFoldersRoute
   ApiStorageCreateFolderRoute: typeof ApiStorageCreateFolderRoute
   ApiStorageDeleteRoute: typeof ApiStorageDeleteRoute
@@ -676,6 +728,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/hot': {
+      id: '/hot'
+      path: '/hot'
+      fullPath: '/hot'
+      preLoaderRoute: typeof HotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -942,6 +1001,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStorageAllFoldersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/qr-auth/scan': {
+      id: '/api/qr-auth/scan'
+      path: '/api/qr-auth/scan'
+      fullPath: '/api/qr-auth/scan'
+      preLoaderRoute: typeof ApiQrAuthScanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/qr-auth/poll': {
+      id: '/api/qr-auth/poll'
+      path: '/api/qr-auth/poll'
+      fullPath: '/api/qr-auth/poll'
+      preLoaderRoute: typeof ApiQrAuthPollRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/qr-auth/create-offer': {
+      id: '/api/qr-auth/create-offer'
+      path: '/api/qr-auth/create-offer'
+      fullPath: '/api/qr-auth/create-offer'
+      preLoaderRoute: typeof ApiQrAuthCreateOfferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/auth/$': {
       id: '/api/auth/$'
       path: '/api/auth/$'
@@ -1024,6 +1104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  HotRoute: HotRoute,
   AuthForgotPasswordRoute: AuthForgotPasswordRoute,
   AuthLoginRoute: AuthLoginRoute,
   AuthResetPasswordRoute: AuthResetPasswordRoute,
@@ -1038,6 +1119,9 @@ const rootRouteChildren: RootRouteChildren = {
   SharedIndexRoute: SharedIndexRoute,
   TrashIndexRoute: TrashIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  ApiQrAuthCreateOfferRoute: ApiQrAuthCreateOfferRoute,
+  ApiQrAuthPollRoute: ApiQrAuthPollRoute,
+  ApiQrAuthScanRoute: ApiQrAuthScanRoute,
   ApiStorageAllFoldersRoute: ApiStorageAllFoldersRoute,
   ApiStorageCreateFolderRoute: ApiStorageCreateFolderRoute,
   ApiStorageDeleteRoute: ApiStorageDeleteRoute,
