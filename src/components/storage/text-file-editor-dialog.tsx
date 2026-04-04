@@ -88,25 +88,32 @@ export function TextFileEditorDialog({
   userId,
   onSaved,
 }: TextFileEditorDialogProps) {
-  const editorRef = React.useRef<HTMLDivElement | null>(null)
   const quillRef = React.useRef<QuillInstance | null>(null)
+  const [editorElement, setEditorElement] =
+    React.useState<HTMLDivElement | null>(null)
   const [fileName, setFileName] = React.useState('Untitled.html')
   const [isEditorReady, setIsEditorReady] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(false)
   const [isSaving, setIsSaving] = React.useState(false)
   const [initError, setInitError] = React.useState<string | null>(null)
 
+  const editorRef = React.useCallback((node: HTMLDivElement | null) => {
+    setEditorElement(node)
+  }, [])
+
   React.useEffect(() => {
     let cancelled = false
 
     async function mountEditor() {
       if (!open) {
+        quillRef.current = null
+        setIsEditorReady(false)
         return
       }
 
       setInitError(null)
 
-      if (!open || !editorRef.current || quillRef.current) {
+      if (!open || !editorElement || quillRef.current) {
         if (quillRef.current) {
           setIsEditorReady(true)
         }
@@ -124,11 +131,12 @@ export function TextFileEditorDialog({
         ;(window as EditorWindow).hljs = hljs
         ;(window as EditorWindow).katex = katex
 
-        if (cancelled || !editorRef.current) {
+        if (cancelled || !editorElement) {
           return
         }
 
-        quillRef.current = new Quill(editorRef.current, {
+        editorElement.innerHTML = ''
+        quillRef.current = new Quill(editorElement, {
           theme: 'snow',
           placeholder: 'Start writing...',
           modules: {
@@ -180,7 +188,7 @@ export function TextFileEditorDialog({
     return () => {
       cancelled = true
     }
-  }, [open])
+  }, [editorElement, open])
 
   React.useEffect(() => {
     if (!open) {
