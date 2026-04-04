@@ -43,6 +43,7 @@ import { Route as ApiStoragePrivateLockRouteImport } from './routes/api/storage/
 import { Route as ApiStoragePresignRouteImport } from './routes/api/storage/presign'
 import { Route as ApiStorageMoveRouteImport } from './routes/api/storage/move'
 import { Route as ApiStorageFolderItemsRouteImport } from './routes/api/storage/folder-items'
+import { Route as ApiStorageFileLinkRouteImport } from './routes/api/storage/file-link'
 import { Route as ApiStorageDeleteRouteImport } from './routes/api/storage/delete'
 import { Route as ApiStorageCreateFolderRouteImport } from './routes/api/storage/create-folder'
 import { Route as ApiStorageAllFoldersRouteImport } from './routes/api/storage/all-folders'
@@ -230,6 +231,11 @@ const ApiStorageFolderItemsRoute = ApiStorageFolderItemsRouteImport.update({
   path: '/api/storage/folder-items',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiStorageFileLinkRoute = ApiStorageFileLinkRouteImport.update({
+  id: '/api/storage/file-link',
+  path: '/api/storage/file-link',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiStorageDeleteRoute = ApiStorageDeleteRouteImport.update({
   id: '/api/storage/delete',
   path: '/api/storage/delete',
@@ -325,6 +331,7 @@ export interface FileRoutesByFullPath {
   '/api/storage/all-folders': typeof ApiStorageAllFoldersRoute
   '/api/storage/create-folder': typeof ApiStorageCreateFolderRoute
   '/api/storage/delete': typeof ApiStorageDeleteRoute
+  '/api/storage/file-link': typeof ApiStorageFileLinkRoute
   '/api/storage/folder-items': typeof ApiStorageFolderItemsRoute
   '/api/storage/move': typeof ApiStorageMoveRoute
   '/api/storage/presign': typeof ApiStoragePresignRoute
@@ -375,6 +382,7 @@ export interface FileRoutesByTo {
   '/api/storage/all-folders': typeof ApiStorageAllFoldersRoute
   '/api/storage/create-folder': typeof ApiStorageCreateFolderRoute
   '/api/storage/delete': typeof ApiStorageDeleteRoute
+  '/api/storage/file-link': typeof ApiStorageFileLinkRoute
   '/api/storage/folder-items': typeof ApiStorageFolderItemsRoute
   '/api/storage/move': typeof ApiStorageMoveRoute
   '/api/storage/presign': typeof ApiStoragePresignRoute
@@ -426,6 +434,7 @@ export interface FileRoutesById {
   '/api/storage/all-folders': typeof ApiStorageAllFoldersRoute
   '/api/storage/create-folder': typeof ApiStorageCreateFolderRoute
   '/api/storage/delete': typeof ApiStorageDeleteRoute
+  '/api/storage/file-link': typeof ApiStorageFileLinkRoute
   '/api/storage/folder-items': typeof ApiStorageFolderItemsRoute
   '/api/storage/move': typeof ApiStorageMoveRoute
   '/api/storage/presign': typeof ApiStoragePresignRoute
@@ -478,6 +487,7 @@ export interface FileRouteTypes {
     | '/api/storage/all-folders'
     | '/api/storage/create-folder'
     | '/api/storage/delete'
+    | '/api/storage/file-link'
     | '/api/storage/folder-items'
     | '/api/storage/move'
     | '/api/storage/presign'
@@ -528,6 +538,7 @@ export interface FileRouteTypes {
     | '/api/storage/all-folders'
     | '/api/storage/create-folder'
     | '/api/storage/delete'
+    | '/api/storage/file-link'
     | '/api/storage/folder-items'
     | '/api/storage/move'
     | '/api/storage/presign'
@@ -578,6 +589,7 @@ export interface FileRouteTypes {
     | '/api/storage/all-folders'
     | '/api/storage/create-folder'
     | '/api/storage/delete'
+    | '/api/storage/file-link'
     | '/api/storage/folder-items'
     | '/api/storage/move'
     | '/api/storage/presign'
@@ -629,6 +641,7 @@ export interface RootRouteChildren {
   ApiStorageAllFoldersRoute: typeof ApiStorageAllFoldersRoute
   ApiStorageCreateFolderRoute: typeof ApiStorageCreateFolderRoute
   ApiStorageDeleteRoute: typeof ApiStorageDeleteRoute
+  ApiStorageFileLinkRoute: typeof ApiStorageFileLinkRoute
   ApiStorageFolderItemsRoute: typeof ApiStorageFolderItemsRoute
   ApiStorageMoveRoute: typeof ApiStorageMoveRoute
   ApiStoragePresignRoute: typeof ApiStoragePresignRoute
@@ -901,6 +914,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStorageFolderItemsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/storage/file-link': {
+      id: '/api/storage/file-link'
+      path: '/api/storage/file-link'
+      fullPath: '/api/storage/file-link'
+      preLoaderRoute: typeof ApiStorageFileLinkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/storage/delete': {
       id: '/api/storage/delete'
       path: '/api/storage/delete'
@@ -1021,6 +1041,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiStorageAllFoldersRoute: ApiStorageAllFoldersRoute,
   ApiStorageCreateFolderRoute: ApiStorageCreateFolderRoute,
   ApiStorageDeleteRoute: ApiStorageDeleteRoute,
+  ApiStorageFileLinkRoute: ApiStorageFileLinkRoute,
   ApiStorageFolderItemsRoute: ApiStorageFolderItemsRoute,
   ApiStorageMoveRoute: ApiStorageMoveRoute,
   ApiStoragePresignRoute: ApiStoragePresignRoute,

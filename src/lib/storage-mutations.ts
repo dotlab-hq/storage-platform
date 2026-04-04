@@ -252,6 +252,49 @@ export async function getFilePresignedUrl(userId: string, fileId: string) {
   return { url, name: row.name, mimeType: row.mimeType }
 }
 
+export async function getOwnedFileRedirectUrl(
+  userId: string,
+  fileId: string,
+  folderId: string | null,
+) {
+  const [{ db }, { file: storageFile, folder }] = await Promise.all([
+    import('@/db'),
+    import('@/db/schema/storage'),
+  ])
+
+  if (folderId) {
+    const ownedFolders = await db
+      .select({ id: folder.id })
+      .from(folder)
+      .where(and(eq(folder.id, folderId), eq(folder.userId, userId)))
+      .limit(1)
+
+    if (ownedFolders.length === 0) {
+      throw new Error('Folder not found')
+    }
+  }
+
+  const ownedFiles = await db
+    .select({
+      id: storageFile.id,
+      folderId: storageFile.folderId,
+    })
+    .from(storageFile)
+    .where(and(eq(storageFile.id, fileId), eq(storageFile.userId, userId)))
+    .limit(1)
+
+  if (ownedFiles.length === 0) {
+    throw new Error('File not found')
+  }
+
+  if (folderId && ownedFiles[0].folderId !== folderId) {
+    throw new Error('File does not belong to the requested folder')
+  }
+
+  const { url } = await getFilePresignedUrl(userId, fileId)
+  return url
+}
+
 type SaveTextFileInput = {
   fileId: string | null
   fileName: string

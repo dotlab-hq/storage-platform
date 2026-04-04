@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import { createClientOnlyFn } from '@tanstack/react-start'
 import { toast } from '@/components/ui/sonner'
-import { buildNavUrl } from '@/lib/nav-token'
+import { buildFileRedirectUrl, buildNavUrl } from '@/lib/nav-token'
 import { downloadFromUrl } from '@/lib/file-utils'
 import { isTextBasedFile } from '@/lib/file-type-utils'
 import { setFolderPrivateLockClient } from '@/lib/private-lock-client'
@@ -176,7 +176,10 @@ export function useStorageActions(params: UseStorageActionsParams) {
             item.type === 'folder'
               ? { folderId: item.id }
               : { folderId: currentFolderId, fileId: item.id }
-          const url = buildNavUrl(payload)
+          const url =
+            item.type === 'folder'
+              ? buildNavUrl(payload)
+              : buildFileRedirectUrl(payload)
           void navigator.clipboard.writeText(url)
           toast.success('Link copied to clipboard')
           break
