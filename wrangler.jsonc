@@ -1,25 +1,26 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "storage",
-  "main": "dist/server/index.js",
+  "main": "@tanstack/react-start/server-entry",
   "assets": {
     "binding": "ASSETS",
-    "directory": "./dist/client",
+    "directory": "./public"
   },
   "compatibility_date": "2026-03-24",
-  "compatibility_flags": ["nodejs_compat"],
-  "upload_source_maps": true,
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "observability": {
     "enabled": false,
     "head_sampling_rate": 1,
     "logs": {
       "enabled": true,
       "head_sampling_rate": 1,
-      "invocation_logs": true,
+      "invocation_logs": true
     },
   },
   "placement": {
-    "region": "aws:ap-south-1",
+    "region": "aws:ap-south-1"
   },
   "keep_vars": true,
   // "vars": {
@@ -29,7 +30,7 @@
     {
       "binding": "DB",
       "id": "3c26563cafef4f44a700a5ec0b63b693",
-    },
+    }
   ],
   "d1_databases": [
     {
@@ -37,9 +38,9 @@
       "database_name": "storage-db",
       "database_id": "a80e9922-5ba7-4013-9e89-2fe232137f23",
       "migrations_dir": "drizzle",
-      "remote": true,
-    },
-  ],
+      "remote": true
+    }
+  ]
   // "kv_namespaces": [
   // ],
   // "r2_buckets": [
