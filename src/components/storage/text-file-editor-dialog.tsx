@@ -52,6 +52,11 @@ type TextFileEditorDialogProps = {
 type QuillModule = typeof import('quill')
 type QuillInstance = InstanceType<QuillModule['default']>
 
+type EditorWindow = Window & {
+  hljs?: unknown
+  katex?: unknown
+}
+
 const TOOLBAR_OPTIONS = [
   [{ font: [] }, { size: [] }],
   [{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -89,67 +94,85 @@ export function TextFileEditorDialog({
   const [isEditorReady, setIsEditorReady] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(false)
   const [isSaving, setIsSaving] = React.useState(false)
+  const [initError, setInitError] = React.useState<string | null>(null)
 
   React.useEffect(() => {
     let cancelled = false
 
     async function mountEditor() {
+      if (!open) {
+        return
+      }
+
+      setInitError(null)
+
       if (!open || !editorRef.current || quillRef.current) {
+        if (quillRef.current) {
+          setIsEditorReady(true)
+        }
         return
       }
 
-      const quillModule = await import('quill')
-      const highlight = await import('highlight.js')
-      const katexModule = await import('katex')
-      const Quill = quillModule.default
+      try {
+        const quillModule = await import('quill')
+        const highlightModule = await import('highlight.js')
+        const katexModule = await import('katex')
+        const Quill = quillModule.default
+        const hljs = highlightModule.default ?? highlightModule
+        const katex = katexModule.default ?? katexModule
 
-      ;(window as Window & { hljs?: unknown; katex?: unknown }).hljs =
-        highlight.default
-      ;(window as Window & { hljs?: unknown; katex?: unknown }).katex =
-        katexModule.default
+        ;(window as EditorWindow).hljs = hljs
+        ;(window as EditorWindow).katex = katex
 
-      if (cancelled || !editorRef.current) {
-        return
-      }
+        if (cancelled || !editorRef.current) {
+          return
+        }
 
-      quillRef.current = new Quill(editorRef.current, {
-        theme: 'snow',
-        placeholder: 'Start writing...',
-        modules: {
-          toolbar: TOOLBAR_OPTIONS,
-          syntax: true,
-          history: {
-            delay: 500,
-            maxStack: 200,
-            userOnly: true,
+        quillRef.current = new Quill(editorRef.current, {
+          theme: 'snow',
+          placeholder: 'Start writing...',
+          modules: {
+            toolbar: TOOLBAR_OPTIONS,
+            syntax: { hljs },
+            history: {
+              delay: 500,
+              maxStack: 200,
+              userOnly: true,
+            },
           },
-        },
-        formats: [
-          'font',
-          'size',
-          'header',
-          'bold',
-          'italic',
-          'underline',
-          'strike',
-          'color',
-          'background',
-          'script',
-          'list',
-          'bullet',
-          'indent',
-          'direction',
-          'align',
-          'blockquote',
-          'code-block',
-          'link',
-          'image',
-          'video',
-          'formula',
-        ],
-      })
+          formats: [
+            'font',
+            'size',
+            'header',
+            'bold',
+            'italic',
+            'underline',
+            'strike',
+            'color',
+            'background',
+            'script',
+            'list',
+            'bullet',
+            'indent',
+            'direction',
+            'align',
+            'blockquote',
+            'code-block',
+            'link',
+            'image',
+            'video',
+            'formula',
+          ],
+        })
 
-      setIsEditorReady(true)
+        setIsEditorReady(true)
+      } catch (error) {
+        const message =
+          error instanceof Error ? error.message : 'Failed to initialize editor'
+        setInitError(message)
+        setIsEditorReady(false)
+        toast.error(message)
+      }
     }
 
     void mountEditor()
@@ -163,6 +186,7 @@ export function TextFileEditorDialog({
     if (!open) {
       setIsLoading(false)
       setIsSaving(false)
+      setInitError(null)
       return
     }
 
@@ -291,11 +315,14 @@ export function TextFileEditorDialog({
                 <DialogDescription>
                   Quill is used for text-based file editing in the root storage
                   view.
+                  {initError ? ` ${initError}` : ''}
                 </DialogDescription>
               </div>
               <Button
                 onClick={() => void handleSave()}
-                disabled={isLoading || isSaving || !isEditorReady}
+                disabled={
+                  isLoading || isSaving || !isEditorReady || !!initError
+                }
               >
                 {isSaving ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -313,7 +340,7 @@ export function TextFileEditorDialog({
             />
           </DialogHeader>
           <div className="relative min-h-0 flex-1 overflow-hidden px-6 py-4">
-            {(isLoading || !isEditorReady) && (
+            {(isLoading || (!isEditorReady && !initError)) && (
               <div className="bg-background/80 absolute inset-0 z-10 flex items-center justify-center">
                 <Loader2 className="text-muted-foreground h-6 w-6 animate-spin" />
               </div>
