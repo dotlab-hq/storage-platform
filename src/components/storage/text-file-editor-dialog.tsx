@@ -11,10 +11,9 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
+import { uploadFileToS3 } from '@/lib/upload-utils'
 import { toast } from '@/components/ui/sonner'
 import { cn } from '@/lib/utils'
-import { getFileIcon } from '@/lib/file-utils'
-import { getFileExtension, isTextBasedFile } from '@/lib/file-type-utils'
 import type { StorageItem } from '@/types/storage'
 import 'quill/dist/quill.snow.css'
 import 'katex/dist/katex.min.css'
@@ -45,6 +44,7 @@ type TextFileEditorDialogProps = {
   onOpenChange: (open: boolean) => void
   currentFolderId: string | null
   item: StorageItem | null
+  items: StorageItem[]
   userId: string | null
   onSaved: (file: StorageItem) => void
 }
@@ -75,9 +75,21 @@ function looksLikeHtml(value: string) {
   return /<\/?[a-z][\s\S]*>/i.test(value.trim())
 }
 
-function shouldPersistAsHtml(fileName: string) {
-  const extension = getFileExtension(fileName)
-  return extension === 'html' || extension === 'htm'
+function getDefaultUntitledName(items: StorageItem[]) {
+  const existing = new Set(
+    items.filter((item) => item.type === 'file').map((item) => item.name),
+  )
+
+  if (!existing.has('Untitled.txt')) {
+    return 'Untitled.txt'
+  }
+
+  let index = 1
+  while (existing.has(`Untitled (${index}).txt`)) {
+    index += 1
+  }
+
+  return `Untitled (${index}).txt`
 }
 
 export function TextFileEditorDialog({
@@ -85,21 +97,25 @@ export function TextFileEditorDialog({
   onOpenChange,
   currentFolderId,
   item,
+  items,
   userId,
   onSaved,
 }: TextFileEditorDialogProps) {
   const quillRef = React.useRef<QuillInstance | null>(null)
   const [editorElement, setEditorElement] =
     React.useState<HTMLDivElement | null>(null)
-  const [fileName, setFileName] = React.useState('Untitled.html')
+  const [fileName, setFileName] = React.useState('Untitled.txt')
   const [isEditorReady, setIsEditorReady] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(false)
   const [isSaving, setIsSaving] = React.useState(false)
   const [initError, setInitError] = React.useState<string | null>(null)
+  const [mediaKind, setMediaKind] = React.useState<'image' | 'video'>('image')
 
   const editorRef = React.useCallback((node: HTMLDivElement | null) => {
     setEditorElement(node)
   }, [])
+
+  const mediaInputRef = React.useRef<HTMLInputElement | null>(null)
 
   React.useEffect(() => {
     let cancelled = false
@@ -173,6 +189,18 @@ export function TextFileEditorDialog({
           ],
         })
 
+        const toolbar = quillRef.current.getModule('toolbar') as {
+          addHandler?: (name: string, handler: () => void) => void
+        } | null
+        toolbar?.addHandler?.('image', () => {
+          setMediaKind('image')
+          mediaInputRef.current?.click()
+        })
+        toolbar?.addHandler?.('video', () => {
+          setMediaKind('video')
+          mediaInputRef.current?.click()
+        })
+
         setIsEditorReady(true)
       } catch (error) {
         const message =
@@ -201,9 +229,9 @@ export function TextFileEditorDialog({
     if (item?.type === 'file') {
       setFileName(item.name)
     } else {
-      setFileName('Untitled.html')
+      setFileName(getDefaultUntitledName(items))
     }
-  }, [item, open])
+  }, [item, items, open])
 
   React.useEffect(() => {
     if (!open || !isEditorReady || !quillRef.current) {
@@ -254,11 +282,8 @@ export function TextFileEditorDialog({
     setIsSaving(true)
     try {
       const quill = quillRef.current
-      const html =
+      const content =
         quill.root.innerHTML === '<p><br></p>' ? '' : quill.root.innerHTML
-      const content = shouldPersistAsHtml(fileName)
-        ? html
-        : quill.getText().replace(/\n$/, '')
       const response = await fetch('/api/storage/save-text-file', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -298,9 +323,64 @@ export function TextFileEditorDialog({
     }
   }, [currentFolderId, fileName, item, onOpenChange, onSaved, userId])
 
-  const Icon = isTextBasedFile(fileName, null)
-    ? getFileIcon(fileName, null)
-    : null
+  const handleMediaInputChange = React.useCallback(
+    async (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files?.[0]
+      event.target.value = ''
+
+      if (!file || !quillRef.current || !userId) {
+        return
+      }
+
+      const expectedKind = mediaKind
+      if (!file.type.startsWith(`${expectedKind}/`)) {
+        toast.error(`Select a ${expectedKind} file`)
+        return
+      }
+
+      try {
+        const uploaded = await uploadFileToS3(
+          file,
+          userId,
+          currentFolderId,
+          () => undefined,
+        )
+
+        const params = new URLSearchParams({ userId, fileId: uploaded.id })
+        const response = await fetch(`/api/storage/presign?${params}`)
+        const data = (await response.json()) as { url?: string; error?: string }
+        if (!response.ok || !data.url) {
+          throw new Error(data.error ?? `HTTP ${response.status}`)
+        }
+
+        onSaved({
+          id: uploaded.id,
+          name: uploaded.name,
+          objectKey: uploaded.objectKey,
+          mimeType: uploaded.mimeType,
+          sizeInBytes: uploaded.sizeInBytes,
+          userId,
+          folderId: currentFolderId,
+          createdAt: uploaded.createdAt,
+          updatedAt: uploaded.createdAt,
+          type: 'file',
+        })
+
+        const quill = quillRef.current
+        const selection = quill.getSelection(true)
+        const index = selection?.index ?? quill.getLength()
+        quill.insertEmbed(index, expectedKind, data.url, 'user')
+        quill.setSelection(index + 1, 0, 'user')
+      } catch (error) {
+        toast.error(
+          error instanceof Error
+            ? error.message
+            : `Failed to upload ${expectedKind}`,
+        )
+      }
+    },
+    [currentFolderId, mediaKind, onSaved, userId],
+  )
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -311,11 +391,6 @@ export function TextFileEditorDialog({
         <div className="flex h-full min-h-0 flex-col">
           <DialogHeader className="border-b px-6 py-4">
             <div className="flex items-center gap-3">
-              {Icon ? (
-                <div className="bg-muted text-muted-foreground flex h-10 w-10 items-center justify-center rounded-lg">
-                  <Icon className="h-5 w-5" />
-                </div>
-              ) : null}
               <div className="min-w-0 flex-1">
                 <DialogTitle>
                   {item?.type === 'file' ? 'Edit File' : 'Create New File'}
@@ -361,6 +436,13 @@ export function TextFileEditorDialog({
             >
               <div ref={editorRef} className="h-full" />
             </div>
+            <input
+              ref={mediaInputRef}
+              type="file"
+              className="hidden"
+              accept={mediaKind === 'image' ? 'image/*' : 'video/*'}
+              onChange={handleMediaInputChange}
+            />
           </div>
         </div>
       </DialogContent>

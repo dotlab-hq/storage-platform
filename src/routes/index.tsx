@@ -262,6 +262,7 @@ function StoragePage() {
         onOpenChange={setEditorOpen}
         currentFolderId={storage.currentFolderId}
         item={editorItem}
+        items={storage.items}
         userId={storage.userId}
         onSaved={handleEditorSaved}
       />
