@@ -1,17 +1,21 @@
-import { auth } from '@/lib/auth'
-import { isAdminRole, normalizeUserRole } from '@/lib/authz'
 import { createMiddleware } from '@tanstack/react-start'
 import { redirect } from '@tanstack/react-router'
 
-type SessionPayload = NonNullable<
-  Awaited<ReturnType<typeof auth.api.getSession>>
->
-
-export type AuthContextSession = SessionPayload & {
-  user: SessionPayload['user'] & {
-    role: ReturnType<typeof normalizeUserRole>
-    isAdmin: boolean
+export type AuthContextSession = {
+  session: {
+    id: string
+    expiresAt: Date
+    [key: string]: unknown
   }
+  user: {
+    id: string
+    email: string
+    name: string | null
+    role: string
+    isAdmin: boolean
+    [key: string]: unknown
+  }
+  [key: string]: unknown
 }
 
 type AuthContext = {
@@ -41,6 +45,8 @@ function isAdminServerFunction(filename: string) {
 
 async function getAuthContextSession(): Promise<AuthContextSession | null> {
   const { getRequest } = await import('@tanstack/react-start/server')
+  const { auth } = await import('@/lib/auth')
+  const { isAdminRole, normalizeUserRole } = await import('@/lib/authz')
   const session = await auth.api.getSession({ headers: getRequest().headers })
   if (!session?.user) {
     return null

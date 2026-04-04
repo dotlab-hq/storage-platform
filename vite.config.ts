@@ -1,3 +1,4 @@
+import path from 'node:path'
 import { defineConfig } from 'vite'
 import { devtools } from '@tanstack/devtools-vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
@@ -9,6 +10,22 @@ import tailwindcss from '@tailwindcss/vite'
 // import { nitro } from 'nitro/vite'
 
 const config = defineConfig({
+  resolve: {
+    alias: [
+      {
+        find: 'node:async_hooks',
+        replacement: path.resolve(__dirname, 'src/shims/node-async-hooks.ts'),
+      },
+      {
+        find: 'node:stream/web',
+        replacement: path.resolve(__dirname, 'src/shims/node-stream-web.ts'),
+      },
+      {
+        find: 'node:stream',
+        replacement: path.resolve(__dirname, 'src/shims/node-stream.ts'),
+      },
+    ],
+  },
   server: {
     port: 3000,
   },
