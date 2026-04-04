@@ -1,5 +1,5 @@
 import { createMiddleware, createServerOnlyFn } from '@tanstack/react-start'
-import { redirect } from '@tanstack/react-router'
+import { notFound, redirect } from '@tanstack/react-router'
 
 export type AuthContextSession = {
   session: {
@@ -45,23 +45,27 @@ function isAdminServerFunction( filename: string ) {
 
 const getAuthContextSessionServerOnly = createServerOnlyFn(
   async (): Promise<AuthContextSession | null> => {
-    const { getRequest } = await import( '@tanstack/react-start/server' )
-    const { auth } = await import( '@/lib/auth' )
-    const { isAdminRole, normalizeUserRole } = await import( '@/lib/authz' )
-    const session = await auth.api.getSession( { headers: getRequest().headers } )
-    if ( !session?.user ) {
+    try {
+      const { getRequest } = await import( '@tanstack/react-start/server' )
+      const { auth } = await import( '@/lib/auth' )
+      const { isAdminRole, normalizeUserRole } = await import( '@/lib/authz' )
+      const session = await auth.api.getSession( { headers: getRequest().headers } )
+      if ( !session?.user ) {
+        return null
+      }
+
+      const role = normalizeUserRole( session.user.role )
+
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          role,
+          isAdmin: isAdminRole( role ),
+        },
+      }
+    } catch {
       return null
-    }
-
-    const role = normalizeUserRole( session.user.role )
-
-    return {
-      ...session,
-      user: {
-        ...session.user,
-        role,
-        isAdmin: isAdminRole( role ),
-      },
     }
   },
 )
@@ -81,7 +85,7 @@ async function requireAuthContextSession() {
 
 function requireAdminSession( session: AuthContextSession ) {
   if ( !session.user.isAdmin ) {
-    throw new Error( 'Forbidden: admin access required' )
+    throw notFound()
   }
 
   return session
