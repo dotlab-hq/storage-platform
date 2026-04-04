@@ -8,16 +8,17 @@ import viteReact from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 // import { nitro } from 'nitro/vite'
 
-const config = defineConfig( {
+const config = defineConfig({
   server: {
     port: 3000,
   },
   build: {
     rollupOptions: {
-      external: ["cloudflare:workers"],
+      external: ['cloudflare:workers'],
     },
   },
   plugins: [
+    cloudflare({ viteEnvironment: { name: 'ssr' } }),
     devtools(),
     // nitro( {
     //   preset: 'cloudflare_module',
@@ -74,13 +75,12 @@ const config = defineConfig( {
     //   // }
 
     // } ),
-    tsconfigPaths( { projects: ['./tsconfig.json'] } ),
+    tsconfigPaths({ projects: ['./tsconfig.json'] }),
     tailwindcss(),
-    tanstackStart( ),
+    tanstackStart(),
     svgr(),
-    cloudflare( { viteEnvironment: { name: 'ssr' }, } ),
     viteReact(),
   ],
-} )
+})
 
 export default config
