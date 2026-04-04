@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { ChevronsUpDown, LogOut, QrCode, Settings } from 'lucide-react'
+import { ChevronsUpDown, LogOut, Settings } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
 import { createClientOnlyFn } from '@tanstack/react-start'
 import { authClient } from '@/lib/auth-client'
@@ -129,14 +129,6 @@ export function NavUser({
               <Link to="/settings">
                 <Settings />
                 Settings
-              </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <Link to="/hot">
-                <QrCode />
-                {tinySession
-                  ? `Tiny session (${tinySession.permission})`
-                  : 'Scan-based login'}
               </Link>
             </DropdownMenuItem>
             {!tinySession && (

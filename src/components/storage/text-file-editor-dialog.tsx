@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { Eye, Loader2, Pencil, Save } from 'lucide-react'
+import { Loader2, Save, X, FileText } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -107,7 +107,6 @@ export function TextFileEditorDialog({
   const [isEditorReady, setIsEditorReady] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(false)
   const [isSaving, setIsSaving] = React.useState(false)
-  const [editorMode, setEditorMode] = React.useState<'write' | 'read'>('write')
   const [initError, setInitError] = React.useState<string | null>(null)
   const [mediaKind, setMediaKind] = React.useState<'image' | 'video'>('image')
 
@@ -216,7 +215,6 @@ export function TextFileEditorDialog({
     if (!open) {
       setIsLoading(false)
       setIsSaving(false)
-      setEditorMode('write')
       setInitError(null)
       return
     }
@@ -227,14 +225,6 @@ export function TextFileEditorDialog({
       setFileName(getDefaultUntitledName(items))
     }
   }, [item, items, open])
-
-  React.useEffect(() => {
-    if (!quillRef.current || !open) {
-      return
-    }
-
-    quillRef.current.enable(editorMode === 'write')
-  }, [editorMode, open])
 
   React.useEffect(() => {
     if (!open || !isEditorReady || !quillRef.current) {
@@ -383,108 +373,99 @@ export function TextFileEditorDialog({
     [currentFolderId, mediaKind, onSaved, userId],
   )
 
+  const handleClose = React.useCallback(() => {
+    onOpenChange(false)
+  }, [onOpenChange])
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
-        className="w-[min(96vw,72rem)] max-w-none overflow-hidden border-border bg-background p-0 shadow-2xl sm:h-[88vh]"
+        className="fixed top-[50%] left-[50%] z-50 flex h-[85vh] w-[95vw] max-w-4xl translate-x-[-50%] translate-y-[-50%] flex-col overflow-hidden border-border bg-background p-0 shadow-2xl"
         showCloseButton={false}
       >
-        <div className="flex h-full min-h-0 flex-col bg-gradient-to-b from-muted/30 to-background">
-          <DialogHeader className="border-b border-border/70 px-4 py-4 sm:px-6 sm:py-5">
-            <div className="flex flex-wrap items-start gap-3 sm:gap-4">
-              <div className="min-w-0 flex-1 space-y-3">
-                <DialogTitle className="sr-only">
-                  {item?.type === 'file' ? 'Edit File' : 'Create New File'}
-                </DialogTitle>
-                <DialogDescription className="sr-only">
-                  {initError ?? 'Rich text editor for storage documents'}
-                </DialogDescription>
-                <Input
-                  value={fileName}
-                  readOnly={editorMode === 'read'}
-                  onChange={(event) => setFileName(event.target.value)}
-                  placeholder="Untitled document..."
-                  className="h-auto border-0 bg-transparent px-0 py-0 text-2xl font-semibold tracking-tight text-foreground shadow-none ring-0 placeholder:text-muted-foreground focus-visible:border-0 focus-visible:ring-0 md:text-4xl"
-                />
-                {initError ? (
-                  <p className="text-sm text-red-600">{initError}</p>
-                ) : (
-                  <p className="text-sm text-muted-foreground">
-                    A rich document editor for text files in your storage.
-                  </p>
-                )}
-              </div>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() =>
-                  setEditorMode((prev) => (prev === 'write' ? 'read' : 'write'))
-                }
-                className="rounded-full"
-              >
-                {editorMode === 'write' ? (
-                  <>
-                    <Pencil className="mr-2 h-4 w-4" />
-                    Write mode
-                  </>
-                ) : (
-                  <>
-                    <Eye className="mr-2 h-4 w-4" />
-                    Read mode
-                  </>
-                )}
-              </Button>
-              <Button
-                size="lg"
-                onClick={() => void handleSave()}
-                disabled={
-                  editorMode === 'read' ||
-                  isLoading ||
-                  isSaving ||
-                  !isEditorReady ||
-                  !!initError
-                }
-                className="rounded-full px-6"
-              >
-                {isSaving ? (
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                  <Save className="mr-2 h-4 w-4" />
-                )}
-                Save
-              </Button>
+        <div className="flex shrink-0 items-center justify-between border-b border-border px-4 py-3">
+          <div className="flex min-w-0 items-center gap-3">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+              <FileText className="h-5 w-5 text-primary" />
             </div>
-          </DialogHeader>
-          <div className="relative min-h-0 flex-1 overflow-hidden px-4 py-4 sm:px-6 sm:py-5">
-            {(isLoading || (!isEditorReady && !initError)) && (
-              <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/70 backdrop-blur-sm">
-                <Loader2 className="text-muted-foreground h-6 w-6 animate-spin" />
-              </div>
-            )}
-            <div
-              className={cn(
-                'h-full min-h-0 overflow-hidden rounded-2xl border border-border bg-card shadow-sm',
-                '[&_.ql-container]:h-[calc(100%-52px)] [&_.ql-container]:border-0 [&_.ql-container]:bg-transparent [&_.ql-editor]:min-h-full [&_.ql-editor]:overflow-y-auto [&_.ql-editor]:px-4 [&_.ql-editor]:py-5 [&_.ql-editor]:font-serif [&_.ql-editor]:text-lg [&_.ql-editor]:leading-8 [&_.ql-editor]:text-foreground sm:[&_.ql-editor]:px-5 sm:[&_.ql-editor]:py-6 sm:[&_.ql-editor]:text-2xl',
-                '[&_.ql-editor.ql-blank::before]:left-4 [&_.ql-editor.ql-blank::before]:right-4 [&_.ql-editor.ql-blank::before]:font-serif [&_.ql-editor.ql-blank::before]:text-base [&_.ql-editor.ql-blank::before]:italic [&_.ql-editor.ql-blank::before]:text-muted-foreground sm:[&_.ql-editor.ql-blank::before]:text-lg',
-                '[&_.ql-toolbar]:rounded-none [&_.ql-toolbar]:border-x-0 [&_.ql-toolbar]:border-t-0 [&_.ql-toolbar]:border-b [&_.ql-toolbar]:border-border [&_.ql-toolbar]:bg-muted/35 [&_.ql-toolbar]:px-2 [&_.ql-toolbar]:py-2',
-                '[&_.ql-toolbar_.ql-picker]:text-muted-foreground [&_.ql-toolbar_button]:text-muted-foreground [&_.ql-toolbar_button:hover]:text-foreground [&_.ql-toolbar_button.ql-active]:text-foreground [&_.ql-toolbar_.ql-stroke]:stroke-current [&_.ql-toolbar_.ql-fill]:fill-current',
-                '[&_.ql-toolbar_.ql-picker-label:hover]:text-foreground [&_.ql-toolbar_.ql-picker-label.ql-active]:text-foreground [&_.ql-toolbar_.ql-picker-options]:border-border [&_.ql-toolbar_.ql-picker-options]:bg-popover',
-                '[&_.ql-editor_h1]:text-4xl [&_.ql-editor_h1]:font-semibold [&_.ql-editor_h2]:text-3xl [&_.ql-editor_h2]:font-semibold [&_.ql-editor_h3]:text-2xl [&_.ql-editor_h3]:font-semibold',
-                '[&_.ql-editor_img]:max-h-[420px] [&_.ql-editor_img]:rounded-xl [&_.ql-editor_video]:min-h-[280px] [&_.ql-editor_video]:w-full [&_.ql-editor_video]:rounded-xl',
-                editorMode === 'read' &&
-                  '[&_.ql-toolbar]:hidden [&_.ql-container]:h-full [&_.ql-editor]:cursor-default',
+            <div className="min-w-0 flex-1">
+              <Input
+                value={fileName}
+                onChange={(event) => setFileName(event.target.value)}
+                placeholder="Untitled document..."
+                className="h-auto border-0 bg-transparent px-0 py-0 text-base font-semibold text-foreground shadow-none ring-0 placeholder:text-muted-foreground focus-visible:border-0 focus-visible:ring-0"
+              />
+              {initError ? (
+                <p className="text-xs text-red-500">{initError}</p>
+              ) : (
+                <p className="text-xs text-muted-foreground">
+                  {item?.type === 'file' ? 'Editing file' : 'Creating new file'}
+                </p>
               )}
-            >
-              <div ref={editorRef} className="h-full" />
             </div>
-            <input
-              ref={mediaInputRef}
-              type="file"
-              className="hidden"
-              accept={mediaKind === 'image' ? 'image/*' : 'video/*'}
-              onChange={handleMediaInputChange}
-            />
           </div>
+          <div className="flex shrink-0 items-center gap-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              onClick={handleClose}
+            >
+              <X className="h-4 w-4" />
+            </Button>
+            <Button
+              size="sm"
+              onClick={() => void handleSave()}
+              disabled={isLoading || isSaving || !isEditorReady || !!initError}
+              className="gap-1.5"
+            >
+              {isSaving ? (
+                <Loader2 className="h-3.5 w-3.5 animate-spin" />
+              ) : (
+                <Save className="h-3.5 w-3.5" />
+              )}
+              Save
+            </Button>
+          </div>
+        </div>
+
+        <DialogHeader className="sr-only">
+          <DialogTitle>
+            {item?.type === 'file' ? 'Edit File' : 'Create New File'}
+          </DialogTitle>
+          <DialogDescription>
+            {initError ?? 'Rich text editor for storage documents'}
+          </DialogDescription>
+        </DialogHeader>
+
+        <div className="relative flex-1 overflow-hidden">
+          {(isLoading || (!isEditorReady && !initError)) && (
+            <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/70">
+              <Loader2 className="text-muted-foreground h-6 w-6 animate-spin" />
+            </div>
+          )}
+          <div
+            className={cn(
+              'h-full overflow-y-auto',
+              '[&_.ql-container]:border-0 [&_.ql-container]:bg-transparent',
+              '[&_.ql-editor]:min-h-full [&_.ql-editor]:px-4 [&_.ql-editor]:py-4 [&_.ql-editor]:font-serif [&_.ql-editor]:text-base [&_.ql-editor]:leading-relaxed [&_.ql-editor]:text-foreground',
+              '[&_.ql-editor.ql-blank::before]:left-4 [&_.ql-editor.ql-blank::before]:right-4 [&_.ql-editor.ql-blank::before]:font-serif [&_.ql-editor.ql-blank::before]:text-sm [&_.ql-editor.ql-blank::before]:italic [&_.ql-editor.ql-blank::before]:text-muted-foreground',
+              '[&_.ql-toolbar]:sticky [&_.ql-toolbar]:top-0 [&_.ql-toolbar]:z-10 [&_.ql-toolbar]:border-0 [&_.ql-toolbar]:border-b [&_.ql-toolbar]:border-border [&_.ql-toolbar]:bg-muted/50 [&_.ql-toolbar]:px-2 [&_.ql-toolbar]:py-2 [&_.ql-toolbar]:backdrop-blur-sm',
+              '[&_.ql-toolbar_.ql-picker]:text-muted-foreground [&_.ql-toolbar_button]:text-muted-foreground [&_.ql-toolbar_button:hover]:text-foreground [&_.ql-toolbar_button.ql-active]:text-foreground',
+              '[&_.ql-toolbar_.ql-picker-label:hover]:text-foreground [&_.ql-toolbar_.ql-picker-label.ql-active]:text-foreground [&_.ql-toolbar_.ql-picker-options]:border-border [&_.ql-toolbar_.ql-picker-options]:bg-popover',
+              '[&_.ql-editor_h1]:text-3xl [&_.ql-editor_h1]:font-semibold [&_.ql-editor_h2]:text-2xl [&_.ql-editor_h2]:font-semibold [&_.ql-editor_h3]:text-xl [&_.ql-editor_h3]:font-semibold',
+              '[&_.ql-editor_img]:max-h-[300px] [&_.ql-editor_img]:rounded-lg [&_.ql-editor_video]:min-h-[200px] [&_.ql-editor_video]:w-full [&_.ql-editor_video]:rounded-lg',
+            )}
+          >
+            <div ref={editorRef} />
+          </div>
+          <input
+            ref={mediaInputRef}
+            type="file"
+            className="hidden"
+            accept={mediaKind === 'image' ? 'image/*' : 'video/*'}
+            onChange={handleMediaInputChange}
+          />
         </div>
       </DialogContent>
     </Dialog>
