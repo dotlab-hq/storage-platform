@@ -48,6 +48,7 @@ import { Route as ApiStorageFileLinkRouteImport } from './routes/api/storage/fil
 import { Route as ApiStorageDeleteRouteImport } from './routes/api/storage/delete'
 import { Route as ApiStorageCreateFolderRouteImport } from './routes/api/storage/create-folder'
 import { Route as ApiStorageAllFoldersRouteImport } from './routes/api/storage/all-folders'
+import { Route as ApiQrAuthSessionStatusRouteImport } from './routes/api/qr-auth/session-status'
 import { Route as ApiQrAuthScanRouteImport } from './routes/api/qr-auth/scan'
 import { Route as ApiQrAuthPollRouteImport } from './routes/api/qr-auth/poll'
 import { Route as ApiQrAuthCreateOfferRouteImport } from './routes/api/qr-auth/create-offer'
@@ -260,6 +261,11 @@ const ApiStorageAllFoldersRoute = ApiStorageAllFoldersRouteImport.update({
   path: '/api/storage/all-folders',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiQrAuthSessionStatusRoute = ApiQrAuthSessionStatusRouteImport.update({
+  id: '/api/qr-auth/session-status',
+  path: '/api/qr-auth/session-status',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiQrAuthScanRoute = ApiQrAuthScanRouteImport.update({
   id: '/api/qr-auth/scan',
   path: '/api/qr-auth/scan',
@@ -356,6 +362,7 @@ export interface FileRoutesByFullPath {
   '/api/qr-auth/create-offer': typeof ApiQrAuthCreateOfferRoute
   '/api/qr-auth/poll': typeof ApiQrAuthPollRoute
   '/api/qr-auth/scan': typeof ApiQrAuthScanRoute
+  '/api/qr-auth/session-status': typeof ApiQrAuthSessionStatusRoute
   '/api/storage/all-folders': typeof ApiStorageAllFoldersRoute
   '/api/storage/create-folder': typeof ApiStorageCreateFolderRoute
   '/api/storage/delete': typeof ApiStorageDeleteRoute
@@ -411,6 +418,7 @@ export interface FileRoutesByTo {
   '/api/qr-auth/create-offer': typeof ApiQrAuthCreateOfferRoute
   '/api/qr-auth/poll': typeof ApiQrAuthPollRoute
   '/api/qr-auth/scan': typeof ApiQrAuthScanRoute
+  '/api/qr-auth/session-status': typeof ApiQrAuthSessionStatusRoute
   '/api/storage/all-folders': typeof ApiStorageAllFoldersRoute
   '/api/storage/create-folder': typeof ApiStorageCreateFolderRoute
   '/api/storage/delete': typeof ApiStorageDeleteRoute
@@ -467,6 +475,7 @@ export interface FileRoutesById {
   '/api/qr-auth/create-offer': typeof ApiQrAuthCreateOfferRoute
   '/api/qr-auth/poll': typeof ApiQrAuthPollRoute
   '/api/qr-auth/scan': typeof ApiQrAuthScanRoute
+  '/api/qr-auth/session-status': typeof ApiQrAuthSessionStatusRoute
   '/api/storage/all-folders': typeof ApiStorageAllFoldersRoute
   '/api/storage/create-folder': typeof ApiStorageCreateFolderRoute
   '/api/storage/delete': typeof ApiStorageDeleteRoute
@@ -524,6 +533,7 @@ export interface FileRouteTypes {
     | '/api/qr-auth/create-offer'
     | '/api/qr-auth/poll'
     | '/api/qr-auth/scan'
+    | '/api/qr-auth/session-status'
     | '/api/storage/all-folders'
     | '/api/storage/create-folder'
     | '/api/storage/delete'
@@ -579,6 +589,7 @@ export interface FileRouteTypes {
     | '/api/qr-auth/create-offer'
     | '/api/qr-auth/poll'
     | '/api/qr-auth/scan'
+    | '/api/qr-auth/session-status'
     | '/api/storage/all-folders'
     | '/api/storage/create-folder'
     | '/api/storage/delete'
@@ -634,6 +645,7 @@ export interface FileRouteTypes {
     | '/api/qr-auth/create-offer'
     | '/api/qr-auth/poll'
     | '/api/qr-auth/scan'
+    | '/api/qr-auth/session-status'
     | '/api/storage/all-folders'
     | '/api/storage/create-folder'
     | '/api/storage/delete'
@@ -690,6 +702,7 @@ export interface RootRouteChildren {
   ApiQrAuthCreateOfferRoute: typeof ApiQrAuthCreateOfferRoute
   ApiQrAuthPollRoute: typeof ApiQrAuthPollRoute
   ApiQrAuthScanRoute: typeof ApiQrAuthScanRoute
+  ApiQrAuthSessionStatusRoute: typeof ApiQrAuthSessionStatusRoute
   ApiStorageAllFoldersRoute: typeof ApiStorageAllFoldersRoute
   ApiStorageCreateFolderRoute: typeof ApiStorageCreateFolderRoute
   ApiStorageDeleteRoute: typeof ApiStorageDeleteRoute
@@ -1001,6 +1014,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStorageAllFoldersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/qr-auth/session-status': {
+      id: '/api/qr-auth/session-status'
+      path: '/api/qr-auth/session-status'
+      fullPath: '/api/qr-auth/session-status'
+      preLoaderRoute: typeof ApiQrAuthSessionStatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/qr-auth/scan': {
       id: '/api/qr-auth/scan'
       path: '/api/qr-auth/scan'
@@ -1122,6 +1142,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiQrAuthCreateOfferRoute: ApiQrAuthCreateOfferRoute,
   ApiQrAuthPollRoute: ApiQrAuthPollRoute,
   ApiQrAuthScanRoute: ApiQrAuthScanRoute,
+  ApiQrAuthSessionStatusRoute: ApiQrAuthSessionStatusRoute,
   ApiStorageAllFoldersRoute: ApiStorageAllFoldersRoute,
   ApiStorageCreateFolderRoute: ApiStorageCreateFolderRoute,
   ApiStorageDeleteRoute: ApiStorageDeleteRoute,

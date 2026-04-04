@@ -28,6 +28,7 @@ type Html5QrScanner = {
 }
 
 type ScanState = 'idle' | 'scanning' | 'review' | 'submitting'
+const SCAN_QR_INTRO_SEEN_KEY = 'dot_storage_scan_qr_intro_seen_v1'
 
 async function startScannerWithFallback(
   scanner: Html5QrScanner,
@@ -75,6 +76,7 @@ export function ScanQrDialog({
   className?: string
 }) {
   const [open, setOpen] = React.useState(false)
+  const [introOpen, setIntroOpen] = React.useState(false)
   const [state, setState] = React.useState<ScanState>('idle')
   const [permission, setPermission] = React.useState<Permission>('read')
   const [decodedPayload, setDecodedPayload] = React.useState<string>('')
@@ -201,16 +203,69 @@ export function ScanQrDialog({
     }
   }
 
+  const parsedCode = React.useMemo(() => {
+    const prefix = 'DOT_STORAGE_QR_LOGIN:'
+    if (!decodedPayload.startsWith(prefix)) {
+      return null
+    }
+    return decodedPayload.slice(prefix.length)
+  }, [decodedPayload])
+
+  const openScanner = () => {
+    if (typeof window === 'undefined') {
+      setOpen(true)
+      return
+    }
+
+    const hasSeenIntro =
+      window.localStorage.getItem(SCAN_QR_INTRO_SEEN_KEY) === '1'
+    if (hasSeenIntro) {
+      setOpen(true)
+      return
+    }
+
+    setIntroOpen(true)
+  }
+
+  const startAfterIntro = () => {
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(SCAN_QR_INTRO_SEEN_KEY, '1')
+    }
+    setIntroOpen(false)
+    setOpen(true)
+  }
+
   return (
     <>
       <Button
         variant={triggerVariant}
         className={className}
-        onClick={() => setOpen(true)}
+        onClick={openScanner}
       >
         <QrCode className="size-4" />
         {triggerLabel}
       </Button>
+      <Dialog open={introOpen} onOpenChange={setIntroOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Scan-based login</DialogTitle>
+            <DialogDescription>
+              Point your camera at a login QR from the /hot page. Then confirm
+              access level and submit.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="rounded-md border p-3 text-sm text-muted-foreground">
+            Tiny sessions last 10 minutes. Use read-only unless you explicitly
+            need write access.
+          </div>
+          <DialogFooter>
+            <Button variant="ghost" onClick={() => setIntroOpen(false)}>
+              Cancel
+            </Button>
+            <Button onClick={startAfterIntro}>Got it, start scan</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent>
           <DialogHeader>
@@ -222,12 +277,14 @@ export function ScanQrDialog({
           </DialogHeader>
 
           <div className="space-y-3">
-            <div className="rounded-md border p-2">
-              <div
-                id={regionId}
-                className="min-h-[250px] w-full overflow-hidden rounded-sm"
-              />
-            </div>
+            {state !== 'review' && (
+              <div className="rounded-md border p-2">
+                <div
+                  id={regionId}
+                  className="min-h-[250px] w-full overflow-hidden rounded-sm"
+                />
+              </div>
+            )}
 
             {state === 'scanning' && (
               <p className="text-muted-foreground flex items-center gap-2 text-sm">
@@ -243,6 +300,11 @@ export function ScanQrDialog({
             {state === 'review' && (
               <div className="space-y-3 rounded-md border p-3">
                 <p className="text-sm font-medium">Is this QR valid?</p>
+                <div className="rounded-md border bg-muted/40 px-3 py-2 text-xs text-muted-foreground">
+                  {parsedCode
+                    ? `Detected offer: ${parsedCode}`
+                    : 'QR detected and ready to submit.'}
+                </div>
                 <div className="flex flex-wrap gap-2">
                   <Button
                     variant="outline"

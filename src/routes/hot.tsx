@@ -61,9 +61,7 @@ function HotRoute() {
 
       setOffer(data)
       setQrImage(dataUrl)
-      setStateMessage(
-        'Scan now from the app sidebar. Tiny session duration: 10 minutes.',
-      )
+      setStateMessage('Scan-based login ready. Tiny session lasts 10 minutes.')
     } catch (error) {
       setOffer(null)
       setQrImage('')

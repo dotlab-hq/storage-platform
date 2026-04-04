@@ -96,7 +96,7 @@ function LoginPage() {
         </div>
         <div className="text-center text-sm">
           <Link to="/hot" search={() => ({})} className="text-primary">
-            Use scan-based login (tiny session: 10 minutes)
+            Want a tiny session? Use scan-based login.
           </Link>
         </div>
       </div>

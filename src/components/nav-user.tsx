@@ -1,19 +1,13 @@
-"use client"
+'use client'
 
-import {
-  ChevronsUpDown,
-  LogOut,
-  Settings,
-} from "lucide-react"
-import { Link } from "@tanstack/react-router"
-import { createClientOnlyFn } from "@tanstack/react-start"
-import { authClient } from "@/lib/auth-client"
+import * as React from 'react'
+import { ChevronsUpDown, LogOut, QrCode, Settings } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
+import { createClientOnlyFn } from '@tanstack/react-start'
+import { authClient } from '@/lib/auth-client'
+import { ScanQrDialog } from '@/components/qr/scan-qr-dialog'
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,15 +15,15 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from '@/components/ui/dropdown-menu'
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@/components/ui/sidebar"
+} from '@/components/ui/sidebar'
 
-export function NavUser( {
+export function NavUser({
   user,
 }: {
   user: {
@@ -38,12 +32,59 @@ export function NavUser( {
     avatar: string
     isAdmin: boolean
   }
-} ) {
+}) {
   const { isMobile } = useSidebar()
-  const logout = createClientOnlyFn( async () => {
+  const [tinySession, setTinySession] = React.useState<{
+    permission: 'read' | 'read-write'
+    expiresAt: string
+  } | null>(null)
+  const logout = createClientOnlyFn(async () => {
     await authClient.signOut()
     window.location.reload()
-  } )
+  })
+
+  React.useEffect(() => {
+    let cancelled = false
+
+    const loadTinySession = async () => {
+      try {
+        const response = await fetch('/api/qr-auth/session-status')
+        const data = (await response.json().catch(() => null)) as {
+          active?: boolean
+          permission?: 'read' | 'read-write'
+          expiresAt?: string
+        } | null
+
+        if (
+          !response.ok ||
+          !data?.active ||
+          !data.permission ||
+          !data.expiresAt
+        ) {
+          if (!cancelled) {
+            setTinySession(null)
+          }
+          return
+        }
+
+        if (!cancelled) {
+          setTinySession({
+            permission: data.permission,
+            expiresAt: data.expiresAt,
+          })
+        }
+      } catch {
+        if (!cancelled) {
+          setTinySession(null)
+        }
+      }
+    }
+
+    void loadTinySession()
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   return (
     <SidebarMenu>
@@ -67,7 +108,7 @@ export function NavUser( {
           </DropdownMenuTrigger>
           <DropdownMenuContent
             className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
-            side={isMobile ? "bottom" : "right"}
+            side={isMobile ? 'bottom' : 'right'}
             align="end"
             sideOffset={4}
           >
@@ -90,8 +131,24 @@ export function NavUser( {
                 Settings
               </Link>
             </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/hot">
+                <QrCode />
+                {tinySession
+                  ? `Tiny session (${tinySession.permission})`
+                  : 'Scan-based login'}
+              </Link>
+            </DropdownMenuItem>
+            {!tinySession && (
+              <div className="px-1 py-1.5">
+                <ScanQrDialog
+                  triggerLabel="Scan now"
+                  triggerVariant="ghost"
+                  className="h-8 w-full justify-start px-2"
+                />
+              </div>
+            )}
             <DropdownMenuSeparator />
-
 
             <DropdownMenuItem onClick={() => void logout()}>
               <LogOut />

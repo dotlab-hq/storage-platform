@@ -40,7 +40,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
-import { ScanQrDialog } from '@/components/qr/scan-qr-dialog'
 
 const navItems = [
   { title: 'My Files', url: '/', icon: Home, isActive: true },
@@ -133,23 +132,6 @@ export function AppSidebar({ quota = null, ...props }: AppSidebarProps) {
 
       <SidebarFooter>
         <StorageQuota quota={quota} className="mb-2" />
-        <SidebarSeparator />
-        <div className="space-y-2 px-2 py-1">
-          <p className="text-muted-foreground text-xs font-medium">
-            Scan-based login
-          </p>
-          <div className="flex gap-2">
-            <ScanQrDialog
-              triggerLabel="Scan now"
-              className="h-7 px-2 text-xs"
-            />
-            <ScanQrDialog
-              triggerLabel="Scan QR"
-              triggerVariant="ghost"
-              className="h-7 px-2 text-xs"
-            />
-          </div>
-        </div>
         <SidebarSeparator />
         <div className="flex items-center justify-between px-2 py-1">
           <span className="text-muted-foreground text-xs">Theme</span>

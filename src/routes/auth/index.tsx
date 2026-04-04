@@ -11,9 +11,9 @@ function RouteComponent() {
       <div className="w-full max-w-sm">
         <AuthForm />
         <p className="text-muted-foreground mt-4 text-center text-sm">
-          Prefer QR login?{' '}
+          Want a tiny session?{' '}
           <Link to="/hot" search={() => ({})} className="text-primary">
-            Open /hot for a tiny 10-minute session.
+            Use scan-based login.
           </Link>
         </p>
       </div>
