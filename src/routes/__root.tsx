@@ -16,29 +16,33 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 import { Toaster } from '@/components/ui/sonner'
 import { AppErrorBoundary } from '@/components/error-boundary'
 import { NotFoundPage } from '@/components/not-found'
+import { authenticatedRouteMiddleware } from '@/lib/route-auth-middleware'
 
 interface MyRouterContext {
   queryClient: QueryClient
 }
 
 const Devtools = import.meta.env.DEV
-  ? lazy( () =>
-    import( '@/components/devtools/tanstack-devtools' ).then( ( module ) => ( {
-      default: module.TanstackDevtools,
-    } ) )
-  )
+  ? lazy(() =>
+      import('@/components/devtools/tanstack-devtools').then((module) => ({
+        default: module.TanstackDevtools,
+      })),
+    )
   : null
 
-const GlobalShellActions = lazy( () =>
-  import( '@/components/shell/global-shell-actions' ).then( ( module ) => ( {
+const GlobalShellActions = lazy(() =>
+  import('@/components/shell/global-shell-actions').then((module) => ({
     default: module.GlobalShellActions,
-  } ) )
+  })),
 )
 
-export const Route = createRootRouteWithContext<MyRouterContext>()( {
+export const Route = createRootRouteWithContext<MyRouterContext>()({
   errorComponent: AppErrorBoundary,
   notFoundComponent: NotFoundPage,
-  head: () => ( {
+  server: {
+    middleware: [authenticatedRouteMiddleware],
+  },
+  head: () => ({
     meta: [
       {
         charSet: 'utf-8',
@@ -52,11 +56,13 @@ export const Route = createRootRouteWithContext<MyRouterContext>()( {
       },
       {
         name: 'description',
-        content: 'Secure, fast, and simple cloud file storage with end-to-end encryption. Store, share, and manage files safely in the cloud.',
+        content:
+          'Secure, fast, and simple cloud file storage with end-to-end encryption. Store, share, and manage files safely in the cloud.',
       },
       {
         name: 'keywords',
-        content: 'cloud storage, secure file storage, encrypted storage, file sharing, document management, backup, online storage',
+        content:
+          'cloud storage, secure file storage, encrypted storage, file sharing, document management, backup, online storage',
       },
       {
         name: 'author',
@@ -64,7 +70,8 @@ export const Route = createRootRouteWithContext<MyRouterContext>()( {
       },
       {
         name: 'robots',
-        content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+        content:
+          'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
       },
       {
         property: 'og:type',
@@ -76,7 +83,8 @@ export const Route = createRootRouteWithContext<MyRouterContext>()( {
       },
       {
         property: 'og:description',
-        content: 'Secure, fast, and simple cloud file storage with end-to-end encryption.',
+        content:
+          'Secure, fast, and simple cloud file storage with end-to-end encryption.',
       },
       {
         property: 'og:image',
@@ -100,7 +108,8 @@ export const Route = createRootRouteWithContext<MyRouterContext>()( {
       },
       {
         name: 'twitter:description',
-        content: 'Secure, fast, and simple cloud file storage with end-to-end encryption.',
+        content:
+          'Secure, fast, and simple cloud file storage with end-to-end encryption.',
       },
       {
         name: 'twitter:image',
@@ -156,11 +165,11 @@ export const Route = createRootRouteWithContext<MyRouterContext>()( {
         href: 'https://fonts.googleapis.com',
       },
     ],
-  } ),
+  }),
   shellComponent: RootDocument,
-} )
+})
 
-function RootDocument( { children }: { children: React.ReactNode } ) {
+function RootDocument({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -168,11 +177,12 @@ function RootDocument( { children }: { children: React.ReactNode } ) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify( {
+            __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'SoftwareApplication',
               name: 'DOT. Storage',
-              description: 'Secure, fast, and simple cloud file storage with end-to-end encryption',
+              description:
+                'Secure, fast, and simple cloud file storage with end-to-end encryption',
               url: 'https://storage.wpsadi.dev',
               applicationCategory: 'BusinessApplication',
               offers: {
@@ -189,7 +199,7 @@ function RootDocument( { children }: { children: React.ReactNode } ) {
                 name: 'DOT. Storage',
                 logo: 'https://storage.wpsadi.dev/logo.svg',
               },
-            } ),
+            }),
           }}
         />
       </head>
