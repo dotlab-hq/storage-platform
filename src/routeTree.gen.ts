@@ -24,6 +24,8 @@ import { Route as AuthResetPasswordRouteImport } from './routes/auth/reset-passw
 import { Route as AuthLoginRouteImport } from './routes/auth/login'
 import { Route as AuthForgotPasswordRouteImport } from './routes/auth/forgot-password'
 import { Route as ApiStorageUploadPresignRouteImport } from './routes/api/storage/upload-presign'
+import { Route as ApiStorageUploadMultipartInitRouteImport } from './routes/api/storage/upload-multipart-init'
+import { Route as ApiStorageUploadMultipartCompleteRouteImport } from './routes/api/storage/upload-multipart-complete'
 import { Route as ApiStorageTrashRestoreRouteImport } from './routes/api/storage/trash-restore'
 import { Route as ApiStorageTrashDeleteRouteImport } from './routes/api/storage/trash-delete'
 import { Route as ApiStorageTrashRouteImport } from './routes/api/storage/trash'
@@ -129,6 +131,18 @@ const ApiStorageUploadPresignRoute = ApiStorageUploadPresignRouteImport.update({
   path: '/api/storage/upload-presign',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiStorageUploadMultipartInitRoute =
+  ApiStorageUploadMultipartInitRouteImport.update({
+    id: '/api/storage/upload-multipart-init',
+    path: '/api/storage/upload-multipart-init',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiStorageUploadMultipartCompleteRoute =
+  ApiStorageUploadMultipartCompleteRouteImport.update({
+    id: '/api/storage/upload-multipart-complete',
+    path: '/api/storage/upload-multipart-complete',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiStorageTrashRestoreRoute = ApiStorageTrashRestoreRouteImport.update({
   id: '/api/storage/trash-restore',
   path: '/api/storage/trash-restore',
@@ -314,6 +328,8 @@ export interface FileRoutesByFullPath {
   '/api/storage/trash': typeof ApiStorageTrashRoute
   '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
   '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
+  '/api/storage/upload-multipart-complete': typeof ApiStorageUploadMultipartCompleteRoute
+  '/api/storage/upload-multipart-init': typeof ApiStorageUploadMultipartInitRoute
   '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
@@ -360,6 +376,8 @@ export interface FileRoutesByTo {
   '/api/storage/trash': typeof ApiStorageTrashRoute
   '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
   '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
+  '/api/storage/upload-multipart-complete': typeof ApiStorageUploadMultipartCompleteRoute
+  '/api/storage/upload-multipart-init': typeof ApiStorageUploadMultipartInitRoute
   '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
@@ -407,6 +425,8 @@ export interface FileRoutesById {
   '/api/storage/trash': typeof ApiStorageTrashRoute
   '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
   '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
+  '/api/storage/upload-multipart-complete': typeof ApiStorageUploadMultipartCompleteRoute
+  '/api/storage/upload-multipart-init': typeof ApiStorageUploadMultipartInitRoute
   '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
@@ -455,6 +475,8 @@ export interface FileRouteTypes {
     | '/api/storage/trash'
     | '/api/storage/trash-delete'
     | '/api/storage/trash-restore'
+    | '/api/storage/upload-multipart-complete'
+    | '/api/storage/upload-multipart-init'
     | '/api/storage/upload-presign'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
@@ -501,6 +523,8 @@ export interface FileRouteTypes {
     | '/api/storage/trash'
     | '/api/storage/trash-delete'
     | '/api/storage/trash-restore'
+    | '/api/storage/upload-multipart-complete'
+    | '/api/storage/upload-multipart-init'
     | '/api/storage/upload-presign'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
@@ -547,6 +571,8 @@ export interface FileRouteTypes {
     | '/api/storage/trash'
     | '/api/storage/trash-delete'
     | '/api/storage/trash-restore'
+    | '/api/storage/upload-multipart-complete'
+    | '/api/storage/upload-multipart-init'
     | '/api/storage/upload-presign'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
@@ -594,6 +620,8 @@ export interface RootRouteChildren {
   ApiStorageTrashRoute: typeof ApiStorageTrashRoute
   ApiStorageTrashDeleteRoute: typeof ApiStorageTrashDeleteRoute
   ApiStorageTrashRestoreRoute: typeof ApiStorageTrashRestoreRoute
+  ApiStorageUploadMultipartCompleteRoute: typeof ApiStorageUploadMultipartCompleteRoute
+  ApiStorageUploadMultipartInitRoute: typeof ApiStorageUploadMultipartInitRoute
   ApiStorageUploadPresignRoute: typeof ApiStorageUploadPresignRoute
   ApiStorageS3SplatRoute: typeof ApiStorageS3SplatRoute
   ApiStorageS3BucketCredentialsRoute: typeof ApiStorageS3BucketCredentialsRoute
@@ -712,6 +740,20 @@ declare module '@tanstack/react-router' {
       path: '/api/storage/upload-presign'
       fullPath: '/api/storage/upload-presign'
       preLoaderRoute: typeof ApiStorageUploadPresignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/upload-multipart-init': {
+      id: '/api/storage/upload-multipart-init'
+      path: '/api/storage/upload-multipart-init'
+      fullPath: '/api/storage/upload-multipart-init'
+      preLoaderRoute: typeof ApiStorageUploadMultipartInitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/upload-multipart-complete': {
+      id: '/api/storage/upload-multipart-complete'
+      path: '/api/storage/upload-multipart-complete'
+      fullPath: '/api/storage/upload-multipart-complete'
+      preLoaderRoute: typeof ApiStorageUploadMultipartCompleteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/storage/trash-restore': {
@@ -954,6 +996,9 @@ const rootRouteChildren: RootRouteChildren = {
   ApiStorageTrashRoute: ApiStorageTrashRoute,
   ApiStorageTrashDeleteRoute: ApiStorageTrashDeleteRoute,
   ApiStorageTrashRestoreRoute: ApiStorageTrashRestoreRoute,
+  ApiStorageUploadMultipartCompleteRoute:
+    ApiStorageUploadMultipartCompleteRoute,
+  ApiStorageUploadMultipartInitRoute: ApiStorageUploadMultipartInitRoute,
   ApiStorageUploadPresignRoute: ApiStorageUploadPresignRoute,
   ApiStorageS3SplatRoute: ApiStorageS3SplatRoute,
   ApiStorageS3BucketCredentialsRoute: ApiStorageS3BucketCredentialsRoute,

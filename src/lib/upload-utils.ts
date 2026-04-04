@@ -27,10 +27,10 @@ type RegisterResponse = {
 }
 
 const MIN_PART_SIZE_BYTES = 5 * 1024 * 1024
-const TARGET_PART_SIZE_BYTES = 16 * 1024 * 1024
 const MAX_MULTIPART_PARTS = 10000
-const MIN_MULTIPART_FILE_SIZE_BYTES = 32 * 1024 * 1024
-const SINGLE_FILE_PART_CONCURRENCY = 6
+const TARGET_PART_COUNT = 8
+const MIN_MULTIPART_FILE_SIZE_BYTES = 8 * 1024 * 1024
+const SINGLE_FILE_PART_CONCURRENCY = 8
 
 export type CompletedFileInfo = {
   id: string
@@ -54,7 +54,7 @@ async function fetchPresignedUrl(
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ objectKey, contentType, fileSize }),
   })
-  const data = (await res.json()) as PresignResponse
+  const data: PresignResponse = (await res.json())
   if (!res.ok || !data.presignedUrl) {
     throw new Error(data.error ?? 'Failed to get presigned URL')
   }
@@ -79,7 +79,7 @@ async function fetchMultipartSession(
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ objectKey, contentType, fileSize, partCount }),
   })
-  const data = (await res.json()) as MultipartInitResponse
+  const data:MultipartInitResponse = (await res.json()) 
   if (
     !res.ok ||
     !data.uploadId ||
@@ -105,7 +105,7 @@ async function completeMultipartUpload(
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ objectKey, uploadId, providerId }),
   })
-  const data = (await res.json()) as MultipartCompleteResponse
+  const data:MultipartCompleteResponse = (await res.json())
   if (!res.ok || !data.ok) {
     throw new Error(data.error ?? 'Failed to finalize multipart upload')
   }
@@ -114,7 +114,7 @@ async function completeMultipartUpload(
 function computePartSize(fileSize: number): number {
   return Math.max(
     MIN_PART_SIZE_BYTES,
-    TARGET_PART_SIZE_BYTES,
+    Math.ceil(fileSize / TARGET_PART_COUNT),
     Math.ceil(fileSize / MAX_MULTIPART_PARTS),
   )
 }
@@ -236,7 +236,7 @@ async function registerFileInDb(
       providerId,
     }),
   })
-  const data = (await res.json()) as RegisterResponse
+  const data:RegisterResponse = (await res.json())
   if (!res.ok || data.error || !data.file) {
     throw new Error(data.error ?? 'Failed to register file')
   }
