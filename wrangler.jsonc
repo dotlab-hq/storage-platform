@@ -1,53 +1,51 @@
 {
-    "$schema": "node_modules/wrangler/config-schema.json",
-    "name": "storage",
-    "main": "@tanstack/react-start/server-entry",
-    "assets": {
-        "binding": "ASSETS",
-        "directory": "./public"
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "storage",
+  "main": "dist/server/index.js",
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist/client",
+  },
+  "compatibility_date": "2026-03-24",
+  "compatibility_flags": ["nodejs_compat"],
+  "upload_source_maps": true,
+  "observability": {
+    "enabled": false,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "invocation_logs": true,
     },
-    "compatibility_date": "2026-03-24",
-    "compatibility_flags": [
-        "nodejs_compat"
-    ],
-    "upload_source_maps": true,
-    "observability": {
-        "enabled": false,
-        "head_sampling_rate": 1,
-        "logs": {
-            "enabled": true,
-            "head_sampling_rate": 1,
-            "invocation_logs": true
-        },
+  },
+  "placement": {
+    "region": "aws:ap-south-1",
+  },
+  "keep_vars": true,
+  // "vars": {
+  //   "MY_VAR": "my-variable"
+  // },
+  "hyperdrive": [
+    {
+      "binding": "DB",
+      "id": "3c26563cafef4f44a700a5ec0b63b693",
     },
-    "placement": {
-        "region": "aws:ap-south-1"
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB_D1",
+      "database_name": "storage-db",
+      "database_id": "a80e9922-5ba7-4013-9e89-2fe232137f23",
+      "migrations_dir": "drizzle",
+      "remote": true,
     },
-    "keep_vars": true,
-    // "vars": {
-    //   "MY_VAR": "my-variable"
-    // },
-    "hyperdrive": [
-        {
-            "binding": "DB",
-            "id": "3c26563cafef4f44a700a5ec0b63b693",
-        }
-    ],
-    "d1_databases": [
-        {
-            "binding": "DB_D1",
-            "database_name": "storage-db",
-            "database_id": "a80e9922-5ba7-4013-9e89-2fe232137f23",
-            "migrations_dir": "drizzle",
-            "remote": true
-        }
-    ]
-    // "kv_namespaces": [
-    // ],
-    // "r2_buckets": [
-    //   {
-    //     "binding": "MY_BUCKET",
-    //     "bucket_name": "my-bucket"
-    //   }
-    // ],
+  ],
+  // "kv_namespaces": [
+  // ],
+  // "r2_buckets": [
+  //   {
+  //     "binding": "MY_BUCKET",
+  //     "bucket_name": "my-bucket"
+  //   }
+  // ],
 }
