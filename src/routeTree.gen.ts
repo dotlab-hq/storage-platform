@@ -29,9 +29,11 @@ import { Route as ApiStorageUploadMultipartCompleteRouteImport } from './routes/
 import { Route as ApiStorageTrashRestoreRouteImport } from './routes/api/storage/trash-restore'
 import { Route as ApiStorageTrashDeleteRouteImport } from './routes/api/storage/trash-delete'
 import { Route as ApiStorageTrashRouteImport } from './routes/api/storage/trash'
+import { Route as ApiStorageTextFileRouteImport } from './routes/api/storage/text-file'
 import { Route as ApiStorageShareAccessRouteImport } from './routes/api/storage/share-access'
 import { Route as ApiStorageShareRouteImport } from './routes/api/storage/share'
 import { Route as ApiStorageSearchRouteImport } from './routes/api/storage/search'
+import { Route as ApiStorageSaveTextFileRouteImport } from './routes/api/storage/save-text-file'
 import { Route as ApiStorageRootItemsRouteImport } from './routes/api/storage/root-items'
 import { Route as ApiStorageRenameRouteImport } from './routes/api/storage/rename'
 import { Route as ApiStorageRegisterFileRouteImport } from './routes/api/storage/register-file'
@@ -158,6 +160,11 @@ const ApiStorageTrashRoute = ApiStorageTrashRouteImport.update({
   path: '/api/storage/trash',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiStorageTextFileRoute = ApiStorageTextFileRouteImport.update({
+  id: '/api/storage/text-file',
+  path: '/api/storage/text-file',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiStorageShareAccessRoute = ApiStorageShareAccessRouteImport.update({
   id: '/api/storage/share-access',
   path: '/api/storage/share-access',
@@ -171,6 +178,11 @@ const ApiStorageShareRoute = ApiStorageShareRouteImport.update({
 const ApiStorageSearchRoute = ApiStorageSearchRouteImport.update({
   id: '/api/storage/search',
   path: '/api/storage/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageSaveTextFileRoute = ApiStorageSaveTextFileRouteImport.update({
+  id: '/api/storage/save-text-file',
+  path: '/api/storage/save-text-file',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiStorageRootItemsRoute = ApiStorageRootItemsRouteImport.update({
@@ -322,9 +334,11 @@ export interface FileRoutesByFullPath {
   '/api/storage/register-file': typeof ApiStorageRegisterFileRoute
   '/api/storage/rename': typeof ApiStorageRenameRoute
   '/api/storage/root-items': typeof ApiStorageRootItemsRoute
+  '/api/storage/save-text-file': typeof ApiStorageSaveTextFileRoute
   '/api/storage/search': typeof ApiStorageSearchRoute
   '/api/storage/share': typeof ApiStorageShareRoute
   '/api/storage/share-access': typeof ApiStorageShareAccessRoute
+  '/api/storage/text-file': typeof ApiStorageTextFileRoute
   '/api/storage/trash': typeof ApiStorageTrashRoute
   '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
   '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
@@ -370,9 +384,11 @@ export interface FileRoutesByTo {
   '/api/storage/register-file': typeof ApiStorageRegisterFileRoute
   '/api/storage/rename': typeof ApiStorageRenameRoute
   '/api/storage/root-items': typeof ApiStorageRootItemsRoute
+  '/api/storage/save-text-file': typeof ApiStorageSaveTextFileRoute
   '/api/storage/search': typeof ApiStorageSearchRoute
   '/api/storage/share': typeof ApiStorageShareRoute
   '/api/storage/share-access': typeof ApiStorageShareAccessRoute
+  '/api/storage/text-file': typeof ApiStorageTextFileRoute
   '/api/storage/trash': typeof ApiStorageTrashRoute
   '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
   '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
@@ -419,9 +435,11 @@ export interface FileRoutesById {
   '/api/storage/register-file': typeof ApiStorageRegisterFileRoute
   '/api/storage/rename': typeof ApiStorageRenameRoute
   '/api/storage/root-items': typeof ApiStorageRootItemsRoute
+  '/api/storage/save-text-file': typeof ApiStorageSaveTextFileRoute
   '/api/storage/search': typeof ApiStorageSearchRoute
   '/api/storage/share': typeof ApiStorageShareRoute
   '/api/storage/share-access': typeof ApiStorageShareAccessRoute
+  '/api/storage/text-file': typeof ApiStorageTextFileRoute
   '/api/storage/trash': typeof ApiStorageTrashRoute
   '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
   '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
@@ -469,9 +487,11 @@ export interface FileRouteTypes {
     | '/api/storage/register-file'
     | '/api/storage/rename'
     | '/api/storage/root-items'
+    | '/api/storage/save-text-file'
     | '/api/storage/search'
     | '/api/storage/share'
     | '/api/storage/share-access'
+    | '/api/storage/text-file'
     | '/api/storage/trash'
     | '/api/storage/trash-delete'
     | '/api/storage/trash-restore'
@@ -517,9 +537,11 @@ export interface FileRouteTypes {
     | '/api/storage/register-file'
     | '/api/storage/rename'
     | '/api/storage/root-items'
+    | '/api/storage/save-text-file'
     | '/api/storage/search'
     | '/api/storage/share'
     | '/api/storage/share-access'
+    | '/api/storage/text-file'
     | '/api/storage/trash'
     | '/api/storage/trash-delete'
     | '/api/storage/trash-restore'
@@ -565,9 +587,11 @@ export interface FileRouteTypes {
     | '/api/storage/register-file'
     | '/api/storage/rename'
     | '/api/storage/root-items'
+    | '/api/storage/save-text-file'
     | '/api/storage/search'
     | '/api/storage/share'
     | '/api/storage/share-access'
+    | '/api/storage/text-file'
     | '/api/storage/trash'
     | '/api/storage/trash-delete'
     | '/api/storage/trash-restore'
@@ -614,9 +638,11 @@ export interface RootRouteChildren {
   ApiStorageRegisterFileRoute: typeof ApiStorageRegisterFileRoute
   ApiStorageRenameRoute: typeof ApiStorageRenameRoute
   ApiStorageRootItemsRoute: typeof ApiStorageRootItemsRoute
+  ApiStorageSaveTextFileRoute: typeof ApiStorageSaveTextFileRoute
   ApiStorageSearchRoute: typeof ApiStorageSearchRoute
   ApiStorageShareRoute: typeof ApiStorageShareRoute
   ApiStorageShareAccessRoute: typeof ApiStorageShareAccessRoute
+  ApiStorageTextFileRoute: typeof ApiStorageTextFileRoute
   ApiStorageTrashRoute: typeof ApiStorageTrashRoute
   ApiStorageTrashDeleteRoute: typeof ApiStorageTrashDeleteRoute
   ApiStorageTrashRestoreRoute: typeof ApiStorageTrashRestoreRoute
@@ -777,6 +803,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStorageTrashRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/storage/text-file': {
+      id: '/api/storage/text-file'
+      path: '/api/storage/text-file'
+      fullPath: '/api/storage/text-file'
+      preLoaderRoute: typeof ApiStorageTextFileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/storage/share-access': {
       id: '/api/storage/share-access'
       path: '/api/storage/share-access'
@@ -796,6 +829,13 @@ declare module '@tanstack/react-router' {
       path: '/api/storage/search'
       fullPath: '/api/storage/search'
       preLoaderRoute: typeof ApiStorageSearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/save-text-file': {
+      id: '/api/storage/save-text-file'
+      path: '/api/storage/save-text-file'
+      fullPath: '/api/storage/save-text-file'
+      preLoaderRoute: typeof ApiStorageSaveTextFileRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/storage/root-items': {
@@ -990,9 +1030,11 @@ const rootRouteChildren: RootRouteChildren = {
   ApiStorageRegisterFileRoute: ApiStorageRegisterFileRoute,
   ApiStorageRenameRoute: ApiStorageRenameRoute,
   ApiStorageRootItemsRoute: ApiStorageRootItemsRoute,
+  ApiStorageSaveTextFileRoute: ApiStorageSaveTextFileRoute,
   ApiStorageSearchRoute: ApiStorageSearchRoute,
   ApiStorageShareRoute: ApiStorageShareRoute,
   ApiStorageShareAccessRoute: ApiStorageShareAccessRoute,
+  ApiStorageTextFileRoute: ApiStorageTextFileRoute,
   ApiStorageTrashRoute: ApiStorageTrashRoute,
   ApiStorageTrashDeleteRoute: ApiStorageTrashDeleteRoute,
   ApiStorageTrashRestoreRoute: ApiStorageTrashRestoreRoute,

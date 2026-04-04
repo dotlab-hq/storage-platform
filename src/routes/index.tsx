@@ -1,7 +1,14 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
+import { FilePlus } from 'lucide-react'
 import { AppSidebar } from '@/components/app-sidebar'
 import { Separator } from '@/components/ui/separator'
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from '@/components/ui/context-menu'
 import {
   SidebarInset,
   SidebarProvider,
@@ -14,6 +21,7 @@ import { BreadcrumbNav } from '@/components/storage/breadcrumb-nav'
 import { ShareModal } from '@/components/storage/share-modal'
 import { MoveModal } from '@/components/storage/move-modal'
 import { ConfirmDeleteModal } from '@/components/storage/confirm-delete-modal'
+import { TextFileEditorDialog } from '@/components/storage/text-file-editor-dialog'
 import { TopbarActions } from '@/components/topbar-actions'
 import { useStorageData } from '@/hooks/use-storage-data'
 import { useFileSelection } from '@/hooks/use-file-selection'
@@ -49,6 +57,8 @@ function StoragePage() {
   const [moveOpen, setMoveOpen] = useState(false)
   const [moveMode, setMoveMode] = useState<'move' | 'update-path'>('move')
   const [deleteOpen, setDeleteOpen] = useState(false)
+  const [editorOpen, setEditorOpen] = useState(false)
+  const [editorItem, setEditorItem] = useState<StorageItem | null>(null)
   const [pendingDelete, setPendingDelete] = useState<{
     ids: string[]
     types: ('file' | 'folder')[]
@@ -72,6 +82,10 @@ function StoragePage() {
       setMoveOpen(true)
     },
     onShareOpen: (item) => setShareItem(item),
+    onEditFileOpen: (item) => {
+      setEditorItem(item)
+      setEditorOpen(true)
+    },
   })
   const bulk = useBulkActions({
     userId: storage.userId,
@@ -103,6 +117,27 @@ function StoragePage() {
   const selectedItems = storage.items.filter((i) =>
     selection.selectedIds.has(i.id),
   )
+  const openCreateFileEditor = useMemo(
+    () => () => {
+      setEditorItem(null)
+      setEditorOpen(true)
+    },
+    [],
+  )
+
+  const handleEditorSaved = (savedItem: StorageItem) => {
+    storage.setItems((prev) => {
+      const index = prev.findIndex((item) => item.id === savedItem.id)
+      if (index === -1) {
+        return [savedItem, ...prev]
+      }
+
+      const next = [...prev]
+      next[index] = savedItem
+      return next
+    })
+  }
+
   return (
     <div
       className="min-h-screen"
@@ -131,6 +166,7 @@ function StoragePage() {
               currentFolderId={storage.currentFolderId}
               setUploads={storage.setUploads}
               onUploadComplete={storage.refresh}
+              onNewFile={openCreateFileEditor}
               onNewFolder={actions.handleNewFolder}
               onSearch={(results) => {
                 if (results) storage.setItems(results)
@@ -141,28 +177,40 @@ function StoragePage() {
             />
           </header>
 
-          <div
-            className="flex flex-1 flex-col gap-4 p-4 pt-0"
-            onClick={(event) => {
-              const target = event.target as HTMLElement
-              if (target.closest("[data-file-card='true']")) return
-              selection.clearSelection()
-            }}
-          >
-            <FileGrid
-              items={storage.items}
-              uploads={storage.uploads}
-              isLoading={storage.isLoading}
-              selectedIds={selection.selectedIds}
-              onBoxSelect={(ids, append) => selection.selectMany(ids, append)}
-              onDoubleClick={actions.handleDoubleClick}
-              onContextAction={actions.handleContextAction}
-              renamingItemId={actions.renamingItemId}
-              onRename={actions.handleRename}
-              onRenameCancel={() => actions.setRenamingItemId(null)}
-              onDragMoveItem={bulk.handleDragMoveItem}
-            />
-          </div>
+          <ContextMenu>
+            <ContextMenuTrigger asChild>
+              <div
+                className="flex flex-1 flex-col gap-4 p-4 pt-0"
+                onClick={(event) => {
+                  const target = event.target as HTMLElement
+                  if (target.closest("[data-file-card='true']")) return
+                  selection.clearSelection()
+                }}
+              >
+                <FileGrid
+                  items={storage.items}
+                  uploads={storage.uploads}
+                  isLoading={storage.isLoading}
+                  selectedIds={selection.selectedIds}
+                  onBoxSelect={(ids, append) =>
+                    selection.selectMany(ids, append)
+                  }
+                  onDoubleClick={actions.handleDoubleClick}
+                  onContextAction={actions.handleContextAction}
+                  renamingItemId={actions.renamingItemId}
+                  onRename={actions.handleRename}
+                  onRenameCancel={() => actions.setRenamingItemId(null)}
+                  onDragMoveItem={bulk.handleDragMoveItem}
+                />
+              </div>
+            </ContextMenuTrigger>
+            <ContextMenuContent className="w-48">
+              <ContextMenuItem onSelect={openCreateFileEditor}>
+                <FilePlus className="mr-2 h-4 w-4" />
+                Create New File
+              </ContextMenuItem>
+            </ContextMenuContent>
+          </ContextMenu>
         </SidebarInset>
       </SidebarProvider>
       <DragDropOverlay isDragging={dragDrop.isDragging} />
@@ -208,6 +256,14 @@ function StoragePage() {
             void bulk.handleDelete(pendingDelete.ids, pendingDelete.types)
           }
         }}
+      />
+      <TextFileEditorDialog
+        open={editorOpen}
+        onOpenChange={setEditorOpen}
+        currentFolderId={storage.currentFolderId}
+        item={editorItem}
+        userId={storage.userId}
+        onSaved={handleEditorSaved}
       />
     </div>
   )
