@@ -43,12 +43,12 @@ type SaveFileResponse = {
 
 type TextFileEditorDialogProps = {
   open: boolean
-  onOpenChange: (open: boolean) => void
+  onOpenChange: ( open: boolean ) => void
   currentFolderId: string | null
   item: StorageItem | null
   items: StorageItem[]
   userId: string | null
-  onSaved: (file: StorageItem) => void
+  onSaved: ( file: StorageItem ) => void
 }
 
 type QuillModule = typeof Quill
@@ -70,28 +70,28 @@ const TOOLBAR_OPTIONS = [
   ['clean'],
 ]
 
-function looksLikeHtml(value: string) {
-  return /<\/?[a-z][\s\S]*>/i.test(value.trim())
+function looksLikeHtml( value: string ) {
+  return /<\/?[a-z][\s\S]*>/i.test( value.trim() )
 }
 
-function getDefaultUntitledName(items: StorageItem[]) {
+function getDefaultUntitledName( items: StorageItem[] ) {
   const existing = new Set(
-    items.filter((item) => item.type === 'file').map((item) => item.name),
+    items.filter( ( item ) => item.type === 'file' ).map( ( item ) => item.name ),
   )
 
-  if (!existing.has('Untitled.txt')) {
+  if ( !existing.has( 'Untitled.txt' ) ) {
     return 'Untitled.txt'
   }
 
   let index = 1
-  while (existing.has(`Untitled (${index}).txt`)) {
+  while ( existing.has( `Untitled (${index}).txt` ) ) {
     index += 1
   }
 
   return `Untitled (${index}).txt`
 }
 
-export function TextFileEditorDialog({
+export function TextFileEditorDialog( {
   open,
   onOpenChange,
   currentFolderId,
@@ -99,59 +99,59 @@ export function TextFileEditorDialog({
   items,
   userId,
   onSaved,
-}: TextFileEditorDialogProps) {
-  const quillRef = React.useRef<QuillInstance | null>(null)
+}: TextFileEditorDialogProps ) {
+  const quillRef = React.useRef<QuillInstance | null>( null )
   const [editorElement, setEditorElement] =
-    React.useState<HTMLDivElement | null>(null)
-  const [fileName, setFileName] = React.useState('Untitled.txt')
-  const [isEditorReady, setIsEditorReady] = React.useState(false)
-  const [isLoading, setIsLoading] = React.useState(false)
-  const [isSaving, setIsSaving] = React.useState(false)
-  const [initError, setInitError] = React.useState<string | null>(null)
-  const [mediaKind, setMediaKind] = React.useState<'image' | 'video'>('image')
+    React.useState<HTMLDivElement | null>( null )
+  const [fileName, setFileName] = React.useState( 'Untitled.txt' )
+  const [isEditorReady, setIsEditorReady] = React.useState( false )
+  const [isLoading, setIsLoading] = React.useState( false )
+  const [isSaving, setIsSaving] = React.useState( false )
+  const [initError, setInitError] = React.useState<string | null>( null )
+  const [mediaKind, setMediaKind] = React.useState<'image' | 'video'>( 'image' )
 
-  const editorRef = React.useCallback((node: HTMLDivElement | null) => {
-    setEditorElement(node)
-  }, [])
+  const editorRef = React.useCallback( ( node: HTMLDivElement | null ) => {
+    setEditorElement( node )
+  }, [] )
 
-  const mediaInputRef = React.useRef<HTMLInputElement | null>(null)
+  const mediaInputRef = React.useRef<HTMLInputElement | null>( null )
 
-  React.useEffect(() => {
+  React.useEffect( () => {
     let cancelled = false
 
     async function mountEditor() {
-      if (!open) {
+      if ( !open ) {
         quillRef.current = null
-        setIsEditorReady(false)
+        setIsEditorReady( false )
         return
       }
 
-      setInitError(null)
+      setInitError( null )
 
-      if (!editorElement || quillRef.current) {
-        if (quillRef.current) {
-          setIsEditorReady(true)
+      if ( !editorElement || quillRef.current ) {
+        if ( quillRef.current ) {
+          setIsEditorReady( true )
         }
         return
       }
 
       try {
-        const quillModule = await import('quill')
-        const highlightModule = await import('highlight.js')
-        const katexModule = await import('katex')
+        const quillModule = await import( 'quill' )
+        const highlightModule = await import( 'highlight.js' )
+        const katexModule = await import( 'katex' )
         const Quill = quillModule.default
         const hljs = highlightModule.default
         const katex = katexModule.default
 
-        ;(window as EditorWindow).hljs = hljs
-        ;(window as EditorWindow).katex = katex
+          ; ( window as EditorWindow ).hljs = hljs
+          ; ( window as EditorWindow ).katex = katex
 
-        if (cancelled || !editorElement) {
+        if ( cancelled ) {
           return
         }
 
         editorElement.innerHTML = ''
-        quillRef.current = new Quill(editorElement, {
+        quillRef.current = new Quill( editorElement, {
           theme: 'snow',
           placeholder: 'Start writing something beautiful...',
           modules: {
@@ -180,27 +180,27 @@ export function TextFileEditorDialog({
             'image',
             'video',
           ],
-        })
+        } )
 
-        const toolbar = quillRef.current.getModule('toolbar') as {
-          addHandler?: (name: string, handler: () => void) => void
+        const toolbar = quillRef.current.getModule( 'toolbar' ) as {
+          addHandler?: ( name: string, handler: () => void ) => void
         } | null
-        toolbar?.addHandler?.('image', () => {
-          setMediaKind('image')
+        toolbar?.addHandler?.( 'image', () => {
+          setMediaKind( 'image' )
           mediaInputRef.current?.click()
-        })
-        toolbar?.addHandler?.('video', () => {
-          setMediaKind('video')
+        } )
+        toolbar?.addHandler?.( 'video', () => {
+          setMediaKind( 'video' )
           mediaInputRef.current?.click()
-        })
+        } )
 
-        setIsEditorReady(true)
-      } catch (error) {
+        setIsEditorReady( true )
+      } catch ( error ) {
         const message =
           error instanceof Error ? error.message : 'Failed to initialize editor'
-        setInitError(message)
-        setIsEditorReady(false)
-        toast.error(message)
+        setInitError( message )
+        setIsEditorReady( false )
+        toast.error( message )
       }
     }
 
@@ -209,91 +209,91 @@ export function TextFileEditorDialog({
     return () => {
       cancelled = true
     }
-  }, [editorElement, open])
+  }, [editorElement, open] )
 
-  React.useEffect(() => {
-    if (!open) {
-      setIsLoading(false)
-      setIsSaving(false)
-      setInitError(null)
+  React.useEffect( () => {
+    if ( !open ) {
+      setIsLoading( false )
+      setIsSaving( false )
+      setInitError( null )
       return
     }
 
-    if (item?.type === 'file') {
-      setFileName(item.name)
+    if ( item?.type === 'file' ) {
+      setFileName( item.name )
     } else {
-      setFileName(getDefaultUntitledName(items))
+      setFileName( getDefaultUntitledName( items ) )
     }
-  }, [item, items, open])
+  }, [item, items, open] )
 
-  React.useEffect(() => {
-    if (!open || !isEditorReady || !quillRef.current) {
+  React.useEffect( () => {
+    if ( !open || !isEditorReady || !quillRef.current ) {
       return
     }
 
     const quill = quillRef.current
-    setIsLoading(true)
+    setIsLoading( true )
 
-    if (item?.type !== 'file') {
-      quill.setText('')
-      setIsLoading(false)
+    if ( item?.type !== 'file' ) {
+      quill.setText( '' )
+      setIsLoading( false )
       return
     }
 
-    void (async () => {
+    void ( async () => {
       try {
-        const params = new URLSearchParams({ fileId: item.id })
-        const response = await fetch(`/api/storage/text-file?${params}`)
-        const data:EditorFileResponse = (await response.json())
-        if (!response.ok) {
-          throw new Error(data.error ?? `HTTP ${response.status}`)
+        const params = new URLSearchParams( { fileId: item.id } )
+        const response = await fetch( `/api/storage/text-file?${params}` )
+        const data: EditorFileResponse = ( await response.json() )
+        if ( !response.ok ) {
+          throw new Error( data.error ?? `HTTP ${response.status}` )
         }
 
-        quill.setText('')
-        if (looksLikeHtml(data.content)) {
-          quill.clipboard.dangerouslyPasteHTML(data.content)
+        quill.setText( '' )
+        if ( looksLikeHtml( data.content ) ) {
+          quill.clipboard.dangerouslyPasteHTML( data.content )
         } else {
-          quill.setText(data.content)
+          quill.setText( data.content )
         }
-      } catch (error) {
+      } catch ( error ) {
         toast.error(
           error instanceof Error ? error.message : 'Failed to load file',
         )
-        onOpenChange(false)
+        onOpenChange( false )
       } finally {
-        setIsLoading(false)
+        setIsLoading( false )
       }
-    })()
-  }, [isEditorReady, item, onOpenChange, open])
+    } )()
+  }, [isEditorReady, item, onOpenChange, open] )
 
-  const handleSave = React.useCallback(async () => {
-    if (!quillRef.current || !userId) {
-      toast.error('Session not ready')
+  const handleSave = React.useCallback( async () => {
+    if ( !quillRef.current || !userId ) {
+      toast.error( 'Session not ready' )
       return
     }
 
-    setIsSaving(true)
+    setIsSaving( true )
     try {
       const quill = quillRef.current
       const content =
         quill.root.innerHTML === '<p><br></p>' ? '' : quill.root.innerHTML
-      const response = await fetch('/api/storage/save-text-file', {
+      const response = await fetch( '/api/storage/save-text-file', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+        body: JSON.stringify( {
           fileId: item?.type === 'file' ? item.id : null,
           fileName,
           content,
           parentFolderId:
             item?.type === 'file' ? item.folderId : currentFolderId,
-        }),
-      })
-      const data:SaveFileResponse = (await response.json())
-      if (!response.ok || !data.file) {
-        throw new Error(data.error ?? `HTTP ${response.status}`)
+        } ),
+      } )
+      const data: SaveFileResponse = ( await response.json() )
+      if ( !response.ok || !data.file ) {
+        throw new Error( data.error ?? `HTTP ${response.status}` )
       }
 
-      onSaved({
+      onSaved( {
         id: data.file.id,
         name: data.file.name,
         objectKey: data.file.objectKey,
@@ -301,33 +301,33 @@ export function TextFileEditorDialog({
         sizeInBytes: data.file.sizeInBytes,
         userId,
         folderId: data.file.folderId,
-        createdAt: new Date(data.file.createdAt),
+        createdAt: new Date( data.file.createdAt ),
         updatedAt: new Date(),
         type: 'file',
-      })
-      toast.success(item?.type === 'file' ? 'File updated' : 'File created')
-      onOpenChange(false)
-    } catch (error) {
+      } )
+      toast.success( item?.type === 'file' ? 'File updated' : 'File created' )
+      onOpenChange( false )
+    } catch ( error ) {
       toast.error(
         error instanceof Error ? error.message : 'Failed to save file',
       )
     } finally {
-      setIsSaving(false)
+      setIsSaving( false )
     }
-  }, [currentFolderId, fileName, item, onOpenChange, onSaved, userId])
+  }, [currentFolderId, fileName, item, onOpenChange, onSaved, userId] )
 
   const handleMediaInputChange = React.useCallback(
-    async (event: React.ChangeEvent<HTMLInputElement>) => {
+    async ( event: React.ChangeEvent<HTMLInputElement> ) => {
       const file = event.target.files?.[0]
       event.target.value = ''
 
-      if (!file || !quillRef.current || !userId) {
+      if ( !file || !quillRef.current || !userId ) {
         return
       }
 
       const expectedKind = mediaKind
-      if (!file.type.startsWith(`${expectedKind}/`)) {
-        toast.error(`Select a ${expectedKind} file`)
+      if ( !file.type.startsWith( `${expectedKind}/` ) ) {
+        toast.error( `Select a ${expectedKind} file` )
         return
       }
 
@@ -339,12 +339,12 @@ export function TextFileEditorDialog({
           () => undefined,
         )
 
-        const mediaUrl = buildFileRedirectUrl({
+        const mediaUrl = buildFileRedirectUrl( {
           folderId: currentFolderId,
           fileId: uploaded.id,
-        })
+        } )
 
-        onSaved({
+        onSaved( {
           id: uploaded.id,
           name: uploaded.name,
           objectKey: uploaded.objectKey,
@@ -355,14 +355,14 @@ export function TextFileEditorDialog({
           createdAt: uploaded.createdAt,
           updatedAt: uploaded.createdAt,
           type: 'file',
-        })
+        } )
 
         const quill = quillRef.current
-        const selection = quill.getSelection(true)
-        const index = selection?.index ?? quill.getLength()
-        quill.insertEmbed(index, expectedKind, mediaUrl, 'user')
-        quill.setSelection(index + 1, 0, 'user')
-      } catch (error) {
+        const selection = quill.getSelection( true )
+        const index = selection.index 
+        quill.insertEmbed( index, expectedKind, mediaUrl, 'user' )
+        quill.setSelection( index + 1, 0, 'user' )
+      } catch ( error ) {
         toast.error(
           error instanceof Error
             ? error.message
@@ -373,9 +373,9 @@ export function TextFileEditorDialog({
     [currentFolderId, mediaKind, onSaved, userId],
   )
 
-  const handleClose = React.useCallback(() => {
-    onOpenChange(false)
-  }, [onOpenChange])
+  const handleClose = React.useCallback( () => {
+    onOpenChange( false )
+  }, [onOpenChange] )
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -391,7 +391,7 @@ export function TextFileEditorDialog({
             <div className="min-w-0 flex-1">
               <Input
                 value={fileName}
-                onChange={(event) => setFileName(event.target.value)}
+                onChange={( event ) => setFileName( event.target.value )}
                 placeholder="Untitled document..."
                 className="h-auto border-0 bg-transparent px-0 py-0 text-base font-semibold text-foreground shadow-none ring-0 placeholder:text-muted-foreground focus-visible:border-0 focus-visible:ring-0"
               />
@@ -439,7 +439,7 @@ export function TextFileEditorDialog({
         </DialogHeader>
 
         <div className="relative flex-1 overflow-hidden">
-          {(isLoading || (!isEditorReady && !initError)) && (
+          {( isLoading || ( !isEditorReady && !initError ) ) && (
             <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/70">
               <Loader2 className="text-muted-foreground h-6 w-6 animate-spin" />
             </div>
@@ -454,7 +454,7 @@ export function TextFileEditorDialog({
               '[&_.ql-toolbar_.ql-picker]:text-muted-foreground [&_.ql-toolbar_button]:text-muted-foreground [&_.ql-toolbar_button:hover]:text-foreground [&_.ql-toolbar_button.ql-active]:text-foreground',
               '[&_.ql-toolbar_.ql-picker-label:hover]:text-foreground [&_.ql-toolbar_.ql-picker-label.ql-active]:text-foreground [&_.ql-toolbar_.ql-picker-options]:border-border [&_.ql-toolbar_.ql-picker-options]:bg-popover',
               '[&_.ql-editor_h1]:text-3xl [&_.ql-editor_h1]:font-semibold [&_.ql-editor_h2]:text-2xl [&_.ql-editor_h2]:font-semibold [&_.ql-editor_h3]:text-xl [&_.ql-editor_h3]:font-semibold',
-              '[&_.ql-editor_img]:max-h-[300px] [&_.ql-editor_img]:rounded-lg [&_.ql-editor_video]:min-h-[200px] [&_.ql-editor_video]:w-full [&_.ql-editor_video]:rounded-lg',
+              '[&_.ql-editor_img]:max-h-75 [&_.ql-editor_img]:rounded-lg [&_.ql-editor_video]:min-h-50 [&_.ql-editor_video]:w-full [&_.ql-editor_video]:rounded-lg',
             )}
           >
             <div ref={editorRef} />
@@ -465,6 +465,8 @@ export function TextFileEditorDialog({
             className="hidden"
             accept={mediaKind === 'image' ? 'image/*' : 'video/*'}
             onChange={handleMediaInputChange}
+            title={`Select ${mediaKind}`}
+            aria-label={`Select ${mediaKind}`}
           />
         </div>
       </DialogContent>
