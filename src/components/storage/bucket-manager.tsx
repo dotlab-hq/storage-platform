@@ -6,6 +6,7 @@ import { BucketCredentialsDialog } from "@/components/storage/bucket-credentials
 import { BucketSettingsDialog } from "@/components/storage/bucket-settings-dialog"
 import { ObjectOperationsDialog } from "@/components/storage/object-operations-dialog"
 import { BucketManagerCard } from "@/components/storage/bucket-manager-card"
+import { S3ViewerModal } from "@/components/storage/s3-viewer-modal"
 import { useS3Buckets } from "@/hooks/use-s3-buckets"
 
 export function BucketManager() {
@@ -13,6 +14,7 @@ export function BucketManager() {
     const [activeCredentialsBucket, setActiveCredentialsBucket] = useState<string | null>( null )
     const [activeSettingsBucket, setActiveSettingsBucket] = useState<string | null>( null )
     const [activeObjectOpsBucket, setActiveObjectOpsBucket] = useState<string | null>( null )
+    const [activeViewerBucket, setActiveViewerBucket] = useState<string | null>( null )
     const {
         buckets,
         isLoading,
@@ -126,6 +128,7 @@ export function BucketManager() {
                                 bucket={bucket}
                                 pendingAction={pendingAction}
                                 onCredentials={( name ) => { void openCredentialsDialog( name ) }}
+                                onView={setActiveViewerBucket}
                                 onSettings={setActiveSettingsBucket}
                                 onObjectOps={setActiveObjectOpsBucket}
                                 onEmpty={( name ) => { void handleEmpty( name ) }}
@@ -158,6 +161,16 @@ export function BucketManager() {
                 bucketName={activeObjectOpsBucket}
                 onOpenChange={( open ) => {
                     if ( !open ) setActiveObjectOpsBucket( null )
+                }}
+            />
+
+            <S3ViewerModal
+                open={activeViewerBucket !== null}
+                bucketName={activeViewerBucket}
+                onOpenChange={( open ) => {
+                    if ( !open ) {
+                        setActiveViewerBucket( null )
+                    }
                 }}
             />
         </section>

@@ -16,6 +16,7 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 import { Toaster } from '@/components/ui/sonner'
 import { AppErrorBoundary } from '@/components/error-boundary'
 import { NotFoundPage } from '@/components/not-found'
+import { GlobalShellActions } from '@/components/shell/global-shell-actions'
 import { authenticatedRouteMiddleware } from '@/lib/route-auth-middleware'
 
 interface MyRouterContext {
@@ -29,12 +30,6 @@ const Devtools = import.meta.env.DEV
     } ) ),
   )
   : null
-
-const GlobalShellActions = lazy( () =>
-  import( '../components/shell/global-shell-actions' ).then( ( module ) => ( {
-    default: module.GlobalShellActions,
-  } ) ),
-)
 
 export const Route = createRootRouteWithContext<MyRouterContext>()( {
   errorComponent: AppErrorBoundary,

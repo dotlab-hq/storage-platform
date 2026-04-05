@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { Eye } from "lucide-react"
 import { DEFAULT_PROVIDER_ID } from "@/lib/storage-provider-constants"
 import type { AdminProvider, AdminUser } from "@/lib/storage-provider-queries"
 import { formatBytes } from "@/lib/format-bytes"
@@ -26,16 +27,11 @@ export function ProvidersPanel( {
     onToggleAvailability: ( providerId: string, isActive: boolean ) => Promise<void>
     onDelete: ( providerId: string ) => Promise<void>
     onEdit: ( provider: AdminProvider ) => void
-    onOpenS3Viewer: () => void
+    onOpenS3Viewer: ( bucketName: string ) => void
 } ) {
     return (
         <div className="rounded-lg border bg-card p-4">
-            <div className="mb-3 flex items-center justify-between gap-2">
-                <h2 className="text-base font-semibold">Storage Providers</h2>
-                <Button type="button" variant="outline" size="sm" onClick={onOpenS3Viewer}>
-                    S3 Viewer
-                </Button>
-            </div>
+            <h2 className="mb-3 text-base font-semibold">Storage Providers</h2>
             <div className="space-y-3">
                 {providers.map( ( provider ) => (
                     <div key={provider.id} className="rounded border p-3">
@@ -45,6 +41,16 @@ export function ProvidersPanel( {
                                 <Badge variant={provider.isActive ? "default" : "secondary"}>
                                     {provider.isActive ? "Active" : "Inactive"}
                                 </Badge>
+                                <Button
+                                    type="button"
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={() => {
+                                        onOpenS3Viewer( provider.bucketName )
+                                    }}
+                                >
+                                    <Eye className="h-4 w-4" />
+                                </Button>
                                 {provider.id !== DEFAULT_PROVIDER_ID ? (
                                     <>
                                         <Button

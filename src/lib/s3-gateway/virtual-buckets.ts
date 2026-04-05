@@ -3,6 +3,7 @@ import { db } from "@/db"
 import { virtualBucket } from "@/db/schema/s3-gateway"
 import { folder, file, userStorage } from "@/db/schema/storage"
 import type { S3BucketCredentials, S3BucketItem } from "@/types/s3-buckets"
+import { replaceBucketCors } from "@/lib/s3-gateway/s3-bucket-controls"
 import { and, eq, like } from "drizzle-orm"
 import { ensureS3FileSchemaCompatibility } from "@/lib/s3-gateway/s3-file-schema-compat"
 
@@ -109,6 +110,8 @@ export async function createVirtualBucket( userId: string, bucketName: string ):
         userId,
         name: bucketName,
         mappedFolderId: createdFolders[0].id,
+        objectOwnershipMode: "bucket-owner-enforced",
+        createdByUserId: userId,
         isActive: true,
     } ).returning( {
         id: virtualBucket.id,
@@ -117,6 +120,16 @@ export async function createVirtualBucket( userId: string, bucketName: string ):
         isActive: virtualBucket.isActive,
         createdAt: virtualBucket.createdAt,
     } )
+
+    await replaceBucketCors( bucketId, [
+        {
+            allowedOrigins: ["*"],
+            allowedMethods: ["GET", "HEAD", "PUT", "POST", "DELETE", "OPTIONS"],
+            allowedHeaders: ["*"],
+            exposeHeaders: ["ETag"],
+            maxAgeSeconds: 3000,
+        },
+    ] )
 
     return toBucketItem( createdRows[0] )
 }

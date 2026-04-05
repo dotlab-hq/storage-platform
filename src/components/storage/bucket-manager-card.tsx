@@ -1,4 +1,4 @@
-import { Eraser, KeyRound, Loader2, Trash2 } from "lucide-react"
+import { Eraser, Eye, KeyRound, Loader2, Trash2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { S3BucketItem } from "@/types/s3-buckets"
 
@@ -6,6 +6,7 @@ type BucketManagerCardProps = {
     bucket: S3BucketItem
     pendingAction: "empty" | "delete" | undefined
     onCredentials: ( name: string ) => void
+    onView: ( name: string ) => void
     onSettings: ( name: string ) => void
     onObjectOps: ( name: string ) => void
     onEmpty: ( name: string ) => void
@@ -26,7 +27,7 @@ function formatCreatedAt( value: string | null ): string {
 }
 
 export function BucketManagerCard( props: BucketManagerCardProps ) {
-    const { bucket, pendingAction, onCredentials, onSettings, onObjectOps, onEmpty, onDelete } = props
+    const { bucket, pendingAction, onCredentials, onView, onSettings, onObjectOps, onEmpty, onDelete } = props
     const isPending = typeof pendingAction === "string"
 
     return (
@@ -38,6 +39,9 @@ export function BucketManagerCard( props: BucketManagerCardProps ) {
             <div className="mt-4 flex flex-wrap gap-2">
                 <Button variant="secondary" size="sm" onClick={() => { window.location.href = `/buckets/${encodeURIComponent( bucket.name )}` }}>
                     View Files
+                </Button>
+                <Button variant="outline" size="sm" disabled={isPending} onClick={() => onView( bucket.name )}>
+                    <Eye className="h-4 w-4" />
                 </Button>
                 <Button variant="outline" size="sm" disabled={isPending} onClick={() => onCredentials( bucket.name )}>
                     <KeyRound className="h-4 w-4" />

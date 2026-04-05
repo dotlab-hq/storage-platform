@@ -77,6 +77,9 @@ function AdminDashboardPage() {
     String( emptyProviderForm.fileSizeLimitBytes ),
   )
   const [isS3ViewerOpen, setIsS3ViewerOpen] = useState( false )
+  const [s3ViewerBucketName, setS3ViewerBucketName] = useState<string | null>(
+    null,
+  )
   type ProviderTextField =
     | 'name'
     | 'endpoint'
@@ -266,7 +269,8 @@ function AdminDashboardPage() {
               onToggleAvailability={toggleProviderAvailability}
               onDelete={deleteProvider}
               onEdit={startEditingProvider}
-              onOpenS3Viewer={() => {
+              onOpenS3Viewer={( bucketName ) => {
+                setS3ViewerBucketName( bucketName )
                 setIsS3ViewerOpen( true )
               }}
             />
@@ -290,7 +294,13 @@ function AdminDashboardPage() {
           </div>
           <S3ViewerModal
             open={isS3ViewerOpen}
-            onOpenChange={setIsS3ViewerOpen}
+            onOpenChange={( open ) => {
+              setIsS3ViewerOpen( open )
+              if ( !open ) {
+                setS3ViewerBucketName( null )
+              }
+            }}
+            bucketName={s3ViewerBucketName}
           />
         </SidebarInset>
       </SidebarProvider>
