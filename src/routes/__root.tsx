@@ -31,7 +31,7 @@ const Devtools = import.meta.env.DEV
   : null
 
 const GlobalShellActions = lazy( () =>
-  import( '@/components/shell/global-shell-actions' ).then( ( module ) => ( {
+  import( '../components/shell/global-shell-actions' ).then( ( module ) => ( {
     default: module.GlobalShellActions,
   } ) ),
 )
@@ -232,7 +232,7 @@ function RootDocument( { children }: { children: React.ReactNode } ) {
             __html: `
               if ('serviceWorker' in navigator) {
                 window.addEventListener('load', () => {
-                  navigator.serviceWorker.register('/sw.ts').then(
+                  navigator.serviceWorker.register('/sw').then(
                     (registration) => {
                       console.log('ServiceWorker registration successful with scope: ', registration.scope);
                     },

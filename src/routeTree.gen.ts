@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SwRouteImport } from './routes/sw'
 import { Route as HotRouteImport } from './routes/hot'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WebrtcIndexRouteImport } from './routes/webrtc/index'
@@ -67,6 +68,11 @@ import { Route as ApiStorageS3BucketItemsRouteImport } from './routes/api/storag
 import { Route as ApiStorageS3BucketCredentialsRouteImport } from './routes/api/storage/s3/bucket-credentials'
 import { Route as ApiStorageS3SplatRouteImport } from './routes/api/storage/s3/$'
 
+const SwRoute = SwRouteImport.update({
+  id: '/sw',
+  path: '/sw',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HotRoute = HotRouteImport.update({
   id: '/hot',
   path: '/hot',
@@ -363,6 +369,7 @@ const ApiStorageS3SplatRoute = ApiStorageS3SplatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/hot': typeof HotRoute
+  '/sw': typeof SwRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
@@ -422,6 +429,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/hot': typeof HotRoute
+  '/sw': typeof SwRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
@@ -482,6 +490,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/hot': typeof HotRoute
+  '/sw': typeof SwRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
@@ -543,6 +552,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/hot'
+    | '/sw'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/reset-password'
@@ -602,6 +612,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/hot'
+    | '/sw'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/reset-password'
@@ -661,6 +672,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/hot'
+    | '/sw'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/reset-password'
@@ -721,6 +733,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   HotRoute: typeof HotRoute
+  SwRoute: typeof SwRoute
   AuthForgotPasswordRoute: typeof AuthForgotPasswordRoute
   AuthLoginRoute: typeof AuthLoginRoute
   AuthResetPasswordRoute: typeof AuthResetPasswordRoute
@@ -780,6 +793,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sw': {
+      id: '/sw'
+      path: '/sw'
+      fullPath: '/sw'
+      preLoaderRoute: typeof SwRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hot': {
       id: '/hot'
       path: '/hot'
@@ -1185,6 +1205,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   HotRoute: HotRoute,
+  SwRoute: SwRoute,
   AuthForgotPasswordRoute: AuthForgotPasswordRoute,
   AuthLoginRoute: AuthLoginRoute,
   AuthResetPasswordRoute: AuthResetPasswordRoute,

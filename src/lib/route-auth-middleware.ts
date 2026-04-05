@@ -37,7 +37,8 @@ const PUBLIC_EXACT_REQUEST_PATHS = [
 ]
 const PUBLIC_SERVER_FN_FILE_PREFIXES = ['src/routes/auth/', 'src/routes/share/']
 
-function isPublicRequestPath( pathname: string ) {
+function isPublicRequestPath( pathname: string | undefined ) {
+  if ( !pathname ) return false;
   if ( PUBLIC_EXACT_REQUEST_PATHS.includes( pathname ) ) {
     return true
   }
@@ -47,13 +48,15 @@ function isPublicRequestPath( pathname: string ) {
   )
 }
 
-function isPublicServerFunction( filename: string ) {
+function isPublicServerFunction( filename: string | undefined ) {
+  if ( !filename ) return false;
   return PUBLIC_SERVER_FN_FILE_PREFIXES.some( ( prefix ) =>
     filename.startsWith( prefix ),
   )
 }
 
-function isAdminServerFunction( filename: string ) {
+function isAdminServerFunction( filename: string | undefined ) {
+  if ( !filename ) return false;
   return filename.startsWith( 'src/routes/admin/' )
 }
 
@@ -131,7 +134,12 @@ function requireAdminSession( session: AuthContextSession ) {
 }
 
 export const authenticatedRouteMiddleware = createMiddleware().server(
-  async ( { pathname, request, next } ) => {
+  async ( opts ) => {
+    const { getRequest } = await import( '@tanstack/react-start/server' )
+    const request = getRequest()
+    const pathname = new URL( request.url ).pathname
+    const next = opts.next
+
     if ( isPublicRequestPath( pathname ) ) {
       return next()
     }
@@ -143,7 +151,7 @@ export const authenticatedRouteMiddleware = createMiddleware().server(
     if (
       session.tinySession?.permission === 'read' &&
       isWriteMethod &&
-      pathname.startsWith( '/api/' )
+      pathname?.startsWith( '/api/' )
     ) {
       return Response.json(
         { error: 'This tiny session has read-only access.' },
@@ -173,8 +181,8 @@ export const adminRouteMiddleware = createMiddleware().server(
 
 export const authenticatedServerFunctionMiddleware = createMiddleware( {
   type: 'function',
-} ).server( async ( { context, next } : any) => {
-    const serverFnMeta = ( context as { serverFnMeta: { filename: string, method?: string } } ).serverFnMeta ?? {}
+} ).server( async ( { context, next }: any ) => {
+  const serverFnMeta = ( context as { serverFnMeta: { filename: string, method?: string } } ).serverFnMeta ?? {}
   if ( isPublicServerFunction( serverFnMeta.filename ) ) {
     return next()
   }
@@ -201,8 +209,8 @@ export const authenticatedServerFunctionMiddleware = createMiddleware( {
 
 export const adminServerFunctionMiddleware = createMiddleware( {
   type: 'function',
-} ).server( async ( { context, next } : any) => {
-    const serverFnMeta = ( context as { serverFnMeta: { filename: string, method?: string } } ).serverFnMeta ?? {}
+} ).server( async ( { context, next }: any ) => {
+  const serverFnMeta = ( context as { serverFnMeta: { filename: string, method?: string } } ).serverFnMeta ?? {}
   if ( !isAdminServerFunction( serverFnMeta.filename ) ) {
     return next()
   }
