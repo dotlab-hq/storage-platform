@@ -1,9 +1,7 @@
 import { useMemo, useState, useEffect } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
-import { FilePlus } from 'lucide-react'
 import { AppSidebar } from '@/components/app-sidebar'
 import { Separator } from '@/components/ui/separator'
-} from '@/components/ui/context-menu'
 import {
   SidebarInset,
   SidebarProvider,
@@ -29,7 +27,8 @@ import { useBulkActions } from '@/hooks/use-bulk-actions'
 import { useFolderHistory } from '@/hooks/use-folder-history'
 import { useHomeShellActions } from '@/hooks/use-home-shell-actions'
 import { useTinySession } from '@/hooks/use-tiny-session'
-import { WebRTCProvider, type IncomingFile } from '@/hooks/use-webrtc'
+import { WebRTCProvider  } from '@/hooks/use-webrtc'
+import type {IncomingFile} from '@/hooks/use-webrtc';
 import type { StorageItem } from '@/types/storage'
 import { HomeRoutePending } from './-home-pending'
 import { getHomeSnapshotFn } from './-home-server'
