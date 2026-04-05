@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { ChevronsUpDown, LogOut, Settings } from 'lucide-react'
+import { ChevronsUpDown, LogOut, Settings, Wifi, WifiOff } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
 import { createClientOnlyFn } from '@tanstack/react-start'
 import { authClient } from '@/lib/auth-client'
@@ -23,6 +23,8 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar'
 
+const WEBRTC_ENABLED_KEY = 'dot_webrtc_enabled'
+
 export function NavUser({
   user,
 }: {
@@ -38,10 +40,26 @@ export function NavUser({
     permission: 'read' | 'read-write'
     expiresAt: string
   } | null>(null)
+  const [webrtcEnabled, setWebrtcEnabled] = React.useState(false)
+
   const logout = createClientOnlyFn(async () => {
     await authClient.signOut()
     window.location.reload()
   })
+
+  React.useEffect(() => {
+    const stored = localStorage.getItem(WEBRTC_ENABLED_KEY)
+    setWebrtcEnabled(stored === 'true')
+  }, [])
+
+  const toggleWebRTC = () => {
+    const newValue = !webrtcEnabled
+    setWebrtcEnabled(newValue)
+    localStorage.setItem(WEBRTC_ENABLED_KEY, String(newValue))
+    window.dispatchEvent(
+      new CustomEvent('webrtc-toggled', { detail: newValue }),
+    )
+  }
 
   React.useEffect(() => {
     let cancelled = false
@@ -130,6 +148,19 @@ export function NavUser({
                 <Settings />
                 Settings
               </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={toggleWebRTC}>
+              {webrtcEnabled ? (
+                <>
+                  <WifiOff className="mr-2 h-4 w-4" />
+                  Disable WebRTC transfers
+                </>
+              ) : (
+                <>
+                  <Wifi className="mr-2 h-4 w-4" />
+                  Enable WebRTC transfers
+                </>
+              )}
             </DropdownMenuItem>
             {!tinySession && (
               <div className="px-1 py-1.5">

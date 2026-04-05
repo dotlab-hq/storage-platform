@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { FilePlus } from 'lucide-react'
 import { AppSidebar } from '@/components/app-sidebar'
@@ -22,8 +22,6 @@ import { ShareModal } from '@/components/storage/share-modal'
 import { MoveModal } from '@/components/storage/move-modal'
 import { ConfirmDeleteModal } from '@/components/storage/confirm-delete-modal'
 import { TextFileEditorDialog } from '@/components/storage/text-file-editor-dialog'
-import { IncomingFilesRegion } from '@/components/storage/incoming-files-region'
-import { SendFileDropZone } from '@/components/storage/send-file-drop-zone'
 import { SaveFileDialog } from '@/components/storage/save-file-dialog'
 import { DeviceTransferSection } from '@/components/storage/device-transfer-section'
 import { TopbarActions } from '@/components/topbar-actions'
@@ -36,11 +34,7 @@ import { useBulkActions } from '@/hooks/use-bulk-actions'
 import { useFolderHistory } from '@/hooks/use-folder-history'
 import { useHomeShellActions } from '@/hooks/use-home-shell-actions'
 import { useTinySession } from '@/hooks/use-tiny-session'
-import {
-  WebRTCProvider,
-  useWebRTC,
-  type IncomingFile,
-} from '@/hooks/use-webrtc'
+import { WebRTCProvider, type IncomingFile } from '@/hooks/use-webrtc'
 import type { StorageItem } from '@/types/storage'
 import { HomeRoutePending } from './-home-pending'
 import { getHomeSnapshotFn } from './-home-server'
@@ -77,6 +71,23 @@ function StoragePage() {
   const [fileToSave, setFileToSave] = useState<IncomingFile | null>(null)
 
   const tinySession = useTinySession()
+  const [webrtcEnabled, setWebrtcEnabled] = useState(false)
+
+  useEffect(() => {
+    const stored = localStorage.getItem('dot_webrtc_enabled')
+    setWebrtcEnabled(stored === 'true')
+
+    const handleToggle = (e: CustomEvent) => {
+      setWebrtcEnabled(e.detail)
+    }
+    window.addEventListener('webrtc-toggled', handleToggle as EventListener)
+    return () =>
+      window.removeEventListener(
+        'webrtc-toggled',
+        handleToggle as EventListener,
+      )
+  }, [])
+
   useFolderHistory(storage.currentFolderId, storage.setCurrentFolderId)
   const actions = useStorageActions({
     userId: storage.userId,
@@ -154,7 +165,9 @@ function StoragePage() {
 
   return (
     <WebRTCProvider
-      sessionToken={tinySession.hasSession ? tinySession.token : null}
+      sessionToken={
+        webrtcEnabled && tinySession.hasSession ? tinySession.token : null
+      }
     >
       <div
         className="min-h-screen"
