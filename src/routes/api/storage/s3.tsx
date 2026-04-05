@@ -1,7 +1,7 @@
-import { handleS3Request } from "@/lib/s3-gateway/s3-dispatch"
 import { createFileRoute } from "@tanstack/react-router"
+import { handleS3Request } from "@/lib/s3-gateway/s3-dispatch"
 
-export const Route = createFileRoute( "/api/storage/s3/$" as never )( {
+export const Route = createFileRoute( "/api/storage/s3" as never )( {
     component: () => null,
     server: {
         handlers: {
