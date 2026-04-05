@@ -85,6 +85,7 @@ export const Route = createFileRoute('/api/qr-auth/poll')({
             permission,
             sourceOfferId: offer.id,
             expiresAt: tinySessionExpiresAt,
+            createdAt: now,
           })
 
           await db
