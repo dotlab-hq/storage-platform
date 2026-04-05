@@ -46,7 +46,14 @@ export const Route = createFileRoute('/api/webrtc/get-signal')({
           const session = sessionRows[0]
 
           let peerUserId: string | null = null
-          if (session.sourceOfferId) {
+
+          if (session.userId.startsWith('webrtc-owner:')) {
+            const pollKey = session.userId.replace('webrtc-owner:', '')
+            peerUserId = 'webrtc-scanner:' + pollKey
+          } else if (session.userId.startsWith('webrtc-scanner:')) {
+            const pollKey = session.userId.replace('webrtc-scanner:', '')
+            peerUserId = 'webrtc-owner:' + pollKey
+          } else if (session.sourceOfferId) {
             const offerRows = await db
               .select({ ownerUserId: qrLoginOffer.ownerUserId })
               .from(qrLoginOffer)

@@ -17,19 +17,23 @@ const WebRTCScannerDialog = React.lazy(() =>
 )
 
 export function WebRTCPage() {
-  const { isConnected, incomingFiles } = useWebRTC()
+  const { isConnected, incomingFiles, startConnection } = useWebRTC()
   const {
     webrtcEnabled,
     qrImage,
     loading,
     expired,
     errorMessage,
-    connectionStatus,
+    offer,
     toggleWebRTC,
     generateQr,
   } = useWebrtcTransfer(isConnected)
 
-  const isPeerConnected = isConnected || connectionStatus === 'connected'
+  React.useEffect(() => {
+    if (offer && !isConnected && offer.sessionToken) {
+      startConnection(offer.sessionToken)
+    }
+  }, [offer, isConnected, startConnection])
 
   return (
     <SidebarInset>
@@ -81,7 +85,7 @@ export function WebRTCPage() {
               <div className="rounded-lg border bg-card p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    {isPeerConnected ? (
+                    {isConnected ? (
                       <>
                         <div className="flex h-3 w-3 rounded-full bg-green-500 animate-pulse" />
                         <span className="font-medium text-green-700 dark:text-green-400">
@@ -92,23 +96,21 @@ export function WebRTCPage() {
                       <>
                         <div className="flex h-3 w-3 rounded-full bg-amber-500 animate-pulse" />
                         <span className="font-medium text-amber-700 dark:text-amber-400">
-                          {connectionStatus === 'claimed'
-                            ? 'Establishing Peer Connection'
-                            : 'Waiting for Connection'}
+                          Waiting for Connection
                         </span>
                       </>
                     )}
                   </div>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  {isPeerConnected
+                  {isConnected
                     ? 'Peer is connected. You can now transfer files.'
                     : errorMessage ||
                       'Show the QR code to another device or scan their QR code to connect.'}
                 </p>
               </div>
 
-              {qrImage && !isPeerConnected && (
+              {qrImage && !isConnected && (
                 <div className="rounded-lg border bg-card p-6">
                   <div className="flex flex-col items-center space-y-4">
                     <h2 className="font-semibold">Your QR Code</h2>
@@ -134,7 +136,7 @@ export function WebRTCPage() {
                 </div>
               )}
 
-              {!isPeerConnected && (
+              {!isConnected && (
                 <div className="rounded-lg border bg-card p-6">
                   <div className="flex flex-col items-center space-y-4">
                     <h2 className="font-semibold">Scan Another Device</h2>
@@ -161,14 +163,14 @@ export function WebRTCPage() {
                 )}
               </div>
 
-              {isPeerConnected && (
+              {isConnected && (
                 <div className="rounded-lg border bg-card p-6">
                   <h2 className="mb-4 font-semibold">Send Files</h2>
                   <SendFileDropZone />
                 </div>
               )}
 
-              {!isPeerConnected && (
+              {!isConnected && (
                 <div className="rounded-lg border border-blue-200 bg-blue-50 dark:border-blue-900 dark:bg-blue-950 p-6">
                   <h3 className="font-semibold text-blue-900 dark:text-blue-200 mb-2">
                     How to Connect

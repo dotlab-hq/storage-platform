@@ -1,13 +1,13 @@
 import { useQuery, useMutation } from '@tanstack/react-query'
 import * as React from 'react'
 import QRCode from 'qrcode'
-import { toast } from '@/components/ui/sonner'
 import { WEBRTC_TRANSFER_PREFIX } from '@/lib/webrtc-transfer-utils'
 
 export type WebrtcOfferResponse = {
   code: string
   payload: string
   pollKey: string
+  sessionToken?: string
   expiresAt: string
   pollIntervalMs: number
 }
@@ -39,6 +39,7 @@ export function useWebrtcTransfer(isConnected: boolean) {
         payload?: string
         code?: string
         pollKey?: string
+        sessionToken?: string
         expiresAt?: string
         pollIntervalMs?: number
       }
@@ -53,6 +54,7 @@ export function useWebrtcTransfer(isConnected: boolean) {
         code: data.code ?? '',
         payload: data.payload,
         pollKey: data.pollKey ?? '',
+        sessionToken: data.sessionToken,
         expiresAt: data.expiresAt ?? '',
         pollIntervalMs: data.pollIntervalMs ?? 5000,
       }
@@ -183,8 +185,9 @@ export function useWebrtcTransfer(isConnected: boolean) {
 export function useWebrtcScanner() {
   const [error, setError] = React.useState<string>('')
   const [connectionStatus, setConnectionStatus] = React.useState<
-    'idle' | 'success' | 'error'
+    'idle' | 'claimed' | 'connected' | 'error'
   >('idle')
+  const [sessionToken, setSessionToken] = React.useState<string | null>(null)
 
   const submitMutation = useMutation({
     mutationFn: async (payload: string) => {
@@ -196,6 +199,7 @@ export function useWebrtcScanner() {
       const data = (await response.json()) as {
         error?: string
         status?: string
+        sessionToken?: string
         message?: string
       }
       if (!response.ok) {
@@ -203,9 +207,11 @@ export function useWebrtcScanner() {
       }
       return data
     },
-    onSuccess: () => {
-      toast.success('Scanned successfully! Connection established.')
-      setConnectionStatus('success')
+    onSuccess: (data) => {
+      if (data.sessionToken) {
+        setSessionToken(data.sessionToken)
+        setConnectionStatus('claimed')
+      }
     },
     onError: (err: Error) => {
       setError(err.message)
@@ -224,6 +230,7 @@ export function useWebrtcScanner() {
   const reset = () => {
     setError('')
     setConnectionStatus('idle')
+    setSessionToken(null)
   }
 
   return {
@@ -233,6 +240,7 @@ export function useWebrtcScanner() {
     submitMutation,
     isSubmitting: submitMutation.isPending,
     connectionStatus,
+    sessionToken,
     reset,
   }
 }

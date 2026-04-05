@@ -234,6 +234,8 @@ export const webrtcTransfer = sqliteTable(
       .notNull(),
     expiresAt: integer('expires_at', { mode: 'timestamp_ms' }).notNull(),
     connectedAt: integer('connected_at', { mode: 'timestamp_ms' }),
+    ownerSignal: text('owner_signal'),
+    scannerSignal: text('scanner_signal'),
   },
   (table) => [
     index('webrtcTransfer_ownerUserId_idx').on(table.ownerUserId),

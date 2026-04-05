@@ -3,7 +3,10 @@ import type { WebRTCProviderProps } from './types'
 import { WebRTCContext } from './context'
 import { useWebRTCConnection } from './useWebRTCConnection'
 
-export function WebRTCProvider({ children, sessionToken }: WebRTCProviderProps) {
+export function WebRTCProvider({
+  children,
+  sessionToken,
+}: WebRTCProviderProps) {
   const {
     isConnected,
     incomingFiles,
@@ -11,7 +14,8 @@ export function WebRTCProvider({ children, sessionToken }: WebRTCProviderProps) 
     sendFile,
     rejectFile,
     saveFile,
-    clearReceived
+    clearReceived,
+    startConnection,
   } = useWebRTCConnection(sessionToken)
 
   return (
@@ -24,6 +28,7 @@ export function WebRTCProvider({ children, sessionToken }: WebRTCProviderProps) 
         rejectFile,
         saveFile,
         clearReceived,
+        startConnection,
       }}
     >
       {children}

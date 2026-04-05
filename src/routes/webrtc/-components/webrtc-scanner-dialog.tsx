@@ -10,6 +10,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { useWebrtcScanner } from './use-webrtc-transfer'
+import { useWebRTC } from '@/hooks/use-webrtc'
 import { WEBRTC_TRANSFER_PREFIX } from '@/lib/webrtc-transfer-utils'
 
 type Html5QrScanner = {
@@ -74,7 +75,19 @@ export function WebRTCScannerDialog({
   const scannerRef = React.useRef<Html5QrScanner | null>(null)
   const regionId = React.useId().replace(/:/g, '')
 
-  const { submitMutation, error: submitError } = useWebrtcScanner()
+  const {
+    submitMutation,
+    error: submitError,
+    connectionStatus,
+    sessionToken,
+  } = useWebrtcScanner()
+  const { startConnection } = useWebRTC()
+
+  React.useEffect(() => {
+    if (sessionToken && connectionStatus === 'claimed') {
+      startConnection(sessionToken)
+    }
+  }, [sessionToken, connectionStatus, startConnection])
 
   const stopScanner = React.useCallback(async () => {
     const scanner = scannerRef.current

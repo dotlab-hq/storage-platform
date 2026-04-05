@@ -25,6 +25,7 @@ export type WebRTCContextValue = {
   rejectFile: (fileId: string) => void
   saveFile: (fileId: string, folderId: string | null) => Promise<void>
   clearReceived: () => void
+  startConnection: (sessionToken: string | null) => void
 }
 
 export type WebRTCProviderProps = {
