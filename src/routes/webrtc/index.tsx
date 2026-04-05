@@ -50,16 +50,12 @@ function WebRTCPage() {
     const [webrtcEnabled, setWebrtcEnabled] = React.useState( false )
     const [qrImage, setQrImage] = React.useState( '' )
     const [offer, setOffer] = React.useState<OfferResponse | null>( null )
-    const [stateMessage, setStateMessage] = React.useState(
-        'Enable WebRTC transfers to get started.',
-    )
     const [loading, setLoading] = React.useState( false )
     const [expired, setExpired] = React.useState( false )
-    const [saveFileDialogOpen, setSaveFileDialogOpen] = React.useState( false )
-    const [fileToSave, setFileToSave] = React.useState<IncomingFile | null>( null )
+    const [errorMessage, setErrorMessage] = React.useState( '' )
 
     const tinySession = useTinySession()
-    const { incomingFiles } = useWebRTC()
+    const { isConnected, incomingFiles } = useWebRTC()
 
     React.useEffect( () => {
         const stored = localStorage.getItem( WEBRTC_ENABLED_KEY )
@@ -81,7 +77,7 @@ function WebRTCPage() {
 
         setLoading( true )
         setExpired( false )
-        setStateMessage( 'Generating QR code...' )
+        setErrorMessage( '' )
         try {
             const response = await fetch( '/api/qr-auth/create-offer', {
                 method: 'POST',
@@ -93,18 +89,17 @@ function WebRTCPage() {
                 )
             }
 
-            const dataUrl = await QRCode.toDataURL( data.payload, {
+            const dataUrl = await QRCode.toDataURL( ( data ).payload, {
                 width: 260,
                 margin: 1,
             } )
 
             setOffer( data )
             setQrImage( dataUrl )
-            setStateMessage( 'QR code ready. Scan from another device to connect.' )
         } catch ( error ) {
             setOffer( null )
             setQrImage( '' )
-            setStateMessage(
+            setErrorMessage(
                 error instanceof Error
                     ? error.message
                     : 'Failed to generate QR code.',
@@ -125,13 +120,13 @@ function WebRTCPage() {
     }
 
     React.useEffect( () => {
-        if ( webrtcEnabled && !offer ) {
+        if ( webrtcEnabled && !offer && !isConnected ) {
             void generateQr()
         }
-    }, [webrtcEnabled, offer, generateQr] )
+    }, [webrtcEnabled, offer, isConnected, generateQr] )
 
     React.useEffect( () => {
-        if ( !offer || expired ) return
+        if ( !offer || expired || isConnected ) return
 
         let cancelled = false
         const startedAt = Date.now()
@@ -142,7 +137,12 @@ function WebRTCPage() {
             const ONE_MINUTE_MS = 60_000
             if ( Date.now() - startedAt >= ONE_MINUTE_MS ) {
                 setExpired( true )
-                setStateMessage( 'QR has expired - refresh to generate a new one.' )
+                setErrorMessage( 'QR has expired. Generating new QR code.' )
+                setTimeout( () => {
+                    if ( !cancelled ) {
+                        void generateQr()
+                    }
+                }, 2000 )
                 return
             }
 
@@ -159,21 +159,28 @@ function WebRTCPage() {
                 const status = (
                     pollData as { status: string; tinySessionExpiresAt?: string }
                 ).status
-                if ( status === 'claimed' ) {
-                    setStateMessage( 'Device connected! Ready to transfer files.' )
-                } else if ( status === 'approved' ) {
-                    setStateMessage( 'Connected! You can now transfer files.' )
-                    setOffer( null )
+                if ( status === 'approved' || status === 'claimed' ) {
+                    // Keep polling while waiting for peer connection
+                    const pollInterval =
+                        ( pollData as { pollIntervalMs?: number } ).pollIntervalMs || 1000
+                    if ( !cancelled ) {
+                        setTimeout( poll, pollInterval )
+                    }
                 } else if ( status === 'expired' ) {
                     setExpired( true )
-                    setStateMessage( 'QR has expired - refresh to generate a new one.' )
+                    setErrorMessage( 'QR has expired. Generating new QR code.' )
+                    setTimeout( () => {
+                        if ( !cancelled ) {
+                            void generateQr()
+                        }
+                    }, 2000 )
                     return
-                }
-
-                const pollInterval =
-                    ( pollData as { pollIntervalMs?: number } ).pollIntervalMs || 1000
-                if ( !cancelled ) {
-                    setTimeout( poll, pollInterval )
+                } else {
+                    const pollInterval =
+                        ( pollData as { pollIntervalMs?: number } ).pollIntervalMs || 1000
+                    if ( !cancelled ) {
+                        setTimeout( poll, pollInterval )
+                    }
                 }
             } catch ( error ) {
                 if ( !cancelled ) {
@@ -187,9 +194,7 @@ function WebRTCPage() {
             cancelled = true
             clearTimeout( pollTimer )
         }
-    }, [offer, expired] )
-
-    const hasActiveSession = tinySession.hasSession
+    }, [offer, expired, isConnected, generateQr] )
 
     return (
         <SidebarInset>
@@ -242,32 +247,32 @@ function WebRTCPage() {
                             <div className="rounded-lg border bg-card p-6">
                                 <div className="flex items-center justify-between mb-4">
                                     <div className="flex items-center gap-3">
-                                        {hasActiveSession ? (
+                                        {isConnected ? (
                                             <>
-                                                <div className="flex h-3 w-3 rounded-full bg-green-500" />
+                                                <div className="flex h-3 w-3 rounded-full bg-green-500 animate-pulse" />
                                                 <span className="font-medium text-green-700 dark:text-green-400">
-                                                    Connected
+                                                    Peer Connected
                                                 </span>
                                             </>
                                         ) : (
                                             <>
-                                                <div className="flex h-3 w-3 rounded-full bg-amber-500" />
+                                                <div className="flex h-3 w-3 rounded-full bg-amber-500 animate-pulse" />
                                                 <span className="font-medium text-amber-700 dark:text-amber-400">
-                                                    Waiting for connection
+                                                    {tinySession.hasSession ? 'Establishing Peer Connection' : 'Waiting for Connection'}
                                                 </span>
                                             </>
                                         )}
                                     </div>
                                 </div>
                                 <p className="text-sm text-muted-foreground">
-                                    {hasActiveSession
-                                        ? 'A device is connected. You can now transfer files.'
-                                        : 'Scan the QR code with another device or use the scanner to connect.'}
+                                    {isConnected
+                                        ? 'Peer is connected. You can now transfer files.'
+                                        : errorMessage || 'Scan the QR code with another device or use the scanner to connect.'}
                                 </p>
                             </div>
 
                             {/* QR Code Section */}
-                            {qrImage && !hasActiveSession && (
+                            {qrImage && !isConnected && (
                                 <div className="rounded-lg border bg-card p-6">
                                     <div className="flex flex-col items-center space-y-4">
                                         <h2 className="font-semibold">Scan to Connect</h2>
@@ -298,9 +303,8 @@ function WebRTCPage() {
                             <div className="rounded-lg border bg-card p-6">
                                 <h2 className="mb-4 font-semibold">Receiving Files</h2>
                                 <IncomingFilesRegion
-                                    onSaveRequest={( file ) => {
-                                        setFileToSave( file )
-                                        setSaveFileDialogOpen( true )
+                                    onSaveRequest={() => {
+                                        // Handle save request
                                     }}
                                 />
                                 {incomingFiles.length === 0 && (
@@ -311,7 +315,7 @@ function WebRTCPage() {
                             </div>
 
                             {/* Drop Zone Section */}
-                            {hasActiveSession && (
+                            {isConnected && (
                                 <div className="rounded-lg border bg-card p-6">
                                     <h2 className="mb-4 font-semibold">Send Files</h2>
                                     <SendFileDropZone />
@@ -319,21 +323,19 @@ function WebRTCPage() {
                             )}
 
                             {/* Connection Guide */}
-                            {!hasActiveSession && (
+                            {!isConnected && (
                                 <div className="rounded-lg border border-blue-200 bg-blue-50 dark:border-blue-900 dark:bg-blue-950 p-6">
                                     <h3 className="font-semibold text-blue-900 dark:text-blue-200 mb-2">
-                                        Need Help Connecting?
+                                        How to Connect
                                     </h3>
-                                    <ul className="space-y-2 text-sm text-blue-800 dark:text-blue-300">
+                                    <ol className="space-y-2 text-sm text-blue-800 dark:text-blue-300 list-decimal list-inside">
                                         <li>
-                                            1. Open this device's page on another device or browser
+                                            Open this device's page on another device or browser
                                         </li>
-                                        <li>
-                                            2. Use the scanner below to scan the QR code above
-                                        </li>
-                                        <li>3. Grant permission on the scanning device</li>
-                                        <li>4. Connection will be established automatically</li>
-                                    </ul>
+                                        <li>Scan the QR code above with the other device</li>
+                                        <li>The peer connection will establish automatically</li>
+                                        <li>Once connected, you can transfer files in both directions</li>
+                                    </ol>
                                 </div>
                             )}
 
