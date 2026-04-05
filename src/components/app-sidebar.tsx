@@ -13,6 +13,7 @@ import {
   Moon,
   Sun,
   Monitor,
+  Wifi,
 } from 'lucide-react'
 import { ClientOnly, Link } from '@tanstack/react-router'
 import { createClientOnlyFn } from '@tanstack/react-start'
@@ -43,6 +44,7 @@ import {
 
 const navItems = [
   { title: 'My Files', url: '/', icon: Home, isActive: true },
+  { title: 'WebRTC Transfers', url: '/webrtc', icon: Wifi },
   { title: 'Buckets', url: '/buckets', icon: Database },
   { title: 'Recent', url: '/recent', icon: Clock },
   { title: 'Shared with Me', url: '/shared', icon: Share2 },
@@ -67,42 +69,42 @@ const themeConfig = {
   system: { icon: Monitor, label: 'System', next: 'light' as const },
 } as const
 
-export function AppSidebar({ quota = null, ...props }: AppSidebarProps) {
-  const [navUser, setNavUser] = React.useState(defaultUser)
-  const [items, setItems] = React.useState(navItems)
+export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
+  const [navUser, setNavUser] = React.useState( defaultUser )
+  const [items, setItems] = React.useState( navItems )
   const { theme, setTheme } = useTheme()
 
   const getSessionUserRef = React.useRef(
-    createClientOnlyFn(async () => {
+    createClientOnlyFn( async () => {
       const { data: session, error } = await authClient.getSession()
-      if (error || !session?.user) return null
-      const sessionRole = normalizeUserRole(session.user.role)
+      if ( error || !session?.user ) return null
+      const sessionRole = normalizeUserRole( session.user.role )
       return {
         name: session.user.name,
         email: session.user.email,
         avatar: session.user.image ?? '/logo.svg',
         isAdmin: sessionRole === 'admin',
       }
-    }),
+    } ),
   )
 
-  React.useEffect(() => {
+  React.useEffect( () => {
     let mounted = true
-    void getSessionUserRef.current().then((sessionUser) => {
-      if (mounted && sessionUser) {
-        setNavUser(sessionUser)
-        if (sessionUser.isAdmin) {
-          setItems((prev) => {
-            if (prev.some((item) => item.url === '/admin')) return prev
+    void getSessionUserRef.current().then( ( sessionUser ) => {
+      if ( mounted && sessionUser ) {
+        setNavUser( sessionUser )
+        if ( sessionUser.isAdmin ) {
+          setItems( ( prev ) => {
+            if ( prev.some( ( item ) => item.url === '/admin' ) ) return prev
             return [...prev, { title: 'Admin', url: '/admin', icon: Shield }]
-          })
+          } )
         }
       }
-    })
+    } )
     return () => {
       mounted = false
     }
-  }, [])
+  }, [] )
 
   const currentTheme = theme in themeConfig ? theme : 'system'
   const { icon: ThemeIcon, label: themeLabel, next } = themeConfig[currentTheme]
@@ -141,7 +143,7 @@ export function AppSidebar({ quota = null, ...props }: AppSidebarProps) {
                 variant="ghost"
                 size="icon"
                 className="h-7 w-7"
-                onClick={() => setTheme(next)}
+                onClick={() => setTheme( next )}
                 aria-label={`Switch to ${next} theme`}
               >
                 <ThemeIcon className="h-3.5 w-3.5" />

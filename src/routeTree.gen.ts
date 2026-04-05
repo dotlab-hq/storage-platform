@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as HotRouteImport } from './routes/hot'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WebrtcIndexRouteImport } from './routes/webrtc/index'
 import { Route as TrashIndexRouteImport } from './routes/trash/index'
 import { Route as SharedIndexRouteImport } from './routes/shared/index'
 import { Route as SettingsIndexRouteImport } from './routes/settings/index'
@@ -74,6 +75,11 @@ const HotRoute = HotRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WebrtcIndexRoute = WebrtcIndexRouteImport.update({
+  id: '/webrtc/',
+  path: '/webrtc/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TrashIndexRoute = TrashIndexRouteImport.update({
@@ -370,6 +376,7 @@ export interface FileRoutesByFullPath {
   '/settings/': typeof SettingsIndexRoute
   '/shared/': typeof SharedIndexRoute
   '/trash/': typeof TrashIndexRoute
+  '/webrtc/': typeof WebrtcIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/qr-auth/create-offer': typeof ApiQrAuthCreateOfferRoute
   '/api/qr-auth/poll': typeof ApiQrAuthPollRoute
@@ -428,6 +435,7 @@ export interface FileRoutesByTo {
   '/settings': typeof SettingsIndexRoute
   '/shared': typeof SharedIndexRoute
   '/trash': typeof TrashIndexRoute
+  '/webrtc': typeof WebrtcIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/qr-auth/create-offer': typeof ApiQrAuthCreateOfferRoute
   '/api/qr-auth/poll': typeof ApiQrAuthPollRoute
@@ -487,6 +495,7 @@ export interface FileRoutesById {
   '/settings/': typeof SettingsIndexRoute
   '/shared/': typeof SharedIndexRoute
   '/trash/': typeof TrashIndexRoute
+  '/webrtc/': typeof WebrtcIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/qr-auth/create-offer': typeof ApiQrAuthCreateOfferRoute
   '/api/qr-auth/poll': typeof ApiQrAuthPollRoute
@@ -547,6 +556,7 @@ export interface FileRouteTypes {
     | '/settings/'
     | '/shared/'
     | '/trash/'
+    | '/webrtc/'
     | '/api/auth/$'
     | '/api/qr-auth/create-offer'
     | '/api/qr-auth/poll'
@@ -605,6 +615,7 @@ export interface FileRouteTypes {
     | '/settings'
     | '/shared'
     | '/trash'
+    | '/webrtc'
     | '/api/auth/$'
     | '/api/qr-auth/create-offer'
     | '/api/qr-auth/poll'
@@ -663,6 +674,7 @@ export interface FileRouteTypes {
     | '/settings/'
     | '/shared/'
     | '/trash/'
+    | '/webrtc/'
     | '/api/auth/$'
     | '/api/qr-auth/create-offer'
     | '/api/qr-auth/poll'
@@ -722,6 +734,7 @@ export interface RootRouteChildren {
   SettingsIndexRoute: typeof SettingsIndexRoute
   SharedIndexRoute: typeof SharedIndexRoute
   TrashIndexRoute: typeof TrashIndexRoute
+  WebrtcIndexRoute: typeof WebrtcIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiQrAuthCreateOfferRoute: typeof ApiQrAuthCreateOfferRoute
   ApiQrAuthPollRoute: typeof ApiQrAuthPollRoute
@@ -779,6 +792,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/webrtc/': {
+      id: '/webrtc/'
+      path: '/webrtc'
+      fullPath: '/webrtc/'
+      preLoaderRoute: typeof WebrtcIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/trash/': {
@@ -1178,6 +1198,7 @@ const rootRouteChildren: RootRouteChildren = {
   SettingsIndexRoute: SettingsIndexRoute,
   SharedIndexRoute: SharedIndexRoute,
   TrashIndexRoute: TrashIndexRoute,
+  WebrtcIndexRoute: WebrtcIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiQrAuthCreateOfferRoute: ApiQrAuthCreateOfferRoute,
   ApiQrAuthPollRoute: ApiQrAuthPollRoute,
