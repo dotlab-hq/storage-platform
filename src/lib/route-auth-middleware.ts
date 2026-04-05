@@ -55,6 +55,37 @@ function isPublicServerFunction( filename: string | undefined ) {
   )
 }
 
+function isS3GatewayRequest( pathname: string ): boolean {
+  return pathname === '/api/storage/s3' || pathname.startsWith( '/api/storage/s3/' )
+}
+
+function isSignedOrPresignedS3Request( request: Request ): boolean {
+  const url = new URL( request.url )
+  if ( !isS3GatewayRequest( url.pathname ) ) {
+    return false
+  }
+
+  if ( request.method.toUpperCase() === 'OPTIONS' ) {
+    return true
+  }
+
+  const authorization = request.headers.get( 'authorization' )
+  if ( authorization?.startsWith( 'AWS4-HMAC-SHA256 ' ) ) {
+    return true
+  }
+
+  if ( request.headers.get( 'x-s3-secret-access-key' ) ) {
+    return true
+  }
+
+  const query = url.searchParams
+  if ( query.has( 'X-Amz-Signature' ) && query.has( 'X-Amz-Credential' ) ) {
+    return true
+  }
+
+  return false
+}
+
 function isAdminServerFunction( filename: string | undefined ) {
   if ( !filename ) return false;
   return filename.startsWith( 'src/routes/admin/' )
@@ -141,6 +172,10 @@ export const authenticatedRouteMiddleware = createMiddleware().server(
     const next = opts.next
 
     if ( isPublicRequestPath( pathname ) ) {
+      return next()
+    }
+
+    if ( isSignedOrPresignedS3Request( request ) ) {
       return next()
     }
 
