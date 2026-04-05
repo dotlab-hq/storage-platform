@@ -48,10 +48,10 @@ async function getDefaultActiveProvider(): Promise<ProviderRow | null> {
 }
 
 function fromEnvironment(): ProviderClientConfig {
-    const accessKeyId = process.env.S3_ACCESS_KEY_ID?.replace( /^["']|["']$/g, '' )?.trim()
-    const secretAccessKey = process.env.S3_SECRET_ACCESS_KEY?.replace( /^["']|["']$/g, '' )?.trim()
-    const region = process.env.S3_REGION?.replace( /^["']|["']$/g, '' )?.trim()
-    const endpoint = process.env.S3_ENDPOINT?.replace( /^["']|["']$/g, '' )?.trim()
+    const accessKeyId = process.env.S3_ACCESS_KEY_ID?.replace( /^["']|["']$/g, '' ).trim()
+    const secretAccessKey = process.env.S3_SECRET_ACCESS_KEY?.replace( /^["']|["']$/g, '' ).trim()
+    const region = process.env.S3_REGION?.replace( /^["']|["']$/g, '' ).trim()
+    const endpoint = process.env.S3_ENDPOINT?.replace( /^["']|["']$/g, '' ).trim()
     if ( !accessKeyId || !secretAccessKey || !region || !endpoint ) {
         throw new Error( "No storage provider exists for uploads" )
     }
@@ -74,13 +74,13 @@ function fromEnvironment(): ProviderClientConfig {
 
 function fromProviderRow( row: ProviderRow ): ProviderClientConfig {
     const accessKeyId = row.accessKeyIdEncrypted === UNDETERMINED_PROVIDER_VALUE
-        ? process.env.S3_ACCESS_KEY_ID?.replace( /^["']|["']$/g, '' )?.trim()
+        ? process.env.S3_ACCESS_KEY_ID?.replace( /^["']|["']$/g, '' ).trim()
         : decryptProviderSecret( row.accessKeyIdEncrypted ).replace( /^["']|["']$/g, '' ).trim()
     const secretAccessKey = row.secretAccessKeyEncrypted === UNDETERMINED_PROVIDER_VALUE
-        ? process.env.S3_SECRET_ACCESS_KEY?.replace( /^["']|["']$/g, '' )?.trim()
+        ? process.env.S3_SECRET_ACCESS_KEY?.replace( /^["']|["']$/g, '' ).trim()
         : decryptProviderSecret( row.secretAccessKeyEncrypted ).replace( /^["']|["']$/g, '' ).trim()
-    const region = row.region === UNDETERMINED_PROVIDER_VALUE ? process.env.S3_REGION?.replace( /^["']|["']$/g, '' )?.trim() : row.region?.replace( /^["']|["']$/g, '' )?.trim()
-    const endpoint = row.endpoint === UNDETERMINED_PROVIDER_VALUE ? process.env.S3_ENDPOINT?.replace( /^["']|["']$/g, '' )?.trim() : row.endpoint?.replace( /^["']|["']$/g, '' )?.trim()
+    const region = row.region === UNDETERMINED_PROVIDER_VALUE ? process.env.S3_REGION?.replace( /^["']|["']$/g, '' ).trim() : row.region.replace( /^["']|["']$/g, '' ).trim()
+    const endpoint = row.endpoint === UNDETERMINED_PROVIDER_VALUE ? process.env.S3_ENDPOINT?.replace( /^["']|["']$/g, '' ).trim() : row.endpoint.replace( /^["']|["']$/g, '' ).trim()
     if ( !accessKeyId || !secretAccessKey || !region || !endpoint ) {
         const missing: string[] = []
         if ( !accessKeyId ) missing.push( "accessKeyId" )

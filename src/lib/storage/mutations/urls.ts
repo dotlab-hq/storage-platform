@@ -26,6 +26,7 @@ export const getFilePresignedUrlFn = createServerFn( { method: 'GET' } )
             .select( {
                 id: storageFile.id,
                 name: storageFile.name,
+                mimeType: storageFile.mimeType,
                 objectKey: storageFile.objectKey,
                 providerId: storageFile.providerId,
                 bucketName: storageProvider.bucketName,
@@ -75,6 +76,7 @@ export const getOwnedFileRedirectUrlFn = createServerFn( { method: 'GET' } )
             .select( {
                 id: storageFile.id,
                 name: storageFile.name,
+                mimeType: storageFile.mimeType,
                 objectKey: storageFile.objectKey,
                 providerId: storageFile.providerId,
                 bucketName: storageProvider.bucketName,
@@ -109,12 +111,12 @@ export const getOwnedFileRedirectUrlFn = createServerFn( { method: 'GET' } )
 
 
         const objectKey = fileData.objectKey
-        const downloadUrl = await getSignedUrl( client, new GetObjectCommand( {
+        const viewUrl = await getSignedUrl( client, new GetObjectCommand( {
             Bucket: fileData.bucketName,
             Key: objectKey,
-            ResponseContentDisposition: `attachment; filename="${fileData.name}"`,
-            ResponseContentType: "application/octet-stream",
+            ResponseContentDisposition: `inline; filename="${fileData.name}"`,
+            ResponseContentType: fileData.mimeType || "application/octet-stream",
         } ), { expiresIn: 3600 } )
 
-        return { url: downloadUrl }
+        return { url: viewUrl }
     } )
