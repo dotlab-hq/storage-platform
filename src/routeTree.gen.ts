@@ -24,6 +24,8 @@ import { Route as AuthSignupRouteImport } from './routes/auth/signup'
 import { Route as AuthResetPasswordRouteImport } from './routes/auth/reset-password'
 import { Route as AuthLoginRouteImport } from './routes/auth/login'
 import { Route as AuthForgotPasswordRouteImport } from './routes/auth/forgot-password'
+import { Route as ApiWebrtcSetSignalRouteImport } from './routes/api/webrtc/set-signal'
+import { Route as ApiWebrtcGetSignalRouteImport } from './routes/api/webrtc/get-signal'
 import { Route as ApiStorageUploadPresignRouteImport } from './routes/api/storage/upload-presign'
 import { Route as ApiStorageUploadMultipartInitRouteImport } from './routes/api/storage/upload-multipart-init'
 import { Route as ApiStorageUploadMultipartCompleteRouteImport } from './routes/api/storage/upload-multipart-complete'
@@ -137,6 +139,16 @@ const AuthLoginRoute = AuthLoginRouteImport.update({
 const AuthForgotPasswordRoute = AuthForgotPasswordRouteImport.update({
   id: '/auth/forgot-password',
   path: '/auth/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiWebrtcSetSignalRoute = ApiWebrtcSetSignalRouteImport.update({
+  id: '/api/webrtc/set-signal',
+  path: '/api/webrtc/set-signal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiWebrtcGetSignalRoute = ApiWebrtcGetSignalRouteImport.update({
+  id: '/api/webrtc/get-signal',
+  path: '/api/webrtc/get-signal',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiStorageUploadPresignRoute = ApiStorageUploadPresignRouteImport.update({
@@ -387,6 +399,8 @@ export interface FileRoutesByFullPath {
   '/api/storage/upload-multipart-complete': typeof ApiStorageUploadMultipartCompleteRoute
   '/api/storage/upload-multipart-init': typeof ApiStorageUploadMultipartInitRoute
   '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
+  '/api/webrtc/get-signal': typeof ApiWebrtcGetSignalRoute
+  '/api/webrtc/set-signal': typeof ApiWebrtcSetSignalRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
@@ -443,6 +457,8 @@ export interface FileRoutesByTo {
   '/api/storage/upload-multipart-complete': typeof ApiStorageUploadMultipartCompleteRoute
   '/api/storage/upload-multipart-init': typeof ApiStorageUploadMultipartInitRoute
   '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
+  '/api/webrtc/get-signal': typeof ApiWebrtcGetSignalRoute
+  '/api/webrtc/set-signal': typeof ApiWebrtcSetSignalRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
@@ -500,6 +516,8 @@ export interface FileRoutesById {
   '/api/storage/upload-multipart-complete': typeof ApiStorageUploadMultipartCompleteRoute
   '/api/storage/upload-multipart-init': typeof ApiStorageUploadMultipartInitRoute
   '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
+  '/api/webrtc/get-signal': typeof ApiWebrtcGetSignalRoute
+  '/api/webrtc/set-signal': typeof ApiWebrtcSetSignalRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
@@ -558,6 +576,8 @@ export interface FileRouteTypes {
     | '/api/storage/upload-multipart-complete'
     | '/api/storage/upload-multipart-init'
     | '/api/storage/upload-presign'
+    | '/api/webrtc/get-signal'
+    | '/api/webrtc/set-signal'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
     | '/api/storage/s3/bucket-items'
@@ -614,6 +634,8 @@ export interface FileRouteTypes {
     | '/api/storage/upload-multipart-complete'
     | '/api/storage/upload-multipart-init'
     | '/api/storage/upload-presign'
+    | '/api/webrtc/get-signal'
+    | '/api/webrtc/set-signal'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
     | '/api/storage/s3/bucket-items'
@@ -670,6 +692,8 @@ export interface FileRouteTypes {
     | '/api/storage/upload-multipart-complete'
     | '/api/storage/upload-multipart-init'
     | '/api/storage/upload-presign'
+    | '/api/webrtc/get-signal'
+    | '/api/webrtc/set-signal'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
     | '/api/storage/s3/bucket-items'
@@ -727,6 +751,8 @@ export interface RootRouteChildren {
   ApiStorageUploadMultipartCompleteRoute: typeof ApiStorageUploadMultipartCompleteRoute
   ApiStorageUploadMultipartInitRoute: typeof ApiStorageUploadMultipartInitRoute
   ApiStorageUploadPresignRoute: typeof ApiStorageUploadPresignRoute
+  ApiWebrtcGetSignalRoute: typeof ApiWebrtcGetSignalRoute
+  ApiWebrtcSetSignalRoute: typeof ApiWebrtcSetSignalRoute
   ApiStorageS3SplatRoute: typeof ApiStorageS3SplatRoute
   ApiStorageS3BucketCredentialsRoute: typeof ApiStorageS3BucketCredentialsRoute
   ApiStorageS3BucketItemsRoute: typeof ApiStorageS3BucketItemsRoute
@@ -844,6 +870,20 @@ declare module '@tanstack/react-router' {
       path: '/auth/forgot-password'
       fullPath: '/auth/forgot-password'
       preLoaderRoute: typeof AuthForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/webrtc/set-signal': {
+      id: '/api/webrtc/set-signal'
+      path: '/api/webrtc/set-signal'
+      fullPath: '/api/webrtc/set-signal'
+      preLoaderRoute: typeof ApiWebrtcSetSignalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/webrtc/get-signal': {
+      id: '/api/webrtc/get-signal'
+      path: '/api/webrtc/get-signal'
+      fullPath: '/api/webrtc/get-signal'
+      preLoaderRoute: typeof ApiWebrtcGetSignalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/storage/upload-presign': {
@@ -1168,6 +1208,8 @@ const rootRouteChildren: RootRouteChildren = {
     ApiStorageUploadMultipartCompleteRoute,
   ApiStorageUploadMultipartInitRoute: ApiStorageUploadMultipartInitRoute,
   ApiStorageUploadPresignRoute: ApiStorageUploadPresignRoute,
+  ApiWebrtcGetSignalRoute: ApiWebrtcGetSignalRoute,
+  ApiWebrtcSetSignalRoute: ApiWebrtcSetSignalRoute,
   ApiStorageS3SplatRoute: ApiStorageS3SplatRoute,
   ApiStorageS3BucketCredentialsRoute: ApiStorageS3BucketCredentialsRoute,
   ApiStorageS3BucketItemsRoute: ApiStorageS3BucketItemsRoute,

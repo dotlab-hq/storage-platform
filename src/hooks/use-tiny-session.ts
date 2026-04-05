@@ -1,7 +1,8 @@
 'use client'
 
 import * as React from 'react'
-import { TINY_SESSION_COOKIE_NAME } from '@/lib/tiny-session'
+
+const TINY_SESSION_COOKIE_NAME = 'tiny_session_token'
 
 function readCookieValue(cookieHeader: string | null, name: string) {
   if (!cookieHeader) return null
