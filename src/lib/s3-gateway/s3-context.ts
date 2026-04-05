@@ -120,6 +120,14 @@ function canonicalUriRaw( url: URL ): string {
     return url.pathname
 }
 
+function normalizeCredentialValue( value: string ): string {
+    try {
+        return decodeURIComponent( value )
+    } catch {
+        return value
+    }
+}
+
 function isHeaderSignatureMatch( input: {
     request: Request
     url: URL
@@ -291,7 +299,7 @@ export function parseAccessKeyId( request: Request ): string | null {
     const authorization = request.headers.get( "authorization" )
     if ( authorization ) {
         const credentialMatch = authorization.match( /Credential=([^,\s]+)/ )
-        const credential = credentialMatch?.[1]
+        const credential = credentialMatch?.[1] ? normalizeCredentialValue( credentialMatch[1] ) : undefined
         const accessKey = credential?.split( "/" )[0]
         if ( accessKey ) {
             return accessKey
@@ -301,7 +309,7 @@ export function parseAccessKeyId( request: Request ): string | null {
     const url = new URL( request.url )
     const queryCredential = url.searchParams.get( "X-Amz-Credential" )
     if ( queryCredential ) {
-        return queryCredential.split( "/" )[0] ?? null
+        return normalizeCredentialValue( queryCredential ).split( "/" )[0] ?? null
     }
 
     return null
@@ -325,7 +333,7 @@ export function isSigV4Valid( request: Request, bucket: BucketContext ): boolean
             return false
         }
 
-        const credential = credentialMatch[1]
+        const credential = normalizeCredentialValue( credentialMatch[1] )
         const scopeParts = credential.split( "/" )
         if ( scopeParts.length < 5 ) {
             return false
@@ -371,7 +379,7 @@ export function isSigV4Valid( request: Request, bucket: BucketContext ): boolean
             return false
         }
 
-        const scopeParts = credential.split( "/" )
+        const scopeParts = normalizeCredentialValue( credential ).split( "/" )
         if ( scopeParts.length < 5 ) {
             return false
         }
