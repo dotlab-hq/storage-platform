@@ -51,34 +51,41 @@ export const Route = createFileRoute('/api/webrtc-transfer/poll')({
             })
           }
 
-          if (transfer.status !== 'claimed') {
+          if (transfer.status === 'pending') {
             return Response.json({
               status: transfer.status,
               expiresAt: transfer.expiresAt.toISOString(),
             })
           }
 
-          if (!transfer.ownerUserId || !transfer.requesterSessionId) {
-            return Response.json(
-              { status: 'invalid', error: 'Missing owner or requester.' },
-              { status: 409 },
-            )
+          if (transfer.status === 'claimed') {
+            await db
+              .update(webrtcTransfer)
+              .set({ status: 'connected', connectedAt: now })
+              .where(
+                and(
+                  eq(webrtcTransfer.id, transfer.id),
+                  eq(webrtcTransfer.status, 'claimed'),
+                  gt(webrtcTransfer.expiresAt, now),
+                ),
+              )
+
+            return Response.json({
+              status: 'connected',
+              connectedAt: now.toISOString(),
+            })
           }
 
-          await db
-            .update(webrtcTransfer)
-            .set({ status: 'connected', connectedAt: now })
-            .where(
-              and(
-                eq(webrtcTransfer.id, transfer.id),
-                eq(webrtcTransfer.status, 'claimed'),
-                gt(webrtcTransfer.expiresAt, now),
-              ),
-            )
+          if (transfer.status === 'connected') {
+            return Response.json({
+              status: 'connected',
+              connectedAt: transfer.connectedAt?.toISOString(),
+            })
+          }
 
           return Response.json({
-            status: 'connected',
-            connectedAt: now.toISOString(),
+            status: transfer.status,
+            expiresAt: transfer.expiresAt.toISOString(),
           })
         } catch (error) {
           const message =

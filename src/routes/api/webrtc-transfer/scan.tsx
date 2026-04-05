@@ -1,12 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { and, eq, gt, isNull } from 'drizzle-orm'
+import { eq } from 'drizzle-orm'
 import { db } from '@/db'
-import { tinySession, webrtcTransfer } from '@/db/schema/auth-schema'
-import {
-  parseWebrtcOfferPayload,
-  TINY_SESSION_TTL_MS,
-  createTinySessionToken,
-} from '@/lib/tiny-session'
+import { webrtcTransfer } from '@/db/schema/auth-schema'
+import { parseWebrtcOfferPayload } from '@/lib/tiny-session'
 
 export const Route = createFileRoute('/api/webrtc-transfer/scan')({
   server: {
@@ -15,9 +11,8 @@ export const Route = createFileRoute('/api/webrtc-transfer/scan')({
         try {
           const body = (await request.json()) as {
             payload: string
-            sessionToken?: string
           }
-          const { payload, sessionToken } = body
+          const { payload } = body
 
           if (!payload) {
             return Response.json({ error: 'Missing payload.' }, { status: 400 })
@@ -32,24 +27,6 @@ export const Route = createFileRoute('/api/webrtc-transfer/scan')({
           }
 
           const now = new Date()
-
-          let tinySessionId: string | null = null
-          if (sessionToken) {
-            const sessionRows = await db
-              .select({ id: tinySession.id })
-              .from(tinySession)
-              .where(
-                and(
-                  eq(tinySession.token, sessionToken),
-                  gt(tinySession.expiresAt, now),
-                  isNull(tinySession.revokedAt),
-                ),
-              )
-              .limit(1)
-            if (sessionRows.length > 0) {
-              tinySessionId = sessionRows[0].id
-            }
-          }
 
           const rows = await db
             .select({
@@ -89,34 +66,10 @@ export const Route = createFileRoute('/api/webrtc-transfer/scan')({
             )
           }
 
-          let requesterSessionId: string | null = null
-
-          if (tinySessionId) {
-            requesterSessionId = tinySessionId
-          }
-
-          if (!requesterSessionId) {
-            const newToken = createTinySessionToken()
-            const expiresAt = new Date(Date.now() + TINY_SESSION_TTL_MS)
-
-            const newSessionId = crypto.randomUUID()
-            await db.insert(tinySession).values({
-              id: newSessionId,
-              token: newToken,
-              userId: 'anonymous-requester',
-              permission: 'read',
-              expiresAt,
-              createdAt: now,
-            })
-
-            requesterSessionId = newSessionId
-          }
-
           await db
             .update(webrtcTransfer)
             .set({
               status: 'claimed',
-              requesterSessionId: requesterSessionId,
             })
             .where(eq(webrtcTransfer.id, transfer.id))
 
