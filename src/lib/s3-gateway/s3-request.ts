@@ -70,6 +70,15 @@ export function listPrefix( requestUrl: string ): string {
     return url.searchParams.get( "prefix" ) ?? ""
 }
 
+export function listDelimiter( requestUrl: string ): string | null {
+    const url = new URL( requestUrl )
+    const delimiter = url.searchParams.get( "delimiter" )
+    if ( !delimiter || delimiter.length === 0 ) {
+        return null
+    }
+    return delimiter
+}
+
 export function listTypeIsV2( requestUrl: string ): boolean {
     const url = new URL( requestUrl )
     const listType = url.searchParams.get( "list-type" )

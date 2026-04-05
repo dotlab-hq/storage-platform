@@ -6,9 +6,33 @@ import { resolveBucketByAccessKey, resolveBucketByName, parseAccessKeyId } from 
 import { getBucketCors, getBucketLocation, getBucketPolicy, getBucketVersioning, listMultipartParts, listMultipartUploads } from "@/lib/s3-gateway/s3-bucket-controls"
 import { bucketCorsXml, bucketLocationXml, bucketVersioningXml, listMultipartUploadsXml, listPartsXml } from "@/lib/s3-gateway/s3-control-xml"
 import { listObjectVersionsXml } from "@/lib/s3-gateway/s3-versioning-xml"
+import type { S3ObjectItem } from "@/lib/s3-gateway/s3-xml"
 import { listBucketsXml, listObjectsV2Xml, listObjectsXml, s3ErrorResponse, xmlResponse } from "@/lib/s3-gateway/s3-xml"
-import { listPrefix, listTypeIsV2, multipartUploadId } from "@/lib/s3-gateway/s3-request"
+import { listDelimiter, listPrefix, listTypeIsV2, multipartUploadId } from "@/lib/s3-gateway/s3-request"
 import { ensureAccess, resolveAuthorizedBucket } from "@/lib/s3-gateway/s3-dispatch-context"
+
+function applyDelimiterProjection( items: S3ObjectItem[], prefix: string, delimiter: string | null ): { objects: S3ObjectItem[], commonPrefixes: string[] } {
+    if ( !delimiter ) {
+        return { objects: items, commonPrefixes: [] }
+    }
+
+    const commonPrefixes = new Set<string>()
+    const objects: S3ObjectItem[] = []
+    for ( const item of items ) {
+        const relative = item.key.startsWith( prefix ) ? item.key.slice( prefix.length ) : item.key
+        const boundary = relative.indexOf( delimiter )
+        if ( boundary === -1 ) {
+            objects.push( item )
+            continue
+        }
+        commonPrefixes.add( `${prefix}${relative.slice( 0, boundary + delimiter.length )}` )
+    }
+
+    return {
+        objects,
+        commonPrefixes: Array.from( commonPrefixes ).sort(),
+    }
+}
 
 export async function handleGet( request: Request, parsed: { bucketName: string | null, objectKey: string | null } ): Promise<Response> {
     if ( !parsed.bucketName ) {
@@ -49,12 +73,20 @@ export async function handleGet( request: Request, parsed: { bucketName: string 
         if ( url.searchParams.has( "uploads" ) ) return xmlResponse( listMultipartUploadsXml( resolvedBucket.bucketName, await listMultipartUploads( resolvedBucket ) ) )
         if ( url.searchParams.has( "versions" ) ) return xmlResponse( listObjectVersionsXml( resolvedBucket.bucketName, await listObjectVersions( resolvedBucket.bucketId ) ) )
         const prefix = listPrefix( request.url )
+        const delimiter = listDelimiter( request.url )
         const objects = await listObjectsV2( resolvedBucket, prefix )
+        const projected = applyDelimiterProjection( objects, prefix, delimiter )
         if ( !listTypeIsV2( request.url ) ) {
             const marker = url.searchParams.get( "marker" ) ?? ""
-            return xmlResponse( listObjectsXml( resolvedBucket.bucketName, prefix, marker, objects ) )
+            return xmlResponse( listObjectsXml( resolvedBucket.bucketName, prefix, marker, projected.objects, {
+                delimiter,
+                commonPrefixes: projected.commonPrefixes,
+            } ) )
         }
-        return xmlResponse( listObjectsV2Xml( resolvedBucket.bucketName, prefix, objects ) )
+        return xmlResponse( listObjectsV2Xml( resolvedBucket.bucketName, prefix, projected.objects, {
+            delimiter,
+            commonPrefixes: projected.commonPrefixes,
+        } ) )
     }
 
     if ( multipartUploadId( request.url ) ) {
