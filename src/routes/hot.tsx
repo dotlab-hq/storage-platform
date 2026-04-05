@@ -47,20 +47,21 @@ function HotRoute() {
       const response = await fetch('/api/qr-auth/create-offer', {
         method: 'POST',
       })
-      const data = (await response.json()) as OfferResponse | { error?: string }
-      if (!response.ok || !('payload' in data)) {
+      const data = (await response.json())
+      const resData = data as any;
+      if (!response.ok || !resData.payload) {
         throw new Error(
           (data as { error?: string }).error ?? 'Failed to generate QR offer.',
         )
       }
 
-      const dataUrl = await QRCode.toDataURL(data.payload, {
+      const dataUrl = await QRCode.toDataURL(resData.payload as string, {
         width: 260,
         margin: 1,
       })
 
-      setOffer(data)
-      setQrImage(dataUrl)
+      setOffer(resData as any)
+      setQrImage(dataUrl as any)
       setStateMessage('Scan-based login ready. Tiny session lasts 10 minutes.')
     } catch (error) {
       setOffer(null)

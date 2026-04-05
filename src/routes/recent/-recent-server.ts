@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start"
 import { z } from "zod"
 import { getAuthenticatedUser } from "@/lib/server-auth"
-import { getFilePresignedUrl } from "@/lib/storage-mutations"
+import { getFilePresignedUrlFn } from "@/lib/storage/mutations/urls"
 import { getRecentItems } from "@/lib/storage-queries"
 
 const RecentFileInputSchema = z.object( {
@@ -44,7 +44,6 @@ export const getRecentSnapshotFn = createServerFn( { method: "GET" } )
 export const getRecentFileUrlFn = createServerFn( { method: "GET" } )
     .inputValidator( RecentFileInputSchema )
     .handler( async ( { data } ) => {
-        const currentUser = await getAuthenticatedUser()
-        const result = await getFilePresignedUrl( currentUser.id, data.fileId )
+        const result = await getFilePresignedUrlFn( { data: { fileId: data.fileId } } )
         return { url: result.url }
     } )

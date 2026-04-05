@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { getFilePresignedUrl } from "@/lib/storage-mutations"
+import { getFilePresignedUrlFn } from "@/lib/storage/mutations/urls"
 
 export const Route = createFileRoute( "/api/storage/presign" )( {
     component: () => null,
@@ -15,7 +15,7 @@ export const Route = createFileRoute( "/api/storage/presign" )( {
                         return Response.json( { error: "Missing userId or fileId" }, { status: 400 } )
                     }
 
-                    const result = await getFilePresignedUrl( userId, fileId )
+                    const result = await getFilePresignedUrlFn( { data: { fileId } } )
                     return Response.json( result )
                 } catch ( error ) {
                     console.error( "[Server] Presign error:", error )

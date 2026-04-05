@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { moveItems } from "@/lib/storage-mutations"
+import { moveItemsFn } from "@/lib/storage/mutations/move"
 
 export const Route = createFileRoute( "/api/storage/move" )( {
     component: () => null,
@@ -18,12 +18,13 @@ export const Route = createFileRoute( "/api/storage/move" )( {
                         return Response.json( { error: "Missing required fields" }, { status: 400 } )
                     }
 
-                    const result = await moveItems(
-                        body.userId,
-                        body.itemIds,
-                        body.itemTypes,
-                        body.targetFolderId ?? null
-                    )
+                    const result = await moveItemsFn( {
+                        data: {
+                            itemIds: body.itemIds,
+                            itemTypes: body.itemTypes,
+                            targetFolderId: body.targetFolderId ?? null
+                        }
+                    } )
                     return Response.json( result )
                 } catch ( error ) {
                     console.error( "[Server] Move error:", error )

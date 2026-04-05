@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { listFolderItems, getFolderBreadcrumbs } from "@/lib/storage-queries"
-import { touchFolderOpened } from "@/lib/storage-mutations"
+import { touchFolderOpenedFn } from "@/lib/storage/mutations/touch"
 
 export const Route = createFileRoute( "/api/storage/folder-items" )( {
     component: () => null,
@@ -21,7 +21,7 @@ export const Route = createFileRoute( "/api/storage/folder-items" )( {
                     let breadcrumbs: { id: string; name: string }[] = []
                     if ( folderId ) {
                         breadcrumbs = await getFolderBreadcrumbs( userId, folderId )
-                        void touchFolderOpened( userId, folderId )
+                        void touchFolderOpenedFn( { data: { folderId } } ).catch( () => { } )
                     }
 
                     return Response.json( { ...items, breadcrumbs } )

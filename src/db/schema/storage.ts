@@ -1,6 +1,5 @@
 import { relations, sql } from "drizzle-orm";
 import { integer, index, text, check } from "drizzle-orm/sqlite-core";
-import type { AnySQLiteColumn } from "drizzle-orm/sqlite-core";
 import { user } from "./auth-schema";
 import { storageProvider } from "./storage-provider";
 import { schema } from "./schema";

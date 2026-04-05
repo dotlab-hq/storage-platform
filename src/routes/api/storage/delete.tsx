@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { deleteItems } from "@/lib/storage-mutations"
+import { deleteItemsFn } from "@/lib/storage/mutations/delete"
 
 export const Route = createFileRoute( "/api/storage/delete" )( {
     component: () => null,
@@ -21,7 +21,7 @@ export const Route = createFileRoute( "/api/storage/delete" )( {
                         return Response.json( { error: "Mismatched ids/types arrays" }, { status: 400 } )
                     }
 
-                    const result = await deleteItems( body.userId, body.itemIds, body.itemTypes )
+                    const result = await deleteItemsFn( { data: { itemIds: body.itemIds, itemTypes: body.itemTypes } } )
                     return Response.json( result )
                 } catch ( error ) {
                     console.error( "[Server] Delete error:", error )

@@ -9,62 +9,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { toast } from '@/components/ui/sonner'
-
-type Permission = 'read' | 'read-write'
-
-type Html5QrScanner = {
-  start: (
-    cameraIdOrConfig: string | MediaTrackConstraints,
-    configuration?: {
-      fps?: number
-      qrbox?: { width: number; height: number }
-    },
-    qrCodeSuccessCallback?: (decodedText: string) => void,
-    qrCodeErrorCallback?: (errorMessage: string) => void,
-  ) => Promise<unknown>
-  stop: () => Promise<void>
-  clear: () => void
-}
-
-type ScanState = 'idle' | 'scanning' | 'review' | 'submitting'
-const SCAN_QR_INTRO_SEEN_KEY = 'dot_storage_scan_qr_intro_seen_v1'
-
-async function startScannerWithFallback(
-  scanner: Html5QrScanner,
-  onSuccess: (decodedText: string) => void,
-) {
-  const config = { fps: 10, qrbox: { width: 220, height: 220 } }
-  const onError = () => {
-    // Ignore frame decode misses.
-  }
-
-  try {
-    await scanner.start(
-      { facingMode: { exact: 'environment' } },
-      config,
-      onSuccess,
-      onError,
-    )
-    return
-  } catch {
-    // fallback
-  }
-
-  try {
-    await scanner.start({ facingMode: 'user' }, config, onSuccess, onError)
-    return
-  } catch {
-    // fallback
-  }
-
-  const { Html5Qrcode } = await import('html5-qrcode')
-  const cameras = await Html5Qrcode.getCameras()
-  if (cameras.length === 0) {
-    throw new Error('No camera detected.')
-  }
-  await scanner.start(cameras[0].id, config, onSuccess, onError)
-}
+import { useQrScanner } from './scan-qr/use-qr-scanner'
+import { SCAN_QR_INTRO_SEEN_KEY } from './scan-qr/utils'
 
 export function ScanQrDialog({
   triggerLabel = 'Scan now',
@@ -77,153 +23,30 @@ export function ScanQrDialog({
 }) {
   const [open, setOpen] = React.useState(false)
   const [introOpen, setIntroOpen] = React.useState(false)
-  const [state, setState] = React.useState<ScanState>('idle')
-  const [permission, setPermission] = React.useState<Permission>('read')
-  const [decodedPayload, setDecodedPayload] = React.useState<string>('')
-  const [cameraError, setCameraError] = React.useState<string>('')
-  const scannerRef = React.useRef<{
-    stop: () => Promise<void>
-    clear: () => void
-  } | null>(null)
-  const regionId = React.useId().replace(/:/g, '')
 
-  const stopScanner = React.useCallback(async () => {
-    const scanner = scannerRef.current
-    if (!scanner) return
-    try {
-      await scanner.stop()
-    } catch {
-      // no-op
-    }
-    try {
-      scanner.clear()
-    } catch {
-      // no-op
-    }
-    scannerRef.current = null
-  }, [])
-
-  const reset = React.useCallback(async () => {
-    await stopScanner()
-    setDecodedPayload('')
-    setCameraError('')
-    setPermission('read')
-    setState('idle')
-  }, [stopScanner])
-
-  React.useEffect(() => {
-    if (!open) {
-      void reset()
-      return
-    }
-
-    let cancelled = false
-    const start = async () => {
-      try {
-        setState('scanning')
-        setCameraError('')
-        const { Html5Qrcode } = await import('html5-qrcode')
-        const scanner = new Html5Qrcode(regionId) as unknown as Html5QrScanner
-        scannerRef.current = scanner
-        await startScannerWithFallback(scanner, (text) => {
-          if (cancelled) return
-          setDecodedPayload(text)
-          setState('review')
-          void stopScanner()
-        })
-      } catch (error) {
-        if (cancelled) return
-        setState('idle')
-        setCameraError(
-          error instanceof Error ? error.message : 'Unable to start camera.',
-        )
-      }
-    }
-
-    void start()
-    return () => {
-      cancelled = true
-      void stopScanner()
-    }
-  }, [open, regionId, reset, stopScanner])
-
-  const handleInvalidQr = async () => {
-    setDecodedPayload('')
-    setState('scanning')
-    setCameraError('')
-    try {
-      const { Html5Qrcode } = await import('html5-qrcode')
-      const scanner = new Html5Qrcode(regionId) as unknown as Html5QrScanner
-      scannerRef.current = scanner
-      await startScannerWithFallback(scanner, (text) => {
-        setDecodedPayload(text)
-        setState('review')
-        void stopScanner()
-      })
-    } catch (error) {
-      setState('idle')
-      setCameraError(
-        error instanceof Error ? error.message : 'Unable to restart camera.',
-      )
-    }
-  }
-
-  const submitScan = async () => {
-    if (!decodedPayload) {
-      toast.error('No QR payload scanned yet.')
-      return
-    }
-    setState('submitting')
-    try {
-      const response = await fetch('/api/qr-auth/scan', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({
-          payload: decodedPayload,
-          requestedPermission: permission,
-        }),
-      })
-      const data = (await response.json().catch(() => null)) as {
-        error?: string
-      } | null
-
-      if (!response.ok) {
-        throw new Error(data?.error ?? 'QR scan request failed.')
-      }
-
-      toast.success(
-        'QR is valid. Session claim sent. Keep the /hot screen open to finish login.',
-      )
-      setOpen(false)
-    } catch (error) {
-      toast.error(
-        error instanceof Error ? error.message : 'Failed to claim QR.',
-      )
-      setState('review')
-    }
-  }
-
-  const parsedCode = React.useMemo(() => {
-    const prefix = 'DOT_STORAGE_QR_LOGIN:'
-    if (!decodedPayload.startsWith(prefix)) {
-      return null
-    }
-    return decodedPayload.slice(prefix.length)
-  }, [decodedPayload])
+  const {
+    state,
+    permission,
+    setPermission,
+    
+    cameraError,
+    regionId,
+    handleInvalidQr,
+    submitScan,
+    parsedCode,
+    reset
+  } = useQrScanner(open, setOpen)
 
   const openScanner = () => {
     if (typeof window === 'undefined') {
       setOpen(true)
       return
     }
-
-    const hasSeenIntro =
-      window.localStorage.getItem(SCAN_QR_INTRO_SEEN_KEY) === '1'
+    const hasSeenIntro = window.localStorage.getItem(SCAN_QR_INTRO_SEEN_KEY) === '1'
     if (hasSeenIntro) {
       setOpen(true)
       return
     }
-
     setIntroOpen(true)
   }
 
@@ -237,122 +60,142 @@ export function ScanQrDialog({
 
   return (
     <>
-      <Button
-        variant={triggerVariant}
-        className={className}
-        onClick={openScanner}
-      >
+      <Button variant={triggerVariant} className={className} onClick={openScanner}>
         <QrCode className="size-4" />
         {triggerLabel}
       </Button>
+
       <Dialog open={introOpen} onOpenChange={setIntroOpen}>
-        <DialogContent>
+        <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Scan-based login</DialogTitle>
+            <DialogTitle>Scan a Login QR Code</DialogTitle>
             <DialogDescription>
-              Point your camera at a login QR from the /hot page. Then confirm
-              access level and submit.
+              Use another device to generate a QR code from the /hot page, then scan it.
             </DialogDescription>
           </DialogHeader>
-          <div className="rounded-md border p-3 text-sm text-muted-foreground">
-            Tiny sessions last 10 minutes. Use read-only unless you explicitly
-            need write access.
+          <div className="my-8 flex justify-center text-muted-foreground p-6 bg-muted/30 rounded-lg">
+            <Camera className="size-16 animate-pulse" />
           </div>
           <DialogFooter>
-            <Button variant="ghost" onClick={() => setIntroOpen(false)}>
+            <Button variant="secondary" onClick={() => setIntroOpen(false)}>
               Cancel
             </Button>
-            <Button onClick={startAfterIntro}>Got it, start scan</Button>
+            <Button onClick={startAfterIntro}>Open Camera</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent>
+
+      <Dialog
+        open={open}
+        onOpenChange={(isOpen) => {
+          if (!isOpen) void reset()
+          setOpen(isOpen)
+        }}
+      >
+        <DialogContent
+          className="sm:max-w-md max-h-[100dvh] overflow-y-auto"
+          onInteractOutside={(e) => e.preventDefault()}
+        >
           <DialogHeader>
-            <DialogTitle>Scan QR</DialogTitle>
+            <DialogTitle>Scan QR Code</DialogTitle>
             <DialogDescription>
-              Camera opens rear-first, then front fallback. After scan, confirm
-              if QR is valid and choose read or read-write access.
+              {state === 'scanning' && 'Point your camera at a login QR code...'}
+              {state === 'review' && 'Review the scanned QR code below...'}
             </DialogDescription>
           </DialogHeader>
 
-          <div className="space-y-3">
-            {state !== 'review' && (
-              <div className="rounded-md border p-2">
-                <div
-                  id={regionId}
-                  className="min-h-[250px] w-full overflow-hidden rounded-sm"
-                />
-              </div>
-            )}
-
-            {state === 'scanning' && (
-              <p className="text-muted-foreground flex items-center gap-2 text-sm">
-                <Camera className="size-4" />
-                Point camera at QR code...
-              </p>
-            )}
-
-            {cameraError && (
-              <p className="text-sm text-red-600">{cameraError}</p>
-            )}
-
-            {state === 'review' && (
-              <div className="space-y-3 rounded-md border p-3">
-                <p className="text-sm font-medium">Is this QR valid?</p>
-                <div className="rounded-md border bg-muted/40 px-3 py-2 text-xs text-muted-foreground">
-                  {parsedCode
-                    ? `Detected offer: ${parsedCode}`
-                    : 'QR detected and ready to submit.'}
+          {state === 'scanning' && (
+            <div className="relative aspect-square w-full max-w-[300px] overflow-hidden rounded-lg mx-auto bg-black border">
+              <div id={regionId} className="h-full w-full" />
+              {cameraError && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/80 px-4 text-center text-sm text-red-500">
+                  {cameraError}
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => void handleInvalidQr()}
-                  >
-                    <RefreshCcw className="size-4" />
-                    Scan QR again
-                  </Button>
-                  <Button size="sm" onClick={() => void submitScan()}>
-                    Yes, continue
+              )}
+            </div>
+          )}
+
+          {(state === 'review' || state === 'submitting') && (
+            <div className="space-y-4">
+              {parsedCode ? (
+                <div className="p-4 border rounded-md bg-green-50/50 dark:bg-green-950/20">
+                  <p className="text-sm font-medium text-green-700 dark:text-green-400 mb-1">
+                    Valid QR Code Detected
+                  </p>
+                  <p className="text-xs text-muted-foreground font-mono break-all">
+                    {parsedCode.slice(0, 16)}...
+                  </p>
+                </div>
+              ) : (
+                <div className="p-4 border rounded-md bg-red-50/50 dark:bg-red-950/20">
+                  <p className="text-sm font-medium text-red-700 dark:text-red-400 mb-1">
+                    Invalid QR Code
+                  </p>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    This doesn't look like a valid dot-storage login code.
+                  </p>
+                  <Button variant="outline" size="sm" onClick={handleInvalidQr} className="w-full">
+                    <RefreshCcw className="size-4 mr-2" />
+                    Scan again
                   </Button>
                 </div>
-                <div className="space-y-2">
-                  <p className="text-sm font-medium">Access</p>
-                  <div className="flex gap-2">
-                    <Button
-                      type="button"
-                      size="sm"
-                      variant={permission === 'read' ? 'default' : 'outline'}
-                      onClick={() => setPermission('read')}
-                    >
-                      Read access
-                    </Button>
-                    <Button
-                      type="button"
-                      size="sm"
-                      variant={
-                        permission === 'read-write' ? 'default' : 'outline'
-                      }
-                      onClick={() => setPermission('read-write')}
-                    >
-                      Read + write
-                    </Button>
+              )}
+
+              {parsedCode && (
+                <div className="space-y-3 pt-2">
+                  <div className="text-sm font-medium">Session Permissions</div>
+                  <div className="flex flex-col gap-2">
+                    <label className="flex items-start gap-3 rounded-md border p-3 cursor-pointer hover:bg-muted/50">
+                      <input
+                        type="radio"
+                        name="qr-permission"
+                        value="read"
+                        checked={permission === 'read'}
+                        onChange={() => setPermission('read')}
+                        className="mt-1"
+                      />
+                      <div>
+                        <div className="text-sm font-medium">Read Only</div>
+                        <div className="text-xs text-muted-foreground">
+                          Can only view files and storage.
+                        </div>
+                      </div>
+                    </label>
+                    <label className="flex items-start gap-3 rounded-md border p-3 cursor-pointer hover:bg-muted/50">
+                      <input
+                        type="radio"
+                        name="qr-permission"
+                        value="read-write"
+                        checked={permission === 'read-write'}
+                        onChange={() => setPermission('read-write')}
+                        className="mt-1"
+                      />
+                      <div>
+                        <div className="text-sm font-medium">Full Access</div>
+                        <div className="text-xs text-muted-foreground">
+                          Can view, upload, rename, and delete files.
+                        </div>
+                      </div>
+                    </label>
                   </div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          )}
 
-          <DialogFooter>
-            <Button
-              variant="ghost"
-              onClick={() => setOpen(false)}
-              disabled={state === 'submitting'}
-            >
-              Close
+          <DialogFooter className="mt-6 flex flex-col sm:flex-row gap-2">
+            <Button variant="secondary" onClick={() => setOpen(false)} className="w-full sm:w-auto">
+              Cancel
             </Button>
+            {state !== 'scanning' && parsedCode && (
+              <Button
+                onClick={() => void submitScan()}
+                disabled={state === 'submitting'}
+                className="w-full sm:w-auto"
+              >
+                {state === 'submitting' ? 'Approving...' : 'Approve session'}
+              </Button>
+            )}
           </DialogFooter>
         </DialogContent>
       </Dialog>

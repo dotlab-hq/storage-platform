@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { renameItem } from "@/lib/storage-mutations"
+import { renameItemFn } from "@/lib/storage/mutations/rename"
 
 export const Route = createFileRoute( "/api/storage/rename" )( {
     component: () => null,
@@ -18,7 +18,7 @@ export const Route = createFileRoute( "/api/storage/rename" )( {
                         return Response.json( { error: "Missing required fields" }, { status: 400 } )
                     }
 
-                    const result = await renameItem( body.userId, body.itemId, body.newName.trim(), body.itemType )
+                    const result = await renameItemFn( { data: { itemId: body.itemId, newName: body.newName.trim(), itemType: body.itemType } } )
                     if ( !result ) {
                         return Response.json( { error: "Item not found" }, { status: 404 } )
                     }

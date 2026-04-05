@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import { Send } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+
 import { useWebRTC } from '@/hooks/use-webrtc'
 
 type SendFileDropZoneProps = {
