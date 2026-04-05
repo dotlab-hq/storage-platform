@@ -212,6 +212,36 @@ export const qrLoginOfferRelations = relations(
   }),
 )
 
+export const webrtcTransfer = sqliteTable(
+  'webrtc_transfer',
+  {
+    id: text('id').primaryKey(),
+    offerCode: text('offer_code').notNull().unique(),
+    pollKey: text('poll_key').notNull().unique(),
+    ownerUserId: text('owner_user_id').references(() => user.id, {
+      onDelete: 'set null',
+    }),
+    offerType: text('offer_type').notNull().default('offer'),
+    status: text('status').notNull().default('pending'),
+    requesterSessionId: text('requester_session_id').references(
+      () => tinySession.id,
+      {
+        onDelete: 'set null',
+      },
+    ),
+    createdAt: integer('created_at', { mode: 'timestamp_ms' })
+      .default(sql`(cast(unixepoch('subsecond') * 1000 as integer))`)
+      .notNull(),
+    expiresAt: integer('expires_at', { mode: 'timestamp_ms' }).notNull(),
+    connectedAt: integer('connected_at', { mode: 'timestamp_ms' }),
+  },
+  (table) => [
+    index('webrtcTransfer_ownerUserId_idx').on(table.ownerUserId),
+    index('webrtcTransfer_status_idx').on(table.status),
+    index('webrtcTransfer_pollKey_idx').on(table.pollKey),
+  ],
+)
+
 export const tinySessionRelations = relations(tinySession, ({ one }) => ({
   user: one(user, {
     fields: [tinySession.userId],
@@ -220,5 +250,17 @@ export const tinySessionRelations = relations(tinySession, ({ one }) => ({
   sourceOffer: one(qrLoginOffer, {
     fields: [tinySession.sourceOfferId],
     references: [qrLoginOffer.id],
+  }),
+}))
+
+export const webrtcTransferRelations = relations(webrtcTransfer, ({ one }) => ({
+  owner: one(user, {
+    fields: [webrtcTransfer.ownerUserId],
+    references: [user.id],
+  }),
+  requesterSession: one(tinySession, {
+    fields: [webrtcTransfer.requesterSessionId],
+    references: [tinySession.id],
+    relationName: 'webrtcRequesterSession',
   }),
 }))

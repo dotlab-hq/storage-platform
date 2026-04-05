@@ -28,6 +28,9 @@ import { Route as AuthLoginRouteImport } from './routes/auth/login'
 import { Route as AuthForgotPasswordRouteImport } from './routes/auth/forgot-password'
 import { Route as ApiWebrtcSetSignalRouteImport } from './routes/api/webrtc/set-signal'
 import { Route as ApiWebrtcGetSignalRouteImport } from './routes/api/webrtc/get-signal'
+import { Route as ApiWebrtcTransferScanRouteImport } from './routes/api/webrtc-transfer/scan'
+import { Route as ApiWebrtcTransferPollRouteImport } from './routes/api/webrtc-transfer/poll'
+import { Route as ApiWebrtcTransferCreateOfferRouteImport } from './routes/api/webrtc-transfer/create-offer'
 import { Route as ApiStorageUploadPresignRouteImport } from './routes/api/storage/upload-presign'
 import { Route as ApiStorageUploadMultipartInitRouteImport } from './routes/api/storage/upload-multipart-init'
 import { Route as ApiStorageUploadMultipartCompleteRouteImport } from './routes/api/storage/upload-multipart-complete'
@@ -166,6 +169,22 @@ const ApiWebrtcGetSignalRoute = ApiWebrtcGetSignalRouteImport.update({
   path: '/api/webrtc/get-signal',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiWebrtcTransferScanRoute = ApiWebrtcTransferScanRouteImport.update({
+  id: '/api/webrtc-transfer/scan',
+  path: '/api/webrtc-transfer/scan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiWebrtcTransferPollRoute = ApiWebrtcTransferPollRouteImport.update({
+  id: '/api/webrtc-transfer/poll',
+  path: '/api/webrtc-transfer/poll',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiWebrtcTransferCreateOfferRoute =
+  ApiWebrtcTransferCreateOfferRouteImport.update({
+    id: '/api/webrtc-transfer/create-offer',
+    path: '/api/webrtc-transfer/create-offer',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiStorageUploadPresignRoute = ApiStorageUploadPresignRouteImport.update({
   id: '/api/storage/upload-presign',
   path: '/api/storage/upload-presign',
@@ -434,6 +453,9 @@ export interface FileRoutesByFullPath {
   '/api/storage/upload-multipart-complete': typeof ApiStorageUploadMultipartCompleteRoute
   '/api/storage/upload-multipart-init': typeof ApiStorageUploadMultipartInitRoute
   '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
+  '/api/webrtc-transfer/create-offer': typeof ApiWebrtcTransferCreateOfferRoute
+  '/api/webrtc-transfer/poll': typeof ApiWebrtcTransferPollRoute
+  '/api/webrtc-transfer/scan': typeof ApiWebrtcTransferScanRoute
   '/api/webrtc/get-signal': typeof ApiWebrtcGetSignalRoute
   '/api/webrtc/set-signal': typeof ApiWebrtcSetSignalRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
@@ -496,6 +518,9 @@ export interface FileRoutesByTo {
   '/api/storage/upload-multipart-complete': typeof ApiStorageUploadMultipartCompleteRoute
   '/api/storage/upload-multipart-init': typeof ApiStorageUploadMultipartInitRoute
   '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
+  '/api/webrtc-transfer/create-offer': typeof ApiWebrtcTransferCreateOfferRoute
+  '/api/webrtc-transfer/poll': typeof ApiWebrtcTransferPollRoute
+  '/api/webrtc-transfer/scan': typeof ApiWebrtcTransferScanRoute
   '/api/webrtc/get-signal': typeof ApiWebrtcGetSignalRoute
   '/api/webrtc/set-signal': typeof ApiWebrtcSetSignalRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
@@ -560,6 +585,9 @@ export interface FileRoutesById {
   '/api/storage/upload-multipart-complete': typeof ApiStorageUploadMultipartCompleteRoute
   '/api/storage/upload-multipart-init': typeof ApiStorageUploadMultipartInitRoute
   '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
+  '/api/webrtc-transfer/create-offer': typeof ApiWebrtcTransferCreateOfferRoute
+  '/api/webrtc-transfer/poll': typeof ApiWebrtcTransferPollRoute
+  '/api/webrtc-transfer/scan': typeof ApiWebrtcTransferScanRoute
   '/api/webrtc/get-signal': typeof ApiWebrtcGetSignalRoute
   '/api/webrtc/set-signal': typeof ApiWebrtcSetSignalRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
@@ -625,6 +653,9 @@ export interface FileRouteTypes {
     | '/api/storage/upload-multipart-complete'
     | '/api/storage/upload-multipart-init'
     | '/api/storage/upload-presign'
+    | '/api/webrtc-transfer/create-offer'
+    | '/api/webrtc-transfer/poll'
+    | '/api/webrtc-transfer/scan'
     | '/api/webrtc/get-signal'
     | '/api/webrtc/set-signal'
     | '/api/storage/s3/$'
@@ -687,6 +718,9 @@ export interface FileRouteTypes {
     | '/api/storage/upload-multipart-complete'
     | '/api/storage/upload-multipart-init'
     | '/api/storage/upload-presign'
+    | '/api/webrtc-transfer/create-offer'
+    | '/api/webrtc-transfer/poll'
+    | '/api/webrtc-transfer/scan'
     | '/api/webrtc/get-signal'
     | '/api/webrtc/set-signal'
     | '/api/storage/s3/$'
@@ -750,6 +784,9 @@ export interface FileRouteTypes {
     | '/api/storage/upload-multipart-complete'
     | '/api/storage/upload-multipart-init'
     | '/api/storage/upload-presign'
+    | '/api/webrtc-transfer/create-offer'
+    | '/api/webrtc-transfer/poll'
+    | '/api/webrtc-transfer/scan'
     | '/api/webrtc/get-signal'
     | '/api/webrtc/set-signal'
     | '/api/storage/s3/$'
@@ -814,6 +851,9 @@ export interface RootRouteChildren {
   ApiStorageUploadMultipartCompleteRoute: typeof ApiStorageUploadMultipartCompleteRoute
   ApiStorageUploadMultipartInitRoute: typeof ApiStorageUploadMultipartInitRoute
   ApiStorageUploadPresignRoute: typeof ApiStorageUploadPresignRoute
+  ApiWebrtcTransferCreateOfferRoute: typeof ApiWebrtcTransferCreateOfferRoute
+  ApiWebrtcTransferPollRoute: typeof ApiWebrtcTransferPollRoute
+  ApiWebrtcTransferScanRoute: typeof ApiWebrtcTransferScanRoute
   ApiWebrtcGetSignalRoute: typeof ApiWebrtcGetSignalRoute
   ApiWebrtcSetSignalRoute: typeof ApiWebrtcSetSignalRoute
 }
@@ -951,6 +991,27 @@ declare module '@tanstack/react-router' {
       path: '/api/webrtc/get-signal'
       fullPath: '/api/webrtc/get-signal'
       preLoaderRoute: typeof ApiWebrtcGetSignalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/webrtc-transfer/scan': {
+      id: '/api/webrtc-transfer/scan'
+      path: '/api/webrtc-transfer/scan'
+      fullPath: '/api/webrtc-transfer/scan'
+      preLoaderRoute: typeof ApiWebrtcTransferScanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/webrtc-transfer/poll': {
+      id: '/api/webrtc-transfer/poll'
+      path: '/api/webrtc-transfer/poll'
+      fullPath: '/api/webrtc-transfer/poll'
+      preLoaderRoute: typeof ApiWebrtcTransferPollRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/webrtc-transfer/create-offer': {
+      id: '/api/webrtc-transfer/create-offer'
+      path: '/api/webrtc-transfer/create-offer'
+      fullPath: '/api/webrtc-transfer/create-offer'
+      preLoaderRoute: typeof ApiWebrtcTransferCreateOfferRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/storage/upload-presign': {
@@ -1333,6 +1394,9 @@ const rootRouteChildren: RootRouteChildren = {
     ApiStorageUploadMultipartCompleteRoute,
   ApiStorageUploadMultipartInitRoute: ApiStorageUploadMultipartInitRoute,
   ApiStorageUploadPresignRoute: ApiStorageUploadPresignRoute,
+  ApiWebrtcTransferCreateOfferRoute: ApiWebrtcTransferCreateOfferRoute,
+  ApiWebrtcTransferPollRoute: ApiWebrtcTransferPollRoute,
+  ApiWebrtcTransferScanRoute: ApiWebrtcTransferScanRoute,
   ApiWebrtcGetSignalRoute: ApiWebrtcGetSignalRoute,
   ApiWebrtcSetSignalRoute: ApiWebrtcSetSignalRoute,
 }
