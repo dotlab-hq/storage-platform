@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { Send } from 'lucide-react'
+import { Upload, File } from 'lucide-react'
 
 import { useWebRTC } from '@/hooks/use-webrtc'
 
@@ -12,6 +12,7 @@ type SendFileDropZoneProps = {
 export function SendFileDropZone({ disabled }: SendFileDropZoneProps) {
   const { sendFile, outgoingFiles, isConnected } = useWebRTC()
   const [isDragging, setIsDragging] = React.useState(false)
+  const fileInputRef = React.useRef<HTMLInputElement>(null)
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault()
@@ -33,6 +34,14 @@ export function SendFileDropZone({ disabled }: SendFileDropZoneProps) {
     files.forEach((file) => sendFile(file))
   }
 
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || [])
+    files.forEach((file) => sendFile(file))
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''
+    }
+  }
+
   if (!isConnected) {
     return (
       <div className="flex items-center justify-center rounded-lg border-2 border-dashed border-muted-foreground/30 p-4">
@@ -44,11 +53,19 @@ export function SendFileDropZone({ disabled }: SendFileDropZoneProps) {
   }
 
   const activeSends = outgoingFiles.filter((f) => f.status === 'sending')
+  const completedSends = outgoingFiles.filter((f) => f.status === 'sent')
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-4">
+      <input
+        ref={fileInputRef}
+        type="file"
+        multiple
+        className="hidden"
+        onChange={handleFileSelect}
+      />
       <div
-        className={`flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed p-4 transition-colors ${
+        className={`flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed p-6 transition-colors ${
           isDragging
             ? 'border-primary bg-primary/5'
             : 'border-border hover:border-muted-foreground'
@@ -56,32 +73,64 @@ export function SendFileDropZone({ disabled }: SendFileDropZoneProps) {
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
+        onClick={() => fileInputRef.current?.click()}
       >
-        <Send className="text-muted-foreground mb-2 h-6 w-6" />
-        <p className="text-muted-foreground text-center text-sm">
-          Drop files here to send to other device
-        </p>
-        <p className="text-muted-foreground text-xs">
-          Files transfer directly via WebRTC
-        </p>
+        <div className="flex flex-col items-center gap-3">
+          <div className="rounded-full bg-primary/10 p-3">
+            <Upload className="text-primary h-6 w-6" />
+          </div>
+          <div className="text-center">
+            <p className="font-medium text-foreground">
+              Click to upload or drag and drop
+            </p>
+            <p className="text-muted-foreground text-sm mt-1">
+              Transfer files directly via WebRTC peer-to-peer
+            </p>
+          </div>
+        </div>
       </div>
 
       {activeSends.length > 0 && (
-        <div className="space-y-1">
+        <div className="space-y-2">
+          <p className="text-sm font-medium">Sending...</p>
           {activeSends.map((file) => (
             <div
               key={file.id}
-              className="flex items-center justify-between rounded-md border p-2 text-sm"
+              className="flex items-center justify-between rounded-md border p-3 text-sm"
             >
-              <div className="min-w-0 flex-1">
+              <div className="flex items-center gap-3 min-w-0 flex-1">
+                <File className="h-4 w-4 flex-shrink-0 text-muted-foreground" />
                 <p className="truncate">{file.name}</p>
-                <div className="h-1.5 w-full overflow-hidden rounded-full bg-secondary">
-                  <div
-                    className="h-full bg-primary transition-all"
-                    style={{ width: `${file.progress}%` }}
-                  />
-                </div>
+                <span className="text-xs text-muted-foreground flex-shrink-0">
+                  {Math.round(file.progress)}%
+                </span>
               </div>
+              <div className="h-1.5 w-24 overflow-hidden rounded-full bg-secondary ml-2">
+                <div
+                  className="h-full bg-primary transition-all"
+                  style={{ width: `${file.progress}%` }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {completedSends.length > 0 && (
+        <div className="space-y-2">
+          <p className="text-sm font-medium text-green-600 dark:text-green-400">
+            Sent ({completedSends.length})
+          </p>
+          {completedSends.map((file) => (
+            <div
+              key={file.id}
+              className="flex items-center gap-3 rounded-md border border-green-200 bg-green-50/50 p-3 text-sm dark:border-green-900 dark:bg-green-950/20"
+            >
+              <File className="h-4 w-4 flex-shrink-0 text-green-600 dark:text-green-400" />
+              <p className="truncate">{file.name}</p>
+              <span className="text-xs text-green-600 dark:text-green-400 ml-auto flex-shrink-0">
+                100%
+              </span>
             </div>
           ))}
         </div>

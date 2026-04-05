@@ -24,6 +24,7 @@ export const Route = createFileRoute('/api/webrtc-transfer/poll')({
               ownerUserId: webrtcTransfer.ownerUserId,
               requesterSessionId: webrtcTransfer.requesterSessionId,
               expiresAt: webrtcTransfer.expiresAt,
+              connectedAt: webrtcTransfer.connectedAt,
             })
             .from(webrtcTransfer)
             .where(eq(webrtcTransfer.pollKey, pollKey))
@@ -79,7 +80,7 @@ export const Route = createFileRoute('/api/webrtc-transfer/poll')({
           if (transfer.status === 'connected') {
             return Response.json({
               status: 'connected',
-              connectedAt: transfer.connectedAt?.toISOString(),
+              connectedAt: transfer.connectedAt?.toISOString() ?? null,
             })
           }
 

@@ -28,6 +28,7 @@ import { Route as AuthLoginRouteImport } from './routes/auth/login'
 import { Route as AuthForgotPasswordRouteImport } from './routes/auth/forgot-password'
 import { Route as ApiWebrtcSetSignalRouteImport } from './routes/api/webrtc/set-signal'
 import { Route as ApiWebrtcGetSignalRouteImport } from './routes/api/webrtc/get-signal'
+import { Route as ApiWebrtcTransferStatusRouteImport } from './routes/api/webrtc-transfer/status'
 import { Route as ApiWebrtcTransferScanRouteImport } from './routes/api/webrtc-transfer/scan'
 import { Route as ApiWebrtcTransferPollRouteImport } from './routes/api/webrtc-transfer/poll'
 import { Route as ApiWebrtcTransferCreateOfferRouteImport } from './routes/api/webrtc-transfer/create-offer'
@@ -167,6 +168,11 @@ const ApiWebrtcSetSignalRoute = ApiWebrtcSetSignalRouteImport.update({
 const ApiWebrtcGetSignalRoute = ApiWebrtcGetSignalRouteImport.update({
   id: '/api/webrtc/get-signal',
   path: '/api/webrtc/get-signal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiWebrtcTransferStatusRoute = ApiWebrtcTransferStatusRouteImport.update({
+  id: '/api/webrtc-transfer/status',
+  path: '/api/webrtc-transfer/status',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiWebrtcTransferScanRoute = ApiWebrtcTransferScanRouteImport.update({
@@ -456,6 +462,7 @@ export interface FileRoutesByFullPath {
   '/api/webrtc-transfer/create-offer': typeof ApiWebrtcTransferCreateOfferRoute
   '/api/webrtc-transfer/poll': typeof ApiWebrtcTransferPollRoute
   '/api/webrtc-transfer/scan': typeof ApiWebrtcTransferScanRoute
+  '/api/webrtc-transfer/status': typeof ApiWebrtcTransferStatusRoute
   '/api/webrtc/get-signal': typeof ApiWebrtcGetSignalRoute
   '/api/webrtc/set-signal': typeof ApiWebrtcSetSignalRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
@@ -521,6 +528,7 @@ export interface FileRoutesByTo {
   '/api/webrtc-transfer/create-offer': typeof ApiWebrtcTransferCreateOfferRoute
   '/api/webrtc-transfer/poll': typeof ApiWebrtcTransferPollRoute
   '/api/webrtc-transfer/scan': typeof ApiWebrtcTransferScanRoute
+  '/api/webrtc-transfer/status': typeof ApiWebrtcTransferStatusRoute
   '/api/webrtc/get-signal': typeof ApiWebrtcGetSignalRoute
   '/api/webrtc/set-signal': typeof ApiWebrtcSetSignalRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
@@ -588,6 +596,7 @@ export interface FileRoutesById {
   '/api/webrtc-transfer/create-offer': typeof ApiWebrtcTransferCreateOfferRoute
   '/api/webrtc-transfer/poll': typeof ApiWebrtcTransferPollRoute
   '/api/webrtc-transfer/scan': typeof ApiWebrtcTransferScanRoute
+  '/api/webrtc-transfer/status': typeof ApiWebrtcTransferStatusRoute
   '/api/webrtc/get-signal': typeof ApiWebrtcGetSignalRoute
   '/api/webrtc/set-signal': typeof ApiWebrtcSetSignalRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
@@ -656,6 +665,7 @@ export interface FileRouteTypes {
     | '/api/webrtc-transfer/create-offer'
     | '/api/webrtc-transfer/poll'
     | '/api/webrtc-transfer/scan'
+    | '/api/webrtc-transfer/status'
     | '/api/webrtc/get-signal'
     | '/api/webrtc/set-signal'
     | '/api/storage/s3/$'
@@ -721,6 +731,7 @@ export interface FileRouteTypes {
     | '/api/webrtc-transfer/create-offer'
     | '/api/webrtc-transfer/poll'
     | '/api/webrtc-transfer/scan'
+    | '/api/webrtc-transfer/status'
     | '/api/webrtc/get-signal'
     | '/api/webrtc/set-signal'
     | '/api/storage/s3/$'
@@ -787,6 +798,7 @@ export interface FileRouteTypes {
     | '/api/webrtc-transfer/create-offer'
     | '/api/webrtc-transfer/poll'
     | '/api/webrtc-transfer/scan'
+    | '/api/webrtc-transfer/status'
     | '/api/webrtc/get-signal'
     | '/api/webrtc/set-signal'
     | '/api/storage/s3/$'
@@ -854,6 +866,7 @@ export interface RootRouteChildren {
   ApiWebrtcTransferCreateOfferRoute: typeof ApiWebrtcTransferCreateOfferRoute
   ApiWebrtcTransferPollRoute: typeof ApiWebrtcTransferPollRoute
   ApiWebrtcTransferScanRoute: typeof ApiWebrtcTransferScanRoute
+  ApiWebrtcTransferStatusRoute: typeof ApiWebrtcTransferStatusRoute
   ApiWebrtcGetSignalRoute: typeof ApiWebrtcGetSignalRoute
   ApiWebrtcSetSignalRoute: typeof ApiWebrtcSetSignalRoute
 }
@@ -991,6 +1004,13 @@ declare module '@tanstack/react-router' {
       path: '/api/webrtc/get-signal'
       fullPath: '/api/webrtc/get-signal'
       preLoaderRoute: typeof ApiWebrtcGetSignalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/webrtc-transfer/status': {
+      id: '/api/webrtc-transfer/status'
+      path: '/api/webrtc-transfer/status'
+      fullPath: '/api/webrtc-transfer/status'
+      preLoaderRoute: typeof ApiWebrtcTransferStatusRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/webrtc-transfer/scan': {
@@ -1397,6 +1417,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiWebrtcTransferCreateOfferRoute: ApiWebrtcTransferCreateOfferRoute,
   ApiWebrtcTransferPollRoute: ApiWebrtcTransferPollRoute,
   ApiWebrtcTransferScanRoute: ApiWebrtcTransferScanRoute,
+  ApiWebrtcTransferStatusRoute: ApiWebrtcTransferStatusRoute,
   ApiWebrtcGetSignalRoute: ApiWebrtcGetSignalRoute,
   ApiWebrtcSetSignalRoute: ApiWebrtcSetSignalRoute,
 }

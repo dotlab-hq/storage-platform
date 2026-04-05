@@ -122,9 +122,7 @@ export function useWebrtcTransfer(isConnected: boolean) {
         setExpired(true)
         setErrorMessage('QR has expired. Generating new QR code.')
         setTimeout(() => {
-          if (!cancelled) {
-            void generateQr()
-          }
+          if (!cancelled) void generateQr()
         }, 2000)
         return
       }
@@ -139,9 +137,7 @@ export function useWebrtcTransfer(isConnected: boolean) {
           error?: string
         }
 
-        if (!response.ok) {
-          throw new Error('Poll failed')
-        }
+        if (!response.ok) throw new Error('Poll failed')
 
         const status = pollData.status
 
@@ -152,21 +148,15 @@ export function useWebrtcTransfer(isConnected: boolean) {
           setExpired(true)
           setErrorMessage('WebRTC offer has expired.')
           setTimeout(() => {
-            if (!cancelled) {
-              void generateQr()
-            }
+            if (!cancelled) void generateQr()
           }, 2000)
           return
         } else {
           const pollInterval = pollData.pollIntervalMs || 1000
-          if (!cancelled) {
-            setTimeout(poll, pollInterval)
-          }
+          if (!cancelled) setTimeout(poll, pollInterval)
         }
       } catch {
-        if (!cancelled) {
-          setTimeout(poll, 1000)
-        }
+        if (!cancelled) setTimeout(poll, 1000)
       }
     }
 
@@ -191,11 +181,10 @@ export function useWebrtcTransfer(isConnected: boolean) {
 }
 
 export function useWebrtcScanner() {
-  const [scanning, setScanning] = React.useState(false)
-  const [scannedPayload, setScannedPayload] = React.useState<string | null>(
-    null,
-  )
   const [error, setError] = React.useState<string>('')
+  const [connectionStatus, setConnectionStatus] = React.useState<
+    'idle' | 'success' | 'error'
+  >('idle')
 
   const submitMutation = useMutation({
     mutationFn: async (payload: string) => {
@@ -214,12 +203,13 @@ export function useWebrtcScanner() {
       }
       return data
     },
-    onSuccess: (data) => {
-      toast.success('WebRTC offer claimed. Waiting for connection...')
-      setScannedPayload(data.status ?? '')
+    onSuccess: () => {
+      toast.success('Scanned successfully! Connection established.')
+      setConnectionStatus('success')
     },
-    onError: (error: Error) => {
-      setError(error.message)
+    onError: (err: Error) => {
+      setError(err.message)
+      setConnectionStatus('error')
     },
   })
 
@@ -228,18 +218,21 @@ export function useWebrtcScanner() {
       setError('Invalid WebRTC transfer QR code')
       return
     }
-    setScannedPayload(payload)
     submitMutation.mutate(payload)
   }
 
+  const reset = () => {
+    setError('')
+    setConnectionStatus('idle')
+  }
+
   return {
-    scanning,
-    setScanning,
-    scannedPayload,
     error,
     setError,
     handleScanned,
     submitMutation,
     isSubmitting: submitMutation.isPending,
+    connectionStatus,
+    reset,
   }
 }
