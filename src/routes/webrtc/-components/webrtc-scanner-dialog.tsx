@@ -10,7 +10,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { useWebrtcScanner } from './use-webrtc-transfer'
-import { WEBRTC_TRANSFER_PREFIX } from '@/lib/tiny-session'
+import { WEBRTC_TRANSFER_PREFIX } from '@/lib/webrtc-transfer-utils'
 
 type Html5QrScanner = {
   start: (

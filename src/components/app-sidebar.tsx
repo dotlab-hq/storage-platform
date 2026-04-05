@@ -41,7 +41,12 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
-import { WebRTCScannerDialog } from '@/routes/webrtc/-components/webrtc-scanner-dialog'
+
+const WebRTCScannerDialog = React.lazy(() =>
+  import('@/routes/webrtc/-components/webrtc-scanner-dialog').then((m) => ({
+    default: m.WebRTCScannerDialog,
+  })),
+)
 
 const navItems = [
   { title: 'My Files', url: '/', icon: Home, isActive: true },
@@ -131,13 +136,15 @@ export function AppSidebar({ quota = null, ...props }: AppSidebarProps) {
 
       <SidebarContent>
         <NavMain items={items} />
-        <div className="px-3 py-2">
-          <WebRTCScannerDialog
-            triggerLabel="Scan for Transfer"
-            triggerVariant="secondary"
-            className="w-full justify-start"
-          />
-        </div>
+        <React.Suspense fallback={null}>
+          <div className="px-3 py-2">
+            <WebRTCScannerDialog
+              triggerLabel="Scan for Transfer"
+              triggerVariant="secondary"
+              className="w-full justify-start"
+            />
+          </div>
+        </React.Suspense>
       </SidebarContent>
 
       <SidebarFooter>

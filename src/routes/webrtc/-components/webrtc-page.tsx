@@ -1,6 +1,7 @@
 'use client'
 
 import { Wifi, WifiOff, RefreshCcw } from 'lucide-react'
+import * as React from 'react'
 import { Button } from '@/components/ui/button'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { Separator } from '@/components/ui/separator'
@@ -8,7 +9,12 @@ import { SendFileDropZone } from '@/components/storage/send-file-drop-zone'
 import { IncomingFilesRegion } from '@/components/storage/incoming-files-region'
 import { useWebRTC } from '@/hooks/use-webrtc'
 import { useWebrtcTransfer } from './use-webrtc-transfer'
-import { WebRTCScannerDialog } from './webrtc-scanner-dialog'
+
+const WebRTCScannerDialog = React.lazy(() =>
+  import('./webrtc-scanner-dialog').then((m) => ({
+    default: m.WebRTCScannerDialog,
+  })),
+)
 
 export function WebRTCPage() {
   const { isConnected, incomingFiles } = useWebRTC()
@@ -135,10 +141,12 @@ export function WebRTCPage() {
                     <p className="text-sm text-muted-foreground">
                       Scan the QR code from another device to connect
                     </p>
-                    <WebRTCScannerDialog
-                      triggerLabel="Scan Now"
-                      triggerVariant="default"
-                    />
+                    <React.Suspense fallback={null}>
+                      <WebRTCScannerDialog
+                        triggerLabel="Scan Now"
+                        triggerVariant="default"
+                      />
+                    </React.Suspense>
                   </div>
                 </div>
               )}

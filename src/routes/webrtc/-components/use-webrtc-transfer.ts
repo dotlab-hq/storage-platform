@@ -2,7 +2,7 @@ import { useQuery, useMutation } from '@tanstack/react-query'
 import * as React from 'react'
 import QRCode from 'qrcode'
 import { toast } from '@/components/ui/sonner'
-import { WEBRTC_TRANSFER_PREFIX } from '@/lib/tiny-session'
+import { WEBRTC_TRANSFER_PREFIX } from '@/lib/webrtc-transfer-utils'
 
 export type WebrtcOfferResponse = {
   code: string
