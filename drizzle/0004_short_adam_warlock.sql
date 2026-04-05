@@ -41,8 +41,8 @@ FROM `qr_login_offer`;--> statement-breakpoint
 DROP TABLE `qr_login_offer`;--> statement-breakpoint
 ALTER TABLE `__new_qr_login_offer` RENAME TO `qr_login_offer`;--> statement-breakpoint
 PRAGMA foreign_keys=ON;--> statement-breakpoint
-CREATE UNIQUE INDEX `qr_login_offer_code_unique` ON `qr_login_offer` (`code`);--> statement-breakpoint
-CREATE UNIQUE INDEX `qr_login_offer_poll_key_unique` ON `qr_login_offer` (`poll_key`);--> statement-breakpoint
-CREATE INDEX `qrLoginOffer_ownerUserId_idx` ON `qr_login_offer` (`owner_user_id`);--> statement-breakpoint
-CREATE INDEX `qrLoginOffer_status_idx` ON `qr_login_offer` (`status`);--> statement-breakpoint
-CREATE INDEX `qrLoginOffer_expiresAt_idx` ON `qr_login_offer` (`expires_at`);
+CREATE UNIQUE INDEX IF NOT EXISTS `qr_login_offer_code_unique` ON `qr_login_offer` (`code`);--> statement-breakpoint
+CREATE UNIQUE INDEX IF NOT EXISTS `qr_login_offer_poll_key_unique` ON `qr_login_offer` (`poll_key`);--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS `qrLoginOffer_ownerUserId_idx` ON `qr_login_offer` (`owner_user_id`);--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS `qrLoginOffer_status_idx` ON `qr_login_offer` (`status`);--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS `qrLoginOffer_expiresAt_idx` ON `qr_login_offer` (`expires_at`);

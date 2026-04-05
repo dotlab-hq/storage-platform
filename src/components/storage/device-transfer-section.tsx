@@ -91,7 +91,9 @@ export function DeviceTransferSection({
         {webrtcEnabled && !hasActiveSession && (
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Smartphone className="h-4 w-4" />
-            <span>Scan QR code at /hot to enable device transfers</span>
+            <span>
+              Visit /hot on another device to connect for file transfers
+            </span>
           </div>
         )}
       </CollapsibleContent>

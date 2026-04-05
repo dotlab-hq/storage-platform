@@ -244,7 +244,7 @@ export function TextFileEditorDialog({
       try {
         const params = new URLSearchParams({ fileId: item.id })
         const response = await fetch(`/api/storage/text-file?${params}`)
-        const data = (await response.json()) as EditorFileResponse
+        const data:EditorFileResponse = (await response.json())
         if (!response.ok) {
           throw new Error(data.error ?? `HTTP ${response.status}`)
         }
@@ -288,7 +288,7 @@ export function TextFileEditorDialog({
             item?.type === 'file' ? item.folderId : currentFolderId,
         }),
       })
-      const data = (await response.json()) as SaveFileResponse
+      const data:SaveFileResponse = (await response.json())
       if (!response.ok || !data.file) {
         throw new Error(data.error ?? `HTTP ${response.status}`)
       }
