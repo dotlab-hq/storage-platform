@@ -20,15 +20,22 @@ export function ProvidersPanel( {
     onToggleAvailability,
     onDelete,
     onEdit,
+    onOpenS3Viewer,
 }: {
     providers: AdminProvider[]
     onToggleAvailability: ( providerId: string, isActive: boolean ) => Promise<void>
     onDelete: ( providerId: string ) => Promise<void>
     onEdit: ( provider: AdminProvider ) => void
+    onOpenS3Viewer: () => void
 } ) {
     return (
         <div className="rounded-lg border bg-card p-4">
-            <h2 className="mb-3 text-base font-semibold">Storage Providers</h2>
+            <div className="mb-3 flex items-center justify-between gap-2">
+                <h2 className="text-base font-semibold">Storage Providers</h2>
+                <Button type="button" variant="outline" size="sm" onClick={onOpenS3Viewer}>
+                    S3 Viewer
+                </Button>
+            </div>
             <div className="space-y-3">
                 {providers.map( ( provider ) => (
                     <div key={provider.id} className="rounded border p-3">

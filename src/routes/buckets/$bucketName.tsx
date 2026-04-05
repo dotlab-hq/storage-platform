@@ -1,7 +1,8 @@
-import { useMemo } from "react"
+import { useMemo, useState } from "react"
 import { createFileRoute } from "@tanstack/react-router"
 import { ArrowLeft, File } from "lucide-react"
 import { AppSidebar } from "@/components/app-sidebar"
+import { S3ViewerModal } from "@/components/storage/s3-viewer-modal"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
@@ -45,6 +46,7 @@ function BucketFilesPage() {
     const quota = useQuota()
     const { bucketName } = Route.useParams()
     const { files, error } = Route.useLoaderData()
+    const [isViewerOpen, setIsViewerOpen] = useState( false )
 
     const decodedName = useMemo( () => decodeURIComponent( bucketName ), [bucketName] )
 
@@ -64,10 +66,15 @@ function BucketFilesPage() {
                                 <p className="text-muted-foreground text-xs">Virtual Bucket</p>
                                 <h2 className="text-lg font-semibold">{decodedName}</h2>
                             </div>
-                            <Button variant="outline" onClick={() => { window.location.href = "/buckets" }}>
-                                <ArrowLeft className="h-4 w-4" />
-                                Back to Buckets
-                            </Button>
+                            <div className="flex gap-2">
+                                <Button variant="outline" onClick={() => setIsViewerOpen( true )}>
+                                    S3 Viewer
+                                </Button>
+                                <Button variant="outline" onClick={() => { window.location.href = "/buckets" }}>
+                                    <ArrowLeft className="h-4 w-4" />
+                                    Back to Buckets
+                                </Button>
+                            </div>
                         </div>
 
                         {error && (
@@ -95,6 +102,11 @@ function BucketFilesPage() {
                             </div>
                         )}
                     </div>
+                    <S3ViewerModal
+                        open={isViewerOpen}
+                        onOpenChange={setIsViewerOpen}
+                        defaultBucketName={decodedName}
+                    />
                 </SidebarInset>
             </SidebarProvider>
         </div>

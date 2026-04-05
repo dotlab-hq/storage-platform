@@ -22,6 +22,7 @@ import {
 import { formatBytes } from '@/lib/format-bytes'
 import type { AdminProvider } from '@/lib/storage-provider-queries'
 import { ProviderEditorCard } from '@/components/admin/provider-editor-card'
+import { S3ViewerModal } from '@/components/storage/s3-viewer-modal'
 import { useQuota } from '@/hooks/use-quota'
 import { adminRouteMiddleware } from '@/lib/route-auth-middleware'
 
@@ -75,6 +76,7 @@ function AdminDashboardPage() {
   const [fileSizeLimitInput, setFileSizeLimitInput] = useState(
     String( emptyProviderForm.fileSizeLimitBytes ),
   )
+  const [isS3ViewerOpen, setIsS3ViewerOpen] = useState( false )
   type ProviderTextField =
     | 'name'
     | 'endpoint'
@@ -264,6 +266,9 @@ function AdminDashboardPage() {
               onToggleAvailability={toggleProviderAvailability}
               onDelete={deleteProvider}
               onEdit={startEditingProvider}
+              onOpenS3Viewer={() => {
+                setIsS3ViewerOpen( true )
+              }}
             />
             <UsersPanel users={data.users} />
           </div>
@@ -283,6 +288,10 @@ function AdminDashboardPage() {
               onCancel={resetProviderForm}
             />
           </div>
+          <S3ViewerModal
+            open={isS3ViewerOpen}
+            onOpenChange={setIsS3ViewerOpen}
+          />
         </SidebarInset>
       </SidebarProvider>
     </div>

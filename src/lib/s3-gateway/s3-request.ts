@@ -29,11 +29,24 @@ export function parseS3Path( requestUrl: string ): ParsedS3Path {
     }
 
     const rest = pathname.slice( `${S3_BASE_PATH}/`.length )
-    const parts = rest.split( "/" ).filter( ( item ) => item.length > 0 )
-    const bucketName = parts[0] ?? null
-    const objectKey = parts.length > 1
-        ? decodeURIComponent( parts.slice( 1 ).join( "/" ) )
-        : null
+    if ( rest.length === 0 ) {
+        return {
+            bucketName: null,
+            objectKey: null,
+        }
+    }
+
+    const firstSlash = rest.indexOf( "/" )
+    if ( firstSlash === -1 ) {
+        return {
+            bucketName: decodeURIComponent( rest ),
+            objectKey: null,
+        }
+    }
+
+    const bucketName = decodeURIComponent( rest.slice( 0, firstSlash ) )
+    const rawObjectKey = rest.slice( firstSlash + 1 )
+    const objectKey = rawObjectKey.length > 0 ? decodeURIComponent( rawObjectKey ) : null
 
     return {
         bucketName,
