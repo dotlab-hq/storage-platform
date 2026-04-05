@@ -31,15 +31,12 @@ export function BucketManagerCard( props: BucketManagerCardProps ) {
     const isPending = typeof pendingAction === "string"
 
     return (
-        <article className="rounded-lg border p-4">
+        <article className="rounded-lg p-4 bg-gradient-to-br from-background to-muted/30 shadow-sm hover:shadow-md transition-shadow">
             <div className="space-y-1">
                 <p className="truncate text-sm font-semibold">{bucket.name}</p>
                 <p className="text-muted-foreground text-xs">Created: {formatCreatedAt( bucket.createdAt )}</p>
             </div>
             <div className="mt-4 flex flex-wrap gap-2">
-                <Button variant="secondary" size="sm" onClick={() => { window.location.href = `/buckets/${encodeURIComponent( bucket.name )}` }}>
-                    View Files
-                </Button>
                 <Button variant="outline" size="sm" disabled={isPending} onClick={() => onView( bucket.name )}>
                     <Eye className="h-4 w-4" />
                 </Button>

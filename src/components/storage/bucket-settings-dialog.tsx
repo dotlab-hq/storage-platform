@@ -1,9 +1,13 @@
+"use client"
+
 import { useMemo, useState } from "react"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { Loader2, Save } from "lucide-react"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Alert, AlertDescription } from "@/components/ui/alert"
+import { validateCorsConfig } from "@/lib/cors"
 
 const tabs = ["overview", "permissions", "cors", "versioning"] as const
 
@@ -32,6 +36,7 @@ export function BucketSettingsDialog( props: BucketSettingsDialogProps ) {
     const [activeTab, setActiveTab] = useState<( typeof tabs )[number]>( "overview" )
     const [draftPolicy, setDraftPolicy] = useState<string>( "" )
     const [draftCors, setDraftCors] = useState<string>( "[]" )
+    const [corsValidationError, setCorsValidationError] = useState<string>( "" )
     const queryClient = useQueryClient()
 
     const query = useQuery( {
@@ -134,8 +139,57 @@ export function BucketSettingsDialog( props: BucketSettingsDialogProps ) {
 
                 {payload && activeTab === "cors" && (
                     <div className="space-y-3">
-                        <textarea aria-label="Bucket CORS rules JSON" className="h-40 w-full rounded border p-2 text-xs" value={draftCors || corsPretty} onChange={( e ) => setDraftCors( e.target.value )} />
-                        <Button size="sm" onClick={() => mutation.mutate( { action: "cors", bucketName, rules: JSON.parse( draftCors || corsPretty ) } )}>Save CORS</Button>
+                        <textarea aria-label="Bucket CORS rules JSON" className="h-40 w-full rounded border p-2 text-xs" value={draftCors || corsPretty} onChange={( e ) => {
+                            setDraftCors( e.target.value )
+                            setCorsValidationError( "" )
+                        }} />
+                        {corsValidationError && (
+                            <Alert variant="destructive">
+                                <AlertDescription>{corsValidationError}</AlertDescription>
+                            </Alert>
+                        )}
+                        <Button size="sm" onClick={() => {
+                            try {
+                                const parsedRules = JSON.parse( draftCors || corsPretty )
+
+                                // Normalize field names to PascalCase
+                                interface RawCorsRule {
+                                    AllowedOrigins?: string[]
+                                    allowedOrigins?: string[]
+                                    AllowedMethods?: string[]
+                                    allowedMethods?: string[]
+                                    AllowedHeaders?: string[]
+                                    allowedHeaders?: string[]
+                                    ExposeHeaders?: string[]
+                                    exposeHeaders?: string[]
+                                    MaxAgeSeconds?: number
+                                    maxAgeSeconds?: number
+                                }
+
+                                const normalizedRules = Array.isArray( parsedRules ) ? parsedRules.map( ( rule: RawCorsRule ) => ( {
+                                    AllowedOrigins: rule.AllowedOrigins || rule.allowedOrigins,
+                                    AllowedMethods: rule.AllowedMethods || rule.allowedMethods,
+                                    AllowedHeaders: rule.AllowedHeaders || rule.allowedHeaders,
+                                    ExposeHeaders: rule.ExposeHeaders || rule.exposeHeaders,
+                                    MaxAgeSeconds: rule.MaxAgeSeconds ?? rule.maxAgeSeconds,
+                                } ) ) : []
+
+                                const corsConfig = { CORSRules: normalizedRules }
+                                const validation = validateCorsConfig( corsConfig )
+
+                                if ( !validation.valid ) {
+                                    const errorMessages = Object.entries( validation.errors || {} )
+                                        .map( ( [key, msgs] ) => `${key}: ${msgs.join( ", " )}` )
+                                        .join( "\n" )
+                                    setCorsValidationError( errorMessages )
+                                    return
+                                }
+
+                                mutation.mutate( { action: "cors", bucketName, rules: normalizedRules } )
+                            } catch ( error ) {
+                                setCorsValidationError( `Invalid JSON: ${error instanceof Error ? error.message : "Unknown error"}` )
+                            }
+                        }}>Save CORS</Button>
                     </div>
                 )}
 

@@ -77,7 +77,7 @@ export function BucketManager() {
         : undefined
 
     return (
-        <section className="space-y-4 rounded-xl border bg-card/70 p-4 shadow-sm backdrop-blur-sm sm:p-5">
+        <section className="space-y-4 rounded-xl border bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-background dark:from-blue-950/20 dark:via-purple-950/10 dark:to-background p-4 shadow-sm backdrop-blur-sm sm:p-5">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                     <h2 className="text-base font-semibold">S3 Buckets</h2>

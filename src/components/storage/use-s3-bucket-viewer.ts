@@ -1,152 +1,276 @@
-import { useMemo, useRef, useState } from "react"
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useCallback, useMemo, useRef, useState } from 'react'
 import {
-    createS3ViewerFolderFn,
-    createS3ViewerPresignUrlFn,
-    deleteS3ViewerObjectFn,
-    getS3ViewerCredentialsFn,
-    listS3ViewerObjectsFn,
-    uploadS3ViewerObjectFn,
-} from "@/lib/storage/mutations/s3-viewer"
-import type { S3ViewerFileEntry, S3ViewerFolderEntry } from "@/components/storage/s3-bucket-viewer-cards"
+  createS3ViewerFolderFn,
+  createS3ViewerPresignUrlFn,
+  createS3ViewerUploadPresignUrlFn,
+  deleteS3ViewerObjectFn,
+  listS3ViewerObjectsFn,
+} from '@/lib/storage/mutations/s3-viewer'
+import type {
+  S3ViewerFileEntry,
+  S3ViewerFolderEntry,
+} from '@/components/storage/s3-bucket-viewer-cards'
 
-function toBase64( bytes: ArrayBuffer ): string {
-    let binary = ""
-    for ( const byte of new Uint8Array( bytes ) ) {
-        binary += String.fromCharCode( byte )
-    }
-    return btoa( binary )
+export type UploadingFile = {
+  id: string
+  name: string
+  sizeInBytes: number
+  progress: number
+  status: 'uploading' | 'completed' | 'error'
+  errorMessage?: string
 }
 
-export function useS3BucketViewer( bucketName: string ) {
-    const [prefix, setPrefix] = useState( "" )
-    const [folders, setFolders] = useState<S3ViewerFolderEntry[]>( [] )
-    const [files, setFiles] = useState<S3ViewerFileEntry[]>( [] )
-    const [busy, setBusy] = useState( false )
-    const [message, setMessage] = useState<string | null>( null )
-    const inputRef = useRef<HTMLInputElement | null>( null )
+export function useS3BucketViewer(bucketName: string) {
+  const queryClient = useQueryClient()
+  const [prefix, setPrefix] = useState('')
+  const [uploadingFiles, setUploadingFiles] = useState<UploadingFile[]>([])
+  const inputRef = useRef<HTMLInputElement | null>(null)
 
-    const breadcrumbs = useMemo( () => {
-        const parts = prefix.split( "/" ).filter( ( part ) => part.length > 0 )
-        return parts.map( ( part, index ) => ( {
-            label: part,
-            value: `${parts.slice( 0, index + 1 ).join( "/" )}/`,
-        } ) )
-    }, [prefix] )
+  const queryKey = useMemo(
+    () => ['s3-viewer', bucketName, prefix],
+    [bucketName, prefix],
+  )
 
-    const refresh = async ( nextPrefix?: string ) => {
-        const targetPrefix = typeof nextPrefix === "string" ? nextPrefix : prefix
-        setBusy( true )
-        setMessage( null )
-        try {
-            const result = await listS3ViewerObjectsFn( {
-                data: { bucketName, prefix: targetPrefix, maxKeys: 500 },
-            } )
-            setPrefix( result.prefix )
-            setFolders( result.folders )
-            setFiles( result.objects )
-        } catch ( error ) {
-            setMessage( error instanceof Error ? error.message : "Failed to load bucket content" )
-        } finally {
-            setBusy( false )
-        }
-    }
+  // Main query for listing objects - auto-loads on mount and when prefix changes
+  const listQuery = useQuery({
+    queryKey,
+    queryFn: async () => {
+      const result = await listS3ViewerObjectsFn({
+        data: { bucketName, prefix, maxKeys: 500 },
+      })
+      return result
+    },
+    staleTime: 30_000, // 30 seconds
+  })
 
-    const handleUpload = async ( event: React.ChangeEvent<HTMLInputElement> ) => {
-        const file = event.target.files?.[0]
-        if ( !file ) return
-        setBusy( true )
-        setMessage( null )
-        try {
-            const bytes = await file.arrayBuffer()
-            await uploadS3ViewerObjectFn( {
-                data: {
-                    bucketName,
-                    objectKey: `${prefix}${file.name}`,
-                    contentBase64: toBase64( bytes ),
-                    contentType: file.type,
-                },
-            } )
-            await refresh()
-            setMessage( `Uploaded ${file.name}` )
-        } catch ( error ) {
-            setMessage( error instanceof Error ? error.message : "Upload failed" )
-        } finally {
-            setBusy( false )
-            event.target.value = ""
-        }
-    }
+  const folders = useMemo<S3ViewerFolderEntry[]>(
+    () => listQuery.data?.folders ?? [],
+    [listQuery.data?.folders],
+  )
 
-    const createFolder = async () => {
-        const folderName = window.prompt( "Folder name" )?.trim()
-        if ( !folderName ) return
-        setBusy( true )
-        setMessage( null )
-        try {
-            await createS3ViewerFolderFn( { data: { bucketName, objectKey: `${prefix}${folderName}/` } } )
-            await refresh()
-        } catch ( error ) {
-            setMessage( error instanceof Error ? error.message : "Failed to create folder" )
-        } finally {
-            setBusy( false )
-        }
-    }
+  const files = useMemo<S3ViewerFileEntry[]>(
+    () => listQuery.data?.objects ?? [],
+    [listQuery.data?.objects],
+  )
 
-    const deleteFile = async ( key: string ) => {
-        if ( !window.confirm( `Delete ${key}?` ) ) return
-        setBusy( true )
-        setMessage( null )
-        try {
-            await deleteS3ViewerObjectFn( { data: { bucketName, objectKey: key } } )
-            await refresh()
-        } catch ( error ) {
-            setMessage( error instanceof Error ? error.message : "Delete failed" )
-        } finally {
-            setBusy( false )
-        }
-    }
+  const breadcrumbs = useMemo(() => {
+    const parts = prefix.split('/').filter((part) => part.length > 0)
+    return parts.map((part, index) => ({
+      label: part,
+      value: `${parts.slice(0, index + 1).join('/')}/`,
+    }))
+  }, [prefix])
 
-    const openFile = async ( key: string ) => {
-        setBusy( true )
-        setMessage( null )
-        try {
-            const result = await createS3ViewerPresignUrlFn( {
-                data: { bucketName, objectKey: key, expiresInSeconds: 900 },
-            } )
-            window.open( result.url, "_blank", "noopener,noreferrer" )
-        } catch ( error ) {
-            setMessage( error instanceof Error ? error.message : "Failed to open file" )
-        } finally {
-            setBusy( false )
-        }
-    }
+  const refresh = useCallback(
+    async (nextPrefix?: string) => {
+      const targetPrefix = typeof nextPrefix === 'string' ? nextPrefix : prefix
+      if (targetPrefix !== prefix) {
+        setPrefix(targetPrefix)
+      } else {
+        await listQuery.refetch()
+      }
+    },
+    [prefix, listQuery],
+  )
 
-    const showCredentials = async () => {
-        setBusy( true )
-        setMessage( null )
-        try {
-            const credentials = await getS3ViewerCredentialsFn( { data: { bucketName } } )
-            setMessage( `${credentials.endpoint}/api/storage/s3\n${credentials.accessKeyId}\n${credentials.secretAccessKey}` )
-        } catch ( error ) {
-            setMessage( error instanceof Error ? error.message : "Failed to load credentials" )
-        } finally {
-            setBusy( false )
-        }
-    }
+  // Upload mutation with presigned URL
+  const uploadMutation = useMutation({
+    mutationFn: async ({
+      file,
+      uploadingId,
+    }: {
+      file: File
+      uploadingId: string
+    }) => {
+      const objectKey = `${prefix}${file.name}`
 
-    return {
-        inputRef,
-        prefix,
-        folders,
-        files,
-        busy,
-        message,
-        breadcrumbs,
-        setPrefix,
-        refresh,
-        handleUpload,
-        createFolder,
-        deleteFile,
-        openFile,
-        showCredentials,
-    }
+      // Get presigned URL
+      const { url } = await createS3ViewerUploadPresignUrlFn({
+        data: {
+          bucketName,
+          objectKey,
+          contentType: file.type || 'application/octet-stream',
+          expiresInSeconds: 900,
+        },
+      })
+
+      // Upload directly to S3
+      const response = await fetch(url, {
+        method: 'PUT',
+        body: file,
+        headers: {
+          'Content-Type': file.type || 'application/octet-stream',
+        },
+      })
+
+      if (!response.ok) {
+        throw new Error(`Upload failed: ${response.statusText}`)
+      }
+
+      return { uploadingId }
+    },
+    onMutate: ({ file, uploadingId }) => {
+      // Add to uploading files list
+      setUploadingFiles((prev) => [
+        ...prev,
+        {
+          id: uploadingId,
+          name: file.name,
+          sizeInBytes: file.size,
+          progress: 0,
+          status: 'uploading',
+        },
+      ])
+    },
+    onSuccess: ({ uploadingId }) => {
+      // Update uploading file status
+      setUploadingFiles((prev) =>
+        prev.map((f) =>
+          f.id === uploadingId
+            ? { ...f, status: 'completed', progress: 100 }
+            : f,
+        ),
+      )
+
+      // Remove from uploading files after a delay
+      setTimeout(() => {
+        setUploadingFiles((prev) => prev.filter((f) => f.id !== uploadingId))
+      }, 2000)
+
+      // Invalidate the query to refresh the list
+      queryClient.invalidateQueries({ queryKey })
+    },
+    onError: (error, { uploadingId }) => {
+      // Update uploading file status to error
+      setUploadingFiles((prev) =>
+        prev.map((f) =>
+          f.id === uploadingId
+            ? {
+                ...f,
+                status: 'error',
+                errorMessage:
+                  error instanceof Error ? error.message : 'Upload failed',
+              }
+            : f,
+        ),
+      )
+    },
+  })
+
+  const handleUpload = useCallback(
+    async (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files?.[0]
+      if (!file) return
+
+      const uploadingId = `${Date.now()}-${file.name}`
+
+      try {
+        await uploadMutation.mutateAsync({ file, uploadingId })
+      } finally {
+        // Clear input
+        event.target.value = ''
+      }
+    },
+    [uploadMutation],
+  )
+
+  // Create folder mutation
+  const createFolderMutation = useMutation({
+    mutationFn: async (folderName: string) => {
+      const result = await createS3ViewerFolderFn({
+        data: {
+          bucketName,
+          objectKey: `${prefix}${folderName}/`,
+        },
+      })
+      return result
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey })
+    },
+  })
+
+  const createFolder = useCallback(async () => {
+    const folderName = window.prompt('Folder name')?.trim()
+    if (!folderName) return
+    await createFolderMutation.mutateAsync(folderName)
+  }, [createFolderMutation])
+
+  // Delete mutation
+  const deleteMutation = useMutation({
+    mutationFn: async (objectKey: string) => {
+      await deleteS3ViewerObjectFn({
+        data: { bucketName, objectKey },
+      })
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey })
+    },
+  })
+
+  const deleteFile = useCallback(
+    async (key: string) => {
+      if (!window.confirm(`Delete ${key}?`)) return
+      await deleteMutation.mutateAsync(key)
+    },
+    [deleteMutation],
+  )
+
+  // Open file with presigned URL
+  const openFile = useCallback(
+    async (key: string) => {
+      try {
+        const result = await createS3ViewerPresignUrlFn({
+          data: { bucketName, objectKey: key, expiresInSeconds: 900 },
+        })
+        window.open(result.url, '_blank', 'noopener,noreferrer')
+      } catch (error) {
+        console.error('Failed to open file:', error)
+      }
+    },
+    [bucketName],
+  )
+
+  const busy =
+    listQuery.isLoading ||
+    uploadMutation.isPending ||
+    createFolderMutation.isPending ||
+    deleteMutation.isPending
+
+  const message = listQuery.error
+    ? listQuery.error instanceof Error
+      ? listQuery.error.message
+      : 'Failed to load bucket content'
+    : uploadMutation.error
+      ? uploadMutation.error instanceof Error
+        ? uploadMutation.error.message
+        : 'Upload failed'
+      : createFolderMutation.error
+        ? createFolderMutation.error instanceof Error
+          ? createFolderMutation.error.message
+          : 'Failed to create folder'
+        : deleteMutation.error
+          ? deleteMutation.error instanceof Error
+            ? deleteMutation.error.message
+            : 'Delete failed'
+          : null
+
+  return {
+    inputRef,
+    prefix,
+    folders,
+    files,
+    uploadingFiles,
+    busy,
+    message,
+    breadcrumbs,
+    setPrefix,
+    refresh,
+    handleUpload,
+    createFolder,
+    deleteFile,
+    openFile,
+    isLoading: listQuery.isLoading,
+  }
 }

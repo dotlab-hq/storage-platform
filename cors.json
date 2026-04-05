@@ -1,10 +1,20 @@
 {
   "CORSRules": [
     {
-      "AllowedOrigins": ["https://storage.wpsadi.dev"],
-      "AllowedMethods": ["PUT", "GET", "HEAD"],
-      "AllowedHeaders": ["*"],
-      "ExposeHeaders": ["ETag"],
+      "AllowedOrigins": [
+        "*"
+      ],
+      "AllowedMethods": [
+        "PUT",
+        "GET",
+        "HEAD"
+      ],
+      "AllowedHeaders": [
+        "*"
+      ],
+      "ExposeHeaders": [
+        "ETag"
+      ],
       "MaxAgeSeconds": 3000
     }
   ]
