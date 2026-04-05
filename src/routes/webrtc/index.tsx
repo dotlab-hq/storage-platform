@@ -12,7 +12,7 @@ import { ScanQrDialog } from '@/components/qr/scan-qr-dialog'
 import { SendFileDropZone } from '@/components/storage/send-file-drop-zone'
 import { IncomingFilesRegion } from '@/components/storage/incoming-files-region'
 import { useTinySession } from '@/hooks/use-tiny-session'
-import { useWebRTC } from '@/hooks/use-webrtc'
+import { WebRTCProvider, useWebRTC } from '@/hooks/use-webrtc'
 import type { IncomingFile } from '@/hooks/use-webrtc';
 
 const WEBRTC_ENABLED_KEY = 'dot_webrtc_enabled'
@@ -26,8 +26,22 @@ type OfferResponse = {
 }
 
 export const Route = createFileRoute( '/webrtc/' )( {
-    component: WebRTCPage,
+    component: WebRTCRoute,
 } )
+
+function WebRTCRoute() {
+    const tinySession = useTinySession()
+
+    return (
+        <WebRTCProvider
+            sessionToken={
+                tinySession.hasSession ? tinySession.token : null
+            }
+        >
+            <WebRTCPage />
+        </WebRTCProvider>
+    )
+}
 
 function WebRTCPage() {
     const [webrtcEnabled, setWebrtcEnabled] = React.useState( false )
