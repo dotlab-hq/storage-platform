@@ -6,6 +6,8 @@ import * as authSchema from './schema/auth-schema.ts'
 import * as storageSchema from './schema/storage.ts'
 import * as storageProviderSchema from './schema/storage-provider.ts'
 import * as s3GatewaySchema from './schema/s3-gateway.ts'
+import * as s3ControlsSchema from './schema/s3-controls.ts'
+import * as s3SecuritySchema from './schema/s3-security.ts'
 import { env } from 'cloudflare:workers'
 
 
@@ -18,5 +20,7 @@ export const db = drizzle( env.DB_D1, {
         ...storageSchema,
         ...storageProviderSchema,
         ...s3GatewaySchema,
+        ...s3ControlsSchema,
+        ...s3SecuritySchema,
     },
 } )

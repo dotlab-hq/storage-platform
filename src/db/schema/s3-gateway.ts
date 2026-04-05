@@ -15,7 +15,14 @@ export const virtualBucket = schema.table(
             .notNull()
             .references( () => user.id, { onDelete: "cascade" } ),
         name: text( "name" ).notNull(),
+        region: text( "region" ).default( "us-east-1" ).notNull(),
+        versioningState: text( "versioning_state" ).default( "disabled" ).notNull(),
+        objectOwnershipMode: text( "object_ownership_mode" ).default( "bucket-owner-preferred" ).notNull(),
+        blockPublicAccess: integer( "block_public_access", { mode: "boolean" } ).default( true ).notNull(),
         mappedFolderId: text( "mapped_folder_id" ).references( () => folder.id, {
+            onDelete: "set null",
+        } ),
+        createdByUserId: text( "created_by_user_id" ).references( () => user.id, {
             onDelete: "set null",
         } ),
         isActive: integer( "is_active", { mode: "boolean" } ).default( true ).notNull(),
@@ -29,6 +36,7 @@ export const virtualBucket = schema.table(
         uniqueIndex( "virtualBucket_userId_name_unq" ).on( table.userId, table.name ),
         index( "virtualBucket_userId_idx" ).on( table.userId ),
         index( "virtualBucket_mappedFolderId_idx" ).on( table.mappedFolderId ),
+        index( "virtualBucket_isActive_idx" ).on( table.isActive ),
     ],
 )
 
@@ -49,6 +57,11 @@ export const uploadAttempt = schema.table(
         } ),
         objectKey: text( "object_key" ).notNull(),
         upstreamObjectKey: text( "upstream_object_key" ).notNull(),
+        uploadId: text( "upload_id" ).unique(),
+        initiatedByUserId: text( "initiated_by_user_id" ).references( () => user.id, { onDelete: "set null" } ),
+        checksumAlgorithm: text( "checksum_algorithm" ),
+        encryptionMode: text( "encryption_mode" ),
+        storageClass: text( "storage_class" ),
         expectedSize: integer( "expected_size", { mode: "number" } ).notNull(),
         contentType: text( "content_type" ),
         etag: text( "etag" ),
@@ -67,6 +80,29 @@ export const uploadAttempt = schema.table(
         index( "uploadAttempt_bucketId_idx" ).on( table.bucketId ),
         index( "uploadAttempt_status_idx" ).on( table.status ),
         index( "uploadAttempt_providerId_idx" ).on( table.providerId ),
+        index( "uploadAttempt_uploadId_idx" ).on( table.uploadId ),
+    ],
+)
+
+export const multipartUploadPart = schema.table(
+    "multipart_upload_part",
+    {
+        id: text( "id" )
+            .$defaultFn( () => crypto.randomUUID() )
+            .primaryKey(),
+        uploadAttemptId: text( "upload_attempt_id" )
+            .notNull()
+            .references( () => uploadAttempt.id, { onDelete: "cascade" } ),
+        partNumber: integer( "part_number" ).notNull(),
+        etag: text( "etag" ),
+        sizeInBytes: integer( "size_in_bytes", { mode: "number" } ).notNull().default( 0 ),
+        checksumValue: text( "checksum_value" ),
+        upstreamPartLocator: text( "upstream_part_locator" ),
+        createdAt: integer( "created_at", { mode: "timestamp" } ).$defaultFn( () => new Date() ).notNull(),
+    },
+    ( table ) => [
+        uniqueIndex( "multipartUploadPart_uploadAttempt_partNumber_unq" ).on( table.uploadAttemptId, table.partNumber ),
+        index( "multipartUploadPart_uploadAttempt_idx" ).on( table.uploadAttemptId ),
     ],
 )
 
@@ -94,5 +130,12 @@ export const uploadAttemptRelations = relations( uploadAttempt, ( { one } ) => (
     provider: one( storageProvider, {
         fields: [uploadAttempt.providerId],
         references: [storageProvider.id],
+    } ),
+} ) )
+
+export const multipartUploadPartRelations = relations( multipartUploadPart, ( { one } ) => ( {
+    uploadAttempt: one( uploadAttempt, {
+        fields: [multipartUploadPart.uploadAttemptId],
+        references: [uploadAttempt.id],
     } ),
 } ) )

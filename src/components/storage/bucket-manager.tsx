@@ -1,26 +1,18 @@
 import { useEffect, useMemo, useState } from "react"
-import { Eraser, KeyRound, Loader2, Plus, RefreshCw, Trash2 } from "lucide-react"
+import { Loader2, Plus, RefreshCw } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { BucketCredentialsDialog } from "@/components/storage/bucket-credentials-dialog"
+import { BucketSettingsDialog } from "@/components/storage/bucket-settings-dialog"
+import { ObjectOperationsDialog } from "@/components/storage/object-operations-dialog"
+import { BucketManagerCard } from "@/components/storage/bucket-manager-card"
 import { useS3Buckets } from "@/hooks/use-s3-buckets"
-
-function formatCreatedAt( value: string | null ): string {
-    if ( !value ) {
-        return "Unknown"
-    }
-
-    const date = new Date( value )
-    if ( Number.isNaN( date.getTime() ) ) {
-        return "Unknown"
-    }
-
-    return date.toLocaleString()
-}
 
 export function BucketManager() {
     const [bucketName, setBucketName] = useState<string>( "" )
     const [activeCredentialsBucket, setActiveCredentialsBucket] = useState<string | null>( null )
+    const [activeSettingsBucket, setActiveSettingsBucket] = useState<string | null>( null )
+    const [activeObjectOpsBucket, setActiveObjectOpsBucket] = useState<string | null>( null )
     const {
         buckets,
         isLoading,
@@ -128,52 +120,17 @@ export function BucketManager() {
                 <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
                     {buckets.map( ( bucket ) => {
                         const pendingAction = pendingByBucket[bucket.name]
-                        const isPending = typeof pendingAction === "string"
                         return (
-                            <article key={bucket.name} className="rounded-lg border p-4">
-                                <div className="space-y-1">
-                                    <p className="truncate text-sm font-semibold">{bucket.name}</p>
-                                    <p className="text-muted-foreground text-xs">Created: {formatCreatedAt( bucket.createdAt )}</p>
-                                </div>
-                                <div className="mt-4 flex flex-wrap gap-2">
-                                    <Button
-                                        variant="secondary"
-                                        size="sm"
-                                        onClick={() => {
-                                            window.location.href = `/buckets/${encodeURIComponent( bucket.name )}`
-                                        }}
-                                    >
-                                        View Files
-                                    </Button>
-                                    <Button
-                                        variant="outline"
-                                        size="sm"
-                                        disabled={isPending}
-                                        onClick={() => void openCredentialsDialog( bucket.name )}
-                                    >
-                                        <KeyRound className="h-4 w-4" />
-                                        Credentials
-                                    </Button>
-                                    <Button
-                                        variant="outline"
-                                        size="sm"
-                                        disabled={isPending}
-                                        onClick={() => void handleEmpty( bucket.name )}
-                                    >
-                                        {pendingAction === "empty" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Eraser className="h-4 w-4" />}
-                                        Empty
-                                    </Button>
-                                    <Button
-                                        variant="destructive"
-                                        size="sm"
-                                        disabled={isPending}
-                                        onClick={() => void handleDelete( bucket.name )}
-                                    >
-                                        {pendingAction === "delete" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
-                                        Delete
-                                    </Button>
-                                </div>
-                            </article>
+                            <BucketManagerCard
+                                key={bucket.name}
+                                bucket={bucket}
+                                pendingAction={pendingAction}
+                                onCredentials={( name ) => { void openCredentialsDialog( name ) }}
+                                onSettings={setActiveSettingsBucket}
+                                onObjectOps={setActiveObjectOpsBucket}
+                                onEmpty={( name ) => { void handleEmpty( name ) }}
+                                onDelete={( name ) => { void handleDelete( name ) }}
+                            />
                         )
                     } )}
                 </div>
@@ -187,6 +144,20 @@ export function BucketManager() {
                     if ( !open ) {
                         setActiveCredentialsBucket( null )
                     }
+                }}
+            />
+
+            <BucketSettingsDialog
+                bucketName={activeSettingsBucket}
+                onOpenChange={( open ) => {
+                    if ( !open ) setActiveSettingsBucket( null )
+                }}
+            />
+
+            <ObjectOperationsDialog
+                bucketName={activeObjectOpsBucket}
+                onOpenChange={( open ) => {
+                    if ( !open ) setActiveObjectOpsBucket( null )
                 }}
             />
         </section>

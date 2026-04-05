@@ -44,6 +44,14 @@ export function listObjectsV2Xml( bucketName: string, prefix: string, items: S3O
     return `<?xml version="1.0" encoding="UTF-8"?>\n<ListBucketResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Name>${escapeXml( bucketName )}</Name><Prefix>${escapeXml( prefix )}</Prefix><KeyCount>${items.length}</KeyCount><MaxKeys>1000</MaxKeys><IsTruncated>false</IsTruncated>${contents}</ListBucketResult>`
 }
 
+export function listObjectsXml( bucketName: string, prefix: string, marker: string, items: S3ObjectItem[] ): string {
+    const contents = items
+        .map( ( item ) => `<Contents><Key>${escapeXml( item.key )}</Key><LastModified>${escapeXml( item.lastModified.toISOString() )}</LastModified><ETag>${escapeXml( item.eTag ?? "" )}</ETag><Size>${item.size}</Size><StorageClass>STANDARD</StorageClass></Contents>` )
+        .join( "" )
+
+    return `<?xml version="1.0" encoding="UTF-8"?>\n<ListBucketResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Name>${escapeXml( bucketName )}</Name><Prefix>${escapeXml( prefix )}</Prefix><Marker>${escapeXml( marker )}</Marker><MaxKeys>1000</MaxKeys><IsTruncated>false</IsTruncated>${contents}</ListBucketResult>`
+}
+
 export function createMultipartUploadXml( bucketName: string, key: string, uploadId: string ): string {
     return `<?xml version="1.0" encoding="UTF-8"?>\n<InitiateMultipartUploadResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Bucket>${escapeXml( bucketName )}</Bucket><Key>${escapeXml( key )}</Key><UploadId>${escapeXml( uploadId )}</UploadId></InitiateMultipartUploadResult>`
 }
