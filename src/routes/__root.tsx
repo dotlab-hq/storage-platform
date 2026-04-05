@@ -235,11 +235,36 @@ function RootDocument( { children }: { children: React.ReactNode } ) {
                   navigator.serviceWorker.register('/sw').then(
                     (registration) => {
                       console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                      
+                      registration.onupdatefound = () => {
+                        const installingWorker = registration.installing;
+                        if (installingWorker == null) {
+                          return;
+                        }
+                        installingWorker.onstatechange = () => {
+                          if (installingWorker.state === 'installed') {
+                            if (navigator.serviceWorker.controller) {
+                              console.log('New content is available and will be used when all tabs for this page are closed.');
+                              // Force update if needed
+                              installingWorker.postMessage({ type: 'SKIP_WAITING' });
+                            } else {
+                              console.log('Content is cached for offline use.');
+                            }
+                          }
+                        };
+                      };
                     },
                     (err) => {
                       console.log('ServiceWorker registration failed: ', err);
                     }
                   );
+                  
+                  let refreshing;
+                  navigator.serviceWorker.addEventListener('controllerchange', () => {
+                    if (refreshing) return;
+                    refreshing = true;
+                    window.location.reload();
+                  });
                 });
               }
             `,
