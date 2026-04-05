@@ -8,7 +8,6 @@ import { storageProvider } from '@/db/schema/storage-provider'
 import { getProviderClientById } from '@/lib/s3-provider-client'
 import { GetObjectCommand, PutObjectCommand } from '@aws-sdk/client-s3'
 import {
-    buildStorageObjectKey,
     getMimeTypeFromFileName,
     isTextBasedFile,
 } from '@/lib/file-type-utils'
@@ -34,6 +33,7 @@ export const getTextFileContentFn = createServerFn( { method: 'GET' } )
             .select( {
                 id: storageFile.id,
                 name: storageFile.name,
+                objectKey: storageFile.objectKey,
                 providerId: storageFile.providerId,
                 bucketName: storageProvider.bucketName,
             } )
@@ -60,7 +60,7 @@ export const getTextFileContentFn = createServerFn( { method: 'GET' } )
         }
 
         const { client } = await getProviderClientById( fileData.providerId )
-        const objectKey = buildStorageObjectKey( userId, fileData.id )
+        const objectKey = fileData.objectKey
 
         // AWS SDK approach via Minio compat (using their getObject signature)
         let content = ''
@@ -89,6 +89,7 @@ export const saveTextFileFn = createServerFn( { method: 'POST' } )
         const fileRows = await db
             .select( {
                 id: storageFile.id,
+                objectKey: storageFile.objectKey,
                 providerId: storageFile.providerId,
                 bucketName: storageProvider.bucketName,
             } )
@@ -113,7 +114,7 @@ export const saveTextFileFn = createServerFn( { method: 'POST' } )
         const mimeType = getMimeTypeFromFileName( name )
         const size = Buffer.byteLength( content, 'utf-8' )
         const { client } = await getProviderClientById( fileData.providerId )
-        const objectKey = buildStorageObjectKey( userId, fileData.id )
+        const objectKey = fileData.objectKey
         const buffer = Buffer.from( content, 'utf-8' )
 
         try {

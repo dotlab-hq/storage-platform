@@ -3,6 +3,12 @@ import { getAuthenticatedUser } from "@/lib/server-auth"
 import { selectProviderForUpload } from "@/lib/s3-provider-client"
 import { DEFAULT_FILE_SIZE_LIMIT_BYTES } from "@/lib/storage-quota-constants"
 
+interface UploadPresignRequestBody {
+    objectKey?: string
+    contentType?: string
+    fileSize?: number
+}
+
 export const Route = createFileRoute( "/api/storage/upload-presign" )( {
     component: () => null,
     server: {
@@ -10,12 +16,7 @@ export const Route = createFileRoute( "/api/storage/upload-presign" )( {
             POST: async ( { request } ) => {
                 try {
                     const authUser = await getAuthenticatedUser()
-                    const body = ( await request.json() ) as {
-                        objectKey?: string
-                        contentType?: string
-                        fileSize?: number
-                    }
-
+                    const body: UploadPresignRequestBody = ( await request.json() )
                     if ( !body.objectKey || typeof body.objectKey !== "string" ) {
                         return Response.json( { error: "Missing objectKey" }, { status: 400 } )
                     }

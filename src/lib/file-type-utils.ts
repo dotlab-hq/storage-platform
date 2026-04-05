@@ -1,4 +1,4 @@
-const TEXT_FILE_EXTENSIONS = new Set([
+const TEXT_FILE_EXTENSIONS = new Set( [
   'txt',
   'text',
   'md',
@@ -43,7 +43,7 @@ const TEXT_FILE_EXTENSIONS = new Set([
   'php',
   'rb',
   'toml',
-])
+] )
 
 const EXTENSION_MIME_MAP: Record<string, string> = {
   txt: 'text/plain',
@@ -93,7 +93,7 @@ const EXTENSION_MIME_MAP: Record<string, string> = {
 }
 
 const TEXT_MIME_PREFIXES = ['text/']
-const TEXT_MIME_TYPES = new Set([
+const TEXT_MIME_TYPES = new Set( [
   'application/json',
   'application/javascript',
   'application/typescript',
@@ -106,59 +106,42 @@ const TEXT_MIME_TYPES = new Set([
   'application/x-sh',
   'application/toml',
   'image/svg+xml',
-])
+] )
 
-export function getFileExtension(fileName: string): string | null {
-  const dotIndex = fileName.lastIndexOf('.')
-  if (dotIndex <= 0 || dotIndex === fileName.length - 1) {
+export function getFileExtension( fileName: string ): string | null {
+  const dotIndex = fileName.lastIndexOf( '.' )
+  if ( dotIndex <= 0 || dotIndex === fileName.length - 1 ) {
     return null
   }
 
-  return fileName.slice(dotIndex + 1).toLowerCase()
+  return fileName.slice( dotIndex + 1 ).toLowerCase()
 }
 
-export function getMimeTypeFromFileName(fileName: string): string | null {
-  const extension = getFileExtension(fileName)
-  if (!extension) return null
+export function getMimeTypeFromFileName( fileName: string ): string | null {
+  const extension = getFileExtension( fileName )
+  if ( !extension ) return null
 
   return EXTENSION_MIME_MAP[extension] ?? null
 }
 
-export function isTextMimeType(mimeType: string | null | undefined): boolean {
-  if (!mimeType) return false
+export function isTextMimeType( mimeType: string | null | undefined ): boolean {
+  if ( !mimeType ) return false
 
-  if (TEXT_MIME_TYPES.has(mimeType)) {
+  if ( TEXT_MIME_TYPES.has( mimeType ) ) {
     return true
   }
 
-  return TEXT_MIME_PREFIXES.some((prefix) => mimeType.startsWith(prefix))
+  return TEXT_MIME_PREFIXES.some( ( prefix ) => mimeType.startsWith( prefix ) )
 }
 
 export function isTextBasedFile(
   fileName: string,
   mimeType: string | null | undefined,
 ): boolean {
-  if (isTextMimeType(mimeType)) {
+  if ( isTextMimeType( mimeType ) ) {
     return true
   }
 
-  const extension = getFileExtension(fileName)
-  return extension ? TEXT_FILE_EXTENSIONS.has(extension) : false
-}
-
-export function buildStorageObjectKey(
-  userId: string,
-  fileName: string,
-): string {
-  const extension = getFileExtension(fileName)
-  const baseName =
-    (extension ? fileName.slice(0, -(extension.length + 1)) : fileName)
-      .trim()
-      .replace(/\s+/g, '_')
-      .replace(/[^a-zA-Z0-9._-]/g, '') || 'file'
-
-  const safeExtension = extension
-    ? `.${extension.replace(/[^a-zA-Z0-9]/g, '')}`
-    : ''
-  return `${userId}/${crypto.randomUUID()}-${baseName}${safeExtension}`
+  const extension = getFileExtension( fileName )
+  return extension ? TEXT_FILE_EXTENSIONS.has( extension ) : false
 }

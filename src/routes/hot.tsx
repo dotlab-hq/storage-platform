@@ -60,7 +60,7 @@ function HotRoute() {
         margin: 1,
       })
 
-      setOffer(resData as any)
+      setOffer(resData)
       setQrImage(dataUrl as any)
       setStateMessage('Scan-based login ready. Tiny session lasts 10 minutes.')
     } catch (error) {

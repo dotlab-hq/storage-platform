@@ -10,14 +10,14 @@ export const Route = createFileRoute( "/api/storage/register-file" )( {
             POST: async ( { request } ) => {
                 try {
                     const authUser = await getAuthenticatedUser()
-                    const body = ( await request.json() ) as {
+                    const body:{
                         fileName?: string
                         objectKey?: string
                         mimeType?: string
                         fileSize?: number
                         parentFolderId?: string | null
                         providerId?: string | null
-                    }
+                    } = ( await request.json() )
 
                     if ( !body.fileName || typeof body.fileName !== "string" ) {
                         return Response.json( { error: "Missing fileName" }, { status: 400 } )

@@ -10,7 +10,6 @@ import { db } from '@/db'
 import { file as storageFile } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'
 import { getProviderClientById } from '@/lib/s3-provider-client'
-import { buildStorageObjectKey } from '@/lib/file-type-utils'
 
 const GetPresignedUrlSchema = z.object( {
     fileId: z.string().min( 1 ),
@@ -27,6 +26,7 @@ export const getFilePresignedUrlFn = createServerFn( { method: 'GET' } )
             .select( {
                 id: storageFile.id,
                 name: storageFile.name,
+                objectKey: storageFile.objectKey,
                 providerId: storageFile.providerId,
                 bucketName: storageProvider.bucketName,
             } )
@@ -54,7 +54,7 @@ export const getFilePresignedUrlFn = createServerFn( { method: 'GET' } )
         const { client } = await getProviderClientById(
             fileData.providerId,
         )
-        const objectKey = buildStorageObjectKey( userId, fileData.id )
+        const objectKey = fileData.objectKey
         const url = await getSignedUrl( client, new GetObjectCommand( {
             Bucket: fileData.bucketName,
             Key: objectKey,
@@ -75,6 +75,7 @@ export const getOwnedFileRedirectUrlFn = createServerFn( { method: 'GET' } )
             .select( {
                 id: storageFile.id,
                 name: storageFile.name,
+                objectKey: storageFile.objectKey,
                 providerId: storageFile.providerId,
                 bucketName: storageProvider.bucketName,
             } )
@@ -106,7 +107,8 @@ export const getOwnedFileRedirectUrlFn = createServerFn( { method: 'GET' } )
             fileData.providerId,
         )
 
-        const objectKey = buildStorageObjectKey( userId, fileData.id )
+
+        const objectKey = fileData.objectKey
         const downloadUrl = await getSignedUrl( client, new GetObjectCommand( {
             Bucket: fileData.bucketName,
             Key: objectKey,
