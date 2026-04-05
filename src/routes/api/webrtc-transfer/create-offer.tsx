@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { and, inArray, lt } from 'drizzle-orm'
+import { and, inArray, lt, eq } from 'drizzle-orm'
 import { db } from '@/db'
-import { webrtcTransfer, tinySession } from '@/db/schema/auth-schema'
+import { webrtcTransfer, tinySession, user } from '@/db/schema/auth-schema'
 import {
   buildWebrtcOfferPayload,
   createWebrtcOfferCode,
@@ -11,6 +11,7 @@ import {
 } from '@/lib/tiny-session'
 
 const ACTIVE_STATUSES = ['pending', 'claimed'] as const
+const ANONYMOUS_USER_ID = 'anonymous_webrtc_user'
 
 export const Route = createFileRoute('/api/webrtc-transfer/create-offer')({
   server: {
@@ -32,6 +33,23 @@ export const Route = createFileRoute('/api/webrtc-transfer/create-offer')({
               ),
             )
 
+          const existingUser = await db
+            .select()
+            .from(user)
+            .where(eq(user.id, ANONYMOUS_USER_ID))
+            .limit(1)
+
+          if (existingUser.length === 0) {
+            await db
+              .insert(user)
+              .values({
+                id: ANONYMOUS_USER_ID,
+                name: 'Anonymous WebRTC Transfer',
+                email: 'anonymous@webrtc.local',
+              })
+              .onConflictDoNothing()
+          }
+
           const code = createWebrtcOfferCode()
           const pollKey = createWebrtcPollKey()
           const expiresAt = new Date(Date.now() + WEBRTC_OFFER_TTL_MS)
@@ -42,8 +60,8 @@ export const Route = createFileRoute('/api/webrtc-transfer/create-offer')({
           await db.insert(tinySession).values({
             id: sessionId,
             token: sessionToken,
-            userId: 'webrtc-owner:' + pollKey,
-            permission: 'read',
+            userId: ANONYMOUS_USER_ID,
+            permission: 'webrtc-owner:' + pollKey,
             expiresAt,
             createdAt: now,
           })

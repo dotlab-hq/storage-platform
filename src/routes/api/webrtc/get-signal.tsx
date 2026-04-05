@@ -22,6 +22,7 @@ export const Route = createFileRoute('/api/webrtc/get-signal')({
             .select({
               id: tinySession.id,
               userId: tinySession.userId,
+              permission: tinySession.permission,
               expiresAt: tinySession.expiresAt,
               webrtcSignal: tinySession.webrtcSignal,
               webrtcSignalExpiresAt: tinySession.webrtcSignalExpiresAt,
@@ -45,27 +46,19 @@ export const Route = createFileRoute('/api/webrtc/get-signal')({
 
           const session = sessionRows[0]
 
-          let peerUserId: string | null = null
+          let targetPermission: string | null = null
 
-          if (session.userId.startsWith('webrtc-owner:')) {
-            const pollKey = session.userId.replace('webrtc-owner:', '')
-            peerUserId = 'webrtc-scanner:' + pollKey
-          } else if (session.userId.startsWith('webrtc-scanner:')) {
-            const pollKey = session.userId.replace('webrtc-scanner:', '')
-            peerUserId = 'webrtc-owner:' + pollKey
-          } else if (session.sourceOfferId) {
-            const offerRows = await db
-              .select({ ownerUserId: qrLoginOffer.ownerUserId })
-              .from(qrLoginOffer)
-              .where(eq(qrLoginOffer.id, session.sourceOfferId))
-              .limit(1)
-            if (offerRows.length > 0) {
-              peerUserId = offerRows[0].ownerUserId
-            }
+          if (session.permission?.startsWith('webrtc-owner:')) {
+            const pollKey = session.permission.replace('webrtc-owner:', '')
+            targetPermission = 'webrtc-scanner:' + pollKey
+          } else if (session.permission?.startsWith('webrtc-scanner:')) {
+            const pollKey = session.permission.replace('webrtc-scanner:', '')
+            targetPermission = 'webrtc-owner:' + pollKey
           }
 
           let peerSignal: string | null = null
-          if (peerUserId) {
+
+          if (targetPermission) {
             const peerSessions = await db
               .select({
                 webrtcSignal: tinySession.webrtcSignal,
@@ -74,7 +67,7 @@ export const Route = createFileRoute('/api/webrtc/get-signal')({
               .from(tinySession)
               .where(
                 and(
-                  eq(tinySession.userId, peerUserId),
+                  eq(tinySession.permission, targetPermission),
                   gt(tinySession.expiresAt, new Date()),
                   isNull(tinySession.revokedAt),
                 ),
@@ -89,6 +82,40 @@ export const Route = createFileRoute('/api/webrtc/get-signal')({
                 peerSession.webrtcSignalExpiresAt.getTime() > Date.now()
               ) {
                 peerSignal = peerSession.webrtcSignal
+              }
+            }
+          } else if (session.sourceOfferId) {
+            // fallback for old qrLoginOffer logic
+            const offerRows = await db
+              .select({ ownerUserId: qrLoginOffer.ownerUserId })
+              .from(qrLoginOffer)
+              .where(eq(qrLoginOffer.id, session.sourceOfferId))
+              .limit(1)
+            if (offerRows.length > 0 && offerRows[0].ownerUserId) {
+              const peerSessions = await db
+                .select({
+                  webrtcSignal: tinySession.webrtcSignal,
+                  webrtcSignalExpiresAt: tinySession.webrtcSignalExpiresAt,
+                })
+                .from(tinySession)
+                .where(
+                  and(
+                    eq(tinySession.userId, offerRows[0].ownerUserId),
+                    gt(tinySession.expiresAt, new Date()),
+                    isNull(tinySession.revokedAt),
+                  ),
+                )
+                .limit(1)
+
+              if (peerSessions.length > 0) {
+                const peerSession = peerSessions[0]
+                if (
+                  peerSession.webrtcSignal &&
+                  peerSession.webrtcSignalExpiresAt &&
+                  peerSession.webrtcSignalExpiresAt.getTime() > Date.now()
+                ) {
+                  peerSignal = peerSession.webrtcSignal
+                }
               }
             }
           }

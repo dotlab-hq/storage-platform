@@ -164,7 +164,7 @@ export const twoFactor = sqliteTable(
       .references(() => user.id, { onDelete: 'cascade' }),
   },
   (table) => [
-    index('twoFactor_secret_idx').on(table.secret),
+    // index('twoFactor_secret_idx').on(table.secret),
     index('twoFactor_userId_idx').on(table.userId),
   ],
 )

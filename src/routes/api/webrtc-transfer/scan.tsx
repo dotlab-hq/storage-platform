@@ -70,12 +70,13 @@ export const Route = createFileRoute('/api/webrtc-transfer/scan')({
           const anonToken = createTinySessionToken()
           const expiresAt = new Date(Date.now() + TINY_SESSION_TTL_MS)
           const anonSessionId = crypto.randomUUID()
+          const ANONYMOUS_USER_ID = 'anonymous_webrtc_user'
 
           await db.insert(tinySession).values({
             id: anonSessionId,
             token: anonToken,
-            userId: 'webrtc-scanner:' + transfer.pollKey,
-            permission: 'read',
+            userId: ANONYMOUS_USER_ID,
+            permission: 'webrtc-scanner:' + transfer.pollKey,
             expiresAt,
             createdAt: now,
           })
