@@ -232,7 +232,9 @@ function RootDocument( { children }: { children: React.ReactNode } ) {
             __html: `
               if ('serviceWorker' in navigator) {
                 window.addEventListener('load', () => {
-                  navigator.serviceWorker.register('/sw').then(
+                  navigator.serviceWorker.register('/sw.ts',{
+                  scope: '/sw',
+                  }).then(
                     (registration) => {
                       console.log('ServiceWorker registration successful with scope: ', registration.scope);
                       
