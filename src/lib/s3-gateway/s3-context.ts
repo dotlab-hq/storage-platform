@@ -102,6 +102,35 @@ function canonicalHeaders( request: Request, signedHeaders: string[] ): { header
     }
 }
 
+function canonicalHeadersWithOverrides(
+    request: Request,
+    signedHeaders: string[],
+    overrides: Partial<Record<string, string>>,
+): { headers: string, signedHeaders: string } {
+    const lowered = signedHeaders.map( ( header ) => header.trim().toLowerCase() ).filter( ( header ) => header.length > 0 )
+    const unique = Array.from( new Set( lowered ) ).sort()
+    const parts = unique.map( ( name ) => {
+        const override = overrides[name]
+        const value = override !== undefined ? override : ( request.headers.get( name ) ?? "" )
+        return `${name}:${normalizeHeaderValue( value )}`
+    } )
+    return {
+        headers: `${parts.join( "\n" )}\n`,
+        signedHeaders: unique.join( ";" ),
+    }
+}
+
+function canonicalHeaderCandidates( request: Request, signedHeaders: string[] ): Array<{ headers: string, signedHeaders: string }> {
+    const lowered = signedHeaders.map( ( header ) => header.trim().toLowerCase() )
+    if ( !lowered.includes( "accept-encoding" ) ) {
+        return [canonicalHeaders( request, signedHeaders )]
+    }
+
+    const raw = request.headers.get( "accept-encoding" ) ?? ""
+    const variants = Array.from( new Set( [raw, "identity", "gzip", ""] ) )
+    return variants.map( ( value ) => canonicalHeadersWithOverrides( request, signedHeaders, { "accept-encoding": value } ) )
+}
+
 function deriveSigningKey( secretAccessKey: string, dateStamp: string, region: string, service: string ): Buffer {
     const kDate = hmac( `AWS4${secretAccessKey}`, dateStamp )
     const kRegion = hmac( kDate, region )
@@ -140,7 +169,7 @@ function isHeaderSignatureMatch( input: {
     payloadHash: string
     signedHeaders: string[]
 } ): boolean {
-    const canonical = canonicalHeaders( input.request, input.signedHeaders )
+    const canonicalCandidates = canonicalHeaderCandidates( input.request, input.signedHeaders )
     const canonicalUris = [canonicalUri( input.url ), canonicalUriRaw( input.url )]
     const canonicalQueries = [
         canonicalQueryString( input.url, true ),
@@ -149,25 +178,27 @@ function isHeaderSignatureMatch( input: {
 
     for ( const uri of canonicalUris ) {
         for ( const query of canonicalQueries ) {
-            const canonicalRequest = [
-                input.request.method,
-                uri,
-                query,
-                canonical.headers,
-                canonical.signedHeaders,
-                input.payloadHash,
-            ].join( "\n" )
+            for ( const canonical of canonicalCandidates ) {
+                const canonicalRequest = [
+                    input.request.method,
+                    uri,
+                    query,
+                    canonical.headers,
+                    canonical.signedHeaders,
+                    input.payloadHash,
+                ].join( "\n" )
 
-            const stringToSign = [
-                "AWS4-HMAC-SHA256",
-                input.amzDate,
-                `${input.dateStamp}/${input.region}/${input.service}/aws4_request`,
-                sha256Hex( canonicalRequest ),
-            ].join( "\n" )
+                const stringToSign = [
+                    "AWS4-HMAC-SHA256",
+                    input.amzDate,
+                    `${input.dateStamp}/${input.region}/${input.service}/aws4_request`,
+                    sha256Hex( canonicalRequest ),
+                ].join( "\n" )
 
-            const expectedSignature = hmacHex( input.signingKey, stringToSign )
-            if ( expectedSignature.toLowerCase() === input.signature.toLowerCase() ) {
-                return true
+                const expectedSignature = hmacHex( input.signingKey, stringToSign )
+                if ( expectedSignature.toLowerCase() === input.signature.toLowerCase() ) {
+                    return true
+                }
             }
         }
     }
@@ -186,7 +217,7 @@ function isQuerySignatureMatch( input: {
     signature: string
     signedHeadersRaw: string
 } ): boolean {
-    const canonical = canonicalHeaders( input.request, input.signedHeadersRaw.split( ";" ) )
+    const canonicalCandidates = canonicalHeaderCandidates( input.request, input.signedHeadersRaw.split( ";" ) )
     const canonicalUris = [canonicalUri( input.url ), canonicalUriRaw( input.url )]
     const canonicalQueries = [
         canonicalQueryString( input.url, false ),
@@ -195,25 +226,27 @@ function isQuerySignatureMatch( input: {
 
     for ( const uri of canonicalUris ) {
         for ( const query of canonicalQueries ) {
-            const canonicalRequest = [
-                input.request.method,
-                uri,
-                query,
-                canonical.headers,
-                canonical.signedHeaders,
-                "UNSIGNED-PAYLOAD",
-            ].join( "\n" )
+            for ( const canonical of canonicalCandidates ) {
+                const canonicalRequest = [
+                    input.request.method,
+                    uri,
+                    query,
+                    canonical.headers,
+                    canonical.signedHeaders,
+                    "UNSIGNED-PAYLOAD",
+                ].join( "\n" )
 
-            const stringToSign = [
-                "AWS4-HMAC-SHA256",
-                input.amzDate,
-                `${input.dateStamp}/${input.region}/${input.service}/aws4_request`,
-                sha256Hex( canonicalRequest ),
-            ].join( "\n" )
+                const stringToSign = [
+                    "AWS4-HMAC-SHA256",
+                    input.amzDate,
+                    `${input.dateStamp}/${input.region}/${input.service}/aws4_request`,
+                    sha256Hex( canonicalRequest ),
+                ].join( "\n" )
 
-            const expectedSignature = hmacHex( input.signingKey, stringToSign )
-            if ( expectedSignature.toLowerCase() === input.signature.toLowerCase() ) {
-                return true
+                const expectedSignature = hmacHex( input.signingKey, stringToSign )
+                if ( expectedSignature.toLowerCase() === input.signature.toLowerCase() ) {
+                    return true
+                }
             }
         }
     }

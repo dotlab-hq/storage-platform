@@ -39,6 +39,7 @@ import { Route as ApiStorageShareAccessRouteImport } from './routes/api/storage/
 import { Route as ApiStorageShareRouteImport } from './routes/api/storage/share'
 import { Route as ApiStorageSearchRouteImport } from './routes/api/storage/search'
 import { Route as ApiStorageSaveTextFileRouteImport } from './routes/api/storage/save-text-file'
+import { Route as ApiStorageS3RouteImport } from './routes/api/storage/s3'
 import { Route as ApiStorageRootItemsRouteImport } from './routes/api/storage/root-items'
 import { Route as ApiStorageRenameRouteImport } from './routes/api/storage/rename'
 import { Route as ApiStorageRegisterFileRouteImport } from './routes/api/storage/register-file'
@@ -222,6 +223,11 @@ const ApiStorageSaveTextFileRoute = ApiStorageSaveTextFileRouteImport.update({
   path: '/api/storage/save-text-file',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiStorageS3Route = ApiStorageS3RouteImport.update({
+  id: '/api/storage/s3',
+  path: '/api/storage/s3',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiStorageRootItemsRoute = ApiStorageRootItemsRouteImport.update({
   id: '/api/storage/root-items',
   path: '/api/storage/root-items',
@@ -313,71 +319,71 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiStorageS3IndexRoute = ApiStorageS3IndexRouteImport.update({
-  id: '/api/storage/s3/',
-  path: '/api/storage/s3/',
-  getParentRoute: () => rootRouteImport,
+  id: '/',
+  path: '/',
+  getParentRoute: () => ApiStorageS3Route,
 } as any)
 const ApiStorageS3UploadStatusRoute =
   ApiStorageS3UploadStatusRouteImport.update({
-    id: '/api/storage/s3/upload-status',
-    path: '/api/storage/s3/upload-status',
-    getParentRoute: () => rootRouteImport,
+    id: '/upload-status',
+    path: '/upload-status',
+    getParentRoute: () => ApiStorageS3Route,
   } as any)
 const ApiStorageS3ObjectSettingsRoute =
   ApiStorageS3ObjectSettingsRouteImport.update({
-    id: '/api/storage/s3/object-settings',
-    path: '/api/storage/s3/object-settings',
-    getParentRoute: () => rootRouteImport,
+    id: '/object-settings',
+    path: '/object-settings',
+    getParentRoute: () => ApiStorageS3Route,
   } as any)
 const ApiStorageS3InitiateUploadRoute =
   ApiStorageS3InitiateUploadRouteImport.update({
-    id: '/api/storage/s3/initiate-upload',
-    path: '/api/storage/s3/initiate-upload',
-    getParentRoute: () => rootRouteImport,
+    id: '/initiate-upload',
+    path: '/initiate-upload',
+    getParentRoute: () => ApiStorageS3Route,
   } as any)
 const ApiStorageS3EmptyBucketRoute = ApiStorageS3EmptyBucketRouteImport.update({
-  id: '/api/storage/s3/empty-bucket',
-  path: '/api/storage/s3/empty-bucket',
-  getParentRoute: () => rootRouteImport,
+  id: '/empty-bucket',
+  path: '/empty-bucket',
+  getParentRoute: () => ApiStorageS3Route,
 } as any)
 const ApiStorageS3DeleteBucketRoute =
   ApiStorageS3DeleteBucketRouteImport.update({
-    id: '/api/storage/s3/delete-bucket',
-    path: '/api/storage/s3/delete-bucket',
-    getParentRoute: () => rootRouteImport,
+    id: '/delete-bucket',
+    path: '/delete-bucket',
+    getParentRoute: () => ApiStorageS3Route,
   } as any)
 const ApiStorageS3CompleteUploadRoute =
   ApiStorageS3CompleteUploadRouteImport.update({
-    id: '/api/storage/s3/complete-upload',
-    path: '/api/storage/s3/complete-upload',
-    getParentRoute: () => rootRouteImport,
+    id: '/complete-upload',
+    path: '/complete-upload',
+    getParentRoute: () => ApiStorageS3Route,
   } as any)
 const ApiStorageS3BucketsRoute = ApiStorageS3BucketsRouteImport.update({
-  id: '/api/storage/s3/buckets',
-  path: '/api/storage/s3/buckets',
-  getParentRoute: () => rootRouteImport,
+  id: '/buckets',
+  path: '/buckets',
+  getParentRoute: () => ApiStorageS3Route,
 } as any)
 const ApiStorageS3BucketSettingsRoute =
   ApiStorageS3BucketSettingsRouteImport.update({
-    id: '/api/storage/s3/bucket-settings',
-    path: '/api/storage/s3/bucket-settings',
-    getParentRoute: () => rootRouteImport,
+    id: '/bucket-settings',
+    path: '/bucket-settings',
+    getParentRoute: () => ApiStorageS3Route,
   } as any)
 const ApiStorageS3BucketItemsRoute = ApiStorageS3BucketItemsRouteImport.update({
-  id: '/api/storage/s3/bucket-items',
-  path: '/api/storage/s3/bucket-items',
-  getParentRoute: () => rootRouteImport,
+  id: '/bucket-items',
+  path: '/bucket-items',
+  getParentRoute: () => ApiStorageS3Route,
 } as any)
 const ApiStorageS3BucketCredentialsRoute =
   ApiStorageS3BucketCredentialsRouteImport.update({
-    id: '/api/storage/s3/bucket-credentials',
-    path: '/api/storage/s3/bucket-credentials',
-    getParentRoute: () => rootRouteImport,
+    id: '/bucket-credentials',
+    path: '/bucket-credentials',
+    getParentRoute: () => ApiStorageS3Route,
   } as any)
 const ApiStorageS3SplatRoute = ApiStorageS3SplatRouteImport.update({
-  id: '/api/storage/s3/$',
-  path: '/api/storage/s3/$',
-  getParentRoute: () => rootRouteImport,
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => ApiStorageS3Route,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -416,6 +422,7 @@ export interface FileRoutesByFullPath {
   '/api/storage/register-file': typeof ApiStorageRegisterFileRoute
   '/api/storage/rename': typeof ApiStorageRenameRoute
   '/api/storage/root-items': typeof ApiStorageRootItemsRoute
+  '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
   '/api/storage/save-text-file': typeof ApiStorageSaveTextFileRoute
   '/api/storage/search': typeof ApiStorageSearchRoute
   '/api/storage/share': typeof ApiStorageShareRoute
@@ -541,6 +548,7 @@ export interface FileRoutesById {
   '/api/storage/register-file': typeof ApiStorageRegisterFileRoute
   '/api/storage/rename': typeof ApiStorageRenameRoute
   '/api/storage/root-items': typeof ApiStorageRootItemsRoute
+  '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
   '/api/storage/save-text-file': typeof ApiStorageSaveTextFileRoute
   '/api/storage/search': typeof ApiStorageSearchRoute
   '/api/storage/share': typeof ApiStorageShareRoute
@@ -605,6 +613,7 @@ export interface FileRouteTypes {
     | '/api/storage/register-file'
     | '/api/storage/rename'
     | '/api/storage/root-items'
+    | '/api/storage/s3'
     | '/api/storage/save-text-file'
     | '/api/storage/search'
     | '/api/storage/share'
@@ -729,6 +738,7 @@ export interface FileRouteTypes {
     | '/api/storage/register-file'
     | '/api/storage/rename'
     | '/api/storage/root-items'
+    | '/api/storage/s3'
     | '/api/storage/save-text-file'
     | '/api/storage/search'
     | '/api/storage/share'
@@ -792,6 +802,7 @@ export interface RootRouteChildren {
   ApiStorageRegisterFileRoute: typeof ApiStorageRegisterFileRoute
   ApiStorageRenameRoute: typeof ApiStorageRenameRoute
   ApiStorageRootItemsRoute: typeof ApiStorageRootItemsRoute
+  ApiStorageS3Route: typeof ApiStorageS3RouteWithChildren
   ApiStorageSaveTextFileRoute: typeof ApiStorageSaveTextFileRoute
   ApiStorageSearchRoute: typeof ApiStorageSearchRoute
   ApiStorageShareRoute: typeof ApiStorageShareRoute
@@ -805,18 +816,6 @@ export interface RootRouteChildren {
   ApiStorageUploadPresignRoute: typeof ApiStorageUploadPresignRoute
   ApiWebrtcGetSignalRoute: typeof ApiWebrtcGetSignalRoute
   ApiWebrtcSetSignalRoute: typeof ApiWebrtcSetSignalRoute
-  ApiStorageS3SplatRoute: typeof ApiStorageS3SplatRoute
-  ApiStorageS3BucketCredentialsRoute: typeof ApiStorageS3BucketCredentialsRoute
-  ApiStorageS3BucketItemsRoute: typeof ApiStorageS3BucketItemsRoute
-  ApiStorageS3BucketSettingsRoute: typeof ApiStorageS3BucketSettingsRoute
-  ApiStorageS3BucketsRoute: typeof ApiStorageS3BucketsRoute
-  ApiStorageS3CompleteUploadRoute: typeof ApiStorageS3CompleteUploadRoute
-  ApiStorageS3DeleteBucketRoute: typeof ApiStorageS3DeleteBucketRoute
-  ApiStorageS3EmptyBucketRoute: typeof ApiStorageS3EmptyBucketRoute
-  ApiStorageS3InitiateUploadRoute: typeof ApiStorageS3InitiateUploadRoute
-  ApiStorageS3ObjectSettingsRoute: typeof ApiStorageS3ObjectSettingsRoute
-  ApiStorageS3UploadStatusRoute: typeof ApiStorageS3UploadStatusRoute
-  ApiStorageS3IndexRoute: typeof ApiStorageS3IndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1031,6 +1030,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStorageSaveTextFileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/storage/s3': {
+      id: '/api/storage/s3'
+      path: '/api/storage/s3'
+      fullPath: '/api/storage/s3'
+      preLoaderRoute: typeof ApiStorageS3RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/storage/root-items': {
       id: '/api/storage/root-items'
       path: '/api/storage/root-items'
@@ -1159,90 +1165,124 @@ declare module '@tanstack/react-router' {
     }
     '/api/storage/s3/': {
       id: '/api/storage/s3/'
-      path: '/api/storage/s3'
+      path: '/'
       fullPath: '/api/storage/s3/'
       preLoaderRoute: typeof ApiStorageS3IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ApiStorageS3Route
     }
     '/api/storage/s3/upload-status': {
       id: '/api/storage/s3/upload-status'
-      path: '/api/storage/s3/upload-status'
+      path: '/upload-status'
       fullPath: '/api/storage/s3/upload-status'
       preLoaderRoute: typeof ApiStorageS3UploadStatusRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ApiStorageS3Route
     }
     '/api/storage/s3/object-settings': {
       id: '/api/storage/s3/object-settings'
-      path: '/api/storage/s3/object-settings'
+      path: '/object-settings'
       fullPath: '/api/storage/s3/object-settings'
       preLoaderRoute: typeof ApiStorageS3ObjectSettingsRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ApiStorageS3Route
     }
     '/api/storage/s3/initiate-upload': {
       id: '/api/storage/s3/initiate-upload'
-      path: '/api/storage/s3/initiate-upload'
+      path: '/initiate-upload'
       fullPath: '/api/storage/s3/initiate-upload'
       preLoaderRoute: typeof ApiStorageS3InitiateUploadRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ApiStorageS3Route
     }
     '/api/storage/s3/empty-bucket': {
       id: '/api/storage/s3/empty-bucket'
-      path: '/api/storage/s3/empty-bucket'
+      path: '/empty-bucket'
       fullPath: '/api/storage/s3/empty-bucket'
       preLoaderRoute: typeof ApiStorageS3EmptyBucketRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ApiStorageS3Route
     }
     '/api/storage/s3/delete-bucket': {
       id: '/api/storage/s3/delete-bucket'
-      path: '/api/storage/s3/delete-bucket'
+      path: '/delete-bucket'
       fullPath: '/api/storage/s3/delete-bucket'
       preLoaderRoute: typeof ApiStorageS3DeleteBucketRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ApiStorageS3Route
     }
     '/api/storage/s3/complete-upload': {
       id: '/api/storage/s3/complete-upload'
-      path: '/api/storage/s3/complete-upload'
+      path: '/complete-upload'
       fullPath: '/api/storage/s3/complete-upload'
       preLoaderRoute: typeof ApiStorageS3CompleteUploadRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ApiStorageS3Route
     }
     '/api/storage/s3/buckets': {
       id: '/api/storage/s3/buckets'
-      path: '/api/storage/s3/buckets'
+      path: '/buckets'
       fullPath: '/api/storage/s3/buckets'
       preLoaderRoute: typeof ApiStorageS3BucketsRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ApiStorageS3Route
     }
     '/api/storage/s3/bucket-settings': {
       id: '/api/storage/s3/bucket-settings'
-      path: '/api/storage/s3/bucket-settings'
+      path: '/bucket-settings'
       fullPath: '/api/storage/s3/bucket-settings'
       preLoaderRoute: typeof ApiStorageS3BucketSettingsRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ApiStorageS3Route
     }
     '/api/storage/s3/bucket-items': {
       id: '/api/storage/s3/bucket-items'
-      path: '/api/storage/s3/bucket-items'
+      path: '/bucket-items'
       fullPath: '/api/storage/s3/bucket-items'
       preLoaderRoute: typeof ApiStorageS3BucketItemsRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ApiStorageS3Route
     }
     '/api/storage/s3/bucket-credentials': {
       id: '/api/storage/s3/bucket-credentials'
-      path: '/api/storage/s3/bucket-credentials'
+      path: '/bucket-credentials'
       fullPath: '/api/storage/s3/bucket-credentials'
       preLoaderRoute: typeof ApiStorageS3BucketCredentialsRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ApiStorageS3Route
     }
     '/api/storage/s3/$': {
       id: '/api/storage/s3/$'
-      path: '/api/storage/s3/$'
+      path: '/$'
       fullPath: '/api/storage/s3/$'
       preLoaderRoute: typeof ApiStorageS3SplatRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ApiStorageS3Route
     }
   }
 }
+
+interface ApiStorageS3RouteChildren {
+  ApiStorageS3SplatRoute: typeof ApiStorageS3SplatRoute
+  ApiStorageS3BucketCredentialsRoute: typeof ApiStorageS3BucketCredentialsRoute
+  ApiStorageS3BucketItemsRoute: typeof ApiStorageS3BucketItemsRoute
+  ApiStorageS3BucketSettingsRoute: typeof ApiStorageS3BucketSettingsRoute
+  ApiStorageS3BucketsRoute: typeof ApiStorageS3BucketsRoute
+  ApiStorageS3CompleteUploadRoute: typeof ApiStorageS3CompleteUploadRoute
+  ApiStorageS3DeleteBucketRoute: typeof ApiStorageS3DeleteBucketRoute
+  ApiStorageS3EmptyBucketRoute: typeof ApiStorageS3EmptyBucketRoute
+  ApiStorageS3InitiateUploadRoute: typeof ApiStorageS3InitiateUploadRoute
+  ApiStorageS3ObjectSettingsRoute: typeof ApiStorageS3ObjectSettingsRoute
+  ApiStorageS3UploadStatusRoute: typeof ApiStorageS3UploadStatusRoute
+  ApiStorageS3IndexRoute: typeof ApiStorageS3IndexRoute
+}
+
+const ApiStorageS3RouteChildren: ApiStorageS3RouteChildren = {
+  ApiStorageS3SplatRoute: ApiStorageS3SplatRoute,
+  ApiStorageS3BucketCredentialsRoute: ApiStorageS3BucketCredentialsRoute,
+  ApiStorageS3BucketItemsRoute: ApiStorageS3BucketItemsRoute,
+  ApiStorageS3BucketSettingsRoute: ApiStorageS3BucketSettingsRoute,
+  ApiStorageS3BucketsRoute: ApiStorageS3BucketsRoute,
+  ApiStorageS3CompleteUploadRoute: ApiStorageS3CompleteUploadRoute,
+  ApiStorageS3DeleteBucketRoute: ApiStorageS3DeleteBucketRoute,
+  ApiStorageS3EmptyBucketRoute: ApiStorageS3EmptyBucketRoute,
+  ApiStorageS3InitiateUploadRoute: ApiStorageS3InitiateUploadRoute,
+  ApiStorageS3ObjectSettingsRoute: ApiStorageS3ObjectSettingsRoute,
+  ApiStorageS3UploadStatusRoute: ApiStorageS3UploadStatusRoute,
+  ApiStorageS3IndexRoute: ApiStorageS3IndexRoute,
+}
+
+const ApiStorageS3RouteWithChildren = ApiStorageS3Route._addFileChildren(
+  ApiStorageS3RouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -1280,6 +1320,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiStorageRegisterFileRoute: ApiStorageRegisterFileRoute,
   ApiStorageRenameRoute: ApiStorageRenameRoute,
   ApiStorageRootItemsRoute: ApiStorageRootItemsRoute,
+  ApiStorageS3Route: ApiStorageS3RouteWithChildren,
   ApiStorageSaveTextFileRoute: ApiStorageSaveTextFileRoute,
   ApiStorageSearchRoute: ApiStorageSearchRoute,
   ApiStorageShareRoute: ApiStorageShareRoute,
@@ -1294,18 +1335,6 @@ const rootRouteChildren: RootRouteChildren = {
   ApiStorageUploadPresignRoute: ApiStorageUploadPresignRoute,
   ApiWebrtcGetSignalRoute: ApiWebrtcGetSignalRoute,
   ApiWebrtcSetSignalRoute: ApiWebrtcSetSignalRoute,
-  ApiStorageS3SplatRoute: ApiStorageS3SplatRoute,
-  ApiStorageS3BucketCredentialsRoute: ApiStorageS3BucketCredentialsRoute,
-  ApiStorageS3BucketItemsRoute: ApiStorageS3BucketItemsRoute,
-  ApiStorageS3BucketSettingsRoute: ApiStorageS3BucketSettingsRoute,
-  ApiStorageS3BucketsRoute: ApiStorageS3BucketsRoute,
-  ApiStorageS3CompleteUploadRoute: ApiStorageS3CompleteUploadRoute,
-  ApiStorageS3DeleteBucketRoute: ApiStorageS3DeleteBucketRoute,
-  ApiStorageS3EmptyBucketRoute: ApiStorageS3EmptyBucketRoute,
-  ApiStorageS3InitiateUploadRoute: ApiStorageS3InitiateUploadRoute,
-  ApiStorageS3ObjectSettingsRoute: ApiStorageS3ObjectSettingsRoute,
-  ApiStorageS3UploadStatusRoute: ApiStorageS3UploadStatusRoute,
-  ApiStorageS3IndexRoute: ApiStorageS3IndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
