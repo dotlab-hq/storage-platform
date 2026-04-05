@@ -1,5 +1,5 @@
 import type { BucketContext } from "@/lib/s3-gateway/s3-context"
-import { isSigV4Valid, isSecretValid, parseAccessKeyId, resolveBucketByAccessKey, resolveBucketByName } from "@/lib/s3-gateway/s3-context"
+import { isSigV4Valid, isSecretValid, parseAccessKeyId, resolveBucketByAccessKey } from "@/lib/s3-gateway/s3-context"
 import { isActionAllowed } from "@/lib/s3-gateway/s3-authz"
 
 export type ErrorWithMetadata = {
@@ -43,8 +43,14 @@ export async function resolveAuthorizedBucket( request: Request, bucketName: str
     if ( !accessKeyId ) return null
     const byAccessKey = await resolveBucketByAccessKey( accessKeyId )
     if ( !byAccessKey ) return null
-    const candidateBucket = bucketName ? await resolveBucketByName( bucketName ) : byAccessKey
-    if ( !candidateBucket ) return null
+
+    // Access keys are bucket-scoped in this gateway, so avoid resolving by global
+    // bucket name here to prevent mismatches when different users share a name.
+    if ( bucketName && byAccessKey.bucketName !== bucketName ) {
+        return null
+    }
+    const candidateBucket = byAccessKey
+
     if ( isSigV4Valid( request, candidateBucket ) ) {
         return candidateBucket
     }

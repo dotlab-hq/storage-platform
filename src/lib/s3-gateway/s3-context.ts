@@ -67,6 +67,27 @@ function canonicalQueryString( url: URL, includeSignature: boolean ): string {
     return pairs.map( ( pair ) => `${encodeRfc3986( pair.key )}=${encodeRfc3986( pair.value )}` ).join( "&" )
 }
 
+function canonicalQueryStringWithoutEmptyEquals( url: URL, includeSignature: boolean ): string {
+    const pairs: Array<{ key: string, value: string }> = []
+    for ( const [key, value] of url.searchParams.entries() ) {
+        if ( !includeSignature && key === "X-Amz-Signature" ) {
+            continue
+        }
+        pairs.push( { key, value } )
+    }
+    pairs.sort( ( a, b ) => {
+        const k = a.key.localeCompare( b.key )
+        if ( k !== 0 ) return k
+        return a.value.localeCompare( b.value )
+    } )
+    return pairs
+        .map( ( pair ) => pair.value.length === 0
+            ? encodeRfc3986( pair.key )
+            : `${encodeRfc3986( pair.key )}=${encodeRfc3986( pair.value )}`,
+        )
+        .join( "&" )
+}
+
 function normalizeHeaderValue( value: string ): string {
     return value.trim().replace( /\s+/g, " " )
 }
@@ -93,6 +114,103 @@ function canonicalUri( url: URL ): string {
         .split( "/" )
         .map( ( segment ) => encodeRfc3986( decodeURIComponent( segment ) ) )
         .join( "/" )
+}
+
+function canonicalUriRaw( url: URL ): string {
+    return url.pathname
+}
+
+function isHeaderSignatureMatch( input: {
+    request: Request
+    url: URL
+    amzDate: string
+    dateStamp: string
+    region: string
+    service: string
+    signingKey: Buffer
+    signature: string
+    payloadHash: string
+    signedHeaders: string[]
+} ): boolean {
+    const canonical = canonicalHeaders( input.request, input.signedHeaders )
+    const canonicalUris = [canonicalUri( input.url ), canonicalUriRaw( input.url )]
+    const canonicalQueries = [
+        canonicalQueryString( input.url, true ),
+        canonicalQueryStringWithoutEmptyEquals( input.url, true ),
+    ]
+
+    for ( const uri of canonicalUris ) {
+        for ( const query of canonicalQueries ) {
+            const canonicalRequest = [
+                input.request.method,
+                uri,
+                query,
+                canonical.headers,
+                canonical.signedHeaders,
+                input.payloadHash,
+            ].join( "\n" )
+
+            const stringToSign = [
+                "AWS4-HMAC-SHA256",
+                input.amzDate,
+                `${input.dateStamp}/${input.region}/${input.service}/aws4_request`,
+                sha256Hex( canonicalRequest ),
+            ].join( "\n" )
+
+            const expectedSignature = hmacHex( input.signingKey, stringToSign )
+            if ( expectedSignature.toLowerCase() === input.signature.toLowerCase() ) {
+                return true
+            }
+        }
+    }
+
+    return false
+}
+
+function isQuerySignatureMatch( input: {
+    request: Request
+    url: URL
+    amzDate: string
+    dateStamp: string
+    region: string
+    service: string
+    signingKey: Buffer
+    signature: string
+    signedHeadersRaw: string
+} ): boolean {
+    const canonical = canonicalHeaders( input.request, input.signedHeadersRaw.split( ";" ) )
+    const canonicalUris = [canonicalUri( input.url ), canonicalUriRaw( input.url )]
+    const canonicalQueries = [
+        canonicalQueryString( input.url, false ),
+        canonicalQueryStringWithoutEmptyEquals( input.url, false ),
+    ]
+
+    for ( const uri of canonicalUris ) {
+        for ( const query of canonicalQueries ) {
+            const canonicalRequest = [
+                input.request.method,
+                uri,
+                query,
+                canonical.headers,
+                canonical.signedHeaders,
+                "UNSIGNED-PAYLOAD",
+            ].join( "\n" )
+
+            const stringToSign = [
+                "AWS4-HMAC-SHA256",
+                input.amzDate,
+                `${input.dateStamp}/${input.region}/${input.service}/aws4_request`,
+                sha256Hex( canonicalRequest ),
+            ].join( "\n" )
+
+            const expectedSignature = hmacHex( input.signingKey, stringToSign )
+            if ( expectedSignature.toLowerCase() === input.signature.toLowerCase() ) {
+                return true
+            }
+        }
+    }
+
+    return false
 }
 
 function isWithinSkew( requestDate: Date ): boolean {
@@ -228,26 +346,19 @@ export function isSigV4Valid( request: Request, bucket: BucketContext ): boolean
 
         const payloadHash = request.headers.get( "x-amz-content-sha256" ) ?? "UNSIGNED-PAYLOAD"
         const signedHeaders = signedHeadersMatch[1].split( ";" )
-        const canonical = canonicalHeaders( request, signedHeaders )
-        const canonicalRequest = [
-            request.method,
-            canonicalUri( url ),
-            canonicalQueryString( url, true ),
-            canonical.headers,
-            canonical.signedHeaders,
-            payloadHash,
-        ].join( "\n" )
-
-        const stringToSign = [
-            "AWS4-HMAC-SHA256",
-            amzDate,
-            `${dateStamp}/${region}/${service}/aws4_request`,
-            sha256Hex( canonicalRequest ),
-        ].join( "\n" )
-
         const signingKey = deriveSigningKey( secretAccessKey, dateStamp, region, service )
-        const expectedSignature = hmacHex( signingKey, stringToSign )
-        return expectedSignature.toLowerCase() === signatureMatch[1].toLowerCase()
+        return isHeaderSignatureMatch( {
+            request,
+            url,
+            amzDate,
+            dateStamp,
+            region,
+            service,
+            signingKey,
+            signature: signatureMatch[1],
+            payloadHash,
+            signedHeaders,
+        } )
     }
 
     if ( querySignature ) {
@@ -285,26 +396,18 @@ export function isSigV4Valid( request: Request, bucket: BucketContext ): boolean
             return false
         }
 
-        const canonical = canonicalHeaders( request, signedHeadersRaw.split( ";" ) )
-        const canonicalRequest = [
-            request.method,
-            canonicalUri( url ),
-            canonicalQueryString( url, false ),
-            canonical.headers,
-            canonical.signedHeaders,
-            "UNSIGNED-PAYLOAD",
-        ].join( "\n" )
-
-        const stringToSign = [
-            "AWS4-HMAC-SHA256",
-            amzDate,
-            `${dateStamp}/${region}/${service}/aws4_request`,
-            sha256Hex( canonicalRequest ),
-        ].join( "\n" )
-
         const signingKey = deriveSigningKey( secretAccessKey, dateStamp, region, service )
-        const expectedSignature = hmacHex( signingKey, stringToSign )
-        return expectedSignature.toLowerCase() === querySignature.toLowerCase()
+        return isQuerySignatureMatch( {
+            request,
+            url,
+            amzDate,
+            dateStamp,
+            region,
+            service,
+            signingKey,
+            signature: querySignature,
+            signedHeadersRaw,
+        } )
     }
 
     return false
