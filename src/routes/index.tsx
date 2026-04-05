@@ -3,11 +3,6 @@ import { createFileRoute } from '@tanstack/react-router'
 import { FilePlus } from 'lucide-react'
 import { AppSidebar } from '@/components/app-sidebar'
 import { Separator } from '@/components/ui/separator'
-import {
-  ContextMenu,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuTrigger,
 } from '@/components/ui/context-menu'
 import {
   SidebarInset,
@@ -139,6 +134,16 @@ function StoragePage() {
     },
   })
   useHomeShellActions()
+  
+  useEffect(() => {
+    const handleCreateNewFile = () => {
+      setEditorItem(null)
+      setEditorOpen(true)
+    }
+    window.addEventListener('dot:create-new-file', handleCreateNewFile)
+    return () => window.removeEventListener('dot:create-new-file', handleCreateNewFile)
+  }, [])
+
   const selectedItems = storage.items.filter((i) =>
     selection.selectedIds.has(i.id),
   )
@@ -209,46 +214,36 @@ function StoragePage() {
               />
             </header>
 
-            <ContextMenu>
-              <ContextMenuTrigger asChild>
-                <div
-                  className="flex flex-1 flex-col gap-4 p-4 pt-0"
-                  onClick={(event) => {
-                    const target = event.target as HTMLElement
-                    if (target.closest("[data-file-card='true']")) return
-                    selection.clearSelection()
-                  }}
-                >
-                  <DeviceTransferSection
-                    onSaveRequest={(file) => {
-                      setFileToSave(file)
-                      setSaveFileDialogOpen(true)
-                    }}
-                  />
-                  <FileGrid
-                    items={storage.items}
-                    uploads={storage.uploads}
-                    isLoading={storage.isLoading}
-                    selectedIds={selection.selectedIds}
-                    onBoxSelect={(ids, append) =>
-                      selection.selectMany(ids, append)
-                    }
-                    onDoubleClick={actions.handleDoubleClick}
-                    onContextAction={actions.handleContextAction}
-                    renamingItemId={actions.renamingItemId}
-                    onRename={actions.handleRename}
-                    onRenameCancel={() => actions.setRenamingItemId(null)}
-                    onDragMoveItem={bulk.handleDragMoveItem}
-                  />
-                </div>
-              </ContextMenuTrigger>
-              <ContextMenuContent className="w-48">
-                <ContextMenuItem onSelect={openCreateFileEditor}>
-                  <FilePlus className="mr-2 h-4 w-4" />
-                  Create New File
-                </ContextMenuItem>
-              </ContextMenuContent>
-            </ContextMenu>
+            <div
+              className="flex flex-1 flex-col gap-4 p-4 pt-0 " data-shell-context-menu="true"
+              onClick={(event) => {
+                const target = event.target as HTMLElement
+                if (target.closest("[data-file-card='true']")) return
+                selection.clearSelection()
+              }}
+            >
+              <DeviceTransferSection
+                onSaveRequest={(file) => {
+                  setFileToSave(file)
+                  setSaveFileDialogOpen(true)
+                }}
+              />
+              <FileGrid
+                items={storage.items}
+                uploads={storage.uploads}
+                isLoading={storage.isLoading}
+                selectedIds={selection.selectedIds}
+                onBoxSelect={(ids, append) =>
+                  selection.selectMany(ids, append)
+                }
+                onDoubleClick={actions.handleDoubleClick}
+                onContextAction={actions.handleContextAction}
+                renamingItemId={actions.renamingItemId}
+                onRename={actions.handleRename}
+                onRenameCancel={() => actions.setRenamingItemId(null)}
+                onDragMoveItem={bulk.handleDragMoveItem}
+              />
+            </div>
           </SidebarInset>
         </SidebarProvider>
         <DragDropOverlay isDragging={dragDrop.isDragging} />

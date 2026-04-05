@@ -5,6 +5,11 @@ export function useHomeShellActions() {
     const homeActions = useMemo( () => ( {
         commandActions: [
             {
+                id: "create-new-file",
+                label: "Create New File",
+                onSelect: () => window.dispatchEvent( new Event( "dot:create-new-file" ) ),
+            },
+            {
                 id: "upload-files",
                 label: "Upload Files",
                 onSelect: () => window.dispatchEvent( new Event( "dot:open-upload" ) ),
@@ -16,6 +21,11 @@ export function useHomeShellActions() {
             },
         ],
         contextActions: [
+            {
+                id: "ctx-create-new-file",
+                label: "Create New File",
+                onSelect: () => window.dispatchEvent( new Event( "dot:create-new-file" ) ),
+            },
             {
                 id: "ctx-upload-files",
                 label: "Upload Files",
