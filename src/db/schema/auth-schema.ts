@@ -135,6 +135,10 @@ export const tinySession = sqliteTable(
     sourceOfferId: text('source_offer_id').references(() => qrLoginOffer.id, {
       onDelete: 'set null',
     }),
+    webrtcSignal: text('webrtc_signal'),
+    webrtcSignalExpiresAt: integer('webrtc_signal_expires_at', {
+      mode: 'timestamp_ms',
+    }),
     createdAt: integer('created_at', { mode: 'timestamp_ms' })
       .default(sql`(cast(unixepoch('subsecond') * 1000 as integer))`)
       .notNull(),

@@ -51,34 +51,75 @@ const ICE_SERVERS: RTCIceServer[] = [
   { urls: 'stun:stun1.l.google.com:19302' },
 ]
 
+const SIGNAL_POLL_INTERVAL_MS = 2000
+const SIGNAL_TTL_MS = 30000
+
 export function WebRTCProvider({
   children,
   sessionToken,
 }: WebRTCProviderProps) {
   const [isConnected, setIsConnected] = React.useState(false)
-  const [peerConnection, setPeerConnection] =
-    React.useState<RTCPeerConnection | null>(null)
   const [incomingFiles, setIncomingFiles] = React.useState<IncomingFile[]>([])
   const [outgoingFiles, setOutgoingFiles] = React.useState<OutgoingFile[]>([])
-  const [dataChannel, setDataChannel] = React.useState<RTCDataChannel | null>(
-    null,
-  )
 
-  const startConnection = async (_token: string) => {
+  const peerConnection = React.useRef<RTCPeerConnection | null>(null)
+  const dataChannel = React.useRef<RTCDataChannel | null>(null)
+  const pollingRef = React.useRef<number | null>(null)
+
+  const setSignal = async (
+    signal: RTCSessionDescriptionInit | RTCIceCandidateInit,
+  ) => {
+    if (!sessionToken) return
+    await fetch('/api/webrtc/set-signal', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sessionToken, signal: JSON.stringify(signal) }),
+    })
+  }
+
+  const getSignal = async (): Promise<RTCSessionDescriptionInit | null> => {
+    if (!sessionToken) return null
+    const response = await fetch(
+      `/api/webrtc/get-signal?sessionToken=${encodeURIComponent(sessionToken)}`,
+    )
+    const data = (await response.json()) as {
+      hasSignal: boolean
+      signal: string | null
+    }
+    if (data.hasSignal && data.signal) {
+      return JSON.parse(data.signal)
+    }
+    return null
+  }
+
+  const startConnection = async () => {
+    if (!sessionToken) return
+
     const pc = new RTCPeerConnection({ iceServers: ICE_SERVERS })
+    peerConnection.current = pc
 
     pc.oniceconnectionstatechange = () => {
-      setIsConnected(pc.iceConnectionState === 'connected')
+      const state = pc.iceConnectionState
+      setIsConnected(state === 'connected' || state === 'completed')
     }
+
+    const channel = pc.createDataChannel('fileTransfer')
+    setupDataChannel(channel)
 
     pc.ondatachannel = (event) => {
       setupDataChannel(event.channel)
     }
 
-    setPeerConnection(pc)
+    const offer = await pc.createOffer()
+    await pc.setLocalDescription(offer)
+    await setSignal(offer)
+
+    startPolling()
   }
 
   const setupDataChannel = (channel: RTCDataChannel) => {
+    dataChannel.current = channel
+
     channel.onmessage = (event) => {
       try {
         const data = JSON.parse(event.data)
@@ -117,11 +158,51 @@ export function WebRTCProvider({
       }
     }
 
-    setDataChannel(channel)
+    channel.onopen = () => {
+      console.log('Data channel opened')
+    }
+
+    channel.onclose = () => {
+      console.log('Data channel closed')
+    }
+  }
+
+  const startPolling = () => {
+    if (pollingRef.current) return
+
+    const poll = async () => {
+      try {
+        const peerSignal = await getSignal()
+        if (peerSignal && peerConnection.current) {
+          const current = peerConnection.current.remoteDescription
+          if (!current) {
+            await peerConnection.current.setRemoteDescription(peerSignal)
+            if (peerSignal.type === 'offer') {
+              const answer = await peerConnection.current.createAnswer()
+              await peerConnection.current.setLocalDescription(answer)
+              await setSignal(answer)
+            }
+          }
+        }
+      } catch (e) {
+        console.error('Polling error:', e)
+      }
+    }
+
+    poll()
+    pollingRef.current = window.setInterval(poll, SIGNAL_POLL_INTERVAL_MS)
+  }
+
+  const stopPolling = () => {
+    if (pollingRef.current) {
+      window.clearInterval(pollingRef.current)
+      pollingRef.current = null
+    }
   }
 
   const sendFile = (file: File) => {
-    if (!dataChannel || dataChannel.readyState !== 'open') {
+    const channel = dataChannel.current
+    if (!channel || channel.readyState !== 'open') {
       console.error('Data channel not ready')
       return
     }
@@ -135,7 +216,7 @@ export function WebRTCProvider({
       size: file.size,
       mimeType: file.type || 'application/octet-stream',
     }
-    dataChannel.send(JSON.stringify(fileHeader))
+    channel.send(JSON.stringify(fileHeader))
 
     const chunkSize = 64 * 1024
     let offset = 0
@@ -146,7 +227,7 @@ export function WebRTCProvider({
 
       reader.onload = (e) => {
         if (e.target?.result) {
-          dataChannel.send(e.target.result as ArrayBuffer)
+          channel.send(e.target.result as ArrayBuffer)
           offset += chunkSize
 
           setOutgoingFiles((prev) =>
@@ -160,9 +241,7 @@ export function WebRTCProvider({
           if (offset < file.size) {
             sendChunk()
           } else {
-            dataChannel.send(
-              JSON.stringify({ type: 'file-complete', id: fileId }),
-            )
+            channel.send(JSON.stringify({ type: 'file-complete', id: fileId }))
             setOutgoingFiles((prev) =>
               prev.map((f) =>
                 f.id === fileId
@@ -204,11 +283,13 @@ export function WebRTCProvider({
 
   React.useEffect(() => {
     if (sessionToken) {
-      void startConnection(sessionToken)
+      void startConnection()
     }
 
     return () => {
-      peerConnection?.close()
+      stopPolling()
+      peerConnection.current?.close()
+      peerConnection.current = null
     }
   }, [sessionToken])
 
