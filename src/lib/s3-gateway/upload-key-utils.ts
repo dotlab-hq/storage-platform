@@ -2,10 +2,16 @@ export function buildUpstreamObjectKey(
   userId: string,
   bucketId: string,
   _folderId: string | null,
-  _objectKey: string,
+  objectKey: string,
 ): string {
-  const uuid = crypto.randomUUID()
-  return `s3/${userId}/${bucketId}/${uuid}`
+  const normalizedSegments = objectKey
+    .split('/')
+    .filter((segment) => segment.length > 0)
+    .map((segment) => encodeURIComponent(segment))
+  const normalizedObjectKey = normalizedSegments.join('/')
+  return normalizedObjectKey.length > 0
+    ? `s3/${userId}/${bucketId}/${normalizedObjectKey}`
+    : `s3/${userId}/${bucketId}/__root__`
 }
 
 const UUID_PREFIX_RE =

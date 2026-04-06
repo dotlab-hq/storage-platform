@@ -20,7 +20,7 @@ import {
 } from '@/lib/s3-provider-client'
 import { and, eq, isNull } from 'drizzle-orm'
 import { db } from '@/db'
-import { file, folder } from '@/db/schema/storage'
+import { file, folder, userStorage } from '@/db/schema/storage'
 import {
   ProviderRequestTimeoutError,
   sendWithProviderTimeout,
@@ -472,12 +472,9 @@ export async function deleteObject(
   }
 
   try {
-    await db
-      .update(file)
-      .set({
-        isDeleted: true,
-        deletedAt: new Date(),
-      })
+    const existingRows = await db
+      .select({ sizeInBytes: file.sizeInBytes })
+      .from(file)
       .where(
         and(
           eq(file.userId, bucket.userId),
@@ -485,17 +482,49 @@ export async function deleteObject(
           eq(file.isDeleted, false),
         ),
       )
+
+    const deletedBytes = existingRows.reduce(
+      (total, row) => total + row.sizeInBytes,
+      0,
+    )
+
+    await db
+      .delete(file)
+      .where(
+        and(
+          eq(file.userId, bucket.userId),
+          eq(file.objectKey, upstreamKey),
+          eq(file.isDeleted, false),
+        ),
+      )
+
+    if (deletedBytes > 0) {
+      const storageRows = await db
+        .select({ usedStorage: userStorage.usedStorage })
+        .from(userStorage)
+        .where(eq(userStorage.userId, bucket.userId))
+        .limit(1)
+
+      if (storageRows.length > 0) {
+        const nextUsedStorage = Math.max(
+          0,
+          storageRows[0].usedStorage - deletedBytes,
+        )
+        await db
+          .update(userStorage)
+          .set({ usedStorage: nextUsedStorage })
+          .where(eq(userStorage.userId, bucket.userId))
+      }
+    }
   } catch (error) {
     const message =
       error instanceof Error
         ? `${error.name}: ${error.message}`
         : 'Unknown query error'
     console.warn(
-      '[S3 Gateway] deleteObject fell back to hard delete due to schema mismatch:',
+      '[S3 Gateway] deleteObject failed to hard delete file record:',
       message,
     )
-
-    await db.delete(file).where(eq(file.objectKey, upstreamKey))
   }
 }
 
