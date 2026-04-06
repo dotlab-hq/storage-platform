@@ -118,7 +118,7 @@ export async function replaceBucketCors( bucketId: string, rules: BucketCorsRule
             exposeHeadersJson: JSON.stringify( rule.exposeHeaders ),
             maxAgeSeconds: rule.maxAgeSeconds,
         } ) ),
-    )
+    ).onConflictDoNothing()
 }
 
 export async function listMultipartUploads( bucket: BucketContext ): Promise<MultipartUploadListItem[]> {

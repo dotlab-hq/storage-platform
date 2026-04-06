@@ -79,7 +79,7 @@ export const requestPasswordResetFn = createServerFn( { method: "POST" } )
       await auth.api.requestPasswordReset( {
         body: {
           email: data.email,
-          redirectTo: "/auth/reset-password",
+          redirectTo: "/auth",
         },
       } )
       return { success: true, message: "If that email exists, a reset link was sent." }

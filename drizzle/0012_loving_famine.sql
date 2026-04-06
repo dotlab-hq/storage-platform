@@ -1,1 +1,1 @@
-DROP INDEX `twoFactor_secret_idx`;
+DROP INDEX IF EXISTS `twoFactor_secret_idx`;

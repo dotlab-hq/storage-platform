@@ -26,12 +26,12 @@
   // "vars": {
   //   "MY_VAR": "my-variable"
   // },
-  "hyperdrive": [
-    {
-      "binding": "DB",
-      "id": "3c26563cafef4f44a700a5ec0b63b693",
-    }
-  ],
+  // "hyperdrive": [
+  //   {
+  //     "binding": "DB",
+  //     "id": "3c26563cafef4f44a700a5ec0b63b693",
+  //   }
+  // ],
   "d1_databases": [
     {
       "binding": "DB_D1",
@@ -40,9 +40,15 @@
       "migrations_dir": "drizzle",
       "remote": true
     }
-  ]
-  // "kv_namespaces": [
-  // ],
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "ae8d8736c0324fc69af90f61a7981d19",
+      "remote": true
+
+    }
+  ],
   // "r2_buckets": [
   //   {
   //     "binding": "MY_BUCKET",

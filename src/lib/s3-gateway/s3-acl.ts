@@ -44,7 +44,7 @@ export async function ensureBucketAcl( bucket: BucketContext ): Promise<{ ownerC
     }
 
     const ownerCanonicalId = canonicalIdForUser( bucket.userId )
-    await db.insert( bucketAcl ).values( { bucketId: bucket.bucketId, ownerCanonicalId, cannedAcl: "private" } )
+    await db.insert( bucketAcl ).values( { bucketId: bucket.bucketId, ownerCanonicalId, cannedAcl: "private" } ).onConflictDoNothing()
     return { ownerCanonicalId, cannedAcl: "private" }
 }
 

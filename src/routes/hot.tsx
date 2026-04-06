@@ -14,105 +14,105 @@ type OfferResponse = {
 
 type PollResponse = {
   status:
-    | 'pending'
-    | 'claimed'
-    | 'approved'
-    | 'expired'
-    | 'rejected'
-    | 'not_found'
+  | 'pending'
+  | 'claimed'
+  | 'approved'
+  | 'expired'
+  | 'rejected'
+  | 'not_found'
   message?: string
   tinySessionExpiresAt?: string
 }
 
 const ONE_MINUTE_MS = 60_000
 
-export const Route = createFileRoute('/hot')({
+export const Route = createFileRoute( '/hot' )( {
   component: HotRoute,
-})
+} )
 
 function HotRoute() {
-  const [qrImage, setQrImage] = React.useState('')
-  const [offer, setOffer] = React.useState<OfferResponse | null>(null)
+  const [qrImage, setQrImage] = React.useState( '' )
+  const [offer, setOffer] = React.useState<OfferResponse | null>( null )
   const [stateMessage, setStateMessage] = React.useState(
     'Generate a QR to start a tiny session.',
   )
-  const [loading, setLoading] = React.useState(false)
-  const [expired, setExpired] = React.useState(false)
+  const [loading, setLoading] = React.useState( false )
+  const [expired, setExpired] = React.useState( false )
 
-  const generateQr = React.useCallback(async () => {
-    setLoading(true)
-    setExpired(false)
-    setStateMessage('Generating QR...')
+  const generateQr = React.useCallback( async () => {
+    setLoading( true )
+    setExpired( false )
+    setStateMessage( 'Generating QR...' )
     try {
-      const response = await fetch('/api/qr-auth/create-offer', {
+      const response = await fetch( '/api/qr-auth/create-offer', {
         method: 'POST',
-      })
-      const data = (await response.json())
+      } )
+      const data = ( await response.json() )
       const resData = data as any;
-      if (!response.ok || !resData.payload) {
+      if ( !response.ok || !resData.payload ) {
         throw new Error(
-          (data as { error?: string }).error ?? 'Failed to generate QR offer.',
+          ( data as { error?: string } ).error ?? 'Failed to generate QR offer.',
         )
       }
 
-      const dataUrl = await QRCode.toDataURL(resData.payload as string, {
+      const dataUrl = await QRCode.toDataURL( resData.payload as string, {
         width: 260,
         margin: 1,
-      })
+      } )
 
-      setOffer(resData)
-      setQrImage(dataUrl as any)
-      setStateMessage('Scan-based login ready. Tiny session lasts 10 minutes.')
-    } catch (error) {
-      setOffer(null)
-      setQrImage('')
+      setOffer( resData )
+      setQrImage( dataUrl as any )
+      setStateMessage( 'Scan-based login ready. Tiny session lasts 10 minutes.' )
+    } catch ( error ) {
+      setOffer( null )
+      setQrImage( '' )
       setStateMessage(
         error instanceof Error ? error.message : 'Failed to generate QR offer.',
       )
-      setExpired(true)
+      setExpired( true )
     } finally {
-      setLoading(false)
+      setLoading( false )
     }
-  }, [])
+  }, [] )
 
-  React.useEffect(() => {
+  React.useEffect( () => {
     void generateQr()
-  }, [generateQr])
+  }, [generateQr] )
 
-  React.useEffect(() => {
-    if (!offer || expired) return
+  React.useEffect( () => {
+    if ( !offer || expired ) return
 
     let cancelled = false
     const startedAt = Date.now()
 
     const poll = async () => {
-      if (cancelled) return
+      if ( cancelled ) return
 
-      if (Date.now() - startedAt >= ONE_MINUTE_MS) {
-        setExpired(true)
-        setStateMessage('QR has expired - generate new QR.')
+      if ( Date.now() - startedAt >= ONE_MINUTE_MS ) {
+        setExpired( true )
+        setStateMessage( 'QR has expired - generate new QR.' )
         return
       }
 
       try {
         const response = await fetch(
-          `/api/qr-auth/poll?pollKey=${encodeURIComponent(offer.pollKey)}`,
+          `/api/qr-auth/poll?pollKey=${encodeURIComponent( offer.pollKey )}`,
         )
-        const data = (await response
+        const data = ( await response
           .json()
-          .catch(() => null)) as PollResponse | null
-        if (!response.ok || !data) {
+          .catch( () => null ) ) as PollResponse | null
+        if ( !response.ok || !data ) {
           return
         }
 
-        if (data.status === 'approved') {
-          setStateMessage('Tiny session approved. Redirecting...')
+        if ( data.status === 'approved' ) {
+          setStateMessage( 'Tiny session approved. Redirecting...' )
           window.location.href = '/'
           return
         }
 
-        if (data.status === 'claimed') {
-          setStateMessage('QR scanned. Finalizing tiny session...')
+        if ( data.status === 'claimed' ) {
+          setStateMessage( 'QR scanned. Finalizing tiny session...' )
           return
         }
 
@@ -121,8 +121,8 @@ function HotRoute() {
           data.status === 'rejected' ||
           data.status === 'not_found'
         ) {
-          setExpired(true)
-          setStateMessage(data.message ?? 'QR has expired - generate new QR.')
+          setExpired( true )
+          setStateMessage( data.message ?? 'QR has expired - generate new QR.' )
         }
       } catch {
         // Keep polling in case of transient errors.
@@ -130,15 +130,15 @@ function HotRoute() {
     }
 
     void poll()
-    const timer = window.setInterval(() => {
+    const timer = window.setInterval( () => {
       void poll()
-    }, offer.pollIntervalMs ?? 5000)
+    }, offer.pollIntervalMs ?? 5000 )
 
     return () => {
       cancelled = true
-      window.clearInterval(timer)
+      window.clearInterval( timer )
     }
-  }, [offer, expired])
+  }, [offer, expired] )
 
   return (
     <div className="bg-background flex min-h-svh items-center justify-center p-6">
@@ -179,7 +179,7 @@ function HotRoute() {
             {loading ? 'Generating...' : 'Generate new QR'}
           </Button>
           <Button asChild variant="ghost">
-            <Link to="/auth/login">Back to login</Link>
+            <Link to="/auth">Back to login</Link>
           </Button>
         </div>
       </div>
