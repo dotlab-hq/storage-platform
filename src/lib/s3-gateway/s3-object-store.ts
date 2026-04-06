@@ -12,6 +12,10 @@ import {
   normalizeETag,
   shouldReturnNotModified,
 } from '@/lib/s3-gateway/s3-conditional-cache'
+import {
+  deleteCachedS3Object,
+  getS3ObjectCacheKey,
+} from '@/lib/s3-gateway/s3-get-object-cache'
 import { findStoredObject } from '@/lib/s3-gateway/s3-stored-object'
 import type { ObjectConditionalHeaders } from '@/lib/s3-gateway/s3-conditional-cache'
 import {
@@ -178,6 +182,8 @@ export async function putObject(
   contentType: string | null,
   contentLength: number | null,
 ): Promise<string | null> {
+  const cacheKey = getS3ObjectCacheKey(bucket.bucketId, objectKey)
+  deleteCachedS3Object(cacheKey)
   const { folderPath, fileName, isDirectory } = splitObjectKey(objectKey)
 
   // Resolve the destination folder ID
@@ -443,6 +449,7 @@ export async function deleteObject(
   bucket: BucketContext,
   objectKey: string,
 ): Promise<void> {
+  const cacheKey = getS3ObjectCacheKey(bucket.bucketId, objectKey)
   const upstreamKey = upstreamKeyFor(bucket, objectKey)
   const stored = await findStoredObject(bucket, objectKey)
   const provider = await getProviderClientById(stored?.providerId ?? null)
@@ -526,6 +533,8 @@ export async function deleteObject(
       message,
     )
   }
+
+  deleteCachedS3Object(cacheKey)
 }
 
 export async function copyObject(
@@ -534,6 +543,11 @@ export async function copyObject(
   destinationBucket: BucketContext,
   destinationObjectKey: string,
 ): Promise<{ eTag: string | null; lastModified: Date }> {
+  const destinationCacheKey = getS3ObjectCacheKey(
+    destinationBucket.bucketId,
+    destinationObjectKey,
+  )
+  deleteCachedS3Object(destinationCacheKey)
   const sourceStored = await findStoredObject(sourceBucket, sourceObjectKey)
   const sourceUpstreamKey =
     sourceStored?.objectKey ?? upstreamKeyFor(sourceBucket, sourceObjectKey)
