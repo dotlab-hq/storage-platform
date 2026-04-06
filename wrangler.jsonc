@@ -1,26 +1,24 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "storage",
-  "main": "@tanstack/react-start/server-entry",
+  "main": "src/server.ts",
   "assets": {
     "binding": "ASSETS",
-    "directory": "./public"
+    "directory": "./public",
   },
   "compatibility_date": "2026-03-24",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
+  "compatibility_flags": ["nodejs_compat"],
   "observability": {
     "enabled": false,
     "head_sampling_rate": 1,
     "logs": {
       "enabled": true,
       "head_sampling_rate": 1,
-      "invocation_logs": true
+      "invocation_logs": true,
     },
   },
   "placement": {
-    "region": "aws:ap-south-1"
+    "region": "aws:ap-south-1",
   },
   "keep_vars": true,
   // "vars": {
@@ -38,16 +36,38 @@
       "database_name": "storage-db",
       "database_id": "a80e9922-5ba7-4013-9e89-2fe232137f23",
       "migrations_dir": "drizzle",
-      "remote": true
-    }
+      "remote": true,
+    },
   ],
   "kv_namespaces": [
     {
       "binding": "KV",
       "id": "ae8d8736c0324fc69af90f61a7981d19",
-      "remote": true
-
-    }
+      "remote": true,
+    },
+  ],
+  "queues": {
+    "producers": [
+      {
+        "binding": "URL_IMPORT_QUEUE",
+        "queue": "url-import-jobs",
+      },
+    ],
+    "consumers": [
+      {
+        "queue": "url-import-jobs",
+        "max_batch_size": 10,
+        "max_batch_timeout": 10,
+        "max_retries": 10,
+      },
+    ],
+  },
+  "workflows": [
+    {
+      "name": "url-import-workflow",
+      "binding": "URL_IMPORT_WORKFLOW",
+      "class_name": "UrlImportWorkflow",
+    },
   ],
   // "r2_buckets": [
   //   {
