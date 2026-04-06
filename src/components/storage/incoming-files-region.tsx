@@ -10,37 +10,38 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { formatFileSize } from '@/lib/file-utils'
-import { useWebRTC, type IncomingFile } from '@/hooks/use-webrtc'
+import { useWebRTC } from '@/hooks/use-webrtc'
+import type { IncomingFile } from '@/hooks/use-webrtc';
 
 type IncomingFilesRegionProps = {
-  onSaveRequest: (file: IncomingFile) => void
+  onSaveRequest: ( file: IncomingFile ) => void
 }
 
-export function IncomingFilesRegion({
+export function IncomingFilesRegion( {
   onSaveRequest,
-}: IncomingFilesRegionProps) {
+}: IncomingFilesRegionProps ) {
   const { incomingFiles, rejectFile, clearReceived } = useWebRTC()
-  const receivedFiles = incomingFiles.filter((f) => f.status === 'received')
-  const receivingFiles = incomingFiles.filter((f) => f.status === 'receiving')
+  const receivedFiles = incomingFiles.filter( ( f ) => f.status === 'received' )
+  const receivingFiles = incomingFiles.filter( ( f ) => f.status === 'receiving' )
 
-  if (incomingFiles.length === 0) {
+  if ( incomingFiles.length === 0 ) {
     return null
   }
 
   return (
     <div className="space-y-2">
-      {receivingFiles.map((file) => (
+      {receivingFiles.map( ( file ) => (
         <IncomingFileReceivingCard key={file.id} file={file} />
-      ))}
+      ) )}
 
-      {receivedFiles.map((file) => (
+      {receivedFiles.map( ( file ) => (
         <IncomingFileReceivedCard
           key={file.id}
           file={file}
-          onSave={() => onSaveRequest(file)}
-          onReject={() => rejectFile(file.id)}
+          onSave={() => onSaveRequest( file )}
+          onReject={() => rejectFile( file.id )}
         />
-      ))}
+      ) )}
 
       {receivedFiles.length > 0 && (
         <Button
@@ -56,7 +57,7 @@ export function IncomingFilesRegion({
   )
 }
 
-function IncomingFileReceivingCard({ file }: { file: IncomingFile }) {
+function IncomingFileReceivingCard( { file }: { file: IncomingFile } ) {
   return (
     <div className="flex items-center justify-between rounded-lg border border-primary/30 bg-primary/5 p-3">
       <div className="min-w-0 flex-1">
@@ -66,16 +67,17 @@ function IncomingFileReceivingCard({ file }: { file: IncomingFile }) {
         </p>
       </div>
       <div className="h-2 w-24 overflow-hidden rounded-full bg-secondary">
+        { }
         <div
           className="h-full bg-primary transition-all"
-          style={{ width: `${file.progress}%` }}
+          style={{ '--progress': `${file.progress}%` } as React.CSSProperties}
         />
       </div>
     </div>
   )
 }
 
-function IncomingFileReceivedCard({
+function IncomingFileReceivedCard( {
   file,
   onSave,
   onReject,
@@ -83,13 +85,13 @@ function IncomingFileReceivedCard({
   file: IncomingFile
   onSave: () => void
   onReject: () => void
-}) {
+} ) {
   return (
     <div className="flex items-center justify-between rounded-lg border border-primary bg-primary/5 p-3">
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm font-medium">{file.name}</p>
         <p className="text-muted-foreground text-xs">
-          {formatFileSize(file.size)} received
+          {formatFileSize( file.size )} received
         </p>
       </div>
       <DropdownMenu>

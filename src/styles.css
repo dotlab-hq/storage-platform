@@ -157,6 +157,7 @@
 
   /* Firefox */
   .hide-scrollbar {
+    /* stylelint-disable-next-line */
     scrollbar-width: none;
   }
 
@@ -308,4 +309,9 @@ select,
   0% { transform: scale(0); opacity: 0; }
   50% { transform: scale(1.2); opacity: 1; }
   100% { transform: scale(1); opacity: 1; }
+}
+
+/* Progress bar width from CSS variable */
+[style*="--progress"] {
+  width: var(--progress);
 }
