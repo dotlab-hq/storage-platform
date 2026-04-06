@@ -1,10 +1,10 @@
 import { auth } from '@/lib/auth'
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import { db } from '@/db'
-import { account, tinySession } from '@/db/schema/auth-schema'
+import { account } from '@/db/schema/auth-schema'
 import { createServerFn } from '@tanstack/react-start'
 import { getRequest } from '@tanstack/react-start/server'
-import { and, desc, eq, gt, isNull } from 'drizzle-orm'
+import { and, eq } from 'drizzle-orm'
 import { z } from 'zod'
 
 const ProfileSchema = z.object({
@@ -66,47 +66,13 @@ export const getSettingsSnapshotFn = createServerFn({ method: 'GET' }).handler(
     const currentUser = await getAuthenticatedUser()
     const request = getRequest()
     const headers = request.headers
-    const now = new Date()
-    const [session, methods, activeTinySessions, expiredTinySessions] =
-      await Promise.all([
-        auth.api.getSession({ headers }),
-        auth.api.listUserAccounts({ headers }).catch((error: unknown) => {
-          console.error('[settings] listUserAccounts failed', error)
-          return [] as AuthAccountMethod[]
-        }),
-        db
-          .select({
-            id: tinySession.id,
-            permission: tinySession.permission,
-            createdAt: tinySession.createdAt,
-            expiresAt: tinySession.expiresAt,
-            lastUsedAt: tinySession.lastUsedAt,
-            revokedAt: tinySession.revokedAt,
-          })
-          .from(tinySession)
-          .where(
-            and(
-              eq(tinySession.userId, currentUser.id),
-              isNull(tinySession.revokedAt),
-              gt(tinySession.expiresAt, now),
-            ),
-          )
-          .orderBy(desc(tinySession.createdAt))
-          .limit(10),
-        db
-          .select({
-            id: tinySession.id,
-            permission: tinySession.permission,
-            createdAt: tinySession.createdAt,
-            expiresAt: tinySession.expiresAt,
-            lastUsedAt: tinySession.lastUsedAt,
-            revokedAt: tinySession.revokedAt,
-          })
-          .from(tinySession)
-          .where(eq(tinySession.userId, currentUser.id))
-          .orderBy(desc(tinySession.createdAt))
-          .limit(30),
-      ])
+    const [session, methods] = await Promise.all([
+      auth.api.getSession({ headers }),
+      auth.api.listUserAccounts({ headers }).catch((error: unknown) => {
+        console.error('[settings] listUserAccounts failed', error)
+        return [] as AuthAccountMethod[]
+      }),
+    ])
     if (!session?.user) throw new Error('Unauthorized')
     const sessionUser = session.user as SessionUserWith2FA
     const twoFactorEnabled = Boolean(sessionUser.twoFactorEnabled)
@@ -129,8 +95,8 @@ export const getSettingsSnapshotFn = createServerFn({ method: 'GET' }).handler(
         createdAt: method.createdAt,
       })),
       tinySessions: {
-        active: activeTinySessions,
-        recent: expiredTinySessions,
+        active: [],
+        recent: [],
       },
     }
   },
