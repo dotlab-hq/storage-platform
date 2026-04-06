@@ -1,6 +1,7 @@
 'use client'
 import * as React from 'react'
 import type { IncomingFile, OutgoingFile } from './types'
+import { getSignalServerFn, setSignalServerFn } from './webrtc-server'
 
 const ICE_SERVERS: RTCIceServer[] = [
   { urls: 'stun:stun.l.google.com:19302' },
@@ -24,26 +25,18 @@ export function useWebRTCConnection(sessionToken: string | null) {
   ) => {
     const token = activeSessionToken.current
     if (!token) return
-    await fetch('/api/webrtc/set-signal', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
+    await setSignalServerFn({
+      data: {
         sessionToken: token,
         signal: JSON.stringify(signal),
-      }),
+      },
     })
   }
 
   const getSignal = async (): Promise<RTCSessionDescriptionInit | null> => {
     const token = activeSessionToken.current
     if (!token) return null
-    const response = await fetch(
-      `/api/webrtc/get-signal?sessionToken=${encodeURIComponent(token)}`,
-    )
-    const data = (await response.json()) as {
-      hasSignal: boolean
-      signal: string | null
-    }
+    const data = await getSignalServerFn({ data: { sessionToken: token } })
     if (data.hasSignal && data.signal) return JSON.parse(data.signal)
     return null
   }

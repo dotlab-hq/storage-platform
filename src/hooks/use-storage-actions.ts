@@ -1,11 +1,14 @@
 import { useCallback, useState } from 'react'
-import { createClientOnlyFn } from '@tanstack/react-start'
 import { toast } from '@/components/ui/sonner'
 import { buildFileRedirectUrl, buildNavUrl } from '@/lib/nav-token'
 import { downloadFromUrl } from '@/lib/file-utils'
 import { isTextBasedFile } from '@/lib/file-type-utils'
 import { setFolderPrivateLockClient } from '@/lib/private-lock-client'
 import type { StorageItem, ContextMenuAction } from '@/types/storage'
+
+import { createFolderFn } from '@/lib/storage-actions-server'
+import { renameItemFn } from '@/lib/storage/mutations/rename'
+import { getFilePresignedUrlFn } from '@/lib/storage/mutations/urls'
 
 type UseStorageActionsParams = {
   userId: string | null
@@ -21,53 +24,6 @@ type UseStorageActionsParams = {
   onShareOpen: (item: StorageItem) => void
   onEditFileOpen: (item: StorageItem) => void
 }
-
-const createFolderOnClient = createClientOnlyFn(
-  async (userId: string, name: string, parentFolderId: string | null) => {
-    const res = await fetch('/api/storage/create-folder', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userId, name, parentFolderId }),
-    })
-    const data = (await res.json()) as {
-      folder?: { id: string; name: string; createdAt: string }
-      error?: string
-    }
-    if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`)
-    return data.folder!
-  },
-)
-
-const renameOnClient = createClientOnlyFn(
-  async (
-    userId: string,
-    itemId: string,
-    newName: string,
-    itemType: 'file' | 'folder',
-  ) => {
-    const res = await fetch('/api/storage/rename', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userId, itemId, newName, itemType }),
-    })
-    const data = (await res.json()) as {
-      item?: { id: string; name: string }
-      error?: string
-    }
-    if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`)
-    return data.item!
-  },
-)
-
-const presignOnClient = createClientOnlyFn(
-  async (userId: string, fileId: string) => {
-    const params = new URLSearchParams({ userId, fileId })
-    const res = await fetch(`/api/storage/presign?${params}`)
-    const data = (await res.json()) as { url?: string; error?: string }
-    if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`)
-    return data.url!
-  },
-)
 
 export function useStorageActions(params: UseStorageActionsParams) {
   const {
@@ -96,7 +52,9 @@ export function useStorageActions(params: UseStorageActionsParams) {
         return
       }
       try {
-        const url = await presignOnClient(userId, item.id)
+        const { url } = await getFilePresignedUrlFn({
+          data: { fileId: item.id },
+        })
         window.open(url, '_blank')
       } catch (err) {
         toast.error(
@@ -115,7 +73,9 @@ export function useStorageActions(params: UseStorageActionsParams) {
       )
       setRenamingItemId(null)
       try {
-        await renameOnClient(userId, item.id, newName, item.type)
+        await renameItemFn({
+          data: { itemId: item.id, newName, itemType: item.type },
+        })
         toast.success(`Renamed to "${newName}"`)
       } catch (err) {
         setItems((prev) =>
@@ -154,11 +114,7 @@ export function useStorageActions(params: UseStorageActionsParams) {
           break
         case 'private-lock':
           if (!userId || item.type !== 'folder') return
-          void setFolderPrivateLockClient(
-            userId,
-            item.id,
-            !item.isPrivatelyLocked,
-          )
+          void setFolderPrivateLockClient(item.id, !item.isPrivatelyLocked)
             .then(() => {
               toast.success(
                 !item.isPrivatelyLocked
@@ -189,8 +145,8 @@ export function useStorageActions(params: UseStorageActionsParams) {
           break
         case 'download':
           if (!userId || item.type !== 'file') return
-          void presignOnClient(userId, item.id)
-            .then((url) => downloadFromUrl(url, item.name))
+          void getFilePresignedUrlFn({ data: { fileId: item.id } })
+            .then(({ url }) => downloadFromUrl(url, item.name))
             .catch(() => toast.error('Download failed'))
           break
       }
@@ -213,18 +169,26 @@ export function useStorageActions(params: UseStorageActionsParams) {
         toast.error('Session not ready')
         return
       }
-      const created = await createFolderOnClient(userId, name, currentFolderId)
-      const newFolder: StorageItem = {
-        id: created.id,
-        name: created.name,
-        type: 'folder',
-        userId,
-        parentFolderId: currentFolderId,
-        createdAt: new Date(created.createdAt),
-        updatedAt: new Date(created.createdAt),
+      try {
+        const { folder: created } = await createFolderFn({
+          data: { name, parentFolderId: currentFolderId ?? undefined },
+        })
+        const newFolder: StorageItem = {
+          id: created.id,
+          name: created.name,
+          type: 'folder',
+          userId,
+          parentFolderId: currentFolderId,
+          createdAt: new Date(created.createdAt),
+          updatedAt: new Date(created.createdAt),
+        }
+        setItems((prev) => [newFolder, ...prev])
+        toast.success(`Folder "${created.name}" created`)
+      } catch (err) {
+        toast.error(
+          `Folder creation failed: ${err instanceof Error ? err.message : 'Unknown error'}`,
+        )
       }
-      setItems((prev) => [newFolder, ...prev])
-      toast.success(`Folder "${created.name}" created`)
     },
     [userId, currentFolderId, setItems],
   )

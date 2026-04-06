@@ -2,6 +2,7 @@ import { useQuery, useMutation } from '@tanstack/react-query'
 import * as React from 'react'
 import QRCode from 'qrcode'
 import { WEBRTC_TRANSFER_PREFIX } from '@/lib/webrtc-transfer-utils'
+import { createOffer, pollOffer, scanOffer } from './webrtc-server'
 
 export type WebrtcOfferResponse = {
   code: string
@@ -31,34 +32,20 @@ export function useWebrtcTransfer(isConnected: boolean) {
   const createOfferQuery = useQuery({
     queryKey: ['webrtc-transfer-offer'],
     queryFn: async () => {
-      const response = await fetch('/api/webrtc-transfer/create-offer', {
-        method: 'POST',
-      })
-      const data = (await response.json()) as {
-        error?: string
-        payload?: string
-        code?: string
-        pollKey?: string
-        sessionToken?: string
-        expiresAt?: string
-        pollIntervalMs?: number
-      }
-      if (!response.ok || !data.payload) {
-        throw new Error(data.error ?? 'Failed to create WebRTC offer.')
-      }
+      const data = await createOffer()
       const dataUrl = await QRCode.toDataURL(data.payload, {
         width: 260,
         margin: 1,
       })
-      const offer: WebrtcOfferResponse = {
-        code: data.code ?? '',
+      const offerResponse: WebrtcOfferResponse = {
+        code: data.code,
         payload: data.payload,
-        pollKey: data.pollKey ?? '',
+        pollKey: data.pollKey,
         sessionToken: data.sessionToken,
-        expiresAt: data.expiresAt ?? '',
-        pollIntervalMs: data.pollIntervalMs ?? 5000,
+        expiresAt: data.expiresAt,
+        pollIntervalMs: data.pollIntervalMs,
       }
-      return { offer, dataUrl }
+      return { offer: offerResponse, dataUrl }
     },
     enabled: false,
   })
@@ -130,16 +117,7 @@ export function useWebrtcTransfer(isConnected: boolean) {
       }
 
       try {
-        const response = await fetch(
-          `/api/webrtc-transfer/poll?pollKey=${encodeURIComponent(offer.pollKey)}`,
-        )
-        const pollData = (await response.json()) as {
-          status?: string
-          pollIntervalMs?: number
-          error?: string
-        }
-
-        if (!response.ok) throw new Error('Poll failed')
+        const pollData = await pollOffer({ data: { pollKey: offer.pollKey } })
 
         const status = pollData.status
 
@@ -154,10 +132,11 @@ export function useWebrtcTransfer(isConnected: boolean) {
           }, 2000)
           return
         } else {
-          const pollInterval = pollData.pollIntervalMs || 1000
-          if (!cancelled) setTimeout(poll, pollInterval)
+          // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+          if (!cancelled) setTimeout(poll, 1000)
         }
-      } catch {
+      } catch (error) {
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (!cancelled) setTimeout(poll, 1000)
       }
     }
@@ -191,21 +170,7 @@ export function useWebrtcScanner() {
 
   const submitMutation = useMutation({
     mutationFn: async (payload: string) => {
-      const response = await fetch('/api/webrtc-transfer/scan', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ payload }),
-      })
-      const data = (await response.json()) as {
-        error?: string
-        status?: string
-        sessionToken?: string
-        message?: string
-      }
-      if (!response.ok) {
-        throw new Error(data.error ?? 'Failed to scan WebRTC offer.')
-      }
-      return data
+      return await scanOffer({ data: { payload } })
     },
     onSuccess: (data) => {
       if (data.sessionToken) {

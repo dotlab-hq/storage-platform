@@ -4,6 +4,7 @@ import * as React from 'react'
 import { ChevronsUpDown, LogOut, Settings, Wifi, WifiOff } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
 import { createClientOnlyFn } from '@tanstack/react-start'
+import { sessionStatusFn } from '@/routes/-hot-qr-server'
 import { authClient } from '@/lib/auth-client'
 import { ScanQrDialog } from '@/components/qr/scan-qr-dialog'
 
@@ -66,19 +67,9 @@ export function NavUser({
 
     const loadTinySession = async () => {
       try {
-        const response = await fetch('/api/qr-auth/session-status')
-        const data = (await response.json().catch(() => null)) as {
-          active?: boolean
-          permission?: 'read' | 'read-write'
-          expiresAt?: string
-        } | null
+        const data = await sessionStatusFn()
 
-        if (
-          !response.ok ||
-          !data?.active ||
-          !data.permission ||
-          !data.expiresAt
-        ) {
+        if (!data?.active || !data.permission || !data.expiresAt) {
           if (!cancelled) {
             setTinySession(null)
           }

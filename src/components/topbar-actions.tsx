@@ -22,8 +22,8 @@ type TopbarActionsProps = {
   setUploads: React.Dispatch<React.SetStateAction<UploadingFile[]>>
   onUploadComplete: () => Promise<void> | void
   onNewFile: () => void
-  onNewFolder: ( name: string ) => Promise<void> | void
-  onSearch?: ( results: StorageItem[] | null ) => void
+  onNewFolder: (name: string) => Promise<void> | void
+  onSearch?: (results: StorageItem[] | null) => void
   setItems?: React.Dispatch<React.SetStateAction<StorageItem[]>>
   fileSizeLimit?: number | null
 }
@@ -46,17 +46,14 @@ type SearchResult = {
   error?: string
 }
 
-const searchOnClient = createClientOnlyFn(
-  async ( userId: string, query: string ) => {
-    const params = new URLSearchParams( { userId, q: query } )
-    const res = await fetch( `/api/storage/search?${params}` )
-    const data = ( await res.json() ) as SearchResult
-    if ( !res.ok ) throw new Error( data.error ?? `HTTP ${res.status}` )
-    return data
-  },
-)
+import { searchItemsFn } from '@/lib/storage/queries/server'
 
-export function TopbarActions( {
+const searchOnClient = createClientOnlyFn(async (query: string) => {
+  const data = await searchItemsFn({ data: { query } })
+  return data as unknown as SearchResult
+})
+
+export function TopbarActions({
   userId,
   currentFolderId,
   setUploads,
@@ -66,67 +63,67 @@ export function TopbarActions( {
   onSearch,
   setItems,
   fileSizeLimit,
-}: TopbarActionsProps ) {
-  const [uploadOpen, setUploadOpen] = React.useState( false )
-  const [newFolderOpen, setNewFolderOpen] = React.useState( false )
-  const [searchOpen, setSearchOpen] = React.useState( false )
-  const [searchQuery, setSearchQuery] = React.useState( '' )
-  const debounceRef = React.useRef<ReturnType<typeof setTimeout> | null>( null )
+}: TopbarActionsProps) {
+  const [uploadOpen, setUploadOpen] = React.useState(false)
+  const [newFolderOpen, setNewFolderOpen] = React.useState(false)
+  const [searchOpen, setSearchOpen] = React.useState(false)
+  const [searchQuery, setSearchQuery] = React.useState('')
+  const debounceRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  React.useEffect( () => {
-    const openUpload = () => setUploadOpen( true )
-    const openNewFolder = () => setNewFolderOpen( true )
-    window.addEventListener( 'dot:open-upload', openUpload )
-    window.addEventListener( 'dot:open-new-folder', openNewFolder )
+  React.useEffect(() => {
+    const openUpload = () => setUploadOpen(true)
+    const openNewFolder = () => setNewFolderOpen(true)
+    window.addEventListener('dot:open-upload', openUpload)
+    window.addEventListener('dot:open-new-folder', openNewFolder)
     return () => {
-      window.removeEventListener( 'dot:open-upload', openUpload )
-      window.removeEventListener( 'dot:open-new-folder', openNewFolder )
+      window.removeEventListener('dot:open-upload', openUpload)
+      window.removeEventListener('dot:open-new-folder', openNewFolder)
     }
-  }, [] )
+  }, [])
 
   const handleSearchChange = React.useCallback(
-    ( value: string ) => {
-      setSearchQuery( value )
-      if ( debounceRef.current ) clearTimeout( debounceRef.current )
-      if ( !value.trim() ) {
-        onSearch?.( null )
+    (value: string) => {
+      setSearchQuery(value)
+      if (debounceRef.current) clearTimeout(debounceRef.current)
+      if (!value.trim()) {
+        onSearch?.(null)
         return
       }
-      debounceRef.current = setTimeout( () => {
-        if ( !userId ) return
-        void searchOnClient( userId, value.trim() ).then( ( data ) => {
+      debounceRef.current = setTimeout(() => {
+        if (!userId) return
+        void searchOnClient(value.trim()).then((data) => {
           const items: StorageItem[] = [
-            ...( data.folders ?? [] ).map( ( f ) => ( {
+            ...(data.folders ?? []).map((f) => ({
               ...f,
               type: 'folder' as const,
               userId,
               parentFolderId: f.parentFolderId ?? null,
-              createdAt: new Date( f.createdAt ),
-              updatedAt: new Date( f.createdAt ),
-            } ) ),
-            ...( data.files ?? [] ).map( ( f ) => ( {
+              createdAt: new Date(f.createdAt),
+              updatedAt: new Date(f.createdAt),
+            })),
+            ...(data.files ?? []).map((f) => ({
               ...f,
               type: 'file' as const,
               userId,
               objectKey: f.objectKey ?? '',
               mimeType: f.mimeType ?? null,
               folderId: null,
-              createdAt: new Date( f.createdAt ),
-              updatedAt: new Date( f.createdAt ),
-            } ) ),
+              createdAt: new Date(f.createdAt),
+              updatedAt: new Date(f.createdAt),
+            })),
           ]
-          onSearch?.( items )
-        } )
-      }, 300 )
+          onSearch?.(items)
+        })
+      }, 300)
     },
     [userId, onSearch],
   )
 
-  const closeSearch = React.useCallback( () => {
-    setSearchOpen( false )
-    setSearchQuery( '' )
-    onSearch?.( null )
-  }, [onSearch] )
+  const closeSearch = React.useCallback(() => {
+    setSearchOpen(false)
+    setSearchQuery('')
+    onSearch?.(null)
+  }, [onSearch])
 
   return (
     <div className="flex items-center gap-2">
@@ -135,7 +132,7 @@ export function TopbarActions( {
         <div className="flex items-center gap-1">
           <Input
             value={searchQuery}
-            onChange={( e ) => handleSearchChange( e.target.value )}
+            onChange={(e) => handleSearchChange(e.target.value)}
             placeholder="Search files..."
             className="h-8 w-48"
             autoFocus
@@ -153,7 +150,7 @@ export function TopbarActions( {
         <Button
           size="icon"
           variant="ghost"
-          onClick={() => setSearchOpen( true )}
+          onClick={() => setSearchOpen(true)}
           aria-label="Search"
         >
           <Search className="h-4 w-4" />
@@ -175,11 +172,11 @@ export function TopbarActions( {
             <FilePlus className="mr-2 h-4 w-4" />
             Create New File
           </DropdownMenuItem>
-          <DropdownMenuItem onSelect={() => setUploadOpen( true )}>
+          <DropdownMenuItem onSelect={() => setUploadOpen(true)}>
             <Upload className="mr-2 h-4 w-4" />
             Upload Files
           </DropdownMenuItem>
-          <DropdownMenuItem onSelect={() => setNewFolderOpen( true )}>
+          <DropdownMenuItem onSelect={() => setNewFolderOpen(true)}>
             <FolderPlus className="mr-2 h-4 w-4" />
             New Folder
           </DropdownMenuItem>

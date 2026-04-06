@@ -1,19 +1,11 @@
-import { createClientOnlyFn } from "@tanstack/react-start"
-
-type PrivateLockResponse = {
-    folder?: { id: string; isPrivatelyLocked: boolean }
-    error?: string
-}
+import { createClientOnlyFn } from '@tanstack/react-start'
+import { setFolderPrivateLockFn } from './storage/mutations/private-lock'
 
 export const setFolderPrivateLockClient = createClientOnlyFn(
-    async ( userId: string, folderId: string, isPrivatelyLocked: boolean ) => {
-        const res = await fetch( "/api/storage/private-lock", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify( { userId, folderId, isPrivatelyLocked } ),
-        } )
-        const data = ( await res.json() ) as PrivateLockResponse
-        if ( !res.ok ) throw new Error( data.error ?? `HTTP ${res.status}` )
-        return data.folder
-    }
+  async (folderId: string, isPrivatelyLocked: boolean) => {
+    const data = await setFolderPrivateLockFn({
+      data: { folderId, isPrivatelyLocked },
+    })
+    return data.folder
+  },
 )

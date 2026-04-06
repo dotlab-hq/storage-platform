@@ -2,20 +2,27 @@
 
 import * as React from 'react'
 import { toast } from '@/components/ui/sonner'
-import { looksLikeHtml, TOOLBAR_OPTIONS, getDefaultUntitledName } from '../utils'
-import type { EditorFileResponse, EditorWindow, QuillInstance } from '../types'
+import {
+  looksLikeHtml,
+  TOOLBAR_OPTIONS,
+  getDefaultUntitledName,
+} from '../utils'
+import type { EditorWindow, QuillInstance } from '../types'
 import type { StorageItem } from '@/types/storage'
 
-export function useQuillEditor(options: { 
-  open: boolean; 
-  item: StorageItem | null; 
-  items: StorageItem[]; 
-  onOpenChange: (open: boolean) => void 
+import { getTextFileContentFn } from '@/lib/storage/mutations/content'
+
+export function useQuillEditor(options: {
+  open: boolean
+  item: StorageItem | null
+  items: StorageItem[]
+  onOpenChange: (open: boolean) => void
 }) {
   const { open, item, items, onOpenChange } = options
 
   const quillRef = React.useRef<QuillInstance | null>(null)
-  const [editorElement, setEditorElement] = React.useState<HTMLDivElement | null>(null)
+  const [editorElement, setEditorElement] =
+    React.useState<HTMLDivElement | null>(null)
   const [fileName, setFileName] = React.useState('Untitled.txt')
   const [isEditorReady, setIsEditorReady] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(false)
@@ -74,9 +81,21 @@ export function useQuillEditor(options: {
             },
           },
           formats: [
-            'header', 'bold', 'italic', 'underline', 'strike', 'color',
-            'background', 'list', 'bullet', 'align', 'blockquote',
-            'code-block', 'link', 'image', 'video',
+            'header',
+            'bold',
+            'italic',
+            'underline',
+            'strike',
+            'color',
+            'background',
+            'list',
+            'bullet',
+            'align',
+            'blockquote',
+            'code-block',
+            'link',
+            'image',
+            'video',
           ],
         })
 
@@ -92,7 +111,8 @@ export function useQuillEditor(options: {
 
         setIsEditorReady(true)
       } catch (error) {
-        const message = error instanceof Error ? error.message : 'Failed to initialize editor'
+        const message =
+          error instanceof Error ? error.message : 'Failed to initialize editor'
         setInitError(message)
         setIsEditorReady(false)
         toast.error(message)
@@ -138,12 +158,7 @@ export function useQuillEditor(options: {
 
     void (async () => {
       try {
-        const params = new URLSearchParams({ fileId: item.id })
-        const response = await fetch(`/api/storage/text-file?${params}`)
-        const data: EditorFileResponse = await response.json()
-        if (!response.ok) {
-          throw new Error(data.error ?? `HTTP ${response.status}`)
-        }
+        const data = await getTextFileContentFn({ data: { fileId: item.id } })
 
         quill.setText('')
         if (looksLikeHtml(data.content)) {
@@ -152,7 +167,9 @@ export function useQuillEditor(options: {
           quill.setText(data.content)
         }
       } catch (error) {
-        toast.error(error instanceof Error ? error.message : 'Failed to load file')
+        toast.error(
+          error instanceof Error ? error.message : 'Failed to load file',
+        )
         onOpenChange(false)
       } finally {
         setIsLoading(false)

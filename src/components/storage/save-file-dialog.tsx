@@ -17,6 +17,8 @@ import { buildFolderPathOptions } from '@/lib/folder-paths'
 import type { IncomingFile } from '@/hooks/use-webrtc'
 import { formatFileSize } from '@/lib/file-utils'
 
+import { getAllFoldersFn } from '@/lib/storage/queries/server'
+
 type FolderOption = { id: string; name: string; parentFolderId: string | null }
 
 type SaveFileDialogProps = {
@@ -47,10 +49,7 @@ export function SaveFileDialog({
       setPathQuery('')
       if (userId) {
         setFetching(true)
-        void fetch(
-          `/api/storage/all-folders?userId=${encodeURIComponent(userId)}`,
-        )
-          .then((r) => r.json() as Promise<{ folders?: FolderOption[] }>)
+        void getAllFoldersFn()
           .then((data) => {
             setAllFolders(data.folders || [])
           })

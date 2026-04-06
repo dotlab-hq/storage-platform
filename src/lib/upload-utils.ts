@@ -1,30 +1,13 @@
 import type { UploadingFile } from '@/types/storage'
 import type React from 'react'
+import {
+  uploadPresign,
+  uploadMultipartInit,
+  uploadMultipartComplete,
+  registerFile,
+} from './upload-server'
 
 type UploadStateUpdater = React.Dispatch<React.SetStateAction<UploadingFile[]>>
-
-type PresignResponse = {
-  presignedUrl?: string
-  providerId?: string | null
-  error?: string
-}
-type MultipartInitResponse = {
-  uploadId?: string
-  providerId?: string | null
-  partUrls?: { partNumber: number; presignedUrl: string }[]
-  error?: string
-}
-type MultipartCompleteResponse = { ok?: boolean; error?: string }
-type RegisterResponse = {
-  file?: {
-    id: string
-    name: string
-    mimeType: string | null
-    sizeInBytes: number
-    objectKey: string
-  }
-  error?: string
-}
 
 const MIN_PART_SIZE_BYTES = 5 * 1024 * 1024
 const MAX_MULTIPART_PARTS = 10000
@@ -49,18 +32,16 @@ async function fetchPresignedUrl(
   contentType: string,
   fileSize: number,
 ): Promise<{ presignedUrl: string; providerId: string | null }> {
-  const res = await fetch('/api/storage/upload-presign', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ objectKey, contentType, fileSize }),
-  })
-  const data: PresignResponse = (await res.json())
-  if (!res.ok || !data.presignedUrl) {
-    throw new Error(data.error ?? 'Failed to get presigned URL')
-  }
-  return {
-    presignedUrl: data.presignedUrl,
-    providerId: data.providerId ?? null,
+  try {
+    const data = await uploadPresign({
+      data: { objectKey, contentType, fileSize },
+    })
+    return {
+      presignedUrl: data.presignedUrl,
+      providerId: data.providerId ?? null,
+    }
+  } catch (err: any) {
+    throw new Error(err.message ?? 'Failed to get presigned URL')
   }
 }
 
@@ -74,24 +55,17 @@ async function fetchMultipartSession(
   providerId: string | null
   partUrls: { partNumber: number; presignedUrl: string }[]
 }> {
-  const res = await fetch('/api/storage/upload-multipart-init', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ objectKey, contentType, fileSize, partCount }),
-  })
-  const data:MultipartInitResponse = (await res.json()) 
-  if (
-    !res.ok ||
-    !data.uploadId ||
-    !data.partUrls ||
-    data.partUrls.length === 0
-  ) {
-    throw new Error(data.error ?? 'Failed to initialize multipart upload')
-  }
-  return {
-    uploadId: data.uploadId,
-    providerId: data.providerId ?? null,
-    partUrls: data.partUrls,
+  try {
+    const data = await uploadMultipartInit({
+      data: { objectKey, contentType, fileSize, partCount },
+    })
+    return {
+      uploadId: data.uploadId,
+      providerId: data.providerId ?? null,
+      partUrls: data.partUrls,
+    }
+  } catch (err: any) {
+    throw new Error(err.message ?? 'Failed to initialize multipart upload')
   }
 }
 
@@ -100,14 +74,12 @@ async function completeMultipartUpload(
   uploadId: string,
   providerId: string | null,
 ): Promise<void> {
-  const res = await fetch('/api/storage/upload-multipart-complete', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ objectKey, uploadId, providerId }),
-  })
-  const data:MultipartCompleteResponse = (await res.json())
-  if (!res.ok || !data.ok) {
-    throw new Error(data.error ?? 'Failed to finalize multipart upload')
+  try {
+    await uploadMultipartComplete({
+      data: { objectKey, uploadId, providerId },
+    })
+  } catch (err: any) {
+    throw new Error(err.message ?? 'Failed to finalize multipart upload')
   }
 }
 
@@ -224,29 +196,30 @@ async function registerFileInDb(
   parentFolderId: string | null,
   providerId: string | null,
 ): Promise<CompletedFileInfo> {
-  const res = await fetch('/api/storage/register-file', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      fileName,
-      objectKey,
-      mimeType,
-      fileSize,
-      parentFolderId,
-      providerId,
-    }),
-  })
-  const data:RegisterResponse = (await res.json())
-  if (!res.ok || data.error || !data.file) {
-    throw new Error(data.error ?? 'Failed to register file')
-  }
-  return {
-    id: data.file.id,
-    name: data.file.name,
-    mimeType: data.file.mimeType,
-    sizeInBytes: data.file.sizeInBytes,
-    objectKey: data.file.objectKey,
-    createdAt: new Date(),
+  try {
+    const data = await registerFile({
+      data: {
+        fileName,
+        objectKey,
+        mimeType,
+        fileSize,
+        parentFolderId,
+        providerId,
+      },
+    })
+    if (!data.file) {
+      throw new Error('Failed to register file')
+    }
+    return {
+      id: data.file.id,
+      name: data.file.name,
+      mimeType: data.file.mimeType,
+      sizeInBytes: data.file.sizeInBytes,
+      objectKey: data.file.objectKey,
+      createdAt: new Date(),
+    }
+  } catch (err: any) {
+    throw new Error(err.message ?? 'Failed to register file')
   }
 }
 

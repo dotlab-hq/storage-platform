@@ -1,3 +1,4 @@
+import { scanQrFn } from '@/routes/-hot-qr-server'
 import { useMutation } from '@tanstack/react-query'
 import * as React from 'react'
 import { toast } from '@/components/ui/sonner'
@@ -6,14 +7,14 @@ import { startScannerWithFallback } from './utils'
 
 export function useQrScanner(open: boolean, setOpen: (open: boolean) => void) {
   const [state, setState] = React.useState<ScanState>('idle')
-  const [permission, setPermission] = React.useState<Permission>('read')        
-  const [decodedPayload, setDecodedPayload] = React.useState<string>('')        
+  const [permission, setPermission] = React.useState<Permission>('read')
+  const [decodedPayload, setDecodedPayload] = React.useState<string>('')
   const [cameraError, setCameraError] = React.useState<string>('')
   const scannerRef = React.useRef<{
     stop: () => Promise<void>
     clear: () => void
   } | null>(null)
-  
+
   // Create a clean region ID to avoid issues with hydration/colons
   const regionId = React.useId().replace(/:/g, '')
 
@@ -53,7 +54,7 @@ export function useQrScanner(open: boolean, setOpen: (open: boolean) => void) {
         setState('scanning')
         setCameraError('')
         const { Html5Qrcode } = await import('html5-qrcode')
-        const scanner = new Html5Qrcode(regionId) as unknown as Html5QrScanner  
+        const scanner = new Html5Qrcode(regionId) as unknown as Html5QrScanner
         scannerRef.current = scanner
         await startScannerWithFallback(scanner, (text) => {
           if (cancelled) return
@@ -65,7 +66,7 @@ export function useQrScanner(open: boolean, setOpen: (open: boolean) => void) {
         if (cancelled) return
         setState('idle')
         setCameraError(
-          error instanceof Error ? error.message : 'Unable to start camera.',   
+          error instanceof Error ? error.message : 'Unable to start camera.',
         )
       }
     }
@@ -83,7 +84,7 @@ export function useQrScanner(open: boolean, setOpen: (open: boolean) => void) {
     setCameraError('')
     try {
       const { Html5Qrcode } = await import('html5-qrcode')
-      const scanner = new Html5Qrcode(regionId) as unknown as Html5QrScanner    
+      const scanner = new Html5Qrcode(regionId) as unknown as Html5QrScanner
       scannerRef.current = scanner
       await startScannerWithFallback(scanner, (text) => {
         setDecodedPayload(text)
@@ -93,31 +94,30 @@ export function useQrScanner(open: boolean, setOpen: (open: boolean) => void) {
     } catch (error) {
       setState('idle')
       setCameraError(
-        error instanceof Error ? error.message : 'Unable to restart camera.',   
+        error instanceof Error ? error.message : 'Unable to restart camera.',
       )
     }
   }
 
   const submitMutation = useMutation({
     mutationFn: async () => {
-      const response = await fetch('/api/qr-auth/scan', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ payload: decodedPayload, requestedPermission: permission }),
+      const response = await scanQrFn({
+        data: { payload: decodedPayload, requestedPermission: permission },
       })
-      const data = (await response.json().catch(() => null)) as { error?: string } | null
-      if (!response.ok) throw new Error(data?.error ?? 'QR scan request failed.')
-      return data
+      if (response.error) throw new Error(response.error)
+      return response.data
     },
     onMutate: () => setState('submitting'),
     onSuccess: () => {
-      toast.success('QR is valid. Session claim sent. Keep the /hot screen open to finish login.')
+      toast.success(
+        'QR is valid. Session claim sent. Keep the /hot screen open to finish login.',
+      )
       setOpen(false)
     },
     onError: (error: Error) => {
       toast.error(error.message)
       setState('review')
-    }
+    },
   })
   const submitScan = () => {
     if (!decodedPayload) {
@@ -143,6 +143,6 @@ export function useQrScanner(open: boolean, setOpen: (open: boolean) => void) {
     handleInvalidQr,
     submitScan,
     parsedCode,
-    reset
+    reset,
   }
 }

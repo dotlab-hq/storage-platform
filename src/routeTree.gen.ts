@@ -22,41 +22,7 @@ import { Route as AuthIndexRouteImport } from './routes/auth/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as ShareTokenRouteImport } from './routes/share/$token'
 import { Route as BucketsBucketNameRouteImport } from './routes/buckets/$bucketName'
-import { Route as ApiWebrtcSetSignalRouteImport } from './routes/api/webrtc/set-signal'
-import { Route as ApiWebrtcGetSignalRouteImport } from './routes/api/webrtc/get-signal'
-import { Route as ApiWebrtcTransferStatusRouteImport } from './routes/api/webrtc-transfer/status'
-import { Route as ApiWebrtcTransferScanRouteImport } from './routes/api/webrtc-transfer/scan'
-import { Route as ApiWebrtcTransferPollRouteImport } from './routes/api/webrtc-transfer/poll'
-import { Route as ApiWebrtcTransferCreateOfferRouteImport } from './routes/api/webrtc-transfer/create-offer'
-import { Route as ApiStorageUploadPresignRouteImport } from './routes/api/storage/upload-presign'
-import { Route as ApiStorageUploadMultipartInitRouteImport } from './routes/api/storage/upload-multipart-init'
-import { Route as ApiStorageUploadMultipartCompleteRouteImport } from './routes/api/storage/upload-multipart-complete'
-import { Route as ApiStorageTrashRestoreRouteImport } from './routes/api/storage/trash-restore'
-import { Route as ApiStorageTrashDeleteRouteImport } from './routes/api/storage/trash-delete'
-import { Route as ApiStorageTrashRouteImport } from './routes/api/storage/trash'
-import { Route as ApiStorageTextFileRouteImport } from './routes/api/storage/text-file'
-import { Route as ApiStorageShareAccessRouteImport } from './routes/api/storage/share-access'
-import { Route as ApiStorageShareRouteImport } from './routes/api/storage/share'
-import { Route as ApiStorageSearchRouteImport } from './routes/api/storage/search'
-import { Route as ApiStorageSaveTextFileRouteImport } from './routes/api/storage/save-text-file'
 import { Route as ApiStorageS3RouteImport } from './routes/api/storage/s3'
-import { Route as ApiStorageRootItemsRouteImport } from './routes/api/storage/root-items'
-import { Route as ApiStorageRenameRouteImport } from './routes/api/storage/rename'
-import { Route as ApiStorageRegisterFileRouteImport } from './routes/api/storage/register-file'
-import { Route as ApiStorageRecentRouteImport } from './routes/api/storage/recent'
-import { Route as ApiStorageQuotaRouteImport } from './routes/api/storage/quota'
-import { Route as ApiStoragePrivateLockRouteImport } from './routes/api/storage/private-lock'
-import { Route as ApiStoragePresignRouteImport } from './routes/api/storage/presign'
-import { Route as ApiStorageMoveRouteImport } from './routes/api/storage/move'
-import { Route as ApiStorageFolderItemsRouteImport } from './routes/api/storage/folder-items'
-import { Route as ApiStorageFileLinkRouteImport } from './routes/api/storage/file-link'
-import { Route as ApiStorageDeleteRouteImport } from './routes/api/storage/delete'
-import { Route as ApiStorageCreateFolderRouteImport } from './routes/api/storage/create-folder'
-import { Route as ApiStorageAllFoldersRouteImport } from './routes/api/storage/all-folders'
-import { Route as ApiQrAuthSessionStatusRouteImport } from './routes/api/qr-auth/session-status'
-import { Route as ApiQrAuthScanRouteImport } from './routes/api/qr-auth/scan'
-import { Route as ApiQrAuthPollRouteImport } from './routes/api/qr-auth/poll'
-import { Route as ApiQrAuthCreateOfferRouteImport } from './routes/api/qr-auth/create-offer'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as ApiStorageS3IndexRouteImport } from './routes/api/storage/s3/index'
 import { Route as ApiStorageS3UploadStatusRouteImport } from './routes/api/storage/s3/upload-status'
@@ -136,182 +102,9 @@ const BucketsBucketNameRoute = BucketsBucketNameRouteImport.update({
   path: '/buckets/$bucketName',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiWebrtcSetSignalRoute = ApiWebrtcSetSignalRouteImport.update({
-  id: '/api/webrtc/set-signal',
-  path: '/api/webrtc/set-signal',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiWebrtcGetSignalRoute = ApiWebrtcGetSignalRouteImport.update({
-  id: '/api/webrtc/get-signal',
-  path: '/api/webrtc/get-signal',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiWebrtcTransferStatusRoute = ApiWebrtcTransferStatusRouteImport.update({
-  id: '/api/webrtc-transfer/status',
-  path: '/api/webrtc-transfer/status',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiWebrtcTransferScanRoute = ApiWebrtcTransferScanRouteImport.update({
-  id: '/api/webrtc-transfer/scan',
-  path: '/api/webrtc-transfer/scan',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiWebrtcTransferPollRoute = ApiWebrtcTransferPollRouteImport.update({
-  id: '/api/webrtc-transfer/poll',
-  path: '/api/webrtc-transfer/poll',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiWebrtcTransferCreateOfferRoute =
-  ApiWebrtcTransferCreateOfferRouteImport.update({
-    id: '/api/webrtc-transfer/create-offer',
-    path: '/api/webrtc-transfer/create-offer',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ApiStorageUploadPresignRoute = ApiStorageUploadPresignRouteImport.update({
-  id: '/api/storage/upload-presign',
-  path: '/api/storage/upload-presign',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageUploadMultipartInitRoute =
-  ApiStorageUploadMultipartInitRouteImport.update({
-    id: '/api/storage/upload-multipart-init',
-    path: '/api/storage/upload-multipart-init',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ApiStorageUploadMultipartCompleteRoute =
-  ApiStorageUploadMultipartCompleteRouteImport.update({
-    id: '/api/storage/upload-multipart-complete',
-    path: '/api/storage/upload-multipart-complete',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ApiStorageTrashRestoreRoute = ApiStorageTrashRestoreRouteImport.update({
-  id: '/api/storage/trash-restore',
-  path: '/api/storage/trash-restore',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageTrashDeleteRoute = ApiStorageTrashDeleteRouteImport.update({
-  id: '/api/storage/trash-delete',
-  path: '/api/storage/trash-delete',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageTrashRoute = ApiStorageTrashRouteImport.update({
-  id: '/api/storage/trash',
-  path: '/api/storage/trash',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageTextFileRoute = ApiStorageTextFileRouteImport.update({
-  id: '/api/storage/text-file',
-  path: '/api/storage/text-file',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageShareAccessRoute = ApiStorageShareAccessRouteImport.update({
-  id: '/api/storage/share-access',
-  path: '/api/storage/share-access',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageShareRoute = ApiStorageShareRouteImport.update({
-  id: '/api/storage/share',
-  path: '/api/storage/share',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageSearchRoute = ApiStorageSearchRouteImport.update({
-  id: '/api/storage/search',
-  path: '/api/storage/search',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageSaveTextFileRoute = ApiStorageSaveTextFileRouteImport.update({
-  id: '/api/storage/save-text-file',
-  path: '/api/storage/save-text-file',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiStorageS3Route = ApiStorageS3RouteImport.update({
   id: '/api/storage/s3',
   path: '/api/storage/s3',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageRootItemsRoute = ApiStorageRootItemsRouteImport.update({
-  id: '/api/storage/root-items',
-  path: '/api/storage/root-items',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageRenameRoute = ApiStorageRenameRouteImport.update({
-  id: '/api/storage/rename',
-  path: '/api/storage/rename',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageRegisterFileRoute = ApiStorageRegisterFileRouteImport.update({
-  id: '/api/storage/register-file',
-  path: '/api/storage/register-file',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageRecentRoute = ApiStorageRecentRouteImport.update({
-  id: '/api/storage/recent',
-  path: '/api/storage/recent',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageQuotaRoute = ApiStorageQuotaRouteImport.update({
-  id: '/api/storage/quota',
-  path: '/api/storage/quota',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStoragePrivateLockRoute = ApiStoragePrivateLockRouteImport.update({
-  id: '/api/storage/private-lock',
-  path: '/api/storage/private-lock',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStoragePresignRoute = ApiStoragePresignRouteImport.update({
-  id: '/api/storage/presign',
-  path: '/api/storage/presign',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageMoveRoute = ApiStorageMoveRouteImport.update({
-  id: '/api/storage/move',
-  path: '/api/storage/move',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageFolderItemsRoute = ApiStorageFolderItemsRouteImport.update({
-  id: '/api/storage/folder-items',
-  path: '/api/storage/folder-items',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageFileLinkRoute = ApiStorageFileLinkRouteImport.update({
-  id: '/api/storage/file-link',
-  path: '/api/storage/file-link',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageDeleteRoute = ApiStorageDeleteRouteImport.update({
-  id: '/api/storage/delete',
-  path: '/api/storage/delete',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageCreateFolderRoute = ApiStorageCreateFolderRouteImport.update({
-  id: '/api/storage/create-folder',
-  path: '/api/storage/create-folder',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiStorageAllFoldersRoute = ApiStorageAllFoldersRouteImport.update({
-  id: '/api/storage/all-folders',
-  path: '/api/storage/all-folders',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiQrAuthSessionStatusRoute = ApiQrAuthSessionStatusRouteImport.update({
-  id: '/api/qr-auth/session-status',
-  path: '/api/qr-auth/session-status',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiQrAuthScanRoute = ApiQrAuthScanRouteImport.update({
-  id: '/api/qr-auth/scan',
-  path: '/api/qr-auth/scan',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiQrAuthPollRoute = ApiQrAuthPollRouteImport.update({
-  id: '/api/qr-auth/poll',
-  path: '/api/qr-auth/poll',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiQrAuthCreateOfferRoute = ApiQrAuthCreateOfferRouteImport.update({
-  id: '/api/qr-auth/create-offer',
-  path: '/api/qr-auth/create-offer',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
@@ -402,41 +195,7 @@ export interface FileRoutesByFullPath {
   '/trash/': typeof TrashIndexRoute
   '/webrtc/': typeof WebrtcIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
-  '/api/qr-auth/create-offer': typeof ApiQrAuthCreateOfferRoute
-  '/api/qr-auth/poll': typeof ApiQrAuthPollRoute
-  '/api/qr-auth/scan': typeof ApiQrAuthScanRoute
-  '/api/qr-auth/session-status': typeof ApiQrAuthSessionStatusRoute
-  '/api/storage/all-folders': typeof ApiStorageAllFoldersRoute
-  '/api/storage/create-folder': typeof ApiStorageCreateFolderRoute
-  '/api/storage/delete': typeof ApiStorageDeleteRoute
-  '/api/storage/file-link': typeof ApiStorageFileLinkRoute
-  '/api/storage/folder-items': typeof ApiStorageFolderItemsRoute
-  '/api/storage/move': typeof ApiStorageMoveRoute
-  '/api/storage/presign': typeof ApiStoragePresignRoute
-  '/api/storage/private-lock': typeof ApiStoragePrivateLockRoute
-  '/api/storage/quota': typeof ApiStorageQuotaRoute
-  '/api/storage/recent': typeof ApiStorageRecentRoute
-  '/api/storage/register-file': typeof ApiStorageRegisterFileRoute
-  '/api/storage/rename': typeof ApiStorageRenameRoute
-  '/api/storage/root-items': typeof ApiStorageRootItemsRoute
   '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
-  '/api/storage/save-text-file': typeof ApiStorageSaveTextFileRoute
-  '/api/storage/search': typeof ApiStorageSearchRoute
-  '/api/storage/share': typeof ApiStorageShareRoute
-  '/api/storage/share-access': typeof ApiStorageShareAccessRoute
-  '/api/storage/text-file': typeof ApiStorageTextFileRoute
-  '/api/storage/trash': typeof ApiStorageTrashRoute
-  '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
-  '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
-  '/api/storage/upload-multipart-complete': typeof ApiStorageUploadMultipartCompleteRoute
-  '/api/storage/upload-multipart-init': typeof ApiStorageUploadMultipartInitRoute
-  '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
-  '/api/webrtc-transfer/create-offer': typeof ApiWebrtcTransferCreateOfferRoute
-  '/api/webrtc-transfer/poll': typeof ApiWebrtcTransferPollRoute
-  '/api/webrtc-transfer/scan': typeof ApiWebrtcTransferScanRoute
-  '/api/webrtc-transfer/status': typeof ApiWebrtcTransferStatusRoute
-  '/api/webrtc/get-signal': typeof ApiWebrtcGetSignalRoute
-  '/api/webrtc/set-signal': typeof ApiWebrtcSetSignalRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
@@ -465,40 +224,6 @@ export interface FileRoutesByTo {
   '/trash': typeof TrashIndexRoute
   '/webrtc': typeof WebrtcIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
-  '/api/qr-auth/create-offer': typeof ApiQrAuthCreateOfferRoute
-  '/api/qr-auth/poll': typeof ApiQrAuthPollRoute
-  '/api/qr-auth/scan': typeof ApiQrAuthScanRoute
-  '/api/qr-auth/session-status': typeof ApiQrAuthSessionStatusRoute
-  '/api/storage/all-folders': typeof ApiStorageAllFoldersRoute
-  '/api/storage/create-folder': typeof ApiStorageCreateFolderRoute
-  '/api/storage/delete': typeof ApiStorageDeleteRoute
-  '/api/storage/file-link': typeof ApiStorageFileLinkRoute
-  '/api/storage/folder-items': typeof ApiStorageFolderItemsRoute
-  '/api/storage/move': typeof ApiStorageMoveRoute
-  '/api/storage/presign': typeof ApiStoragePresignRoute
-  '/api/storage/private-lock': typeof ApiStoragePrivateLockRoute
-  '/api/storage/quota': typeof ApiStorageQuotaRoute
-  '/api/storage/recent': typeof ApiStorageRecentRoute
-  '/api/storage/register-file': typeof ApiStorageRegisterFileRoute
-  '/api/storage/rename': typeof ApiStorageRenameRoute
-  '/api/storage/root-items': typeof ApiStorageRootItemsRoute
-  '/api/storage/save-text-file': typeof ApiStorageSaveTextFileRoute
-  '/api/storage/search': typeof ApiStorageSearchRoute
-  '/api/storage/share': typeof ApiStorageShareRoute
-  '/api/storage/share-access': typeof ApiStorageShareAccessRoute
-  '/api/storage/text-file': typeof ApiStorageTextFileRoute
-  '/api/storage/trash': typeof ApiStorageTrashRoute
-  '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
-  '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
-  '/api/storage/upload-multipart-complete': typeof ApiStorageUploadMultipartCompleteRoute
-  '/api/storage/upload-multipart-init': typeof ApiStorageUploadMultipartInitRoute
-  '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
-  '/api/webrtc-transfer/create-offer': typeof ApiWebrtcTransferCreateOfferRoute
-  '/api/webrtc-transfer/poll': typeof ApiWebrtcTransferPollRoute
-  '/api/webrtc-transfer/scan': typeof ApiWebrtcTransferScanRoute
-  '/api/webrtc-transfer/status': typeof ApiWebrtcTransferStatusRoute
-  '/api/webrtc/get-signal': typeof ApiWebrtcGetSignalRoute
-  '/api/webrtc/set-signal': typeof ApiWebrtcSetSignalRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
@@ -528,41 +253,7 @@ export interface FileRoutesById {
   '/trash/': typeof TrashIndexRoute
   '/webrtc/': typeof WebrtcIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
-  '/api/qr-auth/create-offer': typeof ApiQrAuthCreateOfferRoute
-  '/api/qr-auth/poll': typeof ApiQrAuthPollRoute
-  '/api/qr-auth/scan': typeof ApiQrAuthScanRoute
-  '/api/qr-auth/session-status': typeof ApiQrAuthSessionStatusRoute
-  '/api/storage/all-folders': typeof ApiStorageAllFoldersRoute
-  '/api/storage/create-folder': typeof ApiStorageCreateFolderRoute
-  '/api/storage/delete': typeof ApiStorageDeleteRoute
-  '/api/storage/file-link': typeof ApiStorageFileLinkRoute
-  '/api/storage/folder-items': typeof ApiStorageFolderItemsRoute
-  '/api/storage/move': typeof ApiStorageMoveRoute
-  '/api/storage/presign': typeof ApiStoragePresignRoute
-  '/api/storage/private-lock': typeof ApiStoragePrivateLockRoute
-  '/api/storage/quota': typeof ApiStorageQuotaRoute
-  '/api/storage/recent': typeof ApiStorageRecentRoute
-  '/api/storage/register-file': typeof ApiStorageRegisterFileRoute
-  '/api/storage/rename': typeof ApiStorageRenameRoute
-  '/api/storage/root-items': typeof ApiStorageRootItemsRoute
   '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
-  '/api/storage/save-text-file': typeof ApiStorageSaveTextFileRoute
-  '/api/storage/search': typeof ApiStorageSearchRoute
-  '/api/storage/share': typeof ApiStorageShareRoute
-  '/api/storage/share-access': typeof ApiStorageShareAccessRoute
-  '/api/storage/text-file': typeof ApiStorageTextFileRoute
-  '/api/storage/trash': typeof ApiStorageTrashRoute
-  '/api/storage/trash-delete': typeof ApiStorageTrashDeleteRoute
-  '/api/storage/trash-restore': typeof ApiStorageTrashRestoreRoute
-  '/api/storage/upload-multipart-complete': typeof ApiStorageUploadMultipartCompleteRoute
-  '/api/storage/upload-multipart-init': typeof ApiStorageUploadMultipartInitRoute
-  '/api/storage/upload-presign': typeof ApiStorageUploadPresignRoute
-  '/api/webrtc-transfer/create-offer': typeof ApiWebrtcTransferCreateOfferRoute
-  '/api/webrtc-transfer/poll': typeof ApiWebrtcTransferPollRoute
-  '/api/webrtc-transfer/scan': typeof ApiWebrtcTransferScanRoute
-  '/api/webrtc-transfer/status': typeof ApiWebrtcTransferStatusRoute
-  '/api/webrtc/get-signal': typeof ApiWebrtcGetSignalRoute
-  '/api/webrtc/set-signal': typeof ApiWebrtcSetSignalRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
@@ -593,41 +284,7 @@ export interface FileRouteTypes {
     | '/trash/'
     | '/webrtc/'
     | '/api/auth/$'
-    | '/api/qr-auth/create-offer'
-    | '/api/qr-auth/poll'
-    | '/api/qr-auth/scan'
-    | '/api/qr-auth/session-status'
-    | '/api/storage/all-folders'
-    | '/api/storage/create-folder'
-    | '/api/storage/delete'
-    | '/api/storage/file-link'
-    | '/api/storage/folder-items'
-    | '/api/storage/move'
-    | '/api/storage/presign'
-    | '/api/storage/private-lock'
-    | '/api/storage/quota'
-    | '/api/storage/recent'
-    | '/api/storage/register-file'
-    | '/api/storage/rename'
-    | '/api/storage/root-items'
     | '/api/storage/s3'
-    | '/api/storage/save-text-file'
-    | '/api/storage/search'
-    | '/api/storage/share'
-    | '/api/storage/share-access'
-    | '/api/storage/text-file'
-    | '/api/storage/trash'
-    | '/api/storage/trash-delete'
-    | '/api/storage/trash-restore'
-    | '/api/storage/upload-multipart-complete'
-    | '/api/storage/upload-multipart-init'
-    | '/api/storage/upload-presign'
-    | '/api/webrtc-transfer/create-offer'
-    | '/api/webrtc-transfer/poll'
-    | '/api/webrtc-transfer/scan'
-    | '/api/webrtc-transfer/status'
-    | '/api/webrtc/get-signal'
-    | '/api/webrtc/set-signal'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
     | '/api/storage/s3/bucket-items'
@@ -656,40 +313,6 @@ export interface FileRouteTypes {
     | '/trash'
     | '/webrtc'
     | '/api/auth/$'
-    | '/api/qr-auth/create-offer'
-    | '/api/qr-auth/poll'
-    | '/api/qr-auth/scan'
-    | '/api/qr-auth/session-status'
-    | '/api/storage/all-folders'
-    | '/api/storage/create-folder'
-    | '/api/storage/delete'
-    | '/api/storage/file-link'
-    | '/api/storage/folder-items'
-    | '/api/storage/move'
-    | '/api/storage/presign'
-    | '/api/storage/private-lock'
-    | '/api/storage/quota'
-    | '/api/storage/recent'
-    | '/api/storage/register-file'
-    | '/api/storage/rename'
-    | '/api/storage/root-items'
-    | '/api/storage/save-text-file'
-    | '/api/storage/search'
-    | '/api/storage/share'
-    | '/api/storage/share-access'
-    | '/api/storage/text-file'
-    | '/api/storage/trash'
-    | '/api/storage/trash-delete'
-    | '/api/storage/trash-restore'
-    | '/api/storage/upload-multipart-complete'
-    | '/api/storage/upload-multipart-init'
-    | '/api/storage/upload-presign'
-    | '/api/webrtc-transfer/create-offer'
-    | '/api/webrtc-transfer/poll'
-    | '/api/webrtc-transfer/scan'
-    | '/api/webrtc-transfer/status'
-    | '/api/webrtc/get-signal'
-    | '/api/webrtc/set-signal'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
     | '/api/storage/s3/bucket-items'
@@ -718,41 +341,7 @@ export interface FileRouteTypes {
     | '/trash/'
     | '/webrtc/'
     | '/api/auth/$'
-    | '/api/qr-auth/create-offer'
-    | '/api/qr-auth/poll'
-    | '/api/qr-auth/scan'
-    | '/api/qr-auth/session-status'
-    | '/api/storage/all-folders'
-    | '/api/storage/create-folder'
-    | '/api/storage/delete'
-    | '/api/storage/file-link'
-    | '/api/storage/folder-items'
-    | '/api/storage/move'
-    | '/api/storage/presign'
-    | '/api/storage/private-lock'
-    | '/api/storage/quota'
-    | '/api/storage/recent'
-    | '/api/storage/register-file'
-    | '/api/storage/rename'
-    | '/api/storage/root-items'
     | '/api/storage/s3'
-    | '/api/storage/save-text-file'
-    | '/api/storage/search'
-    | '/api/storage/share'
-    | '/api/storage/share-access'
-    | '/api/storage/text-file'
-    | '/api/storage/trash'
-    | '/api/storage/trash-delete'
-    | '/api/storage/trash-restore'
-    | '/api/storage/upload-multipart-complete'
-    | '/api/storage/upload-multipart-init'
-    | '/api/storage/upload-presign'
-    | '/api/webrtc-transfer/create-offer'
-    | '/api/webrtc-transfer/poll'
-    | '/api/webrtc-transfer/scan'
-    | '/api/webrtc-transfer/status'
-    | '/api/webrtc/get-signal'
-    | '/api/webrtc/set-signal'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
     | '/api/storage/s3/bucket-items'
@@ -782,41 +371,7 @@ export interface RootRouteChildren {
   TrashIndexRoute: typeof TrashIndexRoute
   WebrtcIndexRoute: typeof WebrtcIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
-  ApiQrAuthCreateOfferRoute: typeof ApiQrAuthCreateOfferRoute
-  ApiQrAuthPollRoute: typeof ApiQrAuthPollRoute
-  ApiQrAuthScanRoute: typeof ApiQrAuthScanRoute
-  ApiQrAuthSessionStatusRoute: typeof ApiQrAuthSessionStatusRoute
-  ApiStorageAllFoldersRoute: typeof ApiStorageAllFoldersRoute
-  ApiStorageCreateFolderRoute: typeof ApiStorageCreateFolderRoute
-  ApiStorageDeleteRoute: typeof ApiStorageDeleteRoute
-  ApiStorageFileLinkRoute: typeof ApiStorageFileLinkRoute
-  ApiStorageFolderItemsRoute: typeof ApiStorageFolderItemsRoute
-  ApiStorageMoveRoute: typeof ApiStorageMoveRoute
-  ApiStoragePresignRoute: typeof ApiStoragePresignRoute
-  ApiStoragePrivateLockRoute: typeof ApiStoragePrivateLockRoute
-  ApiStorageQuotaRoute: typeof ApiStorageQuotaRoute
-  ApiStorageRecentRoute: typeof ApiStorageRecentRoute
-  ApiStorageRegisterFileRoute: typeof ApiStorageRegisterFileRoute
-  ApiStorageRenameRoute: typeof ApiStorageRenameRoute
-  ApiStorageRootItemsRoute: typeof ApiStorageRootItemsRoute
   ApiStorageS3Route: typeof ApiStorageS3RouteWithChildren
-  ApiStorageSaveTextFileRoute: typeof ApiStorageSaveTextFileRoute
-  ApiStorageSearchRoute: typeof ApiStorageSearchRoute
-  ApiStorageShareRoute: typeof ApiStorageShareRoute
-  ApiStorageShareAccessRoute: typeof ApiStorageShareAccessRoute
-  ApiStorageTextFileRoute: typeof ApiStorageTextFileRoute
-  ApiStorageTrashRoute: typeof ApiStorageTrashRoute
-  ApiStorageTrashDeleteRoute: typeof ApiStorageTrashDeleteRoute
-  ApiStorageTrashRestoreRoute: typeof ApiStorageTrashRestoreRoute
-  ApiStorageUploadMultipartCompleteRoute: typeof ApiStorageUploadMultipartCompleteRoute
-  ApiStorageUploadMultipartInitRoute: typeof ApiStorageUploadMultipartInitRoute
-  ApiStorageUploadPresignRoute: typeof ApiStorageUploadPresignRoute
-  ApiWebrtcTransferCreateOfferRoute: typeof ApiWebrtcTransferCreateOfferRoute
-  ApiWebrtcTransferPollRoute: typeof ApiWebrtcTransferPollRoute
-  ApiWebrtcTransferScanRoute: typeof ApiWebrtcTransferScanRoute
-  ApiWebrtcTransferStatusRoute: typeof ApiWebrtcTransferStatusRoute
-  ApiWebrtcGetSignalRoute: typeof ApiWebrtcGetSignalRoute
-  ApiWebrtcSetSignalRoute: typeof ApiWebrtcSetSignalRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -912,249 +467,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BucketsBucketNameRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/webrtc/set-signal': {
-      id: '/api/webrtc/set-signal'
-      path: '/api/webrtc/set-signal'
-      fullPath: '/api/webrtc/set-signal'
-      preLoaderRoute: typeof ApiWebrtcSetSignalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/webrtc/get-signal': {
-      id: '/api/webrtc/get-signal'
-      path: '/api/webrtc/get-signal'
-      fullPath: '/api/webrtc/get-signal'
-      preLoaderRoute: typeof ApiWebrtcGetSignalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/webrtc-transfer/status': {
-      id: '/api/webrtc-transfer/status'
-      path: '/api/webrtc-transfer/status'
-      fullPath: '/api/webrtc-transfer/status'
-      preLoaderRoute: typeof ApiWebrtcTransferStatusRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/webrtc-transfer/scan': {
-      id: '/api/webrtc-transfer/scan'
-      path: '/api/webrtc-transfer/scan'
-      fullPath: '/api/webrtc-transfer/scan'
-      preLoaderRoute: typeof ApiWebrtcTransferScanRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/webrtc-transfer/poll': {
-      id: '/api/webrtc-transfer/poll'
-      path: '/api/webrtc-transfer/poll'
-      fullPath: '/api/webrtc-transfer/poll'
-      preLoaderRoute: typeof ApiWebrtcTransferPollRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/webrtc-transfer/create-offer': {
-      id: '/api/webrtc-transfer/create-offer'
-      path: '/api/webrtc-transfer/create-offer'
-      fullPath: '/api/webrtc-transfer/create-offer'
-      preLoaderRoute: typeof ApiWebrtcTransferCreateOfferRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/upload-presign': {
-      id: '/api/storage/upload-presign'
-      path: '/api/storage/upload-presign'
-      fullPath: '/api/storage/upload-presign'
-      preLoaderRoute: typeof ApiStorageUploadPresignRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/upload-multipart-init': {
-      id: '/api/storage/upload-multipart-init'
-      path: '/api/storage/upload-multipart-init'
-      fullPath: '/api/storage/upload-multipart-init'
-      preLoaderRoute: typeof ApiStorageUploadMultipartInitRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/upload-multipart-complete': {
-      id: '/api/storage/upload-multipart-complete'
-      path: '/api/storage/upload-multipart-complete'
-      fullPath: '/api/storage/upload-multipart-complete'
-      preLoaderRoute: typeof ApiStorageUploadMultipartCompleteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/trash-restore': {
-      id: '/api/storage/trash-restore'
-      path: '/api/storage/trash-restore'
-      fullPath: '/api/storage/trash-restore'
-      preLoaderRoute: typeof ApiStorageTrashRestoreRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/trash-delete': {
-      id: '/api/storage/trash-delete'
-      path: '/api/storage/trash-delete'
-      fullPath: '/api/storage/trash-delete'
-      preLoaderRoute: typeof ApiStorageTrashDeleteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/trash': {
-      id: '/api/storage/trash'
-      path: '/api/storage/trash'
-      fullPath: '/api/storage/trash'
-      preLoaderRoute: typeof ApiStorageTrashRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/text-file': {
-      id: '/api/storage/text-file'
-      path: '/api/storage/text-file'
-      fullPath: '/api/storage/text-file'
-      preLoaderRoute: typeof ApiStorageTextFileRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/share-access': {
-      id: '/api/storage/share-access'
-      path: '/api/storage/share-access'
-      fullPath: '/api/storage/share-access'
-      preLoaderRoute: typeof ApiStorageShareAccessRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/share': {
-      id: '/api/storage/share'
-      path: '/api/storage/share'
-      fullPath: '/api/storage/share'
-      preLoaderRoute: typeof ApiStorageShareRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/search': {
-      id: '/api/storage/search'
-      path: '/api/storage/search'
-      fullPath: '/api/storage/search'
-      preLoaderRoute: typeof ApiStorageSearchRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/save-text-file': {
-      id: '/api/storage/save-text-file'
-      path: '/api/storage/save-text-file'
-      fullPath: '/api/storage/save-text-file'
-      preLoaderRoute: typeof ApiStorageSaveTextFileRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/storage/s3': {
       id: '/api/storage/s3'
       path: '/api/storage/s3'
       fullPath: '/api/storage/s3'
       preLoaderRoute: typeof ApiStorageS3RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/root-items': {
-      id: '/api/storage/root-items'
-      path: '/api/storage/root-items'
-      fullPath: '/api/storage/root-items'
-      preLoaderRoute: typeof ApiStorageRootItemsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/rename': {
-      id: '/api/storage/rename'
-      path: '/api/storage/rename'
-      fullPath: '/api/storage/rename'
-      preLoaderRoute: typeof ApiStorageRenameRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/register-file': {
-      id: '/api/storage/register-file'
-      path: '/api/storage/register-file'
-      fullPath: '/api/storage/register-file'
-      preLoaderRoute: typeof ApiStorageRegisterFileRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/recent': {
-      id: '/api/storage/recent'
-      path: '/api/storage/recent'
-      fullPath: '/api/storage/recent'
-      preLoaderRoute: typeof ApiStorageRecentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/quota': {
-      id: '/api/storage/quota'
-      path: '/api/storage/quota'
-      fullPath: '/api/storage/quota'
-      preLoaderRoute: typeof ApiStorageQuotaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/private-lock': {
-      id: '/api/storage/private-lock'
-      path: '/api/storage/private-lock'
-      fullPath: '/api/storage/private-lock'
-      preLoaderRoute: typeof ApiStoragePrivateLockRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/presign': {
-      id: '/api/storage/presign'
-      path: '/api/storage/presign'
-      fullPath: '/api/storage/presign'
-      preLoaderRoute: typeof ApiStoragePresignRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/move': {
-      id: '/api/storage/move'
-      path: '/api/storage/move'
-      fullPath: '/api/storage/move'
-      preLoaderRoute: typeof ApiStorageMoveRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/folder-items': {
-      id: '/api/storage/folder-items'
-      path: '/api/storage/folder-items'
-      fullPath: '/api/storage/folder-items'
-      preLoaderRoute: typeof ApiStorageFolderItemsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/file-link': {
-      id: '/api/storage/file-link'
-      path: '/api/storage/file-link'
-      fullPath: '/api/storage/file-link'
-      preLoaderRoute: typeof ApiStorageFileLinkRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/delete': {
-      id: '/api/storage/delete'
-      path: '/api/storage/delete'
-      fullPath: '/api/storage/delete'
-      preLoaderRoute: typeof ApiStorageDeleteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/create-folder': {
-      id: '/api/storage/create-folder'
-      path: '/api/storage/create-folder'
-      fullPath: '/api/storage/create-folder'
-      preLoaderRoute: typeof ApiStorageCreateFolderRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/storage/all-folders': {
-      id: '/api/storage/all-folders'
-      path: '/api/storage/all-folders'
-      fullPath: '/api/storage/all-folders'
-      preLoaderRoute: typeof ApiStorageAllFoldersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/qr-auth/session-status': {
-      id: '/api/qr-auth/session-status'
-      path: '/api/qr-auth/session-status'
-      fullPath: '/api/qr-auth/session-status'
-      preLoaderRoute: typeof ApiQrAuthSessionStatusRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/qr-auth/scan': {
-      id: '/api/qr-auth/scan'
-      path: '/api/qr-auth/scan'
-      fullPath: '/api/qr-auth/scan'
-      preLoaderRoute: typeof ApiQrAuthScanRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/qr-auth/poll': {
-      id: '/api/qr-auth/poll'
-      path: '/api/qr-auth/poll'
-      fullPath: '/api/qr-auth/poll'
-      preLoaderRoute: typeof ApiQrAuthPollRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/qr-auth/create-offer': {
-      id: '/api/qr-auth/create-offer'
-      path: '/api/qr-auth/create-offer'
-      fullPath: '/api/qr-auth/create-offer'
-      preLoaderRoute: typeof ApiQrAuthCreateOfferRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/auth/$': {
@@ -1300,53 +617,17 @@ const rootRouteChildren: RootRouteChildren = {
   TrashIndexRoute: TrashIndexRoute,
   WebrtcIndexRoute: WebrtcIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
-  ApiQrAuthCreateOfferRoute: ApiQrAuthCreateOfferRoute,
-  ApiQrAuthPollRoute: ApiQrAuthPollRoute,
-  ApiQrAuthScanRoute: ApiQrAuthScanRoute,
-  ApiQrAuthSessionStatusRoute: ApiQrAuthSessionStatusRoute,
-  ApiStorageAllFoldersRoute: ApiStorageAllFoldersRoute,
-  ApiStorageCreateFolderRoute: ApiStorageCreateFolderRoute,
-  ApiStorageDeleteRoute: ApiStorageDeleteRoute,
-  ApiStorageFileLinkRoute: ApiStorageFileLinkRoute,
-  ApiStorageFolderItemsRoute: ApiStorageFolderItemsRoute,
-  ApiStorageMoveRoute: ApiStorageMoveRoute,
-  ApiStoragePresignRoute: ApiStoragePresignRoute,
-  ApiStoragePrivateLockRoute: ApiStoragePrivateLockRoute,
-  ApiStorageQuotaRoute: ApiStorageQuotaRoute,
-  ApiStorageRecentRoute: ApiStorageRecentRoute,
-  ApiStorageRegisterFileRoute: ApiStorageRegisterFileRoute,
-  ApiStorageRenameRoute: ApiStorageRenameRoute,
-  ApiStorageRootItemsRoute: ApiStorageRootItemsRoute,
   ApiStorageS3Route: ApiStorageS3RouteWithChildren,
-  ApiStorageSaveTextFileRoute: ApiStorageSaveTextFileRoute,
-  ApiStorageSearchRoute: ApiStorageSearchRoute,
-  ApiStorageShareRoute: ApiStorageShareRoute,
-  ApiStorageShareAccessRoute: ApiStorageShareAccessRoute,
-  ApiStorageTextFileRoute: ApiStorageTextFileRoute,
-  ApiStorageTrashRoute: ApiStorageTrashRoute,
-  ApiStorageTrashDeleteRoute: ApiStorageTrashDeleteRoute,
-  ApiStorageTrashRestoreRoute: ApiStorageTrashRestoreRoute,
-  ApiStorageUploadMultipartCompleteRoute:
-    ApiStorageUploadMultipartCompleteRoute,
-  ApiStorageUploadMultipartInitRoute: ApiStorageUploadMultipartInitRoute,
-  ApiStorageUploadPresignRoute: ApiStorageUploadPresignRoute,
-  ApiWebrtcTransferCreateOfferRoute: ApiWebrtcTransferCreateOfferRoute,
-  ApiWebrtcTransferPollRoute: ApiWebrtcTransferPollRoute,
-  ApiWebrtcTransferScanRoute: ApiWebrtcTransferScanRoute,
-  ApiWebrtcTransferStatusRoute: ApiWebrtcTransferStatusRoute,
-  ApiWebrtcGetSignalRoute: ApiWebrtcGetSignalRoute,
-  ApiWebrtcSetSignalRoute: ApiWebrtcSetSignalRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
 
 import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
+import type { createStart } from '@tanstack/react-start'
 declare module '@tanstack/react-start' {
   interface Register {
     ssr: true
     router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
   }
 }
