@@ -279,5 +279,10 @@ export const registerFile = createServerFn({ method: 'POST' })
       console.error('[Server] Failed to update usedStorage:', storageErr)
     }
 
+    const { invalidateFolderCache, invalidateQuotaCache } =
+      await import('@/lib/cache-invalidation')
+    await invalidateFolderCache(authUser.id, data.parentFolderId || null)
+    await invalidateQuotaCache(authUser.id)
+
     return { file: insertedFile }
   })

@@ -17,5 +17,9 @@ export const createFolderFn = createServerFn({ method: 'POST' })
       name: data.name,
       parentFolderId: data.parentFolderId ?? null,
     })
+
+    const { invalidateFolderCache } = await import('@/lib/cache-invalidation')
+    await invalidateFolderCache(user.id, data.parentFolderId ?? null)
+
     return { folder }
   })
