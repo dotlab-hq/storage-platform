@@ -86,3 +86,75 @@ export const getUrlImportJobStatusFn = createServerFn({ method: 'GET' })
 
     return parsed
   })
+
+const UrlImportValidateInputSchema = z.object({
+  url: z.string().url(),
+  method: z.enum(['GET', 'POST', 'PUT', 'PATCH']).default('GET'),
+  headers: z
+    .array(z.object({ key: z.string().min(1), value: z.string() }))
+    .default([]),
+  cookies: z
+    .array(z.object({ key: z.string().min(1), value: z.string() }))
+    .default([]),
+})
+
+function buildCookieHeader(
+  cookies: { key: string; value: string }[],
+): string | null {
+  if (cookies.length === 0) {
+    return null
+  }
+  return cookies.map((cookie) => `${cookie.key}=${cookie.value}`).join('; ')
+}
+
+export const validateUrlImportTargetFn = createServerFn({ method: 'POST' })
+  .inputValidator(UrlImportValidateInputSchema)
+  .handler(async ({ data }) => {
+    await getAuthenticatedUser()
+
+    const headers = new Headers()
+    for (const pair of data.headers) {
+      headers.set(pair.key, pair.value)
+    }
+    const cookieHeader = buildCookieHeader(data.cookies)
+    if (cookieHeader) {
+      headers.set('cookie', cookieHeader)
+    }
+
+    const requestMethod = data.method === 'GET' ? 'HEAD' : data.method
+    try {
+      const response = await fetch(data.url, {
+        method: requestMethod,
+        headers,
+        redirect: 'follow',
+        signal: AbortSignal.timeout(10_000),
+      })
+
+      if (!response.ok) {
+        return {
+          ok: false as const,
+          message: `Validation failed with status ${response.status}`,
+          status: response.status,
+          contentType: response.headers.get('content-type') ?? 'unknown',
+          finalUrl: response.url,
+        }
+      }
+
+      return {
+        ok: true as const,
+        message: `Reachable. content-type: ${response.headers.get('content-type') ?? 'unknown'}`,
+        status: response.status,
+        contentType: response.headers.get('content-type') ?? 'unknown',
+        finalUrl: response.url,
+      }
+    } catch (error) {
+      return {
+        ok: false as const,
+        message:
+          error instanceof Error ? error.message : 'Validation request failed',
+        status: 0,
+        contentType: 'unknown',
+        finalUrl: data.url,
+      }
+    }
+  })

@@ -12,7 +12,6 @@ import {
 import { UploadDialog } from '@/components/storage/upload-dialog'
 import { NewFolderDialog } from '@/components/storage/new-folder-dialog'
 import { UrlImportDialog } from '@/components/storage/url-import-dialog'
-import { UrlImportModeToggle } from '@/components/storage/url-import-toggle'
 import { WebRTCToggle } from '@/components/webrtc-toggle'
 import { TopbarSearch } from '@/components/topbar-search'
 import type { StorageItem, UploadingFile } from '@/types/storage'
@@ -58,10 +57,7 @@ export function TopbarActions({
   return (
     <div className="flex items-center gap-2">
       <TopbarSearch userId={userId} onSearch={onSearch} />
-      <div className="flex flex-col items-end gap-1">
-        <WebRTCToggle />
-        <UrlImportModeToggle />
-      </div>
+      <WebRTCToggle />
       <Button
         size="icon"
         variant="outline"

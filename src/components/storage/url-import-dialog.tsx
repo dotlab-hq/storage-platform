@@ -11,7 +11,6 @@ import {
 } from '@/components/ui/dialog'
 import { UrlImportForm } from '@/components/storage/url-import-form'
 import type { UrlImportDialogProps } from '@/components/storage/url-import-dialog-types'
-import { validateUrlByHead } from '@/components/storage/url-import-dialog-utils'
 import { useUrlImportDialog } from '@/components/storage/use-url-import-dialog'
 
 export function UrlImportDialog({
@@ -32,6 +31,24 @@ export function UrlImportDialog({
             directly to your provider.
           </DialogDescription>
         </DialogHeader>
+        <div className="mb-2 inline-flex rounded-md border p-1">
+          <Button
+            type="button"
+            variant={model.state.mode === 'form' ? 'default' : 'ghost'}
+            size="sm"
+            onClick={() => model.setMode('form')}
+          >
+            Standard
+          </Button>
+          <Button
+            type="button"
+            variant={model.state.mode === 'code' ? 'default' : 'ghost'}
+            size="sm"
+            onClick={() => model.setMode('code')}
+          >
+            Code
+          </Button>
+        </div>
         <UrlImportForm
           state={model.state}
           validation={model.validation}
@@ -57,9 +74,11 @@ export function UrlImportDialog({
             variant="outline"
             onClick={() => {
               model.setValidation((prev) => ({ ...prev, loading: true }))
-              void validateUrlByHead(model.state.url).then((result) => {
-                model.setValidation({ loading: false, ...result })
-              })
+              void model
+                .validateTarget()
+                .then((result: { ok: boolean; message: string }) => {
+                  model.setValidation({ loading: false, ...result })
+                })
             }}
             disabled={model.validation.loading}
           >

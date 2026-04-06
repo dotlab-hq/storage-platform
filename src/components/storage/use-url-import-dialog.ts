@@ -4,17 +4,13 @@ import { toast } from '@/components/ui/sonner'
 import {
   createUrlImportJobFn,
   getUrlImportJobStatusFn,
+  validateUrlImportTargetFn,
 } from '@/lib/url-import/server'
 import { upsertUrlImportJob } from '@/components/storage/url-import-store'
 import type {
   UrlImportDialogState,
   UrlValidationState,
 } from '@/components/storage/url-import-dialog-types'
-import {
-  normalizeUrlImportMode,
-  URL_IMPORT_MODE_EVENT,
-  URL_IMPORT_MODE_STORAGE_KEY,
-} from '@/components/storage/url-import-mode'
 import { parsePairs } from '@/components/storage/url-import-dialog-utils'
 import {
   buildCurlFromState,
@@ -45,23 +41,6 @@ export function useUrlImportDialog(input: {
   })
   const [curlError, setCurlError] = React.useState<string | null>(null)
   const queryClient = useQueryClient()
-
-  React.useEffect(() => {
-    const applyMode = (modeValue: string | null) => {
-      setState((prev) => ({ ...prev, mode: normalizeUrlImportMode(modeValue) }))
-    }
-    applyMode(localStorage.getItem(URL_IMPORT_MODE_STORAGE_KEY))
-    const handleMode = (event: Event) => {
-      applyMode((event as CustomEvent<string>).detail)
-    }
-    window.addEventListener(URL_IMPORT_MODE_EVENT, handleMode as EventListener)
-    return () => {
-      window.removeEventListener(
-        URL_IMPORT_MODE_EVENT,
-        handleMode as EventListener,
-      )
-    }
-  }, [])
 
   const onImportComplete = input.onImportComplete
   const currentFolderId = input.currentFolderId
@@ -130,6 +109,10 @@ export function useUrlImportDialog(input: {
     validation.ok &&
     !curlError
 
+  const setMode = (mode: 'form' | 'code') => {
+    setState((prev) => ({ ...prev, mode }))
+  }
+
   const setMethod = (value: string) => {
     const candidate = value.toUpperCase()
     if (
@@ -168,9 +151,33 @@ export function useUrlImportDialog(input: {
     }
   }
 
+  const validateTarget = async (): Promise<{
+    ok: boolean
+    message: string
+  }> => {
+    if (!state.url.trim()) {
+      return { ok: false, message: 'URL is required.' }
+    }
+
+    const result = await validateUrlImportTargetFn({
+      data: {
+        url: state.url.trim(),
+        method: state.method,
+        headers: parsePairs(state.headersRaw),
+        cookies: parsePairs(state.cookiesRaw),
+      },
+    })
+
+    return {
+      ok: result.ok,
+      message: result.message,
+    }
+  }
+
   return {
     state,
     setState,
+    setMode,
     validation,
     setValidation,
     curlError,
@@ -179,5 +186,6 @@ export function useUrlImportDialog(input: {
     createJobMutation,
     setMethod,
     handleCurlChange,
+    validateTarget,
   }
 }
