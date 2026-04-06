@@ -210,6 +210,28 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
 
         {payload && activeTab === 'permissions' && (
           <div className="space-y-3">
+            <div className="flex gap-2">
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() =>
+                  setDraftPolicy(
+                    '{\n  "Version": "2012-10-17",\n  "Statement": [\n    {\n      "Effect": "Allow",\n      "Principal": "*",\n      "Action": ["s3:GetObject"],\n      "Resource": ["arn:aws:s3:::' +
+                      bucketName +
+                      '/*"]\n    }\n  ]\n}',
+                  )
+                }
+              >
+                Template: Public Read Policy
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => setDraftPolicy('')}
+              >
+                Clear Policy
+              </Button>
+            </div>
             <textarea
               aria-label="Bucket policy JSON"
               className="h-40 w-full rounded border p-2 text-xs"
@@ -227,7 +249,7 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
                   })
                 }
               >
-                <Save className="h-4 w-4" /> Save Policy
+                <Save className="h-4 w-4 mr-2" /> Save Policy
               </Button>
               <Button
                 size="sm"
@@ -236,19 +258,73 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
                   mutation.mutate({
                     action: 'acl',
                     bucketName,
-                    cannedAcl:
-                      payload.acl === 'private' ? 'public-read' : 'private',
+                    cannedAcl: 'public-read',
                   })
                 }
               >
-                Toggle ACL ({payload.acl})
+                Template: Make Public Read
               </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() =>
+                  mutation.mutate({
+                    action: 'acl',
+                    bucketName,
+                    cannedAcl: 'private',
+                  })
+                }
+              >
+                Template: Make Private
+              </Button>
+            </div>
+            <div className="text-xs text-muted-foreground mt-2">
+              Current ACL: <strong>{payload.acl}</strong>
             </div>
           </div>
         )}
 
         {payload && activeTab === 'cors' && (
           <div className="space-y-3">
+            <div className="text-sm text-muted-foreground mb-2">
+              <p>
+                <strong>Instructions:</strong> Enter a valid JSON array of CORS
+                rules.
+              </p>
+              <ul className="list-disc pl-5 mt-1 text-xs">
+                <li>
+                  Keys should be PascalCase or camelCase (e.g., AllowedOrigins).
+                </li>
+                <li>
+                  AllowedOrigins and AllowedMethods are required for each rule.
+                </li>
+                <li>Example Methods: GET, PUT, POST, DELETE, HEAD.</li>
+              </ul>
+            </div>
+            <div className="flex gap-2">
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() =>
+                  setDraftCors(
+                    '[\n  {\n    "AllowedOrigins": ["*"],\n    "AllowedMethods": ["GET", "PUT", "POST", "DELETE", "HEAD"],\n    "AllowedHeaders": ["*"],\n    "ExposeHeaders": ["ETag"],\n    "MaxAgeSeconds": 3000\n  }\n]',
+                  )
+                }
+              >
+                Load Public Template
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() =>
+                  setDraftCors(
+                    '[\n  {\n    "AllowedOrigins": ["https://yourdomain.com"],\n    "AllowedMethods": ["GET", "HEAD"],\n    "AllowedHeaders": ["Authorization"],\n    "MaxAgeSeconds": 3600\n  }\n]',
+                  )
+                }
+              >
+                Load Strict Template
+              </Button>
+            </div>
             <textarea
               aria-label="Bucket CORS rules JSON"
               className="h-40 w-full rounded border p-2 text-xs"

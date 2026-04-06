@@ -4,7 +4,6 @@ import {
   GetObjectCommand,
   CopyObjectCommand,
   DeleteObjectCommand,
-  ListObjectsV2Command,
 } from '@aws-sdk/client-s3'
 import { Readable } from 'node:stream'
 import type { BucketContext } from '@/lib/s3-gateway/s3-context'
@@ -19,9 +18,9 @@ import {
   getProviderClientById,
   selectProviderForUpload,
 } from '@/lib/s3-provider-client'
-import { and, eq, like } from 'drizzle-orm'
+import { and, eq, isNull } from 'drizzle-orm'
 import { db } from '@/db'
-import { file } from '@/db/schema/storage'
+import { file, folder } from '@/db/schema/storage'
 import {
   ProviderRequestTimeoutError,
   sendWithProviderTimeout,
@@ -60,11 +59,6 @@ function upstreamKeyFor(bucket: BucketContext, objectKey: string): string {
   )
 }
 
-function bucketPrefix(bucket: BucketContext): string {
-  const folderSegment = bucket.mappedFolderId ? `${bucket.mappedFolderId}/` : ''
-  return `s3/${bucket.userId}/${bucket.bucketId}/${folderSegment}`
-}
-
 export type ListedS3Object = {
   key: string
   size: number
@@ -76,19 +70,50 @@ export async function listObjectsV2(
   bucket: BucketContext,
   prefix: string,
 ): Promise<ListedS3Object[]> {
-  const basePrefix = bucketPrefix(bucket)
-  let rows: Array<{
-    objectKey: string
-    sizeInBytes: number
-    etag: string | null
-    lastModified: Date | null
-    updatedAt: Date | null
-  }>
+  const results: ListedS3Object[] = []
 
-  try {
-    rows = await db
+  const visited = new Set<string>()
+  const queue: Array<{
+    folderId: string | null
+    path: string
+    updatedAt?: Date
+  }> = [{ folderId: bucket.mappedFolderId, path: '' }]
+
+  while (queue.length > 0) {
+    const current = queue.shift()!
+    if (current.folderId && visited.has(current.folderId)) {
+      continue
+    }
+    if (current.folderId) {
+      visited.add(current.folderId)
+    }
+
+    const folderCondition = current.folderId
+      ? eq(folder.parentFolderId, current.folderId)
+      : isNull(folder.parentFolderId)
+
+    const childFolders = await db
       .select({
-        objectKey: file.objectKey,
+        id: folder.id,
+        name: folder.name,
+        updatedAt: folder.updatedAt,
+      })
+      .from(folder)
+      .where(
+        and(
+          eq(folder.userId, bucket.userId),
+          eq(folder.isDeleted, false),
+          folderCondition,
+        ),
+      )
+
+    const fileCondition = current.folderId
+      ? eq(file.folderId, current.folderId)
+      : isNull(file.folderId)
+
+    const childFiles = await db
+      .select({
+        name: file.name,
         sizeInBytes: file.sizeInBytes,
         etag: file.etag,
         lastModified: file.lastModified,
@@ -99,122 +124,51 @@ export async function listObjectsV2(
         and(
           eq(file.userId, bucket.userId),
           eq(file.isDeleted, false),
-          like(file.objectKey, `${basePrefix}%`),
+          fileCondition,
         ),
       )
-  } catch (error) {
-    const message =
-      error instanceof Error
-        ? `${error.name}: ${error.message}`
-        : 'Unknown query error'
-    console.warn(
-      '[S3 Gateway] listObjectsV2 fell back to minimal file query due to schema mismatch:',
-      message,
-    )
-    try {
-      const fallbackRows = await db
-        .select({
-          objectKey: file.objectKey,
-          sizeInBytes: file.sizeInBytes,
+
+    if (childFolders.length === 0 && childFiles.length === 0 && current.path) {
+      const matchPrefix =
+        current.path.startsWith(prefix) ||
+        prefix === current.path ||
+        prefix === current.path + '/'
+      if (matchPrefix) {
+        results.push({
+          key: current.path + '/',
+          size: 0,
+          eTag: null,
+          lastModified: current.updatedAt ?? new Date(0),
         })
-        .from(file)
-        .where(like(file.objectKey, `${basePrefix}%`))
+      }
+    }
 
-      rows = fallbackRows.map((row) => ({
-        objectKey: row.objectKey,
-        sizeInBytes: row.sizeInBytes,
-        etag: null,
-        lastModified: null,
-        updatedAt: null,
-      }))
-    } catch (fallbackError) {
-      const fallbackMessage =
-        fallbackError instanceof Error
-          ? `${fallbackError.name}: ${fallbackError.message}`
-          : 'Unknown fallback query error'
-      console.warn(
-        '[S3 Gateway] listObjectsV2 degraded to object_key-only query due to legacy schema mismatch:',
-        fallbackMessage,
-      )
-      try {
-        const keyOnlyRows = await db
-          .select({
-            objectKey: file.objectKey,
-          })
-          .from(file)
-          .where(like(file.objectKey, `${basePrefix}%`))
+    for (const f of childFolders) {
+      const newPath = current.path ? `${current.path}/${f.name}` : f.name
+      if (
+        prefix.startsWith(newPath + '/') ||
+        newPath.startsWith(prefix) ||
+        prefix === newPath ||
+        prefix === ''
+      ) {
+        queue.push({ folderId: f.id, path: newPath, updatedAt: f.updatedAt })
+      }
+    }
 
-        rows = keyOnlyRows.map((row) => ({
-          objectKey: row.objectKey,
-          sizeInBytes: 0,
-          etag: null,
-          lastModified: null,
-          updatedAt: null,
-        }))
-      } catch (finalFallbackError) {
-        const finalFallbackMessage =
-          finalFallbackError instanceof Error
-            ? `${finalFallbackError.name}: ${finalFallbackError.message}`
-            : 'Unknown final fallback query error'
-        console.warn(
-          '[S3 Gateway] listObjectsV2 could not query file rows due to incompatible legacy schema:',
-          finalFallbackMessage,
-        )
-        rows = await listObjectsFromProvider(bucket, prefix)
+    for (const f of childFiles) {
+      const newPath = current.path ? `${current.path}/${f.name}` : f.name
+      if (newPath.startsWith(prefix)) {
+        results.push({
+          key: newPath,
+          size: f.sizeInBytes,
+          eTag: f.etag,
+          lastModified: f.lastModified ?? f.updatedAt ?? new Date(0),
+        })
       }
     }
   }
 
-  return rows
-    .map((row) => {
-      const key = row.objectKey.startsWith(basePrefix)
-        ? row.objectKey.slice(basePrefix.length)
-        : row.objectKey
-      return {
-        key,
-        size: row.sizeInBytes,
-        eTag: row.etag,
-        lastModified: row.lastModified ?? row.updatedAt ?? new Date(0),
-      }
-    })
-    .filter((row) => row.key.startsWith(prefix))
-}
-
-async function listObjectsFromProvider(
-  bucket: BucketContext,
-  prefix: string,
-): Promise<
-  Array<{
-    objectKey: string
-    sizeInBytes: number
-    etag: string | null
-    lastModified: Date | null
-    updatedAt: Date | null
-  }>
-> {
-  const basePrefix = bucketPrefix(bucket)
-  const providerPrefix = `${basePrefix}${prefix}`
-  const provider = await getProviderClientById(null)
-  const listed = await sendWithProviderTimeout((abortSignal) =>
-    provider.client.send(
-      new ListObjectsV2Command({
-        Bucket: provider.bucketName,
-        Prefix: providerPrefix,
-        MaxKeys: 1000,
-      }),
-      { abortSignal },
-    ),
-  )
-
-  return (listed.Contents ?? [])
-    .filter((item) => typeof item.Key === 'string')
-    .map((item) => ({
-      objectKey: item.Key as string,
-      sizeInBytes: typeof item.Size === 'number' ? item.Size : 0,
-      etag: typeof item.ETag === 'string' ? normalizeETag(item.ETag) : null,
-      lastModified: item.LastModified ?? null,
-      updatedAt: null,
-    }))
+  return results
 }
 
 export async function putObject(
