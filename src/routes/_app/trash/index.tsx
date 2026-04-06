@@ -8,9 +8,9 @@ import { Trash2, RotateCcw, AlertTriangle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ConfirmDeleteModal } from "@/components/storage/confirm-delete-modal"
 import { TrashContent } from "@/components/storage/trash-content"
-import { useState } from "react"
+import { useState, useMemo  } from "react"
 import { useTrashData } from "@/hooks/use-trash-data"
-import { useMemo } from "react"
+
 import { useShellView } from "@/components/shell/shell-actions-registry"
 
 export const Route = createFileRoute( "/_app/trash/" )( { component: TrashPage } )

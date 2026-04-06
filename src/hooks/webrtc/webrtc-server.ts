@@ -1,8 +1,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import { and, eq, gt, isNull } from 'drizzle-orm'
-import { db } from '@/db'
-import { tinySession, qrLoginOffer } from '@/db/schema/auth-schema'
+import { Cache } from '@/lib/Cache'
+import type { CachedTinySession } from '@/lib/tiny-session'
 
 const SIGNAL_TTL_MS = 30_000
 
@@ -15,102 +14,45 @@ export const getSignalServerFn = createServerFn({ method: 'GET' })
   .handler(async ({ data }) => {
     const { sessionToken } = data
 
-    const sessionRows = await db
-      .select({
-        id: tinySession.id,
-        userId: tinySession.userId,
-        permission: tinySession.permission,
-        expiresAt: tinySession.expiresAt,
-        webrtcSignal: tinySession.webrtcSignal,
-        webrtcSignalExpiresAt: tinySession.webrtcSignalExpiresAt,
-        sourceOfferId: tinySession.sourceOfferId,
-      })
-      .from(tinySession)
-      .where(
-        and(
-          eq(tinySession.token, sessionToken),
-          gt(tinySession.expiresAt, new Date()),
-        ),
-      )
-      .limit(1)
+    const session = await Cache.get<CachedTinySession>(
+      `session:tiny:${sessionToken}`,
+    )
 
-    if (sessionRows.length === 0) {
+    if (!session || new Date(session.expiresAt).getTime() <= Date.now()) {
       throw new Error('Invalid or expired tiny session.')
     }
 
-    const session = sessionRows[0]
-
     let targetPermission: string | null = null
+    let pollKey: string | null = null
 
     if (session.permission?.startsWith('webrtc-owner:')) {
-      const pollKey = session.permission.replace('webrtc-owner:', '')
+      pollKey = session.permission.replace('webrtc-owner:', '')
       targetPermission = 'webrtc-scanner:' + pollKey
     } else if (session.permission?.startsWith('webrtc-scanner:')) {
-      const pollKey = session.permission.replace('webrtc-scanner:', '')
+      pollKey = session.permission.replace('webrtc-scanner:', '')
       targetPermission = 'webrtc-owner:' + pollKey
     }
 
     let peerSignal: string | null = null
 
-    if (targetPermission) {
-      const peerSessions = await db
-        .select({
-          webrtcSignal: tinySession.webrtcSignal,
-          webrtcSignalExpiresAt: tinySession.webrtcSignalExpiresAt,
-        })
-        .from(tinySession)
-        .where(
-          and(
-            eq(tinySession.permission, targetPermission),
-            gt(tinySession.expiresAt, new Date()),
-            isNull(tinySession.revokedAt),
-          ),
-        )
-        .limit(1)
+    if (pollKey && targetPermission) {
+      // we need to get the signal from the peer session.
+      // Since we don't have secondary indices, let's fetch the poll transfer object
+      // and use it to store signals, or we can store signals in a separate key.
+      const signalData = await Cache.get<{ signal: string; expiresAt: string }>(
+        `webrtc:signal:${targetPermission}`,
+      )
 
-      if (peerSessions.length > 0) {
-        const peerSession = peerSessions[0]
-        if (
-          peerSession.webrtcSignal &&
-          peerSession.webrtcSignalExpiresAt &&
-          peerSession.webrtcSignalExpiresAt.getTime() > Date.now()
-        ) {
-          peerSignal = peerSession.webrtcSignal
-        }
+      if (signalData && new Date(signalData.expiresAt).getTime() > Date.now()) {
+        peerSignal = signalData.signal
       }
     } else if (session.sourceOfferId) {
-      // fallback for old qrLoginOffer logic
-      const offerRows = await db
-        .select({ ownerUserId: qrLoginOffer.ownerUserId })
-        .from(qrLoginOffer)
-        .where(eq(qrLoginOffer.id, session.sourceOfferId))
-        .limit(1)
-      if (offerRows.length > 0 && offerRows[0].ownerUserId) {
-        const peerSessions = await db
-          .select({
-            webrtcSignal: tinySession.webrtcSignal,
-            webrtcSignalExpiresAt: tinySession.webrtcSignalExpiresAt,
-          })
-          .from(tinySession)
-          .where(
-            and(
-              eq(tinySession.userId, offerRows[0].ownerUserId),
-              gt(tinySession.expiresAt, new Date()),
-              isNull(tinySession.revokedAt),
-            ),
-          )
-          .limit(1)
-
-        if (peerSessions.length > 0) {
-          const peerSession = peerSessions[0]
-          if (
-            peerSession.webrtcSignal &&
-            peerSession.webrtcSignalExpiresAt &&
-            peerSession.webrtcSignalExpiresAt.getTime() > Date.now()
-          ) {
-            peerSignal = peerSession.webrtcSignal
-          }
-        }
+      // old QR login logic - we can store QR signals similarly
+      const signalData = await Cache.get<{ signal: string; expiresAt: string }>(
+        `qr:signal:${session.sourceOfferId}:peer`,
+      )
+      if (signalData && new Date(signalData.expiresAt).getTime() > Date.now()) {
+        peerSignal = signalData.signal
       }
     }
 
@@ -130,34 +72,41 @@ export const setSignalServerFn = createServerFn({ method: 'POST' })
   .handler(async ({ data }) => {
     const { sessionToken, signal } = data
 
-    const sessionRows = await db
-      .select({
-        id: tinySession.id,
-        userId: tinySession.userId,
-        expiresAt: tinySession.expiresAt,
-      })
-      .from(tinySession)
-      .where(
-        and(
-          eq(tinySession.token, sessionToken),
-          gt(tinySession.expiresAt, new Date()),
-        ),
-      )
-      .limit(1)
+    const session = await Cache.get<CachedTinySession>(
+      `session:tiny:${sessionToken}`,
+    )
 
-    if (sessionRows.length === 0) {
+    if (!session || new Date(session.expiresAt).getTime() <= Date.now()) {
       throw new Error('Invalid or expired tiny session.')
     }
 
     const expiresAt = new Date(Date.now() + SIGNAL_TTL_MS)
 
-    await db
-      .update(tinySession)
-      .set({
+    // update session in cache
+    await Cache.set(
+      `session:tiny:${sessionToken}`,
+      {
+        ...session,
         webrtcSignal: signal,
-        webrtcSignalExpiresAt: expiresAt,
-      })
-      .where(eq(tinySession.id, sessionRows[0].id))
+        webrtcSignalExpiresAt: expiresAt.toISOString(),
+      },
+      { expirationTtl: Math.floor(SIGNAL_TTL_MS / 1000) },
+    )
+
+    // Also store it by permission for easy lookup by peer
+    if (session.permission) {
+      await Cache.set(
+        `webrtc:signal:${session.permission}`,
+        { signal, expiresAt: expiresAt.toISOString() },
+        { expirationTtl: Math.floor(SIGNAL_TTL_MS / 1000) },
+      )
+    } else if (session.sourceOfferId) {
+      await Cache.set(
+        `qr:signal:${session.sourceOfferId}`,
+        { signal, expiresAt: expiresAt.toISOString() },
+        { expirationTtl: Math.floor(SIGNAL_TTL_MS / 1000) },
+      )
+    }
 
     return { success: true }
   })

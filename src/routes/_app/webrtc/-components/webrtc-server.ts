@@ -1,8 +1,8 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import { and, inArray, lt, eq, gt } from 'drizzle-orm'
+import { eq } from 'drizzle-orm'
 import { db } from '@/db'
-import { webrtcTransfer, tinySession, user } from '@/db/schema/auth-schema'
+import { user } from '@/db/schema/auth-schema'
 import {
   buildWebrtcOfferPayload,
   createWebrtcOfferCode,
@@ -12,26 +12,24 @@ import {
   parseWebrtcOfferPayload,
   TINY_SESSION_TTL_MS,
 } from '@/lib/tiny-session'
+import { Cache } from '@/lib/Cache'
 
-const ACTIVE_STATUSES = ['pending', 'claimed'] as const
 const ANONYMOUS_USER_ID = 'anonymous_webrtc_user'
+
+export type CachedWebrtcTransfer = {
+  id: string
+  offerCode: string
+  pollKey: string
+  offerType: string
+  status: string
+  expiresAt: string
+  connectedAt?: string
+  requesterSessionId?: string
+}
 
 export const createOffer = createServerFn({ method: 'POST' }).handler(
   async () => {
     const now = new Date()
-
-    await db
-      .update(webrtcTransfer)
-      .set({ status: 'expired' })
-      .where(
-        and(
-          inArray(
-            webrtcTransfer.status,
-            ACTIVE_STATUSES as unknown as string[],
-          ),
-          lt(webrtcTransfer.expiresAt, now),
-        ),
-      )
 
     const existingUser = await db
       .select()
@@ -57,22 +55,33 @@ export const createOffer = createServerFn({ method: 'POST' }).handler(
     const sessionToken = createTinySessionToken()
     const sessionId = crypto.randomUUID()
 
-    await db.insert(tinySession).values({
-      id: sessionId,
-      token: sessionToken,
-      userId: ANONYMOUS_USER_ID,
-      permission: 'webrtc-owner:' + pollKey,
-      expiresAt,
-      createdAt: now,
-    })
+    await Cache.set(
+      `session:tiny:${sessionToken}`,
+      {
+        id: sessionId,
+        token: sessionToken,
+        userId: ANONYMOUS_USER_ID,
+        permission: 'webrtc-owner:' + pollKey,
+        expiresAt: expiresAt.toISOString(),
+        createdAt: now.toISOString(),
+      },
+      { expirationTtl: Math.floor(WEBRTC_OFFER_TTL_MS / 1000) },
+    )
 
-    await db.insert(webrtcTransfer).values({
+    const transferData: CachedWebrtcTransfer = {
       id: crypto.randomUUID(),
       offerCode: code,
       pollKey,
       offerType: 'offer',
       status: 'pending',
-      expiresAt,
+      expiresAt: expiresAt.toISOString(),
+    }
+
+    await Cache.set(`webrtc:transfer:${pollKey}`, transferData, {
+      expirationTtl: Math.floor(WEBRTC_OFFER_TTL_MS / 1000),
+    })
+    await Cache.set(`webrtc:code:${code}`, pollKey, {
+      expirationTtl: Math.floor(WEBRTC_OFFER_TTL_MS / 1000),
     })
 
     return {
@@ -89,77 +98,61 @@ export const createOffer = createServerFn({ method: 'POST' }).handler(
 export const pollOffer = createServerFn({ method: 'GET' })
   .inputValidator(z.object({ pollKey: z.string() }))
   .handler(async ({ data: { pollKey } }) => {
-    const rows = await db
-      .select({
-        id: webrtcTransfer.id,
-        status: webrtcTransfer.status,
-        ownerUserId: webrtcTransfer.ownerUserId,
-        requesterSessionId: webrtcTransfer.requesterSessionId,
-        expiresAt: webrtcTransfer.expiresAt,
-        connectedAt: webrtcTransfer.connectedAt,
-      })
-      .from(webrtcTransfer)
-      .where(eq(webrtcTransfer.pollKey, pollKey))
-      .limit(1)
+    const transfer = await Cache.get<CachedWebrtcTransfer>(
+      `webrtc:transfer:${pollKey}`,
+    )
 
-    if (rows.length === 0) {
+    if (!transfer) {
       throw new Error('not_found')
     }
 
-    const transfer = rows[0]
     const now = new Date()
+    const expiresAt = new Date(transfer.expiresAt)
 
     if (
       (transfer.status === 'pending' || transfer.status === 'claimed') &&
-      transfer.expiresAt.getTime() <= now.getTime()
+      expiresAt.getTime() <= now.getTime()
     ) {
-      await db
-        .update(webrtcTransfer)
-        .set({ status: 'expired' })
-        .where(eq(webrtcTransfer.id, transfer.id))
+      await Cache.delete(`webrtc:transfer:${pollKey}`)
 
       return {
         status: 'expired',
         message: 'WebRTC offer has expired.',
-        expiresAt: transfer.expiresAt.toISOString(),
+        expiresAt: transfer.expiresAt,
       }
     }
 
     if (transfer.status === 'pending') {
       return {
         status: transfer.status,
-        expiresAt: transfer.expiresAt.toISOString(),
+        expiresAt: transfer.expiresAt,
       }
     }
 
     if (transfer.status === 'claimed') {
-      await db
-        .update(webrtcTransfer)
-        .set({ status: 'connected', connectedAt: now })
-        .where(
-          and(
-            eq(webrtcTransfer.id, transfer.id),
-            eq(webrtcTransfer.status, 'claimed'),
-            gt(webrtcTransfer.expiresAt, now),
-          ),
-        )
+      transfer.status = 'connected'
+      transfer.connectedAt = now.toISOString()
+
+      await Cache.set(`webrtc:transfer:${pollKey}`, transfer, {
+        expirationTtl: Math.floor(WEBRTC_OFFER_TTL_MS / 1000),
+      })
 
       return {
         status: 'connected',
-        connectedAt: now.toISOString(),
+        connectedAt: transfer.connectedAt,
       }
     }
 
     if (transfer.status === 'connected') {
       return {
         status: 'connected',
-        connectedAt: transfer.connectedAt?.toISOString() ?? null,
+        connectedAt: transfer.connectedAt ?? null,
       }
     }
 
     return {
       status: transfer.status,
-      expiresAt: transfer.expiresAt.toISOString(),
+      expiresAt: transfer.expiresAt,
     }
   })
 
@@ -171,53 +164,53 @@ export const scanOffer = createServerFn({ method: 'POST' })
       throw new Error('Invalid WebRTC offer payload.')
     }
 
-    const now = new Date()
-
-    const rows = await db
-      .select({
-        id: webrtcTransfer.id,
-        status: webrtcTransfer.status,
-        expiresAt: webrtcTransfer.expiresAt,
-        pollKey: webrtcTransfer.pollKey,
-      })
-      .from(webrtcTransfer)
-      .where(eq(webrtcTransfer.offerCode, code))
-      .limit(1)
-
-    if (rows.length === 0) {
+    const pollKey = await Cache.get<string>(`webrtc:code:${code}`)
+    if (!pollKey) {
       throw new Error('WebRTC offer not found or expired.')
     }
 
-    const transfer = rows[0]
+    const transfer = await Cache.get<CachedWebrtcTransfer>(
+      `webrtc:transfer:${pollKey}`,
+    )
+
+    if (!transfer) {
+      throw new Error('WebRTC offer not found or expired.')
+    }
+
+    const now = new Date()
+    const expiresAt = new Date(transfer.expiresAt)
+
     if (transfer.status !== 'pending' && transfer.status !== 'claimed') {
       throw new Error(`WebRTC offer is ${transfer.status}.`)
     }
 
-    if (transfer.expiresAt.getTime() <= now.getTime()) {
-      await db
-        .update(webrtcTransfer)
-        .set({ status: 'expired' })
-        .where(eq(webrtcTransfer.id, transfer.id))
+    if (expiresAt.getTime() <= now.getTime()) {
+      await Cache.delete(`webrtc:transfer:${pollKey}`)
       throw new Error('WebRTC offer has expired.')
     }
 
     const anonToken = createTinySessionToken()
-    const expiresAt = new Date(Date.now() + TINY_SESSION_TTL_MS)
+    const sessionExpiresAt = new Date(Date.now() + TINY_SESSION_TTL_MS)
     const anonSessionId = crypto.randomUUID()
 
-    await db.insert(tinySession).values({
-      id: anonSessionId,
-      token: anonToken,
-      userId: ANONYMOUS_USER_ID,
-      permission: 'webrtc-scanner:' + transfer.pollKey,
-      expiresAt,
-      createdAt: now,
-    })
+    await Cache.set(
+      `session:tiny:${anonToken}`,
+      {
+        id: anonSessionId,
+        token: anonToken,
+        userId: ANONYMOUS_USER_ID,
+        permission: 'webrtc-scanner:' + transfer.pollKey,
+        expiresAt: sessionExpiresAt.toISOString(),
+        createdAt: now.toISOString(),
+      },
+      { expirationTtl: Math.floor(TINY_SESSION_TTL_MS / 1000) },
+    )
 
-    await db
-      .update(webrtcTransfer)
-      .set({ status: 'claimed', requesterSessionId: anonSessionId })
-      .where(eq(webrtcTransfer.id, transfer.id))
+    transfer.status = 'claimed'
+    transfer.requesterSessionId = anonSessionId
+    await Cache.set(`webrtc:transfer:${pollKey}`, transfer, {
+      expirationTtl: Math.floor(WEBRTC_OFFER_TTL_MS / 1000),
+    })
 
     return {
       success: true,
@@ -228,18 +221,16 @@ export const scanOffer = createServerFn({ method: 'POST' })
     }
   })
 
-export const statusOffer = createServerFn({ method: 'GET' }).handler(
-  async () => {
-    const rows = await db
-      .select({ status: webrtcTransfer.status })
-      .from(webrtcTransfer)
-      .where(eq(webrtcTransfer.status, 'connected'))
-      .limit(1)
+export const statusOffer = createServerFn({ method: 'GET' })
+  .inputValidator(z.object({ pollKey: z.string() }))
+  .handler(async ({ data: { pollKey } }) => {
+    const transfer = await Cache.get<CachedWebrtcTransfer>(
+      `webrtc:transfer:${pollKey}`,
+    )
 
-    if (rows.length > 0) {
+    if (transfer && transfer.status === 'connected') {
       return { status: 'connected' }
     }
 
     return { status: 'waiting' }
-  },
-)
+  })

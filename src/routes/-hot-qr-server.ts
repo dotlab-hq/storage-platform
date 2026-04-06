@@ -5,9 +5,6 @@ import {
   getRequestHeaders,
 } from '@tanstack/react-start/server'
 import { z } from 'zod'
-import { and, inArray, lt, eq, gt, isNull } from 'drizzle-orm'
-import { db } from '@/db'
-import { qrLoginOffer, tinySession } from '@/db/schema/auth-schema'
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import {
   buildQrLoginPayload,
@@ -20,6 +17,7 @@ import {
   QR_OFFER_TTL_MS,
   TINY_SESSION_TTL_MS,
 } from '@/lib/tiny-session'
+import { Cache } from '@/lib/Cache'
 
 const OfferResponseSchema = z.object({
   code: z.string(),
@@ -47,37 +45,38 @@ const PollResponseSchema = z.object({
 export type OfferResponse = z.infer<typeof OfferResponseSchema>
 export type PollResponse = z.infer<typeof PollResponseSchema>
 
-const ACTIVE_STATUSES = ['pending', 'claimed'] as const
+export type CachedQrLoginOffer = {
+  id: string
+  code: string
+  pollKey: string
+  ownerUserId?: string
+  status: string
+  requestedPermission?: string
+  expiresAt: string
+  claimedByUserId?: string
+  claimedAt?: string
+}
 
 export const createQrOffer = createServerFn({ method: 'POST' }).handler(
   async () => {
     try {
-      const now = new Date()
-
-      await db
-        .update(qrLoginOffer)
-        .set({ status: 'expired' })
-        .where(
-          and(
-            inArray(
-              qrLoginOffer.status,
-              ACTIVE_STATUSES as unknown as string[],
-            ),
-            lt(qrLoginOffer.expiresAt, now),
-          ),
-        )
-
       const code = createQrOfferCode()
       const pollKey = createPollKey()
       const expiresAt = new Date(Date.now() + QR_OFFER_TTL_MS)
 
-      await db.insert(qrLoginOffer).values({
+      const offerData: CachedQrLoginOffer = {
         id: crypto.randomUUID(),
         code,
         pollKey,
-        ownerUserId: null,
         status: 'pending',
-        expiresAt,
+        expiresAt: expiresAt.toISOString(),
+      }
+
+      await Cache.set(`qr:offer:${pollKey}`, offerData, {
+        expirationTtl: Math.floor(QR_OFFER_TTL_MS / 1000),
+      })
+      await Cache.set(`qr:code:${code}`, pollKey, {
+        expirationTtl: Math.floor(QR_OFFER_TTL_MS / 1000),
       })
 
       const data = {
@@ -108,35 +107,22 @@ export const pollQrStatus = createServerFn({ method: 'POST' })
         return { success: false, error: 'Missing poll key.' }
       }
 
-      const rows = await db
-        .select({
-          id: qrLoginOffer.id,
-          status: qrLoginOffer.status,
-          ownerUserId: qrLoginOffer.ownerUserId,
-          requestedPermission: qrLoginOffer.requestedPermission,
-          expiresAt: qrLoginOffer.expiresAt,
-        })
-        .from(qrLoginOffer)
-        .where(eq(qrLoginOffer.pollKey, pollKey))
-        .limit(1)
+      const offer = await Cache.get<CachedQrLoginOffer>(`qr:offer:${pollKey}`)
 
-      if (rows.length === 0) {
+      if (!offer) {
         setResponseStatus(404)
         const validatedData = PollResponseSchema.parse({ status: 'not_found' })
         return { success: true, data: validatedData }
       }
 
-      const offer = rows[0]
       const now = new Date()
+      const expiresAt = new Date(offer.expiresAt)
 
       if (
         (offer.status === 'pending' || offer.status === 'claimed') &&
-        offer.expiresAt.getTime() <= now.getTime()
+        expiresAt.getTime() <= now.getTime()
       ) {
-        await db
-          .update(qrLoginOffer)
-          .set({ status: 'expired' })
-          .where(eq(qrLoginOffer.id, offer.id))
+        await Cache.delete(`qr:offer:${pollKey}`)
 
         const validatedData = PollResponseSchema.parse({
           status: 'expired',
@@ -162,26 +148,26 @@ export const pollQrStatus = createServerFn({ method: 'POST' })
       const tinySessionToken = createTinySessionToken()
       const tinySessionExpiresAt = new Date(Date.now() + TINY_SESSION_TTL_MS)
 
-      await db.insert(tinySession).values({
-        id: crypto.randomUUID(),
-        token: tinySessionToken,
-        userId: offer.ownerUserId,
-        permission,
-        sourceOfferId: offer.id,
-        expiresAt: tinySessionExpiresAt,
-        createdAt: now,
-      })
+      await Cache.set(
+        `session:tiny:${tinySessionToken}`,
+        {
+          id: crypto.randomUUID(),
+          token: tinySessionToken,
+          userId: offer.ownerUserId,
+          permission,
+          sourceOfferId: offer.id,
+          expiresAt: tinySessionExpiresAt.toISOString(),
+          createdAt: now.toISOString(),
+        },
+        { expirationTtl: Math.floor(TINY_SESSION_TTL_MS / 1000) },
+      )
 
-      await db
-        .update(qrLoginOffer)
-        .set({ status: 'approved', claimedAt: now })
-        .where(
-          and(
-            eq(qrLoginOffer.id, offer.id),
-            eq(qrLoginOffer.status, 'claimed'),
-            gt(qrLoginOffer.expiresAt, now),
-          ),
-        )
+      offer.status = 'approved'
+      offer.claimedAt = now.toISOString()
+
+      await Cache.set(`qr:offer:${pollKey}`, offer, {
+        expirationTtl: Math.floor(QR_OFFER_TTL_MS / 1000),
+      })
 
       const cookieValue = createTinySessionCookie(tinySessionToken)
       setResponseHeader('set-cookie', cookieValue)
@@ -199,7 +185,6 @@ export const pollQrStatus = createServerFn({ method: 'POST' })
     }
   })
 const REQUEST_PERMISSION_VALUES = ['read', 'read-write'] as const
-const CLAIMABLE_STATUSES = ['pending'] as const
 
 export const scanQrFn = createServerFn({ method: 'POST' })
   .inputValidator(
@@ -225,84 +210,54 @@ export const scanQrFn = createServerFn({ method: 'POST' })
         ? (data.requestedPermission as 'read' | 'read-write')
         : 'read'
 
-      const now = new Date()
-      const rows = await db
-        .select({
-          id: qrLoginOffer.id,
-          status: qrLoginOffer.status,
-          expiresAt: qrLoginOffer.expiresAt,
-        })
-        .from(qrLoginOffer)
-        .where(eq(qrLoginOffer.code, code))
-        .limit(1)
-
-      if (rows.length === 0) {
+      const pollKey = await Cache.get<string>(`qr:code:${code}`)
+      if (!pollKey) {
         setResponseStatus(404)
         return { error: 'QR offer not found.' }
       }
 
-      const offer = rows[0]
+      const offer = await Cache.get<CachedQrLoginOffer>(`qr:offer:${pollKey}`)
 
-      if (offer.expiresAt.getTime() <= now.getTime()) {
-        await db
-          .update(qrLoginOffer)
-          .set({ status: 'expired' })
-          .where(eq(qrLoginOffer.id, offer.id))
+      if (!offer) {
+        setResponseStatus(404)
+        return { error: 'QR offer not found.' }
+      }
+
+      const now = new Date()
+      const expiresAt = new Date(offer.expiresAt)
+
+      if (expiresAt.getTime() <= now.getTime()) {
+        await Cache.delete(`qr:offer:${pollKey}`)
         setResponseStatus(410)
         return { error: 'QR has expired.' }
       }
 
-      if (!CLAIMABLE_STATUSES.includes(offer.status as 'pending')) {
+      if (offer.status !== 'pending') {
         setResponseStatus(409)
         return { error: 'QR offer is no longer claimable.' }
       }
 
-      await db
-        .update(qrLoginOffer)
-        .set({
-          status: 'claimed',
-          ownerUserId: scanner.id,
-          claimedByUserId: scanner.id,
-          requestedPermission,
-        })
-        .where(
-          and(
-            eq(qrLoginOffer.id, offer.id),
-            inArray(
-              qrLoginOffer.status,
-              CLAIMABLE_STATUSES as unknown as string[],
-            ),
-            isNull(qrLoginOffer.claimedByUserId),
-            gt(qrLoginOffer.expiresAt, now),
-          ),
-        )
-
-      const freshRows = await db
-        .select({
-          id: qrLoginOffer.id,
-          status: qrLoginOffer.status,
-          ownerUserId: qrLoginOffer.ownerUserId,
-          claimedByUserId: qrLoginOffer.claimedByUserId,
-          requestedPermission: qrLoginOffer.requestedPermission,
-          expiresAt: qrLoginOffer.expiresAt,
-        })
-        .from(qrLoginOffer)
-        .where(eq(qrLoginOffer.id, offer.id))
-        .limit(1)
-
-      const current = freshRows[0]
-      if (!current || current.claimedByUserId !== scanner.id) {
+      if (offer.claimedByUserId && offer.claimedByUserId !== scanner.id) {
         setResponseStatus(409)
         return { error: 'QR was claimed by another device.' }
       }
 
+      offer.status = 'claimed'
+      offer.ownerUserId = scanner.id
+      offer.claimedByUserId = scanner.id
+      offer.requestedPermission = requestedPermission
+
+      await Cache.set(`qr:offer:${pollKey}`, offer, {
+        expirationTtl: Math.floor(QR_OFFER_TTL_MS / 1000),
+      })
+
       return {
         success: true as const,
         data: {
-          offerId: current.id,
-          status: current.status,
-          expiresAt: current.expiresAt.toISOString(),
-          requestedPermission: current.requestedPermission,
+          offerId: offer.id,
+          status: offer.status,
+          expiresAt: offer.expiresAt,
+          requestedPermission: offer.requestedPermission,
         },
       }
     } catch (error) {

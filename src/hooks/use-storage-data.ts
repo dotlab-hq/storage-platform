@@ -27,10 +27,12 @@ const checkAuthClient = createClientOnlyFn(async () => {
   return data.user.id
 })
 
-const fetchFolderItems = createClientOnlyFn(async (folderId: string | null) => {
-  const data = await getFolderItemsFn({ data: { folderId } })
-  return data as unknown as FetchResponse
-})
+const fetchFolderItems = createClientOnlyFn(
+  async (folderId: string | null, page: number = 1, limit: number = 100) => {
+    const data = await getFolderItemsFn({ data: { folderId, page, limit } })
+    return data as unknown as FetchResponse
+  },
+)
 
 const fetchUserQuota = createClientOnlyFn(async (): Promise<UserQuota> => {
   const data = await getQuotaFn()
@@ -83,20 +85,50 @@ export function useStorageData(initialData?: HomeLoaderData) {
     initialMapped?.breadcrumbs ?? [],
   )
 
+  const [page, setPage] = useState(1)
+  const [hasMore, setHasMore] = useState(true)
+  const limit = 50
+
   const loadItems = useCallback(
-    async (uid: string, folderId: string | null) => {
+    async (uid: string, folderId: string | null, reset: boolean = true) => {
       setIsLoading(true)
       try {
-        const data = await fetchFolderItems(folderId)
+        const targetPage = reset ? 1 : page + 1
+        const data = await fetchFolderItems(folderId, targetPage, limit)
         const mapped = mapItems(data, uid)
-        setItems(mapped.items)
-        setFolders(mapped.folders)
+
+        if (reset) {
+          setItems(mapped.items)
+          setFolders(mapped.folders)
+          setPage(1)
+        } else {
+          setItems((prev) => {
+            const newItems = mapped.items.filter(
+              (i) => !prev.some((p) => p.id === i.id),
+            )
+            return [...prev, ...newItems]
+          })
+          setFolders((prev) => {
+            const newFolders = mapped.folders.filter(
+              (f) => !prev.some((p) => p.id === f.id),
+            )
+            return [...prev, ...newFolders]
+          })
+          setPage(targetPage)
+        }
+
+        if (mapped.items.length < limit) {
+          setHasMore(false)
+        } else {
+          setHasMore(true)
+        }
+
         setBreadcrumbs(mapBreadcrumbs(data.breadcrumbs ?? []))
       } finally {
         setIsLoading(false)
       }
     },
-    [],
+    [page, limit],
   )
 
   const loadQuota = useCallback(async () => {
@@ -123,14 +155,20 @@ export function useStorageData(initialData?: HomeLoaderData) {
       skipFirstLoadRef.current = false
       return
     }
-    void loadItems(userId, currentFolderId)
+    void loadItems(userId, currentFolderId, true)
   }, [currentFolderId, userId, loadItems])
 
   const refresh = useCallback(async () => {
     if (userId) {
-      await Promise.all([loadItems(userId, currentFolderId), loadQuota()])
+      await Promise.all([loadItems(userId, currentFolderId, true), loadQuota()])
     }
   }, [userId, currentFolderId, loadItems, loadQuota])
+
+  const loadMore = useCallback(() => {
+    if (!isLoading && hasMore && userId) {
+      void loadItems(userId, currentFolderId, false)
+    }
+  }, [isLoading, hasMore, userId, currentFolderId, loadItems])
 
   return {
     userId,
@@ -146,5 +184,7 @@ export function useStorageData(initialData?: HomeLoaderData) {
     setCurrentFolderId,
     breadcrumbs,
     refresh,
+    loadMore,
+    hasMore,
   }
 }

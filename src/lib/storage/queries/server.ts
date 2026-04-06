@@ -4,6 +4,7 @@ import { listFolderItems, getFolderBreadcrumbs } from '@/lib/storage-queries'
 import { touchFolderOpenedFn } from '@/lib/storage/mutations/touch'
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import { eq } from 'drizzle-orm'
+import { Cache } from '@/lib/Cache'
 import {
   DEFAULT_ALLOCATED_STORAGE_BYTES,
   DEFAULT_FILE_SIZE_LIMIT_BYTES,
@@ -11,6 +12,8 @@ import {
 
 const FolderItemsSchema = z.object({
   folderId: z.string().nullable().optional(),
+  page: z.number().optional().default(1),
+  limit: z.number().optional().default(100),
 })
 
 export const getFolderItemsFn = createServerFn({ method: 'GET' })
@@ -18,8 +21,19 @@ export const getFolderItemsFn = createServerFn({ method: 'GET' })
   .handler(async ({ data }) => {
     const user = await getAuthenticatedUser()
     const folderId = data.folderId ?? null
+    const page = data.page ?? 1
+    const limit = data.limit ?? 100
 
-    const items = await listFolderItems(user.id, folderId)
+    const cacheKey = `items:${user.id}:${folderId ?? 'root'}:p${page}:l${limit}`
+    const cached = await Cache.get<any>(cacheKey)
+    if (cached) {
+      if (folderId) {
+        void touchFolderOpenedFn({ data: { folderId } }).catch(() => {})
+      }
+      return cached
+    }
+
+    const items = await listFolderItems(user.id, folderId, limit, page)
 
     let breadcrumbs: { id: string; name: string }[] = []
     if (folderId) {
@@ -27,7 +41,12 @@ export const getFolderItemsFn = createServerFn({ method: 'GET' })
       void touchFolderOpenedFn({ data: { folderId } }).catch(() => {})
     }
 
-    return { ...items, breadcrumbs }
+    const result = { ...items, breadcrumbs }
+
+    // Cache for 60 seconds (can be invalidated explicitly on mutations)
+    await Cache.set(cacheKey, result, { expirationTtl: 60 })
+
+    return result
   })
 
 function toNonNegativeBytes(
@@ -44,6 +63,10 @@ export const getQuotaFn = createServerFn({ method: 'GET' }).handler(
   async () => {
     const user = await getAuthenticatedUser()
     const userId = user.id
+
+    const cacheKey = `quota:${userId}`
+    const cached = await Cache.get<any>(cacheKey)
+    if (cached) return cached
 
     const [{ db }, { userStorage }] = await Promise.all([
       import('@/db'),
@@ -82,7 +105,7 @@ export const getQuotaFn = createServerFn({ method: 'GET' }).handler(
       }
     }
 
-    return {
+    const result = {
       usedStorage: toNonNegativeBytes(row.usedStorage, 0),
       allocatedStorage: toNonNegativeBytes(
         row.allocatedStorage,
@@ -93,6 +116,10 @@ export const getQuotaFn = createServerFn({ method: 'GET' }).handler(
         DEFAULT_FILE_SIZE_LIMIT_BYTES,
       ),
     }
+
+    await Cache.set(cacheKey, result, { expirationTtl: 300 }) // 5 min cache
+
+    return result
   },
 )
 

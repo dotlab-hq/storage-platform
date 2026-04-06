@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo, useState, useEffect, lazy, Suspense } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
@@ -6,12 +6,6 @@ import { FileGrid } from '@/components/storage/file-grid'
 import { FloatingActionBar } from '@/components/storage/floating-action-bar'
 import { DragDropOverlay } from '@/components/storage/drag-drop-overlay'
 import { BreadcrumbNav } from '@/components/storage/breadcrumb-nav'
-import { ShareModal } from '@/components/storage/share-modal'
-import { MoveModal } from '@/components/storage/move-modal'
-import { ConfirmDeleteModal } from '@/components/storage/confirm-delete-modal'
-import { TextFileEditorDialog } from '@/components/storage/text-file-editor'
-import { SaveFileDialog } from '@/components/storage/save-file-dialog'
-import { DeviceTransferSection } from '@/components/storage/device-transfer-section'
 import { TopbarActions } from '@/components/topbar-actions'
 import { useStorageData } from '@/hooks/use-storage-data'
 import { useFileSelection } from '@/hooks/use-file-selection'
@@ -25,6 +19,37 @@ import type { IncomingFile } from '@/hooks/use-webrtc'
 import type { StorageItem } from '@/types/storage'
 import { HomeRoutePending } from '../-home-pending'
 import { getHomeSnapshotFn } from '../-home-server'
+
+const ShareModal = lazy(() =>
+  import('@/components/storage/share-modal').then((m) => ({
+    default: m.ShareModal,
+  })),
+)
+const MoveModal = lazy(() =>
+  import('@/components/storage/move-modal').then((m) => ({
+    default: m.MoveModal,
+  })),
+)
+const ConfirmDeleteModal = lazy(() =>
+  import('@/components/storage/confirm-delete-modal').then((m) => ({
+    default: m.ConfirmDeleteModal,
+  })),
+)
+const TextFileEditorDialog = lazy(() =>
+  import('@/components/storage/text-file-editor').then((m) => ({
+    default: m.TextFileEditorDialog,
+  })),
+)
+const SaveFileDialog = lazy(() =>
+  import('@/components/storage/save-file-dialog').then((m) => ({
+    default: m.SaveFileDialog,
+  })),
+)
+const DeviceTransferSection = lazy(() =>
+  import('@/components/storage/device-transfer-section').then((m) => ({
+    default: m.DeviceTransferSection,
+  })),
+)
 
 export const Route = createFileRoute('/_app/')({
   component: StoragePage,
@@ -189,12 +214,14 @@ function StoragePage() {
             selection.clearSelection()
           }}
         >
-          <DeviceTransferSection
-            onSaveRequest={(file) => {
-              setFileToSave(file)
-              setSaveFileDialogOpen(true)
-            }}
-          />
+          <Suspense fallback={null}>
+            <DeviceTransferSection
+              onSaveRequest={(file) => {
+                setFileToSave(file)
+                setSaveFileDialogOpen(true)
+              }}
+            />
+          </Suspense>
           <FileGrid
             items={storage.items}
             uploads={storage.uploads}
@@ -207,6 +234,8 @@ function StoragePage() {
             onRename={actions.handleRename}
             onRenameCancel={() => actions.setRenamingItemId(null)}
             onDragMoveItem={bulk.handleDragMoveItem}
+            onLoadMore={storage.loadMore}
+            hasMore={storage.hasMore}
           />
         </div>
       </SidebarInset>
@@ -225,56 +254,58 @@ function StoragePage() {
         }}
         onClear={selection.clearSelection}
       />
-      <ShareModal
-        open={!!shareItem}
-        onOpenChange={(open) => !open && setShareItem(null)}
-        item={shareItem}
-        userId={storage.userId}
-      />
-      <MoveModal
-        open={moveOpen}
-        onOpenChange={setMoveOpen}
-        items={selectedItems}
-        currentFolderId={storage.currentFolderId}
-        onMove={bulk.handleMove}
-        userId={storage.userId}
-        mode={moveMode}
-      />
-      <ConfirmDeleteModal
-        open={deleteOpen}
-        onOpenChange={(open) => {
-          setDeleteOpen(open)
-          if (!open) setPendingDelete(null)
-        }}
-        isPermanent={false}
-        itemCount={pendingDelete?.ids.length ?? 0}
-        onConfirm={() => {
-          if (pendingDelete) {
-            void bulk.handleDelete(pendingDelete.ids, pendingDelete.types)
-          }
-        }}
-      />
-      <TextFileEditorDialog
-        open={editorOpen}
-        onOpenChange={setEditorOpen}
-        currentFolderId={storage.currentFolderId}
-        item={editorItem}
-        items={storage.items}
-        userId={storage.userId}
-        onSaved={handleEditorSaved}
-      />
-      <SaveFileDialog
-        open={saveFileDialogOpen}
-        onOpenChange={setSaveFileDialogOpen}
-        file={fileToSave}
-        currentFolderId={storage.currentFolderId}
-        userId={storage.userId}
-        onSave={(folderId) => {
-          if (fileToSave) {
-            console.log('Saving file to folder:', folderId)
-          }
-        }}
-      />
+      <Suspense fallback={null}>
+        <ShareModal
+          open={!!shareItem}
+          onOpenChange={(open) => !open && setShareItem(null)}
+          item={shareItem}
+          userId={storage.userId}
+        />
+        <MoveModal
+          open={moveOpen}
+          onOpenChange={setMoveOpen}
+          items={selectedItems}
+          currentFolderId={storage.currentFolderId}
+          onMove={bulk.handleMove}
+          userId={storage.userId}
+          mode={moveMode}
+        />
+        <ConfirmDeleteModal
+          open={deleteOpen}
+          onOpenChange={(open) => {
+            setDeleteOpen(open)
+            if (!open) setPendingDelete(null)
+          }}
+          isPermanent={false}
+          itemCount={pendingDelete?.ids.length ?? 0}
+          onConfirm={() => {
+            if (pendingDelete) {
+              void bulk.handleDelete(pendingDelete.ids, pendingDelete.types)
+            }
+          }}
+        />
+        <TextFileEditorDialog
+          open={editorOpen}
+          onOpenChange={setEditorOpen}
+          currentFolderId={storage.currentFolderId}
+          item={editorItem}
+          items={storage.items}
+          userId={storage.userId}
+          onSaved={handleEditorSaved}
+        />
+        <SaveFileDialog
+          open={saveFileDialogOpen}
+          onOpenChange={setSaveFileDialogOpen}
+          file={fileToSave}
+          currentFolderId={storage.currentFolderId}
+          userId={storage.userId}
+          onSave={(folderId) => {
+            if (fileToSave) {
+              console.log('Saving file to folder:', folderId)
+            }
+          }}
+        />
+      </Suspense>
     </>
   )
 }

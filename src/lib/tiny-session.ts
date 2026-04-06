@@ -1,7 +1,8 @@
-import { and, eq, gt, isNull } from 'drizzle-orm'
+import { eq } from 'drizzle-orm'
 import { db } from '@/db'
-import { qrLoginOffer, tinySession, user } from '@/db/schema/auth-schema'
+import { user } from '@/db/schema/auth-schema'
 import { isAdminRole, normalizeUserRole } from '@/lib/authz'
+import { Cache } from '@/lib/Cache'
 
 export const TINY_SESSION_COOKIE_NAME = 'tiny_session_token'
 export const QR_OFFER_TTL_MS = 60_000
@@ -95,32 +96,41 @@ export function parseQrLoginPayload(raw: string) {
   return code
 }
 
+export type CachedTinySession = {
+  id: string
+  token: string
+  userId: string
+  permission: string
+  expiresAt: string
+  sourceOfferId?: string
+  webrtcSignal?: string
+  webrtcSignalExpiresAt?: string
+}
+
 export async function resolveTinySessionFromHeaders(
   headers: Headers,
 ): Promise<ResolvedTinySession | null> {
   const token = readCookieValue(headers.get('cookie'), TINY_SESSION_COOKIE_NAME)
   if (!token) return null
 
-  const now = new Date()
+  const session = await Cache.get<CachedTinySession>(`session:tiny:${token}`)
+  if (!session) return null
+
+  const expiresAt = new Date(session.expiresAt)
+  if (expiresAt.getTime() <= Date.now()) {
+    await Cache.delete(`session:tiny:${token}`)
+    return null
+  }
+
   const rows = await db
     .select({
-      sessionId: tinySession.id,
-      permission: tinySession.permission,
-      expiresAt: tinySession.expiresAt,
       userId: user.id,
       email: user.email,
       name: user.name,
       role: user.role,
     })
-    .from(tinySession)
-    .innerJoin(user, eq(tinySession.userId, user.id))
-    .where(
-      and(
-        eq(tinySession.token, token),
-        isNull(tinySession.revokedAt),
-        gt(tinySession.expiresAt, now),
-      ),
-    )
+    .from(user)
+    .where(eq(user.id, session.userId))
     .limit(1)
 
   if (rows.length === 0) {
@@ -130,15 +140,10 @@ export async function resolveTinySessionFromHeaders(
   const row = rows[0]
   const role = normalizeUserRole(row.role)
 
-  void db
-    .update(tinySession)
-    .set({ lastUsedAt: now })
-    .where(eq(tinySession.id, row.sessionId))
-
   return {
-    sessionId: row.sessionId,
-    permission: row.permission as TinySessionPermission,
-    expiresAt: row.expiresAt,
+    sessionId: session.id,
+    permission: session.permission as TinySessionPermission,
+    expiresAt,
     user: {
       id: row.userId,
       email: row.email,
@@ -147,34 +152,6 @@ export async function resolveTinySessionFromHeaders(
       isAdmin: isAdminRole(role),
     },
   }
-}
-
-export async function expireQrOfferIfNeeded(code: string) {
-  const rows = await db
-    .select({
-      id: qrLoginOffer.id,
-      status: qrLoginOffer.status,
-      expiresAt: qrLoginOffer.expiresAt,
-    })
-    .from(qrLoginOffer)
-    .where(eq(qrLoginOffer.code, code))
-    .limit(1)
-
-  if (rows.length === 0) return null
-
-  const offer = rows[0]
-  if (
-    offer.expiresAt.getTime() <= Date.now() &&
-    (offer.status === 'pending' || offer.status === 'claimed')
-  ) {
-    await db
-      .update(qrLoginOffer)
-      .set({ status: 'expired' })
-      .where(eq(qrLoginOffer.id, offer.id))
-    return { ...offer, status: 'expired' as const }
-  }
-
-  return offer
 }
 
 export const WEBRTC_OFFER_TTL_MS = 60_000
