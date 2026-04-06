@@ -20,6 +20,8 @@ type UrlImportServerEnv = {
   URL_IMPORT_QUEUE: UrlImportQueueBinding
 }
 
+const MAX_VALIDATION_PAYLOAD_BYTES = 1024 * 1024
+
 type CreateUrlImportResponse = {
   jobId: string
   status: 'queued'
@@ -141,6 +143,20 @@ export const validateUrlImportTargetFn = createServerFn({ method: 'POST' })
           contentType: response.headers.get('content-type') ?? 'unknown',
           finalUrl: response.url,
         }
+      }
+
+      const contentLengthHeader = response.headers.get('content-length')
+      const contentLength = contentLengthHeader
+        ? Number.parseInt(contentLengthHeader, 10)
+        : null
+      if (
+        Number.isFinite(contentLength) &&
+        contentLength !== null &&
+        contentLength > MAX_VALIDATION_PAYLOAD_BYTES
+      ) {
+        throw new Error(
+          `Payload exceeds 1 MB limit (${contentLength} bytes reported)`,
+        )
       }
 
       return {
