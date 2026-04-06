@@ -23,18 +23,17 @@ export class UrlImportWorkflow extends WorkflowEntrypoint<
     const payload = event.payload
 
     const helpers = await import('@/lib/url-import/workflow-helpers')
-    const ensureRunning = async () => {
-      await helpers.markStatus({
-        kv: this.env.KV,
-        payload,
-        status: 'running',
-        error: null,
-      })
-      return true
-    }
 
     try {
-      await step.do('mark-running', ensureRunning)
+      await step.do('mark-running', async () => {
+        await helpers.markStatus({
+          kv: this.env.KV,
+          payload,
+          status: 'running',
+          error: null,
+        })
+        return true
+      })
 
       const fetched = await step.do(
         'download-upstream-content',
@@ -85,7 +84,7 @@ export class UrlImportWorkflow extends WorkflowEntrypoint<
       )
 
       const uploaded = await step.do(
-        'upload-direct-to-provider',
+        'upload-and-register',
         {
           retries: {
             limit: 10,
@@ -95,7 +94,12 @@ export class UrlImportWorkflow extends WorkflowEntrypoint<
           timeout: '5 minutes',
         },
         async () => {
-          const uploadDirect = await import('@/lib/url-import/upload-direct')
+          const [{ uploadToProviderWithMultipart }, { registerImportedFile }] =
+            await Promise.all([
+              import('@/lib/url-import/upload-direct'),
+              import('@/lib/url-import/persist-file'),
+            ])
+
           const fileBytes = new Uint8Array(fetched.content)
           const contentType = fetched.contentType ?? 'application/octet-stream'
           const fileName = helpers.inferFileName(
@@ -105,28 +109,21 @@ export class UrlImportWorkflow extends WorkflowEntrypoint<
           )
           const objectKey = `${payload.userId}/${crypto.randomUUID()}-${fileName.replace(/\s+/g, '_')}`
 
-          const providerUpload =
-            await uploadDirect.uploadToProviderWithMultipart({
-              objectKey,
-              contentType,
-              content: fileBytes,
-            })
-
-          const uploadServer = await import('@/lib/upload-server')
-          const registered = await uploadServer.registerFile({
-            data: {
-              fileName,
-              objectKey,
-              mimeType: contentType,
-              fileSize: fetched.size,
-              parentFolderId: payload.parentFolderId,
-              providerId: providerUpload.providerId,
-            },
+          const providerUpload = await uploadToProviderWithMultipart({
+            objectKey,
+            contentType,
+            content: fileBytes,
           })
 
-          if (!registered.file) {
-            throw new Error('Could not register imported file')
-          }
+          const registered = await registerImportedFile({
+            userId: payload.userId,
+            fileName,
+            objectKey,
+            mimeType: contentType,
+            fileSize: fetched.size,
+            parentFolderId: payload.parentFolderId,
+            providerId: providerUpload.providerId,
+          })
 
           const cacheInvalidation = await import('@/lib/cache-invalidation')
           await cacheInvalidation.invalidateFolderCache(
@@ -136,7 +133,7 @@ export class UrlImportWorkflow extends WorkflowEntrypoint<
           await cacheInvalidation.invalidateQuotaCache(payload.userId)
 
           return {
-            fileId: registered.file.id,
+            fileId: registered.id,
             objectKey,
             fileName,
           }

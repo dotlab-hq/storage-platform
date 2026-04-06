@@ -62,7 +62,7 @@ export function useUrlImportDialog(input: {
       setState((prev) => ({ ...prev, jobId: result.jobId }))
       upsertUrlImportJob({
         jobId: result.jobId,
-        userId: 'self',
+        userId: 'pending',
         url: state.url.trim(),
         method: state.method,
         headers: parsePairs(state.headersRaw),
