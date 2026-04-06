@@ -1,9 +1,6 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { useState } from 'react'
-import {
-  SidebarInset,
-  SidebarTrigger,
-} from '@/components/ui/sidebar'
+import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { Separator } from '@/components/ui/separator'
 import { toast } from '@/components/ui/sonner'
 import {
@@ -21,7 +18,7 @@ import { formatBytes } from '@/lib/format-bytes'
 import type { AdminProvider } from '@/lib/storage-provider-queries'
 import { ProviderEditorCard } from '@/components/admin/provider-editor-card'
 import { S3ViewerModal } from '@/components/storage/s3-viewer-modal'
-import { adminRouteMiddleware } from '@/lib/route-auth-middleware'
+import { isAdminMiddleware } from '@/middlewares/isAdmin'
 
 const emptyProviderForm = {
   name: '',
@@ -34,8 +31,8 @@ const emptyProviderForm = {
   fileSizeLimitBytes: 100 * 1024 * 1024,
 }
 
-function isNotFoundPayload( value: unknown ): value is { isNotFound: true } {
-  if ( typeof value !== 'object' || value === null ) {
+function isNotFoundPayload(value: unknown): value is { isNotFound: true } {
+  if (typeof value !== 'object' || value === null) {
     return false
   }
 
@@ -43,36 +40,36 @@ function isNotFoundPayload( value: unknown ): value is { isNotFound: true } {
   return candidate.isNotFound === true
 }
 
-export const Route = createFileRoute( '/_app/admin/' )( {
+export const Route = createFileRoute('/_app/admin/')({
   server: {
-    middleware: [adminRouteMiddleware],
+    middleware: [isAdminMiddleware],
   },
   component: AdminDashboardPage,
   loader: async () => {
     const data = await getAdminDashboardDataFn()
-    if ( isNotFoundPayload( data ) ) {
+    if (isNotFoundPayload(data)) {
       throw notFound()
     }
 
     return data
   },
-} )
+})
 
 function AdminDashboardPage() {
   const initial = Route.useLoaderData()
-  const [data, setData] = useState( initial )
-  const [isSaving, setIsSaving] = useState( false )
-  const [form, setForm] = useState( emptyProviderForm )
+  const [data, setData] = useState(initial)
+  const [isSaving, setIsSaving] = useState(false)
+  const [form, setForm] = useState(emptyProviderForm)
   const [editingProviderId, setEditingProviderId] = useState<string | null>(
     null,
   )
   const [storageLimitInput, setStorageLimitInput] = useState(
-    String( emptyProviderForm.storageLimitBytes ),
+    String(emptyProviderForm.storageLimitBytes),
   )
   const [fileSizeLimitInput, setFileSizeLimitInput] = useState(
-    String( emptyProviderForm.fileSizeLimitBytes ),
+    String(emptyProviderForm.fileSizeLimitBytes),
   )
-  const [isS3ViewerOpen, setIsS3ViewerOpen] = useState( false )
+  const [isS3ViewerOpen, setIsS3ViewerOpen] = useState(false)
   const [s3ViewerBucketName, setS3ViewerBucketName] = useState<string | null>(
     null,
   )
@@ -83,73 +80,73 @@ function AdminDashboardPage() {
     | 'bucketName'
     | 'accessKeyId'
     | 'secretAccessKey'
-  const setProviderField = ( field: ProviderTextField, value: string ) => {
-    setForm( ( prev ) => ( { ...prev, [field]: value } ) )
+  const setProviderField = (field: ProviderTextField, value: string) => {
+    setForm((prev) => ({ ...prev, [field]: value }))
   }
   const submitProvider = async () => {
-    const parsedLimit = Number( storageLimitInput )
-    const parsedFileSizeLimit = Number( fileSizeLimitInput )
-    if ( !Number.isFinite( parsedLimit ) || parsedLimit <= 0 ) {
-      toast.error( 'Storage limit must be a positive number' )
+    const parsedLimit = Number(storageLimitInput)
+    const parsedFileSizeLimit = Number(fileSizeLimitInput)
+    if (!Number.isFinite(parsedLimit) || parsedLimit <= 0) {
+      toast.error('Storage limit must be a positive number')
       return
     }
-    if ( !Number.isFinite( parsedFileSizeLimit ) || parsedFileSizeLimit <= 0 ) {
-      toast.error( 'File-size limit must be a positive number' )
+    if (!Number.isFinite(parsedFileSizeLimit) || parsedFileSizeLimit <= 0) {
+      toast.error('File-size limit must be a positive number')
       return
     }
-    if ( parsedFileSizeLimit > parsedLimit ) {
-      toast.error( 'File-size limit cannot exceed storage limit' )
+    if (parsedFileSizeLimit > parsedLimit) {
+      toast.error('File-size limit cannot exceed storage limit')
       return
     }
-    if ( !form.name.trim() ) {
-      toast.error( 'Provider name is required' )
+    if (!form.name.trim()) {
+      toast.error('Provider name is required')
       return
     }
     const optimisticProviderCount = editingProviderId
       ? data.summary.providerCount
       : data.summary.providerCount + 1
-    setIsSaving( true )
-    setData( ( prev ) => ( {
+    setIsSaving(true)
+    setData((prev) => ({
       ...prev,
       summary: {
         ...prev.summary,
         providerCount: optimisticProviderCount,
       },
       providers: editingProviderId
-        ? prev.providers.map( ( provider ) =>
-          provider.id === editingProviderId
-            ? {
-              ...provider,
-              name: form.name,
+        ? prev.providers.map((provider) =>
+            provider.id === editingProviderId
+              ? {
+                  ...provider,
+                  name: form.name,
+                  region: form.region || 'pending',
+                  endpoint: form.endpoint || 'pending',
+                  bucketName: form.bucketName || 'pending',
+                  storageLimitBytes: parsedLimit,
+                  fileSizeLimitBytes: parsedFileSizeLimit,
+                  availableStorageBytes:
+                    parsedLimit - provider.usedStorageBytes,
+                }
+              : provider,
+          )
+        : [
+            ...prev.providers,
+            {
+              id: `optimistic-${Date.now()}`,
+              name: form.name || 'New Provider',
               region: form.region || 'pending',
               endpoint: form.endpoint || 'pending',
               bucketName: form.bucketName || 'pending',
               storageLimitBytes: parsedLimit,
               fileSizeLimitBytes: parsedFileSizeLimit,
-              availableStorageBytes:
-                parsedLimit - provider.usedStorageBytes,
-            }
-            : provider,
-        )
-        : [
-          ...prev.providers,
-          {
-            id: `optimistic-${Date.now()}`,
-            name: form.name || 'New Provider',
-            region: form.region || 'pending',
-            endpoint: form.endpoint || 'pending',
-            bucketName: form.bucketName || 'pending',
-            storageLimitBytes: parsedLimit,
-            fileSizeLimitBytes: parsedFileSizeLimit,
-            isActive: true,
-            createdAt: new Date(),
-            usedStorageBytes: 0,
-            availableStorageBytes: parsedLimit,
-          },
-        ],
-    } ) )
+              isActive: true,
+              createdAt: new Date(),
+              usedStorageBytes: 0,
+              availableStorageBytes: parsedLimit,
+            },
+          ],
+    }))
     try {
-      const result = await saveStorageProviderFn( {
+      const result = await saveStorageProviderFn({
         data: {
           providerId: editingProviderId ?? undefined,
           ...form,
@@ -157,31 +154,31 @@ function AdminDashboardPage() {
           fileSizeLimitBytes: parsedFileSizeLimit,
           isActive: true,
         },
-      } )
+      })
       const refreshed = await getAdminDashboardDataFn()
-      setData( refreshed )
-      setForm( emptyProviderForm )
-      setEditingProviderId( null )
-      setStorageLimitInput( String( emptyProviderForm.storageLimitBytes ) )
-      setFileSizeLimitInput( String( emptyProviderForm.fileSizeLimitBytes ) )
+      setData(refreshed)
+      setForm(emptyProviderForm)
+      setEditingProviderId(null)
+      setStorageLimitInput(String(emptyProviderForm.storageLimitBytes))
+      setFileSizeLimitInput(String(emptyProviderForm.fileSizeLimitBytes))
       toast.success(
         result.operation === 'updated'
           ? 'Storage provider updated'
           : 'Storage provider added',
       )
-    } catch ( error ) {
+    } catch (error) {
       const latest = await getAdminDashboardDataFn()
-      setData( latest )
+      setData(latest)
       const message =
         error instanceof Error ? error.message : 'Failed to create provider'
-      toast.error( message )
+      toast.error(message)
     } finally {
-      setIsSaving( false )
+      setIsSaving(false)
     }
   }
-  const startEditingProvider = ( provider: AdminProvider ) => {
-    setEditingProviderId( provider.id )
-    setForm( {
+  const startEditingProvider = (provider: AdminProvider) => {
+    setEditingProviderId(provider.id)
+    setForm({
       name: provider.name,
       endpoint: provider.endpoint,
       region: provider.region,
@@ -190,114 +187,111 @@ function AdminDashboardPage() {
       secretAccessKey: '',
       storageLimitBytes: provider.storageLimitBytes,
       fileSizeLimitBytes: provider.fileSizeLimitBytes,
-    } )
-    setStorageLimitInput( String( provider.storageLimitBytes ) )
-    setFileSizeLimitInput( String( provider.fileSizeLimitBytes ) )
+    })
+    setStorageLimitInput(String(provider.storageLimitBytes))
+    setFileSizeLimitInput(String(provider.fileSizeLimitBytes))
   }
   const resetProviderForm = () => {
-    setEditingProviderId( null )
-    setForm( emptyProviderForm )
-    setStorageLimitInput( String( emptyProviderForm.storageLimitBytes ) )
-    setFileSizeLimitInput( String( emptyProviderForm.fileSizeLimitBytes ) )
+    setEditingProviderId(null)
+    setForm(emptyProviderForm)
+    setStorageLimitInput(String(emptyProviderForm.storageLimitBytes))
+    setFileSizeLimitInput(String(emptyProviderForm.fileSizeLimitBytes))
   }
   const toggleProviderAvailability = async (
     providerId: string,
     isActive: boolean,
   ) => {
-    setData( ( prev ) => ( {
+    setData((prev) => ({
       ...prev,
-      providers: prev.providers.map( ( provider ) =>
+      providers: prev.providers.map((provider) =>
         provider.id === providerId ? { ...provider, isActive } : provider,
       ),
-    } ) )
+    }))
     try {
-      await setStorageProviderAvailabilityFn( { data: { providerId, isActive } } )
+      await setStorageProviderAvailabilityFn({ data: { providerId, isActive } })
       toast.success(
         `Provider marked as ${isActive ? `available` : `unavailable`}`,
       )
-    } catch ( error ) {
+    } catch (error) {
       const refreshed = await getAdminDashboardDataFn()
-      setData( refreshed )
+      setData(refreshed)
       const message =
         error instanceof Error
           ? error.message
           : 'Failed to update provider availability'
-      toast.error( message )
+      toast.error(message)
     }
   }
-  const deleteProvider = async ( providerId: string ) => {
+  const deleteProvider = async (providerId: string) => {
     try {
-      await deleteStorageProviderFn( { data: { providerId } } )
+      await deleteStorageProviderFn({ data: { providerId } })
       const refreshed = await getAdminDashboardDataFn()
-      setData( refreshed )
-      toast.success( 'Storage provider deleted' )
-    } catch ( error ) {
+      setData(refreshed)
+      toast.success('Storage provider deleted')
+    } catch (error) {
       const message =
         error instanceof Error ? error.message : 'Failed to delete provider'
-      toast.error( message )
+      toast.error(message)
     }
   }
 
-
   return (
-    
-      <SidebarInset>
-        <header className="flex h-14 shrink-0 items-center gap-2 px-4">
-          <SidebarTrigger className="-ml-1" />
-          <Separator
-            orientation="vertical"
-            className="mr-2 data-[orientation=vertical]:h-4"
-          />
-          <h1 className="text-sm font-semibold">Admin Dashboard</h1>
-        </header>
-        <div className="grid gap-4 p-4 md:grid-cols-3">
-          <MetricCard title="Providers" value={data.summary.providerCount} />
-          <MetricCard title="Users" value={data.summary.userCount} />
-          <MetricCard
-            title="Total Used"
-            value={formatBytes( data.summary.totalUsedStorageBytes )}
-          />
-        </div>
-        <div className="grid gap-4 p-4 lg:grid-cols-2">
-          <ProvidersPanel
-            providers={data.providers}
-            onToggleAvailability={toggleProviderAvailability}
-            onDelete={deleteProvider}
-            onEdit={startEditingProvider}
-            onOpenS3Viewer={( bucketName ) => {
-              setS3ViewerBucketName( bucketName )
-              setIsS3ViewerOpen( true )
-            }}
-          />
-          <UsersPanel users={data.users} />
-        </div>
-        <div className="p-4">
-          <ProviderEditorCard
-            form={form}
-            isEditing={Boolean( editingProviderId )}
-            isSaving={isSaving}
-            storageLimitInput={storageLimitInput}
-            fileSizeLimitInput={fileSizeLimitInput}
-            onChange={setProviderField}
-            onStorageLimitChange={setStorageLimitInput}
-            onFileSizeLimitChange={setFileSizeLimitInput}
-            onSubmit={() => {
-              void submitProvider()
-            }}
-            onCancel={resetProviderForm}
-          />
-        </div>
-        <S3ViewerModal
-          open={isS3ViewerOpen}
-          onOpenChange={( open ) => {
-            setIsS3ViewerOpen( open )
-            if ( !open ) {
-              setS3ViewerBucketName( null )
-            }
-          }}
-          bucketName={s3ViewerBucketName}
+    <SidebarInset>
+      <header className="flex h-14 shrink-0 items-center gap-2 px-4">
+        <SidebarTrigger className="-ml-1" />
+        <Separator
+          orientation="vertical"
+          className="mr-2 data-[orientation=vertical]:h-4"
         />
-      </SidebarInset>
-    
+        <h1 className="text-sm font-semibold">Admin Dashboard</h1>
+      </header>
+      <div className="grid gap-4 p-4 md:grid-cols-3">
+        <MetricCard title="Providers" value={data.summary.providerCount} />
+        <MetricCard title="Users" value={data.summary.userCount} />
+        <MetricCard
+          title="Total Used"
+          value={formatBytes(data.summary.totalUsedStorageBytes)}
+        />
+      </div>
+      <div className="grid gap-4 p-4 lg:grid-cols-2">
+        <ProvidersPanel
+          providers={data.providers}
+          onToggleAvailability={toggleProviderAvailability}
+          onDelete={deleteProvider}
+          onEdit={startEditingProvider}
+          onOpenS3Viewer={(bucketName) => {
+            setS3ViewerBucketName(bucketName)
+            setIsS3ViewerOpen(true)
+          }}
+        />
+        <UsersPanel users={data.users} />
+      </div>
+      <div className="p-4">
+        <ProviderEditorCard
+          form={form}
+          isEditing={Boolean(editingProviderId)}
+          isSaving={isSaving}
+          storageLimitInput={storageLimitInput}
+          fileSizeLimitInput={fileSizeLimitInput}
+          onChange={setProviderField}
+          onStorageLimitChange={setStorageLimitInput}
+          onFileSizeLimitChange={setFileSizeLimitInput}
+          onSubmit={() => {
+            void submitProvider()
+          }}
+          onCancel={resetProviderForm}
+        />
+      </div>
+      <S3ViewerModal
+        open={isS3ViewerOpen}
+        onOpenChange={(open) => {
+          setIsS3ViewerOpen(open)
+          if (!open) {
+            setS3ViewerBucketName(null)
+          }
+        }}
+        bucketName={s3ViewerBucketName}
+      />
+    </SidebarInset>
   )
 }

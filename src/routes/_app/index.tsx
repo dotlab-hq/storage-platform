@@ -17,6 +17,7 @@ import { useFolderHistory } from '@/hooks/use-folder-history'
 import { useHomeShellActions } from '@/hooks/use-home-shell-actions'
 import type { IncomingFile } from '@/hooks/use-webrtc'
 import type { StorageItem } from '@/types/storage'
+import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
 import { HomeRoutePending } from '../-home-pending'
 import { getHomeSnapshotFn } from '../-home-server'
 
@@ -52,6 +53,9 @@ const DeviceTransferSection = lazy(() =>
 )
 
 export const Route = createFileRoute('/_app/')({
+  server: {
+    middleware: [isAuthenticatedMiddleware],
+  },
   component: StoragePage,
 
   loader: () => getHomeSnapshotFn(),

@@ -51,3 +51,7 @@ export async function requireAdminUser(): Promise<AuthenticatedUser> {
   }
   return currentUser
 }
+
+export async function requireAuthenticatedServerOnlySession(): Promise<void> {
+  await getAuthenticatedUser()
+}

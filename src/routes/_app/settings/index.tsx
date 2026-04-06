@@ -1,10 +1,7 @@
 import { useEffect } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { Separator } from '@/components/ui/separator'
-import {
-  SidebarInset,
-  SidebarTrigger,
-} from '@/components/ui/sidebar'
+import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { getSettingsSnapshotFn } from './-settings-server'
 import { updateSettings } from './-store'
 import { ProfileSection } from './-components/profile-section'
@@ -12,43 +9,44 @@ import { AuthMethodsSection } from './-components/auth-methods-section'
 import { TwoFactorSection } from './-components/two-factor-section'
 import { PasswordSection } from './-components/password-section'
 import { TinySessionsSection } from './-components/tiny-sessions-section'
+import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
 
-export const Route = createFileRoute( '/_app/settings/' )( {
+export const Route = createFileRoute('/_app/settings/')({
+  server: {
+    middleware: [isAuthenticatedMiddleware],
+  },
   component: SettingsPage,
   loader: () => getSettingsSnapshotFn(),
-} )
+})
 
 function SettingsPage() {
   const initial = Route.useLoaderData()
 
-  useEffect( () => {
-    updateSettings( {
+  useEffect(() => {
+    updateSettings({
       name: initial.user.name,
       image: initial.user.image,
       twoFactorEnabled: initial.security.twoFactorEnabled,
-    } )
-  }, [initial] )
+    })
+  }, [initial])
 
   return (
-    
-      <SidebarInset>
-        <header className="flex h-14 shrink-0 items-center gap-2 px-4">
-          <SidebarTrigger className="-ml-1" />
-          <Separator
-            orientation="vertical"
-            className="mr-2 data-[orientation=vertical]:h-4"
-          />
-          <h1 className="text-sm font-semibold">Settings</h1>
-        </header>
-        <div className="grid gap-6 p-4 lg:grid-cols-2">
-          <ProfileSection initial={initial} />
-          <AuthMethodsSection initial={initial} />
-          <TwoFactorSection />
-          <PasswordSection />
-          <TinySessionsSection initial={initial} />
-        </div>
-      </SidebarInset>
-    
+    <SidebarInset>
+      <header className="flex h-14 shrink-0 items-center gap-2 px-4">
+        <SidebarTrigger className="-ml-1" />
+        <Separator
+          orientation="vertical"
+          className="mr-2 data-[orientation=vertical]:h-4"
+        />
+        <h1 className="text-sm font-semibold">Settings</h1>
+      </header>
+      <div className="grid gap-6 p-4 lg:grid-cols-2">
+        <ProfileSection initial={initial} />
+        <AuthMethodsSection initial={initial} />
+        <TwoFactorSection />
+        <PasswordSection />
+        <TinySessionsSection initial={initial} />
+      </div>
+    </SidebarInset>
   )
 }
-

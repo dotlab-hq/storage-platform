@@ -8,6 +8,7 @@ import { toast } from '@/components/ui/sonner'
 import { encodeNavToken } from '@/lib/nav-token'
 import { useShellView } from '@/components/shell/shell-actions-registry'
 import { getRecentFileUrlFn, getRecentSnapshotFn } from './-recent-server'
+import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
 
 type RecentItem = {
   id: string
@@ -18,6 +19,9 @@ type RecentItem = {
 }
 
 export const Route = createFileRoute('/_app/recent/')({
+  server: {
+    middleware: [isAuthenticatedMiddleware],
+  },
   component: RecentPage,
   loader: () => getRecentSnapshotFn(),
 })
