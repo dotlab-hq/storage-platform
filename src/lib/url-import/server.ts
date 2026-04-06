@@ -3,8 +3,10 @@ import { z } from 'zod'
 import { env } from 'cloudflare:workers'
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import { buildUrlImportJobKey } from '@/lib/url-import/keys'
+import { readJobHistory } from '@/lib/url-import/history'
 import { markStatus } from '@/lib/url-import/workflow-helpers'
 import {
+  UrlImportJobRecordSchema,
   UrlImportQueueMessageSchema,
   UrlImportRequestSchema,
 } from '@/lib/url-import/types'
@@ -63,7 +65,7 @@ const UrlImportStatusInputSchema = z.object({
 export const getUrlImportJobStatusFn = createServerFn({ method: 'GET' })
   .inputValidator(UrlImportStatusInputSchema)
   .handler(async ({ data }) => {
-    await getAuthenticatedUser()
+    const user = await getAuthenticatedUser()
     const importEnv = getImportEnv()
     const key = buildUrlImportJobKey(data.jobId)
     const raw = await importEnv.KV.get(key)
@@ -75,16 +77,17 @@ export const getUrlImportJobStatusFn = createServerFn({ method: 'GET' })
       }
     }
 
-    const parsed = JSON.parse(raw) as {
-      jobId: string
-      status: 'queued' | 'running' | 'failed' | 'completed'
-      error: string | null
-      url: string
-      savePath: string
-      queuedAtIso: string
+    const parsedUnknown = JSON.parse(raw) as unknown
+    const parsed = UrlImportJobRecordSchema.safeParse(parsedUnknown)
+    if (!parsed.success || parsed.data.userId !== user.id) {
+      return {
+        jobId: data.jobId,
+        status: 'failed' as const,
+        error: 'Import job was not found',
+      }
     }
 
-    return parsed
+    return parsed.data
   })
 
 const UrlImportValidateInputSchema = z.object({
@@ -158,3 +161,11 @@ export const validateUrlImportTargetFn = createServerFn({ method: 'POST' })
       }
     }
   })
+
+export const getUrlImportHistoryFn = createServerFn({ method: 'GET' }).handler(
+  async () => {
+    const user = await getAuthenticatedUser()
+    const importEnv = getImportEnv()
+    return readJobHistory(importEnv.KV, user.id)
+  },
+)

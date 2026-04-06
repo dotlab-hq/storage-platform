@@ -1,6 +1,11 @@
 import * as React from 'react'
 import { toast } from '@/components/ui/sonner'
-import { upsertUrlImportJob } from '@/components/storage/url-import-store'
+import {
+  setUrlImportJobs,
+  upsertUrlImportJob,
+} from '@/components/storage/url-import-store'
+import type { UrlImportJobState } from '@/lib/url-import/types'
+import { UrlImportJobRecordSchema } from '@/lib/url-import/types'
 
 export function useUrlImportStatusSync(input: {
   status: unknown
@@ -8,21 +13,11 @@ export function useUrlImportStatusSync(input: {
   invalidateHomeSnapshot: () => Promise<void>
 }) {
   React.useEffect(() => {
-    const status = input.status
-    if (!status || typeof status !== 'object') {
+    const parsed = UrlImportJobRecordSchema.safeParse(input.status)
+    if (!parsed.success) {
       return
     }
-    const record = status as Record<string, unknown>
-    if (
-      typeof record.jobId !== 'string' ||
-      typeof record.status !== 'string' ||
-      typeof record.error === 'undefined' ||
-      typeof record.url !== 'string' ||
-      typeof record.savePath !== 'string' ||
-      typeof record.queuedAtIso !== 'string'
-    ) {
-      return
-    }
+    const record = parsed.data
 
     const jobStatus = record.status
     if (
@@ -36,11 +31,17 @@ export function useUrlImportStatusSync(input: {
 
     upsertUrlImportJob({
       jobId: record.jobId,
+      userId: record.userId,
       url: record.url,
+      method: record.method,
+      headers: record.headers,
+      cookies: record.cookies,
       savePath: record.savePath,
+      parentFolderId: record.parentFolderId,
       status: jobStatus,
-      error: typeof record.error === 'string' ? record.error : null,
+      error: record.error,
       queuedAtIso: record.queuedAtIso,
+      updatedAtIso: record.updatedAtIso,
     })
 
     if (jobStatus === 'completed') {
@@ -49,8 +50,18 @@ export function useUrlImportStatusSync(input: {
       void input.invalidateHomeSnapshot()
     }
     if (jobStatus === 'failed') {
-      const errorText = typeof record.error === 'string' ? record.error : null
-      toast.error(errorText ?? 'URL import failed')
+      toast.error(record.error ?? 'URL import failed')
     }
   }, [input])
+}
+
+export function useUrlImportHistorySync(input: {
+  jobs: UrlImportJobState[] | undefined
+}) {
+  React.useEffect(() => {
+    if (!input.jobs) {
+      return
+    }
+    setUrlImportJobs(input.jobs)
+  }, [input.jobs])
 }

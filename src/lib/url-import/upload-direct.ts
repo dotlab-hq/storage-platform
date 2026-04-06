@@ -43,12 +43,13 @@ async function uploadPart(
 }
 
 async function uploadPartWithRetry(
-  presignedUrl: string,
+  createPresignedUrl: () => Promise<string>,
   chunk: Uint8Array,
 ): Promise<string> {
   let lastError: Error | null = null
   for (let attempt = 1; attempt <= MAX_UPLOAD_ATTEMPTS; attempt += 1) {
     try {
+      const presignedUrl = await createPresignedUrl()
       return await uploadPart(presignedUrl, chunk)
     } catch (error) {
       lastError =
@@ -86,7 +87,7 @@ export async function uploadToProviderWithMultipart(input: {
   }
 
   const chunks = splitIntoChunks(input.content)
-  const completedParts: { partNumber: number; ETag: string }[] = []
+  const completedParts: { PartNumber: number; ETag: string }[] = []
   let nextIndex = 0
 
   const worker = async () => {
@@ -98,17 +99,23 @@ export async function uploadToProviderWithMultipart(input: {
       }
 
       const partNumber = index + 1
-      const command = new UploadPartCommand({
-        Bucket: provider.bucketName,
-        Key: input.objectKey,
-        UploadId: uploadId,
-        PartNumber: partNumber,
-      })
-      const presignedUrl = await getSignedUrl(provider.client, command, {
-        expiresIn: 3600,
-      })
-      const eTag = await uploadPartWithRetry(presignedUrl, chunks[index])
-      completedParts.push({ partNumber, ETag: eTag })
+      const eTag = await uploadPartWithRetry(
+        async () =>
+          getSignedUrl(
+            provider.client,
+            new UploadPartCommand({
+              Bucket: provider.bucketName,
+              Key: input.objectKey,
+              UploadId: uploadId,
+              PartNumber: partNumber,
+            }),
+            {
+              expiresIn: 3600,
+            },
+          ),
+        chunks[index],
+      )
+      completedParts.push({ PartNumber: partNumber, ETag: eTag })
     }
   }
 
@@ -121,7 +128,7 @@ export async function uploadToProviderWithMultipart(input: {
       Key: input.objectKey,
       UploadId: uploadId,
       MultipartUpload: {
-        Parts: [...completedParts].sort((a, b) => a.partNumber - b.partNumber),
+        Parts: [...completedParts].sort((a, b) => a.PartNumber - b.PartNumber),
       },
     }),
   )

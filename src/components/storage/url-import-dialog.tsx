@@ -10,6 +10,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { UrlImportForm } from '@/components/storage/url-import-form'
+import { UrlImportHistoryPanel } from '@/components/storage/url-import-history-panel'
 import type { UrlImportDialogProps } from '@/components/storage/url-import-dialog-types'
 import { useUrlImportDialog } from '@/components/storage/use-url-import-dialog'
 
@@ -48,49 +49,63 @@ export function UrlImportDialog({
           >
             Code
           </Button>
+          <Button
+            type="button"
+            variant={model.state.mode === 'history' ? 'default' : 'ghost'}
+            size="sm"
+            onClick={() => model.setMode('history')}
+          >
+            History
+          </Button>
         </div>
-        <UrlImportForm
-          state={model.state}
-          validation={model.validation}
-          onUrlChange={(value) =>
-            model.setState((prev) => ({ ...prev, url: value }))
-          }
-          onSavePathChange={(value) =>
-            model.setState((prev) => ({ ...prev, savePath: value }))
-          }
-          onMethodChange={model.setMethod}
-          onHeadersChange={(value) =>
-            model.setState((prev) => ({ ...prev, headersRaw: value }))
-          }
-          onCookiesChange={(value) =>
-            model.setState((prev) => ({ ...prev, cookiesRaw: value }))
-          }
-          onCurlChange={model.handleCurlChange}
-          generatedCurl={model.generatedCurl}
-          curlError={model.curlError}
-        />
-        <DialogFooter>
-          <Button
-            variant="outline"
-            onClick={() => {
-              model.setValidation((prev) => ({ ...prev, loading: true }))
-              void model
-                .validateTarget()
-                .then((result: { ok: boolean; message: string }) => {
-                  model.setValidation({ loading: false, ...result })
-                })
-            }}
-            disabled={model.validation.loading}
-          >
-            Validate URL
-          </Button>
-          <Button
-            onClick={() => model.createJobMutation.mutate()}
-            disabled={!model.canQueue || model.createJobMutation.isPending}
-          >
-            Queue Import
-          </Button>
-        </DialogFooter>
+        {model.state.mode === 'history' ? (
+          <UrlImportHistoryPanel />
+        ) : (
+          <>
+            <UrlImportForm
+              state={model.state}
+              validation={model.validation}
+              onUrlChange={(value) =>
+                model.setState((prev) => ({ ...prev, url: value }))
+              }
+              onSavePathChange={(value) =>
+                model.setState((prev) => ({ ...prev, savePath: value }))
+              }
+              onMethodChange={model.setMethod}
+              onHeadersChange={(value) =>
+                model.setState((prev) => ({ ...prev, headersRaw: value }))
+              }
+              onCookiesChange={(value) =>
+                model.setState((prev) => ({ ...prev, cookiesRaw: value }))
+              }
+              onCurlChange={model.handleCurlChange}
+              generatedCurl={model.generatedCurl}
+              curlError={model.curlError}
+            />
+            <DialogFooter>
+              <Button
+                variant="outline"
+                onClick={() => {
+                  model.setValidation((prev) => ({ ...prev, loading: true }))
+                  void model
+                    .validateTarget()
+                    .then((result: { ok: boolean; message: string }) => {
+                      model.setValidation({ loading: false, ...result })
+                    })
+                }}
+                disabled={model.validation.loading}
+              >
+                Validate URL
+              </Button>
+              <Button
+                onClick={() => model.createJobMutation.mutate()}
+                disabled={!model.canQueue || model.createJobMutation.isPending}
+              >
+                Queue Import
+              </Button>
+            </DialogFooter>
+          </>
+        )}
       </DialogContent>
     </Dialog>
   )

@@ -62,11 +62,17 @@ export function useUrlImportDialog(input: {
       setState((prev) => ({ ...prev, jobId: result.jobId }))
       upsertUrlImportJob({
         jobId: result.jobId,
+        userId: 'self',
         url: state.url.trim(),
+        method: state.method,
+        headers: parsePairs(state.headersRaw),
+        cookies: parsePairs(state.cookiesRaw),
         savePath: state.savePath.trim(),
+        parentFolderId: currentFolderId,
         status: 'queued',
         error: null,
         queuedAtIso: new Date().toISOString(),
+        updatedAtIso: new Date().toISOString(),
       })
       toast.success('Import queued. Worker will process it shortly.')
     },
@@ -109,7 +115,7 @@ export function useUrlImportDialog(input: {
     validation.ok &&
     !curlError
 
-  const setMode = (mode: 'form' | 'code') => {
+  const setMode = (mode: 'form' | 'code' | 'history') => {
     setState((prev) => ({ ...prev, mode }))
   }
 

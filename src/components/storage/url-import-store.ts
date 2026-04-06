@@ -20,11 +20,22 @@ export function upsertUrlImportJob(job: UrlImportJobState): void {
       (candidate) => candidate.jobId === job.jobId,
     )
     if (index === -1) {
-      return { ...state, jobs: [job, ...state.jobs].slice(0, 20) }
+      const nextJobs = [job, ...state.jobs]
+        .sort((a, b) => b.updatedAtIso.localeCompare(a.updatedAtIso))
+        .slice(0, 100)
+      return { ...state, jobs: nextJobs }
     }
 
     const nextJobs = [...state.jobs]
     nextJobs[index] = job
-    return { ...state, jobs: nextJobs }
+    nextJobs.sort((a, b) => b.updatedAtIso.localeCompare(a.updatedAtIso))
+    return { ...state, jobs: nextJobs.slice(0, 100) }
   })
+}
+
+export function setUrlImportJobs(jobs: UrlImportJobState[]): void {
+  const sorted = [...jobs]
+    .sort((a, b) => b.updatedAtIso.localeCompare(a.updatedAtIso))
+    .slice(0, 100)
+  urlImportStore.setState((state) => ({ ...state, jobs: sorted }))
 }

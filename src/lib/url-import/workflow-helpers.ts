@@ -1,5 +1,5 @@
-import { buildUrlImportJobKey } from '@/lib/url-import/keys'
 import type { UrlImportQueueMessage } from '@/lib/url-import/types'
+import { writeJobRecord } from '@/lib/url-import/history'
 
 export function inferFileName(
   url: string,
@@ -46,16 +46,10 @@ export async function markStatus(input: {
   status: 'queued' | 'running' | 'failed' | 'completed'
   error: string | null
 }): Promise<void> {
-  await input.kv.put(
-    buildUrlImportJobKey(input.payload.jobId),
-    JSON.stringify({
-      jobId: input.payload.jobId,
-      url: input.payload.url,
-      savePath: input.payload.savePath,
-      status: input.status,
-      error: input.error,
-      queuedAtIso: input.payload.createdAtIso,
-    }),
-    { expirationTtl: 60 * 60 * 24 },
-  )
+  await writeJobRecord({
+    kv: input.kv,
+    payload: input.payload,
+    status: input.status,
+    error: input.error,
+  })
 }

@@ -1,4 +1,4 @@
-export type UrlImportMode = 'form' | 'code'
+export type UrlImportMode = 'form' | 'code' | 'history'
 
 export type UrlImportDialogProps = {
   open: boolean
