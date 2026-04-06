@@ -3,10 +3,10 @@ import { useCallback, useMemo, useRef, useState } from 'react'
 import {
   createS3ViewerFolderFn,
   createS3ViewerPresignUrlFn,
-  createS3ViewerUploadPresignUrlFn,
   deleteS3ViewerObjectFn,
   listS3ViewerObjectsFn,
 } from '@/lib/storage/mutations/s3-viewer'
+import { uploadFileWithMultipartPresignedUrl } from '@/components/storage/s3-viewer-upload'
 import type {
   S3ViewerFileEntry,
   S3ViewerFolderEntry,
@@ -74,7 +74,7 @@ export function useS3BucketViewer(bucketName: string) {
     [prefix, listQuery],
   )
 
-  // Upload mutation with presigned URL
+  // Upload mutation with multipart presigned URLs and progress
   const uploadMutation = useMutation({
     mutationFn: async ({
       file,
@@ -85,28 +85,18 @@ export function useS3BucketViewer(bucketName: string) {
     }) => {
       const objectKey = `${prefix}${file.name}`
 
-      // Get presigned URL
-      const { url } = await createS3ViewerUploadPresignUrlFn({
-        data: {
-          bucketName,
-          objectKey,
-          contentType: file.type || 'application/octet-stream',
-          expiresInSeconds: 900,
+      await uploadFileWithMultipartPresignedUrl({
+        bucketName,
+        objectKey,
+        file,
+        onProgress: (progress) => {
+          setUploadingFiles((prev) =>
+            prev.map((item) =>
+              item.id === uploadingId ? { ...item, progress } : item,
+            ),
+          )
         },
       })
-
-      // Upload directly to S3
-      const response = await fetch(url, {
-        method: 'PUT',
-        body: file,
-        headers: {
-          'Content-Type': file.type || 'application/octet-stream',
-        },
-      })
-
-      if (!response.ok) {
-        throw new Error(`Upload failed: ${response.statusText}`)
-      }
 
       return { uploadingId }
     },

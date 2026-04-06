@@ -275,7 +275,7 @@ export function S3ViewerFileListItem({
     <div className="group flex items-center px-4 py-3 hover:bg-muted/50 transition-colors">
       {/* Icon */}
       <button
-      title='none'
+        title="none"
         type="button"
         onDoubleClick={() => onOpen(entry.key)}
         className={`flex-shrink-0 w-10 h-10 rounded-xl ${bgColor} flex items-center justify-center mr-4`}
@@ -360,7 +360,7 @@ export function S3ViewerUploadingFileListItem({
           {file.name}
         </p>
         <p className="text-xs text-muted-foreground">
-          {file.status === 'uploading' && 'Uploading...'}
+          {file.status === 'uploading' && `Uploading... ${file.progress}%`}
           {file.status === 'completed' && 'Upload complete'}
           {file.status === 'error' && (file.errorMessage || 'Upload failed')}
         </p>
