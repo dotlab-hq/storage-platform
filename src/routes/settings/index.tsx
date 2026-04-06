@@ -1,10 +1,9 @@
 import { useEffect } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
-import { AppSidebar } from '@/components/app-sidebar'
+import { RootLayout } from '@/lib/providers.tsx/RootProvider'
 import { Separator } from '@/components/ui/separator'
 import {
   SidebarInset,
-  SidebarProvider,
   SidebarTrigger,
 } from '@/components/ui/sidebar'
 import { getSettingsSnapshotFn } from './-settings-server'
@@ -32,28 +31,24 @@ function SettingsPage() {
   }, [initial] )
 
   return (
-    <div className="min-h-screen">
-      <SidebarProvider>
-        <AppSidebar />
-        <SidebarInset>
-          <header className="flex h-14 shrink-0 items-center gap-2 px-4">
-            <SidebarTrigger className="-ml-1" />
-            <Separator
-              orientation="vertical"
-              className="mr-2 data-[orientation=vertical]:h-4"
-            />
-            <h1 className="text-sm font-semibold">Settings</h1>
-          </header>
-          <div className="grid gap-6 p-4 lg:grid-cols-2">
-            <ProfileSection initial={initial} />
-            <AuthMethodsSection initial={initial} />
-            <TwoFactorSection />
-            <PasswordSection />
-            <TinySessionsSection initial={initial} />
-          </div>
-        </SidebarInset>
-      </SidebarProvider>
-    </div>
-  )
+    <RootLayout>
+      <SidebarInset>
+        <header className="flex h-14 shrink-0 items-center gap-2 px-4">
+          <SidebarTrigger className="-ml-1" />
+          <Separator
+            orientation="vertical"
+            className="mr-2 data-[orientation=vertical]:h-4"
+          />
+          <h1 className="text-sm font-semibold">Settings</h1>
+        </header>
+        <div className="grid gap-6 p-4 lg:grid-cols-2">
+          <ProfileSection initial={initial} />
+          <AuthMethodsSection initial={initial} />
+          <TwoFactorSection />
+          <PasswordSection />
+          <TinySessionsSection initial={initial} />
+        </div>
+      </SidebarInset>
+    </RootLayout>
 }
 

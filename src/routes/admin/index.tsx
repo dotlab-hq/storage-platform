@@ -1,9 +1,8 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { useState } from 'react'
-import { AppSidebar } from '@/components/app-sidebar'
+import { RootLayout } from '@/lib/providers.tsx/RootProvider'
 import {
   SidebarInset,
-  SidebarProvider,
   SidebarTrigger,
 } from '@/components/ui/sidebar'
 import { Separator } from '@/components/ui/separator'
@@ -242,68 +241,67 @@ function AdminDashboardPage() {
     }
   }
 
+  const tinySession = useTinySession()
+
   return (
-    <div className="min-h-screen">
-      <SidebarProvider>
-        <AppSidebar quota={quota} />
-        <SidebarInset>
-          <header className="flex h-14 shrink-0 items-center gap-2 px-4">
-            <SidebarTrigger className="-ml-1" />
-            <Separator
-              orientation="vertical"
-              className="mr-2 data-[orientation=vertical]:h-4"
-            />
-            <h1 className="text-sm font-semibold">Admin Dashboard</h1>
-          </header>
-          <div className="grid gap-4 p-4 md:grid-cols-3">
-            <MetricCard title="Providers" value={data.summary.providerCount} />
-            <MetricCard title="Users" value={data.summary.userCount} />
-            <MetricCard
-              title="Total Used"
-              value={formatBytes( data.summary.totalUsedStorageBytes )}
-            />
-          </div>
-          <div className="grid gap-4 p-4 lg:grid-cols-2">
-            <ProvidersPanel
-              providers={data.providers}
-              onToggleAvailability={toggleProviderAvailability}
-              onDelete={deleteProvider}
-              onEdit={startEditingProvider}
-              onOpenS3Viewer={( bucketName ) => {
-                setS3ViewerBucketName( bucketName )
-                setIsS3ViewerOpen( true )
-              }}
-            />
-            <UsersPanel users={data.users} />
-          </div>
-          <div className="p-4">
-            <ProviderEditorCard
-              form={form}
-              isEditing={Boolean( editingProviderId )}
-              isSaving={isSaving}
-              storageLimitInput={storageLimitInput}
-              fileSizeLimitInput={fileSizeLimitInput}
-              onChange={setProviderField}
-              onStorageLimitChange={setStorageLimitInput}
-              onFileSizeLimitChange={setFileSizeLimitInput}
-              onSubmit={() => {
-                void submitProvider()
-              }}
-              onCancel={resetProviderForm}
-            />
-          </div>
-          <S3ViewerModal
-            open={isS3ViewerOpen}
-            onOpenChange={( open ) => {
-              setIsS3ViewerOpen( open )
-              if ( !open ) {
-                setS3ViewerBucketName( null )
-              }
-            }}
-            bucketName={s3ViewerBucketName}
+    <RootLayout quota={quota}>
+      <SidebarInset>
+        <header className="flex h-14 shrink-0 items-center gap-2 px-4">
+          <SidebarTrigger className="-ml-1" />
+          <Separator
+            orientation="vertical"
+            className="mr-2 data-[orientation=vertical]:h-4"
           />
-        </SidebarInset>
-      </SidebarProvider>
-    </div>
+          <h1 className="text-sm font-semibold">Admin Dashboard</h1>
+        </header>
+        <div className="grid gap-4 p-4 md:grid-cols-3">
+          <MetricCard title="Providers" value={data.summary.providerCount} />
+          <MetricCard title="Users" value={data.summary.userCount} />
+          <MetricCard
+            title="Total Used"
+            value={formatBytes( data.summary.totalUsedStorageBytes )}
+          />
+        </div>
+        <div className="grid gap-4 p-4 lg:grid-cols-2">
+          <ProvidersPanel
+            providers={data.providers}
+            onToggleAvailability={toggleProviderAvailability}
+            onDelete={deleteProvider}
+            onEdit={startEditingProvider}
+            onOpenS3Viewer={( bucketName ) => {
+              setS3ViewerBucketName( bucketName )
+              setIsS3ViewerOpen( true )
+            }}
+          />
+          <UsersPanel users={data.users} />
+        </div>
+        <div className="p-4">
+          <ProviderEditorCard
+            form={form}
+            isEditing={Boolean( editingProviderId )}
+            isSaving={isSaving}
+            storageLimitInput={storageLimitInput}
+            fileSizeLimitInput={fileSizeLimitInput}
+            onChange={setProviderField}
+            onStorageLimitChange={setStorageLimitInput}
+            onFileSizeLimitChange={setFileSizeLimitInput}
+            onSubmit={() => {
+              void submitProvider()
+            }}
+            onCancel={resetProviderForm}
+          />
+        </div>
+        <S3ViewerModal
+          open={isS3ViewerOpen}
+          onOpenChange={( open ) => {
+            setIsS3ViewerOpen( open )
+            if ( !open ) {
+              setS3ViewerBucketName( null )
+            }
+          }}
+          bucketName={s3ViewerBucketName}
+        />
+      </SidebarInset>
+    </RootLayout>
   )
 }
