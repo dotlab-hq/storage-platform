@@ -67,10 +67,12 @@ function IncomingFileReceivingCard( { file }: { file: IncomingFile } ) {
         </p>
       </div>
       <div className="h-2 w-24 overflow-hidden rounded-full bg-secondary">
-        { }
         <div
           className="h-full bg-primary transition-all"
-          style={{ '--progress': `${file.progress}%` } as React.CSSProperties}
+          style={{
+            /* stylelint-disable-next-line */
+            '--progress': `${file.progress}%`,
+          } as React.CSSProperties}
         />
       </div>
     </div>

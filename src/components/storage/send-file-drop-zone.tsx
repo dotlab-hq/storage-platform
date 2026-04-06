@@ -67,8 +67,8 @@ export function SendFileDropZone( { disabled }: SendFileDropZoneProps ) {
       />
       <div
         className={`flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed p-6 transition-colors ${isDragging
-            ? 'border-primary bg-primary/5'
-            : 'border-border hover:border-muted-foreground'
+          ? 'border-primary bg-primary/5'
+          : 'border-border hover:border-muted-foreground'
           } ${disabled ? 'opacity-50 pointer-events-none' : ''}`}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -106,10 +106,12 @@ export function SendFileDropZone( { disabled }: SendFileDropZoneProps ) {
                 </span>
               </div>
               <div className="h-1.5 w-24 overflow-hidden rounded-full bg-secondary ml-2">
-                {/* eslint-disable-next-line */}
                 <div
                   className="h-full bg-primary transition-all"
-                  style={{ '--progress': `${file.progress}%` } as React.CSSProperties}
+                  style={{
+                    /* stylelint-disable-next-line */
+                    width: `${file.progress}%`,
+                  }}
                 />
               </div>
             </div>

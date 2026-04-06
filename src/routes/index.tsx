@@ -25,6 +25,7 @@ import { useStorageActions } from '@/hooks/use-storage-actions'
 import { useBulkActions } from '@/hooks/use-bulk-actions'
 import { useFolderHistory } from '@/hooks/use-folder-history'
 import { useHomeShellActions } from '@/hooks/use-home-shell-actions'
+import type { IncomingFile } from '@/hooks/use-webrtc'
 import type { StorageItem } from '@/types/storage'
 import { HomeRoutePending } from './-home-pending'
 import { getHomeSnapshotFn } from './-home-server'
@@ -59,24 +60,6 @@ function StoragePage() {
   } | null>( null )
   const [saveFileDialogOpen, setSaveFileDialogOpen] = useState( false )
   const [fileToSave, setFileToSave] = useState<IncomingFile | null>( null )
-
-  const tinySession = useTinySession()
-  const [webrtcEnabled, setWebrtcEnabled] = useState( false )
-
-  useEffect( () => {
-    const stored = localStorage.getItem( 'dot_webrtc_enabled' )
-    setWebrtcEnabled( stored === 'true' )
-
-    const handleToggle = ( e: CustomEvent ) => {
-      setWebrtcEnabled( e.detail )
-    }
-    window.addEventListener( 'webrtc-toggled', handleToggle as EventListener )
-    return () =>
-      window.removeEventListener(
-        'webrtc-toggled',
-        handleToggle as EventListener,
-      )
-  }, [] )
 
   useFolderHistory( storage.currentFolderId, storage.setCurrentFolderId )
   const actions = useStorageActions( {
