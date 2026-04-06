@@ -84,41 +84,39 @@ function TrashPage() {
         <RootLayout quota={quota}>
             <SidebarInset>
                 <header className="flex h-14 shrink-0 items-center justify-between gap-2 px-4">
-                            <div className="flex items-center gap-2">
-                                <SidebarTrigger className="-ml-1" />
-                                <Separator
-                                    orientation="vertical"
-                                    className="mr-2 data-[orientation=vertical]:h-4"
-                                />
-                                <Trash2 className="text-muted-foreground h-4 w-4" />
-                                <h1 className="text-sm font-semibold">Trash</h1>
-                            </div>
-                            {trash.items.length > 0 && (
-                                <div className="flex items-center gap-2">
-                                    <Button size="sm" variant="outline" onClick={handleRestoreAll}>
-                                        <RotateCcw className="mr-1 h-3 w-3" />
-                                        Restore all
-                                    </Button>
-                                    <Button
-                                        size="sm"
-                                        variant="destructive"
-                                        onClick={handleEmptyTrash}
-                                    >
-                                        <AlertTriangle className="mr-1 h-3 w-3" />
-                                        Empty trash
-                                    </Button>
-                                </div>
-                            )}
-                        </header>
-
-                        <TrashContent
-                            items={trash.items}
-                            isLoading={trash.isLoading}
-                            onRestore={handleRestoreOne}
-                            onDelete={handleDeleteOne}
+                    <div className="flex items-center gap-2">
+                        <SidebarTrigger className="-ml-1" />
+                        <Separator
+                            orientation="vertical"
+                            className="mr-2 data-[orientation=vertical]:h-4"
                         />
-                    </SidebarInset>
-                </SidebarProvider>
+                        <Trash2 className="text-muted-foreground h-4 w-4" />
+                        <h1 className="text-sm font-semibold">Trash</h1>
+                    </div>
+                    {trash.items.length > 0 && (
+                        <div className="flex items-center gap-2">
+                            <Button size="sm" variant="outline" onClick={handleRestoreAll}>
+                                <RotateCcw className="mr-1 h-3 w-3" />
+                                Restore all
+                            </Button>
+                            <Button
+                                size="sm"
+                                variant="destructive"
+                                onClick={handleEmptyTrash}
+                            >
+                                <AlertTriangle className="mr-1 h-3 w-3" />
+                                Empty trash
+                            </Button>
+                        </div>
+                    )}
+                </header>
+
+                <TrashContent
+                    items={trash.items}
+                    isLoading={trash.isLoading}
+                    onRestore={handleRestoreOne}
+                    onDelete={handleDeleteOne}
+                />
 
                 <ConfirmDeleteModal
                     open={deleteOpen}
@@ -131,7 +129,7 @@ function TrashPage() {
                     onConfirm={() => void confirmPermanentDelete()}
                     isLoading={isDeleting}
                 />
-            </SidebarInset >
-        </RootLayout >
+            </SidebarInset>
+        </RootLayout>
     )
 }

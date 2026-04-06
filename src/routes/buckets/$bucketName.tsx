@@ -42,3 +42,5 @@ function BucketFilesPage() {
                 </div>
             </SidebarInset>
         </RootLayout>
+    )
+}

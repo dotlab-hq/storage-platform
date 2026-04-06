@@ -25,3 +25,5 @@ function BucketsPage() {
                 </div>
             </SidebarInset>
         </RootLayout>
+    )
+}

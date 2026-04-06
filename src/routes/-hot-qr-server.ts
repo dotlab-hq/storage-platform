@@ -1,5 +1,4 @@
 import { createServerFn } from '@tanstack/react-start'
-import QRCode from 'qrcode'
 import { z } from 'zod'
 
 const OfferResponseSchema = z.object( {

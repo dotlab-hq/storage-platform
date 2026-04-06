@@ -50,5 +50,6 @@ function SettingsPage() {
         </div>
       </SidebarInset>
     </RootLayout>
+  )
 }
 
