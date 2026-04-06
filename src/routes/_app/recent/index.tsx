@@ -23,7 +23,7 @@ type RecentItem = {
   mimeType: string | null
 }
 
-export const Route = createFileRoute('/recent/')({
+export const Route = createFileRoute('/_app/recent/')({
   component: RecentPage,
   loader: () => getRecentSnapshotFn(),
 })

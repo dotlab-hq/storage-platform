@@ -7,7 +7,7 @@ import { useTinySession } from '@/hooks/use-tiny-session'
 import { WebRTCProvider } from '@/hooks/use-webrtc'
 import { WebRTCPage } from './-components/webrtc-page'
 
-export const Route = createFileRoute( '/webrtc/' )( {
+export const Route = createFileRoute( '/_app/webrtc/' )( {
     component: WebRTCRoute,
 } )
 

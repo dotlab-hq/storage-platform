@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
-import { RootLayout } from '@/lib/providers.tsx/RootProvider'
 import { Separator } from '@/components/ui/separator'
 import {
   SidebarInset,
@@ -14,7 +13,7 @@ import { TwoFactorSection } from './-components/two-factor-section'
 import { PasswordSection } from './-components/password-section'
 import { TinySessionsSection } from './-components/tiny-sessions-section'
 
-export const Route = createFileRoute( '/settings/' )( {
+export const Route = createFileRoute( '/_app/settings/' )( {
   component: SettingsPage,
   loader: () => getSettingsSnapshotFn(),
 } )
@@ -31,7 +30,7 @@ function SettingsPage() {
   }, [initial] )
 
   return (
-    <RootLayout>
+    
       <SidebarInset>
         <header className="flex h-14 shrink-0 items-center gap-2 px-4">
           <SidebarTrigger className="-ml-1" />
@@ -49,7 +48,7 @@ function SettingsPage() {
           <TinySessionsSection initial={initial} />
         </div>
       </SidebarInset>
-    </RootLayout>
+    
   )
 }
 

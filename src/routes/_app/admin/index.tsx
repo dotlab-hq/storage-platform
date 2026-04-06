@@ -1,6 +1,5 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
 import { useState } from 'react'
-import { RootLayout } from '@/lib/providers.tsx/RootProvider'
 import {
   SidebarInset,
   SidebarTrigger,
@@ -44,7 +43,7 @@ function isNotFoundPayload( value: unknown ): value is { isNotFound: true } {
   return candidate.isNotFound === true
 }
 
-export const Route = createFileRoute( '/admin/' )( {
+export const Route = createFileRoute( '/_app/admin/' )( {
   server: {
     middleware: [adminRouteMiddleware],
   },
@@ -214,7 +213,7 @@ function AdminDashboardPage() {
     try {
       await setStorageProviderAvailabilityFn( { data: { providerId, isActive } } )
       toast.success(
-        `Provider marked as ${isActive ? 'available' : 'unavailable'}`,
+        `Provider marked as ${isActive ? `available` : `unavailable`}`,
       )
     } catch ( error ) {
       const refreshed = await getAdminDashboardDataFn()
@@ -241,7 +240,7 @@ function AdminDashboardPage() {
 
 
   return (
-    <RootLayout>
+    
       <SidebarInset>
         <header className="flex h-14 shrink-0 items-center gap-2 px-4">
           <SidebarTrigger className="-ml-1" />
@@ -299,6 +298,6 @@ function AdminDashboardPage() {
           bucketName={s3ViewerBucketName}
         />
       </SidebarInset>
-    </RootLayout>
+    
   )
 }

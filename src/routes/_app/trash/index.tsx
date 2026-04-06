@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { RootLayout } from "@/lib/providers.tsx/RootProvider"
 import { Separator } from "@/components/ui/separator"
 import {
     SidebarInset,
@@ -14,7 +13,7 @@ import { useTrashData } from "@/hooks/use-trash-data"
 import { useMemo } from "react"
 import { useShellView } from "@/components/shell/shell-actions-registry"
 
-export const Route = createFileRoute( "/trash/" )( { component: TrashPage } )
+export const Route = createFileRoute( "/_app/trash/" )( { component: TrashPage } )
 
 function TrashPage() {
     const [deleteOpen, setDeleteOpen] = useState( false )
@@ -79,7 +78,7 @@ function TrashPage() {
     useShellView( "trash", trashShellActions )
 
     return (
-        <RootLayout>
+        
             <SidebarInset>
                 <header className="flex h-14 shrink-0 items-center justify-between gap-2 px-4">
                     <div className="flex items-center gap-2">
@@ -128,6 +127,6 @@ function TrashPage() {
                     isLoading={isDeleting}
                 />
             </SidebarInset>
-        </RootLayout>
+        
     )
 }

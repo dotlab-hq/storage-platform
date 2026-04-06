@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { RootLayout } from "@/lib/providers.tsx/RootProvider"
 import { Separator } from "@/components/ui/separator"
 import {
     SidebarInset,
@@ -8,7 +7,7 @@ import {
 import { Share2 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
-export const Route = createFileRoute( "/shared/" )( { component: SharedPage } )
+export const Route = createFileRoute( "/_app/shared/" )( { component: SharedPage } )
 
 function SharedPage() {
     // Placeholder — shared items will come from a server function
@@ -21,7 +20,7 @@ function SharedPage() {
     }[] = []
 
     return (
-        <RootLayout>
+        
             <SidebarInset>
                 <header className="flex h-14 shrink-0 items-center gap-2 px-4">
                     <SidebarTrigger className="-ml-1" />
@@ -80,5 +79,5 @@ function SharedPage() {
                     )}
                 </div>
             </SidebarInset>
-        </RootLayout> )
+         )
 }

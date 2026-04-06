@@ -11,19 +11,20 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SwRouteImport } from './routes/sw'
 import { Route as HotRouteImport } from './routes/hot'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as WebrtcIndexRouteImport } from './routes/webrtc/index'
-import { Route as TrashIndexRouteImport } from './routes/trash/index'
-import { Route as SharedIndexRouteImport } from './routes/shared/index'
-import { Route as SettingsIndexRouteImport } from './routes/settings/index'
-import { Route as RecentIndexRouteImport } from './routes/recent/index'
-import { Route as BucketsIndexRouteImport } from './routes/buckets/index'
+import { Route as AppRouteImport } from './routes/_app'
 import { Route as AuthIndexRouteImport } from './routes/auth/index'
-import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as AppIndexRouteImport } from './routes/_app/index'
 import { Route as ShareTokenRouteImport } from './routes/share/$token'
-import { Route as BucketsBucketNameRouteImport } from './routes/buckets/$bucketName'
+import { Route as AppWebrtcIndexRouteImport } from './routes/_app/webrtc/index'
+import { Route as AppTrashIndexRouteImport } from './routes/_app/trash/index'
+import { Route as AppSharedIndexRouteImport } from './routes/_app/shared/index'
+import { Route as AppSettingsIndexRouteImport } from './routes/_app/settings/index'
+import { Route as AppRecentIndexRouteImport } from './routes/_app/recent/index'
+import { Route as AppBucketsIndexRouteImport } from './routes/_app/buckets/index'
+import { Route as AppAdminIndexRouteImport } from './routes/_app/admin/index'
 import { Route as ApiStorageS3RouteImport } from './routes/api/storage/s3'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as AppBucketsBucketNameRouteImport } from './routes/_app/buckets/$bucketName'
 import { Route as ApiStorageS3IndexRouteImport } from './routes/api/storage/s3/index'
 import { Route as ApiStorageS3UploadStatusRouteImport } from './routes/api/storage/s3/upload-status'
 import { Route as ApiStorageS3ObjectSettingsRouteImport } from './routes/api/storage/s3/object-settings'
@@ -47,39 +48,8 @@ const HotRoute = HotRouteImport.update({
   path: '/hot',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WebrtcIndexRoute = WebrtcIndexRouteImport.update({
-  id: '/webrtc/',
-  path: '/webrtc/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TrashIndexRoute = TrashIndexRouteImport.update({
-  id: '/trash/',
-  path: '/trash/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SharedIndexRoute = SharedIndexRouteImport.update({
-  id: '/shared/',
-  path: '/shared/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SettingsIndexRoute = SettingsIndexRouteImport.update({
-  id: '/settings/',
-  path: '/settings/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RecentIndexRoute = RecentIndexRouteImport.update({
-  id: '/recent/',
-  path: '/recent/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BucketsIndexRoute = BucketsIndexRouteImport.update({
-  id: '/buckets/',
-  path: '/buckets/',
+const AppRoute = AppRouteImport.update({
+  id: '/_app',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthIndexRoute = AuthIndexRouteImport.update({
@@ -87,20 +57,50 @@ const AuthIndexRoute = AuthIndexRouteImport.update({
   path: '/auth/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminIndexRoute = AdminIndexRouteImport.update({
-  id: '/admin/',
-  path: '/admin/',
-  getParentRoute: () => rootRouteImport,
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
 } as any)
 const ShareTokenRoute = ShareTokenRouteImport.update({
   id: '/share/$token',
   path: '/share/$token',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BucketsBucketNameRoute = BucketsBucketNameRouteImport.update({
-  id: '/buckets/$bucketName',
-  path: '/buckets/$bucketName',
-  getParentRoute: () => rootRouteImport,
+const AppWebrtcIndexRoute = AppWebrtcIndexRouteImport.update({
+  id: '/webrtc/',
+  path: '/webrtc/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTrashIndexRoute = AppTrashIndexRouteImport.update({
+  id: '/trash/',
+  path: '/trash/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSharedIndexRoute = AppSharedIndexRouteImport.update({
+  id: '/shared/',
+  path: '/shared/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsIndexRoute = AppSettingsIndexRouteImport.update({
+  id: '/settings/',
+  path: '/settings/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppRecentIndexRoute = AppRecentIndexRouteImport.update({
+  id: '/recent/',
+  path: '/recent/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppBucketsIndexRoute = AppBucketsIndexRouteImport.update({
+  id: '/buckets/',
+  path: '/buckets/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAdminIndexRoute = AppAdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => AppRoute,
 } as any)
 const ApiStorageS3Route = ApiStorageS3RouteImport.update({
   id: '/api/storage/s3',
@@ -111,6 +111,11 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AppBucketsBucketNameRoute = AppBucketsBucketNameRouteImport.update({
+  id: '/buckets/$bucketName',
+  path: '/buckets/$bucketName',
+  getParentRoute: () => AppRoute,
 } as any)
 const ApiStorageS3IndexRoute = ApiStorageS3IndexRouteImport.update({
   id: '/',
@@ -181,21 +186,21 @@ const ApiStorageS3SplatRoute = ApiStorageS3SplatRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/': typeof AppIndexRoute
   '/hot': typeof HotRoute
   '/sw': typeof SwRoute
-  '/buckets/$bucketName': typeof BucketsBucketNameRoute
   '/share/$token': typeof ShareTokenRoute
-  '/admin/': typeof AdminIndexRoute
   '/auth/': typeof AuthIndexRoute
-  '/buckets/': typeof BucketsIndexRoute
-  '/recent/': typeof RecentIndexRoute
-  '/settings/': typeof SettingsIndexRoute
-  '/shared/': typeof SharedIndexRoute
-  '/trash/': typeof TrashIndexRoute
-  '/webrtc/': typeof WebrtcIndexRoute
+  '/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
+  '/admin/': typeof AppAdminIndexRoute
+  '/buckets/': typeof AppBucketsIndexRoute
+  '/recent/': typeof AppRecentIndexRoute
+  '/settings/': typeof AppSettingsIndexRoute
+  '/shared/': typeof AppSharedIndexRoute
+  '/trash/': typeof AppTrashIndexRoute
+  '/webrtc/': typeof AppWebrtcIndexRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
@@ -210,20 +215,20 @@ export interface FileRoutesByFullPath {
   '/api/storage/s3/': typeof ApiStorageS3IndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
   '/hot': typeof HotRoute
   '/sw': typeof SwRoute
-  '/buckets/$bucketName': typeof BucketsBucketNameRoute
   '/share/$token': typeof ShareTokenRoute
-  '/admin': typeof AdminIndexRoute
+  '/': typeof AppIndexRoute
   '/auth': typeof AuthIndexRoute
-  '/buckets': typeof BucketsIndexRoute
-  '/recent': typeof RecentIndexRoute
-  '/settings': typeof SettingsIndexRoute
-  '/shared': typeof SharedIndexRoute
-  '/trash': typeof TrashIndexRoute
-  '/webrtc': typeof WebrtcIndexRoute
+  '/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/admin': typeof AppAdminIndexRoute
+  '/buckets': typeof AppBucketsIndexRoute
+  '/recent': typeof AppRecentIndexRoute
+  '/settings': typeof AppSettingsIndexRoute
+  '/shared': typeof AppSharedIndexRoute
+  '/trash': typeof AppTrashIndexRoute
+  '/webrtc': typeof AppWebrtcIndexRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
@@ -239,21 +244,22 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/_app': typeof AppRouteWithChildren
   '/hot': typeof HotRoute
   '/sw': typeof SwRoute
-  '/buckets/$bucketName': typeof BucketsBucketNameRoute
   '/share/$token': typeof ShareTokenRoute
-  '/admin/': typeof AdminIndexRoute
+  '/_app/': typeof AppIndexRoute
   '/auth/': typeof AuthIndexRoute
-  '/buckets/': typeof BucketsIndexRoute
-  '/recent/': typeof RecentIndexRoute
-  '/settings/': typeof SettingsIndexRoute
-  '/shared/': typeof SharedIndexRoute
-  '/trash/': typeof TrashIndexRoute
-  '/webrtc/': typeof WebrtcIndexRoute
+  '/_app/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
+  '/_app/admin/': typeof AppAdminIndexRoute
+  '/_app/buckets/': typeof AppBucketsIndexRoute
+  '/_app/recent/': typeof AppRecentIndexRoute
+  '/_app/settings/': typeof AppSettingsIndexRoute
+  '/_app/shared/': typeof AppSharedIndexRoute
+  '/_app/trash/': typeof AppTrashIndexRoute
+  '/_app/webrtc/': typeof AppWebrtcIndexRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
@@ -273,18 +279,18 @@ export interface FileRouteTypes {
     | '/'
     | '/hot'
     | '/sw'
-    | '/buckets/$bucketName'
     | '/share/$token'
-    | '/admin/'
     | '/auth/'
+    | '/buckets/$bucketName'
+    | '/api/auth/$'
+    | '/api/storage/s3'
+    | '/admin/'
     | '/buckets/'
     | '/recent/'
     | '/settings/'
     | '/shared/'
     | '/trash/'
     | '/webrtc/'
-    | '/api/auth/$'
-    | '/api/storage/s3'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
     | '/api/storage/s3/bucket-items'
@@ -299,20 +305,20 @@ export interface FileRouteTypes {
     | '/api/storage/s3/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
     | '/hot'
     | '/sw'
-    | '/buckets/$bucketName'
     | '/share/$token'
-    | '/admin'
+    | '/'
     | '/auth'
+    | '/buckets/$bucketName'
+    | '/api/auth/$'
+    | '/admin'
     | '/buckets'
     | '/recent'
     | '/settings'
     | '/shared'
     | '/trash'
     | '/webrtc'
-    | '/api/auth/$'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
     | '/api/storage/s3/bucket-items'
@@ -327,21 +333,22 @@ export interface FileRouteTypes {
     | '/api/storage/s3'
   id:
     | '__root__'
-    | '/'
+    | '/_app'
     | '/hot'
     | '/sw'
-    | '/buckets/$bucketName'
     | '/share/$token'
-    | '/admin/'
+    | '/_app/'
     | '/auth/'
-    | '/buckets/'
-    | '/recent/'
-    | '/settings/'
-    | '/shared/'
-    | '/trash/'
-    | '/webrtc/'
+    | '/_app/buckets/$bucketName'
     | '/api/auth/$'
     | '/api/storage/s3'
+    | '/_app/admin/'
+    | '/_app/buckets/'
+    | '/_app/recent/'
+    | '/_app/settings/'
+    | '/_app/shared/'
+    | '/_app/trash/'
+    | '/_app/webrtc/'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
     | '/api/storage/s3/bucket-items'
@@ -357,19 +364,11 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
   HotRoute: typeof HotRoute
   SwRoute: typeof SwRoute
-  BucketsBucketNameRoute: typeof BucketsBucketNameRoute
   ShareTokenRoute: typeof ShareTokenRoute
-  AdminIndexRoute: typeof AdminIndexRoute
   AuthIndexRoute: typeof AuthIndexRoute
-  BucketsIndexRoute: typeof BucketsIndexRoute
-  RecentIndexRoute: typeof RecentIndexRoute
-  SettingsIndexRoute: typeof SettingsIndexRoute
-  SharedIndexRoute: typeof SharedIndexRoute
-  TrashIndexRoute: typeof TrashIndexRoute
-  WebrtcIndexRoute: typeof WebrtcIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiStorageS3Route: typeof ApiStorageS3RouteWithChildren
 }
@@ -390,53 +389,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HotRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
+    '/_app': {
+      id: '/_app'
+      path: ''
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/webrtc/': {
-      id: '/webrtc/'
-      path: '/webrtc'
-      fullPath: '/webrtc/'
-      preLoaderRoute: typeof WebrtcIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/trash/': {
-      id: '/trash/'
-      path: '/trash'
-      fullPath: '/trash/'
-      preLoaderRoute: typeof TrashIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/shared/': {
-      id: '/shared/'
-      path: '/shared'
-      fullPath: '/shared/'
-      preLoaderRoute: typeof SharedIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/settings/': {
-      id: '/settings/'
-      path: '/settings'
-      fullPath: '/settings/'
-      preLoaderRoute: typeof SettingsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/recent/': {
-      id: '/recent/'
-      path: '/recent'
-      fullPath: '/recent/'
-      preLoaderRoute: typeof RecentIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/buckets/': {
-      id: '/buckets/'
-      path: '/buckets'
-      fullPath: '/buckets/'
-      preLoaderRoute: typeof BucketsIndexRouteImport
+      preLoaderRoute: typeof AppRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth/': {
@@ -446,12 +403,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/': {
-      id: '/admin/'
-      path: '/admin'
-      fullPath: '/admin/'
-      preLoaderRoute: typeof AdminIndexRouteImport
-      parentRoute: typeof rootRouteImport
+    '/_app/': {
+      id: '/_app/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
     }
     '/share/$token': {
       id: '/share/$token'
@@ -460,12 +417,54 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShareTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/buckets/$bucketName': {
-      id: '/buckets/$bucketName'
-      path: '/buckets/$bucketName'
-      fullPath: '/buckets/$bucketName'
-      preLoaderRoute: typeof BucketsBucketNameRouteImport
-      parentRoute: typeof rootRouteImport
+    '/_app/webrtc/': {
+      id: '/_app/webrtc/'
+      path: '/webrtc'
+      fullPath: '/webrtc/'
+      preLoaderRoute: typeof AppWebrtcIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/trash/': {
+      id: '/_app/trash/'
+      path: '/trash'
+      fullPath: '/trash/'
+      preLoaderRoute: typeof AppTrashIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/shared/': {
+      id: '/_app/shared/'
+      path: '/shared'
+      fullPath: '/shared/'
+      preLoaderRoute: typeof AppSharedIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/settings/': {
+      id: '/_app/settings/'
+      path: '/settings'
+      fullPath: '/settings/'
+      preLoaderRoute: typeof AppSettingsIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/recent/': {
+      id: '/_app/recent/'
+      path: '/recent'
+      fullPath: '/recent/'
+      preLoaderRoute: typeof AppRecentIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/buckets/': {
+      id: '/_app/buckets/'
+      path: '/buckets'
+      fullPath: '/buckets/'
+      preLoaderRoute: typeof AppBucketsIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/admin/': {
+      id: '/_app/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AppAdminIndexRouteImport
+      parentRoute: typeof AppRoute
     }
     '/api/storage/s3': {
       id: '/api/storage/s3'
@@ -480,6 +479,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/api/auth/$'
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_app/buckets/$bucketName': {
+      id: '/_app/buckets/$bucketName'
+      path: '/buckets/$bucketName'
+      fullPath: '/buckets/$bucketName'
+      preLoaderRoute: typeof AppBucketsBucketNameRouteImport
+      parentRoute: typeof AppRoute
     }
     '/api/storage/s3/': {
       id: '/api/storage/s3/'
@@ -568,6 +574,32 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AppRouteChildren {
+  AppIndexRoute: typeof AppIndexRoute
+  AppBucketsBucketNameRoute: typeof AppBucketsBucketNameRoute
+  AppAdminIndexRoute: typeof AppAdminIndexRoute
+  AppBucketsIndexRoute: typeof AppBucketsIndexRoute
+  AppRecentIndexRoute: typeof AppRecentIndexRoute
+  AppSettingsIndexRoute: typeof AppSettingsIndexRoute
+  AppSharedIndexRoute: typeof AppSharedIndexRoute
+  AppTrashIndexRoute: typeof AppTrashIndexRoute
+  AppWebrtcIndexRoute: typeof AppWebrtcIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppIndexRoute: AppIndexRoute,
+  AppBucketsBucketNameRoute: AppBucketsBucketNameRoute,
+  AppAdminIndexRoute: AppAdminIndexRoute,
+  AppBucketsIndexRoute: AppBucketsIndexRoute,
+  AppRecentIndexRoute: AppRecentIndexRoute,
+  AppSettingsIndexRoute: AppSettingsIndexRoute,
+  AppSharedIndexRoute: AppSharedIndexRoute,
+  AppTrashIndexRoute: AppTrashIndexRoute,
+  AppWebrtcIndexRoute: AppWebrtcIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 interface ApiStorageS3RouteChildren {
   ApiStorageS3SplatRoute: typeof ApiStorageS3SplatRoute
   ApiStorageS3BucketCredentialsRoute: typeof ApiStorageS3BucketCredentialsRoute
@@ -603,19 +635,11 @@ const ApiStorageS3RouteWithChildren = ApiStorageS3Route._addFileChildren(
 )
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
   HotRoute: HotRoute,
   SwRoute: SwRoute,
-  BucketsBucketNameRoute: BucketsBucketNameRoute,
   ShareTokenRoute: ShareTokenRoute,
-  AdminIndexRoute: AdminIndexRoute,
   AuthIndexRoute: AuthIndexRoute,
-  BucketsIndexRoute: BucketsIndexRoute,
-  RecentIndexRoute: RecentIndexRoute,
-  SettingsIndexRoute: SettingsIndexRoute,
-  SharedIndexRoute: SharedIndexRoute,
-  TrashIndexRoute: TrashIndexRoute,
-  WebrtcIndexRoute: WebrtcIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiStorageS3Route: ApiStorageS3RouteWithChildren,
 }

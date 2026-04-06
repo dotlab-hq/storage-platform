@@ -1,13 +1,12 @@
 import { useMemo } from "react"
 import { createFileRoute } from "@tanstack/react-router"
 import { ArrowLeft } from "lucide-react"
-import { RootLayout } from "@/lib/providers.tsx/RootProvider"
 import { S3BucketViewer } from "@/components/storage/s3-bucket-viewer"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
 
-export const Route = createFileRoute( "/buckets/$bucketName" )( {
+export const Route = createFileRoute( "/_app/buckets/$bucketName" )( {
     component: BucketFilesPage,
 } )
 
@@ -17,7 +16,7 @@ function BucketFilesPage() {
     const decodedName = useMemo( () => decodeURIComponent( bucketName ), [bucketName] )
 
     return (
-        <RootLayout>
+        
             <SidebarInset>
                 <header className="flex h-14 shrink-0 items-center gap-2 px-4">
                     <SidebarTrigger className="-ml-1" />
@@ -39,6 +38,6 @@ function BucketFilesPage() {
                     <S3BucketViewer bucketName={decodedName} />
                 </div>
             </SidebarInset>
-        </RootLayout>
+        
     )
 }

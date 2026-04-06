@@ -43,9 +43,11 @@ import {
 } from '@/components/ui/tooltip'
 
 const WebRTCScannerDialog = React.lazy(() =>
-  import('@/routes/webrtc/-components/webrtc-scanner-dialog').then((m) => ({
-    default: m.WebRTCScannerDialog,
-  })),
+  import('@/routes/_app/webrtc/-components/webrtc-scanner-dialog').then(
+    (m) => ({
+      default: m.WebRTCScannerDialog,
+    }),
+  ),
 )
 
 const navItems = [

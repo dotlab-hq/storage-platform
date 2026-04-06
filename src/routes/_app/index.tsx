@@ -2,10 +2,7 @@ import { useMemo, useState, useEffect } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { RootLayout } from '@/lib/providers.tsx/RootProvider'
 import { Separator } from '@/components/ui/separator'
-import {
-  SidebarInset,
-  SidebarTrigger,
-} from '@/components/ui/sidebar'
+import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { FileGrid } from '@/components/storage/file-grid'
 import { FloatingActionBar } from '@/components/storage/floating-action-bar'
 import { DragDropOverlay } from '@/components/storage/drag-drop-overlay'
@@ -27,18 +24,18 @@ import { useFolderHistory } from '@/hooks/use-folder-history'
 import { useHomeShellActions } from '@/hooks/use-home-shell-actions'
 import type { IncomingFile } from '@/hooks/use-webrtc'
 import type { StorageItem } from '@/types/storage'
-import { HomeRoutePending } from './-home-pending'
-import { getHomeSnapshotFn } from './-home-server'
+import { HomeRoutePending } from '../-home-pending'
+import { getHomeSnapshotFn } from '../-home-server'
 
-export const Route = createFileRoute( '/' )( {
+export const Route = createFileRoute('/_app/')({
   component: StoragePage,
   loader: () => getHomeSnapshotFn(),
   pendingComponent: HomeRoutePending,
-} )
+})
 function StoragePage() {
   const initial = Route.useLoaderData()
-  const storage = useStorageData( initial )
-  const selection = useFileSelection( storage.items )
+  const storage = useStorageData(initial)
+  const selection = useFileSelection(storage.items)
   const dragDrop = useDragDrop(
     storage.userId,
     storage.currentFolderId,
@@ -48,21 +45,21 @@ function StoragePage() {
     storage.quota?.fileSizeLimit ?? null,
   )
 
-  const [shareItem, setShareItem] = useState<StorageItem | null>( null )
-  const [moveOpen, setMoveOpen] = useState( false )
-  const [moveMode, setMoveMode] = useState<'move' | 'update-path'>( 'move' )
-  const [deleteOpen, setDeleteOpen] = useState( false )
-  const [editorOpen, setEditorOpen] = useState( false )
-  const [editorItem, setEditorItem] = useState<StorageItem | null>( null )
+  const [shareItem, setShareItem] = useState<StorageItem | null>(null)
+  const [moveOpen, setMoveOpen] = useState(false)
+  const [moveMode, setMoveMode] = useState<'move' | 'update-path'>('move')
+  const [deleteOpen, setDeleteOpen] = useState(false)
+  const [editorOpen, setEditorOpen] = useState(false)
+  const [editorItem, setEditorItem] = useState<StorageItem | null>(null)
   const [pendingDelete, setPendingDelete] = useState<{
     ids: string[]
-    types: ( 'file' | 'folder' )[]
-  } | null>( null )
-  const [saveFileDialogOpen, setSaveFileDialogOpen] = useState( false )
-  const [fileToSave, setFileToSave] = useState<IncomingFile | null>( null )
+    types: ('file' | 'folder')[]
+  } | null>(null)
+  const [saveFileDialogOpen, setSaveFileDialogOpen] = useState(false)
+  const [fileToSave, setFileToSave] = useState<IncomingFile | null>(null)
 
-  useFolderHistory( storage.currentFolderId, storage.setCurrentFolderId )
-  const actions = useStorageActions( {
+  useFolderHistory(storage.currentFolderId, storage.setCurrentFolderId)
+  const actions = useStorageActions({
     userId: storage.userId,
     currentFolderId: storage.currentFolderId,
     setItems: storage.setItems,
@@ -71,21 +68,21 @@ function StoragePage() {
     select: selection.select,
     clearSelection: selection.clearSelection,
     selectedIds: selection.selectedIds,
-    onDeleteOpen: ( item: StorageItem ) => {
-      setPendingDelete( { ids: [item.id], types: [item.type] } )
-      setDeleteOpen( true )
+    onDeleteOpen: (item: StorageItem) => {
+      setPendingDelete({ ids: [item.id], types: [item.type] })
+      setDeleteOpen(true)
     },
-    onMoveOpen: ( mode = 'move' ) => {
-      setMoveMode( mode )
-      setMoveOpen( true )
+    onMoveOpen: (mode = 'move') => {
+      setMoveMode(mode)
+      setMoveOpen(true)
     },
-    onShareOpen: ( item ) => setShareItem( item ),
-    onEditFileOpen: ( item ) => {
-      setEditorItem( item )
-      setEditorOpen( true )
+    onShareOpen: (item) => setShareItem(item),
+    onEditFileOpen: (item) => {
+      setEditorItem(item)
+      setEditorOpen(true)
     },
-  } )
-  const bulk = useBulkActions( {
+  })
+  const bulk = useBulkActions({
     userId: storage.userId,
     items: storage.items,
     selectedIds: selection.selectedIds,
@@ -94,56 +91,57 @@ function StoragePage() {
     refresh: storage.refresh,
     setDeleteOpen,
     setMoveOpen,
-  } )
-  useKeyboardShortcuts( {
+  })
+  useKeyboardShortcuts({
     'mod+a': () => selection.selectAll(),
     escape: () => selection.clearSelection(),
     delete: () => {
-      if ( selection.selectedCount > 0 ) {
-        const items = storage.items.filter( ( i ) =>
-          selection.selectedIds.has( i.id ),
+      if (selection.selectedCount > 0) {
+        const items = storage.items.filter((i) =>
+          selection.selectedIds.has(i.id),
         )
-        setPendingDelete( {
-          ids: items.map( ( i ) => i.id ),
-          types: items.map( ( i ) => i.type ),
-        } )
-        setDeleteOpen( true )
+        setPendingDelete({
+          ids: items.map((i) => i.id),
+          types: items.map((i) => i.type),
+        })
+        setDeleteOpen(true)
       }
     },
-  } )
+  })
   useHomeShellActions()
 
-  useEffect( () => {
+  useEffect(() => {
     const handleCreateNewFile = () => {
-      setEditorItem( null )
-      setEditorOpen( true )
+      setEditorItem(null)
+      setEditorOpen(true)
     }
-    window.addEventListener( 'dot:create-new-file', handleCreateNewFile )
-    return () => window.removeEventListener( 'dot:create-new-file', handleCreateNewFile )
-  }, [] )
+    window.addEventListener('dot:create-new-file', handleCreateNewFile)
+    return () =>
+      window.removeEventListener('dot:create-new-file', handleCreateNewFile)
+  }, [])
 
-  const selectedItems = storage.items.filter( ( i ) =>
-    selection.selectedIds.has( i.id ),
+  const selectedItems = storage.items.filter((i) =>
+    selection.selectedIds.has(i.id),
   )
   const openCreateFileEditor = useMemo(
     () => () => {
-      setEditorItem( null )
-      setEditorOpen( true )
+      setEditorItem(null)
+      setEditorOpen(true)
     },
     [],
   )
 
-  const handleEditorSaved = ( savedItem: StorageItem ) => {
-    storage.setItems( ( prev ) => {
-      const index = prev.findIndex( ( item ) => item.id === savedItem.id )
-      if ( index === -1 ) {
+  const handleEditorSaved = (savedItem: StorageItem) => {
+    storage.setItems((prev) => {
+      const index = prev.findIndex((item) => item.id === savedItem.id)
+      if (index === -1) {
         return [savedItem, ...prev]
       }
 
       const next = [...prev]
       next[index] = savedItem
       return next
-    } )
+    })
   }
 
   return (
@@ -164,9 +162,7 @@ function StoragePage() {
               />
               <BreadcrumbNav
                 items={storage.breadcrumbs}
-                onNavigate={( folderId ) =>
-                  storage.setCurrentFolderId( folderId )
-                }
+                onNavigate={(folderId) => storage.setCurrentFolderId(folderId)}
               />
             </div>
             <TopbarActions
@@ -176,8 +172,8 @@ function StoragePage() {
               onUploadComplete={storage.refresh}
               onNewFile={openCreateFileEditor}
               onNewFolder={actions.handleNewFolder}
-              onSearch={( results ) => {
-                if ( results ) storage.setItems( results )
+              onSearch={(results) => {
+                if (results) storage.setItems(results)
                 else void storage.refresh()
               }}
               setItems={storage.setItems}
@@ -186,17 +182,18 @@ function StoragePage() {
           </header>
 
           <div
-            className="flex flex-1 flex-col gap-4 p-4 pt-0 " data-shell-context-menu="true"
-            onClick={( event ) => {
+            className="flex flex-1 flex-col gap-4 p-4 pt-0 "
+            data-shell-context-menu="true"
+            onClick={(event) => {
               const target = event.target as HTMLElement
-              if ( target.closest( "[data-file-card='true']" ) ) return
+              if (target.closest("[data-file-card='true']")) return
               selection.clearSelection()
             }}
           >
             <DeviceTransferSection
-              onSaveRequest={( file ) => {
-                setFileToSave( file )
-                setSaveFileDialogOpen( true )
+              onSaveRequest={(file) => {
+                setFileToSave(file)
+                setSaveFileDialogOpen(true)
               }}
             />
             <FileGrid
@@ -204,14 +201,12 @@ function StoragePage() {
               uploads={storage.uploads}
               isLoading={storage.isLoading}
               selectedIds={selection.selectedIds}
-              onBoxSelect={( ids, append ) =>
-                selection.selectMany( ids, append )
-              }
+              onBoxSelect={(ids, append) => selection.selectMany(ids, append)}
               onDoubleClick={actions.handleDoubleClick}
               onContextAction={actions.handleContextAction}
               renamingItemId={actions.renamingItemId}
               onRename={actions.handleRename}
-              onRenameCancel={() => actions.setRenamingItemId( null )}
+              onRenameCancel={() => actions.setRenamingItemId(null)}
               onDragMoveItem={bulk.handleDragMoveItem}
             />
           </div>
@@ -221,20 +216,20 @@ function StoragePage() {
       <FloatingActionBar
         selectedCount={selection.selectedCount}
         onDelete={() => {
-          setPendingDelete( {
-            ids: selectedItems.map( ( i ) => i.id ),
-            types: selectedItems.map( ( i ) => i.type ),
-          } )
-          setDeleteOpen( true )
+          setPendingDelete({
+            ids: selectedItems.map((i) => i.id),
+            types: selectedItems.map((i) => i.type),
+          })
+          setDeleteOpen(true)
         }}
         onShare={() => {
-          setShareItem( selectedItems.at( 0 ) ?? null )
+          setShareItem(selectedItems.at(0) ?? null)
         }}
         onClear={selection.clearSelection}
       />
       <ShareModal
         open={!!shareItem}
-        onOpenChange={( open ) => !open && setShareItem( null )}
+        onOpenChange={(open) => !open && setShareItem(null)}
         item={shareItem}
         userId={storage.userId}
       />
@@ -249,15 +244,15 @@ function StoragePage() {
       />
       <ConfirmDeleteModal
         open={deleteOpen}
-        onOpenChange={( open ) => {
-          setDeleteOpen( open )
-          if ( !open ) setPendingDelete( null )
+        onOpenChange={(open) => {
+          setDeleteOpen(open)
+          if (!open) setPendingDelete(null)
         }}
         isPermanent={false}
         itemCount={pendingDelete?.ids.length ?? 0}
         onConfirm={() => {
-          if ( pendingDelete ) {
-            void bulk.handleDelete( pendingDelete.ids, pendingDelete.types )
+          if (pendingDelete) {
+            void bulk.handleDelete(pendingDelete.ids, pendingDelete.types)
           }
         }}
       />
@@ -276,9 +271,9 @@ function StoragePage() {
         file={fileToSave}
         currentFolderId={storage.currentFolderId}
         userId={storage.userId}
-        onSave={( folderId ) => {
-          if ( fileToSave ) {
-            console.log( 'Saving file to folder:', folderId )
+        onSave={(folderId) => {
+          if (fileToSave) {
+            console.log('Saving file to folder:', folderId)
           }
         }}
       />

@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { RootLayout } from "@/lib/providers.tsx/RootProvider"
 import { BucketManager } from "@/components/storage/bucket-manager"
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
@@ -10,7 +9,7 @@ export const Route = createFileRoute( "/buckets/" as never )( {
 function BucketsPage() {
 
     return (
-        <RootLayout>
+        
             <SidebarInset>
                 <header className="flex h-14 shrink-0 items-center gap-2 px-4">
                     <SidebarTrigger className="-ml-1" />
@@ -21,6 +20,6 @@ function BucketsPage() {
                     <BucketManager />
                 </div>
             </SidebarInset>
-        </RootLayout>
+        
     )
 }
