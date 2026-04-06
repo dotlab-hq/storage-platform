@@ -22,8 +22,6 @@ import { formatBytes } from '@/lib/format-bytes'
 import type { AdminProvider } from '@/lib/storage-provider-queries'
 import { ProviderEditorCard } from '@/components/admin/provider-editor-card'
 import { S3ViewerModal } from '@/components/storage/s3-viewer-modal'
-import { useQuota } from '@/hooks/use-quota'
-import { useTinySession } from '@/hooks/use-tiny-session'
 import { adminRouteMiddleware } from '@/lib/route-auth-middleware'
 
 const emptyProviderForm = {
@@ -62,7 +60,6 @@ export const Route = createFileRoute( '/admin/' )( {
 } )
 
 function AdminDashboardPage() {
-  const quota = useQuota()
   const initial = Route.useLoaderData()
   const [data, setData] = useState( initial )
   const [isSaving, setIsSaving] = useState( false )
@@ -242,10 +239,9 @@ function AdminDashboardPage() {
     }
   }
 
-  const tinySession = useTinySession()
 
   return (
-    <RootLayout quota={quota}>
+    <RootLayout>
       <SidebarInset>
         <header className="flex h-14 shrink-0 items-center gap-2 px-4">
           <SidebarTrigger className="-ml-1" />

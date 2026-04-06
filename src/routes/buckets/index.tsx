@@ -3,17 +3,14 @@ import { RootLayout } from "@/lib/providers.tsx/RootProvider"
 import { BucketManager } from "@/components/storage/bucket-manager"
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
-import { useQuota } from "@/hooks/use-quota"
-
 export const Route = createFileRoute( "/buckets/" as never )( {
     component: BucketsPage,
 } )
 
 function BucketsPage() {
-    const quota = useQuota()
 
     return (
-        <RootLayout quota={quota}>
+        <RootLayout>
             <SidebarInset>
                 <header className="flex h-14 shrink-0 items-center gap-2 px-4">
                     <SidebarTrigger className="-ml-1" />

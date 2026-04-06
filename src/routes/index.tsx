@@ -148,7 +148,7 @@ function StoragePage() {
 
   return (
     <>
-      <RootLayout quota={storage.quota}>
+      <RootLayout>
         <SidebarInset
           onDragEnter={dragDrop.handleDragEnter}
           onDragLeave={dragDrop.handleDragLeave}

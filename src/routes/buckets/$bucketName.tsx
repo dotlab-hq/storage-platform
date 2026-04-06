@@ -6,20 +6,18 @@ import { S3BucketViewer } from "@/components/storage/s3-bucket-viewer"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
-import { useQuota } from "@/hooks/use-quota"
 
 export const Route = createFileRoute( "/buckets/$bucketName" )( {
     component: BucketFilesPage,
 } )
 
 function BucketFilesPage() {
-    const quota = useQuota()
     const { bucketName } = Route.useParams()
 
     const decodedName = useMemo( () => decodeURIComponent( bucketName ), [bucketName] )
 
     return (
-        <RootLayout quota={quota}>
+        <RootLayout>
             <SidebarInset>
                 <header className="flex h-14 shrink-0 items-center gap-2 px-4">
                     <SidebarTrigger className="-ml-1" />

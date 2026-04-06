@@ -7,12 +7,10 @@ import {
 } from "@/components/ui/sidebar"
 import { Share2 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
-import { useQuota } from "@/hooks/use-quota"
 
 export const Route = createFileRoute( "/shared/" )( { component: SharedPage } )
 
 function SharedPage() {
-    const quota = useQuota()
     // Placeholder — shared items will come from a server function
     const sharedItems: {
         id: string
@@ -23,7 +21,7 @@ function SharedPage() {
     }[] = []
 
     return (
-        <RootLayout quota={quota}>
+        <RootLayout>
             <SidebarInset>
                 <header className="flex h-14 shrink-0 items-center gap-2 px-4">
                     <SidebarTrigger className="-ml-1" />
@@ -82,5 +80,5 @@ function SharedPage() {
                     )}
                 </div>
             </SidebarInset>
-        </RootLayout>)
+        </RootLayout> )
 }

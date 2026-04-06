@@ -1,4 +1,6 @@
-import { ChevronRight, type LucideIcon } from "lucide-react"
+import { ChevronRight } from "lucide-react"
+import type { LucideIcon } from "lucide-react";
+import { Link } from "@tanstack/react-router"
 
 import {
   Collapsible,
@@ -17,7 +19,7 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
 
-export function NavMain({
+export function NavMain( {
   items,
 }: {
   items: {
@@ -30,19 +32,19 @@ export function NavMain({
       url: string
     }[]
   }[]
-}) {
+} ) {
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
       <SidebarMenu>
-        {items.map((item) => (
+        {items.map( ( item ) => (
           <Collapsible key={item.title} asChild defaultOpen={item.isActive}>
             <SidebarMenuItem>
               <SidebarMenuButton asChild tooltip={item.title}>
-                <a href={item.url}>
+                <Link to={item.url}>
                   <item.icon />
                   <span>{item.title}</span>
-                </a>
+                </Link>
               </SidebarMenuButton>
               {item.items?.length ? (
                 <>
@@ -54,22 +56,22 @@ export function NavMain({
                   </CollapsibleTrigger>
                   <CollapsibleContent>
                     <SidebarMenuSub>
-                      {item.items?.map((subItem) => (
+                      {item.items.map( ( subItem ) => (
                         <SidebarMenuSubItem key={subItem.title}>
                           <SidebarMenuSubButton asChild>
-                            <a href={subItem.url}>
+                            <Link to={subItem.url}>
                               <span>{subItem.title}</span>
-                            </a>
+                            </Link>
                           </SidebarMenuSubButton>
                         </SidebarMenuSubItem>
-                      ))}
+                      ) )}
                     </SidebarMenuSub>
                   </CollapsibleContent>
                 </>
               ) : null}
             </SidebarMenuItem>
           </Collapsible>
-        ))}
+        ) )}
       </SidebarMenu>
     </SidebarGroup>
   )
