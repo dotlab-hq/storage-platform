@@ -54,6 +54,8 @@ export function UrlImportForm({
             value={state.curlCommand}
             onChange={(event) => onCurlChange(event.target.value)}
             placeholder="curl -X GET 'https://example.com/file.json' -H 'accept: application/json'"
+            wrap="off"
+            className="field-sizing-fixed overflow-x-auto whitespace-pre font-mono"
           />
         </div>
         {curlError && <p className="text-destructive text-xs">{curlError}</p>}
@@ -65,6 +67,8 @@ export function UrlImportForm({
             rows={4}
             value={generatedCurl}
             readOnly
+            wrap="off"
+            className="field-sizing-fixed overflow-x-auto whitespace-pre font-mono"
           />
         </div>
         <p
@@ -85,6 +89,7 @@ export function UrlImportForm({
           placeholder="https://example.com/file.json"
           value={state.url}
           onChange={(event) => onUrlChange(event.target.value)}
+          className="font-mono"
         />
       </div>
       <div className="space-y-1">
@@ -131,7 +136,14 @@ export function UrlImportForm({
       <Separator />
       <div className="space-y-1">
         <Label htmlFor="generatedCurl">Generated cURL preview</Label>
-        <Textarea id="generatedCurl" rows={4} value={generatedCurl} readOnly />
+        <Textarea
+          id="generatedCurl"
+          rows={4}
+          value={generatedCurl}
+          readOnly
+          wrap="off"
+          className="field-sizing-fixed overflow-x-auto whitespace-pre font-mono"
+        />
       </div>
       <UrlImportRecentJobs />
     </div>
