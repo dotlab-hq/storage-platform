@@ -5,7 +5,8 @@ import { Wifi, WifiOff, Smartphone, ChevronDown, ChevronUp } from 'lucide-react'
 import { IncomingFilesRegion } from '@/components/storage/incoming-files-region'
 import { SendFileDropZone } from '@/components/storage/send-file-drop-zone'
 import { useTinySession } from '@/hooks/use-tiny-session'
-import { useWebRTC, type IncomingFile } from '@/hooks/use-webrtc'
+import { useWebRTC  } from '@/hooks/use-webrtc'
+import type {IncomingFile} from '@/hooks/use-webrtc';
 import {
   Collapsible,
   CollapsibleContent,

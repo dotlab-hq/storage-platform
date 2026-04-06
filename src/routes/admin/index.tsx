@@ -23,6 +23,7 @@ import type { AdminProvider } from '@/lib/storage-provider-queries'
 import { ProviderEditorCard } from '@/components/admin/provider-editor-card'
 import { S3ViewerModal } from '@/components/storage/s3-viewer-modal'
 import { useQuota } from '@/hooks/use-quota'
+import { useTinySession } from '@/hooks/use-tiny-session'
 import { adminRouteMiddleware } from '@/lib/route-auth-middleware'
 
 const emptyProviderForm = {
