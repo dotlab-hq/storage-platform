@@ -12,35 +12,58 @@ export type AuthenticatedUser = Pick<AuthUser, 'id' | 'email' | 'name'> & {
   isAdmin: boolean
 }
 
-export async function getAuthenticatedUser(): Promise<AuthenticatedUser> {
-  try {
-    const request = getRequest()
-    const headers = request.headers
-    const session = await auth.api.getSession({ headers })
-    if (!session?.user) {
-      const tinySession = await resolveTinySessionFromHeaders(headers)
-      if (!tinySession) {
-        throw redirect({ to: '/auth' })
-      }
-      return {
-        id: tinySession.user.id,
-        email: tinySession.user.email,
-        name: tinySession.user.name,
-        role: normalizeUserRole(tinySession.user.role),
-        isAdmin: tinySession.user.isAdmin,
-      }
-    }
-    const role = normalizeUserRole(session.user.role)
-    const isAdmin = isAdminRole(role)
-    return {
-      id: session.user.id,
-      email: session.user.email,
-      name: session.user.name,
-      role,
-      isAdmin,
-    }
-  } catch {
+function shouldRedirectToAuth(request: Request): boolean {
+  const secFetchDest = request.headers.get('sec-fetch-dest')
+  if (secFetchDest === 'document') {
+    return true
+  }
+
+  const acceptHeader = request.headers.get('accept') ?? ''
+  const acceptsHtml = acceptHeader.includes('text/html')
+  const acceptsJson = acceptHeader.includes('application/json')
+  return acceptsHtml && !acceptsJson
+}
+
+function throwUnauthenticated(request: Request): never {
+  if (shouldRedirectToAuth(request)) {
     throw redirect({ to: '/auth' })
+  }
+  throw new Error('UNAUTHORIZED')
+}
+
+export async function getAuthenticatedUser(): Promise<AuthenticatedUser> {
+  const request = getRequest()
+  const headers = request.headers
+
+  let session: Awaited<ReturnType<typeof auth.api.getSession>> | null = null
+  try {
+    session = await auth.api.getSession({ headers })
+  } catch {
+    session = null
+  }
+
+  if (!session?.user) {
+    const tinySession = await resolveTinySessionFromHeaders(headers)
+    if (!tinySession) {
+      throwUnauthenticated(request)
+    }
+    return {
+      id: tinySession.user.id,
+      email: tinySession.user.email,
+      name: tinySession.user.name,
+      role: normalizeUserRole(tinySession.user.role),
+      isAdmin: tinySession.user.isAdmin,
+    }
+  }
+
+  const role = normalizeUserRole(session.user.role)
+  const isAdmin = isAdminRole(role)
+  return {
+    id: session.user.id,
+    email: session.user.email,
+    name: session.user.name,
+    role,
+    isAdmin,
   }
 }
 

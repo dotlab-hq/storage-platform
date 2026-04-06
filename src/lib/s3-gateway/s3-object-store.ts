@@ -9,6 +9,7 @@ import { Readable } from 'node:stream'
 import type { BucketContext } from '@/lib/s3-gateway/s3-context'
 import {
   buildCacheHeaders,
+  isStatusMetadataError,
   normalizeETag,
   shouldReturnNotModified,
 } from '@/lib/s3-gateway/s3-conditional-cache'
@@ -181,6 +182,13 @@ export async function putObject(
   body: ReadableStream<Uint8Array>,
   contentType: string | null,
   contentLength: number | null,
+  metadataInput?: {
+    cacheControl: string | null
+    contentDisposition: string | null
+    contentEncoding: string | null
+    contentLanguage: string | null
+    metadata: Record<string, string>
+  },
 ): Promise<string | null> {
   const cacheKey = getS3ObjectCacheKey(bucket.bucketId, objectKey)
   deleteCachedS3Object(cacheKey)
@@ -212,6 +220,14 @@ export async function putObject(
         Key: upstreamKey,
         Body: toNodeReadable(body),
         ContentType: contentType ?? 'application/octet-stream',
+        CacheControl: metadataInput?.cacheControl ?? undefined,
+        ContentDisposition: metadataInput?.contentDisposition ?? undefined,
+        ContentEncoding: metadataInput?.contentEncoding ?? undefined,
+        ContentLanguage: metadataInput?.contentLanguage ?? undefined,
+        Metadata:
+          metadataInput && Object.keys(metadataInput.metadata).length > 0
+            ? metadataInput.metadata
+            : undefined,
         ContentLength: contentLength ?? undefined,
       }),
       { abortSignal },
@@ -345,6 +361,25 @@ function resolvePersistedETag(
   return null
 }
 
+async function softDeleteMissingStoredObject(input: {
+  userId: string
+  upstreamObjectKey: string
+}): Promise<void> {
+  await db
+    .update(file)
+    .set({
+      isDeleted: true,
+      deletedAt: new Date(),
+    })
+    .where(
+      and(
+        eq(file.userId, input.userId),
+        eq(file.objectKey, input.upstreamObjectKey),
+        eq(file.isDeleted, false),
+      ),
+    )
+}
+
 export async function getObject(
   bucket: BucketContext,
   objectKey: string,
@@ -380,14 +415,41 @@ export async function getObject(
     Key: stored.objectKey,
     ResponseContentType: stored.mimeType ?? undefined,
   })
-  const upstream = await sendWithProviderTimeout((abortSignal) =>
-    provider.client.send(command, { abortSignal }),
-  )
+  let upstream: {
+    Body?: unknown
+    ContentType?: string
+    ContentLength?: number
+    Metadata?: Record<string, unknown>
+  }
+  try {
+    upstream = await sendWithProviderTimeout((abortSignal) =>
+      provider.client.send(command, { abortSignal }),
+    )
+  } catch (error) {
+    if (
+      isStatusMetadataError(error) &&
+      error.$metadata?.httpStatusCode === 404
+    ) {
+      await softDeleteMissingStoredObject({
+        userId: bucket.userId,
+        upstreamObjectKey: stored.objectKey,
+      })
+      return null
+    }
+    throw error
+  }
   const headers = buildCacheHeaders({
     eTag: stored.etag,
     lastModified: effectiveLastModified,
     cacheControl: stored.cacheControl,
   })
+  if (upstream.Metadata) {
+    for (const [key, value] of Object.entries(upstream.Metadata)) {
+      if (typeof value === 'string') {
+        headers.set(`x-amz-meta-${key}`, value)
+      }
+    }
+  }
   headers.set(
     'Content-Type',
     upstream.ContentType ?? stored.mimeType ?? 'application/octet-stream',
@@ -431,13 +493,60 @@ export async function headObject(
       }),
     })
   }
+
+  const provider = await getProviderClientById(stored.providerId)
+  let upstreamHead: {
+    ETag?: string
+    LastModified?: Date
+    CacheControl?: string
+    ContentType?: string
+    ContentLength?: number
+    Metadata?: Record<string, unknown>
+  }
+  try {
+    upstreamHead = await sendWithProviderTimeout((abortSignal) =>
+      provider.client.send(
+        new HeadObjectCommand({
+          Bucket: provider.bucketName,
+          Key: stored.objectKey,
+        }),
+        { abortSignal },
+      ),
+    )
+  } catch (error) {
+    if (
+      isStatusMetadataError(error) &&
+      error.$metadata?.httpStatusCode === 404
+    ) {
+      await softDeleteMissingStoredObject({
+        userId: bucket.userId,
+        upstreamObjectKey: stored.objectKey,
+      })
+      return null
+    }
+    throw error
+  }
+
   const headers = buildCacheHeaders({
-    eTag: stored.etag,
-    lastModified: effectiveLastModified,
-    cacheControl: stored.cacheControl,
+    eTag: resolvePersistedETag(upstreamHead.ETag, stored.etag ?? undefined),
+    lastModified: upstreamHead.LastModified ?? effectiveLastModified,
+    cacheControl: upstreamHead.CacheControl ?? stored.cacheControl,
   })
-  headers.set('Content-Type', stored.mimeType ?? 'application/octet-stream')
-  headers.set('Content-Length', String(stored.sizeInBytes))
+  headers.set(
+    'Content-Type',
+    upstreamHead.ContentType ?? stored.mimeType ?? 'application/octet-stream',
+  )
+  headers.set(
+    'Content-Length',
+    String(upstreamHead.ContentLength ?? stored.sizeInBytes),
+  )
+  if (upstreamHead.Metadata) {
+    for (const [key, value] of Object.entries(upstreamHead.Metadata)) {
+      if (typeof value === 'string') {
+        headers.set(`x-amz-meta-${key}`, value)
+      }
+    }
+  }
 
   return new Response(null, {
     status: 200,
