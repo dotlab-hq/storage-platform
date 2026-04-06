@@ -1,17 +1,11 @@
 import { useCallback, useMemo } from 'react'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
-import { AppSidebar } from '@/components/app-sidebar'
 import { Separator } from '@/components/ui/separator'
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from '@/components/ui/sidebar'
+import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { Clock, Folder, FileText } from 'lucide-react'
 import { formatRelativeTime } from '@/lib/file-utils'
 import { toast } from '@/components/ui/sonner'
 import { encodeNavToken } from '@/lib/nav-token'
-import { useQuota } from '@/hooks/use-quota'
 import { useShellView } from '@/components/shell/shell-actions-registry'
 import { getRecentFileUrlFn, getRecentSnapshotFn } from './-recent-server'
 
@@ -30,7 +24,6 @@ export const Route = createFileRoute('/_app/recent/')({
 
 function RecentPage() {
   const navigate = useNavigate()
-  const quota = useQuota()
   const initial = Route.useLoaderData()
   const items = useMemo<RecentItem[]>(
     () =>
@@ -69,53 +62,48 @@ function RecentPage() {
   )
 
   return (
-    <div className="min-h-screen">
-      <SidebarProvider>
-        <AppSidebar quota={quota} />
-        <SidebarInset>
-          <header className="flex h-14 shrink-0 items-center gap-2 px-4">
-            <SidebarTrigger className="-ml-1" />
-            <Separator
-              orientation="vertical"
-              className="mr-2 data-[orientation=vertical]:h-4"
-            />
-            <div className="flex items-center gap-2">
-              <Clock className="text-muted-foreground h-4 w-4" />
-              <h1 className="text-sm font-semibold">Recent</h1>
-            </div>
-          </header>
+    <SidebarInset>
+      <header className="flex h-14 shrink-0 items-center gap-2 px-4">
+        <SidebarTrigger className="-ml-1" />
+        <Separator
+          orientation="vertical"
+          className="mr-2 data-[orientation=vertical]:h-4"
+        />
+        <div className="flex items-center gap-2">
+          <Clock className="text-muted-foreground h-4 w-4" />
+          <h1 className="text-sm font-semibold">Recent</h1>
+        </div>
+      </header>
 
-          <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-            {items.length === 0 ? (
-              <EmptyState />
-            ) : (
-              <div className="space-y-1">
-                {items.map((item) => (
-                  <button
-                    key={item.id}
-                    type="button"
-                    onClick={() => void handleItemClick(item)}
-                    className="hover:bg-accent/50 flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left transition-colors"
-                  >
-                    {item.kind === 'folder' ? (
-                      <Folder className="text-muted-foreground h-4 w-4 shrink-0" />
-                    ) : (
-                      <FileText className="text-muted-foreground h-4 w-4 shrink-0" />
-                    )}
-                    <span className="min-w-0 flex-1 truncate text-sm">
-                      {item.name}
-                    </span>
-                    <span className="text-muted-foreground shrink-0 text-xs">
-                      {formatRelativeTime(item.lastOpenedAt)}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            )}
+      <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+        {items.length === 0 ? (
+          <EmptyState />
+        ) : (
+          <div className="space-y-1">
+            {items.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => void handleItemClick(item)}
+                className="hover:bg-accent/50 flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left transition-colors"
+              >
+                {item.kind === 'folder' ? (
+                  <Folder className="text-muted-foreground h-4 w-4 shrink-0" />
+                ) : (
+                  <FileText className="text-muted-foreground h-4 w-4 shrink-0" />
+                )}
+                <span className="min-w-0 flex-1 truncate text-sm">
+                  {item.name}
+                </span>
+                <span className="text-muted-foreground shrink-0 text-xs">
+                  {formatRelativeTime(item.lastOpenedAt)}
+                </span>
+              </button>
+            ))}
           </div>
-        </SidebarInset>
-      </SidebarProvider>
-    </div>
+        )}
+      </div>
+    </SidebarInset>
   )
 }
 

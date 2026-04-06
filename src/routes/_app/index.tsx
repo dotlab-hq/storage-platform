@@ -1,6 +1,5 @@
 import { useMemo, useState, useEffect } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
-import { RootLayout } from '@/lib/providers.tsx/RootProvider'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { FileGrid } from '@/components/storage/file-grid'
@@ -29,6 +28,7 @@ import { getHomeSnapshotFn } from '../-home-server'
 
 export const Route = createFileRoute('/_app/')({
   component: StoragePage,
+
   loader: () => getHomeSnapshotFn(),
   pendingComponent: HomeRoutePending,
 })
@@ -146,72 +146,70 @@ function StoragePage() {
 
   return (
     <>
-      <RootLayout>
-        <SidebarInset
-          onDragEnter={dragDrop.handleDragEnter}
-          onDragLeave={dragDrop.handleDragLeave}
-          onDragOver={dragDrop.handleDragOver}
-          onDrop={dragDrop.handleDrop}
-        >
-          <header className="flex h-14 shrink-0 items-center justify-between gap-2 px-4 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-            <div className="flex items-center gap-2">
-              <SidebarTrigger className="-ml-1" />
-              <Separator
-                orientation="vertical"
-                className="mr-2 data-[orientation=vertical]:h-4"
-              />
-              <BreadcrumbNav
-                items={storage.breadcrumbs}
-                onNavigate={(folderId) => storage.setCurrentFolderId(folderId)}
-              />
-            </div>
-            <TopbarActions
-              userId={storage.userId}
-              currentFolderId={storage.currentFolderId}
-              setUploads={storage.setUploads}
-              onUploadComplete={storage.refresh}
-              onNewFile={openCreateFileEditor}
-              onNewFolder={actions.handleNewFolder}
-              onSearch={(results) => {
-                if (results) storage.setItems(results)
-                else void storage.refresh()
-              }}
-              setItems={storage.setItems}
-              fileSizeLimit={storage.quota?.fileSizeLimit ?? null}
+      <SidebarInset
+        onDragEnter={dragDrop.handleDragEnter}
+        onDragLeave={dragDrop.handleDragLeave}
+        onDragOver={dragDrop.handleDragOver}
+        onDrop={dragDrop.handleDrop}
+      >
+        <header className="flex h-14 shrink-0 items-center justify-between gap-2 px-4 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+          <div className="flex items-center gap-2">
+            <SidebarTrigger className="-ml-1" />
+            <Separator
+              orientation="vertical"
+              className="mr-2 data-[orientation=vertical]:h-4"
             />
-          </header>
-
-          <div
-            className="flex flex-1 flex-col gap-4 p-4 pt-0 "
-            data-shell-context-menu="true"
-            onClick={(event) => {
-              const target = event.target as HTMLElement
-              if (target.closest("[data-file-card='true']")) return
-              selection.clearSelection()
-            }}
-          >
-            <DeviceTransferSection
-              onSaveRequest={(file) => {
-                setFileToSave(file)
-                setSaveFileDialogOpen(true)
-              }}
-            />
-            <FileGrid
-              items={storage.items}
-              uploads={storage.uploads}
-              isLoading={storage.isLoading}
-              selectedIds={selection.selectedIds}
-              onBoxSelect={(ids, append) => selection.selectMany(ids, append)}
-              onDoubleClick={actions.handleDoubleClick}
-              onContextAction={actions.handleContextAction}
-              renamingItemId={actions.renamingItemId}
-              onRename={actions.handleRename}
-              onRenameCancel={() => actions.setRenamingItemId(null)}
-              onDragMoveItem={bulk.handleDragMoveItem}
+            <BreadcrumbNav
+              items={storage.breadcrumbs}
+              onNavigate={(folderId) => storage.setCurrentFolderId(folderId)}
             />
           </div>
-        </SidebarInset>
-      </RootLayout>
+          <TopbarActions
+            userId={storage.userId}
+            currentFolderId={storage.currentFolderId}
+            setUploads={storage.setUploads}
+            onUploadComplete={storage.refresh}
+            onNewFile={openCreateFileEditor}
+            onNewFolder={actions.handleNewFolder}
+            onSearch={(results) => {
+              if (results) storage.setItems(results)
+              else void storage.refresh()
+            }}
+            setItems={storage.setItems}
+            fileSizeLimit={storage.quota?.fileSizeLimit ?? null}
+          />
+        </header>
+
+        <div
+          className="flex flex-1 flex-col gap-4 p-4 pt-0 "
+          data-shell-context-menu="true"
+          onClick={(event) => {
+            const target = event.target as HTMLElement
+            if (target.closest("[data-file-card='true']")) return
+            selection.clearSelection()
+          }}
+        >
+          <DeviceTransferSection
+            onSaveRequest={(file) => {
+              setFileToSave(file)
+              setSaveFileDialogOpen(true)
+            }}
+          />
+          <FileGrid
+            items={storage.items}
+            uploads={storage.uploads}
+            isLoading={storage.isLoading}
+            selectedIds={selection.selectedIds}
+            onBoxSelect={(ids, append) => selection.selectMany(ids, append)}
+            onDoubleClick={actions.handleDoubleClick}
+            onContextAction={actions.handleContextAction}
+            renamingItemId={actions.renamingItemId}
+            onRename={actions.handleRename}
+            onRenameCancel={() => actions.setRenamingItemId(null)}
+            onDragMoveItem={bulk.handleDragMoveItem}
+          />
+        </div>
+      </SidebarInset>
       <DragDropOverlay isDragging={dragDrop.isDragging} />
       <FloatingActionBar
         selectedCount={selection.selectedCount}
