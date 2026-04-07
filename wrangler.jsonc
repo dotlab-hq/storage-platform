@@ -1,13 +1,15 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "storage",
-  "main": "src/server.ts",
+  "main": "@tanstack/react-start/server-entry",
   "assets": {
     "binding": "ASSETS",
     "directory": "./public",
   },
   "compatibility_date": "2026-03-24",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "observability": {
     "enabled": false,
     "head_sampling_rate": 1,
@@ -44,29 +46,6 @@
       "binding": "KV",
       "id": "ae8d8736c0324fc69af90f61a7981d19",
       "remote": true,
-    },
-  ],
-  "queues": {
-    "producers": [
-      {
-        "binding": "URL_IMPORT_QUEUE",
-        "queue": "url-import-jobs",
-      },
-    ],
-    "consumers": [
-      {
-        "queue": "url-import-jobs",
-        "max_batch_size": 10,
-        "max_batch_timeout": 10,
-        "max_retries": 10,
-      },
-    ],
-  },
-  "workflows": [
-    {
-      "name": "url-import-workflow",
-      "binding": "URL_IMPORT_WORKFLOW",
-      "class_name": "UrlImportWorkflow",
     },
   ],
   // "r2_buckets": [
