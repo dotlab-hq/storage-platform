@@ -22,7 +22,6 @@ type UseStorageActionsParams = {
   onDeleteOpen: (item: StorageItem) => void
   onMoveOpen: (mode?: 'move' | 'update-path') => void
   onShareOpen: (item: StorageItem) => void
-  onEditFileOpen: (item: StorageItem) => void
 }
 
 export function useStorageActions(params: UseStorageActionsParams) {
@@ -35,7 +34,6 @@ export function useStorageActions(params: UseStorageActionsParams) {
     onDeleteOpen,
     onMoveOpen,
     onShareOpen,
-    onEditFileOpen,
   } = params
 
   const [renamingItemId, setRenamingItemId] = useState<string | null>(null)
@@ -47,10 +45,6 @@ export function useStorageActions(params: UseStorageActionsParams) {
         return
       }
       if (!userId) return
-      if (isTextBasedFile(item.name, item.mimeType)) {
-        onEditFileOpen(item)
-        return
-      }
       try {
         const { url } = await getFilePresignedUrlFn({
           data: { fileId: item.id },
@@ -62,7 +56,7 @@ export function useStorageActions(params: UseStorageActionsParams) {
         )
       }
     },
-    [onEditFileOpen, setCurrentFolderId, userId],
+    [ setCurrentFolderId, userId],
   )
 
   const handleRename = useCallback(

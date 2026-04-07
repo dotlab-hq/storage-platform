@@ -93,7 +93,7 @@ function StoragePage() {
       setMoveOpen( true )
     },
     onShareOpen: ( item ) => setShareItem( item ),
-
+   
   } )
   const bulk = useBulkActions( {
     userId: storage.userId,
@@ -152,7 +152,7 @@ function StoragePage() {
             currentFolderId={storage.currentFolderId}
             setUploads={storage.setUploads}
             onUploadComplete={storage.refresh}
-            onNewFile={() => { }
+            onNewFile={() => { }}
             onNewFolder={actions.handleNewFolder}
             onSearch={( results ) => {
               if ( results ) storage.setItems( results )

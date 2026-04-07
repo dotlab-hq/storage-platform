@@ -23,6 +23,7 @@ import { Route as AppRecentIndexRouteImport } from './routes/_app/recent/index'
 import { Route as AppBucketsIndexRouteImport } from './routes/_app/buckets/index'
 import { Route as AppAdminIndexRouteImport } from './routes/_app/admin/index'
 import { Route as ApiStorageS3RouteImport } from './routes/api/storage/s3'
+import { Route as ApiStorageFileLinkRouteImport } from './routes/api/storage/file-link'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as AppBucketsBucketNameRouteImport } from './routes/_app/buckets/$bucketName'
 import { Route as ApiStorageS3IndexRouteImport } from './routes/api/storage/s3/index'
@@ -105,6 +106,11 @@ const AppAdminIndexRoute = AppAdminIndexRouteImport.update({
 const ApiStorageS3Route = ApiStorageS3RouteImport.update({
   id: '/api/storage/s3',
   path: '/api/storage/s3',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStorageFileLinkRoute = ApiStorageFileLinkRouteImport.update({
+  id: '/api/storage/file-link',
+  path: '/api/storage/file-link',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
@@ -193,6 +199,7 @@ export interface FileRoutesByFullPath {
   '/auth/': typeof AuthIndexRoute
   '/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/storage/file-link': typeof ApiStorageFileLinkRoute
   '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
   '/admin/': typeof AppAdminIndexRoute
   '/buckets/': typeof AppBucketsIndexRoute
@@ -222,6 +229,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthIndexRoute
   '/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/storage/file-link': typeof ApiStorageFileLinkRoute
   '/admin': typeof AppAdminIndexRoute
   '/buckets': typeof AppBucketsIndexRoute
   '/recent': typeof AppRecentIndexRoute
@@ -252,6 +260,7 @@ export interface FileRoutesById {
   '/auth/': typeof AuthIndexRoute
   '/_app/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/storage/file-link': typeof ApiStorageFileLinkRoute
   '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
   '/_app/admin/': typeof AppAdminIndexRoute
   '/_app/buckets/': typeof AppBucketsIndexRoute
@@ -283,6 +292,7 @@ export interface FileRouteTypes {
     | '/auth/'
     | '/buckets/$bucketName'
     | '/api/auth/$'
+    | '/api/storage/file-link'
     | '/api/storage/s3'
     | '/admin/'
     | '/buckets/'
@@ -312,6 +322,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/buckets/$bucketName'
     | '/api/auth/$'
+    | '/api/storage/file-link'
     | '/admin'
     | '/buckets'
     | '/recent'
@@ -341,6 +352,7 @@ export interface FileRouteTypes {
     | '/auth/'
     | '/_app/buckets/$bucketName'
     | '/api/auth/$'
+    | '/api/storage/file-link'
     | '/api/storage/s3'
     | '/_app/admin/'
     | '/_app/buckets/'
@@ -370,6 +382,7 @@ export interface RootRouteChildren {
   ShareTokenRoute: typeof ShareTokenRoute
   AuthIndexRoute: typeof AuthIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  ApiStorageFileLinkRoute: typeof ApiStorageFileLinkRoute
   ApiStorageS3Route: typeof ApiStorageS3RouteWithChildren
 }
 
@@ -471,6 +484,13 @@ declare module '@tanstack/react-router' {
       path: '/api/storage/s3'
       fullPath: '/api/storage/s3'
       preLoaderRoute: typeof ApiStorageS3RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/storage/file-link': {
+      id: '/api/storage/file-link'
+      path: '/api/storage/file-link'
+      fullPath: '/api/storage/file-link'
+      preLoaderRoute: typeof ApiStorageFileLinkRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/auth/$': {
@@ -641,6 +661,7 @@ const rootRouteChildren: RootRouteChildren = {
   ShareTokenRoute: ShareTokenRoute,
   AuthIndexRoute: AuthIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  ApiStorageFileLinkRoute: ApiStorageFileLinkRoute,
   ApiStorageS3Route: ApiStorageS3RouteWithChildren,
 }
 export const routeTree = rootRouteImport
