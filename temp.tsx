@@ -191,6 +191,35 @@ function ShareAccessPage() {
     )
   }
 
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center gap-6 p-4 text-center">
+      <div className="bg-muted rounded-full p-4">
+        <Folder className="text-muted-foreground h-10 w-10" />
+      </div>
+      <div className="space-y-1">
+        <h1 className="text-lg font-semibold">{typedData.name}</h1>
+        <p className="text-muted-foreground text-sm">Shared folder</p>
+        {typedData.tree && (
+          <p className="text-muted-foreground text-xs">
+            {typedData.tree.folders.length} folders ·{' '}
+            {typedData.tree.files.length} files exposed
+          </p>
+        )}
+      </div>
+      {typedData.tree && (
+        <ShareFolderTree tree={typedData.tree} formatBytes={formatBytes} />
+      )}
+      <Button
+        onClick={() => {
+          window.location.href = `/?nav=${btoa(JSON.stringify({ folderId: typedData.folderId }))}`
+        }}
+      >
+        Open folder
+      </Button>
+    </div>
+  )
+}
+
 function formatBytes(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`
