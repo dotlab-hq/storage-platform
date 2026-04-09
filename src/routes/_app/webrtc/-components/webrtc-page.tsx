@@ -31,7 +31,7 @@ export function WebRTCPage() {
 
   React.useEffect(() => {
     if (offer && !isConnected && offer.sessionToken) {
-      startConnection(offer.sessionToken)
+      startConnection(offer.sessionToken, 'offerer')
     }
   }, [offer, isConnected, startConnection])
 

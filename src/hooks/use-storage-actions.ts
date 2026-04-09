@@ -2,7 +2,6 @@ import { useCallback, useState } from 'react'
 import { toast } from '@/components/ui/sonner'
 import { buildFileRedirectUrl, buildNavUrl } from '@/lib/nav-token'
 import { downloadFromUrl } from '@/lib/file-utils'
-import { isTextBasedFile } from '@/lib/file-type-utils'
 import { setFolderPrivateLockClient } from '@/lib/private-lock-client'
 import type { StorageItem, ContextMenuAction } from '@/types/storage'
 
@@ -56,7 +55,7 @@ export function useStorageActions(params: UseStorageActionsParams) {
         )
       }
     },
-    [ setCurrentFolderId, userId],
+    [setCurrentFolderId, userId],
   )
 
   const handleRename = useCallback(

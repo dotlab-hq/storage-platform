@@ -20,6 +20,7 @@ import { Route as AppTrashIndexRouteImport } from './routes/_app/trash/index'
 import { Route as AppSharedIndexRouteImport } from './routes/_app/shared/index'
 import { Route as AppSettingsIndexRouteImport } from './routes/_app/settings/index'
 import { Route as AppRecentIndexRouteImport } from './routes/_app/recent/index'
+import { Route as AppChatIndexRouteImport } from './routes/_app/chat/index'
 import { Route as AppBucketsIndexRouteImport } from './routes/_app/buckets/index'
 import { Route as AppAdminIndexRouteImport } from './routes/_app/admin/index'
 import { Route as ApiStorageS3RouteImport } from './routes/api/storage/s3'
@@ -91,6 +92,11 @@ const AppSettingsIndexRoute = AppSettingsIndexRouteImport.update({
 const AppRecentIndexRoute = AppRecentIndexRouteImport.update({
   id: '/recent/',
   path: '/recent/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppChatIndexRoute = AppChatIndexRouteImport.update({
+  id: '/chat/',
+  path: '/chat/',
   getParentRoute: () => AppRoute,
 } as any)
 const AppBucketsIndexRoute = AppBucketsIndexRouteImport.update({
@@ -203,6 +209,7 @@ export interface FileRoutesByFullPath {
   '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
   '/admin/': typeof AppAdminIndexRoute
   '/buckets/': typeof AppBucketsIndexRoute
+  '/chat/': typeof AppChatIndexRoute
   '/recent/': typeof AppRecentIndexRoute
   '/settings/': typeof AppSettingsIndexRoute
   '/shared/': typeof AppSharedIndexRoute
@@ -232,6 +239,7 @@ export interface FileRoutesByTo {
   '/api/storage/file-link': typeof ApiStorageFileLinkRoute
   '/admin': typeof AppAdminIndexRoute
   '/buckets': typeof AppBucketsIndexRoute
+  '/chat': typeof AppChatIndexRoute
   '/recent': typeof AppRecentIndexRoute
   '/settings': typeof AppSettingsIndexRoute
   '/shared': typeof AppSharedIndexRoute
@@ -264,6 +272,7 @@ export interface FileRoutesById {
   '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
   '/_app/admin/': typeof AppAdminIndexRoute
   '/_app/buckets/': typeof AppBucketsIndexRoute
+  '/_app/chat/': typeof AppChatIndexRoute
   '/_app/recent/': typeof AppRecentIndexRoute
   '/_app/settings/': typeof AppSettingsIndexRoute
   '/_app/shared/': typeof AppSharedIndexRoute
@@ -296,6 +305,7 @@ export interface FileRouteTypes {
     | '/api/storage/s3'
     | '/admin/'
     | '/buckets/'
+    | '/chat/'
     | '/recent/'
     | '/settings/'
     | '/shared/'
@@ -325,6 +335,7 @@ export interface FileRouteTypes {
     | '/api/storage/file-link'
     | '/admin'
     | '/buckets'
+    | '/chat'
     | '/recent'
     | '/settings'
     | '/shared'
@@ -356,6 +367,7 @@ export interface FileRouteTypes {
     | '/api/storage/s3'
     | '/_app/admin/'
     | '/_app/buckets/'
+    | '/_app/chat/'
     | '/_app/recent/'
     | '/_app/settings/'
     | '/_app/shared/'
@@ -463,6 +475,13 @@ declare module '@tanstack/react-router' {
       path: '/recent'
       fullPath: '/recent/'
       preLoaderRoute: typeof AppRecentIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/chat/': {
+      id: '/_app/chat/'
+      path: '/chat'
+      fullPath: '/chat/'
+      preLoaderRoute: typeof AppChatIndexRouteImport
       parentRoute: typeof AppRoute
     }
     '/_app/buckets/': {
@@ -599,6 +618,7 @@ interface AppRouteChildren {
   AppBucketsBucketNameRoute: typeof AppBucketsBucketNameRoute
   AppAdminIndexRoute: typeof AppAdminIndexRoute
   AppBucketsIndexRoute: typeof AppBucketsIndexRoute
+  AppChatIndexRoute: typeof AppChatIndexRoute
   AppRecentIndexRoute: typeof AppRecentIndexRoute
   AppSettingsIndexRoute: typeof AppSettingsIndexRoute
   AppSharedIndexRoute: typeof AppSharedIndexRoute
@@ -611,6 +631,7 @@ const AppRouteChildren: AppRouteChildren = {
   AppBucketsBucketNameRoute: AppBucketsBucketNameRoute,
   AppAdminIndexRoute: AppAdminIndexRoute,
   AppBucketsIndexRoute: AppBucketsIndexRoute,
+  AppChatIndexRoute: AppChatIndexRoute,
   AppRecentIndexRoute: AppRecentIndexRoute,
   AppSettingsIndexRoute: AppSettingsIndexRoute,
   AppSharedIndexRoute: AppSharedIndexRoute,
@@ -667,12 +688,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}

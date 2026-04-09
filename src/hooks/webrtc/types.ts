@@ -17,6 +17,8 @@ export type OutgoingFile = {
   status: 'pending' | 'sending' | 'sent' | 'failed'
 }
 
+export type WebRTCPeerRole = 'offerer' | 'answerer'
+
 export type WebRTCContextValue = {
   isConnected: boolean
   incomingFiles: IncomingFile[]
@@ -25,7 +27,7 @@ export type WebRTCContextValue = {
   rejectFile: (fileId: string) => void
   saveFile: (fileId: string, folderId: string | null) => Promise<void>
   clearReceived: () => void
-  startConnection: (sessionToken: string | null) => void
+  startConnection: (sessionToken: string | null, role?: WebRTCPeerRole) => void
 }
 
 export type WebRTCProviderProps = {

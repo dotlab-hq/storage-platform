@@ -17,8 +17,8 @@ type Html5QrScanner = {
   start: (
     deviceId: unknown,
     config: unknown,
-    onSuccess: ( text: string ) => void,
-    onError: ( error: string ) => void,
+    onSuccess: (text: string) => void,
+    onError: (error: string) => void,
   ) => Promise<void>
   stop: () => Promise<void>
   clear: () => void
@@ -26,7 +26,7 @@ type Html5QrScanner = {
 
 async function startScannerWithFallback(
   scanner: Html5QrScanner,
-  onSuccess: ( text: string ) => void,
+  onSuccess: (text: string) => void,
 ) {
   const config = { fps: 10, qrbox: { width: 220, height: 220 } }
 
@@ -35,7 +35,7 @@ async function startScannerWithFallback(
       { facingMode: { exact: 'environment' } },
       config,
       onSuccess,
-      () => { },
+      () => {},
     )
     return
   } catch {
@@ -43,21 +43,21 @@ async function startScannerWithFallback(
   }
 
   try {
-    await scanner.start( { facingMode: 'user' }, config, onSuccess, () => { } )
+    await scanner.start({ facingMode: 'user' }, config, onSuccess, () => {})
     return
   } catch {
     // fallback
   }
 
-  const { Html5Qrcode } = await import( 'html5-qrcode' )
+  const { Html5Qrcode } = await import('html5-qrcode')
   const cameras = await Html5Qrcode.getCameras()
-  if ( cameras.length === 0 ) {
-    throw new Error( 'No camera detected.' )
+  if (cameras.length === 0) {
+    throw new Error('No camera detected.')
   }
-  await scanner.start( cameras[0].id, config, onSuccess, () => { } )
+  await scanner.start(cameras[0].id, config, onSuccess, () => {})
 }
 
-export function WebRTCScannerDialog( {
+export function WebRTCScannerDialog({
   triggerLabel = 'Scan Now',
   triggerVariant = 'outline',
   className,
@@ -65,15 +65,15 @@ export function WebRTCScannerDialog( {
   triggerLabel?: string
   triggerVariant?: React.ComponentProps<typeof Button>['variant']
   className?: string
-} ) {
-  const [open, setOpen] = React.useState( false )
+}) {
+  const [open, setOpen] = React.useState(false)
   const [state, setState] = React.useState<
     'idle' | 'scanning' | 'review' | 'submitting'
-  >( 'idle' )
-  const [decodedPayload, setDecodedPayload] = React.useState( '' )
-  const [cameraError, setCameraError] = React.useState( '' )
-  const scannerRef = React.useRef<Html5QrScanner | null>( null )
-  const regionId = React.useId().replace( /:/g, '' )
+  >('idle')
+  const [decodedPayload, setDecodedPayload] = React.useState('')
+  const [cameraError, setCameraError] = React.useState('')
+  const scannerRef = React.useRef<Html5QrScanner | null>(null)
+  const regionId = React.useId().replace(/:/g, '')
 
   const {
     submitMutation,
@@ -83,15 +83,15 @@ export function WebRTCScannerDialog( {
   } = useWebrtcScanner()
   const { startConnection } = useWebRTC()
 
-  React.useEffect( () => {
-    if ( sessionToken && connectionStatus === 'claimed' ) {
-      startConnection( sessionToken )
+  React.useEffect(() => {
+    if (sessionToken && connectionStatus === 'claimed') {
+      startConnection(sessionToken, 'answerer')
     }
-  }, [sessionToken, connectionStatus, startConnection] )
+  }, [sessionToken, connectionStatus, startConnection])
 
-  const stopScanner = React.useCallback( async () => {
+  const stopScanner = React.useCallback(async () => {
     const scanner = scannerRef.current
-    if ( !scanner ) return
+    if (!scanner) return
     try {
       await scanner.stop()
     } catch {
@@ -103,17 +103,17 @@ export function WebRTCScannerDialog( {
       // no-op
     }
     scannerRef.current = null
-  }, [] )
+  }, [])
 
-  const reset = React.useCallback( async () => {
+  const reset = React.useCallback(async () => {
     await stopScanner()
-    setDecodedPayload( '' )
-    setCameraError( '' )
-    setState( 'idle' )
-  }, [stopScanner] )
+    setDecodedPayload('')
+    setCameraError('')
+    setState('idle')
+  }, [stopScanner])
 
-  React.useEffect( () => {
-    if ( !open ) {
+  React.useEffect(() => {
+    if (!open) {
       void reset()
       return
     }
@@ -122,21 +122,21 @@ export function WebRTCScannerDialog( {
 
     const start = async () => {
       try {
-        setState( 'scanning' )
-        setCameraError( '' )
-        const { Html5Qrcode } = await import( 'html5-qrcode' )
-        const scanner = new Html5Qrcode( regionId ) as unknown as Html5QrScanner
+        setState('scanning')
+        setCameraError('')
+        const { Html5Qrcode } = await import('html5-qrcode')
+        const scanner = new Html5Qrcode(regionId) as unknown as Html5QrScanner
         scannerRef.current = scanner
 
-        await startScannerWithFallback( scanner, ( text ) => {
-          if ( cancelled ) return
-          setDecodedPayload( text )
-          setState( 'review' )
+        await startScannerWithFallback(scanner, (text) => {
+          if (cancelled) return
+          setDecodedPayload(text)
+          setState('review')
           void stopScanner()
-        } )
-      } catch ( error ) {
-        if ( cancelled ) return
-        setState( 'idle' )
+        })
+      } catch (error) {
+        if (cancelled) return
+        setState('idle')
         setCameraError(
           error instanceof Error ? error.message : 'Unable to start camera.',
         )
@@ -148,24 +148,24 @@ export function WebRTCScannerDialog( {
       cancelled = true
       void stopScanner()
     }
-  }, [open, regionId, stopScanner] )
+  }, [open, regionId, stopScanner])
 
   const handleInvalidQr = async () => {
-    setDecodedPayload( '' )
-    setState( 'scanning' )
-    setCameraError( '' )
+    setDecodedPayload('')
+    setState('scanning')
+    setCameraError('')
     try {
-      const { Html5Qrcode } = await import( 'html5-qrcode' )
-      const scanner = new Html5Qrcode( regionId ) as unknown as Html5QrScanner
+      const { Html5Qrcode } = await import('html5-qrcode')
+      const scanner = new Html5Qrcode(regionId) as unknown as Html5QrScanner
       scannerRef.current = scanner
 
-      await startScannerWithFallback( scanner, ( text ) => {
-        setDecodedPayload( text )
-        setState( 'review' )
+      await startScannerWithFallback(scanner, (text) => {
+        setDecodedPayload(text)
+        setState('review')
         void stopScanner()
-      } )
-    } catch ( error ) {
-      setState( 'idle' )
+      })
+    } catch (error) {
+      setState('idle')
       setCameraError(
         error instanceof Error ? error.message : 'Unable to restart camera.',
       )
@@ -173,19 +173,19 @@ export function WebRTCScannerDialog( {
   }
 
   const handleSubmit = () => {
-    if ( !decodedPayload ) return
-    setState( 'submitting' )
-    submitMutation.mutate( decodedPayload )
+    if (!decodedPayload) return
+    setState('submitting')
+    submitMutation.mutate(decodedPayload)
   }
 
-  const isValidWebrtcPayload = decodedPayload.startsWith( WEBRTC_TRANSFER_PREFIX )
+  const isValidWebrtcPayload = decodedPayload.startsWith(WEBRTC_TRANSFER_PREFIX)
 
   return (
     <>
       <Button
         variant={triggerVariant}
         className={className}
-        onClick={() => setOpen( true )}
+        onClick={() => setOpen(true)}
       >
         <ScanBarcode className="size-4" />
         {triggerLabel}
@@ -193,14 +193,14 @@ export function WebRTCScannerDialog( {
 
       <Dialog
         open={open}
-        onOpenChange={( isOpen ) => {
-          if ( !isOpen ) void reset()
-          setOpen( isOpen )
+        onOpenChange={(isOpen) => {
+          if (!isOpen) void reset()
+          setOpen(isOpen)
         }}
       >
         <DialogContent
           className="sm:max-w-md max-h-dvh overflow-y-auto"
-          onInteractOutside={( e ) => e.preventDefault()}
+          onInteractOutside={(e) => e.preventDefault()}
         >
           <DialogHeader>
             <DialogTitle>Scan WebRTC QR Code</DialogTitle>
@@ -208,7 +208,7 @@ export function WebRTCScannerDialog( {
               {state === 'scanning' &&
                 'Point your camera at a WebRTC transfer QR code...'}
               {state === 'review' && 'Review the scanned QR code...'}
-              {( state === 'submitting' || submitMutation.isPending ) &&
+              {(state === 'submitting' || submitMutation.isPending) &&
                 'Connecting to peer...'}
             </DialogDescription>
           </DialogHeader>
@@ -224,7 +224,7 @@ export function WebRTCScannerDialog( {
             </div>
           )}
 
-          {( state === 'review' || state === 'submitting' ) && (
+          {(state === 'review' || state === 'submitting') && (
             <div className="space-y-4">
               {isValidWebrtcPayload ? (
                 <div className="p-4 border rounded-md bg-green-50/50 dark:bg-green-950/20">
@@ -233,8 +233,8 @@ export function WebRTCScannerDialog( {
                   </p>
                   <p className="text-xs text-muted-foreground font-mono break-all">
                     {decodedPayload
-                      .slice( WEBRTC_TRANSFER_PREFIX.length )
-                      .slice( 0, 16 )}
+                      .slice(WEBRTC_TRANSFER_PREFIX.length)
+                      .slice(0, 16)}
                     ...
                   </p>
                 </div>
@@ -271,7 +271,7 @@ export function WebRTCScannerDialog( {
           <DialogFooter className="mt-6 flex flex-col sm:flex-row gap-2">
             <Button
               variant="secondary"
-              onClick={() => setOpen( false )}
+              onClick={() => setOpen(false)}
               className="w-full sm:w-auto"
             >
               Cancel
