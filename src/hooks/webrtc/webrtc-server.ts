@@ -100,7 +100,7 @@ async function writeSignalQueue(
   await Cache.set(signalKey, { items }, { expirationTtl: SIGNAL_TTL_SECONDS })
 }
 
-export const getSignalServerFn = createServerFn({ method: 'GET' })
+export const getSignalServerFn = createServerFn({ method: 'POST' })
   .inputValidator(SessionSignalSchema)
   .handler(async ({ data }) => {
     const session = await loadSessionOrThrow(data.sessionToken)

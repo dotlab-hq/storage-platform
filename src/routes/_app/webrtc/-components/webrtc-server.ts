@@ -95,7 +95,7 @@ export const createOffer = createServerFn({ method: 'POST' }).handler(
   },
 )
 
-export const pollOffer = createServerFn({ method: 'GET' })
+export const pollOffer = createServerFn({ method: 'POST' })
   .inputValidator(z.object({ pollKey: z.string() }))
   .handler(async ({ data: { pollKey } }) => {
     const transfer = await Cache.get<CachedWebrtcTransfer>(
@@ -221,7 +221,7 @@ export const scanOffer = createServerFn({ method: 'POST' })
     }
   })
 
-export const statusOffer = createServerFn({ method: 'GET' })
+export const statusOffer = createServerFn({ method: 'POST' })
   .inputValidator(z.object({ pollKey: z.string() }))
   .handler(async ({ data: { pollKey } }) => {
     const transfer = await Cache.get<CachedWebrtcTransfer>(
