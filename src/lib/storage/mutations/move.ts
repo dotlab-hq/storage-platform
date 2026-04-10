@@ -1,7 +1,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { eq, and, sql } from 'drizzle-orm'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser, requireWritePermission } from '@/lib/server-auth'
 import { db } from '@/db'
 import { folder, file as storageFile } from '@/db/schema/storage'
 import { isDescendantFolder } from '@/lib/folder-paths'
@@ -16,6 +16,7 @@ export const moveItemsFn = createServerFn({ method: 'POST' })
   .inputValidator(MoveItemsSchema)
   .handler(async ({ data }) => {
     const user = await getAuthenticatedUser()
+    requireWritePermission(user)
     const userId = user.id
     const { itemIds, itemTypes, targetFolderId } = data
 

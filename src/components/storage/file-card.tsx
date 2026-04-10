@@ -44,6 +44,7 @@ type FileCardProps = {
     draggedType: 'file' | 'folder',
     targetFolderId: string,
   ) => void
+  isReadOnly?: boolean
 }
 
 export function FileCard({
@@ -55,6 +56,7 @@ export function FileCard({
   onRename,
   onRenameCancel,
   onDropOnFolder,
+  isReadOnly = false,
 }: FileCardProps) {
   const isFolder = item.type === 'folder'
   const Icon = isFolder
@@ -107,7 +109,7 @@ export function FileCard({
       )}
       data-file-card="true"
       data-storage-item-id={item.id}
-      draggable={!isRenaming}
+      draggable={!isRenaming && !isReadOnly}
       onDoubleClick={() => onDoubleClick(item)}
       onDragStart={handleDragStart}
       onDragOver={handleDragOver}
@@ -142,25 +144,36 @@ export function FileCard({
               </DropdownMenuItem>
             )}
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => onContextAction('rename', item)}>
+            <DropdownMenuItem
+              onClick={() => onContextAction('rename', item)}
+              disabled={isReadOnly}
+            >
               <Pencil className="mr-2 h-4 w-4" /> Rename
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => onContextAction('move', item)}>
+            <DropdownMenuItem
+              onClick={() => onContextAction('move', item)}
+              disabled={isReadOnly}
+            >
               <ArrowRightLeft className="mr-2 h-4 w-4" /> Move
             </DropdownMenuItem>
             <DropdownMenuItem
               onClick={() => onContextAction('update-path', item)}
+              disabled={isReadOnly}
             >
               <Route className="mr-2 h-4 w-4" /> Update Path & Move
             </DropdownMenuItem>
             {item.type === 'file' && (
-              <DropdownMenuItem onClick={() => onContextAction('share', item)}>
+              <DropdownMenuItem
+                onClick={() => onContextAction('share', item)}
+                disabled={isReadOnly}
+              >
                 <Share2 className="mr-2 h-4 w-4" /> Share
               </DropdownMenuItem>
             )}
             {item.type === 'folder' && (
               <DropdownMenuItem
                 onClick={() => onContextAction('private-lock', item)}
+                disabled={isReadOnly}
               >
                 <ShieldCheck className="mr-2 h-4 w-4" />
                 {item.isPrivatelyLocked
@@ -177,6 +190,7 @@ export function FileCard({
             <DropdownMenuItem
               className="text-destructive focus:text-destructive"
               onClick={() => onContextAction('delete', item)}
+              disabled={isReadOnly}
             >
               <Trash2 className="mr-2 h-4 w-4" /> Delete
             </DropdownMenuItem>

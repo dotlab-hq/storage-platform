@@ -24,6 +24,7 @@ type FileContextMenuProps = {
   children: React.ReactNode
   item: StorageItem
   isTrash?: boolean
+  isReadOnly?: boolean
   onAction: (action: ContextMenuAction, item: StorageItem) => void
 }
 
@@ -31,6 +32,7 @@ export function FileContextMenu({
   children,
   item,
   isTrash = false,
+  isReadOnly = false,
   onAction,
 }: FileContextMenuProps) {
   const trigger = (
@@ -44,7 +46,10 @@ export function FileContextMenu({
       <ContextMenu>
         <ContextMenuTrigger asChild>{trigger}</ContextMenuTrigger>
         <ContextMenuContent className="w-48">
-          <ContextMenuItem onSelect={() => onAction('restore', item)}>
+          <ContextMenuItem
+            onSelect={() => onAction('restore', item)}
+            disabled={isReadOnly}
+          >
             <RotateCcw className="mr-2 h-4 w-4" />
             Restore
           </ContextMenuItem>
@@ -52,6 +57,7 @@ export function FileContextMenu({
           <ContextMenuItem
             className="text-destructive focus:text-destructive"
             onSelect={() => onAction('delete-permanent', item)}
+            disabled={isReadOnly}
           >
             <AlertTriangle className="mr-2 h-4 w-4" />
             Delete permanently
@@ -76,26 +82,41 @@ export function FileContextMenu({
           </ContextMenuItem>
         )}
         <ContextMenuSeparator />
-        <ContextMenuItem onSelect={() => onAction('rename', item)}>
+        <ContextMenuItem
+          onSelect={() => onAction('rename', item)}
+          disabled={isReadOnly}
+        >
           <Pencil className="mr-2 h-4 w-4" />
           Rename
         </ContextMenuItem>
-        <ContextMenuItem onSelect={() => onAction('move', item)}>
+        <ContextMenuItem
+          onSelect={() => onAction('move', item)}
+          disabled={isReadOnly}
+        >
           <ArrowRightLeft className="mr-2 h-4 w-4" />
           Move
         </ContextMenuItem>
-        <ContextMenuItem onSelect={() => onAction('update-path', item)}>
+        <ContextMenuItem
+          onSelect={() => onAction('update-path', item)}
+          disabled={isReadOnly}
+        >
           <Route className="mr-2 h-4 w-4" />
           Update Path & Move
         </ContextMenuItem>
         {item.type === 'file' && (
-          <ContextMenuItem onSelect={() => onAction('share', item)}>
+          <ContextMenuItem
+            onSelect={() => onAction('share', item)}
+            disabled={isReadOnly}
+          >
             <Share2 className="mr-2 h-4 w-4" />
             Share
           </ContextMenuItem>
         )}
         {item.type === 'folder' && (
-          <ContextMenuItem onSelect={() => onAction('private-lock', item)}>
+          <ContextMenuItem
+            onSelect={() => onAction('private-lock', item)}
+            disabled={isReadOnly}
+          >
             <ShieldCheck className="mr-2 h-4 w-4" />
             {item.isPrivatelyLocked
               ? 'Remove private lock'
@@ -110,6 +131,7 @@ export function FileContextMenu({
         <ContextMenuItem
           className="text-destructive focus:text-destructive"
           onSelect={() => onAction('delete', item)}
+          disabled={isReadOnly}
         >
           <Trash2 className="mr-2 h-4 w-4" />
           Delete

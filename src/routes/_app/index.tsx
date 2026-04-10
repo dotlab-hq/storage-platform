@@ -161,6 +161,7 @@ function StoragePage() {
               }}
               setItems={storage.setItems}
               fileSizeLimit={storage.quota?.fileSizeLimit ?? null}
+              isReadOnly={storage.tinySessionPermission === 'read'}
             />
           </div>
         </header>

@@ -61,6 +61,7 @@ function mapInitialData(initialData?: HomeLoaderData) {
     folders: mapped.folders,
     breadcrumbs: mapBreadcrumbs(initialData.breadcrumbs),
     quota: initialData.quota,
+    tinySessionPermission: initialData.tinySessionPermission,
   }
 }
 
@@ -84,6 +85,9 @@ export function useStorageData(initialData?: HomeLoaderData) {
   const [breadcrumbs, setBreadcrumbs] = useState<BreadcrumbItem[]>(
     initialMapped?.breadcrumbs ?? [],
   )
+  const [tinySessionPermission, setTinySessionPermission] = useState<
+    'read' | 'read-write' | undefined
+  >(initialMapped?.tinySessionPermission ?? undefined)
 
   const [page, setPage] = useState(1)
   const [hasMore, setHasMore] = useState(true)
@@ -186,5 +190,6 @@ export function useStorageData(initialData?: HomeLoaderData) {
     refresh,
     loadMore,
     hasMore,
+    tinySessionPermission,
   }
 }

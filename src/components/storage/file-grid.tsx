@@ -54,6 +54,7 @@ type FileGridProps = {
   onBoxSelect?: (ids: string[], append: boolean) => void
   onLoadMore?: () => void
   hasMore?: boolean
+  isReadOnly?: boolean
 }
 
 export function FileGrid({
@@ -72,6 +73,7 @@ export function FileGrid({
   onBoxSelect,
   onLoadMore,
   hasMore,
+  isReadOnly = false,
 }: FileGridProps) {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const loadMoreRef = useRef<HTMLDivElement | null>(null)
@@ -228,6 +230,7 @@ export function FileGrid({
             key={item.id}
             item={item}
             isTrash={isTrash}
+            isReadOnly={isReadOnly}
             onAction={onContextAction}
           >
             <FileCard
@@ -239,6 +242,7 @@ export function FileGrid({
               onRename={onRename}
               onRenameCancel={onRenameCancel}
               onDropOnFolder={handleDropOnFolder}
+              isReadOnly={isReadOnly}
             />
           </FileContextMenu>
         ))}

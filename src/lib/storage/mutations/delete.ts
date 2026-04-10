@@ -1,7 +1,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { eq, and, inArray } from 'drizzle-orm'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser, requireWritePermission } from '@/lib/server-auth'
 import { db } from '@/db'
 import { folder, file as storageFile } from '@/db/schema/storage'
 
@@ -14,6 +14,7 @@ export const deleteItemsFn = createServerFn({ method: 'POST' })
   .inputValidator(DeleteItemsSchema)
   .handler(async ({ data }) => {
     const user = await getAuthenticatedUser()
+    requireWritePermission(user)
     const { itemIds, itemTypes } = data
     const userId = user.id
 

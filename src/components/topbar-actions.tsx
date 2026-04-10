@@ -22,13 +22,14 @@ type TopbarActionsProps = {
   setUploads: React.Dispatch<React.SetStateAction<UploadingFile[]>>
   onUploadComplete: () => Promise<void> | void
   onNewFile: () => void
-  onNewFolder: ( name: string ) => Promise<void> | void
-  onSearch?: ( results: StorageItem[] | null ) => void
+  onNewFolder: (name: string) => Promise<void> | void
+  onSearch?: (results: StorageItem[] | null) => void
   setItems?: React.Dispatch<React.SetStateAction<StorageItem[]>>
   fileSizeLimit?: number | null
+  isReadOnly?: boolean
 }
 
-export function TopbarActions( {
+export function TopbarActions({
   userId,
   currentFolderId,
   setUploads,
@@ -38,20 +39,20 @@ export function TopbarActions( {
   onSearch,
   setItems,
   fileSizeLimit,
-}: TopbarActionsProps ) {
-  const [uploadOpen, setUploadOpen] = React.useState( false )
-  const [newFolderOpen, setNewFolderOpen] = React.useState( false )
+}: TopbarActionsProps) {
+  const [uploadOpen, setUploadOpen] = React.useState(false)
+  const [newFolderOpen, setNewFolderOpen] = React.useState(false)
 
-  React.useEffect( () => {
-    const openUpload = () => setUploadOpen( true )
-    const openNewFolder = () => setNewFolderOpen( true )
-    window.addEventListener( 'dot:open-upload', openUpload )
-    window.addEventListener( 'dot:open-new-folder', openNewFolder )
+  React.useEffect(() => {
+    const openUpload = () => setUploadOpen(true)
+    const openNewFolder = () => setNewFolderOpen(true)
+    window.addEventListener('dot:open-upload', openUpload)
+    window.addEventListener('dot:open-new-folder', openNewFolder)
     return () => {
-      window.removeEventListener( 'dot:open-upload', openUpload )
-      window.removeEventListener( 'dot:open-new-folder', openNewFolder )
+      window.removeEventListener('dot:open-upload', openUpload)
+      window.removeEventListener('dot:open-new-folder', openNewFolder)
     }
-  }, [] )
+  }, [])
 
   return (
     <div className="flex items-center gap-2">
@@ -68,11 +69,11 @@ export function TopbarActions( {
             <FilePlus className="mr-2 h-4 w-4" />
             Create New File
           </DropdownMenuItem>
-          <DropdownMenuItem onSelect={() => setUploadOpen( true )}>
+          <DropdownMenuItem onSelect={() => setUploadOpen(true)}>
             <Upload className="mr-2 h-4 w-4" />
             Upload Files
           </DropdownMenuItem>
-          <DropdownMenuItem onSelect={() => setNewFolderOpen( true )}>
+          <DropdownMenuItem onSelect={() => setNewFolderOpen(true)}>
             <FolderPlus className="mr-2 h-4 w-4" />
             New Folder
           </DropdownMenuItem>
@@ -93,7 +94,6 @@ export function TopbarActions( {
         onOpenChange={setNewFolderOpen}
         onConfirm={onNewFolder}
       />
-
     </div>
   )
 }

@@ -10,6 +10,7 @@ type AuthUser = typeof user.$inferSelect
 export type AuthenticatedUser = Pick<AuthUser, 'id' | 'email' | 'name'> & {
   role: UserRole
   isAdmin: boolean
+  tinySessionPermission?: 'read' | 'read-write'
 }
 
 function shouldRedirectToAuth(request: Request): boolean {
@@ -53,6 +54,7 @@ export async function getAuthenticatedUser(): Promise<AuthenticatedUser> {
       name: tinySession.user.name,
       role: normalizeUserRole(tinySession.user.role),
       isAdmin: tinySession.user.isAdmin,
+      tinySessionPermission: tinySession.permission,
     }
   }
 
@@ -77,4 +79,10 @@ export async function requireAdminUser(): Promise<AuthenticatedUser> {
 
 export async function requireAuthenticatedServerOnlySession(): Promise<void> {
   await getAuthenticatedUser()
+}
+
+export function requireWritePermission(user: AuthenticatedUser): void {
+  if (user.tinySessionPermission === 'read') {
+    throw new Error('You have read-only access and cannot perform this action')
+  }
 }

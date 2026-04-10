@@ -1,7 +1,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { eq, and } from 'drizzle-orm'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser, requireWritePermission } from '@/lib/server-auth'
 import { db } from '@/db'
 import { folder, file as storageFile } from '@/db/schema/storage'
 
@@ -15,6 +15,7 @@ export const renameItemFn = createServerFn({ method: 'POST' })
   .inputValidator(RenameItemSchema)
   .handler(async ({ data }) => {
     const user = await getAuthenticatedUser()
+    requireWritePermission(user)
     const { itemId, newName, itemType } = data
     let parentFolderId: string | null = null
 

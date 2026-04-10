@@ -1,6 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser, requireWritePermission } from '@/lib/server-auth'
 import {
   createShareLink,
   getShareLink,
@@ -30,6 +30,7 @@ export const createShareLinkFn = createServerFn({ method: 'POST' })
   .inputValidator(CreateShareSchema)
   .handler(async ({ data }) => {
     const user = await getAuthenticatedUser()
+    requireWritePermission(user)
     const link = await createShareLink(
       user.id,
       data.itemId,
@@ -49,6 +50,7 @@ export const toggleShareLinkFn = createServerFn({ method: 'POST' })
   .inputValidator(ToggleShareSchema)
   .handler(async ({ data }) => {
     const user = await getAuthenticatedUser()
+    requireWritePermission(user)
     const link = await toggleShareLink(user.id, data.linkId, data.isActive)
     return { link }
   })
