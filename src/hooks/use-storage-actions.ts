@@ -3,25 +3,13 @@ import { toast } from '@/components/ui/sonner'
 import { buildFileRedirectUrl, buildNavUrl } from '@/lib/nav-token'
 import { downloadFromUrl } from '@/lib/file-utils'
 import { setFolderPrivateLockClient } from '@/lib/private-lock-client'
+import { generateFileSummaryForItem } from '@/lib/file-summary/client'
 import type { StorageItem, ContextMenuAction } from '@/types/storage'
+import type { UseStorageActionsParams } from './storage-actions.types'
 
 import { createFolderFn } from '@/lib/storage-actions-server'
 import { renameItemFn } from '@/lib/storage/mutations/rename'
 import { getFilePresignedUrlFn } from '@/lib/storage/mutations/urls'
-
-type UseStorageActionsParams = {
-  userId: string | null
-  currentFolderId: string | null
-  setItems: React.Dispatch<React.SetStateAction<StorageItem[]>>
-  refresh: () => Promise<void>
-  setCurrentFolderId: (id: string | null) => void
-  select: (id: string, shift: boolean) => void
-  clearSelection: () => void
-  selectedIds: Set<string>
-  onDeleteOpen: (item: StorageItem) => void
-  onMoveOpen: (mode?: 'move' | 'update-path') => void
-  onShareOpen: (item: StorageItem) => void
-}
 
 export function useStorageActions(params: UseStorageActionsParams) {
   const {
@@ -141,6 +129,15 @@ export function useStorageActions(params: UseStorageActionsParams) {
           void getFilePresignedUrlFn({ data: { fileId: item.id } })
             .then(({ url }) => downloadFromUrl(url, item.name))
             .catch(() => toast.error('Download failed'))
+          break
+        case 'generate-summary':
+          if (!userId || item.type !== 'file') return
+          void generateFileSummaryForItem(item.id)
+            .then((summary) => navigator.clipboard.writeText(summary))
+            .then(() => toast.success('Summary copied to clipboard'))
+            .catch((err: Error) =>
+              toast.error(`Summary failed: ${err.message}`),
+            )
           break
       }
     },

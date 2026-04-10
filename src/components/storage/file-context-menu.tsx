@@ -10,6 +10,7 @@ import {
   RotateCcw,
   AlertTriangle,
   Link,
+  FileText,
 } from 'lucide-react'
 import {
   ContextMenu,
@@ -79,6 +80,12 @@ export function FileContextMenu({
           <ContextMenuItem onSelect={() => onAction('download', item)}>
             <Download className="mr-2 h-4 w-4" />
             Download
+          </ContextMenuItem>
+        )}
+        {item.type === 'file' && (
+          <ContextMenuItem onSelect={() => onAction('generate-summary', item)}>
+            <FileText className="mr-2 h-4 w-4" />
+            Generate Summary
           </ContextMenuItem>
         )}
         <ContextMenuSeparator />

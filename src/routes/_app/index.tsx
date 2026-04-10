@@ -81,8 +81,6 @@ function StoragePage() {
     refresh: storage.refresh,
     setCurrentFolderId: storage.setCurrentFolderId,
     select: selection.select,
-    clearSelection: selection.clearSelection,
-    selectedIds: selection.selectedIds,
     onDeleteOpen: (item: StorageItem) => {
       setPendingDelete({ ids: [item.id], types: [item.type] })
       setDeleteOpen(true)
