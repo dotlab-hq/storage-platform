@@ -7,8 +7,8 @@ import {
 } from './-chat-message-mutations-server'
 import { chatQueryKeys } from './-chat-query-keys'
 import { updateChatUi } from './-chat-store'
+import { consumeSseEvents } from './-chat-stream-events'
 import type {
-  ChatRouteSnapshot,
   ChatMessageSnapshot,
   PaginatedMessages,
 } from './-chat-types'
@@ -16,7 +16,6 @@ import type {
 const MESSAGE_PAGE_LIMIT = 30
 
 type MessageActionsParams = {
-  initial: ChatRouteSnapshot
   activeThreadId: string | null
   setActiveThreadId: ( threadId: string | null ) => void
   setIsComposingNewThread: ( value: boolean ) => void
@@ -36,7 +35,6 @@ function removeMessageById(
 }
 
 export function useChatMessageActions( {
-  initial,
   activeThreadId,
   setActiveThreadId,
   setIsComposingNewThread,
@@ -53,6 +51,7 @@ export function useChatMessageActions( {
   const sendStreamingMessage = useCallback(
     async ( content: string ) => {
       const threadId = activeThreadId ?? null
+      const optimisticThreadId = threadId ?? 'temp'
       const now = new Date()
 
       // Create optimistic user message
@@ -82,7 +81,7 @@ export function useChatMessageActions( {
 
       // Update UI with optimistic messages
       queryClient.setQueryData<PaginatedMessages>(
-        [...chatQueryKeys.messages( threadId || 'temp' ), 1],
+        [...chatQueryKeys.messages( optimisticThreadId ), 1],
         ( old ) => {
           const base = old ?? {
             items: [],
@@ -122,94 +121,123 @@ export function useChatMessageActions( {
           throw new Error( 'No response body' )
         }
 
+        let realThreadId: string | null = response.headers.get( 'X-Thread-Id' )
+        let realMessageId: string | null = response.headers.get( 'X-Assistant-Message-Id' )
+
+        if ( !realThreadId ) {
+          realThreadId = threadId
+        }
+
         const reader = response.body.getReader()
         const decoder = new TextDecoder()
         let buffer = ''
-        let realThreadId: string | null = null
-        let realMessageId: string | null = null
 
-        while ( true ) {
+        const commitDoneState = () => {
+          const finalThreadId = realThreadId ?? threadId
+          const sourceThreadId = optimisticThreadId
+          const sourceKey = [...chatQueryKeys.messages( sourceThreadId ), 1] as const
+          const sourceData = queryClient.getQueryData<PaginatedMessages>( sourceKey )
+
+          if ( !sourceData ) {
+            updateChatUi( { streamingMessageId: null } )
+            return
+          }
+
+          const destinationThreadId = finalThreadId ?? sourceThreadId
+          const destinationKey = [...chatQueryKeys.messages( destinationThreadId ), 1] as const
+
+          queryClient.setQueryData<PaginatedMessages>( destinationKey, {
+            ...sourceData,
+            items: sourceData.items.map( ( item ) =>
+              item.id === optimisticAssistantId
+                ? {
+                  ...item,
+                  id: realMessageId ?? item.id,
+                  threadId: destinationThreadId,
+                }
+                : item.id === optimisticUserId
+                  ? { ...item, threadId: destinationThreadId }
+                  : item,
+            ),
+          } )
+
+          if ( destinationThreadId !== sourceThreadId ) {
+            queryClient.removeQueries( { queryKey: sourceKey, exact: true } )
+          }
+
+          if ( destinationThreadId ) {
+            setActiveThreadId( destinationThreadId )
+          }
+
+          updateChatUi( { streamingMessageId: null } )
+        }
+
+        let didComplete = false
+
+        let keepReading = true
+        while ( keepReading ) {
           try {
             const { done, value } = await reader.read()
-            if ( done ) break
-
-            buffer += decoder.decode( value, { stream: true } )
-            const lines = buffer.split( '\n' )
-
-            for ( let i = 0; i < lines.length - 1; i++ ) {
-              const line = lines[i]
-              if ( line.startsWith( 'data: ' ) ) {
-                try {
-                  const data = JSON.parse( line.slice( 6 ) )
-
-                  if ( data.done ) {
-                    // Stream complete
-                    realMessageId = data.id
-                    realThreadId = data.threadId || threadId
-
-                    queryClient.setQueryData<PaginatedMessages>(
-                      [...chatQueryKeys.messages( realThreadId || 'temp' ), 1],
-                      ( old ) => {
-                        if ( !old ) return old
-                        return {
-                          ...old,
-                          items: old.items.map( ( item ) =>
-                            item.id === optimisticAssistantId
-                              ? {
-                                ...item,
-                                id: realMessageId!,
-                                threadId: realThreadId!,
-                                content: data.content,
-                              }
-                              : item.id === optimisticUserId
-                                ? { ...item, threadId: realThreadId! }
-                                : item,
-                          ),
-                        }
-                      },
-                    )
-
-                    if ( realThreadId ) {
-                      setActiveThreadId( realThreadId )
-                    }
-
-                    updateChatUi( { streamingMessageId: null } )
-                  } else if ( data.chunk ) {
-                    // Stream chunk
-                    realMessageId = data.id
-                    queryClient.setQueryData<PaginatedMessages>(
-                      [...chatQueryKeys.messages( threadId || 'temp' ), 1],
-                      ( old ) => {
-                        if ( !old ) return old
-                        return {
-                          ...old,
-                          items: old.items.map( ( item ) =>
-                            item.id === optimisticAssistantId
-                              ? {
-                                ...item,
-                                content: item.content + data.chunk,
-                              }
-                              : item,
-                          ),
-                        }
-                      },
-                    )
-                  } else if ( data.error ) {
-                    throw new Error( data.error )
-                  }
-                } catch ( parseError ) {
-                  console.error( '[Chat] Parse error:', parseError )
-                }
-              }
+            if ( done ) {
+              keepReading = false
+              continue
             }
 
-            buffer = lines[lines.length - 1]
+            buffer += decoder.decode( value, { stream: true } )
+
+            const parsed = consumeSseEvents( buffer )
+            buffer = parsed.rest
+
+            for ( const event of parsed.events ) {
+              if ( event.type === 'error' ) {
+                throw new Error( event.message )
+              }
+
+              if ( event.messageId && !realMessageId ) {
+                realMessageId = event.messageId
+              }
+
+              if ( event.type === 'done' ) {
+                didComplete = true
+                commitDoneState()
+                continue
+              }
+
+              queryClient.setQueryData<PaginatedMessages>(
+                [...chatQueryKeys.messages( optimisticThreadId ), 1],
+                ( old ) => {
+                  if ( !old ) return old
+                  return {
+                    ...old,
+                    items: old.items.map( ( item ) =>
+                      item.id === optimisticAssistantId
+                        ? {
+                          ...item,
+                          content: item.content + event.chunk,
+                        }
+                        : item,
+                    ),
+                  }
+                },
+              )
+            }
           } catch ( readError ) {
             if ( readError instanceof Error && readError.name === 'AbortError' ) {
               break
             }
             throw readError
           }
+        }
+
+        if ( !didComplete ) {
+          commitDoneState()
+        }
+
+        queryClient.invalidateQueries( { queryKey: chatQueryKeys.threads } )
+        if ( realThreadId ) {
+          queryClient.invalidateQueries( {
+            queryKey: chatQueryKeys.messages( realThreadId ),
+          } )
         }
 
         setIsComposingNewThread( false )
@@ -223,7 +251,7 @@ export function useChatMessageActions( {
 
           // Remove optimistic messages on error
           queryClient.setQueryData<PaginatedMessages>(
-            [...chatQueryKeys.messages( threadId || 'temp' ), 1],
+            [...chatQueryKeys.messages( optimisticThreadId ), 1],
             ( old ) =>
               removeMessageById(
                 removeMessageById( old, optimisticUserId ),
@@ -292,9 +320,9 @@ export function useChatMessageActions( {
   const stopStreaming = useCallback( () => {
     if ( abortControllerRef.current ) {
       abortControllerRef.current.abort()
-      updateChatUi( { streamingMessageId: null } )
       abortControllerRef.current = null
     }
+    updateChatUi( { streamingMessageId: null } )
   }, [] )
 
   const submitMessage = useCallback(

@@ -26,6 +26,7 @@ import { Route as AppAdminIndexRouteImport } from './routes/_app/admin/index'
 import { Route as ApiStorageS3RouteImport } from './routes/api/storage/s3'
 import { Route as ApiStorageFileLinkRouteImport } from './routes/api/storage/file-link'
 import { Route as ApiChatStreamRouteImport } from './routes/api/chat/stream'
+import { Route as ApiChatCompletionsRouteImport } from './routes/api/chat/completions'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as AppBucketsBucketNameRouteImport } from './routes/_app/buckets/$bucketName'
 import { Route as ApiStorageS3IndexRouteImport } from './routes/api/storage/s3/index'
@@ -125,6 +126,11 @@ const ApiChatStreamRoute = ApiChatStreamRouteImport.update({
   path: '/api/chat/stream',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiChatCompletionsRoute = ApiChatCompletionsRouteImport.update({
+  id: '/api/chat/completions',
+  path: '/api/chat/completions',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
@@ -211,6 +217,7 @@ export interface FileRoutesByFullPath {
   '/auth/': typeof AuthIndexRoute
   '/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/chat/completions': typeof ApiChatCompletionsRoute
   '/api/chat/stream': typeof ApiChatStreamRoute
   '/api/storage/file-link': typeof ApiStorageFileLinkRoute
   '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
@@ -243,6 +250,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthIndexRoute
   '/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/chat/completions': typeof ApiChatCompletionsRoute
   '/api/chat/stream': typeof ApiChatStreamRoute
   '/api/storage/file-link': typeof ApiStorageFileLinkRoute
   '/admin': typeof AppAdminIndexRoute
@@ -276,6 +284,7 @@ export interface FileRoutesById {
   '/auth/': typeof AuthIndexRoute
   '/_app/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/chat/completions': typeof ApiChatCompletionsRoute
   '/api/chat/stream': typeof ApiChatStreamRoute
   '/api/storage/file-link': typeof ApiStorageFileLinkRoute
   '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
@@ -310,6 +319,7 @@ export interface FileRouteTypes {
     | '/auth/'
     | '/buckets/$bucketName'
     | '/api/auth/$'
+    | '/api/chat/completions'
     | '/api/chat/stream'
     | '/api/storage/file-link'
     | '/api/storage/s3'
@@ -342,6 +352,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/buckets/$bucketName'
     | '/api/auth/$'
+    | '/api/chat/completions'
     | '/api/chat/stream'
     | '/api/storage/file-link'
     | '/admin'
@@ -374,6 +385,7 @@ export interface FileRouteTypes {
     | '/auth/'
     | '/_app/buckets/$bucketName'
     | '/api/auth/$'
+    | '/api/chat/completions'
     | '/api/chat/stream'
     | '/api/storage/file-link'
     | '/api/storage/s3'
@@ -406,6 +418,7 @@ export interface RootRouteChildren {
   ShareTokenRoute: typeof ShareTokenRoute
   AuthIndexRoute: typeof AuthIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  ApiChatCompletionsRoute: typeof ApiChatCompletionsRoute
   ApiChatStreamRoute: typeof ApiChatStreamRoute
   ApiStorageFileLinkRoute: typeof ApiStorageFileLinkRoute
   ApiStorageS3Route: typeof ApiStorageS3RouteWithChildren
@@ -530,6 +543,13 @@ declare module '@tanstack/react-router' {
       path: '/api/chat/stream'
       fullPath: '/api/chat/stream'
       preLoaderRoute: typeof ApiChatStreamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/chat/completions': {
+      id: '/api/chat/completions'
+      path: '/api/chat/completions'
+      fullPath: '/api/chat/completions'
+      preLoaderRoute: typeof ApiChatCompletionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/auth/$': {
@@ -702,6 +722,7 @@ const rootRouteChildren: RootRouteChildren = {
   ShareTokenRoute: ShareTokenRoute,
   AuthIndexRoute: AuthIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  ApiChatCompletionsRoute: ApiChatCompletionsRoute,
   ApiChatStreamRoute: ApiChatStreamRoute,
   ApiStorageFileLinkRoute: ApiStorageFileLinkRoute,
   ApiStorageS3Route: ApiStorageS3RouteWithChildren,

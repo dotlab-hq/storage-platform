@@ -1,6 +1,5 @@
 import { Suspense, lazy, useEffect, useRef, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
-import { ScrollArea } from '@/components/ui/scroll-area'
 import { Button } from '@/components/ui/button'
 import {
     Conversation,
@@ -31,7 +30,6 @@ export function ChatPageContentRich( {
     composerValue,
     isSending,
     messageLoadRef,
-    messagePageKey,
     onRegenerate,
     onDelete,
     onComposerChange,
@@ -42,12 +40,11 @@ export function ChatPageContentRich( {
     const viewportRef = useRef<HTMLDivElement>( null )
     const [isAtBottom, setIsAtBottom] = useState( true )
 
-    // Auto-scroll to bottom when new messages arrive
+    // Auto-scroll only if user is already at the bottom.
     useEffect( () => {
         if ( !viewportRef.current ) return
 
-        // Always scroll to bottom when messages change or streaming
-        if ( isAtBottom || isStreaming || isSending ) {
+        if ( isAtBottom ) {
             const scrollTimeout = setTimeout( () => {
                 if ( viewportRef.current ) {
                     viewportRef.current.scrollTop = viewportRef.current.scrollHeight

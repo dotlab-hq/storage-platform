@@ -1,6 +1,6 @@
 export function ChatRouteSkeleton() {
     return (
-        <div className="flex h-[calc(100dvh-3.5rem)] min-h-0 animate-pulse">
+        <div className="flex h-[calc(100dvh-4em)] min-h-0 animate-pulse">
             <aside className="hidden w-75 shrink-0 border-r bg-muted/20 lg:block">
                 <div className="space-y-2 p-3">
                     <div className="h-9 w-full rounded-md bg-muted" />

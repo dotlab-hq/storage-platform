@@ -1,18 +1,19 @@
 import { json } from '@tanstack/react-start'
-import { z } from 'zod'
+import { eq } from 'drizzle-orm'
 import { db } from '@/db'
 import { chatMessage, chatThread } from '@/db/schema/chat'
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import { generateAssistantReplyStream } from '../../_app/chat/-chat-assistant-reply-stream'
 import { deriveThreadTitle } from '../../_app/chat/-chat-server-utils'
 import { findOwnedThread, refreshThreadLatestMessage } from '../../_app/chat/-chat-server-db'
+import {
+    normalizeChatStreamRequest,
+    toOpenAiChunk,
+    toOpenAiCompletion,
+    toSseEvent,
+} from './-openai-chat-compat'
 
 import { createFileRoute } from '@tanstack/react-router'
-
-const StreamMessageSchema = z.object( {
-    threadId: z.string().min( 1 ).optional(),
-    content: z.string().trim().min( 1 ).max( 6000 ),
-} )
 
 export const Route = createFileRoute( '/api/chat/stream' )( {
     server: {
@@ -22,11 +23,41 @@ export const Route = createFileRoute( '/api/chat/stream' )( {
     }
 } )
 
+async function persistAssistantContent( {
+    messageId,
+    threadId,
+    content,
+}: {
+    messageId: string
+    threadId: string
+    content: string
+} ): Promise<void> {
+    await db
+        .update( chatMessage )
+        .set( {
+            content,
+            updatedAt: new Date(),
+        } )
+        .where( eq( chatMessage.id, messageId ) )
+
+    await refreshThreadLatestMessage( threadId )
+}
+
+function withCompatHeaders( threadId: string, assistantId: string, userId: string ) {
+    return {
+        'X-Thread-Id': threadId,
+        'X-Assistant-Message-Id': assistantId,
+        'X-User-Message-Id': userId,
+        'Access-Control-Expose-Headers': 'X-Thread-Id, X-Assistant-Message-Id, X-User-Message-Id',
+    }
+}
+
 
 export async function POST( { request }: { request: Request } ) {
     try {
         const body = await request.json()
-        const { threadId, content } = StreamMessageSchema.parse( body )
+        const normalized = normalizeChatStreamRequest( body )
+        const { threadId, content, model, stream: shouldStream } = normalized
 
         const currentUser = await getAuthenticatedUser()
 
@@ -62,9 +93,6 @@ export async function POST( { request }: { request: Request } ) {
                     updatedAt: chatThread.updatedAt,
                 } )
 
-            if ( !created ) {
-                throw new Error( 'Failed to create thread.' )
-            }
             thread = created
         }
 
@@ -90,10 +118,6 @@ export async function POST( { request }: { request: Request } ) {
                 updatedAt: chatMessage.updatedAt,
             } )
 
-        if ( !userMessage ) {
-            throw new Error( 'Failed to create user message.' )
-        }
-
         // Create empty assistant message
         const [assistantMessage] = await db
             .insert( chatMessage )
@@ -116,20 +140,73 @@ export async function POST( { request }: { request: Request } ) {
                 updatedAt: chatMessage.updatedAt,
             } )
 
-        if ( !assistantMessage ) {
-            throw new Error( 'Failed to create assistant message.' )
+        const completionId = `chatcmpl-${assistantMessage.id}`
+        const created = Math.floor( Date.now() / 1000 )
+
+        if ( !shouldStream ) {
+            let fullContent = ''
+
+            for await ( const chunk of generateAssistantReplyStream( content, 0 ) ) {
+                fullContent += chunk
+            }
+
+            await persistAssistantContent( {
+                messageId: assistantMessage.id,
+                threadId: thread.id,
+                content: fullContent,
+            } )
+
+            return new Response(
+                JSON.stringify(
+                    toOpenAiCompletion( {
+                        id: completionId,
+                        created,
+                        model,
+                        content: fullContent,
+                    } ),
+                ),
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        ...withCompatHeaders( thread.id, assistantMessage.id, userMessage.id ),
+                    },
+                },
+            )
         }
 
         // Stream the response
         const encoder = new TextEncoder()
         let fullContent = ''
 
-        const stream = new ReadableStream( {
+        const responseStream = new ReadableStream( {
             async start( controller ) {
+                let isClosed = false
+                const close = () => {
+                    if ( isClosed ) {
+                        return
+                    }
+                    isClosed = true
+                    controller.close()
+                }
+
                 try {
                     const abortController = new AbortController()
                     const requestAbortHandler = () => abortController.abort()
                     request.signal.addEventListener( 'abort', requestAbortHandler )
+
+                    controller.enqueue(
+                        encoder.encode(
+                            toSseEvent(
+                                toOpenAiChunk( {
+                                    id: completionId,
+                                    created,
+                                    model,
+                                    delta: { role: 'assistant' },
+                                    finishReason: null,
+                                } ),
+                            ),
+                        ),
+                    )
 
                     for await ( const chunk of generateAssistantReplyStream(
                         content,
@@ -137,61 +214,84 @@ export async function POST( { request }: { request: Request } ) {
                         abortController.signal,
                     ) ) {
                         fullContent += chunk
-                        // Send SSE message with chunk
-                        const sseMessage = `data: ${JSON.stringify( { chunk, id: assistantMessage.id } )}\n\n`
-                        controller.enqueue( encoder.encode( sseMessage ) )
+
+                        controller.enqueue(
+                            encoder.encode(
+                                toSseEvent(
+                                    toOpenAiChunk( {
+                                        id: completionId,
+                                        created,
+                                        model,
+                                        delta: { content: chunk },
+                                        finishReason: null,
+                                    } ),
+                                ),
+                            ),
+                        )
                     }
 
-                    // Update message in database with full content
-                    await db
-                        .update( chatMessage )
-                        .set( {
-                            content: fullContent,
-                            updatedAt: new Date(),
-                        } )
-                        .where( ( t ) => t.id === assistantMessage.id )
-
-                    // Refresh thread latest message
-                    await refreshThreadLatestMessage( thread.id )
-
-                    // Send completion message
-                    const done = JSON.stringify( {
-                        done: true,
-                        id: assistantMessage.id,
+                    await persistAssistantContent( {
+                        messageId: assistantMessage.id,
+                        threadId: thread.id,
                         content: fullContent,
                     } )
-                    controller.enqueue( encoder.encode( `data: ${done}\n\n` ) )
-                    controller.close()
+
+                    controller.enqueue(
+                        encoder.encode(
+                            toSseEvent(
+                                toOpenAiChunk( {
+                                    id: completionId,
+                                    created,
+                                    model,
+                                    delta: {},
+                                    finishReason: 'stop',
+                                } ),
+                            ),
+                        ),
+                    )
+
+                    controller.enqueue( encoder.encode( toSseEvent( '[DONE]' ) ) )
 
                     request.signal.removeEventListener( 'abort', requestAbortHandler )
+                    close()
                 } catch ( error ) {
                     if ( error instanceof Error && error.name !== 'AbortError' ) {
                         console.error( '[Chat Stream] Error:', error )
-                        const errorMsg = JSON.stringify( {
-                            error: error instanceof Error ? error.message : 'Stream error',
-                        } )
+
+                        const errorMsg = {
+                            error: {
+                                message: error.message,
+                                type: 'server_error',
+                            },
+                        }
+
                         controller.enqueue(
-                            encoder.encode( `data: ${errorMsg}\n\n` ),
+                            encoder.encode( toSseEvent( errorMsg ) ),
                         )
                     }
-                    controller.close()
+
+                    close()
                 }
             },
         } )
 
-        return new Response( stream, {
+        return new Response( responseStream, {
             headers: {
                 'Content-Type': 'text/event-stream',
                 'Cache-Control': 'no-cache',
                 Connection: 'keep-alive',
                 'Access-Control-Allow-Origin': '*',
+                ...withCompatHeaders( thread.id, assistantMessage.id, userMessage.id ),
             },
         } )
     } catch ( error ) {
         console.error( '[Chat Stream] Request error:', error )
         return json(
             {
-                error: error instanceof Error ? error.message : 'Stream request failed',
+                error: {
+                    message: error instanceof Error ? error.message : 'Stream request failed',
+                    type: 'invalid_request_error',
+                },
             },
             { status: 400 },
         )

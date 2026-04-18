@@ -12,7 +12,6 @@ import { useChatPageData } from './-chat-page-data'
 import { useChatPageEvents } from './-chat-page-events'
 import { updateChatUi, useChatUiStore } from './-chat-store'
 import { useChatStoreSync } from './-chat-store-sync'
-import { useStreamChatMessage } from './-use-stream-chat-message'
 import type { ChatRouteSnapshot } from './-chat-types'
 
 type ChatPageProps = {
@@ -80,7 +79,6 @@ export function ChatPage( { initial }: ChatPageProps ) {
   } )
 
   const messageActions = useChatMessageActions( {
-    initial,
     activeThreadId,
     setActiveThreadId: ( value ) => updateChatUi( { activeThreadId: value } ),
     setSheetOpen: ( value ) => updateChatUi( { sheetOpen: value } ),
@@ -89,12 +87,16 @@ export function ChatPage( { initial }: ChatPageProps ) {
       updateChatUi( { isComposingNewThread: value } ),
   } )
 
-  const { stopStreaming } = useStreamChatMessage()
+  const handleCreateThread = () => {
+    messageActions.stopStreaming()
+    updateChatUi( { streamingMessageId: null } )
+    threadActions.startNewThread()
+  }
 
   useChatShellActions( { hasActiveThread: Boolean( activeThread ) } )
   useChatPageEvents( {
     composerValue,
-    onCreateThread: threadActions.startNewThread,
+    onCreateThread: handleCreateThread,
     onSendMessage: messageActions.submitMessage,
   } )
 
@@ -105,13 +107,15 @@ export function ChatPage( { initial }: ChatPageProps ) {
       query={searchQuery}
       onQueryChange={( value ) => updateChatUi( { searchQuery: value } )}
       onSelect={( threadId ) => {
+        messageActions.stopStreaming()
         updateChatUi( {
           activeThreadId: threadId,
           isComposingNewThread: false,
+          streamingMessageId: null,
           sheetOpen: false,
         } )
       }}
-      onCreate={threadActions.startNewThread}
+      onCreate={handleCreateThread}
       onRename={( thread ) => updateChatUi( { renameTargetId: thread.id } )}
       onDelete={( thread ) => updateChatUi( { deleteTargetId: thread.id } )}
     />
@@ -131,7 +135,7 @@ export function ChatPage( { initial }: ChatPageProps ) {
           sidebarContent={sidebarContent}
         />
 
-        <div className="flex h-[calc(100dvh-6em)] min-h-0">
+        <div className="flex h-[calc(100dvh-4em)] min-h-0">
           {!isMobile && threadPanelOpen ? (
             <aside className="hidden w-75 shrink-0 lg:block">
               {sidebarContent}
@@ -166,8 +170,8 @@ export function ChatPage( { initial }: ChatPageProps ) {
                 updateChatUi( { composerValue: value } )
               }
               onComposerSubmit={messageActions.submitMessage}
-              onComposerStop={stopStreaming}
-              onCreateThread={threadActions.startNewThread}
+              onComposerStop={messageActions.stopStreaming}
+              onCreateThread={handleCreateThread}
             />
           </section>
         </div>
