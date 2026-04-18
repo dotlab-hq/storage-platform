@@ -37,6 +37,7 @@ import {
   SidebarMenuItem,
   SidebarSeparator,
 } from '@/components/ui/sidebar'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import { Button } from '@/components/ui/button'
 import {
   Tooltip,
@@ -140,22 +141,26 @@ export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
       </SidebarHeader>
 
       <SidebarContent>
-        <NavMain items={items} />
-        <React.Suspense
-          fallback={
-            <div className="px-3 py-2">
-              <PageSkeleton variant="compact" />
-            </div>
-          }
-        >
-          <div className="px-3 py-2">
-            <WebRTCScannerDialog
-              triggerLabel="Scan for Transfer"
-              triggerVariant="secondary"
-              className="w-full justify-start"
-            />
+        <ScrollArea className="h-full">
+          <div className="pr-4">
+            <NavMain items={items} />
+            <React.Suspense
+              fallback={
+                <div className="px-3 py-2">
+                  <PageSkeleton variant="compact" />
+                </div>
+              }
+            >
+              <div className="px-3 py-2">
+                <WebRTCScannerDialog
+                  triggerLabel="Scan for Transfer"
+                  triggerVariant="secondary"
+                  className="w-full justify-start"
+                />
+              </div>
+            </React.Suspense>
           </div>
-        </React.Suspense>
+        </ScrollArea>
       </SidebarContent>
 
       <SidebarFooter>
