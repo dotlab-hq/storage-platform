@@ -85,7 +85,7 @@ export function useStorageData(initialData?: HomeLoaderData) {
   const [breadcrumbs, setBreadcrumbs] = useState<BreadcrumbItem[]>(
     initialMapped?.breadcrumbs ?? [],
   )
-  const [tinySessionPermission, setTinySessionPermission] = useState<
+  const [tinySessionPermission] = useState<
     'read' | 'read-write' | undefined
   >(initialMapped?.tinySessionPermission ?? undefined)
 

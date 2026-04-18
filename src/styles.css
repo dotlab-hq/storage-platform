@@ -315,3 +315,7 @@ select,
 [style*="--progress"] {
   width: var(--progress);
 }
+
+.chat-square :where([class*='rounded']) {
+  border-radius: 0 !important;
+}

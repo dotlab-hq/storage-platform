@@ -98,7 +98,7 @@ export const sendChatMessageFn = createServerFn({ method: 'POST' })
         threadId: thread.id,
         userId: currentUser.id,
         role: 'assistant',
-        content: generateAssistantReply(data.content, 0),
+        content: await generateAssistantReply(data.content, 0),
         regenerationCount: 0,
         createdAt: new Date(),
         updatedAt: new Date(),

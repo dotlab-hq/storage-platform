@@ -25,8 +25,6 @@ export function StorageQuota( { quota, className }: StorageQuotaProps ) {
     const isWarning = percentage >= 80
     const isDanger = percentage >= 95
 
-    const variant = isDanger ? "danger" : isWarning ? "warning" : "default"
-
     return (
         <div className={cn( "space-y-2 px-2", className )}>
             <div className="flex items-center justify-between">
@@ -47,8 +45,11 @@ export function StorageQuota( { quota, className }: StorageQuotaProps ) {
             <Progress
                 value={usedStorage}
                 max={allocatedStorage > 0 ? allocatedStorage : 1}
-                variant={variant}
-                className="h-1.5"
+                className={cn(
+                    "h-1.5",
+                    isDanger && "bg-destructive/20",
+                    isWarning && !isDanger && "bg-amber-500/20"
+                )}
             />
             <p className="text-muted-foreground text-[10px]">
                 Max file size: {formatFileSize( fileSizeLimit )}

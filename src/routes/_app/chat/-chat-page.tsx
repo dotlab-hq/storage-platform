@@ -102,7 +102,7 @@ export function ChatPage({ initial }: ChatPageProps) {
 
   return (
     <>
-      <SidebarInset>
+      <SidebarInset className="chat-square">
         <ChatPageHeader
           isMobile={isMobile}
           sheetOpen={sheetOpen}
@@ -116,7 +116,7 @@ export function ChatPage({ initial }: ChatPageProps) {
 
         <div className="flex h-[calc(100dvh-3.5rem)] min-h-0">
           {!isMobile && threadPanelOpen ? (
-            <aside className="hidden w-[300px] shrink-0 border-r lg:block">
+            <aside className="hidden w-75 shrink-0 border-r lg:block">
               {sidebarContent}
               <div
                 ref={threadLoadRef}
@@ -147,9 +147,7 @@ export function ChatPage({ initial }: ChatPageProps) {
               onComposerChange={(value) =>
                 updateChatUi({ composerValue: value })
               }
-              onComposerSubmit={() =>
-                messageActions.submitMessage(composerValue)
-              }
+              onComposerSubmit={messageActions.submitMessage}
               onCreateThread={() => threadActions.createThreadMutation.mutate()}
             />
           </section>

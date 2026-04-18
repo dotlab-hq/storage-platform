@@ -53,7 +53,10 @@ export const regenerateMessageFn = createServerFn({ method: 'POST' })
     const [updated] = await db
       .update(chatMessage)
       .set({
-        content: generateAssistantReply(prompt, target.regenerationCount + 1),
+        content: await generateAssistantReply(
+          prompt,
+          target.regenerationCount + 1,
+        ),
         regenerationCount: target.regenerationCount + 1,
         updatedAt: new Date(),
       })
