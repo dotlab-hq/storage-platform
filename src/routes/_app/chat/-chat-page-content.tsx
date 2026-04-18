@@ -7,6 +7,7 @@ export type ChatPageContentProps = {
   messages: ChatMessageSnapshot[]
   activeMessageId: string | null
   isMessagePending: boolean
+  isStreaming?: boolean
   composerValue: string
   isSending: boolean
   messageLoadRef: React.RefObject<HTMLDivElement | null>
@@ -15,6 +16,7 @@ export type ChatPageContentProps = {
   onDelete: ( messageId: string ) => void
   onComposerChange: ( value: string ) => void
   onComposerSubmit: ( value: string ) => void
+  onComposerStop?: () => void
   onCreateThread: () => void
 }
 
@@ -29,6 +31,7 @@ export function ChatPageContent( {
   messages,
   activeMessageId,
   isMessagePending,
+  isStreaming,
   composerValue,
   isSending,
   messageLoadRef,
@@ -37,6 +40,7 @@ export function ChatPageContent( {
   onDelete,
   onComposerChange,
   onComposerSubmit,
+  onComposerStop,
   onCreateThread,
 }: ChatPageContentProps ) {
   return (
@@ -46,6 +50,7 @@ export function ChatPageContent( {
         messages={messages}
         activeMessageId={activeMessageId}
         isMessagePending={isMessagePending}
+        isStreaming={isStreaming}
         composerValue={composerValue}
         isSending={isSending}
         messageLoadRef={messageLoadRef}
@@ -54,6 +59,7 @@ export function ChatPageContent( {
         onDelete={onDelete}
         onComposerChange={onComposerChange}
         onComposerSubmit={onComposerSubmit}
+        onComposerStop={onComposerStop}
         onCreateThread={onCreateThread}
       />
     </Suspense>

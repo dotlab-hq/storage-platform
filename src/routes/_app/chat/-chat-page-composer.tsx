@@ -1,3 +1,4 @@
+import { Square } from 'lucide-react'
 import type { ChatStatus } from 'ai'
 import {
   Attachment,
@@ -20,12 +21,15 @@ import {
   PromptInputTools,
   usePromptInputAttachments,
 } from '@/components/ai-elements/prompt-input'
+import { Button } from '@/components/ui/button'
 
 type ChatPageComposerProps = {
   value: string
   isSending: boolean
+  isStreaming?: boolean
   onChange: ( value: string ) => void
   onSubmit: ( value: string ) => void
+  onStop?: () => void
 }
 
 function ComposerAttachments() {
@@ -55,10 +59,13 @@ function ComposerAttachments() {
 export function ChatPageComposer( {
   value,
   isSending,
+  isStreaming,
   onChange,
   onSubmit,
+  onStop,
 }: ChatPageComposerProps ) {
-  const status: ChatStatus = isSending ? 'submitted' : 'ready'
+  const status: ChatStatus = isSending || isStreaming ? 'submitted' : 'ready'
+  const isActive = isSending || isStreaming
 
   return (
     <div className="sticky bottom-0 mt-2 bg-background/90 p-2 shadow-lg backdrop-blur sm:p-3">
@@ -78,13 +85,14 @@ export function ChatPageComposer( {
             onChange={( event ) => onChange( event.currentTarget.value )}
             placeholder="Type your message..."
             className="min-h-20"
+            disabled={isActive}
           />
         </PromptInputBody>
 
         <PromptInputFooter className="pt-2">
           <PromptInputTools>
             <PromptInputActionMenu>
-              <PromptInputActionMenuTrigger />
+              <PromptInputActionMenuTrigger disabled={isActive} />
               <PromptInputActionMenuContent>
                 <PromptInputActionAddAttachments />
                 <PromptInputActionAddScreenshot />
@@ -94,12 +102,26 @@ export function ChatPageComposer( {
 
           <div className="flex items-center gap-2">
             <p className="text-muted-foreground text-xs">
-              Enter to send, Shift+Enter for newline
+              {isActive
+                ? 'Generating response...'
+                : 'Enter to send, Shift+Enter for newline'}
             </p>
-            <PromptInputSubmit
-              status={status}
-              disabled={isSending || value.trim().length === 0}
-            />
+            {isActive && onStop ? (
+              <Button
+                size="sm"
+                variant="destructive"
+                onClick={onStop}
+                className="gap-1"
+              >
+                <Square className="h-3 w-3 fill-current" />
+                Stop
+              </Button>
+            ) : (
+              <PromptInputSubmit
+                status={status}
+                disabled={isActive || value.trim().length === 0}
+              />
+            )}
           </div>
         </PromptInputFooter>
       </PromptInput>

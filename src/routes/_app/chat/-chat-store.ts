@@ -10,6 +10,7 @@ type ChatUiState = {
   sheetOpen: boolean
   renameTargetId: string | null
   deleteTargetId: string | null
+  streamingMessageId: string | null
 }
 
 const initialChatUiState: ChatUiState = {
@@ -21,6 +22,7 @@ const initialChatUiState: ChatUiState = {
   sheetOpen: false,
   renameTargetId: null,
   deleteTargetId: null,
+  streamingMessageId: null,
 }
 
 export const chatUiStore = new Store<ChatUiState>( initialChatUiState )

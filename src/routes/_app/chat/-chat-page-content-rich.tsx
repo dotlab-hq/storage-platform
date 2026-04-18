@@ -25,6 +25,7 @@ export function ChatPageContentRich( {
     messages,
     activeMessageId,
     isMessagePending,
+    isStreaming,
     composerValue,
     isSending,
     messageLoadRef,
@@ -33,6 +34,7 @@ export function ChatPageContentRich( {
     onDelete,
     onComposerChange,
     onComposerSubmit,
+    onComposerStop,
     onCreateThread,
 }: ChatPageContentProps ) {
     return (
@@ -67,8 +69,10 @@ export function ChatPageContentRich( {
                 <ChatPageComposer
                     value={composerValue}
                     isSending={isSending}
+                    isStreaming={isStreaming}
                     onChange={onComposerChange}
                     onSubmit={onComposerSubmit}
+                    onStop={onComposerStop}
                 />
             </Suspense>
         </>

@@ -12,6 +12,7 @@ import { useChatPageData } from './-chat-page-data'
 import { useChatPageEvents } from './-chat-page-events'
 import { updateChatUi, useChatUiStore } from './-chat-store'
 import { useChatStoreSync } from './-chat-store-sync'
+import { useStreamChatMessage } from './-use-stream-chat-message'
 import type { ChatRouteSnapshot } from './-chat-types'
 
 type ChatPageProps = {
@@ -34,6 +35,7 @@ export function ChatPage( { initial }: ChatPageProps ) {
   const sheetOpen = useChatUiStore( ( state ) => state.sheetOpen )
   const renameTargetId = useChatUiStore( ( state ) => state.renameTargetId )
   const deleteTargetId = useChatUiStore( ( state ) => state.deleteTargetId )
+  const streamingMessageId = useChatUiStore( ( state ) => state.streamingMessageId )
   useChatStoreSync( { initialThreadId: initial.activeThreadId } )
 
   const {
@@ -86,6 +88,8 @@ export function ChatPage( { initial }: ChatPageProps ) {
     setIsComposingNewThread: ( value ) =>
       updateChatUi( { isComposingNewThread: value } ),
   } )
+
+  const { stopStreaming } = useStreamChatMessage()
 
   useChatShellActions( { hasActiveThread: Boolean( activeThread ) } )
   useChatPageEvents( {
@@ -147,6 +151,7 @@ export function ChatPage( { initial }: ChatPageProps ) {
                 messageActions.regenerateMutation.variables ?? null
               }
               isMessagePending={messageActions.regenerateMutation.isPending}
+              isStreaming={streamingMessageId !== null}
               composerValue={composerValue}
               isSending={messageActions.sendMutation.isPending}
               messageLoadRef={messageLoadRef}
@@ -161,6 +166,7 @@ export function ChatPage( { initial }: ChatPageProps ) {
                 updateChatUi( { composerValue: value } )
               }
               onComposerSubmit={messageActions.submitMessage}
+              onComposerStop={stopStreaming}
               onCreateThread={threadActions.startNewThread}
             />
           </section>

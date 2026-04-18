@@ -8,7 +8,7 @@ import {
   toMessageSnapshot,
   toThreadSnapshot,
 } from './-chat-server-utils'
-import { generateAssistantReply } from './-chat-assistant-reply'
+import { generateAssistantReplyStream } from './-chat-assistant-reply-stream'
 import { findOwnedThread, refreshThreadLatestMessage } from './-chat-server-db'
 import type { SendChatMessageResult } from './-chat-types'
 
@@ -92,13 +92,29 @@ export const sendChatMessageFn = createServerFn( { method: 'POST' } )
       throw new Error( 'Failed to create user message.' )
     }
 
+    // Stream assistant reply
+    let assistantContent = ''
+
+    try {
+      for await ( const chunk of generateAssistantReplyStream(
+        data.content,
+        0,
+      ) ) {
+        assistantContent += chunk
+      }
+    } catch ( error ) {
+      console.error( '[Chat] Stream generation error:', error )
+      assistantContent =
+        'I encountered an error while generating a response. Please try again.'
+    }
+
     const [assistantMessage] = await db
       .insert( chatMessage )
       .values( {
         threadId: thread.id,
         userId: currentUser.id,
         role: 'assistant',
-        content: await generateAssistantReply( data.content, 0 ),
+        content: assistantContent,
         regenerationCount: 0,
         createdAt: new Date(),
         updatedAt: new Date(),
