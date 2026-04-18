@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from '@/components/ui/sonner'
 import {
+  createChatThreadFn,
   deleteChatThreadFn,
   renameChatThreadFn,
 } from './-chat-thread-server'
@@ -46,13 +47,35 @@ export function useChatThreadActions( {
 }: ThreadActionsParams ) {
   const queryClient = useQueryClient()
 
+  const createThreadMutation = useMutation( {
+    mutationFn: async () =>
+      createChatThreadFn( { data: { title: 'New Chat' } } ),
+    onSuccess: ( result ) => {
+      queryClient.setQueryData<PaginatedThreads>(
+        [...chatQueryKeys.threads, 1],
+        ( old ) => {
+          const base = old ?? initial.threads
+          return {
+            ...base,
+            items: [result.thread, ...base.items],
+          }
+        },
+      )
+      setActiveThreadId( result.thread.id )
+      setIsComposingNewThread( false )
+      setComposerValue( '' )
+      setSheetOpen( false )
+      toast.success( 'New chat created.' )
+    },
+    onError: ( error ) => {
+      toast.error(
+        error instanceof Error ? error.message : 'Failed to create thread.',
+      )
+    },
+  } )
+
   const startNewThread = () => {
-    setActiveThreadId( null )
-    setIsComposingNewThread( true )
-    setDeleteTargetId( null )
-    setRenameTargetId( null )
-    setComposerValue( '' )
-    setSheetOpen( false )
+    createThreadMutation.mutate()
   }
 
   const renameThreadMutation = useMutation( {

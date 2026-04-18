@@ -1,4 +1,5 @@
 import { Suspense, lazy } from 'react'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import {
     Conversation,
     ConversationContent,
@@ -39,7 +40,7 @@ export function ChatPageContentRich( {
 }: ChatPageContentProps ) {
     return (
         <>
-            <div className="flex-1 min-h-0 pt-3 sm:pt-4 overflow-y-auto">
+            <ScrollArea className="flex-1 min-h-0">
                 {hasActiveThread ? (
                     <Conversation>
                         <ConversationContent className="gap-3 p-3 sm:gap-4 sm:p-4">
@@ -63,7 +64,7 @@ export function ChatPageContentRich( {
                 ) : (
                     <ChatEmptyState onStart={onCreateThread} />
                 )}
-            </div>
+            </ScrollArea>
 
             <Suspense fallback={<PageSkeleton className="h-28" variant="compact" />}>
                 <ChatPageComposer

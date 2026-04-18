@@ -5,7 +5,7 @@ import { db } from '@/db'
 import { chatMessage, chatMessageVersion } from '@/db/schema/chat'
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import { toMessageSnapshot } from './-chat-server-utils'
-import { generateAssistantReply } from './-chat-assistant-reply'
+import { generateAssistantReplyStream } from './-chat-assistant-reply-stream'
 import { findOwnedMessage, refreshThreadLatestMessage } from './-chat-server-db'
 
 const RegenerateMessageSchema = z.object( {
@@ -52,13 +52,26 @@ export const regenerateMessageFn = createServerFn( { method: 'POST' } )
 
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     const prompt = lastUserMessage?.content ?? target.content
+
+    // Stream assistant reply
+    let assistantContent = ''
+    try {
+      for await ( const chunk of generateAssistantReplyStream(
+        prompt,
+        target.regenerationCount + 1,
+      ) ) {
+        assistantContent += chunk
+      }
+    } catch ( error ) {
+      console.error( '[Chat] Regenerate stream error:', error )
+      assistantContent =
+        'I encountered an error while regenerating the response. Please try again.'
+    }
+
     const [updated] = await db
       .update( chatMessage )
       .set( {
-        content: await generateAssistantReply(
-          prompt,
-          target.regenerationCount + 1,
-        ),
+        content: assistantContent,
         regenerationCount: target.regenerationCount + 1,
         updatedAt: new Date(),
       } )
