@@ -75,7 +75,7 @@ export function ChatPageContentRich( {
 
     return (
         <>
-            <div className="relative flex-1 min-h-0 overflow-hidden  max-w-md">
+            <div className="relative flex-1 min-h-0 overflow-hidden mx-14">
                 <div
                     ref={viewportRef}
                     className="h-full overflow-y-auto"
