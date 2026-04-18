@@ -83,12 +83,13 @@ export function ChatPageContentRich( {
                 >
                     {hasActiveThread ? (
                         <Conversation>
-                            <ConversationContent className="gap-3 p-3 sm:gap-4 sm:p-4">
+                            <ConversationContent className="gap-3 p-3 sm:gap-4 sm:p-4 max-w-md">
                                 <Suspense fallback={<PageSkeleton variant="chat" className="mb-3" />}>
                                     <ChatMessageList
                                         messages={messages}
                                         activeMessageId={activeMessageId}
                                         isPending={isMessagePending}
+                                        isStreaming={Boolean( isStreaming )}
                                         onRegenerate={onRegenerate}
                                         onDelete={onDelete}
                                         messageLoadRef={messageLoadRef}

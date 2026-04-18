@@ -57,11 +57,13 @@ function extractArtifactBlock( content: string ): ExtractedArtifact | null {
 type ChatMessageResponseProps = {
     content: string
     className?: string
+    isStreaming?: boolean
 }
 
 export function ChatMessageResponse( {
     content,
     className,
+    isStreaming = false,
 }: ChatMessageResponseProps ) {
     const [mermaidPlugin, setMermaidPlugin] = useState<MermaidPluginType | null>(
         null,
@@ -126,10 +128,12 @@ export function ChatMessageResponse( {
 
             {markdownContent.length > 0 ? (
                 <Streamdown
+                    animated
                     className={cn(
                         'size-full [&>*:first-child]:mt-0 [&>*:last-child]:mb-0',
                         className,
                     )}
+                    isAnimating={isStreaming}
                     plugins={plugins}
                 >
                     {markdownContent}

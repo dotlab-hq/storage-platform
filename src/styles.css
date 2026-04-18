@@ -1,8 +1,17 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "streamdown/styles.css";
+@import "katex/dist/katex.min.css";
   @import './styles/_variables.scss';                                        
   @import './styles/_keyframe-animations.scss';  
 /* @import "shadcn/tailwind.css"; */
+
+@source "../node_modules/streamdown/dist/*.js";
+@source "../node_modules/@streamdown/code/dist/*.js";
+@source "../node_modules/@streamdown/cjk/dist/*.js";
+@source "../node_modules/@streamdown/math/dist/*.js";
+@source "../node_modules/@streamdown/mermaid/dist/*.js";
+
 /* Custom utilities */
 @utility container {
   margin-inline: auto;

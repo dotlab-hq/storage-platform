@@ -1,6 +1,6 @@
 export function ChatRouteSkeleton() {
     return (
-        <div className="flex h-[calc(100dvh-4em)] min-h-0 animate-pulse">
+        <div className="flex h-[calc(100dvh-5em)] min-h-0 animate-pulse">
             <aside className="hidden w-75 shrink-0 border-r bg-muted/20 lg:block">
                 <div className="space-y-2 p-3">
                     <div className="h-9 w-full rounded-md bg-muted" />
@@ -30,7 +30,7 @@ export function ChatRouteSkeleton() {
 export function ChatContentSkeleton() {
     return (
         <div className="flex min-h-0 flex-1 flex-col animate-pulse pt-3 sm:pt-4">
-            <div className="min-h-0 flex-1 space-y-3 overflow-hidden">
+            <div className="min-h-0 flex-1 max-w-md space-y-3 overflow-hidden">
                 <div className="h-20 w-[82%] rounded-md bg-muted" />
                 <div className="ml-auto h-16 w-[70%] rounded-md bg-muted" />
                 <div className="h-24 w-[88%] rounded-md bg-muted" />

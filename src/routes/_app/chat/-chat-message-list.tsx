@@ -6,6 +6,7 @@ type ChatMessageListProps = {
   messages: ChatMessageSnapshot[]
   activeMessageId: string | null
   isPending: boolean
+  isStreaming: boolean
   onRegenerate: ( messageId: string ) => void
   onDelete: ( messageId: string ) => void
   messageLoadRef?: React.RefObject<HTMLDivElement | null>
@@ -15,6 +16,7 @@ export function ChatMessageList( {
   messages,
   activeMessageId,
   isPending,
+  isStreaming,
   onRegenerate,
   onDelete,
   messageLoadRef,
@@ -43,6 +45,7 @@ export function ChatMessageList( {
           key={message.id}
           message={message}
           isPending={isPending && activeMessageId === message.id}
+          isStreaming={isStreaming}
           onRegenerate={onRegenerate}
           onDelete={onDelete}
         />

@@ -3,6 +3,83 @@ import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 const CHAT_SYSTEM_PROMPT =
     'You are Barrage Chat, a practical engineering assistant. Answer clearly and directly in markdown. When useful, include short bullet points and concise code blocks. Be concise and helpful.'
 
+const CHARACTER_STREAM_DELAY_MS = 50
+
+type LlmChunkLike = {
+    content?: unknown
+}
+
+function isRecord( value: unknown ): value is Record<string, unknown> {
+    return typeof value === 'object' && value !== null
+}
+
+function extractChunkText( rawChunk: unknown ): string {
+    if ( !isRecord( rawChunk ) ) {
+        return ''
+    }
+
+    const chunk = rawChunk as LlmChunkLike
+    const { content } = chunk
+
+    if ( typeof content === 'string' ) {
+        return content
+    }
+
+    if ( !Array.isArray( content ) ) {
+        return ''
+    }
+
+    return content
+        .map( ( part ) => {
+            if ( typeof part === 'string' ) {
+                return part
+            }
+
+            if ( !isRecord( part ) ) {
+                return ''
+            }
+
+            const text = part.text
+            return typeof text === 'string' ? text : ''
+        } )
+        .join( '' )
+}
+
+async function delay( ms: number, signal?: AbortSignal ): Promise<void> {
+    if ( ms <= 0 ) {
+        return
+    }
+
+    await new Promise<void>( ( resolve ) => {
+        const timeout = setTimeout( () => {
+            signal?.removeEventListener( 'abort', onAbort )
+            resolve()
+        }, ms )
+
+        const onAbort = () => {
+            clearTimeout( timeout )
+            signal?.removeEventListener( 'abort', onAbort )
+            resolve()
+        }
+
+        signal?.addEventListener( 'abort', onAbort )
+    } )
+}
+
+async function* streamWithCadence(
+    text: string,
+    signal?: AbortSignal,
+): AsyncGenerator<string, void, unknown> {
+    for ( const character of text ) {
+        if ( signal?.aborted ) {
+            return
+        }
+
+        yield character
+        await delay( CHARACTER_STREAM_DELAY_MS, signal )
+    }
+}
+
 export async function* generateAssistantReplyStream(
     prompt: string,
     priorCount: number,
@@ -33,10 +110,11 @@ export async function* generateAssistantReplyStream(
                 break
             }
 
-            // Extract content from the chunk
-            const content = ( chunk as any )?.content
-            if ( content && typeof content === 'string' ) {
-                yield content
+            const content = extractChunkText( chunk )
+            if ( content.length > 0 ) {
+                for await ( const character of streamWithCadence( content, signal ) ) {
+                    yield character
+                }
             }
         }
     } catch ( error ) {

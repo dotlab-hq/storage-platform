@@ -15,6 +15,7 @@ import type { ChatMessageSnapshot } from './-chat-types'
 type ChatMessageResponseComponent = ( props: {
   content: string
   className?: string
+  isStreaming?: boolean
 } ) => JSX.Element
 
 const loadChatMessageResponse = createClientOnlyFn(
@@ -33,6 +34,7 @@ const ChatMessageResponseLazy = lazy( () =>
 type ChatMessageItemProps = {
   message: ChatMessageSnapshot
   isPending: boolean
+  isStreaming: boolean
   onRegenerate: ( messageId: string ) => void
   onDelete: ( messageId: string ) => void
 }
@@ -40,6 +42,7 @@ type ChatMessageItemProps = {
 export function ChatMessageItem( {
   message,
   isPending,
+  isStreaming,
   onRegenerate,
   onDelete,
 }: ChatMessageItemProps ) {
@@ -109,7 +112,10 @@ export function ChatMessageItem( {
       >
         <ClientOnly fallback={<PageSkeleton variant="compact" className="h-5 w-32" />}>
           <Suspense fallback={<PageSkeleton variant="chat" className="h-16" />}>
-            <ChatMessageResponseLazy content={message.content} />
+            <ChatMessageResponseLazy
+              content={message.content}
+              isStreaming={!isUser && isStreaming}
+            />
           </Suspense>
         </ClientOnly>
       </ChatMessageContent>
