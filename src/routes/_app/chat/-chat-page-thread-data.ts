@@ -74,7 +74,7 @@ export function useFlatThreads( pages: PaginatedThreads[] ) {
       }
     }
     return Array.from( map.values() ).sort( ( left, right ) =>
-      right.lastMessageAt.getTime() - left.lastMessageAt.getTime(),
+      new Date( right.lastMessageAt ).getTime() - new Date( left.lastMessageAt ).getTime(),
     )
   }, [pages] )
 }

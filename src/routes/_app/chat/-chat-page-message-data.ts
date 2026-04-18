@@ -36,7 +36,7 @@ export function useFlatMessages( pages: PaginatedMessages[] ) {
       }
     }
     return Array.from( map.values() ).sort( ( left, right ) =>
-      left.createdAt.getTime() - right.createdAt.getTime(),
+      new Date( left.createdAt ).getTime() - new Date( right.createdAt ).getTime(),
     )
   }, [pages] )
 }

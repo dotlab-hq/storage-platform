@@ -6,12 +6,11 @@ import {
   regenerateMessageFn,
 } from './-chat-message-mutations-server'
 import { chatQueryKeys } from './-chat-query-keys'
-import { updateChatUi, useChatUiStore } from './-chat-store'
+import { updateChatUi } from './-chat-store'
 import type {
   ChatRouteSnapshot,
   ChatMessageSnapshot,
   PaginatedMessages,
-  PaginatedThreads,
 } from './-chat-types'
 
 const MESSAGE_PAGE_LIMIT = 30
@@ -67,8 +66,8 @@ export function useChatMessageActions( {
         role: 'user',
         content,
         regenerationCount: 0,
-        createdAt: now,
-        updatedAt: now,
+        createdAt: now.toDateString(),
+        updatedAt: now.toDateString(),
       }
 
       const optimisticAssistantMessage: ChatMessageSnapshot = {
@@ -77,8 +76,8 @@ export function useChatMessageActions( {
         role: 'assistant',
         content: '',
         regenerationCount: 0,
-        createdAt: now,
-        updatedAt: now,
+        createdAt: now.toDateString(),
+        updatedAt: now.toDateString(),
       }
 
       // Update UI with optimistic messages
