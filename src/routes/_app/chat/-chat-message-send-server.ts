@@ -12,53 +12,53 @@ import {
 import { findOwnedThread, refreshThreadLatestMessage } from './-chat-server-db'
 import type { SendChatMessageResult } from './-chat-types'
 
-const SendMessageSchema = z.object({
-  threadId: z.string().min(1).optional(),
-  content: z.string().trim().min(1).max(6000),
-})
+const SendMessageSchema = z.object( {
+  threadId: z.string().min( 1 ).optional(),
+  content: z.string().trim().min( 1 ).max( 6000 ),
+} )
 
 async function getOrCreateThread(
   userId: string,
   threadId: string | null,
   content: string,
 ) {
-  if (threadId) {
-    const existing = await findOwnedThread(userId, threadId)
-    if (!existing) {
-      throw new Error('Thread not found.')
+  if ( threadId ) {
+    const existing = await findOwnedThread( userId, threadId )
+    if ( !existing ) {
+      throw new Error( 'Thread not found.' )
     }
     return existing
   }
 
   const now = new Date()
   const [created] = await db
-    .insert(chatThread)
-    .values({
+    .insert( chatThread )
+    .values( {
       userId,
-      title: deriveThreadTitle(content),
+      title: deriveThreadTitle( content ),
       latestPreview: null,
       lastMessageAt: now,
       createdAt: now,
       updatedAt: now,
-    })
-    .returning({
+    } )
+    .returning( {
       id: chatThread.id,
       title: chatThread.title,
       latestPreview: chatThread.latestPreview,
       lastMessageAt: chatThread.lastMessageAt,
       createdAt: chatThread.createdAt,
       updatedAt: chatThread.updatedAt,
-    })
+    } )
 
-  if (!created) {
-    throw new Error('Failed to create thread.')
+  if ( !created ) {
+    throw new Error( 'Failed to create thread.' )
   }
   return created
 }
 
-export const sendChatMessageFn = createServerFn({ method: 'POST' })
-  .inputValidator(SendMessageSchema)
-  .handler(async ({ data }): Promise<SendChatMessageResult> => {
+export const sendChatMessageFn = createServerFn( { method: 'POST' } )
+  .inputValidator( SendMessageSchema )
+  .handler( async ( { data } ): Promise<SendChatMessageResult> => {
     const currentUser = await getAuthenticatedUser()
     const thread = await getOrCreateThread(
       currentUser.id,
@@ -68,8 +68,8 @@ export const sendChatMessageFn = createServerFn({ method: 'POST' })
     const now = new Date()
 
     const [userMessage] = await db
-      .insert(chatMessage)
-      .values({
+      .insert( chatMessage )
+      .values( {
         threadId: thread.id,
         userId: currentUser.id,
         role: 'user',
@@ -77,8 +77,8 @@ export const sendChatMessageFn = createServerFn({ method: 'POST' })
         regenerationCount: 0,
         createdAt: now,
         updatedAt: now,
-      })
-      .returning({
+      } )
+      .returning( {
         id: chatMessage.id,
         threadId: chatMessage.threadId,
         role: chatMessage.role,
@@ -86,24 +86,24 @@ export const sendChatMessageFn = createServerFn({ method: 'POST' })
         regenerationCount: chatMessage.regenerationCount,
         createdAt: chatMessage.createdAt,
         updatedAt: chatMessage.updatedAt,
-      })
+      } )
 
-    if (!userMessage) {
-      throw new Error('Failed to create user message.')
+    if ( !userMessage ) {
+      throw new Error( 'Failed to create user message.' )
     }
 
     const [assistantMessage] = await db
-      .insert(chatMessage)
-      .values({
+      .insert( chatMessage )
+      .values( {
         threadId: thread.id,
         userId: currentUser.id,
         role: 'assistant',
-        content: generateAssistantReply(data.content, 0),
+        content: await generateAssistantReply( data.content, 0 ),
         regenerationCount: 0,
         createdAt: new Date(),
         updatedAt: new Date(),
-      })
-      .returning({
+      } )
+      .returning( {
         id: chatMessage.id,
         threadId: chatMessage.threadId,
         role: chatMessage.role,
@@ -111,22 +111,22 @@ export const sendChatMessageFn = createServerFn({ method: 'POST' })
         regenerationCount: chatMessage.regenerationCount,
         createdAt: chatMessage.createdAt,
         updatedAt: chatMessage.updatedAt,
-      })
+      } )
 
-    if (!assistantMessage) {
-      throw new Error('Failed to create assistant message.')
+    if ( !assistantMessage ) {
+      throw new Error( 'Failed to create assistant message.' )
     }
 
-    await refreshThreadLatestMessage(thread.id)
-    const refreshed = await findOwnedThread(currentUser.id, thread.id)
+    await refreshThreadLatestMessage( thread.id )
+    const refreshed = await findOwnedThread( currentUser.id, thread.id )
 
-    if (!refreshed) {
-      throw new Error('Thread refresh failed.')
+    if ( !refreshed ) {
+      throw new Error( 'Thread refresh failed.' )
     }
 
     return {
-      thread: toThreadSnapshot(refreshed),
-      userMessage: toMessageSnapshot(userMessage),
-      assistantMessage: toMessageSnapshot(assistantMessage),
+      thread: toThreadSnapshot( refreshed ),
+      userMessage: toMessageSnapshot( userMessage ),
+      assistantMessage: toMessageSnapshot( assistantMessage ),
     }
-  })
+  } )

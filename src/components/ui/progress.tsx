@@ -1,46 +1,31 @@
+"use client"
+
 import * as React from "react"
+import { Progress as ProgressPrimitive } from "radix-ui"
+
 import { cn } from "@/lib/utils"
 
-type ProgressProps = React.ComponentProps<"div"> & {
-    value?: number
-    max?: number
-    variant?: "default" | "warning" | "danger"
+function Progress({
+  className,
+  value,
+  ...props
+}: React.ComponentProps<typeof ProgressPrimitive.Root>) {
+  return (
+    <ProgressPrimitive.Root
+      data-slot="progress"
+      className={cn(
+        "relative h-2 w-full overflow-hidden rounded-full bg-primary/20",
+        className
+      )}
+      {...props}
+    >
+      <ProgressPrimitive.Indicator
+        data-slot="progress-indicator"
+        className="h-full w-full flex-1 bg-primary transition-all"
+        style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
+      />
+    </ProgressPrimitive.Root>
+  )
 }
 
-export function Progress( {
-    className,
-    value = 0,
-    max = 100,
-    variant = "default",
-    ...props
-}: ProgressProps ) {
-    const percentage = Math.min( 100, Math.max( 0, ( value / max ) * 100 ) )
-
-    const variantClasses = {
-        default: "bg-primary",
-        warning: "bg-amber-500",
-        danger: "bg-destructive",
-    }
-
-    return (
-        <div
-            className={cn(
-                "bg-muted relative h-2 w-full overflow-hidden rounded-full",
-                className
-            )}
-            role="progressbar"
-            aria-valuenow={value}
-            aria-valuemin={0}
-            aria-valuemax={max}
-            {...props}
-        >
-            <div
-                className={cn(
-                    "h-full rounded-full transition-all duration-500 ease-out",
-                    variantClasses[variant]
-                )}
-                style={{ width: `${percentage}%` }}
-            />
-        </div>
-    )
-}
+export { Progress }

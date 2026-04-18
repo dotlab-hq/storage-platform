@@ -18,33 +18,33 @@ import type {
 
 import { getFolderItemsFn, getQuotaFn } from '@/lib/storage/queries/server'
 
-const checkAuthClient = createClientOnlyFn(async () => {
+const checkAuthClient = createClientOnlyFn( async () => {
   const { data, error } = await authClient.getSession()
-  if (error || !data?.user) {
+  if ( error || !data?.user ) {
     window.location.href = '/auth'
     return null
   }
   return data.user.id
-})
+} )
 
 const fetchFolderItems = createClientOnlyFn(
-  async (folderId: string | null, page: number = 1, limit: number = 100) => {
-    const data = await getFolderItemsFn({ data: { folderId, page, limit } })
+  async ( folderId: string | null, page: number = 1, limit: number = 100 ) => {
+    const data = await getFolderItemsFn( { data: { folderId, page, limit } } )
     return data as unknown as FetchResponse
   },
 )
 
-const fetchUserQuota = createClientOnlyFn(async (): Promise<UserQuota> => {
+const fetchUserQuota = createClientOnlyFn( async (): Promise<UserQuota> => {
   const data = await getQuotaFn()
   return {
     usedStorage: data.usedStorage ?? 0,
     allocatedStorage: data.allocatedStorage ?? DEFAULT_ALLOCATED_STORAGE_BYTES,
     fileSizeLimit: data.fileSizeLimit ?? DEFAULT_FILE_SIZE_LIMIT_BYTES,
   }
-})
+} )
 
-function mapInitialData(initialData?: HomeLoaderData) {
-  if (!initialData) return null
+function mapInitialData( initialData?: HomeLoaderData ) {
+  if ( !initialData ) return null
 
   const mapped = mapItems(
     {
@@ -59,120 +59,120 @@ function mapInitialData(initialData?: HomeLoaderData) {
     userId: initialData.userId,
     items: mapped.items,
     folders: mapped.folders,
-    breadcrumbs: mapBreadcrumbs(initialData.breadcrumbs),
+    breadcrumbs: mapBreadcrumbs( initialData.breadcrumbs ),
     quota: initialData.quota,
     tinySessionPermission: initialData.tinySessionPermission,
   }
 }
 
-export function useStorageData(initialData?: HomeLoaderData) {
-  const initialMapped = mapInitialData(initialData)
+export function useStorageData( initialData?: HomeLoaderData ) {
+  const initialMapped = mapInitialData( initialData )
 
-  const skipFirstLoadRef = useRef(Boolean(initialMapped))
+  const skipFirstLoadRef = useRef( Boolean( initialMapped ) )
   const [userId, setUserId] = useState<string | null>(
     initialMapped?.userId ?? null,
   )
-  const [items, setItems] = useState<StorageItem[]>(initialMapped?.items ?? [])
+  const [items, setItems] = useState<StorageItem[]>( initialMapped?.items ?? [] )
   const [folders, setFolders] = useState<StorageFolder[]>(
     initialMapped?.folders ?? [],
   )
-  const [uploads, setUploads] = useState<UploadingFile[]>([])
+  const [uploads, setUploads] = useState<UploadingFile[]>( [] )
   const [quota, setQuota] = useState<UserQuota | null>(
     initialMapped?.quota ?? null,
   )
-  const [isLoading, setIsLoading] = useState(!initialMapped)
-  const [currentFolderId, setCurrentFolderId] = useState<string | null>(null)
+  const [isLoading, setIsLoading] = useState( !initialMapped )
+  const [currentFolderId, setCurrentFolderId] = useState<string | null>( null )
   const [breadcrumbs, setBreadcrumbs] = useState<BreadcrumbItem[]>(
     initialMapped?.breadcrumbs ?? [],
   )
-  const [tinySessionPermission, setTinySessionPermission] = useState<
+  const [tinySessionPermission] = useState<
     'read' | 'read-write' | undefined
-  >(initialMapped?.tinySessionPermission ?? undefined)
+  >( initialMapped?.tinySessionPermission ?? undefined )
 
-  const [page, setPage] = useState(1)
-  const [hasMore, setHasMore] = useState(true)
+  const [page, setPage] = useState( 1 )
+  const [hasMore, setHasMore] = useState( true )
   const limit = 50
 
   const loadItems = useCallback(
-    async (uid: string, folderId: string | null, reset: boolean = true) => {
-      setIsLoading(true)
+    async ( uid: string, folderId: string | null, reset: boolean = true ) => {
+      setIsLoading( true )
       try {
         const targetPage = reset ? 1 : page + 1
-        const data = await fetchFolderItems(folderId, targetPage, limit)
-        const mapped = mapItems(data, uid)
+        const data = await fetchFolderItems( folderId, targetPage, limit )
+        const mapped = mapItems( data, uid )
 
-        if (reset) {
-          setItems(mapped.items)
-          setFolders(mapped.folders)
-          setPage(1)
+        if ( reset ) {
+          setItems( mapped.items )
+          setFolders( mapped.folders )
+          setPage( 1 )
         } else {
-          setItems((prev) => {
+          setItems( ( prev ) => {
             const newItems = mapped.items.filter(
-              (i) => !prev.some((p) => p.id === i.id),
+              ( i ) => !prev.some( ( p ) => p.id === i.id ),
             )
             return [...prev, ...newItems]
-          })
-          setFolders((prev) => {
+          } )
+          setFolders( ( prev ) => {
             const newFolders = mapped.folders.filter(
-              (f) => !prev.some((p) => p.id === f.id),
+              ( f ) => !prev.some( ( p ) => p.id === f.id ),
             )
             return [...prev, ...newFolders]
-          })
-          setPage(targetPage)
+          } )
+          setPage( targetPage )
         }
 
-        if (mapped.items.length < limit) {
-          setHasMore(false)
+        if ( mapped.items.length < limit ) {
+          setHasMore( false )
         } else {
-          setHasMore(true)
+          setHasMore( true )
         }
 
-        setBreadcrumbs(mapBreadcrumbs(data.breadcrumbs ?? []))
+        setBreadcrumbs( mapBreadcrumbs( data.breadcrumbs ?? [] ) )
       } finally {
-        setIsLoading(false)
+        setIsLoading( false )
       }
     },
     [page, limit],
   )
 
-  const loadQuota = useCallback(async () => {
+  const loadQuota = useCallback( async () => {
     try {
       const q = await fetchUserQuota()
-      setQuota(q)
+      setQuota( q )
     } catch {
       // quota fetch is non-critical; leave as null
     }
-  }, [])
+  }, [] )
 
-  useEffect(() => {
-    if (initialMapped) return
-    void checkAuthClient().then(async (uid) => {
-      if (!uid) return
-      setUserId(uid)
+  useEffect( () => {
+    if ( initialMapped ) return
+    void checkAuthClient().then( async ( uid ) => {
+      if ( !uid ) return
+      setUserId( uid )
       await loadQuota()
-    })
-  }, [initialMapped, loadQuota])
+    } )
+  }, [initialMapped, loadQuota] )
 
-  useEffect(() => {
-    if (!userId) return
-    if (skipFirstLoadRef.current) {
+  useEffect( () => {
+    if ( !userId ) return
+    if ( skipFirstLoadRef.current ) {
       skipFirstLoadRef.current = false
       return
     }
-    void loadItems(userId, currentFolderId, true)
-  }, [currentFolderId, userId, loadItems])
+    void loadItems( userId, currentFolderId, true )
+  }, [currentFolderId, userId, loadItems] )
 
-  const refresh = useCallback(async () => {
-    if (userId) {
-      await Promise.all([loadItems(userId, currentFolderId, true), loadQuota()])
+  const refresh = useCallback( async () => {
+    if ( userId ) {
+      await Promise.all( [loadItems( userId, currentFolderId, true ), loadQuota()] )
     }
-  }, [userId, currentFolderId, loadItems, loadQuota])
+  }, [userId, currentFolderId, loadItems, loadQuota] )
 
-  const loadMore = useCallback(() => {
-    if (!isLoading && hasMore && userId) {
-      void loadItems(userId, currentFolderId, false)
+  const loadMore = useCallback( () => {
+    if ( !isLoading && hasMore && userId ) {
+      void loadItems( userId, currentFolderId, false )
     }
-  }, [isLoading, hasMore, userId, currentFolderId, loadItems])
+  }, [isLoading, hasMore, userId, currentFolderId, loadItems] )
 
   return {
     userId,
