@@ -10,9 +10,9 @@ import { StickToBottom, useStickToBottomContext } from "use-stick-to-bottom";
 
 export type ConversationProps = ComponentProps<typeof StickToBottom>;
 
-export const Conversation = ( { className, ...props }: ConversationProps ) => (
+export const Conversation = ({ className, ...props }: ConversationProps) => (
   <StickToBottom
-    className={cn( "relative flex-1 overflow-y-hidden", className )}
+    className={cn("relative flex-1 overflow-y-hidden", className)}
     initial="smooth"
     resize="smooth"
     role="log"
@@ -24,12 +24,12 @@ export type ConversationContentProps = ComponentProps<
   typeof StickToBottom.Content
 >;
 
-export const ConversationContent = ( {
+export const ConversationContent = ({
   className,
   ...props
-}: ConversationContentProps ) => (
+}: ConversationContentProps) => (
   <StickToBottom.Content
-    className={cn( "flex flex-col gap-8 p-4", className )}
+    className={cn("flex flex-col gap-8 p-4", className)}
     {...props}
   />
 );
@@ -40,14 +40,14 @@ export type ConversationEmptyStateProps = ComponentProps<"div"> & {
   icon?: React.ReactNode;
 };
 
-export const ConversationEmptyState = ( {
+export const ConversationEmptyState = ({
   className,
   title = "No messages yet",
   description = "Start a conversation to see messages here",
   icon,
   children,
   ...props
-}: ConversationEmptyStateProps ) => (
+}: ConversationEmptyStateProps) => (
   <div
     className={cn(
       "flex size-full flex-col items-center justify-center gap-3 p-8 text-center",
@@ -71,15 +71,15 @@ export const ConversationEmptyState = ( {
 
 export type ConversationScrollButtonProps = ComponentProps<typeof Button>;
 
-export const ConversationScrollButton = ( {
+export const ConversationScrollButton = ({
   className,
   ...props
-}: ConversationScrollButtonProps ) => {
+}: ConversationScrollButtonProps) => {
   const { isAtBottom, scrollToBottom } = useStickToBottomContext();
 
-  const handleScrollToBottom = useCallback( () => {
+  const handleScrollToBottom = useCallback(() => {
     scrollToBottom();
-  }, [scrollToBottom] );
+  }, [scrollToBottom]);
 
   return (
     !isAtBottom && (
@@ -100,11 +100,11 @@ export const ConversationScrollButton = ( {
   );
 };
 
-const getMessageText = ( message: UIMessage ): string =>
+const getMessageText = (message: UIMessage): string =>
   message.parts
-    .filter( ( part ) => part.type === "text" )
-    .map( ( part ) => part.text )
-    .join( "" );
+    .filter((part) => part.type === "text")
+    .map((part) => part.text)
+    .join("");
 
 export type ConversationDownloadProps = Omit<
   ComponentProps<typeof Button>,
@@ -112,13 +112,13 @@ export type ConversationDownloadProps = Omit<
 > & {
   messages: UIMessage[];
   filename?: string;
-  formatMessage?: ( message: UIMessage, index: number ) => string;
+  formatMessage?: (message: UIMessage, index: number) => string;
 };
 
-const defaultFormatMessage = ( message: UIMessage ): string => {
+const defaultFormatMessage = (message: UIMessage): string => {
   const roleLabel =
-    message.role.charAt( 0 ).toUpperCase() + message.role.slice( 1 );
-  return `**${roleLabel}:** ${getMessageText( message )}`;
+    message.role.charAt(0).toUpperCase() + message.role.slice(1);
+  return `**${roleLabel}:** ${getMessageText(message)}`;
 };
 
 export const messagesToMarkdown = (
@@ -127,28 +127,28 @@ export const messagesToMarkdown = (
     message: UIMessage,
     index: number
   ) => string = defaultFormatMessage
-): string => messages.map( ( msg, i ) => formatMessage( msg, i ) ).join( "\n\n" );
+): string => messages.map((msg, i) => formatMessage(msg, i)).join("\n\n");
 
-export const ConversationDownload = ( {
+export const ConversationDownload = ({
   messages,
   filename = "conversation.md",
   formatMessage = defaultFormatMessage,
   className,
   children,
   ...props
-}: ConversationDownloadProps ) => {
-  const handleDownload = useCallback( () => {
-    const markdown = messagesToMarkdown( messages, formatMessage );
-    const blob = new Blob( [markdown], { type: "text/markdown" } );
-    const url = URL.createObjectURL( blob );
-    const link = document.createElement( "a" );
+}: ConversationDownloadProps) => {
+  const handleDownload = useCallback(() => {
+    const markdown = messagesToMarkdown(messages, formatMessage);
+    const blob = new Blob([markdown], { type: "text/markdown" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
     link.href = url;
     link.download = filename;
-    document.body.appendChild( link );
+    document.body.appendChild(link);
     link.click();
     link.remove();
-    URL.revokeObjectURL( url );
-  }, [messages, filename, formatMessage] );
+    URL.revokeObjectURL(url);
+  }, [messages, filename, formatMessage]);
 
   return (
     <Button

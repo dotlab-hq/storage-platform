@@ -144,8 +144,8 @@ export function ChatPage( { initial }: ChatPageProps ) {
               onDelete={( messageId ) =>
                 messageActions.deleteMessageMutation.mutate( messageId )
               }
-              onComposerChange={( value ) =>
-                updateChatUi( { composerValue: value } )
+              onComposerChange={(value) =>
+                updateChatUi({ composerValue: value })
               }
               onComposerSubmit={messageActions.submitMessage}
               onCreateThread={() => threadActions.createThreadMutation.mutate()}

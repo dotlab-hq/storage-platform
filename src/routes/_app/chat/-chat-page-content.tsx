@@ -17,10 +17,10 @@ type ChatPageContentProps = {
   isSending: boolean
   messageLoadRef: React.RefObject<HTMLDivElement | null>
   messagePageKey: string
-  onRegenerate: ( messageId: string ) => void
-  onDelete: ( messageId: string ) => void
-  onComposerChange: ( value: string ) => void
-  onComposerSubmit: ( value: string ) => void
+  onRegenerate: (messageId: string) => void
+  onDelete: (messageId: string) => void
+  onComposerChange: (value: string) => void
+  onComposerSubmit: (value: string) => void
   onCreateThread: () => void
 }
 

@@ -15,19 +15,19 @@ export const describeImage = async (
     let base64: string
     let mime = 'image/jpeg'
 
-    if ( imageUrl.startsWith( 'data:' ) ) {
-        const match = imageUrl.match( /^data:(.*?);base64,(.*)$/ )
-        if ( !match ) throw new Error( 'Invalid data URL' )
+    if (imageUrl.startsWith('data:')) {
+        const match = imageUrl.match(/^data:(.*?);base64,(.*)$/)
+        if (!match) throw new Error('Invalid data URL')
         mime = match[1] || mime
         base64 = match[2]!
     } else {
-        const resp = await fetch( imageUrl )
-        if ( !resp.ok ) throw new Error( `Failed to fetch image: ${resp.status}` )
+        const resp = await fetch(imageUrl)
+        if (!resp.ok) throw new Error(`Failed to fetch image: ${resp.status}`)
         const ab = await resp.arrayBuffer()
-        const arr = new Uint8Array( ab )
-        base64 = Buffer.from( arr ).toString( 'base64' )
-        const ct = resp.headers.get( 'content-type' )
-        if ( ct ) mime = ct
+        const arr = new Uint8Array(ab)
+        base64 = Buffer.from(arr).toString('base64')
+        const ct = resp.headers.get('content-type')
+        if (ct) mime = ct
     }
 
     const systemMessage = new SystemMessage(
@@ -36,7 +36,7 @@ export const describeImage = async (
 
 
 
-    const humanMessage = new HumanMessage( {
+    const humanMessage = new HumanMessage({
         contentBlocks: [
             {
                 type: 'text',
@@ -48,16 +48,16 @@ export const describeImage = async (
                 data: base64,
             },
         ],
-    } )
+    })
 
-    const res = await llm.invoke( [systemMessage, humanMessage] )
+    const res = await llm.invoke([systemMessage, humanMessage])
 
-    const response = trimReasoning( res )
+    const response = trimReasoning(res)
 
-    if ( response ) return response
-    if ( count > RETRY_LIMIT ) {
-        throw new Error( 'No description returned after retries' )
+    if (response) return response
+    if (count > RETRY_LIMIT) {
+        throw new Error('No description returned after retries')
     }
 
-    return describeImage( imageUrl, count + 1 )
+    return describeImage(imageUrl, count + 1)
 }
