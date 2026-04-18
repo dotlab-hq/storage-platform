@@ -1,13 +1,34 @@
 import { Copy, RefreshCw, Trash2, UserRound } from 'lucide-react'
-import {
-  Message,
-  MessageAction,
-  MessageActions,
-  MessageContent,
-  MessageResponse,
-} from '@/components/ai-elements/message'
+import { ClientOnly } from '@tanstack/react-router'
+import { Suspense, lazy } from 'react'
+import { createClientOnlyFn } from '@tanstack/react-start'
 import { cn } from '@/lib/utils'
+import { PageSkeleton } from '@/components/ui/page-skeleton'
+import {
+  ChatMessageActionButton,
+  ChatMessageActions,
+  ChatMessageContent,
+  ChatMessageShell,
+} from './-chat-message-shell'
 import type { ChatMessageSnapshot } from './-chat-types'
+
+type ChatMessageResponseComponent = ( props: {
+  content: string
+  className?: string
+} ) => JSX.Element
+
+const loadChatMessageResponse = createClientOnlyFn(
+  async (): Promise<ChatMessageResponseComponent> => {
+    const module = await import( './-chat-message-response' )
+    return module.ChatMessageResponse
+  },
+)
+
+const ChatMessageResponseLazy = lazy( () =>
+  loadChatMessageResponse().then( ( component ) => ( {
+    default: component,
+  } ) ),
+)
 
 type ChatMessageItemProps = {
   message: ChatMessageSnapshot
@@ -25,7 +46,7 @@ export function ChatMessageItem( {
   const isUser = message.role === 'user'
 
   return (
-    <Message
+    <ChatMessageShell
       from={isUser ? 'user' : 'assistant'}
       className={cn(
         'group max-w-full rounded-md p-3 shadow-sm sm:p-4',
@@ -45,8 +66,8 @@ export function ChatMessageItem( {
           ) : null}
         </div>
 
-        <MessageActions className="gap-1 opacity-80 group-hover:opacity-100">
-          <MessageAction
+        <ChatMessageActions className="gap-1 opacity-80 group-hover:opacity-100">
+          <ChatMessageActionButton
             className="h-7 w-7"
             onClick={() => void navigator.clipboard.writeText( message.content )}
             aria-label="Copy message"
@@ -54,9 +75,9 @@ export function ChatMessageItem( {
             label="Copy message"
           >
             <Copy className="h-3.5 w-3.5" />
-          </MessageAction>
+          </ChatMessageActionButton>
           {!isUser ? (
-            <MessageAction
+            <ChatMessageActionButton
               className="h-7 w-7"
               onClick={() => onRegenerate( message.id )}
               disabled={isPending}
@@ -65,9 +86,9 @@ export function ChatMessageItem( {
               label="Regenerate response"
             >
               <RefreshCw className="h-3.5 w-3.5" />
-            </MessageAction>
+            </ChatMessageActionButton>
           ) : null}
-          <MessageAction
+          <ChatMessageActionButton
             className="h-7 w-7"
             onClick={() => onDelete( message.id )}
             disabled={isPending}
@@ -76,18 +97,22 @@ export function ChatMessageItem( {
             label="Delete message"
           >
             <Trash2 className="h-3.5 w-3.5" />
-          </MessageAction>
-        </MessageActions>
+          </ChatMessageActionButton>
+        </ChatMessageActions>
       </header>
 
-      <MessageContent
+      <ChatMessageContent
         className={cn(
           'w-full max-w-full text-sm leading-6 sm:text-[15px]',
           'group-[.is-user]:bg-transparent group-[.is-user]:px-0 group-[.is-user]:py-0',
         )}
       >
-        <MessageResponse>{message.content}</MessageResponse>
-      </MessageContent>
-    </Message>
+        <ClientOnly fallback={<PageSkeleton variant="compact" className="h-5 w-32" />}>
+          <Suspense fallback={<PageSkeleton variant="chat" className="h-16" />}>
+            <ChatMessageResponseLazy content={message.content} />
+          </Suspense>
+        </ClientOnly>
+      </ChatMessageContent>
+    </ChatMessageShell>
   )
 }

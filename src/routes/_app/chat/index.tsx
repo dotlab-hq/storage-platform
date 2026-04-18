@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { ClientOnly, createFileRoute } from '@tanstack/react-router'
 import { Suspense, lazy } from 'react'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
 import { getChatRouteSnapshotFn } from './-chat-loader-server'
@@ -21,8 +21,10 @@ export const Route = createFileRoute( '/_app/chat/' )( {
 function ChatRoutePage() {
   const initial = Route.useLoaderData()
   return (
-    <Suspense fallback={<ChatRouteSkeleton />}>
-      <ChatPage initial={initial} />
-    </Suspense>
+    <ClientOnly fallback={<ChatRouteSkeleton />}>
+      <Suspense fallback={<ChatRouteSkeleton />}>
+        <ChatPage initial={initial} />
+      </Suspense>
+    </ClientOnly>
   )
 }
