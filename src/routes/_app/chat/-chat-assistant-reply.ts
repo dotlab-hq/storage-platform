@@ -3,6 +3,22 @@ import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 const CHAT_SYSTEM_PROMPT =
     'You are Barrage Chat, a practical engineering assistant. Answer clearly and directly in markdown. When useful, include short bullet points and concise code blocks. Be concise and helpful.'
 
+function createLocalFallbackReply( prompt: string, priorCount: number ): string {
+    const suffix = priorCount > 0 ? ` (variation #${priorCount + 1})` : ''
+    const truncatedPrompt =
+        prompt.length > 220 ? `${prompt.slice( 0, 220 )}...` : prompt
+
+    return [
+        `**Response**${suffix}:`,
+        '',
+        'Here is a quick first-pass response while I refine a fuller answer:',
+        '',
+        `- Main request: ${truncatedPrompt}`,
+        '- Suggested next step: share any constraints or expected output format.',
+        '- If this is code-related: include language, runtime, and current error details for a precise fix.',
+    ].join( '\n' )
+}
+
 export async function generateAssistantReply(
     prompt: string,
     priorCount: number,
@@ -60,7 +76,5 @@ export async function generateAssistantReply(
         } )
     }
 
-    // Fallback: return a thoughtful response that acknowledges the user
-    const suffix = priorCount > 0 ? ` (variation #${priorCount + 1})` : ''
-    return `**Response**${suffix}:\n\nI encountered an issue generating a response. Please try again or check that your API keys are properly configured. Your message was: "${compactPrompt}"`
+    return createLocalFallbackReply( compactPrompt, priorCount )
 }

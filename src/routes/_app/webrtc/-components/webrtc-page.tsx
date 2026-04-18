@@ -6,14 +6,15 @@ import { Button } from '@/components/ui/button'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { Separator } from '@/components/ui/separator'
 import { SendFileDropZone } from '@/components/storage/send-file-drop-zone'
+import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { IncomingFilesRegion } from '@/components/storage/incoming-files-region'
 import { useWebRTC } from '@/hooks/use-webrtc'
 import { useWebrtcTransfer } from './use-webrtc-transfer'
 
-const WebRTCScannerDialog = React.lazy(() =>
-  import('./webrtc-scanner-dialog').then((m) => ({
+const WebRTCScannerDialog = React.lazy( () =>
+  import( './webrtc-scanner-dialog' ).then( ( m ) => ( {
     default: m.WebRTCScannerDialog,
-  })),
+  } ) ),
 )
 
 export function WebRTCPage() {
@@ -27,13 +28,13 @@ export function WebRTCPage() {
     offer,
     toggleWebRTC,
     generateQr,
-  } = useWebrtcTransfer(isConnected)
+  } = useWebrtcTransfer( isConnected )
 
-  React.useEffect(() => {
-    if (offer && !isConnected && offer.sessionToken) {
-      startConnection(offer.sessionToken, 'offerer')
+  React.useEffect( () => {
+    if ( offer && !isConnected && offer.sessionToken ) {
+      startConnection( offer.sessionToken, 'offerer' )
     }
-  }, [offer, isConnected, startConnection])
+  }, [offer, isConnected, startConnection] )
 
   return (
     <SidebarInset>
@@ -106,7 +107,7 @@ export function WebRTCPage() {
                   {isConnected
                     ? 'Peer is connected. You can now transfer files.'
                     : errorMessage ||
-                      'Show the QR code to another device or scan their QR code to connect.'}
+                    'Show the QR code to another device or scan their QR code to connect.'}
                 </p>
               </div>
 
@@ -143,7 +144,13 @@ export function WebRTCPage() {
                     <p className="text-sm text-muted-foreground">
                       Scan the QR code from another device to connect
                     </p>
-                    <React.Suspense fallback={null}>
+                    <React.Suspense
+                      fallback={
+                        <div className="w-full">
+                          <PageSkeleton variant="compact" />
+                        </div>
+                      }
+                    >
                       <WebRTCScannerDialog
                         triggerLabel="Scan Now"
                         triggerVariant="default"
@@ -155,7 +162,7 @@ export function WebRTCPage() {
 
               <div className="rounded-lg border bg-card p-6">
                 <h2 className="mb-4 font-semibold">Receiving Files</h2>
-                <IncomingFilesRegion onSaveRequest={() => {}} />
+                <IncomingFilesRegion onSaveRequest={() => { }} />
                 {incomingFiles.length === 0 && (
                   <p className="text-sm text-muted-foreground">
                     No files received yet

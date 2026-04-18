@@ -4,6 +4,8 @@ import {
     ConversationContent,
     ConversationScrollButton,
 } from '@/components/ai-elements/conversation'
+import { PageSkeleton } from '@/components/ui/page-skeleton'
+import { ChatEmptyState } from './-chat-empty-state'
 import type { ChatPageContentProps } from './-chat-page-content'
 
 const ChatMessageList = lazy( () =>
@@ -19,6 +21,7 @@ const ChatPageComposer = lazy( () =>
 )
 
 export function ChatPageContentRich( {
+    hasActiveThread,
     messages,
     activeMessageId,
     isMessagePending,
@@ -30,32 +33,37 @@ export function ChatPageContentRich( {
     onDelete,
     onComposerChange,
     onComposerSubmit,
+    onCreateThread,
 }: ChatPageContentProps ) {
     return (
         <>
             <div className="flex-1 min-h-0 pt-3 sm:pt-4 overflow-y-auto">
-                <Conversation>
-                    <ConversationContent className="gap-3 p-3 sm:gap-4 sm:p-4">
-                        <Suspense fallback={null}>
-                            <ChatMessageList
-                                messages={messages}
-                                activeMessageId={activeMessageId}
-                                isPending={isMessagePending}
-                                onRegenerate={onRegenerate}
-                                onDelete={onDelete}
+                {hasActiveThread ? (
+                    <Conversation>
+                        <ConversationContent className="gap-3 p-3 sm:gap-4 sm:p-4">
+                            <Suspense fallback={<PageSkeleton variant="chat" className="mb-3" />}>
+                                <ChatMessageList
+                                    messages={messages}
+                                    activeMessageId={activeMessageId}
+                                    isPending={isMessagePending}
+                                    onRegenerate={onRegenerate}
+                                    onDelete={onDelete}
+                                />
+                            </Suspense>
+                            <div
+                                ref={messageLoadRef}
+                                data-page={messagePageKey}
+                                className="h-3"
                             />
-                        </Suspense>
-                        <div
-                            ref={messageLoadRef}
-                            data-page={messagePageKey}
-                            className="h-3"
-                        />
-                    </ConversationContent>
-                    <ConversationScrollButton className="rounded-full" />
-                </Conversation>
+                        </ConversationContent>
+                        <ConversationScrollButton className="rounded-full" />
+                    </Conversation>
+                ) : (
+                    <ChatEmptyState onStart={onCreateThread} />
+                )}
             </div>
 
-            <Suspense fallback={null}>
+            <Suspense fallback={<PageSkeleton className="h-28" variant="compact" />}>
                 <ChatPageComposer
                     value={composerValue}
                     isSending={isSending}

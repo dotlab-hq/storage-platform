@@ -13,13 +13,14 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Alert, AlertDescription } from '@/components/ui/alert'
+import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { validateCorsConfig } from '@/lib/cors-validator'
 
 const tabs = ['overview', 'permissions', 'cors', 'versioning'] as const
 
 type BucketSettingsDialogProps = {
   bucketName: string | null
-  onOpenChange: (open: boolean) => void
+  onOpenChange: ( open: boolean ) => void
 }
 
 type BucketSettingsPayload = {
@@ -45,58 +46,58 @@ async function fetchSettings(
   bucketName: string,
 ): Promise<BucketSettingsPayload> {
   const response = await fetch(
-    `/api/storage/s3/bucket-settings?bucketName=${encodeURIComponent(bucketName)}`,
+    `/api/storage/s3/bucket-settings?bucketName=${encodeURIComponent( bucketName )}`,
   )
-  if (!response.ok) throw new Error('Failed to load bucket settings')
+  if ( !response.ok ) throw new Error( 'Failed to load bucket settings' )
   const payload: BucketSettingsPayload = await response.json()
   return payload
 }
 
-export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
+export function BucketSettingsDialog( props: BucketSettingsDialogProps ) {
   const { bucketName, onOpenChange } = props
-  const [activeTab, setActiveTab] = useState<(typeof tabs)[number]>('overview')
-  const [draftPolicy, setDraftPolicy] = useState<string>('')
-  const [draftCors, setDraftCors] = useState<string>('[]')
-  const [corsValidationError, setCorsValidationError] = useState<string>('')
+  const [activeTab, setActiveTab] = useState<( typeof tabs )[number]>( 'overview' )
+  const [draftPolicy, setDraftPolicy] = useState<string>( '' )
+  const [draftCors, setDraftCors] = useState<string>( '[]' )
+  const [corsValidationError, setCorsValidationError] = useState<string>( '' )
   const queryClient = useQueryClient()
 
-  const query = useQuery({
+  const query = useQuery( {
     queryKey: ['bucket-settings', bucketName],
-    queryFn: () => fetchSettings(bucketName ?? ''),
+    queryFn: () => fetchSettings( bucketName ?? '' ),
     enabled: bucketName !== null,
-  })
+  } )
 
-  const mutation = useMutation({
-    mutationFn: async (payload: unknown) => {
-      const response = await fetch('/api/storage/s3/bucket-settings', {
+  const mutation = useMutation( {
+    mutationFn: async ( payload: unknown ) => {
+      const response = await fetch( '/api/storage/s3/bucket-settings', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      })
-      if (!response.ok) {
+        body: JSON.stringify( payload ),
+      } )
+      if ( !response.ok ) {
         const body: { error?: string } = await response.json()
-        throw new Error(body.error ?? 'Update failed')
+        throw new Error( body.error ?? 'Update failed' )
       }
     },
-    onMutate: async (payload) => {
-      await queryClient.cancelQueries({
+    onMutate: async ( payload ) => {
+      await queryClient.cancelQueries( {
         queryKey: ['bucket-settings', bucketName],
-      })
-      const previous = queryClient.getQueryData<BucketSettingsPayload>([
+      } )
+      const previous = queryClient.getQueryData<BucketSettingsPayload>( [
         'bucket-settings',
         bucketName,
-      ])
+      ] )
       if (
         !previous ||
         typeof payload !== 'object' ||
         payload === null ||
-        !('action' in payload)
+        !( 'action' in payload )
       ) {
         return { previous }
       }
 
       const actionPayload = payload as { action: string }
-      if (actionPayload.action === 'versioning' && 'state' in actionPayload) {
+      if ( actionPayload.action === 'versioning' && 'state' in actionPayload ) {
         queryClient.setQueryData<BucketSettingsPayload>(
           ['bucket-settings', bucketName],
           {
@@ -106,7 +107,7 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
           },
         )
       }
-      if (actionPayload.action === 'acl' && 'cannedAcl' in actionPayload) {
+      if ( actionPayload.action === 'acl' && 'cannedAcl' in actionPayload ) {
         queryClient.setQueryData<BucketSettingsPayload>(
           ['bucket-settings', bucketName],
           {
@@ -115,13 +116,13 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
           },
         )
       }
-      if (actionPayload.action === 'policy' && 'policyJson' in actionPayload) {
+      if ( actionPayload.action === 'policy' && 'policyJson' in actionPayload ) {
         queryClient.setQueryData<BucketSettingsPayload>(
           ['bucket-settings', bucketName],
           { ...previous, policyJson: actionPayload.policyJson as string },
         )
       }
-      if (actionPayload.action === 'cors' && 'rules' in actionPayload) {
+      if ( actionPayload.action === 'cors' && 'rules' in actionPayload ) {
         queryClient.setQueryData<BucketSettingsPayload>(
           ['bucket-settings', bucketName],
           {
@@ -134,8 +135,8 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
 
       return { previous }
     },
-    onError: (_error, _payload, context) => {
-      if (context?.previous) {
+    onError: ( _error, _payload, context ) => {
+      if ( context?.previous ) {
         queryClient.setQueryData(
           ['bucket-settings', bucketName],
           context.previous,
@@ -143,17 +144,17 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
       }
     },
     onSuccess: async () => {
-      await queryClient.invalidateQueries({
+      await queryClient.invalidateQueries( {
         queryKey: ['bucket-settings', bucketName],
-      })
+      } )
     },
-  })
+  } )
 
   const payload = query.data
   const loading = query.isLoading || mutation.isPending
 
   const corsPretty = useMemo(
-    () => JSON.stringify(payload?.corsRules ?? [], null, 2),
+    () => JSON.stringify( payload?.corsRules ?? [], null, 2 ),
     [payload?.corsRules],
   )
 
@@ -168,22 +169,22 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
         </DialogHeader>
 
         <div className="flex flex-wrap gap-2">
-          {tabs.map((tab) => (
+          {tabs.map( ( tab ) => (
             <Button
               key={tab}
               size="sm"
               variant={activeTab === tab ? 'default' : 'outline'}
-              onClick={() => setActiveTab(tab)}
+              onClick={() => setActiveTab( tab )}
             >
               {tab}
             </Button>
-          ))}
+          ) )}
         </div>
 
         {loading && (
-          <div className="text-sm text-muted-foreground">
-            <Loader2 className="mr-2 inline h-4 w-4 animate-spin" />
-            Loading...
+          <div className="space-y-2">
+            <PageSkeleton variant="compact" className="h-5 w-2/5" />
+            <PageSkeleton variant="default" className="h-16" />
           </div>
         )}
         {query.error && (
@@ -217,8 +218,8 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
                 onClick={() =>
                   setDraftPolicy(
                     '{\n  "Version": "2012-10-17",\n  "Statement": [\n    {\n      "Effect": "Allow",\n      "Principal": "*",\n      "Action": ["s3:GetObject"],\n      "Resource": ["arn:aws:s3:::' +
-                      bucketName +
-                      '/*"]\n    }\n  ]\n}',
+                    bucketName +
+                    '/*"]\n    }\n  ]\n}',
                   )
                 }
               >
@@ -227,7 +228,7 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
               <Button
                 size="sm"
                 variant="outline"
-                onClick={() => setDraftPolicy('')}
+                onClick={() => setDraftPolicy( '' )}
               >
                 Clear Policy
               </Button>
@@ -236,17 +237,17 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
               aria-label="Bucket policy JSON"
               className="h-40 w-full rounded border p-2 text-xs"
               value={draftPolicy || payload.policyJson}
-              onChange={(e) => setDraftPolicy(e.target.value)}
+              onChange={( e ) => setDraftPolicy( e.target.value )}
             />
             <div className="flex items-center gap-2">
               <Button
                 size="sm"
                 onClick={() =>
-                  mutation.mutate({
+                  mutation.mutate( {
                     action: 'policy',
                     bucketName,
                     policyJson: draftPolicy || payload.policyJson,
-                  })
+                  } )
                 }
               >
                 <Save className="h-4 w-4 mr-2" /> Save Policy
@@ -255,11 +256,11 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
                 size="sm"
                 variant="outline"
                 onClick={() =>
-                  mutation.mutate({
+                  mutation.mutate( {
                     action: 'acl',
                     bucketName,
                     cannedAcl: 'public-read',
-                  })
+                  } )
                 }
               >
                 Template: Make Public Read
@@ -268,11 +269,11 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
                 size="sm"
                 variant="outline"
                 onClick={() =>
-                  mutation.mutate({
+                  mutation.mutate( {
                     action: 'acl',
                     bucketName,
                     cannedAcl: 'private',
-                  })
+                  } )
                 }
               >
                 Template: Make Private
@@ -329,9 +330,9 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
               aria-label="Bucket CORS rules JSON"
               className="h-40 w-full rounded border p-2 text-xs"
               value={draftCors || corsPretty}
-              onChange={(e) => {
-                setDraftCors(e.target.value)
-                setCorsValidationError('')
+              onChange={( e ) => {
+                setDraftCors( e.target.value )
+                setCorsValidationError( '' )
               }}
             />
             {corsValidationError && (
@@ -343,7 +344,7 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
               size="sm"
               onClick={() => {
                 try {
-                  const parsedRules = JSON.parse(draftCors || corsPretty)
+                  const parsedRules = JSON.parse( draftCors || corsPretty )
 
                   // Normalize field names to PascalCase
                   interface RawCorsRule {
@@ -359,38 +360,38 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
                     maxAgeSeconds?: number
                   }
 
-                  const normalizedRules = Array.isArray(parsedRules)
-                    ? parsedRules.map((rule: RawCorsRule) => ({
-                        AllowedOrigins:
-                          rule.AllowedOrigins || rule.allowedOrigins,
-                        AllowedMethods:
-                          rule.AllowedMethods || rule.allowedMethods,
-                        AllowedHeaders:
-                          rule.AllowedHeaders || rule.allowedHeaders,
-                        ExposeHeaders: rule.ExposeHeaders || rule.exposeHeaders,
-                        MaxAgeSeconds: rule.MaxAgeSeconds ?? rule.maxAgeSeconds,
-                      }))
+                  const normalizedRules = Array.isArray( parsedRules )
+                    ? parsedRules.map( ( rule: RawCorsRule ) => ( {
+                      AllowedOrigins:
+                        rule.AllowedOrigins || rule.allowedOrigins,
+                      AllowedMethods:
+                        rule.AllowedMethods || rule.allowedMethods,
+                      AllowedHeaders:
+                        rule.AllowedHeaders || rule.allowedHeaders,
+                      ExposeHeaders: rule.ExposeHeaders || rule.exposeHeaders,
+                      MaxAgeSeconds: rule.MaxAgeSeconds ?? rule.maxAgeSeconds,
+                    } ) )
                     : []
 
                   const corsConfig = { CORSRules: normalizedRules }
-                  const validation = validateCorsConfig(corsConfig)
+                  const validation = validateCorsConfig( corsConfig )
 
-                  if (!validation.valid) {
+                  if ( !validation.valid ) {
                     const errorMessages = Object.entries(
                       validation.errors || {},
                     )
-                      .map(([key, msgs]) => `${key}: ${msgs.join(', ')}`)
-                      .join('\n')
-                    setCorsValidationError(errorMessages)
+                      .map( ( [key, msgs] ) => `${key}: ${msgs.join( ', ' )}` )
+                      .join( '\n' )
+                    setCorsValidationError( errorMessages )
                     return
                   }
 
-                  mutation.mutate({
+                  mutation.mutate( {
                     action: 'cors',
                     bucketName,
                     rules: normalizedRules,
-                  })
-                } catch (error) {
+                  } )
+                } catch ( error ) {
                   setCorsValidationError(
                     `Invalid JSON: ${error instanceof Error ? error.message : 'Unknown error'}`,
                   )
@@ -408,11 +409,11 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
             <Button
               size="sm"
               onClick={() =>
-                mutation.mutate({
+                mutation.mutate( {
                   action: 'versioning',
                   bucketName,
                   state: 'enabled',
-                })
+                } )
               }
             >
               Enable
@@ -421,11 +422,11 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
               size="sm"
               variant="outline"
               onClick={() =>
-                mutation.mutate({
+                mutation.mutate( {
                   action: 'versioning',
                   bucketName,
                   state: 'suspended',
-                })
+                } )
               }
             >
               Suspend
@@ -434,11 +435,11 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
               size="sm"
               variant="outline"
               onClick={() =>
-                mutation.mutate({
+                mutation.mutate( {
                   action: 'versioning',
                   bucketName,
                   state: 'disabled',
-                })
+                } )
               }
             >
               Disable

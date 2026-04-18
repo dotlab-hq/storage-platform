@@ -17,6 +17,7 @@ import {
   MessagesSquare,
 } from 'lucide-react'
 import { ClientOnly, Link } from '@tanstack/react-router'
+import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { createClientOnlyFn } from '@tanstack/react-start'
 
 import { NavMain } from '@/components/nav-main'
@@ -43,11 +44,11 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 
-const WebRTCScannerDialog = React.lazy(() =>
-  import('@/routes/_app/webrtc/-components/webrtc-scanner-dialog').then(
-    (m) => ({
+const WebRTCScannerDialog = React.lazy( () =>
+  import( '@/routes/_app/webrtc/-components/webrtc-scanner-dialog' ).then(
+    ( m ) => ( {
       default: m.WebRTCScannerDialog,
-    }),
+    } ),
   ),
 )
 
@@ -79,42 +80,42 @@ const themeConfig = {
   system: { icon: Monitor, label: 'System', next: 'light' as const },
 } as const
 
-export function AppSidebar({ quota = null, ...props }: AppSidebarProps) {
-  const [navUser, setNavUser] = React.useState(defaultUser)
-  const [items, setItems] = React.useState(navItems)
+export function AppSidebar( { quota = null, ...props }: AppSidebarProps ) {
+  const [navUser, setNavUser] = React.useState( defaultUser )
+  const [items, setItems] = React.useState( navItems )
   const { theme, setTheme } = useTheme()
 
   const getSessionUserRef = React.useRef(
-    createClientOnlyFn(async () => {
+    createClientOnlyFn( async () => {
       const { data: session, error } = await authClient.getSession()
-      if (error || !session?.user) return null
-      const sessionRole = normalizeUserRole(session.user.role)
+      if ( error || !session?.user ) return null
+      const sessionRole = normalizeUserRole( session.user.role )
       return {
         name: session.user.name,
         email: session.user.email,
         avatar: session.user.image ?? '/logo.svg',
         isAdmin: sessionRole === 'admin',
       }
-    }),
+    } ),
   )
 
-  React.useEffect(() => {
+  React.useEffect( () => {
     let mounted = true
-    void getSessionUserRef.current().then((sessionUser) => {
-      if (mounted && sessionUser) {
-        setNavUser(sessionUser)
-        if (sessionUser.isAdmin) {
-          setItems((prev) => {
-            if (prev.some((item) => item.url === '/admin')) return prev
+    void getSessionUserRef.current().then( ( sessionUser ) => {
+      if ( mounted && sessionUser ) {
+        setNavUser( sessionUser )
+        if ( sessionUser.isAdmin ) {
+          setItems( ( prev ) => {
+            if ( prev.some( ( item ) => item.url === '/admin' ) ) return prev
             return [...prev, { title: 'Admin', url: '/admin', icon: Shield }]
-          })
+          } )
         }
       }
-    })
+    } )
     return () => {
       mounted = false
     }
-  }, [])
+  }, [] )
 
   const currentTheme = theme in themeConfig ? theme : 'system'
   const { icon: ThemeIcon, label: themeLabel, next } = themeConfig[currentTheme]
@@ -140,7 +141,13 @@ export function AppSidebar({ quota = null, ...props }: AppSidebarProps) {
 
       <SidebarContent>
         <NavMain items={items} />
-        <React.Suspense fallback={null}>
+        <React.Suspense
+          fallback={
+            <div className="px-3 py-2">
+              <PageSkeleton variant="compact" />
+            </div>
+          }
+        >
           <div className="px-3 py-2">
             <WebRTCScannerDialog
               triggerLabel="Scan for Transfer"
@@ -162,7 +169,7 @@ export function AppSidebar({ quota = null, ...props }: AppSidebarProps) {
                 variant="ghost"
                 size="icon"
                 className="h-7 w-7"
-                onClick={() => setTheme(next)}
+                onClick={() => setTheme( next )}
                 aria-label={`Switch to ${next} theme`}
               >
                 <ThemeIcon className="h-3.5 w-3.5" />
@@ -174,7 +181,7 @@ export function AppSidebar({ quota = null, ...props }: AppSidebarProps) {
           </Tooltip>
         </div>
         <SidebarSeparator />
-        <ClientOnly fallback={null}>
+        <ClientOnly fallback={<PageSkeleton variant="sidebar" />}>
           <NavUser user={navUser} />
         </ClientOnly>
       </SidebarFooter>

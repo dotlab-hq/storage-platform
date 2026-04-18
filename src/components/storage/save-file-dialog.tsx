@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { Folder, Search } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { buildFolderPathOptions } from '@/lib/folder-paths'
@@ -23,52 +24,52 @@ type FolderOption = { id: string; name: string; parentFolderId: string | null }
 
 type SaveFileDialogProps = {
   open: boolean
-  onOpenChange: (open: boolean) => void
+  onOpenChange: ( open: boolean ) => void
   file: IncomingFile | null
   currentFolderId: string | null
   userId: string | null
-  onSave: (targetFolderId: string | null) => void
+  onSave: ( targetFolderId: string | null ) => void
 }
 
-export function SaveFileDialog({
+export function SaveFileDialog( {
   open,
   onOpenChange,
   file,
   currentFolderId,
   userId,
   onSave,
-}: SaveFileDialogProps) {
-  const [selectedFolder, setSelectedFolder] = useState<string | null>(null)
-  const [pathQuery, setPathQuery] = useState('')
-  const [allFolders, setAllFolders] = useState<FolderOption[]>([])
-  const [fetching, setFetching] = useState(false)
+}: SaveFileDialogProps ) {
+  const [selectedFolder, setSelectedFolder] = useState<string | null>( null )
+  const [pathQuery, setPathQuery] = useState( '' )
+  const [allFolders, setAllFolders] = useState<FolderOption[]>( [] )
+  const [fetching, setFetching] = useState( false )
 
-  const handleOpen = (isOpen: boolean) => {
-    if (isOpen) {
-      setSelectedFolder(currentFolderId)
-      setPathQuery('')
-      if (userId) {
-        setFetching(true)
+  const handleOpen = ( isOpen: boolean ) => {
+    if ( isOpen ) {
+      setSelectedFolder( currentFolderId )
+      setPathQuery( '' )
+      if ( userId ) {
+        setFetching( true )
         void getAllFoldersFn()
-          .then((data) => {
-            setAllFolders(data.folders || [])
-          })
-          .finally(() => setFetching(false))
+          .then( ( data ) => {
+            setAllFolders( data.folders || [] )
+          } )
+          .finally( () => setFetching( false ) )
       }
     }
-    onOpenChange(isOpen)
+    onOpenChange( isOpen )
   }
 
-  const folderOptions = buildFolderPathOptions(allFolders).filter((f) =>
-    f.path.toLowerCase().includes(pathQuery.toLowerCase()),
+  const folderOptions = buildFolderPathOptions( allFolders ).filter( ( f ) =>
+    f.path.toLowerCase().includes( pathQuery.toLowerCase() ),
   )
 
   const handleSave = () => {
-    onSave(selectedFolder)
-    onOpenChange(false)
+    onSave( selectedFolder )
+    onOpenChange( false )
   }
 
-  if (!file) return null
+  if ( !file ) return null
 
   return (
     <Dialog open={open} onOpenChange={handleOpen}>
@@ -76,7 +77,7 @@ export function SaveFileDialog({
         <DialogHeader>
           <DialogTitle>Save file to storage</DialogTitle>
           <DialogDescription>
-            Choose where to save "{file.name}" ({formatFileSize(file.size)})
+            Choose where to save "{file.name}" ({formatFileSize( file.size )})
           </DialogDescription>
         </DialogHeader>
 
@@ -86,7 +87,7 @@ export function SaveFileDialog({
             <Input
               placeholder="Search folders..."
               value={pathQuery}
-              onChange={(e) => setPathQuery(e.target.value)}
+              onChange={( e ) => setPathQuery( e.target.value )}
               className="pl-9"
             />
           </div>
@@ -97,21 +98,21 @@ export function SaveFileDialog({
                 'cursor-pointer p-2 hover:bg-accent',
                 selectedFolder === null && 'bg-accent',
               )}
-              onClick={() => setSelectedFolder(null)}
+              onClick={() => setSelectedFolder( null )}
             >
               <div className="flex items-center gap-2">
                 <Folder className="h-4 w-4 text-muted-foreground" />
                 <span className="text-sm">Root (home)</span>
               </div>
             </div>
-            {folderOptions.map((folder) => (
+            {folderOptions.map( ( folder ) => (
               <div
                 key={folder.id}
                 className={cn(
                   'cursor-pointer p-2 hover:bg-accent',
                   selectedFolder === folder.id && 'bg-accent',
                 )}
-                onClick={() => setSelectedFolder(folder.id)}
+                onClick={() => setSelectedFolder( folder.id )}
               >
                 <div className="flex items-center gap-2">
                   <Folder className="h-4 w-4 text-muted-foreground" />
@@ -123,17 +124,19 @@ export function SaveFileDialog({
                   )}
                 </div>
               </div>
-            ))}
+            ) )}
             {fetching && (
-              <div className="p-2 text-center text-sm text-muted-foreground">
-                Loading folders...
+              <div className="space-y-2 p-2">
+                <PageSkeleton variant="default" className="h-9" />
+                <PageSkeleton variant="default" className="h-9" />
+                <PageSkeleton variant="default" className="h-9" />
               </div>
             )}
           </div>
         </div>
 
         <DialogFooter>
-          <Button variant="outline" onClick={() => onOpenChange(false)}>
+          <Button variant="outline" onClick={() => onOpenChange( false )}>
             Cancel
           </Button>
           <Button onClick={handleSave} disabled={!selectedFolder}>

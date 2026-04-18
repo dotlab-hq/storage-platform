@@ -14,6 +14,7 @@ import appCss from '../styles.css?url'
 import type { QueryClient } from '@tanstack/react-query'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { Toaster } from '@/components/ui/sonner'
+import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { AppErrorBoundary } from '@/components/error-boundary'
 import { NotFoundPage } from '@/components/not-found'
 import { GlobalShellActions } from '@/components/shell/global-shell-actions'
@@ -23,17 +24,17 @@ interface MyRouterContext {
 }
 
 const Devtools = import.meta.env.DEV
-  ? lazy(() =>
-      import('@/components/devtools/tanstack-devtools').then((module) => ({
-        default: module.TanstackDevtools,
-      })),
-    )
+  ? lazy( () =>
+    import( '@/components/devtools/tanstack-devtools' ).then( ( module ) => ( {
+      default: module.TanstackDevtools,
+    } ) ),
+  )
   : null
 
-export const Route = createRootRouteWithContext<MyRouterContext>()({
+export const Route = createRootRouteWithContext<MyRouterContext>()( {
   errorComponent: AppErrorBoundary,
   notFoundComponent: NotFoundPage,
-  head: () => ({
+  head: () => ( {
     meta: [
       {
         charSet: 'utf-8',
@@ -156,11 +157,11 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         href: 'https://fonts.googleapis.com',
       },
     ],
-  }),
+  } ),
   shellComponent: RootDocument,
-})
+} )
 
-function RootDocument({ children }: { children: React.ReactNode }) {
+function RootDocument( { children }: { children: React.ReactNode } ) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -168,7 +169,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
+            __html: JSON.stringify( {
               '@context': 'https://schema.org',
               '@type': 'SoftwareApplication',
               name: 'DOT. Storage',
@@ -190,7 +191,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                 name: 'DOT. Storage',
                 logo: 'https://storage.wpsadi.dev/logo.svg',
               },
-            }),
+            } ),
           }}
         />
       </head>
@@ -211,7 +212,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             </TooltipProvider>
             <Toaster />
             {Devtools ? (
-              <Suspense fallback={null}>
+              <Suspense fallback={<PageSkeleton variant="compact" className="mx-3 my-2" />}>
                 <Devtools />
               </Suspense>
             ) : null}

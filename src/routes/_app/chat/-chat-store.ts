@@ -3,6 +3,7 @@ import { useStore } from '@tanstack/react-store'
 
 type ChatUiState = {
   activeThreadId: string | null
+  isComposingNewThread: boolean
   searchQuery: string
   composerValue: string
   threadPanelOpen: boolean
@@ -13,6 +14,7 @@ type ChatUiState = {
 
 const initialChatUiState: ChatUiState = {
   activeThreadId: null,
+  isComposingNewThread: false,
   searchQuery: '',
   composerValue: '',
   threadPanelOpen: true,
@@ -21,15 +23,15 @@ const initialChatUiState: ChatUiState = {
   deleteTargetId: null,
 }
 
-export const chatUiStore = new Store<ChatUiState>(initialChatUiState)
+export const chatUiStore = new Store<ChatUiState>( initialChatUiState )
 
-export const useChatUiStore = <T>(selector: (state: ChatUiState) => T) =>
-  useStore(chatUiStore, selector)
+export const useChatUiStore = <T>( selector: ( state: ChatUiState ) => T ) =>
+  useStore( chatUiStore, selector )
 
-export function updateChatUi(partial: Partial<ChatUiState>) {
-  chatUiStore.setState((state) => ({ ...state, ...partial }))
+export function updateChatUi( partial: Partial<ChatUiState> ) {
+  chatUiStore.setState( ( state ) => ( { ...state, ...partial } ) )
 }
 
 export function resetChatUi() {
-  chatUiStore.setState(() => initialChatUiState)
+  chatUiStore.setState( () => initialChatUiState )
 }

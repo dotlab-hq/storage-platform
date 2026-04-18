@@ -1,7 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from '@/components/ui/sonner'
 import {
-  createChatThreadFn,
   deleteChatThreadFn,
   renameChatThreadFn,
 } from './-chat-thread-server'
@@ -13,10 +12,12 @@ type ThreadActionsParams = {
   activeThreadId: string | null
   activeThreadList: { id: string }[]
   deleteTargetId: string | null
-  setActiveThreadId: (threadId: string | null) => void
-  setDeleteTargetId: (threadId: string | null) => void
-  setRenameTargetId: (threadId: string | null) => void
-  setSheetOpen: (open: boolean) => void
+  setActiveThreadId: ( threadId: string | null ) => void
+  setComposerValue: ( value: string ) => void
+  setIsComposingNewThread: ( value: boolean ) => void
+  setDeleteTargetId: ( threadId: string | null ) => void
+  setRenameTargetId: ( threadId: string | null ) => void
+  setSheetOpen: ( open: boolean ) => void
 }
 
 function removeThreadById(
@@ -27,100 +28,86 @@ function removeThreadById(
   const base = current ?? initial.threads
   return {
     ...base,
-    items: base.items.filter((item) => item.id !== threadId),
+    items: base.items.filter( ( item ) => item.id !== threadId ),
   }
 }
 
-export function useChatThreadActions({
+export function useChatThreadActions( {
   initial,
   activeThreadId,
   activeThreadList,
   deleteTargetId,
   setActiveThreadId,
+  setComposerValue,
+  setIsComposingNewThread,
   setDeleteTargetId,
   setRenameTargetId,
   setSheetOpen,
-}: ThreadActionsParams) {
+}: ThreadActionsParams ) {
   const queryClient = useQueryClient()
 
-  const createThreadMutation = useMutation({
-    mutationFn: async () => createChatThreadFn({ data: { title: 'New Chat' } }),
-    onSuccess: (result) => {
-      queryClient.setQueryData<PaginatedThreads>(
-        [...chatQueryKeys.threads, 1],
-        (old) => {
-          const previous = old ?? initial.threads
-          return {
-            ...previous,
-            items: [
-              result.thread,
-              ...previous.items.filter((item) => item.id !== result.thread.id),
-            ],
-          }
-        },
-      )
-      setActiveThreadId(result.thread.id)
-      setSheetOpen(false)
-      toast.success('New thread created.')
-    },
-    onError: (error) => {
-      toast.error(
-        error instanceof Error ? error.message : 'Failed to create thread.',
-      )
-    },
-  })
+  const startNewThread = () => {
+    setActiveThreadId( null )
+    setIsComposingNewThread( true )
+    setDeleteTargetId( null )
+    setRenameTargetId( null )
+    setComposerValue( '' )
+    setSheetOpen( false )
+  }
 
-  const renameThreadMutation = useMutation({
-    mutationFn: async (payload: { threadId: string; title: string }) =>
-      renameChatThreadFn({ data: payload }),
-    onSuccess: (result) => {
+  const renameThreadMutation = useMutation( {
+    mutationFn: async ( payload: { threadId: string; title: string } ) =>
+      renameChatThreadFn( { data: payload } ),
+    onSuccess: ( result ) => {
       queryClient.setQueryData<PaginatedThreads>(
         [...chatQueryKeys.threads, 1],
-        (old) => {
-          if (!old) return old
+        ( old ) => {
+          if ( !old ) return old
           return {
             ...old,
-            items: old.items.map((item) =>
+            items: old.items.map( ( item ) =>
               item.id === result.thread.id ? result.thread : item,
             ),
           }
         },
       )
-      setRenameTargetId(null)
-      toast.success('Thread renamed.')
+      setRenameTargetId( null )
+      setIsComposingNewThread( false )
+      toast.success( 'Thread renamed.' )
     },
-    onError: (error) => {
+    onError: ( error ) => {
       toast.error(
         error instanceof Error ? error.message : 'Failed to rename thread.',
       )
     },
-  })
+  } )
 
-  const deleteThreadMutation = useMutation({
-    mutationFn: async (threadId: string) =>
-      deleteChatThreadFn({ data: { threadId } }),
+  const deleteThreadMutation = useMutation( {
+    mutationFn: async ( threadId: string ) =>
+      deleteChatThreadFn( { data: { threadId } } ),
     onSuccess: () => {
-      if (!deleteTargetId) return
+      if ( !deleteTargetId ) return
       queryClient.setQueryData<PaginatedThreads>(
         [...chatQueryKeys.threads, 1],
-        (old) => removeThreadById(old, initial, deleteTargetId),
+        ( old ) => removeThreadById( old, initial, deleteTargetId ),
       )
-      if (activeThreadId === deleteTargetId) {
-        const next = activeThreadList.find((item) => item.id !== deleteTargetId)
-        setActiveThreadId(next?.id ?? null)
+      if ( activeThreadId === deleteTargetId ) {
+        const next = activeThreadList.find( ( item ) => item.id !== deleteTargetId )
+        setActiveThreadId( next?.id ?? null )
       }
-      setDeleteTargetId(null)
-      toast.success('Thread deleted.')
+      setIsComposingNewThread( false )
+      setDeleteTargetId( null )
+      toast.success( 'Thread deleted.' )
     },
-    onError: (error) => {
+    onError: ( error ) => {
       toast.error(
         error instanceof Error ? error.message : 'Failed to delete thread.',
       )
     },
-  })
+  } )
 
   return {
-    createThreadMutation,
+    startNewThread,
     renameThreadMutation,
     deleteThreadMutation,
   }

@@ -1,4 +1,5 @@
 import { lazy, Suspense, useState } from 'react'
+import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { createFileRoute } from '@tanstack/react-router'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
@@ -20,29 +21,29 @@ import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
 import { HomeRoutePending } from '../-home-pending'
 import { getHomeSnapshotFn } from '../-home-server'
 
-const ShareModal = lazy(() =>
-  import('@/components/storage/share-modal').then((m) => ({
+const ShareModal = lazy( () =>
+  import( '@/components/storage/share-modal' ).then( ( m ) => ( {
     default: m.ShareModal,
-  })),
+  } ) ),
 )
-const MoveModal = lazy(() =>
-  import('@/components/storage/move-modal').then((m) => ({
+const MoveModal = lazy( () =>
+  import( '@/components/storage/move-modal' ).then( ( m ) => ( {
     default: m.MoveModal,
-  })),
+  } ) ),
 )
-const ConfirmDeleteModal = lazy(() =>
-  import('@/components/storage/confirm-delete-modal').then((m) => ({
+const ConfirmDeleteModal = lazy( () =>
+  import( '@/components/storage/confirm-delete-modal' ).then( ( m ) => ( {
     default: m.ConfirmDeleteModal,
-  })),
+  } ) ),
 )
 
-const DeviceTransferSection = lazy(() =>
-  import('@/components/storage/device-transfer-section').then((m) => ({
+const DeviceTransferSection = lazy( () =>
+  import( '@/components/storage/device-transfer-section' ).then( ( m ) => ( {
     default: m.DeviceTransferSection,
-  })),
+  } ) ),
 )
 
-export const Route = createFileRoute('/_app/')({
+export const Route = createFileRoute( '/_app/' )( {
   server: {
     middleware: [isAuthenticatedMiddleware],
   },
@@ -50,11 +51,11 @@ export const Route = createFileRoute('/_app/')({
 
   loader: () => getHomeSnapshotFn(),
   pendingComponent: HomeRoutePending,
-})
+} )
 function StoragePage() {
   const initial = Route.useLoaderData()
-  const storage = useStorageData(initial)
-  const selection = useFileSelection(storage.items)
+  const storage = useStorageData( initial )
+  const selection = useFileSelection( storage.items )
   const dragDrop = useDragDrop(
     storage.userId,
     storage.currentFolderId,
@@ -64,34 +65,34 @@ function StoragePage() {
     storage.quota?.fileSizeLimit ?? null,
   )
 
-  const [shareItem, setShareItem] = useState<StorageItem | null>(null)
-  const [moveOpen, setMoveOpen] = useState(false)
-  const [moveMode, setMoveMode] = useState<'move' | 'update-path'>('move')
-  const [deleteOpen, setDeleteOpen] = useState(false)
+  const [shareItem, setShareItem] = useState<StorageItem | null>( null )
+  const [moveOpen, setMoveOpen] = useState( false )
+  const [moveMode, setMoveMode] = useState<'move' | 'update-path'>( 'move' )
+  const [deleteOpen, setDeleteOpen] = useState( false )
   const [pendingDelete, setPendingDelete] = useState<{
     ids: string[]
-    types: ('file' | 'folder')[]
-  } | null>(null)
+    types: ( 'file' | 'folder' )[]
+  } | null>( null )
 
-  useFolderHistory(storage.currentFolderId, storage.setCurrentFolderId)
-  const actions = useStorageActions({
+  useFolderHistory( storage.currentFolderId, storage.setCurrentFolderId )
+  const actions = useStorageActions( {
     userId: storage.userId,
     currentFolderId: storage.currentFolderId,
     setItems: storage.setItems,
     refresh: storage.refresh,
     setCurrentFolderId: storage.setCurrentFolderId,
     select: selection.select,
-    onDeleteOpen: (item: StorageItem) => {
-      setPendingDelete({ ids: [item.id], types: [item.type] })
-      setDeleteOpen(true)
+    onDeleteOpen: ( item: StorageItem ) => {
+      setPendingDelete( { ids: [item.id], types: [item.type] } )
+      setDeleteOpen( true )
     },
-    onMoveOpen: (mode = 'move') => {
-      setMoveMode(mode)
-      setMoveOpen(true)
+    onMoveOpen: ( mode = 'move' ) => {
+      setMoveMode( mode )
+      setMoveOpen( true )
     },
-    onShareOpen: (item) => setShareItem(item),
-  })
-  const bulk = useBulkActions({
+    onShareOpen: ( item ) => setShareItem( item ),
+  } )
+  const bulk = useBulkActions( {
     userId: storage.userId,
     items: storage.items,
     selectedIds: selection.selectedIds,
@@ -100,27 +101,27 @@ function StoragePage() {
     refresh: storage.refresh,
     setDeleteOpen,
     setMoveOpen,
-  })
-  useKeyboardShortcuts({
+  } )
+  useKeyboardShortcuts( {
     'mod+a': () => selection.selectAll(),
     escape: () => selection.clearSelection(),
     delete: () => {
-      if (selection.selectedCount > 0) {
-        const items = storage.items.filter((i) =>
-          selection.selectedIds.has(i.id),
+      if ( selection.selectedCount > 0 ) {
+        const items = storage.items.filter( ( i ) =>
+          selection.selectedIds.has( i.id ),
         )
-        setPendingDelete({
-          ids: items.map((i) => i.id),
-          types: items.map((i) => i.type),
-        })
-        setDeleteOpen(true)
+        setPendingDelete( {
+          ids: items.map( ( i ) => i.id ),
+          types: items.map( ( i ) => i.type ),
+        } )
+        setDeleteOpen( true )
       }
     },
-  })
+  } )
   useHomeShellActions()
 
-  const selectedItems = storage.items.filter((i) =>
-    selection.selectedIds.has(i.id),
+  const selectedItems = storage.items.filter( ( i ) =>
+    selection.selectedIds.has( i.id ),
   )
 
   return (
@@ -141,7 +142,7 @@ function StoragePage() {
             <div className="min-w-0">
               <BreadcrumbNav
                 items={storage.breadcrumbs}
-                onNavigate={(folderId) => storage.setCurrentFolderId(folderId)}
+                onNavigate={( folderId ) => storage.setCurrentFolderId( folderId )}
               />
             </div>
           </div>
@@ -151,10 +152,10 @@ function StoragePage() {
               currentFolderId={storage.currentFolderId}
               setUploads={storage.setUploads}
               onUploadComplete={storage.refresh}
-              onNewFile={() => {}}
+              onNewFile={() => { }}
               onNewFolder={actions.handleNewFolder}
-              onSearch={(results) => {
-                if (results) storage.setItems(results)
+              onSearch={( results ) => {
+                if ( results ) storage.setItems( results )
                 else void storage.refresh()
               }}
               setItems={storage.setItems}
@@ -167,26 +168,26 @@ function StoragePage() {
         <div
           className="flex flex-1 flex-col gap-4 p-2 pt-0 sm:p-4"
           data-shell-context-menu="true"
-          onClick={(event) => {
+          onClick={( event ) => {
             const target = event.target as HTMLElement
-            if (target.closest("[data-file-card='true']")) return
+            if ( target.closest( "[data-file-card='true']" ) ) return
             selection.clearSelection()
           }}
         >
-          <Suspense fallback={null}>
-            <DeviceTransferSection onSaveRequest={() => {}} />
+          <Suspense fallback={<PageSkeleton className="mb-2" variant="default" />}>
+            <DeviceTransferSection onSaveRequest={() => { }} />
           </Suspense>
           <FileGrid
             items={storage.items}
             uploads={storage.uploads}
             isLoading={storage.isLoading}
             selectedIds={selection.selectedIds}
-            onBoxSelect={(ids, append) => selection.selectMany(ids, append)}
+            onBoxSelect={( ids, append ) => selection.selectMany( ids, append )}
             onDoubleClick={actions.handleDoubleClick}
             onContextAction={actions.handleContextAction}
             renamingItemId={actions.renamingItemId}
             onRename={actions.handleRename}
-            onRenameCancel={() => actions.setRenamingItemId(null)}
+            onRenameCancel={() => actions.setRenamingItemId( null )}
             onDragMoveItem={bulk.handleDragMoveItem}
             onLoadMore={storage.loadMore}
             hasMore={storage.hasMore}
@@ -197,21 +198,21 @@ function StoragePage() {
       <FloatingActionBar
         selectedCount={selection.selectedCount}
         onDelete={() => {
-          setPendingDelete({
-            ids: selectedItems.map((i) => i.id),
-            types: selectedItems.map((i) => i.type),
-          })
-          setDeleteOpen(true)
+          setPendingDelete( {
+            ids: selectedItems.map( ( i ) => i.id ),
+            types: selectedItems.map( ( i ) => i.type ),
+          } )
+          setDeleteOpen( true )
         }}
         onShare={() => {
-          setShareItem(selectedItems.at(0) ?? null)
+          setShareItem( selectedItems.at( 0 ) ?? null )
         }}
         onClear={selection.clearSelection}
       />
-      <Suspense fallback={null}>
+      <Suspense fallback={<PageSkeleton variant="modal" className="p-4" />}>
         <ShareModal
           open={!!shareItem}
-          onOpenChange={(open) => !open && setShareItem(null)}
+          onOpenChange={( open ) => !open && setShareItem( null )}
           item={shareItem}
           userId={storage.userId}
         />
@@ -226,15 +227,15 @@ function StoragePage() {
         />
         <ConfirmDeleteModal
           open={deleteOpen}
-          onOpenChange={(open) => {
-            setDeleteOpen(open)
-            if (!open) setPendingDelete(null)
+          onOpenChange={( open ) => {
+            setDeleteOpen( open )
+            if ( !open ) setPendingDelete( null )
           }}
           isPermanent={false}
           itemCount={pendingDelete?.ids.length ?? 0}
           onConfirm={() => {
-            if (pendingDelete) {
-              void bulk.handleDelete(pendingDelete.ids, pendingDelete.types)
+            if ( pendingDelete ) {
+              void bulk.handleDelete( pendingDelete.ids, pendingDelete.types )
             }
           }}
         />

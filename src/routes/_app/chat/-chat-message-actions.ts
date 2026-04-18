@@ -18,54 +18,56 @@ const MESSAGE_PAGE_LIMIT = 30
 type MessageActionsParams = {
   initial: ChatRouteSnapshot
   activeThreadId: string | null
-  setActiveThreadId: (threadId: string | null) => void
-  setSheetOpen: (open: boolean) => void
-  setComposerValue: (value: string) => void
+  setActiveThreadId: ( threadId: string | null ) => void
+  setIsComposingNewThread: ( value: boolean ) => void
+  setSheetOpen: ( open: boolean ) => void
+  setComposerValue: ( value: string ) => void
 }
 
 function removeMessageById(
   current: PaginatedMessages | undefined,
   messageId: string,
 ): PaginatedMessages | undefined {
-  if (!current) return current
+  if ( !current ) return current
   return {
     ...current,
-    items: current.items.filter((item) => item.id !== messageId),
+    items: current.items.filter( ( item ) => item.id !== messageId ),
   }
 }
 
-export function useChatMessageActions({
+export function useChatMessageActions( {
   initial,
   activeThreadId,
   setActiveThreadId,
+  setIsComposingNewThread,
   setSheetOpen,
   setComposerValue,
-}: MessageActionsParams) {
+}: MessageActionsParams ) {
   const queryClient = useQueryClient()
 
-  const sendMutation = useMutation({
-    mutationFn: async (content: string) =>
-      sendChatMessageFn({
+  const sendMutation = useMutation( {
+    mutationFn: async ( content: string ) =>
+      sendChatMessageFn( {
         data: { threadId: activeThreadId ?? undefined, content },
-      }),
-    onSuccess: (result) => {
+      } ),
+    onSuccess: ( result ) => {
       queryClient.setQueryData<PaginatedThreads>(
         [...chatQueryKeys.threads, 1],
-        (old) => {
+        ( old ) => {
           const base = old ?? initial.threads
           return {
             ...base,
             items: [
               result.thread,
-              ...base.items.filter((item) => item.id !== result.thread.id),
+              ...base.items.filter( ( item ) => item.id !== result.thread.id ),
             ],
           }
         },
       )
 
       queryClient.setQueryData<PaginatedMessages>(
-        [...chatQueryKeys.messages(result.thread.id), 1],
-        (old) => {
+        [...chatQueryKeys.messages( result.thread.id ), 1],
+        ( old ) => {
           const base = old ?? {
             items: [],
             page: 1,
@@ -79,66 +81,67 @@ export function useChatMessageActions({
         },
       )
 
-      setComposerValue('')
-      setActiveThreadId(result.thread.id)
-      setSheetOpen(false)
+      setComposerValue( '' )
+      setActiveThreadId( result.thread.id )
+      setIsComposingNewThread( false )
+      setSheetOpen( false )
     },
-    onError: (error) => {
+    onError: ( error ) => {
       toast.error(
         error instanceof Error ? error.message : 'Failed to send message.',
       )
     },
-  })
+  } )
 
-  const regenerateMutation = useMutation({
-    mutationFn: async (messageId: string) =>
-      regenerateMessageFn({ data: { messageId } }),
-    onSuccess: (result) => {
-      if (!activeThreadId) return
+  const regenerateMutation = useMutation( {
+    mutationFn: async ( messageId: string ) =>
+      regenerateMessageFn( { data: { messageId } } ),
+    onSuccess: ( result ) => {
+      if ( !activeThreadId ) return
       queryClient.setQueryData<PaginatedMessages>(
-        [...chatQueryKeys.messages(activeThreadId), 1],
-        (old) => {
-          if (!old) return old
+        [...chatQueryKeys.messages( activeThreadId ), 1],
+        ( old ) => {
+          if ( !old ) return old
           return {
             ...old,
-            items: old.items.map((item) =>
+            items: old.items.map( ( item ) =>
               item.id === result.message.id ? result.message : item,
             ),
           }
         },
       )
-      toast.success('Response regenerated.')
+      toast.success( 'Response regenerated.' )
     },
-    onError: (error) => {
+    onError: ( error ) => {
       toast.error(
         error instanceof Error ? error.message : 'Failed to regenerate.',
       )
     },
-  })
+  } )
 
-  const deleteMessageMutation = useMutation({
-    mutationFn: async (messageId: string) =>
-      deleteMessageFn({ data: { messageId } }),
-    onSuccess: (_result, messageId) => {
-      if (!activeThreadId) return
+  const deleteMessageMutation = useMutation( {
+    mutationFn: async ( messageId: string ) =>
+      deleteMessageFn( { data: { messageId } } ),
+    onSuccess: ( _result, messageId ) => {
+      if ( !activeThreadId ) return
       queryClient.setQueryData<PaginatedMessages>(
-        [...chatQueryKeys.messages(activeThreadId), 1],
-        (old) => removeMessageById(old, messageId),
+        [...chatQueryKeys.messages( activeThreadId ), 1],
+        ( old ) => removeMessageById( old, messageId ),
       )
-      toast.success('Message deleted.')
+      toast.success( 'Message deleted.' )
     },
-    onError: (error) => {
+    onError: ( error ) => {
       toast.error(
         error instanceof Error ? error.message : 'Failed to delete message.',
       )
     },
-  })
+  } )
 
   const submitMessage = useCallback(
-    (value: string) => {
+    ( value: string ) => {
       const content = value.trim()
-      if (!content) return
-      sendMutation.mutate(content)
+      if ( !content ) return
+      sendMutation.mutate( content )
     },
     [sendMutation],
   )

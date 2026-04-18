@@ -4,6 +4,7 @@ import { FileContextMenu } from './file-context-menu'
 import { UploadingCard } from './uploading-card'
 import { SkeletonGrid } from './skeleton-card'
 import { FileGridEmptyState } from './file-grid-empty-state'
+import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { useBoxSelection } from '@/hooks/use-box-selection'
 import type {
   StorageItem,
@@ -11,20 +12,20 @@ import type {
   ContextMenuAction,
 } from '@/types/storage'
 
-function isAppendModifierPressed(event: {
+function isAppendModifierPressed( event: {
   metaKey: boolean
   ctrlKey: boolean
-}) {
+} ) {
   const isMac =
     typeof navigator !== 'undefined' &&
-    navigator.platform.toLowerCase().includes('mac')
+    navigator.platform.toLowerCase().includes( 'mac' )
   return isMac ? event.metaKey : event.ctrlKey
 }
 
 type BoxSelectCommitContext = {
-  completeSelection: (itemElements: HTMLElement[]) => string[]
+  completeSelection: ( itemElements: HTMLElement[] ) => string[]
   cancelSelection: () => void
-  onBoxSelect?: (ids: string[], append: boolean) => void
+  onBoxSelect?: ( ids: string[], append: boolean ) => void
 }
 
 type SelectionRect = {
@@ -40,24 +41,24 @@ type FileGridProps = {
   isLoading: boolean
   isTrash?: boolean
   selectedIds: Set<string>
-  onDoubleClick: (item: StorageItem) => void
-  onContextAction: (action: ContextMenuAction, item: StorageItem) => void
-  onRetryUpload?: (id: string) => void
+  onDoubleClick: ( item: StorageItem ) => void
+  onContextAction: ( action: ContextMenuAction, item: StorageItem ) => void
+  onRetryUpload?: ( id: string ) => void
   renamingItemId?: string | null
-  onRename?: (item: StorageItem, newName: string) => void
+  onRename?: ( item: StorageItem, newName: string ) => void
   onRenameCancel?: () => void
   onDragMoveItem?: (
     itemId: string,
     itemType: 'file' | 'folder',
     targetFolderId: string,
   ) => void
-  onBoxSelect?: (ids: string[], append: boolean) => void
+  onBoxSelect?: ( ids: string[], append: boolean ) => void
   onLoadMore?: () => void
   hasMore?: boolean
   isReadOnly?: boolean
 }
 
-export function FileGrid({
+export function FileGrid( {
   items,
   uploads,
   isLoading,
@@ -74,15 +75,15 @@ export function FileGrid({
   onLoadMore,
   hasMore,
   isReadOnly = false,
-}: FileGridProps) {
-  const containerRef = useRef<HTMLDivElement | null>(null)
-  const loadMoreRef = useRef<HTMLDivElement | null>(null)
-  const didBoxSelectRef = useRef(false)
-  const boxSelectCommitContextRef = useRef<BoxSelectCommitContext>({
+}: FileGridProps ) {
+  const containerRef = useRef<HTMLDivElement | null>( null )
+  const loadMoreRef = useRef<HTMLDivElement | null>( null )
+  const didBoxSelectRef = useRef( false )
+  const boxSelectCommitContextRef = useRef<BoxSelectCommitContext>( {
     completeSelection: () => [],
     cancelSelection: () => undefined,
     onBoxSelect: undefined,
-  })
+  } )
   const {
     isSelecting,
     selectionRect,
@@ -98,85 +99,85 @@ export function FileGrid({
       draggedType: 'file' | 'folder',
       targetFolderId: string,
     ) => {
-      onDragMoveItem?.(draggedId, draggedType, targetFolderId)
+      onDragMoveItem?.( draggedId, draggedType, targetFolderId )
     },
     [onDragMoveItem],
   )
 
   const handleMouseDown = useCallback(
-    (event: React.MouseEvent<HTMLDivElement>) => {
-      if (event.button !== 0) return
+    ( event: React.MouseEvent<HTMLDivElement> ) => {
+      if ( event.button !== 0 ) return
       const target = event.target as HTMLElement
-      if (target.closest("[data-file-card='true']")) return
+      if ( target.closest( "[data-file-card='true']" ) ) return
       const root = containerRef.current
-      if (!root) return
+      if ( !root ) return
       const cards = Array.from(
-        root.querySelectorAll<HTMLElement>('[data-storage-item-id]'),
+        root.querySelectorAll<HTMLElement>( '[data-storage-item-id]' ),
       )
-      if (cards.length === 0) return
-      beginSelection(event.clientX, event.clientY)
+      if ( cards.length === 0 ) return
+      beginSelection( event.clientX, event.clientY )
     },
     [beginSelection],
   )
 
   const handleMouseMove = useCallback(
-    (event: React.MouseEvent<HTMLDivElement>) => {
-      if (!isSelecting) return
-      updateSelection(event.clientX, event.clientY)
+    ( event: React.MouseEvent<HTMLDivElement> ) => {
+      if ( !isSelecting ) return
+      updateSelection( event.clientX, event.clientY )
     },
     [isSelecting, updateSelection],
   )
 
-  const commitBoxSelection = useCallback((append: boolean) => {
+  const commitBoxSelection = useCallback( ( append: boolean ) => {
     const root = containerRef.current
-    if (!root) {
+    if ( !root ) {
       boxSelectCommitContextRef.current.cancelSelection()
       return
     }
     const elements = Array.from(
-      root.querySelectorAll<HTMLElement>('[data-storage-item-id]'),
+      root.querySelectorAll<HTMLElement>( '[data-storage-item-id]' ),
     )
-    const ids = boxSelectCommitContextRef.current.completeSelection(elements)
-    boxSelectCommitContextRef.current.onBoxSelect?.(ids, append)
+    const ids = boxSelectCommitContextRef.current.completeSelection( elements )
+    boxSelectCommitContextRef.current.onBoxSelect?.( ids, append )
     didBoxSelectRef.current = true
     boxSelectCommitContextRef.current.cancelSelection()
-  }, [])
+  }, [] )
 
-  useEffect(() => {
+  useEffect( () => {
     boxSelectCommitContextRef.current = {
       completeSelection,
       cancelSelection,
       onBoxSelect,
     }
-  }, [cancelSelection, completeSelection, onBoxSelect])
+  }, [cancelSelection, completeSelection, onBoxSelect] )
 
-  useEffect(() => {
-    if (!isSelecting) return
+  useEffect( () => {
+    if ( !isSelecting ) return
 
-    const handleWindowMouseMove = (event: MouseEvent) => {
-      updateSelection(event.clientX, event.clientY)
+    const handleWindowMouseMove = ( event: MouseEvent ) => {
+      updateSelection( event.clientX, event.clientY )
     }
 
-    const handleWindowMouseUp = (event: MouseEvent) => {
-      const append = event.shiftKey || isAppendModifierPressed(event)
-      commitBoxSelection(append)
+    const handleWindowMouseUp = ( event: MouseEvent ) => {
+      const append = event.shiftKey || isAppendModifierPressed( event )
+      commitBoxSelection( append )
     }
 
-    window.addEventListener('mousemove', handleWindowMouseMove)
-    window.addEventListener('mouseup', handleWindowMouseUp)
+    window.addEventListener( 'mousemove', handleWindowMouseMove )
+    window.addEventListener( 'mouseup', handleWindowMouseUp )
 
     return () => {
-      window.removeEventListener('mousemove', handleWindowMouseMove)
-      window.removeEventListener('mouseup', handleWindowMouseUp)
+      window.removeEventListener( 'mousemove', handleWindowMouseMove )
+      window.removeEventListener( 'mouseup', handleWindowMouseUp )
     }
-  }, [commitBoxSelection, isSelecting, updateSelection])
+  }, [commitBoxSelection, isSelecting, updateSelection] )
 
-  useEffect(() => {
-    if (!hasMore || !onLoadMore) return
+  useEffect( () => {
+    if ( !hasMore || !onLoadMore ) return
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
+      ( entries ) => {
+        if ( entries[0].isIntersecting ) {
           onLoadMore()
         }
       },
@@ -186,23 +187,23 @@ export function FileGrid({
     )
 
     const el = loadMoreRef.current
-    if (el) {
-      observer.observe(el)
+    if ( el ) {
+      observer.observe( el )
     }
 
     return () => {
-      if (el) observer.unobserve(el)
+      if ( el ) observer.unobserve( el )
     }
-  }, [hasMore, onLoadMore])
+  }, [hasMore, onLoadMore] )
 
-  if (isLoading && items.length === 0) {
+  if ( isLoading && items.length === 0 ) {
     return <SkeletonGrid count={12} />
   }
 
-  const activeUploads = uploads.filter((u) => u.status !== 'completed')
+  const activeUploads = uploads.filter( ( u ) => u.status !== 'completed' )
   const hasContent = items.length > 0 || activeUploads.length > 0
 
-  if (!hasContent && !isLoading) return <FileGridEmptyState />
+  if ( !hasContent && !isLoading ) return <FileGridEmptyState />
 
   return (
     <div
@@ -210,22 +211,22 @@ export function FileGrid({
       className="relative pb-16"
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
-      onClick={(event) => {
-        if (didBoxSelectRef.current) {
+      onClick={( event ) => {
+        if ( didBoxSelectRef.current ) {
           event.stopPropagation()
           didBoxSelectRef.current = false
         }
       }}
     >
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-        {activeUploads.map((upload) => (
+        {activeUploads.map( ( upload ) => (
           <UploadingCard
             key={upload.id}
             upload={upload}
             onRetry={onRetryUpload}
           />
-        ))}
-        {items.map((item) => (
+        ) )}
+        {items.map( ( item ) => (
           <FileContextMenu
             key={item.id}
             item={item}
@@ -235,7 +236,7 @@ export function FileGrid({
           >
             <FileCard
               item={item}
-              isSelected={selectedIds.has(item.id)}
+              isSelected={selectedIds.has( item.id )}
               onDoubleClick={onDoubleClick}
               onContextAction={onContextAction}
               isRenaming={renamingItemId === item.id}
@@ -245,7 +246,7 @@ export function FileGrid({
               isReadOnly={isReadOnly}
             />
           </FileContextMenu>
-        ))}
+        ) )}
       </div>
 
       {hasMore && (
@@ -254,9 +255,9 @@ export function FileGrid({
           className="h-8 mt-4 w-full flex items-center justify-center"
         >
           {isLoading && (
-            <span className="text-sm text-muted-foreground animate-pulse">
-              Loading more...
-            </span>
+            <div className="w-full max-w-sm px-4">
+              <PageSkeleton variant="compact" className="h-4 w-full" />
+            </div>
           )}
         </div>
       )}
@@ -266,18 +267,18 @@ export function FileGrid({
   )
 }
 
-function SelectionOverlay({ rect }: { rect: SelectionRect }) {
-  const overlayRef = useRef<HTMLDivElement | null>(null)
+function SelectionOverlay( { rect }: { rect: SelectionRect } ) {
+  const overlayRef = useRef<HTMLDivElement | null>( null )
 
-  useEffect(() => {
+  useEffect( () => {
     const element = overlayRef.current
-    if (!element) return
+    if ( !element ) return
 
     element.style.left = `${rect.left}px`
     element.style.top = `${rect.top}px`
     element.style.width = `${rect.width}px`
     element.style.height = `${rect.height}px`
-  }, [rect.height, rect.left, rect.top, rect.width])
+  }, [rect.height, rect.left, rect.top, rect.width] )
 
   return (
     <div

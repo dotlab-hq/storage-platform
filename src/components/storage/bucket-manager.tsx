@@ -13,6 +13,7 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { BucketCredentialsDialog } from '@/components/storage/bucket-credentials-dialog'
 import { BucketSettingsDialog } from '@/components/storage/bucket-settings-dialog'
 import { ObjectOperationsDialog } from '@/components/storage/object-operations-dialog'
@@ -42,16 +43,16 @@ import {
 import type { S3BucketItem } from '@/types/s3-buckets'
 
 export function BucketManager() {
-  const [bucketName, setBucketName] = useState<string>('')
+  const [bucketName, setBucketName] = useState<string>( '' )
   const [activeCredentialsBucket, setActiveCredentialsBucket] = useState<
     string | null
-  >(null)
+  >( null )
   const [activeSettingsBucket, setActiveSettingsBucket] = useState<
     string | null
-  >(null)
+  >( null )
   const [activeObjectOpsBucket, setActiveObjectOpsBucket] = useState<
     string | null
-  >(null)
+  >( null )
   const [activeViewerBucket, setActiveViewerBucket] = useState<string | null>(
     null,
   )
@@ -70,47 +71,47 @@ export function BucketManager() {
     fetchCredentials,
   } = useS3Buckets()
 
-  useEffect(() => {
+  useEffect( () => {
     void refreshBuckets()
-  }, [refreshBuckets])
+  }, [refreshBuckets] )
 
-  const createDisabled = useMemo(() => {
+  const createDisabled = useMemo( () => {
     return bucketName.trim().length < 3 || isCreating
-  }, [bucketName, isCreating])
+  }, [bucketName, isCreating] )
 
   const handleCreate = async () => {
-    const created = await createNewBucket(bucketName)
-    if (created) {
-      setBucketName('')
+    const created = await createNewBucket( bucketName )
+    if ( created ) {
+      setBucketName( '' )
     }
   }
 
-  const handleEmpty = async (name: string) => {
-    const confirmed = window.confirm(`Empty all objects in bucket "${name}"?`)
-    if (!confirmed) {
+  const handleEmpty = async ( name: string ) => {
+    const confirmed = window.confirm( `Empty all objects in bucket "${name}"?` )
+    if ( !confirmed ) {
       return
     }
-    await runBucketAction(name, 'empty')
+    await runBucketAction( name, 'empty' )
   }
 
-  const handleDelete = async (name: string) => {
+  const handleDelete = async ( name: string ) => {
     const confirmed = window.confirm(
       `Delete bucket "${name}"? Bucket must be empty.`,
     )
-    if (!confirmed) {
+    if ( !confirmed ) {
       return
     }
-    await runBucketAction(name, 'delete')
+    await runBucketAction( name, 'delete' )
   }
 
-  const copyValue = async (value: string) => {
-    await navigator.clipboard.writeText(value)
+  const copyValue = async ( value: string ) => {
+    await navigator.clipboard.writeText( value )
   }
 
-  const openCredentialsDialog = async (name: string) => {
-    const credentials = await fetchCredentials(name)
-    if (credentials) {
-      setActiveCredentialsBucket(name)
+  const openCredentialsDialog = async ( name: string ) => {
+    const credentials = await fetchCredentials( name )
+    if ( credentials ) {
+      setActiveCredentialsBucket( name )
     }
   }
 
@@ -123,9 +124,9 @@ export function BucketManager() {
       {
         accessorKey: 'name',
         header: 'Name',
-        cell: (info) => (
+        cell: ( info ) => (
           <button
-            onClick={() => setActiveViewerBucket(info.row.original.name)}
+            onClick={() => setActiveViewerBucket( info.row.original.name )}
             className="font-medium text-blue-600 hover:underline dark:text-blue-400"
           >
             {info.getValue() as string}
@@ -135,11 +136,11 @@ export function BucketManager() {
       {
         accessorKey: 'createdAt',
         header: 'Created',
-        cell: (info) => {
+        cell: ( info ) => {
           const val = info.getValue() as string | null
-          if (!val) return 'Unknown'
-          const date = new Date(val)
-          return Number.isNaN(date.getTime())
+          if ( !val ) return 'Unknown'
+          const date = new Date( val )
+          return Number.isNaN( date.getTime() )
             ? 'Unknown'
             : date.toLocaleString()
         },
@@ -147,15 +148,15 @@ export function BucketManager() {
       {
         accessorKey: 'provider',
         header: 'Provider',
-        cell: (info) => (info.getValue() as string) || 'Default',
+        cell: ( info ) => ( info.getValue() as string ) || 'Default',
       },
       {
         id: 'status',
         header: 'Status',
-        cell: (info) => {
+        cell: ( info ) => {
           const bucket = info.row.original
           const pendingAction = pendingByBucket[bucket.name]
-          if (pendingAction) {
+          if ( pendingAction ) {
             return (
               <div className="flex items-center gap-2 text-muted-foreground text-sm">
                 <Loader2 className="h-3 w-3 animate-spin" />
@@ -173,7 +174,7 @@ export function BucketManager() {
       {
         id: 'actions',
         header: 'Actions',
-        cell: (info) => {
+        cell: ( info ) => {
           const bucket = info.row.original
           const isPending = !!pendingByBucket[bucket.name]
 
@@ -186,39 +187,39 @@ export function BucketManager() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">
                 <DropdownMenuItem
-                  onClick={() => setActiveViewerBucket(bucket.name)}
+                  onClick={() => setActiveViewerBucket( bucket.name )}
                 >
                   <Eye className="mr-2 h-4 w-4" />
                   View Objects
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                  onClick={() => setActiveSettingsBucket(bucket.name)}
+                  onClick={() => setActiveSettingsBucket( bucket.name )}
                 >
                   <Settings className="mr-2 h-4 w-4" />
                   Settings
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                  onClick={() => setActiveObjectOpsBucket(bucket.name)}
+                  onClick={() => setActiveObjectOpsBucket( bucket.name )}
                 >
                   <Database className="mr-2 h-4 w-4" />
                   Object Operations
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                  onClick={() => void openCredentialsDialog(bucket.name)}
+                  onClick={() => void openCredentialsDialog( bucket.name )}
                 >
                   <KeyRound className="mr-2 h-4 w-4" />
                   Credentials
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
-                  onClick={() => void handleEmpty(bucket.name)}
+                  onClick={() => void handleEmpty( bucket.name )}
                   className="text-orange-600 dark:text-orange-400 focus:text-orange-600"
                 >
                   <Eraser className="mr-2 h-4 w-4" />
                   Empty Bucket
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                  onClick={() => void handleDelete(bucket.name)}
+                  onClick={() => void handleDelete( bucket.name )}
                   className="text-destructive focus:text-destructive"
                 >
                   <Trash2 className="mr-2 h-4 w-4" />
@@ -233,11 +234,11 @@ export function BucketManager() {
     [pendingByBucket],
   )
 
-  const table = useReactTable({
-    data: buckets || [],
+  const table = useReactTable( {
+    data: buckets,
     columns,
     getCoreRowModel: getCoreRowModel(),
-  })
+  } )
 
   return (
     <section className="space-y-4 rounded-xl bg-linear-to-br from-blue-50/50 via-purple-50/30 to-background dark:from-blue-950/20 dark:via-purple-950/10 dark:to-background p-4 shadow-sm backdrop-blur-sm sm:p-5">
@@ -266,7 +267,7 @@ export function BucketManager() {
       <div className="flex flex-col gap-2 sm:flex-row">
         <Input
           value={bucketName}
-          onChange={(event) => setBucketName(event.target.value)}
+          onChange={( event ) => setBucketName( event.target.value )}
           placeholder="new-bucket-name"
           className="sm:max-w-sm"
         />
@@ -287,8 +288,11 @@ export function BucketManager() {
       )}
 
       {isLoading && (
-        <div className="text-muted-foreground py-8 text-sm">
-          Loading buckets...
+        <div className="space-y-2 py-4">
+          <PageSkeleton variant="compact" className="h-5 w-40" />
+          <PageSkeleton variant="default" className="h-12" />
+          <PageSkeleton variant="default" className="h-12" />
+          <PageSkeleton variant="default" className="h-12" />
         </div>
       )}
 
@@ -302,38 +306,38 @@ export function BucketManager() {
         <div className="rounded-md border bg-card overflow-hidden">
           <Table>
             <TableHeader>
-              {table.getHeaderGroups().map((headerGroup) => (
+              {table.getHeaderGroups().map( ( headerGroup ) => (
                 <TableRow key={headerGroup.id}>
-                  {headerGroup.headers.map((header) => (
+                  {headerGroup.headers.map( ( header ) => (
                     <TableHead key={header.id}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext(),
-                          )}
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )}
                     </TableHead>
-                  ))}
+                  ) )}
                 </TableRow>
-              ))}
+              ) )}
             </TableHeader>
             <TableBody>
               {table.getRowModel().rows.length ? (
-                table.getRowModel().rows.map((row) => (
+                table.getRowModel().rows.map( ( row ) => (
                   <TableRow
                     key={row.id}
                     data-state={row.getIsSelected() && 'selected'}
                   >
-                    {row.getVisibleCells().map((cell) => (
+                    {row.getVisibleCells().map( ( cell ) => (
                       <TableCell key={cell.id}>
                         {flexRender(
                           cell.column.columnDef.cell,
                           cell.getContext(),
                         )}
                       </TableCell>
-                    ))}
+                    ) )}
                   </TableRow>
-                ))
+                ) )
               ) : (
                 <TableRow>
                   <TableCell
@@ -353,33 +357,33 @@ export function BucketManager() {
         bucketName={activeCredentialsBucket}
         credentials={activeCredentials}
         onCopy={copyValue}
-        onOpenChange={(open) => {
-          if (!open) {
-            setActiveCredentialsBucket(null)
+        onOpenChange={( open ) => {
+          if ( !open ) {
+            setActiveCredentialsBucket( null )
           }
         }}
       />
 
       <BucketSettingsDialog
         bucketName={activeSettingsBucket}
-        onOpenChange={(open) => {
-          if (!open) setActiveSettingsBucket(null)
+        onOpenChange={( open ) => {
+          if ( !open ) setActiveSettingsBucket( null )
         }}
       />
 
       <ObjectOperationsDialog
         bucketName={activeObjectOpsBucket}
-        onOpenChange={(open) => {
-          if (!open) setActiveObjectOpsBucket(null)
+        onOpenChange={( open ) => {
+          if ( !open ) setActiveObjectOpsBucket( null )
         }}
       />
 
       <S3ViewerModal
         open={activeViewerBucket !== null}
         bucketName={activeViewerBucket}
-        onOpenChange={(open) => {
-          if (!open) {
-            setActiveViewerBucket(null)
+        onOpenChange={( open ) => {
+          if ( !open ) {
+            setActiveViewerBucket( null )
           }
         }}
       />

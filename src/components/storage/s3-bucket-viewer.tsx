@@ -8,6 +8,7 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { PageSkeleton } from '@/components/ui/page-skeleton'
 import {
   S3ViewerFileListItem,
   S3ViewerFolderListItem,
@@ -19,8 +20,8 @@ type S3BucketViewerProps = {
   bucketName: string
 }
 
-export function S3BucketViewer({ bucketName }: S3BucketViewerProps) {
-  const viewer = useS3BucketViewer(bucketName)
+export function S3BucketViewer( { bucketName }: S3BucketViewerProps ) {
+  const viewer = useS3BucketViewer( bucketName )
 
   const totalItems =
     viewer.folders.length + viewer.files.length + viewer.uploadingFiles.length
@@ -35,13 +36,13 @@ export function S3BucketViewer({ bucketName }: S3BucketViewerProps) {
             size="sm"
             variant="ghost"
             className="h-8 px-2 font-medium"
-            onClick={() => void viewer.refresh('')}
+            onClick={() => void viewer.refresh( '' )}
           >
             <Home className="h-4 w-4 mr-1.5" />
             {bucketName}
           </Button>
 
-          {viewer.breadcrumbs.map((crumb) => (
+          {viewer.breadcrumbs.map( ( crumb ) => (
             <div key={crumb.value} className="flex items-center">
               <ChevronRight className="h-4 w-4 text-muted-foreground mx-1" />
               <Button
@@ -49,12 +50,12 @@ export function S3BucketViewer({ bucketName }: S3BucketViewerProps) {
                 size="sm"
                 variant="ghost"
                 className="h-8 px-2 font-medium"
-                onClick={() => void viewer.refresh(crumb.value)}
+                onClick={() => void viewer.refresh( crumb.value )}
               >
                 {crumb.label}
               </Button>
             </div>
-          ))}
+          ) )}
         </div>
 
         <div className="flex items-center gap-2">
@@ -96,8 +97,8 @@ export function S3BucketViewer({ bucketName }: S3BucketViewerProps) {
             ref={viewer.inputRef}
             className="hidden"
             type="file"
-            onChange={(event) => {
-              void viewer.handleUpload(event)
+            onChange={( event ) => {
+              void viewer.handleUpload( event )
             }}
           />
         </div>
@@ -128,9 +129,10 @@ export function S3BucketViewer({ bucketName }: S3BucketViewerProps) {
         {totalItems === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-muted-foreground py-12">
             {viewer.isLoading ? (
-              <div className="flex flex-col items-center gap-3">
-                <Loader2 className="h-8 w-8 animate-spin text-muted-foreground/50" />
-                <p className="text-sm">Loading contents...</p>
+              <div className="w-full max-w-2xl space-y-3 px-6">
+                <PageSkeleton variant="default" className="h-12" />
+                <PageSkeleton variant="default" className="h-12" />
+                <PageSkeleton variant="default" className="h-12" />
               </div>
             ) : (
               <div className="flex flex-col items-center gap-3">
@@ -147,32 +149,32 @@ export function S3BucketViewer({ bucketName }: S3BucketViewerProps) {
         ) : (
           <div className="divide-y">
             {/* Uploading files - shown at the top */}
-            {viewer.uploadingFiles.map((file) => (
+            {viewer.uploadingFiles.map( ( file ) => (
               <S3ViewerUploadingFileListItem key={file.id} file={file} />
-            ))}
+            ) )}
             {/* Folders */}
-            {viewer.folders.map((folder) => (
+            {viewer.folders.map( ( folder ) => (
               <S3ViewerFolderListItem
                 key={folder.prefix}
                 entry={folder}
-                onOpen={(targetPrefix) => {
-                  void viewer.refresh(targetPrefix)
+                onOpen={( targetPrefix ) => {
+                  void viewer.refresh( targetPrefix )
                 }}
               />
-            ))}
+            ) )}
             {/* Files */}
-            {viewer.files.map((file) => (
+            {viewer.files.map( ( file ) => (
               <S3ViewerFileListItem
                 key={file.key}
                 entry={file}
-                onOpen={(key) => {
-                  void viewer.openFile(key)
+                onOpen={( key ) => {
+                  void viewer.openFile( key )
                 }}
-                onDelete={(key) => {
-                  void viewer.deleteFile(key)
+                onDelete={( key ) => {
+                  void viewer.deleteFile( key )
                 }}
               />
-            ))}
+            ) )}
           </div>
         )}
       </div>
@@ -183,7 +185,7 @@ export function S3BucketViewer({ bucketName }: S3BucketViewerProps) {
         {viewer.message && (
           <span
             className={
-              viewer.message.toLowerCase().includes('error')
+              viewer.message.toLowerCase().includes( 'error' )
                 ? 'text-destructive'
                 : ''
             }

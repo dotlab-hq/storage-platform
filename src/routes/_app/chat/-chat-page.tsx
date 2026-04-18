@@ -25,6 +25,9 @@ function pageKey( page: number ): string {
 export function ChatPage( { initial }: ChatPageProps ) {
   const { isMobile } = useSidebar()
   const activeThreadId = useChatUiStore( ( state ) => state.activeThreadId )
+  const isComposingNewThread = useChatUiStore(
+    ( state ) => state.isComposingNewThread,
+  )
   const searchQuery = useChatUiStore( ( state ) => state.searchQuery )
   const composerValue = useChatUiStore( ( state ) => state.composerValue )
   const threadPanelOpen = useChatUiStore( ( state ) => state.threadPanelOpen )
@@ -45,6 +48,7 @@ export function ChatPage( { initial }: ChatPageProps ) {
   } = useChatPageData( {
     initial,
     activeThreadId,
+    isComposingNewThread,
     searchQuery,
     setActiveThreadId: ( value ) => updateChatUi( { activeThreadId: value } ),
   } )
@@ -65,6 +69,9 @@ export function ChatPage( { initial }: ChatPageProps ) {
     activeThreadList: allThreads,
     deleteTargetId,
     setActiveThreadId: ( value ) => updateChatUi( { activeThreadId: value } ),
+    setComposerValue: ( value ) => updateChatUi( { composerValue: value } ),
+    setIsComposingNewThread: ( value ) =>
+      updateChatUi( { isComposingNewThread: value } ),
     setDeleteTargetId: ( value ) => updateChatUi( { deleteTargetId: value } ),
     setRenameTargetId: ( value ) => updateChatUi( { renameTargetId: value } ),
     setSheetOpen: ( value ) => updateChatUi( { sheetOpen: value } ),
@@ -76,12 +83,14 @@ export function ChatPage( { initial }: ChatPageProps ) {
     setActiveThreadId: ( value ) => updateChatUi( { activeThreadId: value } ),
     setSheetOpen: ( value ) => updateChatUi( { sheetOpen: value } ),
     setComposerValue: ( value ) => updateChatUi( { composerValue: value } ),
+    setIsComposingNewThread: ( value ) =>
+      updateChatUi( { isComposingNewThread: value } ),
   } )
 
   useChatShellActions( { hasActiveThread: Boolean( activeThread ) } )
   useChatPageEvents( {
     composerValue,
-    onCreateThread: () => threadActions.createThreadMutation.mutate(),
+    onCreateThread: threadActions.startNewThread,
     onSendMessage: messageActions.submitMessage,
   } )
 
@@ -92,9 +101,13 @@ export function ChatPage( { initial }: ChatPageProps ) {
       query={searchQuery}
       onQueryChange={( value ) => updateChatUi( { searchQuery: value } )}
       onSelect={( threadId ) => {
-        updateChatUi( { activeThreadId: threadId, sheetOpen: false } )
+        updateChatUi( {
+          activeThreadId: threadId,
+          isComposingNewThread: false,
+          sheetOpen: false,
+        } )
       }}
-      onCreate={() => threadActions.createThreadMutation.mutate()}
+      onCreate={threadActions.startNewThread}
       onRename={( thread ) => updateChatUi( { renameTargetId: thread.id } )}
       onDelete={( thread ) => updateChatUi( { deleteTargetId: thread.id } )}
     />
@@ -148,7 +161,7 @@ export function ChatPage( { initial }: ChatPageProps ) {
                 updateChatUi( { composerValue: value } )
               }
               onComposerSubmit={messageActions.submitMessage}
-              onCreateThread={() => threadActions.createThreadMutation.mutate()}
+              onCreateThread={threadActions.startNewThread}
             />
           </section>
         </div>
