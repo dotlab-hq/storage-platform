@@ -103,29 +103,30 @@ export function ChatPageContentRich( {
                     ) : (
                         <ChatEmptyState onStart={onCreateThread} />
                     )}
-                    {!isAtBottom && (
-                        <Button
-                            onClick={scrollToBottom}
-                            className="absolute bottom-4 right-4 rounded-full shadow-lg"
-                            size="icon"
-                            variant="outline"
-                        >
-                            <ChevronDown className="h-4 w-4" />
-                        </Button>
-                    )}
                 </div>
 
-                <Suspense fallback={<PageSkeleton className="h-28" variant="compact" />}>
-                    <ChatPageComposer
-                        value={composerValue}
-                        isSending={isSending}
-                        isStreaming={isStreaming}
-                        onChange={onComposerChange}
-                        onSubmit={onComposerSubmit}
-                        onStop={onComposerStop}
-                    />
-                </Suspense>
+                {!isAtBottom && (
+                    <Button
+                        onClick={scrollToBottom}
+                        className="absolute bottom-4 right-4 rounded-full shadow-lg"
+                        size="icon"
+                        variant="outline"
+                    >
+                        <ChevronDown className="h-4 w-4" />
+                    </Button>
+                )}
             </div>
+
+            <Suspense fallback={<PageSkeleton className="h-28" variant="compact" />}>
+                <ChatPageComposer
+                    value={composerValue}
+                    isSending={isSending}
+                    isStreaming={isStreaming}
+                    onChange={onComposerChange}
+                    onSubmit={onComposerSubmit}
+                    onStop={onComposerStop}
+                />
+            </Suspense>
         </>
     )
 }
