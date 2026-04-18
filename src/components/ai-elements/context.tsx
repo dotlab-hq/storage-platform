@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -28,13 +29,13 @@ interface ContextSchema {
   modelId?: ModelId;
 }
 
-const ContextContext = createContext<ContextSchema | null>(null);
+const ContextContext = createContext<ContextSchema | null>( null );
 
 const useContextValue = () => {
-  const context = useContext(ContextContext);
+  const context = useContext( ContextContext );
 
-  if (!context) {
-    throw new Error("Context components must be used within Context");
+  if ( !context ) {
+    throw new Error( "Context components must be used within Context" );
   }
 
   return context;
@@ -42,15 +43,15 @@ const useContextValue = () => {
 
 export type ContextProps = ComponentProps<typeof HoverCard> & ContextSchema;
 
-export const Context = ({
+export const Context = ( {
   usedTokens,
   maxTokens,
   usage,
   modelId,
   ...props
-}: ContextProps) => {
+}: ContextProps ) => {
   const contextValue = useMemo(
-    () => ({ maxTokens, modelId, usage, usedTokens }),
+    () => ( { maxTokens, modelId, usage, usedTokens } ),
     [maxTokens, modelId, usage, usedTokens]
   );
 
@@ -65,7 +66,7 @@ const ContextIcon = () => {
   const { usedTokens, maxTokens } = useContextValue();
   const circumference = 2 * Math.PI * ICON_RADIUS;
   const usedPercent = usedTokens / maxTokens;
-  const dashOffset = circumference * (1 - usedPercent);
+  const dashOffset = circumference * ( 1 - usedPercent );
 
   return (
     <svg
@@ -104,13 +105,13 @@ const ContextIcon = () => {
 
 export type ContextTriggerProps = ComponentProps<typeof Button>;
 
-export const ContextTrigger = ({ children, ...props }: ContextTriggerProps) => {
+export const ContextTrigger = ( { children, ...props }: ContextTriggerProps ) => {
   const { usedTokens, maxTokens } = useContextValue();
   const usedPercent = usedTokens / maxTokens;
-  const renderedPercent = new Intl.NumberFormat("en-US", {
+  const renderedPercent = new Intl.NumberFormat( "en-US", {
     maximumFractionDigits: 1,
     style: "percent",
-  }).format(usedPercent);
+  } ).format( usedPercent );
 
   return (
     <HoverCardTrigger asChild>
@@ -128,38 +129,38 @@ export const ContextTrigger = ({ children, ...props }: ContextTriggerProps) => {
 
 export type ContextContentProps = ComponentProps<typeof HoverCardContent>;
 
-export const ContextContent = ({
+export const ContextContent = ( {
   className,
   ...props
-}: ContextContentProps) => (
+}: ContextContentProps ) => (
   <HoverCardContent
-    className={cn("min-w-60 divide-y overflow-hidden p-0", className)}
+    className={cn( "min-w-60 divide-y overflow-hidden p-0", className )}
     {...props}
   />
 );
 
 export type ContextContentHeaderProps = ComponentProps<"div">;
 
-export const ContextContentHeader = ({
+export const ContextContentHeader = ( {
   children,
   className,
   ...props
-}: ContextContentHeaderProps) => {
+}: ContextContentHeaderProps ) => {
   const { usedTokens, maxTokens } = useContextValue();
   const usedPercent = usedTokens / maxTokens;
-  const displayPct = new Intl.NumberFormat("en-US", {
+  const displayPct = new Intl.NumberFormat( "en-US", {
     maximumFractionDigits: 1,
     style: "percent",
-  }).format(usedPercent);
-  const used = new Intl.NumberFormat("en-US", {
+  } ).format( usedPercent );
+  const used = new Intl.NumberFormat( "en-US", {
     notation: "compact",
-  }).format(usedTokens);
-  const total = new Intl.NumberFormat("en-US", {
+  } ).format( usedTokens );
+  const total = new Intl.NumberFormat( "en-US", {
     notation: "compact",
-  }).format(maxTokens);
+  } ).format( maxTokens );
 
   return (
-    <div className={cn("w-full space-y-2 p-3", className)} {...props}>
+    <div className={cn( "w-full space-y-2 p-3", className )} {...props}>
       {children ?? (
         <>
           <div className="flex items-center justify-between gap-3 text-xs">
@@ -179,37 +180,37 @@ export const ContextContentHeader = ({
 
 export type ContextContentBodyProps = ComponentProps<"div">;
 
-export const ContextContentBody = ({
+export const ContextContentBody = ( {
   children,
   className,
   ...props
-}: ContextContentBodyProps) => (
-  <div className={cn("w-full p-3", className)} {...props}>
+}: ContextContentBodyProps ) => (
+  <div className={cn( "w-full p-3", className )} {...props}>
     {children}
   </div>
 );
 
 export type ContextContentFooterProps = ComponentProps<"div">;
 
-export const ContextContentFooter = ({
+export const ContextContentFooter = ( {
   children,
   className,
   ...props
-}: ContextContentFooterProps) => {
+}: ContextContentFooterProps ) => {
   const { modelId, usage } = useContextValue();
   const costUSD = modelId
-    ? getUsage({
-        modelId,
-        usage: {
-          input: usage?.inputTokens ?? 0,
-          output: usage?.outputTokens ?? 0,
-        },
-      }).costUSD?.totalUSD
+    ? getUsage( {
+      modelId,
+      usage: {
+        input: usage?.inputTokens ?? 0,
+        output: usage?.outputTokens ?? 0,
+      },
+    } ).costUSD?.totalUSD
     : undefined;
-  const totalCost = new Intl.NumberFormat("en-US", {
+  const totalCost = new Intl.NumberFormat( "en-US", {
     currency: "USD",
     style: "currency",
-  }).format(costUSD ?? 0);
+  } ).format( costUSD ?? 0 );
 
   return (
     <div
@@ -229,19 +230,19 @@ export const ContextContentFooter = ({
   );
 };
 
-const TokensWithCost = ({
+const TokensWithCost = ( {
   tokens,
   costText,
 }: {
   tokens?: number;
   costText?: string;
-}) => (
+} ) => (
   <span>
     {tokens === undefined
       ? "—"
-      : new Intl.NumberFormat("en-US", {
-          notation: "compact",
-        }).format(tokens)}
+      : new Intl.NumberFormat( "en-US", {
+        notation: "compact",
+      } ).format( tokens )}
     {costText ? (
       <span className="ml-2 text-muted-foreground">• {costText}</span>
     ) : null}
@@ -250,36 +251,36 @@ const TokensWithCost = ({
 
 export type ContextInputUsageProps = ComponentProps<"div">;
 
-export const ContextInputUsage = ({
+export const ContextInputUsage = ( {
   className,
   children,
   ...props
-}: ContextInputUsageProps) => {
+}: ContextInputUsageProps ) => {
   const { usage, modelId } = useContextValue();
   const inputTokens = usage?.inputTokens ?? 0;
 
-  if (children) {
+  if ( children ) {
     return children;
   }
 
-  if (!inputTokens) {
+  if ( !inputTokens ) {
     return null;
   }
 
   const inputCost = modelId
-    ? getUsage({
-        modelId,
-        usage: { input: inputTokens, output: 0 },
-      }).costUSD?.totalUSD
+    ? getUsage( {
+      modelId,
+      usage: { input: inputTokens, output: 0 },
+    } ).costUSD?.totalUSD
     : undefined;
-  const inputCostText = new Intl.NumberFormat("en-US", {
+  const inputCostText = new Intl.NumberFormat( "en-US", {
     currency: "USD",
     style: "currency",
-  }).format(inputCost ?? 0);
+  } ).format( inputCost ?? 0 );
 
   return (
     <div
-      className={cn("flex items-center justify-between text-xs", className)}
+      className={cn( "flex items-center justify-between text-xs", className )}
       {...props}
     >
       <span className="text-muted-foreground">Input</span>
@@ -290,36 +291,36 @@ export const ContextInputUsage = ({
 
 export type ContextOutputUsageProps = ComponentProps<"div">;
 
-export const ContextOutputUsage = ({
+export const ContextOutputUsage = ( {
   className,
   children,
   ...props
-}: ContextOutputUsageProps) => {
+}: ContextOutputUsageProps ) => {
   const { usage, modelId } = useContextValue();
   const outputTokens = usage?.outputTokens ?? 0;
 
-  if (children) {
+  if ( children ) {
     return children;
   }
 
-  if (!outputTokens) {
+  if ( !outputTokens ) {
     return null;
   }
 
   const outputCost = modelId
-    ? getUsage({
-        modelId,
-        usage: { input: 0, output: outputTokens },
-      }).costUSD?.totalUSD
+    ? getUsage( {
+      modelId,
+      usage: { input: 0, output: outputTokens },
+    } ).costUSD?.totalUSD
     : undefined;
-  const outputCostText = new Intl.NumberFormat("en-US", {
+  const outputCostText = new Intl.NumberFormat( "en-US", {
     currency: "USD",
     style: "currency",
-  }).format(outputCost ?? 0);
+  } ).format( outputCost ?? 0 );
 
   return (
     <div
-      className={cn("flex items-center justify-between text-xs", className)}
+      className={cn( "flex items-center justify-between text-xs", className )}
       {...props}
     >
       <span className="text-muted-foreground">Output</span>
@@ -330,36 +331,36 @@ export const ContextOutputUsage = ({
 
 export type ContextReasoningUsageProps = ComponentProps<"div">;
 
-export const ContextReasoningUsage = ({
+export const ContextReasoningUsage = ( {
   className,
   children,
   ...props
-}: ContextReasoningUsageProps) => {
+}: ContextReasoningUsageProps ) => {
   const { usage, modelId } = useContextValue();
   const reasoningTokens = usage?.reasoningTokens ?? 0;
 
-  if (children) {
+  if ( children ) {
     return children;
   }
 
-  if (!reasoningTokens) {
+  if ( !reasoningTokens ) {
     return null;
   }
 
   const reasoningCost = modelId
-    ? getUsage({
-        modelId,
-        usage: { reasoningTokens },
-      }).costUSD?.totalUSD
+    ? getUsage( {
+      modelId,
+      usage: { reasoningTokens },
+    } ).costUSD?.totalUSD
     : undefined;
-  const reasoningCostText = new Intl.NumberFormat("en-US", {
+  const reasoningCostText = new Intl.NumberFormat( "en-US", {
     currency: "USD",
     style: "currency",
-  }).format(reasoningCost ?? 0);
+  } ).format( reasoningCost ?? 0 );
 
   return (
     <div
-      className={cn("flex items-center justify-between text-xs", className)}
+      className={cn( "flex items-center justify-between text-xs", className )}
       {...props}
     >
       <span className="text-muted-foreground">Reasoning</span>
@@ -370,36 +371,36 @@ export const ContextReasoningUsage = ({
 
 export type ContextCacheUsageProps = ComponentProps<"div">;
 
-export const ContextCacheUsage = ({
+export const ContextCacheUsage = ( {
   className,
   children,
   ...props
-}: ContextCacheUsageProps) => {
+}: ContextCacheUsageProps ) => {
   const { usage, modelId } = useContextValue();
   const cacheTokens = usage?.cachedInputTokens ?? 0;
 
-  if (children) {
+  if ( children ) {
     return children;
   }
 
-  if (!cacheTokens) {
+  if ( !cacheTokens ) {
     return null;
   }
 
   const cacheCost = modelId
-    ? getUsage({
-        modelId,
-        usage: { cacheReads: cacheTokens, input: 0, output: 0 },
-      }).costUSD?.totalUSD
+    ? getUsage( {
+      modelId,
+      usage: { cacheReads: cacheTokens, input: 0, output: 0 },
+    } ).costUSD?.totalUSD
     : undefined;
-  const cacheCostText = new Intl.NumberFormat("en-US", {
+  const cacheCostText = new Intl.NumberFormat( "en-US", {
     currency: "USD",
     style: "currency",
-  }).format(cacheCost ?? 0);
+  } ).format( cacheCost ?? 0 );
 
   return (
     <div
-      className={cn("flex items-center justify-between text-xs", className)}
+      className={cn( "flex items-center justify-between text-xs", className )}
       {...props}
     >
       <span className="text-muted-foreground">Cache</span>

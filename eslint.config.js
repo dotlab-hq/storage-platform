@@ -12,9 +12,11 @@ export default [
       '@typescript-eslint/array-type': 'off',
       '@typescript-eslint/require-await': 'off',
       'pnpm/json-enforce-catalog': 'off',
+      'jsx-a11y/style-props': 'off',
+      '@stylistic/no-restricted-properties': 'off',
     },
   },
   {
-    ignores: ['eslint.config.js', 'prettier.config.js'],
+    ignores: ['eslint.config.js', 'prettier.config.js', 'playwright.s3.config.ts'],
   },
 ]

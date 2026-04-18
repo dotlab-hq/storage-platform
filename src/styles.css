@@ -155,10 +155,12 @@
     display: none;
   }
 
-  /* Firefox */
-  .hide-scrollbar {
-    /* stylelint-disable-next-line */
-    scrollbar-width: none;
+  /* Firefox and Chrome 121+ */
+  @supports (scrollbar-width: thin) {
+    .hide-scrollbar {
+      /* stylelint-disable-next-line */
+      scrollbar-width: none;
+    }
   }
 
   /* IE / old Edge */

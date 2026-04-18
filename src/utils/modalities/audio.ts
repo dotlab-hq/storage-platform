@@ -1,6 +1,7 @@
 import { readFile, mkdir, writeFile } from 'node:fs/promises'
 import { dirname } from 'node:path'
-import { HumanMessage, SystemMessage, type AIMessage } from '@langchain/core/messages'
+import { HumanMessage, SystemMessage  } from '@langchain/core/messages'
+import type {AIMessage} from '@langchain/core/messages';
 import { sttModel } from '@/llm/stt.llm'
 import { TtsModel } from '@/llm/tts.llm'
 import { trimReasoning } from '@/utils/trimReasoning'

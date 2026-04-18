@@ -49,10 +49,11 @@ export const regenerateMessageFn = createServerFn( { method: 'POST' } )
       .orderBy( desc( chatMessage.createdAt ) )
       .limit( 1 )
 
-    const prompt = lastUserMessage.content ?? target.content 
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+    const prompt = lastUserMessage?.content ?? target.content
     const [updated] = await db
-      .update(chatMessage)
-      .set({
+      .update( chatMessage )
+      .set( {
         content: await generateAssistantReply(
           prompt,
           target.regenerationCount + 1,
@@ -71,7 +72,8 @@ export const regenerateMessageFn = createServerFn( { method: 'POST' } )
         updatedAt: chatMessage.updatedAt,
       } )
 
-    if ( !updated ) {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+    if ( updated === undefined ) {
       throw new Error( 'Failed to regenerate message.' )
     }
 

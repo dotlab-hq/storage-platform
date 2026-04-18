@@ -63,7 +63,7 @@ const CHAT_SYSTEM_PROMPT = [
   'You are Barrage Chat, a practical engineering assistant.',
   'Answer clearly and directly in markdown.',
   'When useful, include short bullet points and concise code blocks.',
-].join(' ')
+].join( ' ' )
 
 function fallbackAssistantReply(
   prompt: string,
@@ -106,30 +106,4 @@ export async function generateAssistantReply(
   }
 
   return fallbackAssistantReply( prompt, priorCount )
-}
-
-export async function generateAssistantReply(
-  prompt: string,
-  priorCount: number,
-): Promise<string> {
-  const compactPrompt = prompt.trim().replace(/\s+/g, ' ')
-  if (!compactPrompt) {
-    return fallbackAssistantReply(prompt, priorCount)
-  }
-
-  try {
-    const response = (await llm.invoke([
-      `${CHAT_SYSTEM_PROMPT}`,
-      `User: ${compactPrompt}`,
-    ])) as AIMessage
-
-    const trimmed = trimReasoning(response).trim()
-    if (trimmed.length > 0) {
-      return trimmed
-    }
-  } catch {
-    // Gracefully degrade to deterministic output so chat always responds.
-  }
-
-  return fallbackAssistantReply(prompt, priorCount)
 }
