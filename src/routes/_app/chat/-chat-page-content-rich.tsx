@@ -75,10 +75,10 @@ export function ChatPageContentRich( {
 
     return (
         <>
-            <div className="relative flex-1 min-h-0 overflow-hidden">
+            <div className="relative flex-1 min-h-0 overflow-hidden  max-w-md">
                 <div
                     ref={viewportRef}
-                    className="h-full overflow-y-auto max-w-md"
+                    className="h-full overflow-y-auto"
                     onScroll={handleScroll}
                 >
                     {hasActiveThread ? (
