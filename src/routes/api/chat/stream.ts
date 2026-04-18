@@ -7,10 +7,21 @@ import { generateAssistantReplyStream } from '../../_app/chat/-chat-assistant-re
 import { deriveThreadTitle } from '../../_app/chat/-chat-server-utils'
 import { findOwnedThread, refreshThreadLatestMessage } from '../../_app/chat/-chat-server-db'
 
+import { createFileRoute } from '@tanstack/react-router'
+
 const StreamMessageSchema = z.object( {
     threadId: z.string().min( 1 ).optional(),
     content: z.string().trim().min( 1 ).max( 6000 ),
 } )
+
+export const Route = createFileRoute( '/api/chat/stream' )( {
+    server: {
+        handlers: {
+            POST: POST,
+        }
+    }
+} )
+
 
 export async function POST( { request }: { request: Request } ) {
     try {
