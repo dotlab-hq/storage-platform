@@ -61,7 +61,7 @@ export function ChatPageComposer( {
   const status: ChatStatus = isSending ? 'submitted' : 'ready'
 
   return (
-    <div className="sticky bottom-0 mt-2 border bg-background/90 p-2 shadow-lg backdrop-blur sm:p-3">
+    <div className="sticky bottom-0 mt-2 bg-background/90 p-2 shadow-lg backdrop-blur sm:p-3">
       <PromptInput
         onSubmit={( { text } ) => {
           const next = text.trim()
@@ -81,7 +81,7 @@ export function ChatPageComposer( {
           />
         </PromptInputBody>
 
-        <PromptInputFooter className="border-t border-border pt-2">
+        <PromptInputFooter className="pt-2">
           <PromptInputTools>
             <PromptInputActionMenu>
               <PromptInputActionMenuTrigger />

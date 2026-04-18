@@ -15,22 +15,22 @@ import {
 type ChatPageHeaderProps = {
   isMobile: boolean
   sheetOpen: boolean
-  onSheetOpenChange: (open: boolean) => void
+  onSheetOpenChange: ( open: boolean ) => void
   threadPanelOpen: boolean
   onToggleThreadPanel: () => void
   sidebarContent: ReactNode
 }
 
-export function ChatPageHeader({
+export function ChatPageHeader( {
   isMobile,
   sheetOpen,
   onSheetOpenChange,
   threadPanelOpen,
   onToggleThreadPanel,
   sidebarContent,
-}: ChatPageHeaderProps) {
+}: ChatPageHeaderProps ) {
   return (
-    <header className="flex h-14 shrink-0 items-center justify-between gap-2 border-b px-2 sm:px-4">
+    <header className="flex h-14 shrink-0 items-center justify-between gap-2 px-2 sm:px-4">
       <div className="flex min-w-0 items-center gap-2">
         <SidebarTrigger className="-ml-1" />
         <Separator orientation="vertical" className="h-4" />
@@ -48,7 +48,7 @@ export function ChatPageHeader({
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[88vw] p-0 sm:max-w-sm">
-              <SheetHeader className="border-b px-4 py-3">
+              <SheetHeader className="px-4 py-3">
                 <SheetTitle>Chat Threads</SheetTitle>
                 <SheetDescription>
                   Manage, rename, and delete conversations.

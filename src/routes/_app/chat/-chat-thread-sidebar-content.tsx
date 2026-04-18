@@ -8,14 +8,14 @@ type ChatThreadSidebarContentProps = {
   threads: ChatThreadSnapshot[]
   activeThreadId: string | null
   query: string
-  onQueryChange: (value: string) => void
-  onSelect: (threadId: string) => void
+  onQueryChange: ( value: string ) => void
+  onSelect: ( threadId: string ) => void
   onCreate: () => void
-  onRename: (thread: ChatThreadSnapshot) => void
-  onDelete: (thread: ChatThreadSnapshot) => void
+  onRename: ( thread: ChatThreadSnapshot ) => void
+  onDelete: ( thread: ChatThreadSnapshot ) => void
 }
 
-export function ChatThreadSidebarContent({
+export function ChatThreadSidebarContent( {
   threads,
   activeThreadId,
   query,
@@ -24,10 +24,10 @@ export function ChatThreadSidebarContent({
   onCreate,
   onRename,
   onDelete,
-}: ChatThreadSidebarContentProps) {
+}: ChatThreadSidebarContentProps ) {
   return (
     <div className="flex h-full flex-col">
-      <div className="sticky top-0 z-10 border-b bg-background/95 px-2 py-2 backdrop-blur">
+      <div className="sticky top-0 z-10 bg-background/95 px-2 py-2 backdrop-blur">
         <Button className="w-full justify-start" onClick={onCreate}>
           <Plus className="mr-2 h-4 w-4" />
           New Thread
@@ -36,7 +36,7 @@ export function ChatThreadSidebarContent({
           <Search className="text-muted-foreground pointer-events-none absolute left-2 top-1/2 h-4 w-4 -translate-y-1/2" />
           <Input
             value={query}
-            onChange={(event) => onQueryChange(event.target.value)}
+            onChange={( event ) => onQueryChange( event.target.value )}
             placeholder="Search threads"
             className="pl-8"
           />
@@ -49,7 +49,7 @@ export function ChatThreadSidebarContent({
             No matching chats.
           </p>
         ) : (
-          threads.map((thread) => (
+          threads.map( ( thread ) => (
             <ChatThreadItem
               key={thread.id}
               thread={thread}
@@ -58,7 +58,7 @@ export function ChatThreadSidebarContent({
               onRename={onRename}
               onDelete={onDelete}
             />
-          ))
+          ) )
         )}
       </div>
     </div>

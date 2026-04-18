@@ -33,9 +33,9 @@ export function ChatPageContentRich( {
 }: ChatPageContentProps ) {
     return (
         <>
-            <div className="flex-1 min-h-0 pt-3 sm:pt-4">
+            <div className="flex-1 min-h-0 pt-3 sm:pt-4 overflow-y-auto">
                 <Conversation>
-                    <ConversationContent className="gap-0 p-0">
+                    <ConversationContent className="gap-3 p-3 sm:gap-4 sm:p-4">
                         <Suspense fallback={null}>
                             <ChatMessageList
                                 messages={messages}
@@ -51,7 +51,7 @@ export function ChatPageContentRich( {
                             className="h-3"
                         />
                     </ConversationContent>
-                    <ConversationScrollButton className="rounded-none" />
+                    <ConversationScrollButton className="rounded-full" />
                 </Conversation>
             </div>
 

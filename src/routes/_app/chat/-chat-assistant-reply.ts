@@ -1,127 +1,66 @@
-const CHAT_SYSTEM_PROMPT = [
-    'You are Barrage Chat, a practical engineering assistant.',
-    'Answer clearly and directly in markdown.',
-    'When useful, include short bullet points and concise code blocks.',
-].join( ' ' )
+import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 
-type UnknownRecord = Record<string, unknown>
-
-function isRecord( value: unknown ): value is UnknownRecord {
-    return typeof value === 'object' && value !== null
-}
-
-function readString( value: unknown ): string {
-    return typeof value === 'string' ? value : ''
-}
-
-function extractTextFromContentBlocks( value: unknown ): string {
-    if ( !Array.isArray( value ) ) {
-        return ''
-    }
-
-    const fragments: string[] = []
-    for ( const entry of value ) {
-        if ( !isRecord( entry ) ) {
-            continue
-        }
-
-        const type = readString( entry.type )
-        if ( !['text', 'output_text', 'message'].includes( type ) ) {
-            continue
-        }
-
-        const candidate =
-            readString( entry.text ) ||
-            readString( entry.data ) ||
-            readString( entry.content )
-
-        if ( candidate.length > 0 ) {
-            fragments.push( candidate )
-        }
-    }
-
-    return fragments.join( '\n' )
-}
-
-function extractTextFromContent( value: unknown ): string {
-    if ( typeof value === 'string' ) {
-        return value
-    }
-
-    if ( !Array.isArray( value ) ) {
-        return ''
-    }
-
-    const parts: string[] = []
-    for ( const entry of value ) {
-        if ( !isRecord( entry ) ) {
-            continue
-        }
-
-        if ( readString( entry.type ) !== 'text' ) {
-            continue
-        }
-
-        const text = readString( entry.text )
-        if ( text.length > 0 ) {
-            parts.push( text )
-        }
-    }
-
-    return parts.join( '\n' )
-}
-
-function extractAssistantText( response: unknown ): string {
-    if ( !isRecord( response ) ) {
-        return ''
-    }
-
-    const fromBlocks = extractTextFromContentBlocks( response.contentBlocks )
-    if ( fromBlocks.length > 0 ) {
-        return fromBlocks
-    }
-
-    return extractTextFromContent( response.content )
-}
-
-function fallbackAssistantReply( prompt: string, priorCount: number ): string {
-    const compactPrompt = prompt.trim().replace( /\s+/g, ' ' )
-    const suffix = priorCount > 0 ? ` (variation #${priorCount + 1})` : ''
-
-    return [
-        `Here's a focused response${suffix}:`,
-        '',
-        compactPrompt
-            ? `- You asked: "${compactPrompt}"`
-            : '- Your message was received.',
-        '- I can refine, expand, or regenerate this answer instantly.',
-        '- Use thread actions to rename or delete this conversation.',
-    ].join( '\n' )
-}
+const CHAT_SYSTEM_PROMPT =
+    'You are Barrage Chat, a practical engineering assistant. Answer clearly and directly in markdown. When useful, include short bullet points and concise code blocks. Be concise and helpful.'
 
 export async function generateAssistantReply(
     prompt: string,
     priorCount: number,
 ): Promise<string> {
     const compactPrompt = prompt.trim().replace( /\s+/g, ' ' )
+
     if ( compactPrompt.length === 0 ) {
-        return fallbackAssistantReply( prompt, priorCount )
+        return 'I received an empty message. How can I assist you today?'
     }
 
     try {
         const { llm } = await import( '@/llm/gemini.llm' )
-        const response = await llm.invoke( [
-            CHAT_SYSTEM_PROMPT,
-            `User: ${compactPrompt}`,
-        ] )
 
-        const trimmed = extractAssistantText( response ).trim()
-        if ( trimmed.length > 0 ) {
-            return trimmed
+        // Use proper LangChain message format
+        const messages = [
+            new SystemMessage( CHAT_SYSTEM_PROMPT ),
+            new HumanMessage( compactPrompt ),
+        ]
+
+        const response = await llm.invoke( messages )
+
+        // Handle the response based on LangChain's BaseMessage structure
+        const content = response.content
+
+        if ( typeof content === 'string' && content.trim().length > 0 ) {
+            return content.trim()
         }
-    } catch {
-        // Gracefully degrade to deterministic output so chat always responds.
+
+        if ( Array.isArray( content ) ) {
+            const textParts: string[] = []
+            for ( const part of content ) {
+                if ( typeof part === 'string' ) {
+                    textParts.push( part )
+                } else if (
+                    typeof part === 'object' &&
+                    part !== null &&
+                    'text' in part
+                ) {
+                    const text = ( part as { text: string } ).text
+                    if ( typeof text === 'string' ) {
+                        textParts.push( text )
+                    }
+                }
+            }
+
+            const result = textParts.join( '\n' ).trim()
+            if ( result.length > 0 ) {
+                return result
+            }
+        }
+    } catch ( error ) {
+        console.error( '[Chat] LLM Error:', {
+            message: error instanceof Error ? error.message : String( error ),
+            type: error instanceof Error ? error.constructor.name : typeof error,
+        } )
     }
 
-    return fallbackAssistantReply( prompt, priorCount )
+    // Fallback: return a thoughtful response that acknowledges the user
+    const suffix = priorCount > 0 ? ` (variation #${priorCount + 1})` : ''
+    return `**Response**${suffix}:\n\nI encountered an issue generating a response. Please try again or check that your API keys are properly configured. Your message was: "${compactPrompt}"`
 }

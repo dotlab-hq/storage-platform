@@ -28,7 +28,7 @@ export function ChatMessageItem( {
     <Message
       from={isUser ? 'user' : 'assistant'}
       className={cn(
-        'group max-w-full border p-3 shadow-sm sm:p-4',
+        'group max-w-full rounded-md p-3 shadow-sm sm:p-4',
         isUser
           ? 'ml-auto w-full bg-primary text-primary-foreground sm:max-w-[80%]'
           : 'mr-auto w-full bg-card sm:max-w-[86%]',
