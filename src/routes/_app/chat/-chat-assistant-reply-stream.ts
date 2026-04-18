@@ -3,7 +3,7 @@ import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 const CHAT_SYSTEM_PROMPT =
     'You are Barrage Chat, a practical engineering assistant. Answer clearly and directly in markdown. When useful, include short bullet points and concise code blocks. Be concise and helpful.'
 
-const CHARACTER_STREAM_DELAY_MS = 50
+const CHARACTER_STREAM_DELAY_MS = 20
 
 type LlmChunkLike = {
     content?: unknown

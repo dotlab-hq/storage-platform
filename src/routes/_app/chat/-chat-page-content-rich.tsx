@@ -49,7 +49,7 @@ export function ChatPageContentRich( {
                 if ( viewportRef.current ) {
                     viewportRef.current.scrollTop = viewportRef.current.scrollHeight
                 }
-            }, 50 )
+            }, 15 )
 
             return () => clearTimeout( scrollTimeout )
         }
@@ -78,12 +78,12 @@ export function ChatPageContentRich( {
             <div className="relative flex-1 min-h-0 overflow-hidden">
                 <div
                     ref={viewportRef}
-                    className="h-full overflow-y-auto"
+                    className="h-full overflow-y-auto max-w-md"
                     onScroll={handleScroll}
                 >
                     {hasActiveThread ? (
                         <Conversation>
-                            <ConversationContent className="gap-3 p-3 sm:gap-4 sm:p-4 max-w-md">
+                            <ConversationContent className="gap-3 p-3 sm:gap-4 sm:p-4 ">
                                 <Suspense fallback={<PageSkeleton variant="chat" className="mb-3" />}>
                                     <ChatMessageList
                                         messages={messages}
