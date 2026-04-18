@@ -14,9 +14,9 @@ export function HomeRoutePending() {
                             orientation="vertical"
                             className="mr-2 data-[orientation=vertical]:h-4"
                         />
-                        <div className="bg-muted h-4 w-36 animate-pulse rounded" />
+                        <div className="h-4 w-36 animate-pulse rounded bg-gradient-to-r from-muted via-muted-foreground/30 to-muted bg-[length:200%_100%] animate-[shimmer_2s_ease-in-out_infinite]" />
                     </div>
-                    <div className="bg-muted h-8 w-28 animate-pulse rounded" />
+                    <div className="h-8 w-28 animate-pulse rounded bg-gradient-to-r from-muted via-muted-foreground/30 to-muted bg-[length:200%_100%] animate-[shimmer_2s_ease-in-out_infinite_0.2s]" />
                 </header>
                 <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
                     <SkeletonGrid count={12} />

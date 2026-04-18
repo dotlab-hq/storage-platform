@@ -22,7 +22,7 @@ export function ChatMessageList( {
   const sorted = useMemo(
     () =>
       [...messages].sort( ( left, right ) =>
-        left.createdAt.localeCompare( right.createdAt ),
+        left.createdAt.getTime() - right.createdAt.getTime(),
       ),
     [messages],
   )

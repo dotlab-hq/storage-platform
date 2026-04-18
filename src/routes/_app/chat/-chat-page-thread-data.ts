@@ -74,7 +74,7 @@ export function useFlatThreads( pages: PaginatedThreads[] ) {
       }
     }
     return Array.from( map.values() ).sort( ( left, right ) =>
-      right.lastMessageAt.localeCompare( left.lastMessageAt ),
+      right.lastMessageAt.getTime() - left.lastMessageAt.getTime(),
     )
   }, [pages] )
 }

@@ -9,34 +9,34 @@ export function useMessagePages(
   queryVersion: unknown,
 ) {
   const queryClient = useQueryClient()
-  return useMemo(() => {
-    if (!threadId) {
+  return useMemo( () => {
+    if ( !threadId ) {
       return [] as PaginatedMessages[]
     }
     const pages: PaginatedMessages[] = []
-    for (let page = 1; page <= messagePage; page += 1) {
-      const data = queryClient.getQueryData<PaginatedMessages>([
-        ...chatQueryKeys.messages(threadId),
+    for ( let page = 1; page <= messagePage; page += 1 ) {
+      const data = queryClient.getQueryData<PaginatedMessages>( [
+        ...chatQueryKeys.messages( threadId ),
         page,
-      ])
-      if (data) {
-        pages.push(data)
+      ] )
+      if ( data ) {
+        pages.push( data )
       }
     }
     return pages
-  }, [queryClient, threadId, messagePage, queryVersion])
+  }, [queryClient, threadId, messagePage, queryVersion] )
 }
 
-export function useFlatMessages(pages: PaginatedMessages[]) {
-  return useMemo(() => {
+export function useFlatMessages( pages: PaginatedMessages[] ) {
+  return useMemo( () => {
     const map = new Map<string, ChatMessageSnapshot>()
-    for (const page of pages) {
-      for (const message of page.items) {
-        map.set(message.id, message)
+    for ( const page of pages ) {
+      for ( const message of page.items ) {
+        map.set( message.id, message )
       }
     }
-    return Array.from(map.values()).sort((left, right) =>
-      left.createdAt.localeCompare(right.createdAt),
+    return Array.from( map.values() ).sort( ( left, right ) =>
+      left.createdAt.getTime() - right.createdAt.getTime(),
     )
-  }, [pages])
+  }, [pages] )
 }
