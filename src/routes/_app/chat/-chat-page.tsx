@@ -131,7 +131,7 @@ export function ChatPage( { initial }: ChatPageProps ) {
           sidebarContent={sidebarContent}
         />
 
-        <div className="flex h-[calc(100dvh-3.5rem)] min-h-0">
+        <div className="flex h-[calc(100dvh-10.5rem)] min-h-0">
           {!isMobile && threadPanelOpen ? (
             <aside className="hidden w-75 shrink-0 lg:block">
               {sidebarContent}

@@ -1,9 +1,10 @@
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, useEffect, useRef, useState } from 'react'
+import { ChevronDown } from 'lucide-react'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { Button } from '@/components/ui/button'
 import {
     Conversation,
     ConversationContent,
-    ConversationScrollButton,
 } from '@/components/ai-elements/conversation'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { ChatEmptyState } from './-chat-empty-state'
@@ -38,33 +39,85 @@ export function ChatPageContentRich( {
     onComposerStop,
     onCreateThread,
 }: ChatPageContentProps ) {
+    const viewportRef = useRef<HTMLDivElement>( null )
+    const [isAtBottom, setIsAtBottom] = useState( true )
+
+    // Auto-scroll to bottom when new messages arrive
+    useEffect( () => {
+        if ( !viewportRef.current ) return
+
+        // Always scroll to bottom when messages change or streaming
+        if ( isAtBottom || isStreaming || isSending ) {
+            const scrollTimeout = setTimeout( () => {
+                if ( viewportRef.current ) {
+                    viewportRef.current.scrollTop = viewportRef.current.scrollHeight
+                }
+            }, 50 )
+
+            return () => clearTimeout( scrollTimeout )
+        }
+    }, [messages, isAtBottom, isStreaming, isSending] )
+
+    // Track scroll position
+    const handleScroll = ( event: React.UIEvent<HTMLDivElement> ) => {
+        const target = event.currentTarget
+        const scrollPercentage =
+            ( target.scrollHeight - target.scrollTop - target.clientHeight ) /
+            Math.max( target.scrollHeight - target.clientHeight, 1 )
+
+        // Show arrow if scrolled up more than 10% of scroll area
+        setIsAtBottom( scrollPercentage < 0.15 )
+    }
+
+    const scrollToBottom = () => {
+        if ( viewportRef.current ) {
+            viewportRef.current.scrollTop = viewportRef.current.scrollHeight
+            setIsAtBottom( true )
+        }
+    }
+
     return (
         <>
-            <ScrollArea className="flex-1 min-h-0">
-                {hasActiveThread ? (
-                    <Conversation>
-                        <ConversationContent className="gap-3 p-3 sm:gap-4 sm:p-4">
-                            <Suspense fallback={<PageSkeleton variant="chat" className="mb-3" />}>
-                                <ChatMessageList
-                                    messages={messages}
-                                    activeMessageId={activeMessageId}
-                                    isPending={isMessagePending}
-                                    onRegenerate={onRegenerate}
-                                    onDelete={onDelete}
+            <div className="relative flex-1 min-h-0 overflow-hidden">
+                <div
+                    ref={viewportRef}
+                    className="h-full overflow-y-auto"
+                    onScroll={handleScroll}
+                >
+                    {hasActiveThread ? (
+                        <Conversation>
+                            <ConversationContent className="gap-3 p-3 sm:gap-4 sm:p-4">
+                                <Suspense fallback={<PageSkeleton variant="chat" className="mb-3" />}>
+                                    <ChatMessageList
+                                        messages={messages}
+                                        activeMessageId={activeMessageId}
+                                        isPending={isMessagePending}
+                                        onRegenerate={onRegenerate}
+                                        onDelete={onDelete}
+                                        messageLoadRef={messageLoadRef}
+                                    />
+                                </Suspense>
+                                <div
+                                    className="h-3"
                                 />
-                            </Suspense>
-                            <div
-                                ref={messageLoadRef}
-                                data-page={messagePageKey}
-                                className="h-3"
-                            />
-                        </ConversationContent>
-                        <ConversationScrollButton className="rounded-full" />
-                    </Conversation>
-                ) : (
-                    <ChatEmptyState onStart={onCreateThread} />
+                            </ConversationContent>
+                        </Conversation>
+                    ) : (
+                        <ChatEmptyState onStart={onCreateThread} />
+                    )}
+                </div>
+
+                {!isAtBottom && (
+                    <Button
+                        onClick={scrollToBottom}
+                        className="absolute bottom-4 right-4 rounded-full shadow-lg"
+                        size="icon"
+                        variant="outline"
+                    >
+                        <ChevronDown className="h-4 w-4" />
+                    </Button>
                 )}
-            </ScrollArea>
+            </div>
 
             <Suspense fallback={<PageSkeleton className="h-28" variant="compact" />}>
                 <ChatPageComposer

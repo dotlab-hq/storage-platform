@@ -43,6 +43,7 @@ export function useChatPageData( {
   const [messagePage, setMessagePage] = useState( 1 )
   const threadLoadRef = useRef<HTMLDivElement | null>( null )
   const messageLoadRef = useRef<HTMLDivElement | null>( null )
+  const previousScrollHeightRef = useRef<number>( 0 )
 
   const threadQuery = useQuery( {
     queryKey: [...chatQueryKeys.threads, threadPage],
@@ -103,13 +104,35 @@ export function useChatPageData( {
     rootMargin: '200px',
   } )
 
+  // Load older messages when scrolling UP (to top)
   usePaginationObserver( {
-    enabled: Boolean( messagePages.at( -1 )?.hasMore ),
+    enabled: Boolean( messagePages.at( 0 )?.hasMore ),
     target: messageLoadRef.current,
     isFetching: messageQuery.isFetching,
-    onLoadMore: () => setMessagePage( ( value ) => value + 1 ),
-    rootMargin: '260px',
+    onLoadMore: () => {
+      // Store scroll height before loading more messages
+      const viewport = messageLoadRef.current?.closest( '[role="region"]' ) as HTMLDivElement
+      if ( viewport ) {
+        previousScrollHeightRef.current = viewport.scrollHeight
+      }
+      setMessagePage( ( value ) => value + 1 )
+    },
+    rootMargin: '-50px 0px 99999px 0px', // Only trigger at top
+    isTopObserver: true,
   } )
+
+  // Maintain scroll position when loading older messages
+  useEffect( () => {
+    if ( messageQuery.isFetching ) return
+
+    const viewport = messageLoadRef.current?.closest( '[role="region"]' ) as HTMLDivElement
+    if ( !viewport ) return
+
+    const heightDifference = viewport.scrollHeight - previousScrollHeightRef.current
+    if ( heightDifference > 0 ) {
+      viewport.scrollTop += heightDifference
+    }
+  }, [messageQuery.isFetching] )
 
   useEffect( () => {
     setMessagePage( 1 )
