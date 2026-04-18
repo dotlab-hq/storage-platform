@@ -66,8 +66,8 @@ export function useChatMessageActions( {
         role: 'user',
         content,
         regenerationCount: 0,
-        createdAt: now.toDateString(),
-        updatedAt: now.toDateString(),
+        createdAt: now.toISOString(),
+        updatedAt: now.toISOString(),
       }
 
       const optimisticAssistantMessage: ChatMessageSnapshot = {
@@ -76,8 +76,8 @@ export function useChatMessageActions( {
         role: 'assistant',
         content: '',
         regenerationCount: 0,
-        createdAt: now.toDateString(),
-        updatedAt: now.toDateString(),
+        createdAt: now.toISOString(),
+        updatedAt: now.toISOString(),
       }
 
       // Update UI with optimistic messages

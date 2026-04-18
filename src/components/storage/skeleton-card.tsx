@@ -20,7 +20,17 @@ export function SkeletonCard( { className }: { className?: string } ) {
 
                 {/* File metadata - smaller text */}
                 <div className="h-3 w-1/2 rounded bg-muted animate-pulse" />
-            ) )}
             </div>
-            )
+        </div>
+    )
+}
+
+export function SkeletonGrid( { count = 8 }: { count?: number } ) {
+    return (
+        <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 animate-in fade-in duration-500">
+            {Array.from( { length: count } ).map( ( _, i ) => (
+                <SkeletonCard key={`skeleton-${i}`} />
+            ) )}
+        </div>
+    )
 }
