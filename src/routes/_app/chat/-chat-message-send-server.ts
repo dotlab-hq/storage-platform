@@ -5,10 +5,10 @@ import { chatMessage, chatThread } from '@/db/schema/chat'
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import {
   deriveThreadTitle,
-  generateAssistantReply,
   toMessageSnapshot,
   toThreadSnapshot,
 } from './-chat-server-utils'
+import { generateAssistantReply } from './-chat-assistant-reply'
 import { findOwnedThread, refreshThreadLatestMessage } from './-chat-server-db'
 import type { SendChatMessageResult } from './-chat-types'
 
@@ -98,7 +98,7 @@ export const sendChatMessageFn = createServerFn( { method: 'POST' } )
         threadId: thread.id,
         userId: currentUser.id,
         role: 'assistant',
-        content: await generateAssistantReply(data.content, 0),
+        content: await generateAssistantReply( data.content, 0 ),
         regenerationCount: 0,
         createdAt: new Date(),
         updatedAt: new Date(),

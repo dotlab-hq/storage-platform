@@ -1,14 +1,9 @@
-import {
-  Conversation,
-  ConversationContent,
-  ConversationScrollButton,
-} from '@/components/ai-elements/conversation'
+import { useEffect, useState } from 'react'
+import { createClientOnlyFn } from '@tanstack/react-start'
 import { ChatEmptyState } from './-chat-empty-state'
-import { ChatMessageList } from './-chat-message-list'
-import { ChatPageComposer } from './-chat-page-composer'
 import type { ChatMessageSnapshot } from './-chat-types'
 
-type ChatPageContentProps = {
+export type ChatPageContentProps = {
   hasActiveThread: boolean
   messages: ChatMessageSnapshot[]
   activeMessageId: string | null
@@ -17,12 +12,22 @@ type ChatPageContentProps = {
   isSending: boolean
   messageLoadRef: React.RefObject<HTMLDivElement | null>
   messagePageKey: string
-  onRegenerate: (messageId: string) => void
-  onDelete: (messageId: string) => void
-  onComposerChange: (value: string) => void
-  onComposerSubmit: (value: string) => void
+  onRegenerate: ( messageId: string ) => void
+  onDelete: ( messageId: string ) => void
+  onComposerChange: ( value: string ) => void
+  onComposerSubmit: ( value: string ) => void
   onCreateThread: () => void
 }
+
+type ChatPageContentRichModule = {
+  ChatPageContentRich: ( props: ChatPageContentProps ) => JSX.Element
+}
+
+const loadChatPageContentRich = createClientOnlyFn( async () => {
+  const module =
+    await import( './-chat-page-content-rich' ) as ChatPageContentRichModule
+  return module.ChatPageContentRich
+} )
 
 export function ChatPageContent( {
   hasActiveThread,
@@ -39,38 +44,52 @@ export function ChatPageContent( {
   onComposerSubmit,
   onCreateThread,
 }: ChatPageContentProps ) {
+  const [RichContent, setRichContent] = useState<
+    ( ( props: ChatPageContentProps ) => JSX.Element ) | null
+  >( null )
+
+  useEffect( () => {
+    let isMounted = true
+
+    void loadChatPageContentRich().then( ( component ) => {
+      if ( !isMounted ) {
+        return
+      }
+      setRichContent( () => component )
+    } )
+
+    return () => {
+      isMounted = false
+    }
+  }, [] )
+
   if ( !hasActiveThread ) {
     return <ChatEmptyState onStart={onCreateThread} />
   }
 
-  return (
-    <>
-      <div className="flex-1 min-h-0 pt-3 sm:pt-4">
-        <Conversation>
-          <ConversationContent className="gap-0 p-0">
-            <ChatMessageList
-              messages={messages}
-              activeMessageId={activeMessageId}
-              isPending={isMessagePending}
-              onRegenerate={onRegenerate}
-              onDelete={onDelete}
-            />
-            <div
-              ref={messageLoadRef}
-              data-page={messagePageKey}
-              className="h-3"
-            />
-          </ConversationContent>
-          <ConversationScrollButton className="rounded-none" />
-        </Conversation>
+  if ( !RichContent ) {
+    return (
+      <div className="flex min-h-0 flex-1 items-center justify-center pt-3 sm:pt-4">
+        <p className="text-muted-foreground text-sm">Loading chat...</p>
       </div>
+    )
+  }
 
-      <ChatPageComposer
-        value={composerValue}
-        isSending={isSending}
-        onChange={onComposerChange}
-        onSubmit={onComposerSubmit}
-      />
-    </>
+  return (
+    <RichContent
+      hasActiveThread={hasActiveThread}
+      messages={messages}
+      activeMessageId={activeMessageId}
+      isMessagePending={isMessagePending}
+      composerValue={composerValue}
+      isSending={isSending}
+      messageLoadRef={messageLoadRef}
+      messagePageKey={messagePageKey}
+      onRegenerate={onRegenerate}
+      onDelete={onDelete}
+      onComposerChange={onComposerChange}
+      onComposerSubmit={onComposerSubmit}
+      onCreateThread={onCreateThread}
+    />
   )
 }

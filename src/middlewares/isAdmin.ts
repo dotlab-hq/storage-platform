@@ -1,5 +1,5 @@
-import { auth } from '@/lib/auth'
 import { isAdminRole, normalizeUserRole } from '@/lib/authz'
+import { loadAuth } from '@/lib/auth-loader'
 import { resolveTinySessionFromHeaders } from '@/lib/tiny-session'
 import { createMiddleware } from '@tanstack/react-start'
 import { notFound, redirect } from '@tanstack/react-router'
@@ -25,9 +25,10 @@ type AdminSessionContext = {
 async function resolveAdminSession(
   headers: Headers,
 ): Promise<AdminSessionContext | null> {
-  const session = await auth.api.getSession({ headers })
-  if (session?.user) {
-    const role = normalizeUserRole(session.user.role)
+  const auth = await loadAuth()
+  const session = await auth.api.getSession( { headers } )
+  if ( session?.user ) {
+    const role = normalizeUserRole( session.user.role )
     return {
       session: {
         id: session.session.id,
@@ -38,13 +39,13 @@ async function resolveAdminSession(
         email: session.user.email,
         name: session.user.name,
         role,
-        isAdmin: isAdminRole(role),
+        isAdmin: isAdminRole( role ),
       },
     }
   }
 
-  const tinySession = await resolveTinySessionFromHeaders(headers)
-  if (!tinySession) {
+  const tinySession = await resolveTinySessionFromHeaders( headers )
+  if ( !tinySession ) {
     return null
   }
 
@@ -68,22 +69,22 @@ async function resolveAdminSession(
 }
 
 export const isAdminMiddleware = createMiddleware().server(
-  async ({ next, request }) => {
-    const resolved = await resolveAdminSession(request.headers)
-    if (!resolved) {
-      throw redirect({ to: '/auth' })
+  async ( { next, request } ) => {
+    const resolved = await resolveAdminSession( request.headers )
+    if ( !resolved ) {
+      throw redirect( { to: '/auth' } )
     }
 
-    if (!resolved.user.isAdmin) {
+    if ( !resolved.user.isAdmin ) {
       throw notFound()
     }
 
-    return next({
+    return next( {
       context: {
         session: resolved.session,
         user: resolved.user,
         tinySession: resolved.tinySession,
       },
-    })
+    } )
   },
 )

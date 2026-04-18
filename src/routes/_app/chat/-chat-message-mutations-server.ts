@@ -4,7 +4,8 @@ import { z } from 'zod'
 import { db } from '@/db'
 import { chatMessage, chatMessageVersion } from '@/db/schema/chat'
 import { getAuthenticatedUser } from '@/lib/server-auth'
-import { generateAssistantReply, toMessageSnapshot } from './-chat-server-utils'
+import { toMessageSnapshot } from './-chat-server-utils'
+import { generateAssistantReply } from './-chat-assistant-reply'
 import { findOwnedMessage, refreshThreadLatestMessage } from './-chat-server-db'
 
 const RegenerateMessageSchema = z.object( {
