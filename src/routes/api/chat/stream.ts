@@ -15,7 +15,7 @@ import {
   toOpenAiCompletion,
   toSseEvent,
 } from './-openai-chat-compat'
-import { apiKey as apiKeyTable } from '@/db/schema/s3-security'
+import { apikey } from '@/db/schema/auth-schema'
 
 import { createFileRoute } from '@tanstack/react-router'
 
@@ -41,12 +41,13 @@ async function getUserFromApiKey(
   }
 
   try {
-    const keyRow = await db.query.apiKey.findFirst({
-      where: eq(apiKeyTable.accessKeyId, token),
+    const keyRow = await db.query.apikey.findFirst({
+      where: eq(apikey.key, token),
     })
 
     if (!keyRow) return null
     if (keyRow.expiresAt && new Date(keyRow.expiresAt) < new Date()) return null
+    if (keyRow.enabled === false) return null
 
     const user = await db.query.user.findFirst({
       where: eq(db._.fullSchema.user.id, keyRow.userId),
