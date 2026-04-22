@@ -4,12 +4,27 @@ import { buildFileRedirectUrl, buildNavUrl } from '@/lib/nav-token'
 import { downloadFromUrl } from '@/lib/file-utils'
 import { setFolderPrivateLockClient } from '@/lib/private-lock-client'
 import { generateFileSummaryForItem } from '@/lib/file-summary/client'
-import type { StorageItem, ContextMenuAction } from '@/types/storage'
-import type { UseStorageActionsParams } from './storage-actions.types'
-
 import { createFolderFn } from '@/lib/storage-actions-server'
 import { renameItemFn } from '@/lib/storage/mutations/rename'
 import { getFilePresignedUrlFn } from '@/lib/storage/mutations/urls'
+import type { StorageItem, ContextMenuAction } from '@/types/storage'
+import type { UseStorageActionsParams } from '@/hooks/storage-actions.types'
+
+function getErrorMessage(error: unknown, fallback: string): string {
+  return error instanceof Error ? error.message : fallback
+}
+
+function withOptimisticRename(
+  setItems: React.Dispatch<React.SetStateAction<StorageItem[]>>,
+  itemId: string,
+  nextName: string,
+) {
+  setItems((previous) =>
+    previous.map((item) =>
+      item.id === itemId ? { ...item, name: nextName } : item,
+    ),
+  )
+}
 
 export function useStorageActions(params: UseStorageActionsParams) {
   const {
@@ -37,9 +52,9 @@ export function useStorageActions(params: UseStorageActionsParams) {
           data: { fileId: item.id },
         })
         window.open(url, '_blank')
-      } catch (err) {
+      } catch (error) {
         toast.error(
-          `Failed to open file: ${err instanceof Error ? err.message : 'Unknown error'}`,
+          `Failed to open file: ${getErrorMessage(error, 'Unknown error')}`,
         )
       }
     },
@@ -49,108 +64,19 @@ export function useStorageActions(params: UseStorageActionsParams) {
   const handleRename = useCallback(
     async (item: StorageItem, newName: string) => {
       if (!userId) return
-      setItems((prev) =>
-        prev.map((i) => (i.id === item.id ? { ...i, name: newName } : i)),
-      )
+
+      withOptimisticRename(setItems, item.id, newName)
       setRenamingItemId(null)
       try {
         await renameItemFn({
           data: { itemId: item.id, newName, itemType: item.type },
         })
-        toast.success(`Renamed to "${newName}"`)
-      } catch (err) {
-        setItems((prev) =>
-          prev.map((i) => (i.id === item.id ? { ...i, name: item.name } : i)),
-        )
-        toast.error(
-          `Rename failed: ${err instanceof Error ? err.message : 'Unknown error'}`,
-        )
+      } catch (error) {
+        withOptimisticRename(setItems, item.id, item.name)
+        toast.error(`Rename failed: ${getErrorMessage(error, 'Unknown error')}`)
       }
     },
-    [userId, setItems],
-  )
-
-  const handleContextAction = useCallback(
-    (action: ContextMenuAction, item: StorageItem) => {
-      switch (action) {
-        case 'open':
-          void handleDoubleClick(item)
-          break
-        case 'rename':
-          setRenamingItemId(item.id)
-          break
-        case 'select':
-          select(item.id, false)
-          break
-        case 'move':
-          select(item.id, false)
-          onMoveOpen('move')
-          break
-        case 'update-path':
-          select(item.id, false)
-          onMoveOpen('update-path')
-          break
-        case 'share':
-          onShareOpen(item)
-          break
-        case 'private-lock':
-          if (!userId || item.type !== 'folder') return
-          void setFolderPrivateLockClient(item.id, !item.isPrivatelyLocked)
-            .then(() => {
-              toast.success(
-                !item.isPrivatelyLocked
-                  ? 'Private lock enabled'
-                  : 'Private lock removed',
-              )
-              void params.refresh()
-            })
-            .catch((err: Error) => {
-              toast.error(`Private lock update failed: ${err.message}`)
-            })
-          break
-        case 'copy-link': {
-          const payload =
-            item.type === 'folder'
-              ? { folderId: item.id }
-              : { folderId: currentFolderId, fileId: item.id }
-          const url =
-            item.type === 'folder'
-              ? buildNavUrl(payload)
-              : buildFileRedirectUrl(payload)
-          void navigator.clipboard.writeText(url)
-          toast.success('Link copied to clipboard')
-          break
-        }
-        case 'delete':
-          onDeleteOpen(item)
-          break
-        case 'download':
-          if (!userId || item.type !== 'file') return
-          void getFilePresignedUrlFn({ data: { fileId: item.id } })
-            .then(({ url }) => downloadFromUrl(url, item.name))
-            .catch(() => toast.error('Download failed'))
-          break
-        case 'generate-summary':
-          if (!userId || item.type !== 'file') return
-          void generateFileSummaryForItem(item.id)
-            .then((summary) => navigator.clipboard.writeText(summary))
-            .then(() => toast.success('Summary copied to clipboard'))
-            .catch((err: Error) =>
-              toast.error(`Summary failed: ${err.message}`),
-            )
-          break
-      }
-    },
-    [
-      currentFolderId,
-      handleDoubleClick,
-      onDeleteOpen,
-      onMoveOpen,
-      onShareOpen,
-      params,
-      select,
-      userId,
-    ],
+    [setItems, userId],
   )
 
   const handleNewFolder = useCallback(
@@ -172,15 +98,88 @@ export function useStorageActions(params: UseStorageActionsParams) {
           createdAt: new Date(created.createdAt),
           updatedAt: new Date(created.createdAt),
         }
-        setItems((prev) => [newFolder, ...prev])
-        toast.success(`Folder "${created.name}" created`)
-      } catch (err) {
+        setItems((previous) => [newFolder, ...previous])
+      } catch (error) {
         toast.error(
-          `Folder creation failed: ${err instanceof Error ? err.message : 'Unknown error'}`,
+          `Folder creation failed: ${getErrorMessage(error, 'Unknown error')}`,
         )
       }
     },
-    [userId, currentFolderId, setItems],
+    [currentFolderId, setItems, userId],
+  )
+
+  const handleContextAction = useCallback(
+    (action: ContextMenuAction, item: StorageItem) => {
+      switch (action) {
+        case 'open':
+          void handleDoubleClick(item)
+          return
+        case 'rename':
+          setRenamingItemId(item.id)
+          return
+        case 'select':
+          select(item.id, false)
+          return
+        case 'move':
+          select(item.id, false)
+          onMoveOpen('move')
+          return
+        case 'update-path':
+          select(item.id, false)
+          onMoveOpen('update-path')
+          return
+        case 'share':
+          onShareOpen(item)
+          return
+        case 'private-lock':
+          if (!userId || item.type !== 'folder') return
+          void setFolderPrivateLockClient(item.id, !item.isPrivatelyLocked)
+            .then(() => params.refresh())
+            .catch((error: Error) => {
+              toast.error(`Private lock update failed: ${error.message}`)
+            })
+          return
+        case 'copy-link': {
+          const payload =
+            item.type === 'folder'
+              ? { folderId: item.id }
+              : { folderId: currentFolderId, fileId: item.id }
+          const url =
+            item.type === 'folder'
+              ? buildNavUrl(payload)
+              : buildFileRedirectUrl(payload)
+          void navigator.clipboard.writeText(url)
+          return
+        }
+        case 'delete':
+          onDeleteOpen(item)
+          return
+        case 'download':
+          if (!userId || item.type !== 'file') return
+          void getFilePresignedUrlFn({ data: { fileId: item.id } })
+            .then(({ url }) => downloadFromUrl(url, item.name))
+            .catch(() => toast.error('Download failed'))
+          return
+        case 'generate-summary':
+          if (!userId || item.type !== 'file') return
+          void generateFileSummaryForItem(item.id)
+            .then((summary) => navigator.clipboard.writeText(summary))
+            .catch((error: Error) =>
+              toast.error(`Summary failed: ${error.message}`),
+            )
+          return
+      }
+    },
+    [
+      currentFolderId,
+      handleDoubleClick,
+      onDeleteOpen,
+      onMoveOpen,
+      onShareOpen,
+      params,
+      select,
+      userId,
+    ],
   )
 
   return {

@@ -6,7 +6,7 @@ import { moveItemsFn } from '@/lib/storage/mutations/move'
 
 function getItemTypes(ids: string[], items: StorageItem[]) {
   return ids.map((id) => {
-    const item = items.find((i) => i.id === id)
+    const item = items.find((entry) => entry.id === id)
     return item?.type ?? 'file'
   })
 }
@@ -38,43 +38,46 @@ export function useBulkActions({
   const handleDelete = useCallback(
     async (ids: string[], types: ('file' | 'folder')[]) => {
       if (!userId || ids.length === 0) return
+
       const idSet = new Set(ids)
-      setItems((prev) => prev.filter((i) => !idSet.has(i.id)))
+      setItems((previous) => previous.filter((item) => !idSet.has(item.id)))
       clearSelection()
       setDeleteOpen(false)
       try {
         await deleteItemsFn({ data: { itemIds: ids, itemTypes: types } })
-        toast.success('Moved to Trash')
-      } catch (err) {
+      } catch (error) {
         void refresh()
         toast.error(
-          err instanceof Error ? err.message : 'Failed to delete items',
+          error instanceof Error ? error.message : 'Failed to delete items',
         )
       }
     },
-    [userId, setItems, clearSelection, refresh, setDeleteOpen],
+    [clearSelection, refresh, setDeleteOpen, setItems, userId],
   )
 
   const handleMove = useCallback(
     async (targetFolderId: string | null) => {
       if (!userId) return
+
       const ids = Array.from(selectedIdsRef.current)
       if (ids.length === 0) return
+
       const types = getItemTypes(ids, items)
-      setItems((prev) => prev.filter((i) => !selectedIdsRef.current.has(i.id)))
+      setItems((previous) =>
+        previous.filter((item) => !selectedIdsRef.current.has(item.id)),
+      )
       clearSelection()
       setMoveOpen(false)
       try {
         await moveItemsFn({
           data: { itemIds: ids, itemTypes: types, targetFolderId },
         })
-        toast.success('Items moved')
       } catch {
         void refresh()
         toast.error('Failed to move items')
       }
     },
-    [userId, items, setItems, clearSelection, refresh, setMoveOpen],
+    [clearSelection, items, refresh, setItems, setMoveOpen, userId],
   )
 
   const handleDragMoveItem = useCallback(
@@ -84,18 +87,18 @@ export function useBulkActions({
       targetFolderId: string,
     ) => {
       if (!userId) return
-      setItems((prev) => prev.filter((i) => i.id !== itemId))
+
+      setItems((previous) => previous.filter((item) => item.id !== itemId))
       try {
         await moveItemsFn({
           data: { itemIds: [itemId], itemTypes: [itemType], targetFolderId },
         })
-        toast.success('Item moved')
       } catch {
         void refresh()
         toast.error('Failed to move item')
       }
     },
-    [userId, setItems, refresh],
+    [refresh, setItems, userId],
   )
 
   return { handleDelete, handleMove, handleDragMoveItem }

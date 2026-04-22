@@ -2,9 +2,10 @@ import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import { getVirtualBucketCredentials } from '@/lib/s3-gateway/virtual-buckets'
+import { DEFAULT_ASSETS_BUCKET_NAME } from '@/lib/storage/assets-bucket'
 
 const BucketActionSchema = z.object({
-  bucketName: z.string().trim().min(3).max(63),
+  bucketName: z.string().trim().min(3).max(63).optional(),
 })
 
 function normalizeEndpoint(endpoint: string): string {
@@ -55,9 +56,10 @@ export const Route = createFileRoute(
         try {
           const currentUser = await getAuthenticatedUser()
           const payload = BucketActionSchema.parse(await request.json())
+          const bucketName = payload.bucketName ?? DEFAULT_ASSETS_BUCKET_NAME
           const credentials = await getVirtualBucketCredentials(
             currentUser.id,
-            payload.bucketName,
+            bucketName,
           )
           return Response.json({
             ok: true,

@@ -6,9 +6,11 @@ import { WebRTCProvider } from '@/hooks/use-webrtc'
 import { useTinySession } from '@/hooks/use-tiny-session'
 import { useQuota } from '@/hooks/use-quota'
 import { AppSidebar } from '@/components/app-sidebar'
+import { ShaderBackdrop } from '@/components/background/shader-backdrop'
+import { Dock } from '@/components/ui/dock'
 
 export type RootLayoutProps = {
-    children: React.ReactNode
+  children: React.ReactNode
 }
 
 /**
@@ -17,20 +19,24 @@ export type RootLayoutProps = {
  * Pass children as SidebarInset with your page content.
  * Modals and overlays should be rendered after this component.
  */
-export function RootLayout( { children }: RootLayoutProps ) {
-    const tinySession = useTinySession()
-    const quota = useQuota()
+export function RootLayout({ children }: RootLayoutProps) {
+  const tinySession = useTinySession()
+  const quota = useQuota()
 
-    return (
-        <WebRTCProvider sessionToken={tinySession.hasSession ? tinySession.token : null}>
-            <div className="min-h-screen">
-                <SidebarProvider>
-                    <AppSidebar quota={quota} />
-                    {children}
-                </SidebarProvider>
-            </div>
-        </WebRTCProvider>
-    )
+  return (
+    <WebRTCProvider
+      sessionToken={tinySession.hasSession ? tinySession.token : null}
+    >
+      <div className="min-h-screen">
+        <ShaderBackdrop />
+        <SidebarProvider>
+          <AppSidebar quota={quota} />
+          <div className="flex-1 flex flex-col min-h-[100dvh]">
+            {children}
+            <Dock />
+          </div>
+        </SidebarProvider>
+      </div>
+    </WebRTCProvider>
+  )
 }
-
-

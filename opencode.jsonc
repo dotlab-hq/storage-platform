@@ -1,0 +1,73 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": true,
+  "instructions": [
+    "overall architecture.md",
+    "Agents.md",
+    "plans/**"
+  ],
+  "default_agent": "plan",
+  "share": "manual",
+  "formatter": {},
+  "mcp": {
+    "better-auth": {
+      "type": "remote",
+      "url": "https://mcp.better-auth.com/mcp",
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ],
+    },
+    "aceternityui": {
+      "command": [
+        "npx",
+        "aceternityui-mcp"
+      ],
+      "type": "local",
+    },
+    "shadcn": {
+      "command": [
+        "npx",
+        "shadcn@latest",
+        "mcp"
+      ],
+      "type": "local",
+    },
+    // "drizzle": {
+    //     "type": "local",
+    //     "command": [
+    //         "bunx",
+    //         "github:defrex/drizzle-mcp",
+    //         "./drizzle.config.ts"
+    //     ]
+    // },
+    // "bun": {
+    //     "type": "local",
+    //     "command": [
+    //         "bunx",
+    //         "-y",
+    //         "mcp-bun@latest"
+    //     ],
+    //     "environment": {
+    //         "DISABLE_NOTIFICATIONS": "true"
+    //     }
+    // },
+    "21st_dev": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@21st-dev/magic@latest",
+        "--api-key",
+        "${21ST_DEV_API_KEY}"
+      ],
+      "environment": {
+        "21ST_DEV_API_KEY": "07a337844845f18c59bc59e27eed9c36726fcbcee41a04edfe6172760ccaf651"
+      }
+    }
+  },
+}

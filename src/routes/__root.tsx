@@ -24,17 +24,17 @@ interface MyRouterContext {
 }
 
 const Devtools = import.meta.env.DEV
-  ? lazy( () =>
-    import( '@/components/devtools/tanstack-devtools' ).then( ( module ) => ( {
-      default: module.TanstackDevtools,
-    } ) ),
-  )
+  ? lazy(() =>
+      import('@/components/devtools/tanstack-devtools').then((module) => ({
+        default: module.TanstackDevtools,
+      })),
+    )
   : null
 
-export const Route = createRootRouteWithContext<MyRouterContext>()( {
+export const Route = createRootRouteWithContext<MyRouterContext>()({
   errorComponent: AppErrorBoundary,
   notFoundComponent: NotFoundPage,
-  head: () => ( {
+  head: () => ({
     meta: [
       {
         charSet: 'utf-8',
@@ -157,11 +157,11 @@ export const Route = createRootRouteWithContext<MyRouterContext>()( {
         href: 'https://fonts.googleapis.com',
       },
     ],
-  } ),
+  }),
   shellComponent: RootDocument,
-} )
+})
 
-function RootDocument( { children }: { children: React.ReactNode } ) {
+function RootDocument({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -169,7 +169,7 @@ function RootDocument( { children }: { children: React.ReactNode } ) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify( {
+            __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'SoftwareApplication',
               name: 'DOT. Storage',
@@ -191,7 +191,7 @@ function RootDocument( { children }: { children: React.ReactNode } ) {
                 name: 'DOT. Storage',
                 logo: 'https://storage.wpsadi.dev/logo.svg',
               },
-            } ),
+            }),
           }}
         />
       </head>
@@ -212,7 +212,11 @@ function RootDocument( { children }: { children: React.ReactNode } ) {
             </TooltipProvider>
             <Toaster />
             {Devtools ? (
-              <Suspense fallback={<PageSkeleton variant="compact" className="mx-3 my-2" />}>
+              <Suspense
+                fallback={
+                  <PageSkeleton variant="compact" className="mx-3 my-2" />
+                }
+              >
                 <Devtools />
               </Suspense>
             ) : null}
@@ -224,8 +228,8 @@ function RootDocument( { children }: { children: React.ReactNode } ) {
             __html: `
               if ('serviceWorker' in navigator) {
                 window.addEventListener('load', () => {
-                  navigator.serviceWorker.register('/sw.ts',{
-                  scope: '/sw',
+                  navigator.serviceWorker.register('/sw',{
+                  scope: '/',
                   }).then(
                     (registration) => {
                       console.log('ServiceWorker registration successful with scope: ', registration.scope);

@@ -16,12 +16,17 @@ import {
 } from './schemas'
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import { getVirtualBucketCredentials } from '@/lib/s3-gateway/virtual-buckets'
+import { DEFAULT_ASSETS_BUCKET_NAME } from '@/lib/storage/assets-bucket'
 
 export const getS3ViewerCredentialsFn = createServerFn({ method: 'GET' })
   .inputValidator(BucketSchema)
   .handler(async ({ data }) => {
     const user = await getAuthenticatedUser()
-    return getVirtualBucketCredentials(user.id, data.bucketName)
+    const targetBucket =
+      data.bucketName && data.bucketName.length > 0
+        ? data.bucketName
+        : DEFAULT_ASSETS_BUCKET_NAME
+    return getVirtualBucketCredentials(user.id, targetBucket)
   })
 
 export const listS3ViewerObjectsFn = createServerFn({ method: 'GET' })
