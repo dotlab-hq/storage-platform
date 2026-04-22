@@ -30,7 +30,7 @@ export function S3ViewerModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="flex flex-col h-[85vh] max-w-4xl p-0 gap-0 overflow-hidden bg-background">
+      <DialogContent className="flex flex-col h-[60vh] max-w-4xl p-0 gap-0 overflow-hidden bg-background">
         <DialogHeader className="px-6 py-4 border-b">
           <DialogTitle className="text-lg font-semibold text-foreground">
             S3 Viewer
