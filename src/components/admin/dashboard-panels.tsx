@@ -9,7 +9,7 @@ type MetricCardProps = { title: string; value: string | number }
 
 export function MetricCard({ title, value }: MetricCardProps) {
   return (
-    <div className="rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 p-4 dark:from-slate-800 dark:to-slate-900">
+    <div className="rounded-lg border p-4">
       <p className="text-muted-foreground text-sm">{title}</p>
       <p className="text-2xl font-semibold">{value}</p>
     </div>
@@ -30,14 +30,11 @@ export function ProvidersPanel({
   onOpenS3Viewer: (bucketName: string) => void
 }) {
   return (
-    <div className="rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 p-4 dark:from-slate-800 dark:to-slate-900">
+    <div className="rounded-lg border p-4">
       <h2 className="mb-3 text-base font-semibold">Storage Providers</h2>
       <div className="space-y-3">
         {providers.map((provider) => (
-          <div
-            key={provider.id}
-            className="rounded-lg bg-white/50 p-3 dark:bg-white/5"
-          >
+          <div key={provider.id} className="rounded-lg border p-3">
             <div className="flex items-center justify-between">
               <p className="font-medium">{provider.name}</p>
               <div className="flex gap-2">
@@ -115,13 +112,13 @@ export function ProvidersPanel({
 
 export function UsersPanel({ users }: { users: AdminUser[] }) {
   return (
-    <div className="rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 p-4 dark:from-slate-800 dark:to-slate-900">
+    <div className="rounded-lg border p-4">
       <h2 className="mb-3 text-base font-semibold">Users</h2>
       <div className="space-y-2">
         {users.map((user) => (
           <div
             key={user.id}
-            className="flex items-center justify-between rounded-lg bg-white/50 p-2 dark:bg-white/5"
+            className="flex items-center justify-between rounded-lg border p-2"
           >
             <div>
               <p className="text-sm font-medium">{user.name}</p>

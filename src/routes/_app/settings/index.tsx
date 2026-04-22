@@ -44,7 +44,7 @@ function SettingsPage() {
       </header>
       <div className="p-4">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="mb-4 grid w-full grid-cols-5 bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900">
+          <TabsList className="mb-4 grid w-full grid-cols-5">
             <TabsTrigger value="profile">Profile</TabsTrigger>
             <TabsTrigger value="auth">Auth Methods</TabsTrigger>
             <TabsTrigger value="2fa">2FA</TabsTrigger>
@@ -52,29 +52,19 @@ function SettingsPage() {
             <TabsTrigger value="sessions">Sessions</TabsTrigger>
           </TabsList>
           <TabsContent value="profile">
-            <div className="rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 p-6 dark:from-slate-800 dark:to-slate-900">
-              <ProfileSection initial={initial} />
-            </div>
+            <ProfileSection initial={initial} />
           </TabsContent>
           <TabsContent value="auth">
-            <div className="rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 p-6 dark:from-slate-800 dark:to-slate-900">
-              <AuthMethodsSection initial={initial} />
-            </div>
+            <AuthMethodsSection initial={initial} />
           </TabsContent>
           <TabsContent value="2fa">
-            <div className="rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 p-6 dark:from-slate-800 dark:to-slate-900">
-              <TwoFactorSection />
-            </div>
+            <TwoFactorSection />
           </TabsContent>
           <TabsContent value="password">
-            <div className="rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 p-6 dark:from-slate-800 dark:to-slate-900">
-              <PasswordSection />
-            </div>
+            <PasswordSection />
           </TabsContent>
           <TabsContent value="sessions">
-            <div className="rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 p-6 dark:from-slate-800 dark:to-slate-900">
-              <TinySessionsSection initial={initial} />
-            </div>
+            <TinySessionsSection initial={initial} />
           </TabsContent>
         </Tabs>
       </div>

@@ -248,7 +248,7 @@ function AdminDashboardPage() {
       </header>
       <div className="p-4">
         <Tabs defaultValue="overview" className="w-full">
-          <TabsList className="mb-4 grid w-full grid-cols-4 bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900">
+          <TabsList className="mb-4 grid w-full grid-cols-4">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="providers">Providers</TabsTrigger>
             <TabsTrigger value="users">Users</TabsTrigger>

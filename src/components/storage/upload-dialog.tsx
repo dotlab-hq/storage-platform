@@ -2,9 +2,10 @@
 
 import * as React from 'react'
 import { createClientOnlyFn } from '@tanstack/react-start'
-import { Upload, X } from 'lucide-react'
+import { Upload, X, FolderUp } from 'lucide-react'
 import { authClient } from '@/lib/auth-client'
 import { uploadBatch } from '@/lib/upload-utils'
+import { uploadFolder } from '@/lib/folder-upload-utils'
 import { toast } from '@/components/ui/sonner'
 import { Button } from '@/components/ui/button'
 import {
@@ -17,6 +18,7 @@ import {
 } from '@/components/ui/dialog'
 import { formatFileSize } from '@/lib/file-utils'
 import type { StorageItem, UploadingFile } from '@/types/storage'
+import { cn } from '@/lib/utils'
 
 type UploadDialogProps = {
   open: boolean
@@ -42,7 +44,8 @@ export function UploadDialog({
   fileSizeLimit,
 }: UploadDialogProps) {
   const router = useRouter()
-  const inputRef = React.useRef<HTMLInputElement>(null)
+  const fileInputRef = React.useRef<HTMLInputElement>(null)
+  const folderInputRef = React.useRef<HTMLInputElement>(null)
   const [isDragging, setIsDragging] = React.useState(false)
   const [selectedFiles, setSelectedFiles] = React.useState<File[]>([])
   const [uploadError, setUploadError] = React.useState<string | null>(null)
@@ -83,11 +86,94 @@ export function UploadDialog({
     [fileSizeLimit],
   )
 
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+  const handleDrop = async (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault()
     setIsDragging(false)
+    const items = Array.from(e.dataTransfer.items)
     const files = Array.from(e.dataTransfer.files)
+
+    const folders: FileSystemDirectoryEntry[] = []
+
+    for (const item of items) {
+      const entry = item.webkitGetAsEntry?.()
+      if (entry?.isDirectory) {
+        folders.push(entry as FileSystemDirectoryEntry)
+      }
+    }
+
+    if (folders.length > 0) {
+      const uid = await resolveUserId(userId)
+      if (!uid) {
+        setUploadError('Session not ready.')
+        return
+      }
+
+      onOpenChange(false)
+
+      for (const folderEntry of folders) {
+        const result = await uploadFolder(
+          folderEntry,
+          uid,
+          currentFolderId,
+          setUploads,
+        )
+        if (result.success) {
+          toast.success(
+            `Folder "${result.folderName}" uploaded with ${result.filesCount} files`,
+          )
+        } else {
+          toast.error(`Folder upload failed: ${result.error}`)
+        }
+      }
+      router.invalidate()
+      return
+    }
+
     if (files.length) dedupeAndAppend(files)
+  }
+
+  const handleFolderInputChange = async (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const items = e.target.files ? Array.from(e.target.files) : []
+    const folders: FileSystemDirectoryEntry[] = []
+
+    for (const item of items) {
+      const entry = (
+        item as File & { webkitGetAsEntry?: () => FileSystemEntry | null }
+      ).webkitGetAsEntry?.()
+      if (entry?.isDirectory) {
+        folders.push(entry as FileSystemDirectoryEntry)
+      }
+    }
+
+    if (folders.length > 0) {
+      const uid = await resolveUserId(userId)
+      if (!uid) {
+        setUploadError('Session not ready.')
+        return
+      }
+
+      onOpenChange(false)
+
+      for (const folderEntry of folders) {
+        const result = await uploadFolder(
+          folderEntry,
+          uid,
+          currentFolderId,
+          setUploads,
+        )
+        if (result.success) {
+          toast.success(
+            `Folder "${result.folderName}" uploaded with ${result.filesCount} files`,
+          )
+        } else {
+          toast.error(`Folder upload failed: ${result.error}`)
+        }
+      }
+      router.invalidate()
+    }
+    e.target.value = ''
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -177,10 +263,10 @@ export function UploadDialog({
         </DialogHeader>
 
         <div
-          className={`cursor-pointer rounded-lg border-2 border-dashed p-8 text-center transition-colors ${
-            isDragging ? 'border-primary bg-primary/5' : 'border-border'
-          }`}
-          onClick={() => inputRef.current?.click()}
+          className={cn(
+            'rounded-lg border-2 border-dashed p-8 text-center transition-colors',
+            isDragging ? 'border-primary' : 'border-border',
+          )}
           onDragOver={(e) => {
             e.preventDefault()
             setIsDragging(true)
@@ -188,17 +274,52 @@ export function UploadDialog({
           onDragLeave={() => setIsDragging(false)}
           onDrop={handleDrop}
         >
-          <Upload className="text-muted-foreground mx-auto mb-2 h-8 w-8" />
-          <p className="text-muted-foreground text-sm">
-            Drop files here or click to browse
-          </p>
+          <div className="flex flex-col items-center gap-3">
+            <div className="flex items-center gap-2">
+              <Upload className="text-muted-foreground h-8 w-8" />
+              <FolderUp className="text-muted-foreground h-8 w-8" />
+            </div>
+            <div className="space-y-1">
+              <p className="text-sm font-medium">Drop files or folders here</p>
+              <p className="text-muted-foreground text-xs">
+                Click to browse • Folders upload atomically
+              </p>
+            </div>
+            <div className="flex gap-2 pt-2">
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => fileInputRef.current?.click()}
+              >
+                Files
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => folderInputRef.current?.click()}
+              >
+                Folder
+              </Button>
+            </div>
+          </div>
           <input
-            ref={inputRef}
+            ref={fileInputRef}
             type="file"
             multiple
             className="hidden"
             onChange={handleInputChange}
             aria-label="Select files to upload"
+          />
+          <input
+            ref={folderInputRef}
+            type="file"
+            {...({
+              webkitdirectory: '',
+            } as React.InputHTMLAttributes<HTMLInputElement>)}
+            multiple
+            className="hidden"
+            onChange={handleFolderInputChange}
+            aria-label="Select folder to upload"
           />
         </div>
 

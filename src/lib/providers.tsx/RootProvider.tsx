@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import { useLocation } from '@tanstack/react-router'
 import { SidebarProvider } from '@/components/ui/sidebar'
 import { WebRTCProvider } from '@/hooks/use-webrtc'
 import { useTinySession } from '@/hooks/use-tiny-session'
@@ -13,6 +14,12 @@ export type RootLayoutProps = {
   children: React.ReactNode
 }
 
+const noDockRoutes = ['/chat']
+
+function shouldHideDock(pathname: string): boolean {
+  return noDockRoutes.some((route) => pathname.startsWith(route))
+}
+
 /**
  * RootLayout wraps the entire app with WebRTC and Sidebar providers.
  * Automatically loads storage quota for display in the sidebar.
@@ -22,6 +29,8 @@ export type RootLayoutProps = {
 export function RootLayout({ children }: RootLayoutProps) {
   const tinySession = useTinySession()
   const quota = useQuota()
+  const location = useLocation()
+  const hideDock = shouldHideDock(location.pathname)
 
   return (
     <WebRTCProvider
@@ -33,7 +42,7 @@ export function RootLayout({ children }: RootLayoutProps) {
           <AppSidebar quota={quota} />
           <div className="flex-1 flex flex-col min-h-[100dvh]">
             {children}
-            <Dock />
+            {!hideDock && <Dock />}
           </div>
         </SidebarProvider>
       </div>
