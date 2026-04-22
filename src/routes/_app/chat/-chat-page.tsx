@@ -18,24 +18,24 @@ type ChatPageProps = {
   initial: ChatRouteSnapshot
 }
 
-function pageKey( page: number ): string {
+function pageKey(page: number): string {
   return `p:${page}`
 }
 
-export function ChatPage( { initial }: ChatPageProps ) {
+export function ChatPage({ initial }: ChatPageProps) {
   const { isMobile } = useSidebar()
-  const activeThreadId = useChatUiStore( ( state ) => state.activeThreadId )
+  const activeThreadId = useChatUiStore((state) => state.activeThreadId)
   const isComposingNewThread = useChatUiStore(
-    ( state ) => state.isComposingNewThread,
+    (state) => state.isComposingNewThread,
   )
-  const searchQuery = useChatUiStore( ( state ) => state.searchQuery )
-  const composerValue = useChatUiStore( ( state ) => state.composerValue )
-  const threadPanelOpen = useChatUiStore( ( state ) => state.threadPanelOpen )
-  const sheetOpen = useChatUiStore( ( state ) => state.sheetOpen )
-  const renameTargetId = useChatUiStore( ( state ) => state.renameTargetId )
-  const deleteTargetId = useChatUiStore( ( state ) => state.deleteTargetId )
-  const streamingMessageId = useChatUiStore( ( state ) => state.streamingMessageId )
-  useChatStoreSync( { initialThreadId: initial.activeThreadId } )
+  const searchQuery = useChatUiStore((state) => state.searchQuery)
+  const composerValue = useChatUiStore((state) => state.composerValue)
+  const threadPanelOpen = useChatUiStore((state) => state.threadPanelOpen)
+  const sheetOpen = useChatUiStore((state) => state.sheetOpen)
+  const renameTargetId = useChatUiStore((state) => state.renameTargetId)
+  const deleteTargetId = useChatUiStore((state) => state.deleteTargetId)
+  const streamingMessageId = useChatUiStore((state) => state.streamingMessageId)
+  useChatStoreSync({ initialThreadId: initial.activeThreadId })
 
   const {
     threadPage,
@@ -46,78 +46,78 @@ export function ChatPage( { initial }: ChatPageProps ) {
     visibleThreads,
     activeThread,
     allMessages,
-  } = useChatPageData( {
+  } = useChatPageData({
     initial,
     activeThreadId,
     isComposingNewThread,
     searchQuery,
-    setActiveThreadId: ( value ) => updateChatUi( { activeThreadId: value } ),
-  } )
+    setActiveThreadId: (value) => updateChatUi({ activeThreadId: value }),
+  })
 
   const renameTarget = useMemo(
-    () => allThreads.find( ( thread ) => thread.id === renameTargetId ) ?? null,
+    () => allThreads.find((thread) => thread.id === renameTargetId) ?? null,
     [allThreads, renameTargetId],
   )
 
   const deleteTarget = useMemo(
-    () => allThreads.find( ( thread ) => thread.id === deleteTargetId ) ?? null,
+    () => allThreads.find((thread) => thread.id === deleteTargetId) ?? null,
     [allThreads, deleteTargetId],
   )
 
-  const threadActions = useChatThreadActions( {
+  const threadActions = useChatThreadActions({
     initial,
     activeThreadId,
     activeThreadList: allThreads,
     deleteTargetId,
-    setActiveThreadId: ( value ) => updateChatUi( { activeThreadId: value } ),
-    setComposerValue: ( value ) => updateChatUi( { composerValue: value } ),
-    setIsComposingNewThread: ( value ) =>
-      updateChatUi( { isComposingNewThread: value } ),
-    setDeleteTargetId: ( value ) => updateChatUi( { deleteTargetId: value } ),
-    setRenameTargetId: ( value ) => updateChatUi( { renameTargetId: value } ),
-    setSheetOpen: ( value ) => updateChatUi( { sheetOpen: value } ),
-  } )
+    setActiveThreadId: (value) => updateChatUi({ activeThreadId: value }),
+    setComposerValue: (value) => updateChatUi({ composerValue: value }),
+    setIsComposingNewThread: (value) =>
+      updateChatUi({ isComposingNewThread: value }),
+    setDeleteTargetId: (value) => updateChatUi({ deleteTargetId: value }),
+    setRenameTargetId: (value) => updateChatUi({ renameTargetId: value }),
+    setSheetOpen: (value) => updateChatUi({ sheetOpen: value }),
+  })
 
-  const messageActions = useChatMessageActions( {
+  const messageActions = useChatMessageActions({
     activeThreadId,
-    setActiveThreadId: ( value ) => updateChatUi( { activeThreadId: value } ),
-    setSheetOpen: ( value ) => updateChatUi( { sheetOpen: value } ),
-    setComposerValue: ( value ) => updateChatUi( { composerValue: value } ),
-    setIsComposingNewThread: ( value ) =>
-      updateChatUi( { isComposingNewThread: value } ),
-  } )
+    setActiveThreadId: (value) => updateChatUi({ activeThreadId: value }),
+    setSheetOpen: (value) => updateChatUi({ sheetOpen: value }),
+    setComposerValue: (value) => updateChatUi({ composerValue: value }),
+    setIsComposingNewThread: (value) =>
+      updateChatUi({ isComposingNewThread: value }),
+  })
 
   const handleCreateThread = () => {
     messageActions.stopStreaming()
-    updateChatUi( { streamingMessageId: null } )
+    updateChatUi({ streamingMessageId: null })
     threadActions.startNewThread()
   }
 
-  useChatShellActions( { hasActiveThread: Boolean( activeThread ) } )
-  useChatPageEvents( {
+  useChatShellActions({ hasActiveThread: Boolean(activeThread) })
+  useChatPageEvents({
     composerValue,
     onCreateThread: handleCreateThread,
     onSendMessage: messageActions.submitMessage,
-  } )
+  })
 
   const sidebarContent = (
     <ChatThreadSidebarContent
       threads={visibleThreads}
       activeThreadId={activeThreadId}
       query={searchQuery}
-      onQueryChange={( value ) => updateChatUi( { searchQuery: value } )}
-      onSelect={( threadId ) => {
+      onQueryChange={(value) => updateChatUi({ searchQuery: value })}
+      onSelect={(threadId) => {
         messageActions.stopStreaming()
-        updateChatUi( {
+        updateChatUi({
           activeThreadId: threadId,
           isComposingNewThread: false,
           streamingMessageId: null,
           sheetOpen: false,
-        } )
+        })
       }}
       onCreate={handleCreateThread}
-      onRename={( thread ) => updateChatUi( { renameTargetId: thread.id } )}
-      onDelete={( thread ) => updateChatUi( { deleteTargetId: thread.id } )}
+      onRename={(thread) => updateChatUi({ renameTargetId: thread.id })}
+      onDelete={(thread) => updateChatUi({ deleteTargetId: thread.id })}
     />
   )
 
@@ -127,10 +127,10 @@ export function ChatPage( { initial }: ChatPageProps ) {
         <ChatPageHeader
           isMobile={isMobile}
           sheetOpen={sheetOpen}
-          onSheetOpenChange={( value ) => updateChatUi( { sheetOpen: value } )}
+          onSheetOpenChange={(value) => updateChatUi({ sheetOpen: value })}
           threadPanelOpen={threadPanelOpen}
           onToggleThreadPanel={() =>
-            updateChatUi( { threadPanelOpen: !threadPanelOpen } )
+            updateChatUi({ threadPanelOpen: !threadPanelOpen })
           }
           sidebarContent={sidebarContent}
         />
@@ -141,7 +141,7 @@ export function ChatPage( { initial }: ChatPageProps ) {
               {sidebarContent}
               <div
                 ref={threadLoadRef}
-                data-page={pageKey( threadPage )}
+                data-page={pageKey(threadPage)}
                 className="h-3"
               />
             </aside>
@@ -149,7 +149,7 @@ export function ChatPage( { initial }: ChatPageProps ) {
 
           <section className="flex min-w-0 flex-1 flex-col px-2 pb-2 sm:px-4 sm:pb-4">
             <ChatPageContent
-              hasActiveThread={Boolean( activeThread )}
+              hasActiveThread={Boolean(activeThread)}
               messages={allMessages}
               activeMessageId={
                 messageActions.regenerateMutation.variables ?? null
@@ -159,15 +159,15 @@ export function ChatPage( { initial }: ChatPageProps ) {
               composerValue={composerValue}
               isSending={messageActions.sendMutation.isPending}
               messageLoadRef={messageLoadRef}
-              messagePageKey={pageKey( messagePage )}
-              onRegenerate={( messageId ) =>
-                messageActions.regenerateMutation.mutate( messageId )
+              messagePageKey={pageKey(messagePage)}
+              onRegenerate={(messageId) =>
+                messageActions.regenerateMutation.mutate(messageId)
               }
-              onDelete={( messageId ) =>
-                messageActions.deleteMessageMutation.mutate( messageId )
+              onDelete={(messageId) =>
+                messageActions.deleteMessageMutation.mutate(messageId)
               }
-              onComposerChange={( value ) =>
-                updateChatUi( { composerValue: value } )
+              onComposerChange={(value) =>
+                updateChatUi({ composerValue: value })
               }
               onComposerSubmit={messageActions.submitMessage}
               onComposerStop={messageActions.stopStreaming}
@@ -178,31 +178,31 @@ export function ChatPage( { initial }: ChatPageProps ) {
       </SidebarInset>
 
       <ChatThreadRenameDialog
-        open={Boolean( renameTarget )}
+        open={Boolean(renameTarget)}
         thread={renameTarget}
         isPending={threadActions.renameThreadMutation.isPending}
-        onOpenChange={( open ) => {
-          if ( !open ) updateChatUi( { renameTargetId: null } )
+        onOpenChange={(open) => {
+          if (!open) updateChatUi({ renameTargetId: null })
         }}
-        onConfirm={( title ) => {
-          if ( !renameTarget ) return
-          threadActions.renameThreadMutation.mutate( {
+        onConfirm={(title) => {
+          if (!renameTarget) return
+          threadActions.renameThreadMutation.mutate({
             threadId: renameTarget.id,
             title,
-          } )
+          })
         }}
       />
 
       <ChatThreadDeleteDialog
-        open={Boolean( deleteTarget )}
+        open={Boolean(deleteTarget)}
         thread={deleteTarget}
         isPending={threadActions.deleteThreadMutation.isPending}
-        onOpenChange={( open ) => {
-          if ( !open ) updateChatUi( { deleteTargetId: null } )
+        onOpenChange={(open) => {
+          if (!open) updateChatUi({ deleteTargetId: null })
         }}
         onConfirm={() => {
-          if ( !deleteTarget ) return
-          threadActions.deleteThreadMutation.mutate( deleteTarget.id )
+          if (!deleteTarget) return
+          threadActions.deleteThreadMutation.mutate(deleteTarget.id)
         }}
       />
     </>

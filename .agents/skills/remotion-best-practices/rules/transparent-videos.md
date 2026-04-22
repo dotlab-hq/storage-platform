@@ -23,31 +23,31 @@ npx remotion render --image-format=png --pixel-format=yuva444p10le --codec=prore
 
 ```ts
 // remotion.config.ts
-import { Config } from "@remotion/cli/config";
+import { Config } from '@remotion/cli/config'
 
-Config.setVideoImageFormat("png");
-Config.setPixelFormat("yuva444p10le");
-Config.setCodec("prores");
-Config.setProResProfile("4444");
+Config.setVideoImageFormat('png')
+Config.setPixelFormat('yuva444p10le')
+Config.setCodec('prores')
+Config.setProResProfile('4444')
 ```
 
 **Setting it as the default export settings for a composition** (using `calculateMetadata`):
 
 ```tsx
-import { CalculateMetadataFunction } from "remotion";
+import { CalculateMetadataFunction } from 'remotion'
 
 const calculateMetadata: CalculateMetadataFunction<Props> = async ({
   props,
 }) => {
   return {
-    defaultCodec: "prores",
-    defaultVideoImageFormat: "png",
-    defaultPixelFormat: "yuva444p10le",
-    defaultProResProfile: "4444",
-  };
-};
+    defaultCodec: 'prores',
+    defaultVideoImageFormat: 'png',
+    defaultPixelFormat: 'yuva444p10le',
+    defaultProResProfile: '4444',
+  }
+}
 
-<Composition
+;<Composition
   id="my-video"
   component={MyVideo}
   durationInFrames={150}
@@ -55,7 +55,7 @@ const calculateMetadata: CalculateMetadataFunction<Props> = async ({
   width={1920}
   height={1080}
   calculateMetadata={calculateMetadata}
-/>;
+/>
 ```
 
 ## Transparent WebM (VP9)
@@ -72,29 +72,29 @@ npx remotion render --image-format=png --pixel-format=yuva420p --codec=vp9 MyCom
 
 ```ts
 // remotion.config.ts
-import { Config } from "@remotion/cli/config";
+import { Config } from '@remotion/cli/config'
 
-Config.setVideoImageFormat("png");
-Config.setPixelFormat("yuva420p");
-Config.setCodec("vp9");
+Config.setVideoImageFormat('png')
+Config.setPixelFormat('yuva420p')
+Config.setCodec('vp9')
 ```
 
 **Setting it as the default export settings for a composition** (using `calculateMetadata`):
 
 ```tsx
-import { CalculateMetadataFunction } from "remotion";
+import { CalculateMetadataFunction } from 'remotion'
 
 const calculateMetadata: CalculateMetadataFunction<Props> = async ({
   props,
 }) => {
   return {
-    defaultCodec: "vp8",
-    defaultVideoImageFormat: "png",
-    defaultPixelFormat: "yuva420p",
-  };
-};
+    defaultCodec: 'vp8',
+    defaultVideoImageFormat: 'png',
+    defaultPixelFormat: 'yuva420p',
+  }
+}
 
-<Composition
+;<Composition
   id="my-video"
   component={MyVideo}
   durationInFrames={150}
@@ -102,5 +102,5 @@ const calculateMetadata: CalculateMetadataFunction<Props> = async ({
   width={1920}
   height={1080}
   calculateMetadata={calculateMetadata}
-/>;
+/>
 ```

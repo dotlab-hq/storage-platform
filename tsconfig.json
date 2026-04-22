@@ -13,7 +13,9 @@
     "my-tanstack-start-app",
     "node_modules",
     "playwright-report",
-    "test-results"
+    "test-results",
+    ".agents",
+    ".github"
   ],
   "compilerOptions": {
     "target": "ES2022",
@@ -21,21 +23,10 @@
     "module": "ESNext",
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
-    "lib": [
-      "ES2022",
-      "DOM",
-      "DOM.Iterable",
-      "WebWorker"
-    ],
-    "types": [
-      "./worker-configuration.d.ts",
-      "node",
-      "vite/client"
-    ],
+    "lib": ["ES2022", "DOM", "DOM.Iterable", "WebWorker"],
+    "types": ["./worker-configuration.d.ts", "node", "vite/client"],
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,

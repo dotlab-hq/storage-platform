@@ -1,37 +1,40 @@
-import { createFileRoute } from "@tanstack/react-router"
-import { z } from "zod"
-import { getAuthenticatedUser } from "@/lib/server-auth"
-import { deleteVirtualBucket } from "@/lib/s3-gateway/virtual-buckets"
+import { createFileRoute } from '@tanstack/react-router'
+import { z } from 'zod'
+import { getAuthenticatedUser } from '@/lib/server-auth'
+import { deleteVirtualBucket } from '@/lib/s3-gateway/virtual-buckets'
 
-const BucketActionSchema = z.object( {
-    bucketName: z.string().trim().min( 3 ).max( 63 ),
-} )
+const BucketActionSchema = z.object({
+  bucketName: z.string().trim().min(3).max(63),
+})
 
-function errorToMessage( error: unknown ): string {
-    if ( error instanceof z.ZodError ) {
-        return error.issues[0]?.message ?? "Invalid request"
-    }
-    if ( error instanceof Error ) {
-        return error.message
-    }
-    return "Failed to delete bucket"
+function errorToMessage(error: unknown): string {
+  if (error instanceof z.ZodError) {
+    return error.issues[0]?.message ?? 'Invalid request'
+  }
+  if (error instanceof Error) {
+    return error.message
+  }
+  return 'Failed to delete bucket'
 }
 
-export const Route = createFileRoute( "/api/storage/s3/delete-bucket" as never )( {
-    component: () => null,
-    server: {
-        handlers: {
-            POST: async ( { request } ) => {
-                try {
-                    const currentUser = await getAuthenticatedUser()
-                    const payload = BucketActionSchema.parse( await request.json() )
-                    await deleteVirtualBucket( currentUser.id, payload.bucketName )
-                    return Response.json( { ok: true } )
-                } catch ( error ) {
-                    const status = error instanceof z.ZodError ? 400 : 500
-                    return Response.json( { ok: false, error: errorToMessage( error ) }, { status } )
-                }
-            },
-        },
+export const Route = createFileRoute('/api/storage/s3/delete-bucket' as never)({
+  component: () => null,
+  server: {
+    handlers: {
+      POST: async ({ request }) => {
+        try {
+          const currentUser = await getAuthenticatedUser()
+          const payload = BucketActionSchema.parse(await request.json())
+          await deleteVirtualBucket(currentUser.id, payload.bucketName)
+          return Response.json({ ok: true })
+        } catch (error) {
+          const status = error instanceof z.ZodError ? 400 : 500
+          return Response.json(
+            { ok: false, error: errorToMessage(error) },
+            { status },
+          )
+        }
+      },
     },
-} )
+  },
+})

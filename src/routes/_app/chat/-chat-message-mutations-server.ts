@@ -8,47 +8,47 @@ import { toMessageSnapshot } from './-chat-server-utils'
 import { generateAssistantReplyStream } from './-chat-assistant-reply-stream'
 import { findOwnedMessage, refreshThreadLatestMessage } from './-chat-server-db'
 
-const RegenerateMessageSchema = z.object( {
-  messageId: z.string().min( 1 ),
-} )
+const RegenerateMessageSchema = z.object({
+  messageId: z.string().min(1),
+})
 
-const DeleteMessageSchema = z.object( {
-  messageId: z.string().min( 1 ),
-} )
+const DeleteMessageSchema = z.object({
+  messageId: z.string().min(1),
+})
 
-export const regenerateMessageFn = createServerFn( { method: 'POST' } )
-  .inputValidator( RegenerateMessageSchema )
-  .handler( async ( { data } ) => {
+export const regenerateMessageFn = createServerFn({ method: 'POST' })
+  .inputValidator(RegenerateMessageSchema)
+  .handler(async ({ data }) => {
     const currentUser = await getAuthenticatedUser()
-    const target = await findOwnedMessage( currentUser.id, data.messageId )
+    const target = await findOwnedMessage(currentUser.id, data.messageId)
 
-    if ( !target ) {
-      throw new Error( 'Message not found.' )
+    if (!target) {
+      throw new Error('Message not found.')
     }
 
-    if ( target.role !== 'assistant' ) {
-      throw new Error( 'Only assistant messages can be regenerated.' )
+    if (target.role !== 'assistant') {
+      throw new Error('Only assistant messages can be regenerated.')
     }
 
-    await db.insert( chatMessageVersion ).values( {
+    await db.insert(chatMessageVersion).values({
       messageId: target.id,
       content: target.content,
       versionNumber: target.regenerationCount + 1,
       createdAt: new Date(),
-    } )
+    })
 
     const [lastUserMessage] = await db
-      .select( { content: chatMessage.content } )
-      .from( chatMessage )
+      .select({ content: chatMessage.content })
+      .from(chatMessage)
       .where(
         and(
-          eq( chatMessage.threadId, target.threadId ),
-          eq( chatMessage.role, 'user' ),
-          eq( chatMessage.isDeleted, false ),
+          eq(chatMessage.threadId, target.threadId),
+          eq(chatMessage.role, 'user'),
+          eq(chatMessage.isDeleted, false),
         ),
       )
-      .orderBy( desc( chatMessage.createdAt ) )
-      .limit( 1 )
+      .orderBy(desc(chatMessage.createdAt))
+      .limit(1)
 
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     const prompt = lastUserMessage?.content ?? target.content
@@ -56,27 +56,27 @@ export const regenerateMessageFn = createServerFn( { method: 'POST' } )
     // Stream assistant reply
     let assistantContent = ''
     try {
-      for await ( const chunk of generateAssistantReplyStream(
+      for await (const chunk of generateAssistantReplyStream(
         prompt,
         target.regenerationCount + 1,
-      ) ) {
+      )) {
         assistantContent += chunk
       }
-    } catch ( error ) {
-      console.error( '[Chat] Regenerate stream error:', error )
+    } catch (error) {
+      console.error('[Chat] Regenerate stream error:', error)
       assistantContent =
         'I encountered an error while regenerating the response. Please try again.'
     }
 
     const [updated] = await db
-      .update( chatMessage )
-      .set( {
+      .update(chatMessage)
+      .set({
         content: assistantContent,
         regenerationCount: target.regenerationCount + 1,
         updatedAt: new Date(),
-      } )
-      .where( eq( chatMessage.id, target.id ) )
-      .returning( {
+      })
+      .where(eq(chatMessage.id, target.id))
+      .returning({
         id: chatMessage.id,
         threadId: chatMessage.threadId,
         role: chatMessage.role,
@@ -84,32 +84,32 @@ export const regenerateMessageFn = createServerFn( { method: 'POST' } )
         regenerationCount: chatMessage.regenerationCount,
         createdAt: chatMessage.createdAt,
         updatedAt: chatMessage.updatedAt,
-      } )
+      })
 
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    if ( updated === undefined ) {
-      throw new Error( 'Failed to regenerate message.' )
+    if (updated === undefined) {
+      throw new Error('Failed to regenerate message.')
     }
 
-    await refreshThreadLatestMessage( target.threadId )
-    return { message: toMessageSnapshot( updated ) }
-  } )
+    await refreshThreadLatestMessage(target.threadId)
+    return { message: toMessageSnapshot(updated) }
+  })
 
-export const deleteMessageFn = createServerFn( { method: 'POST' } )
-  .inputValidator( DeleteMessageSchema )
-  .handler( async ( { data } ) => {
+export const deleteMessageFn = createServerFn({ method: 'POST' })
+  .inputValidator(DeleteMessageSchema)
+  .handler(async ({ data }) => {
     const currentUser = await getAuthenticatedUser()
-    const target = await findOwnedMessage( currentUser.id, data.messageId )
+    const target = await findOwnedMessage(currentUser.id, data.messageId)
 
-    if ( !target ) {
-      throw new Error( 'Message not found.' )
+    if (!target) {
+      throw new Error('Message not found.')
     }
 
     await db
-      .update( chatMessage )
-      .set( { isDeleted: true, deletedAt: new Date(), updatedAt: new Date() } )
-      .where( eq( chatMessage.id, target.id ) )
+      .update(chatMessage)
+      .set({ isDeleted: true, deletedAt: new Date(), updatedAt: new Date() })
+      .where(eq(chatMessage.id, target.id))
 
-    await refreshThreadLatestMessage( target.threadId )
+    await refreshThreadLatestMessage(target.threadId)
     return { ok: true as const, threadId: target.threadId }
-  } )
+  })

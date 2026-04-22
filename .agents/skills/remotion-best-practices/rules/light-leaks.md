@@ -22,10 +22,9 @@ npx remotion add @remotion/light-leaks
 ## Basic usage with TransitionSeries
 
 ```tsx
-import { TransitionSeries } from "@remotion/transitions";
-import { LightLeak } from "@remotion/light-leaks";
-
-<TransitionSeries>
+import { TransitionSeries } from '@remotion/transitions'
+import { LightLeak } from '@remotion/light-leaks'
+;<TransitionSeries>
   <TransitionSeries.Sequence durationInFrames={60}>
     <SceneA />
   </TransitionSeries.Sequence>
@@ -35,7 +34,7 @@ import { LightLeak } from "@remotion/light-leaks";
   <TransitionSeries.Sequence durationInFrames={60}>
     <SceneB />
   </TransitionSeries.Sequence>
-</TransitionSeries>;
+</TransitionSeries>
 ```
 
 ## Props
@@ -47,13 +46,13 @@ import { LightLeak } from "@remotion/light-leaks";
 ## Customizing the look
 
 ```tsx
-import { LightLeak } from "@remotion/light-leaks";
+import { LightLeak } from '@remotion/light-leaks'
 
 // Blue-tinted light leak with a different pattern
-<LightLeak seed={5} hueShift={240} />;
+;<LightLeak seed={5} hueShift={240} />
 
 // Green-tinted light leak
-<LightLeak seed={2} hueShift={120} />;
+;<LightLeak seed={2} hueShift={120} />
 ```
 
 ## Standalone usage
@@ -61,13 +60,13 @@ import { LightLeak } from "@remotion/light-leaks";
 `<LightLeak>` can also be used outside of `<TransitionSeries>`, for example as a decorative overlay in any composition:
 
 ```tsx
-import { AbsoluteFill } from "remotion";
-import { LightLeak } from "@remotion/light-leaks";
+import { AbsoluteFill } from 'remotion'
+import { LightLeak } from '@remotion/light-leaks'
 
 const MyComp: React.FC = () => (
   <AbsoluteFill>
     <MyContent />
     <LightLeak durationInFrames={60} seed={3} />
   </AbsoluteFill>
-);
+)
 ```

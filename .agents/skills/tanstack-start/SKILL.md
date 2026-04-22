@@ -13,6 +13,7 @@ Full-stack React framework with SSR, server functions, and Vite bundling.
 ## Project Setup
 
 **New project:**
+
 ```bash
 pnpm create cloudflare@latest my-app --framework=tanstack-start -y --no-deploy
 ```
@@ -33,7 +34,7 @@ export default defineConfig({
   plugins: [
     tsConfigPaths(),
     tanstackStart(),
-    viteReact(),  // MUST come AFTER tanstackStart
+    viteReact(), // MUST come AFTER tanstackStart
   ],
 })
 ```
@@ -50,22 +51,24 @@ See [references/server-functions.md](references/server-functions.md) for complet
 
 **When to use what (Cloudflare Workers):**
 
-| Use Case | Solution |
-|----------|----------|
-| Server code in route loaders | `createServerFn()` |
-| Server code from client event handlers | API routes (`server.handlers`) work best |
-| Access Cloudflare bindings | `import { env } from 'cloudflare:workers'` |
+| Use Case                               | Solution                                   |
+| -------------------------------------- | ------------------------------------------ |
+| Server code in route loaders           | `createServerFn()`                         |
+| Server code from client event handlers | API routes (`server.handlers`) work best   |
+| Access Cloudflare bindings             | `import { env } from 'cloudflare:workers'` |
 
 **createServerFn** - for loaders:
+
 ```typescript
 import { createServerFn } from '@tanstack/react-start'
 
 export const getData = createServerFn().handler(async () => {
-  return { data: process.env.SECRET }  // Server-only
+  return { data: process.env.SECRET } // Server-only
 })
 ```
 
 **API routes** - for client event handlers:
+
 ```tsx
 // routes/api/users.ts
 export const Route = createFileRoute('/api/users')({
@@ -83,6 +86,7 @@ export const Route = createFileRoute('/api/users')({
 ```
 
 **Key APIs:**
+
 - `createServerFn()` - Server-only functions for loaders
 - `server.handlers` - API routes for client event handlers
 - `createMiddleware({ type: 'function' })` - Reusable middleware
@@ -104,8 +108,7 @@ See [references/routing.md](references/routing.md) for complete patterns.
 import { createFileRoute } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 
-const getPost = createServerFn()
-  .handler(async () => await db.post.findFirst())
+const getPost = createServerFn().handler(async () => await db.post.findFirst())
 
 export const Route = createFileRoute('/posts/$postId')({
   loader: ({ params }) => getPost({ data: params.postId }),
@@ -125,30 +128,34 @@ pnpm add -D @cloudflare/vite-plugin wrangler
 ```
 
 **vite.config.ts** - add cloudflare plugin:
+
 ```typescript
 import { cloudflare } from '@cloudflare/vite-plugin'
 // Add to plugins: cloudflare({ viteEnvironment: { name: 'ssr' } })
 ```
 
 **wrangler.jsonc**:
+
 ```jsonc
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "my-app",
-  "compatibility_date": "<CURRENT_DATE>",  // Use today's YYYY-MM-DD
+  "compatibility_date": "<CURRENT_DATE>", // Use today's YYYY-MM-DD
   "compatibility_flags": ["nodejs_compat"],
   "main": "@tanstack/react-start/server-entry",
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
 }
 ```
 
 **Access Cloudflare bindings** in server functions:
+
 ```typescript
 import { env } from 'cloudflare:workers'
 const value = await env.MY_KV.get('key')
 ```
 
 **Static Prerendering** (v1.138.0+):
+
 ```typescript
 tanstackStart({ prerender: { enabled: true } })
 ```
@@ -173,6 +180,7 @@ See [references/better-auth.md](references/better-auth.md) for complete guide.
 > ⚠️ **Critical**: Use `createFileRoute` with `server.handlers`, NOT the legacy `createAPIFileRoute`.
 
 **Mount the auth handler** at `/src/routes/api/auth/$.ts`:
+
 ```typescript
 import { auth } from '@/lib/auth'
 import { createFileRoute } from '@tanstack/react-router'
@@ -188,29 +196,29 @@ export const Route = createFileRoute('/api/auth/$')({
 ```
 
 **Auth config** with `tanstackStartCookies` plugin:
+
 ```typescript
-import { betterAuth } from "better-auth"
-import { tanstackStartCookies } from "better-auth/tanstack-start"
+import { betterAuth } from 'better-auth'
+import { tanstackStartCookies } from 'better-auth/tanstack-start'
 
 export const auth = betterAuth({
   // ...your config
-  plugins: [tanstackStartCookies()] // MUST be last plugin
+  plugins: [tanstackStartCookies()], // MUST be last plugin
 })
 ```
 
 **Protect routes** with middleware:
-```typescript
-import { createMiddleware } from "@tanstack/react-start"
-import { getRequestHeaders } from "@tanstack/react-start/server"
-import { auth } from "./auth"
 
-export const authMiddleware = createMiddleware().server(
-  async ({ next }) => {
-    const session = await auth.api.getSession({ headers: getRequestHeaders() })
-    if (!session) throw redirect({ to: "/login" })
-    return next()
-  }
-)
+```typescript
+import { createMiddleware } from '@tanstack/react-start'
+import { getRequestHeaders } from '@tanstack/react-start/server'
+import { auth } from './auth'
+
+export const authMiddleware = createMiddleware().server(async ({ next }) => {
+  const session = await auth.api.getSession({ headers: getRequestHeaders() })
+  if (!session) throw redirect({ to: '/login' })
+  return next()
+})
 
 // In route:
 export const Route = createFileRoute('/dashboard')({
@@ -220,21 +228,24 @@ export const Route = createFileRoute('/dashboard')({
 ```
 
 ---
+
 name: react-start
 description: >-
-  React bindings for TanStack Start: createStart, StartClient,
-  StartServer, React-specific imports, re-exports from
-  @tanstack/react-router, full project setup with React, useServerFn
-  hook.
+React bindings for TanStack Start: createStart, StartClient,
+StartServer, React-specific imports, re-exports from
+@tanstack/react-router, full project setup with React, useServerFn
+hook.
 type: framework
 library: tanstack-start
 library_version: '1.166.2'
 framework: react
 requires:
-  - start-core
-sources:
-  - TanStack/router:packages/react-start/src
-  - TanStack/router:docs/start/framework/react/build-from-scratch.md
+
+- start-core
+  sources:
+- TanStack/router:packages/react-start/src
+- TanStack/router:docs/start/framework/react/build-from-scratch.md
+
 ---
 
 # React Start (`@tanstack/react-start`)
@@ -504,6 +515,3 @@ Without `<Scripts />` in the root route's `<body>`, client JavaScript doesn't lo
 - [start-core](../../../start-client-core/skills/start-core/SKILL.md) — core Start concepts
 - [router-core](../../../router-core/skills/router-core/SKILL.md) — routing fundamentals
 - [react-router](../../../react-router/skills/react-router/SKILL.md) — React Router hooks and components
-
-
-

@@ -29,114 +29,119 @@ type ChatPageDataParams = {
   activeThreadId: string | null
   isComposingNewThread: boolean
   searchQuery: string
-  setActiveThreadId: ( value: string | null ) => void
+  setActiveThreadId: (value: string | null) => void
 }
 
-export function useChatPageData( {
+export function useChatPageData({
   initial,
   activeThreadId,
   isComposingNewThread,
   searchQuery,
   setActiveThreadId,
-}: ChatPageDataParams ) {
-  const [threadPage, setThreadPage] = useState( 1 )
-  const [messagePage, setMessagePage] = useState( 1 )
-  const threadLoadRef = useRef<HTMLDivElement | null>( null )
-  const messageLoadRef = useRef<HTMLDivElement | null>( null )
-  const previousScrollHeightRef = useRef<number>( 0 )
+}: ChatPageDataParams) {
+  const [threadPage, setThreadPage] = useState(1)
+  const [messagePage, setMessagePage] = useState(1)
+  const threadLoadRef = useRef<HTMLDivElement | null>(null)
+  const messageLoadRef = useRef<HTMLDivElement | null>(null)
+  const previousScrollHeightRef = useRef<number>(0)
 
-  const threadQuery = useQuery( {
+  const threadQuery = useQuery({
     queryKey: [...chatQueryKeys.threads, threadPage],
     queryFn: () =>
-      listChatThreadsFn( {
+      listChatThreadsFn({
         data: { page: threadPage, limit: THREAD_PAGE_LIMIT },
-      } ),
+      }),
     initialData: threadPage === 1 ? initial.threads : undefined,
-  } )
+  })
 
-  const threadPages = useThreadPages( threadPage, threadQuery.data )
-  const allThreads = useFlatThreads( threadPages )
+  const threadPages = useThreadPages(threadPage, threadQuery.data)
+  const allThreads = useFlatThreads(threadPages)
   const visibleThreads = useMemo(
-    () => filterThreads( allThreads, searchQuery ),
+    () => filterThreads(allThreads, searchQuery),
     [allThreads, searchQuery],
   )
 
-  useEffect( () => {
-    if ( !activeThreadId && !isComposingNewThread && allThreads.length > 0 ) {
-      setActiveThreadId( allThreads[0].id )
+  useEffect(() => {
+    if (!activeThreadId && !isComposingNewThread && allThreads.length > 0) {
+      setActiveThreadId(allThreads[0].id)
     }
-  }, [activeThreadId, allThreads, isComposingNewThread, setActiveThreadId] )
+  }, [activeThreadId, allThreads, isComposingNewThread, setActiveThreadId])
 
   const activeThread = useMemo(
-    () => allThreads.find( ( thread ) => thread.id === activeThreadId ) ?? null,
+    () => allThreads.find((thread) => thread.id === activeThreadId) ?? null,
     [allThreads, activeThreadId],
   )
 
-  const messageQuery = useQuery( {
-    queryKey: [...chatQueryKeys.messages( activeThreadId ), messagePage],
+  const messageQuery = useQuery({
+    queryKey: [...chatQueryKeys.messages(activeThreadId), messagePage],
     queryFn: () => {
-      if ( !activeThreadId ) {
-        return Promise.resolve( initialMessages() )
+      if (!activeThreadId) {
+        return Promise.resolve(initialMessages())
       }
-      return listThreadMessagesFn( {
+      return listThreadMessagesFn({
         data: {
           threadId: activeThreadId,
           page: messagePage,
           limit: MESSAGE_PAGE_LIMIT,
         },
-      } )
+      })
     },
-    enabled: Boolean( activeThreadId ),
-  } )
+    enabled: Boolean(activeThreadId),
+  })
 
   const messagePages = useMessagePages(
     activeThreadId,
     messagePage,
     messageQuery.data,
   )
-  const allMessages = useFlatMessages( messagePages )
+  const allMessages = useFlatMessages(messagePages)
 
-  usePaginationObserver( {
-    enabled: Boolean( threadPages.at( -1 )?.hasMore ),
+  usePaginationObserver({
+    enabled: Boolean(threadPages.at(-1)?.hasMore),
     target: threadLoadRef.current,
     isFetching: threadQuery.isFetching,
-    onLoadMore: () => setThreadPage( ( value ) => value + 1 ),
+    onLoadMore: () => setThreadPage((value) => value + 1),
     rootMargin: '200px',
-  } )
+  })
 
   // Load older messages when scrolling UP (to top)
-  usePaginationObserver( {
-    enabled: Boolean( messagePages.at( 0 )?.hasMore ),
+  usePaginationObserver({
+    enabled: Boolean(messagePages.at(0)?.hasMore),
     target: messageLoadRef.current,
     isFetching: messageQuery.isFetching,
     onLoadMore: () => {
       // Store scroll height before loading more messages
-      const viewport = messageLoadRef.current?.closest( '[role="region"]' ) as HTMLDivElement
-      if ( viewport ) {
+      const viewport = messageLoadRef.current?.closest(
+        '[role="region"]',
+      ) as HTMLDivElement
+      if (viewport) {
         previousScrollHeightRef.current = viewport.scrollHeight
       }
-      setMessagePage( ( value ) => value + 1 )
+      setMessagePage((value) => value + 1)
     },
     rootMargin: '-50px 0px 99999px 0px', // Only trigger at top
     isTopObserver: true,
-  } )
+  })
 
   // Maintain scroll position when loading older messages
-  useEffect( () => {
-    if ( messageQuery.isFetching ) return
+  useEffect(() => {
+    if (messageQuery.isFetching) return
 
-    const viewport = messageLoadRef.current?.closest( '[role="region"]' ) as HTMLDivElement
-    if ( !viewport ) return
+    const viewport = messageLoadRef.current?.closest(
+      '[role="region"]',
+    ) as HTMLDivElement
+    if (!viewport) return
 
-    const heightDifference = viewport.scrollHeight - previousScrollHeightRef.current
-    if ( heightDifference > 0 ) {
+    const heightDifference =
+      viewport.scrollHeight - previousScrollHeightRef.current
+    if (heightDifference > 0) {
       viewport.scrollTop += heightDifference
     }
-  }, [messageQuery.isFetching] )
+  }, [messageQuery.isFetching])
 
-  useEffect( () => {
-    setMessagePage( 1 )
-  }, [activeThreadId] )
+  useEffect(() => {
+    setMessagePage(1)
+  }, [activeThreadId])
 
   return {
     threadPage,

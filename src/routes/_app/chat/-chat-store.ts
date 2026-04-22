@@ -25,15 +25,15 @@ const initialChatUiState: ChatUiState = {
   streamingMessageId: null,
 }
 
-export const chatUiStore = new Store<ChatUiState>( initialChatUiState )
+export const chatUiStore = new Store<ChatUiState>(initialChatUiState)
 
-export const useChatUiStore = <T>( selector: ( state: ChatUiState ) => T ) =>
-  useStore( chatUiStore, selector )
+export const useChatUiStore = <T>(selector: (state: ChatUiState) => T) =>
+  useStore(chatUiStore, selector)
 
-export function updateChatUi( partial: Partial<ChatUiState> ) {
-  chatUiStore.setState( ( state ) => ( { ...state, ...partial } ) )
+export function updateChatUi(partial: Partial<ChatUiState>) {
+  chatUiStore.setState((state) => ({ ...state, ...partial }))
 }
 
 export function resetChatUi() {
-  chatUiStore.setState( () => initialChatUiState )
+  chatUiStore.setState(() => initialChatUiState)
 }

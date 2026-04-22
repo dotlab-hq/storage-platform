@@ -1,15 +1,18 @@
 import { createAuthClient } from 'better-auth/react'
-import { inferAdditionalFields, twoFactorClient } from "better-auth/client/plugins"
+import {
+  inferAdditionalFields,
+  twoFactorClient,
+} from 'better-auth/client/plugins'
 
-export const authClient = createAuthClient( {
+export const authClient = createAuthClient({
   plugins: [
-    inferAdditionalFields( {
+    inferAdditionalFields({
       user: {
-        role: { type: "string" },
-        isAdmin: { type: "boolean" },
-        twoFactorEnabled: { type: "boolean" },
+        role: { type: 'string' },
+        isAdmin: { type: 'boolean' },
+        twoFactorEnabled: { type: 'boolean' },
       },
-    } ),
+    }),
     twoFactorClient(),
   ],
-} )
+})

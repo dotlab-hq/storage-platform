@@ -17,6 +17,10 @@ export default [
     },
   },
   {
-    ignores: ['eslint.config.js', 'prettier.config.js', 'playwright.s3.config.ts'],
+    ignores: [
+      'eslint.config.js',
+      'prettier.config.js',
+      'playwright.s3.config.ts',
+    ],
   },
 ]

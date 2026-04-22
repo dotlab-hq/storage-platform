@@ -208,7 +208,6 @@ you can use your favorite validator such as Zod and easily share server-side API
 
 See [Hono Stacks](/docs/concepts/stacks).
 
-
 # Routing
 
 Routing of Hono is flexible and intuitive.
@@ -238,14 +237,10 @@ app.all('/hello', (c) => c.text('Any Method /hello'))
 app.on('PURGE', '/cache', (c) => c.text('PURGE Method /cache'))
 
 // Multiple Method
-app.on(['PUT', 'DELETE'], '/post', (c) =>
-  c.text('PUT or DELETE /post')
-)
+app.on(['PUT', 'DELETE'], '/post', (c) => c.text('PUT or DELETE /post'))
 
 // Multiple Paths
-app.on('GET', ['/hello', '/ja/hello', '/en/hello'], (c) =>
-  c.text('Hello')
-)
+app.on('GET', ['/hello', '/ja/hello', '/en/hello'], (c) => c.text('Hello'))
 ```
 
 ## Path Parameter
@@ -512,7 +507,6 @@ export default app
 GET /two/three/hi ---> 404 Not Found
 ```
 
-
 # App - Hono
 
 `Hono` is the primary object.
@@ -754,7 +748,6 @@ app.use('/auth/*', async (c, next) => {
 })
 ```
 
-
 # HTTPException
 
 When a fatal error occurs, Hono (and many ecosystem middleware) may throw an `HTTPException`. This is a custom Hono `Error` that simplifies [returning error responses](#handling-httpexceptions).
@@ -838,7 +831,6 @@ app.onError((err, c) => {
 **`HTTPException.getResponse` is not aware of `Context`**. To include headers already set in `Context`, you must apply them to a new `Response`.
 :::
 
-
 # API
 
 Hono's API is simple.
@@ -851,7 +843,6 @@ In this section, we introduce API of Hono like below.
 - About routing
 - Context object
 - About middleware
-
 
 # Presets
 
@@ -915,7 +906,6 @@ this.router = new PatternRouter()
 | `hono`       | This is highly recommended for most use cases. Although the registration phase may be slower than `hono/quick`, it exhibits high performance once booted. It's ideal for long-life servers built with **Deno**, **Bun**, or **Node.js**. It is also suitable for **Fastly Compute**, as route registration occurs during the app build phase on that platform. For environments such as **Cloudflare Workers**, **Deno Deploy**, where v8 isolates are utilized, this preset is suitable as well. Because the isolations persist for a certain amount of time after booting. |
 | `hono/quick` | This preset is designed for environments where the application is initialized for every request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `hono/tiny`  | This is the smallest router package and it's suitable for environments where resources are limited.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-
 
 # HonoRequest
 
@@ -1227,15 +1217,14 @@ app.use(async function logger(c, next) {
   await next()
   c.req.matchedRoutes.forEach(({ handler, method, path }, i) => {
     const name =
-      handler.name ||
-      (handler.length < 2 ? '[handler]' : '[middleware]')
+      handler.name || (handler.length < 2 ? '[handler]' : '[middleware]')
     console.log(
       method,
       ' ',
       path,
       ' '.repeat(Math.max(10 - path.length, 0)),
       name,
-      i === c.req.routeIndex ? '<- respond from here' : ''
+      i === c.req.routeIndex ? '<- respond from here' : '',
     )
   })
 })
@@ -1315,10 +1304,9 @@ app.post(
     // Does not throw the error
     await clonedReq.json()
     // ...
-  }
+  },
 )
 ```
-
 
 # Context
 
@@ -1609,7 +1597,7 @@ app.use(async (c, next) => {
         <body>
           <p>{content}</p>
         </body>
-      </html>
+      </html>,
     )
   })
   await next()
@@ -1645,7 +1633,7 @@ declare module 'hono' {
   interface ContextRenderer {
     (
       content: string | Promise<string>,
-      head: { title: string }
+      head: { title: string },
     ): Response | Promise<Response>
   }
 }
@@ -1817,13 +1805,11 @@ app.get('/', (c) => {
 })
 ```
 
-
 # Developer Experience
 
 To create a great application, we need great development experience.
 Fortunately, we can write applications for Cloudflare Workers, Deno, and Bun in TypeScript without having the need to transpile it to JavaScript.
 Hono is written in TypeScript and can make applications type-safe.
-
 
 # Benchmarks
 
@@ -1997,7 +1983,6 @@ You can see it below.
 
 - [SaltyAom/bun-http-framework-benchmark](https://github.com/SaltyAom/bun-http-framework-benchmark)
 
-
 # Philosophy
 
 In this section, we talk about the concept, or philosophy, of Hono.
@@ -2021,7 +2006,6 @@ An ecosystem has sprung up.
 
 In other words, Hono is damn fast, makes a lot of things possible, and works anywhere.
 We might imagine that Hono could become the **Standard for Web Standards**.
-
 
 # Routers
 
@@ -2114,7 +2098,6 @@ $ npx wrangler deploy --minify ./src/index.ts
 Total Upload: 14.68 KiB / gzip: 5.38 KiB
 ```
 
-
 # Web Standards
 
 Hono uses only **Web Standards** like Fetch.
@@ -2153,7 +2136,6 @@ Hono will follow their steps and go for **the Standard of the Web Standards**.
 [wasi]: https://github.com/WebAssembly/wasi
 [wasi-http]: https://github.com/WebAssembly/wasi-http
 
-
 # Middleware
 
 We call the primitive that returns `Response` as "Handler".
@@ -2177,7 +2159,6 @@ app.use(async (c, next) => {
 ```
 
 With this simple method, we can write our own custom middleware and we can use the built-in or third party middleware.
-
 
 # Hono Stacks
 
@@ -2231,14 +2212,14 @@ app.get(
     'query',
     z.object({
       name: z.string(),
-    })
+    }),
   ),
   (c) => {
     const { name } = c.req.valid('query')
     return c.json({
       message: `Hello! ${name}`,
     })
-  }
+  },
 )
 ```
 
@@ -2425,7 +2406,6 @@ const Todos = () => {
 }
 ```
 
-
 # Third-party Middleware
 
 Third-party middleware refers to middleware not bundled within the Hono package.
@@ -2523,7 +2503,6 @@ Most of this middleware leverages external libraries.
 - [tsyringe](https://github.com/honojs/middleware/tree/main/packages/tsyringe)
 - [User Agent based Blocker](https://github.com/honojs/middleware/tree/main/packages/ua-blocker)
 
-
 # Bearer Auth Middleware
 
 The Bearer Auth Middleware provides authentication by verifying an API token in the Request header.
@@ -2609,7 +2588,7 @@ app.use(
     verifyToken: async (token, c) => {
       return token === 'dynamic-token'
     },
-  })
+  }),
 )
 ```
 
@@ -2663,7 +2642,6 @@ Customizes the error response when the token is invalid.
 - `wwwAuthenticateHeader`: `string | object | MessageFunction` - Customizes the WWW-Authenticate header value.
 - `message`: `string | object | MessageFunction` - The custom message for the response body.
 
-
 # CORS Middleware
 
 There are many use cases of Cloudflare Workers as Web APIs and calling them from external front-end application.
@@ -2692,7 +2670,7 @@ app.use(
     exposeHeaders: ['Content-Length', 'X-Kuma-Revision'],
     maxAge: 600,
     credentials: true,
-  })
+  }),
 )
 
 app.all('/api/abc', (c) => {
@@ -2710,7 +2688,7 @@ app.use(
   '/api3/*',
   cors({
     origin: ['https://example.com', 'https://example.org'],
-  })
+  }),
 )
 
 // Or you can use "function"
@@ -2719,11 +2697,9 @@ app.use(
   cors({
     // `c` is a `Context` object
     origin: (origin, c) => {
-      return origin.endsWith('.example.com')
-        ? origin
-        : 'http://example.com'
+      return origin.endsWith('.example.com') ? origin : 'http://example.com'
     },
-  })
+  }),
 )
 ```
 
@@ -2733,14 +2709,13 @@ Dynamic allowed methods based on origin:
 app.use(
   '/api5/*',
   cors({
-    origin: (origin) =>
-      origin === 'https://example.com' ? origin : '*',
+    origin: (origin) => (origin === 'https://example.com' ? origin : '*'),
     // `c` is a `Context` object
     allowMethods: (origin, c) =>
       origin === 'https://example.com'
         ? ['GET', 'HEAD', 'POST', 'PATCH', 'DELETE']
         : ['GET', 'HEAD'],
-  })
+  }),
 )
 ```
 
@@ -2800,7 +2775,6 @@ export default defineConfig({
 })
 ```
 
-
 # Context Storage Middleware
 
 The Context Storage Middleware stores the Hono `Context` in the `AsyncLocalStorage`, to make it globally accessible.
@@ -2815,11 +2789,7 @@ The Context Storage Middleware stores the Hono `Context` in the `AsyncLocalStora
 
 ```ts
 import { Hono } from 'hono'
-import {
-  contextStorage,
-  getContext,
-  tryGetContext,
-} from 'hono/context-storage'
+import { contextStorage, getContext, tryGetContext } from 'hono/context-storage'
 ```
 
 ## Usage
@@ -2882,7 +2852,6 @@ if (context) {
 }
 ```
 
-
 # CSRF Protection
 
 This middleware protects against CSRF attacks by checking both the `Origin` header and the `Sec-Fetch-Site` header. The request is allowed if either validation passes.
@@ -2919,7 +2888,7 @@ app.use(
       'https://myapp.example.com',
       'https://development.myapp.example.com',
     ],
-  })
+  }),
 )
 
 // Allow specific sec-fetch-site values
@@ -2932,9 +2901,8 @@ app.use(csrf({ secFetchSite: ['same-origin', 'none'] }))
 app.use(
   '*',
   csrf({
-    origin: (origin) =>
-      /https:\/\/(\w+\.)?myapp\.example\.com$/.test(origin),
-  })
+    origin: (origin) => /https:\/\/(\w+\.)?myapp\.example\.com$/.test(origin),
+  }),
 )
 
 // Dynamic sec-fetch-site validation
@@ -2944,15 +2912,12 @@ app.use(
       // Always allow same-origin
       if (secFetchSite === 'same-origin') return true
       // Allow cross-site for webhook endpoints
-      if (
-        secFetchSite === 'cross-site' &&
-        c.req.path.startsWith('/webhook/')
-      ) {
+      if (secFetchSite === 'cross-site' && c.req.path.startsWith('/webhook/')) {
         return true
       }
       return false
     },
-  })
+  }),
 )
 ```
 
@@ -2989,7 +2954,6 @@ Standard Sec-Fetch-Site values:
 
 The function handler receives the request's `Sec-Fetch-Site` header value and the request context, enabling dynamic validation based on request properties.
 
-
 # JWT Auth Middleware
 
 The JWT Auth Middleware provides authentication by verifying the token with JWT.
@@ -3022,7 +2986,7 @@ app.use(
   jwt({
     secret: 'it-is-very-secret',
     alg: 'HS256',
-  })
+  }),
 )
 
 app.get('/auth/page', (c) => {
@@ -3041,7 +3005,7 @@ app.use(
     secret: 'it-is-very-secret',
     alg: 'HS256',
     issuer: 'my-trusted-issuer',
-  })
+  }),
 )
 
 app.get('/auth/page', (c) => {
@@ -3093,7 +3057,7 @@ app.use(
     secret: 'it-is-very-secret',
     alg: 'HS256',
     headerName: 'x-custom-auth-header',
-  })
+  }),
 )
 ```
 
@@ -3116,7 +3080,6 @@ The `iat` (issued at) claim will be verified if present and this is set to `true
 #### <Badge type="info" text="optional" /> verifyOptions.exp: `boolean`
 
 The `exp` (expiration time) claim will be verified if present and this is set to `true`. The default is `true`.
-
 
 # Method Override Middleware
 
@@ -3173,10 +3136,7 @@ You can change the default values or use the header value and query value:
 
 ```ts
 app.use('/posts', methodOverride({ app, form: '_custom_name' }))
-app.use(
-  '/posts',
-  methodOverride({ app, header: 'X-METHOD-OVERRIDE' })
-)
+app.use('/posts', methodOverride({ app, header: 'X-METHOD-OVERRIDE' }))
 app.use('/posts', methodOverride({ app, query: '_method' }))
 ```
 
@@ -3198,7 +3158,6 @@ Header name with a value containing the method name.
 ### <Badge type="info" text="optional" /> query: `boolean`
 
 Query parameter key with a value containing the method name.
-
 
 # Language Middleware
 
@@ -3222,7 +3181,7 @@ app.use(
   languageDetector({
     supportedLanguages: ['en', 'ar', 'ja'], // Must include fallback
     fallbackLanguage: 'en', // Required
-  })
+  }),
 )
 
 app.get('/', (c) => {
@@ -3296,7 +3255,7 @@ app.use(
     lookupFromPathIndex: 0, // /en/profile → index 0 = 'en'
     supportedLanguages: ['en', 'ar'],
     fallbackLanguage: 'en',
-  })
+  }),
 )
 ```
 
@@ -3309,7 +3268,7 @@ app.use(
   languageDetector({
     supportedLanguages: ['en', 'ja', 'zh-Hant'],
     fallbackLanguage: 'en',
-  })
+  }),
 )
 
 // Accept-Language: ja-JP → matches 'ja'
@@ -3326,7 +3285,7 @@ app.use(
     convertDetectedLanguage: (lang) => lang.split('-')[0],
     supportedLanguages: ['en', 'ja'],
     fallbackLanguage: 'en',
-  })
+  }),
 )
 ```
 
@@ -3345,7 +3304,7 @@ app.use(
       httpOnly: true, // Not accessible via JavaScript
       domain: '.example.com', // Optional: specific domain
     },
-  })
+  }),
 )
 ```
 
@@ -3432,7 +3391,6 @@ languageDetector({
   convertDetectedLanguage: (lang) => lang.replace('_', '-'), // Normalize
 })
 ```
-
 
 # Request ID Middleware
 
@@ -3531,7 +3489,6 @@ To unify these IDs, use the `generator` function to capture the platform specifi
 - Fastly
   - [Fastly documentation: req.xid](https://www.fastly.com/documentation/reference/vcl/variables/client-request/req-xid/)
 
-
 # Body Limit Middleware
 
 The Body Limit Middleware can limit the file size of the request body.
@@ -3565,7 +3522,7 @@ app.post(
       console.log(`Got file sized: ${body['file'].size}`)
     }
     return c.text('pass :)')
-  }
+  },
 )
 ```
 
@@ -3604,7 +3561,6 @@ Bun.serve({
 })
 ```
 
-
 # IP Restriction Middleware
 
 IP Restriction Middleware is middleware that limits access to resources based on the IP address of the user.
@@ -3632,7 +3588,7 @@ app.use(
   ipRestriction(getConnInfo, {
     denyList: [],
     allowList: ['127.0.0.1', '::1'],
-  })
+  }),
 )
 
 app.get('/', (c) => c.text('Hello Hono!'))
@@ -3650,7 +3606,7 @@ app.use(
   '*',
   ipRestriction(getConnInfo, {
     // ...
-  })
+  }),
 )
 ```
 
@@ -3684,11 +3640,10 @@ app.use(
     },
     async (remote, c) => {
       return c.text(`Blocking access from ${remote.addr}`, 403)
-    }
-  )
+    },
+  ),
 )
 ```
-
 
 # JWK Auth Middleware
 
@@ -3737,7 +3692,7 @@ app.use(
   jwk({
     jwks_uri: `https://${backendServer}/.well-known/jwks.json`,
     alg: ['RS256'],
-  })
+  }),
 )
 
 app.get('/auth/page', (c) => {
@@ -3755,7 +3710,7 @@ app.use(
   jwk({
     jwks_uri: `https://${backendServer}/.well-known/jwks.json`,
     alg: ['RS256'],
-  })
+  }),
 )
 
 app.get('/auth/page', (c) => {
@@ -3772,11 +3727,10 @@ const app = new Hono()
 app.use(
   '/auth/*',
   jwk({
-    jwks_uri: (c) =>
-      `https://${c.env.authServer}/.well-known/jwks.json`,
+    jwks_uri: (c) => `https://${c.env.authServer}/.well-known/jwks.json`,
     alg: ['RS256'],
     allow_anon: true,
-  })
+  }),
 )
 
 app.get('/auth/page', (c) => {
@@ -3798,7 +3752,7 @@ const id_payload = await verifyWithJwks(
   },
   {
     cf: { cacheEverything: true, cacheTtl: 3600 },
-  }
+  },
 )
 ```
 
@@ -3822,8 +3776,8 @@ app.use(
       headers: {
         Authorization: 'Bearer TOKEN',
       },
-    }
-  )
+    },
+  ),
 )
 ```
 
@@ -3862,7 +3816,6 @@ Configure claim validation behavior in addition to signature verification:
 - `iss`: expected issuer.
 - `aud`: expected audience.
 - `exp`, `nbf`, `iat`: enabled by default, can be disabled if needed.
-
 
 # Logger Middleware
 
@@ -3941,7 +3894,6 @@ app.post('/blog', (c) => {
 })
 ```
 
-
 # Cache Middleware
 
 The Cache middleware uses the Web Standards' [Cache API](https://developer.mozilla.org/en-US/docs/Web/API/Cache).
@@ -3969,7 +3921,7 @@ app.get(
   cache({
     cacheName: 'my-app',
     cacheControl: 'max-age=3600',
-  })
+  }),
 )
 ```
 
@@ -3981,7 +3933,7 @@ app.get(
     cacheName: 'my-app',
     cacheControl: 'max-age=3600',
     wait: true,
-  })
+  }),
 )
 ```
 
@@ -4020,10 +3972,9 @@ app.get(
     cacheName: 'my-app',
     cacheControl: 'max-age=3600',
     cacheableStatusCodes: [200, 404, 412],
-  })
+  }),
 )
 ```
-
 
 # Timeout Middleware
 
@@ -4064,7 +4015,7 @@ import { HTTPException } from 'hono/http-exception'
 const customTimeoutException = (context) =>
   new HTTPException(408, {
     message: `Request timeout after waiting ${context.req.headers.get(
-      'Duration'
+      'Duration',
     )} seconds. Please try again later.`,
   })
 
@@ -4124,7 +4075,6 @@ app.get('/sse', async (c) => {
 
 Be cautious about the order of middleware, especially when using error-handling or other timing-related middleware, as it might affect the behavior of this timeout middleware.
 
-
 # JSX Renderer Middleware
 
 JSX Renderer Middleware allows you to set up the layout when rendering JSX with the `c.render()` function, without the need for using `c.setRenderer()`. Additionally, it enables access to instances of Context within components through the use of `useRequestContext()`.
@@ -4152,7 +4102,7 @@ app.get(
         </body>
       </html>
     )
-  })
+  }),
 )
 
 app.get('/page/about', (c) => {
@@ -4177,8 +4127,8 @@ app.use(
         </html>
       )
     },
-    { docType: false }
-  )
+    { docType: false },
+  ),
 )
 ```
 
@@ -4198,8 +4148,8 @@ app.use(
     {
       docType:
         '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">',
-    }
-  )
+    },
+  ),
 )
 ```
 
@@ -4226,15 +4176,15 @@ app.get(
         </html>
       )
     },
-    { stream: true }
-  )
+    { stream: true },
+  ),
 )
 
 app.get('/', (c) => {
   return c.render(
     <Suspense fallback={<div>loading...</div>}>
       <AsyncComponent />
-    </Suspense>
+    </Suspense>,
   )
 })
 ```
@@ -4268,8 +4218,8 @@ app.use(
     },
     (c) => ({
       stream: c.req.header('X-Enable-Streaming') === 'true',
-    })
-  )
+    }),
+  ),
 )
 ```
 
@@ -4290,8 +4240,8 @@ app.use(
     },
     (c) => ({
       stream: !isSSGContext(c),
-    })
-  )
+    }),
+  ),
 )
 ```
 
@@ -4307,7 +4257,7 @@ app.use(
         <body>{children}</body>
       </html>
     )
-  })
+  }),
 )
 
 const blog = new Hono()
@@ -4319,7 +4269,7 @@ blog.use(
         <div>{children}</div>
       </Layout>
     )
-  })
+  }),
 )
 
 app.route('/blog', blog)
@@ -4344,7 +4294,7 @@ app.get('/page/info', (c) => {
   return c.render(
     <div>
       You are accessing: <RequestUrlBadge />
-    </div>
+    </div>,
   )
 })
 ```
@@ -4370,10 +4320,7 @@ By defining `ContextRenderer` as shown below, you can pass additional content to
 ```tsx
 declare module 'hono' {
   interface ContextRenderer {
-    (
-      content: string | Promise<string>,
-      props: { title: string }
-    ): Response
+    (content: string | Promise<string>, props: { title: string }): Response
   }
 }
 
@@ -4393,7 +4340,7 @@ app.get(
         </body>
       </html>
     )
-  })
+  }),
 )
 
 app.get('/page/favorites', (c) => {
@@ -4406,11 +4353,10 @@ app.get('/page/favorites', (c) => {
     </div>,
     {
       title: 'My favorites',
-    }
+    },
   )
 })
 ```
-
 
 # Server-Timing Middleware
 
@@ -4426,13 +4372,7 @@ since [timers only show the time of last I/O](https://developers.cloudflare.com/
 
 ```ts [npm]
 import { Hono } from 'hono'
-import {
-  timing,
-  setMetric,
-  startTime,
-  endTime,
-  wrapTime,
-} from 'hono/timing'
+import { timing, setMetric, startTime, endTime, wrapTime } from 'hono/timing'
 import type { TimingVariables } from 'hono/timing'
 ```
 
@@ -4479,7 +4419,7 @@ app.use(
   timing({
     // c: Context of the request
     enabled: (c) => c.req.method === 'POST',
-  })
+  }),
 )
 ```
 
@@ -4516,7 +4456,6 @@ The origin this timings header should be readable.
 
 The default is `false`. See more [docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Timing-Allow-Origin).
 
-
 # Trailing Slash Middleware
 
 This middleware handles Trailing Slash in the URL on a GET request.
@@ -4527,10 +4466,7 @@ This middleware handles Trailing Slash in the URL on a GET request.
 
 ```ts
 import { Hono } from 'hono'
-import {
-  appendTrailingSlash,
-  trimTrailingSlash,
-} from 'hono/trailing-slash'
+import { appendTrailingSlash, trimTrailingSlash } from 'hono/trailing-slash'
 ```
 
 ## Usage
@@ -4577,7 +4513,6 @@ This option is available for both `trimTrailingSlash` and `appendTrailingSlash`.
 ## Note
 
 It will be enabled when the request method is `GET` and the response status is `404`.
-
 
 # Pretty JSON Middleware
 
@@ -4633,7 +4568,6 @@ The name of the query string for applying. The default is `pretty`.
 
 When set to `true`, JSON responses are always prettified regardless of the query parameter. The default is `false`.
 
-
 # Basic Auth Middleware
 
 This middleware can apply Basic authentication to a specified path.
@@ -4658,7 +4592,7 @@ app.use(
   basicAuth({
     username: 'hono',
     password: 'acoolproject',
-  })
+  }),
 )
 
 app.get('/auth/page', (c) => {
@@ -4680,7 +4614,7 @@ app.delete(
   basicAuth({ username: 'hono', password: 'acoolproject' }),
   (c) => {
     return c.text('Page deleted')
-  }
+  },
 )
 ```
 
@@ -4692,11 +4626,9 @@ const app = new Hono()
 app.use(
   basicAuth({
     verifyUser: (username, password, c) => {
-      return (
-        username === 'dynamic-user' && password === 'hono-password'
-      )
+      return username === 'dynamic-user' && password === 'hono-password'
     },
-  })
+  }),
 )
 ```
 
@@ -4740,7 +4672,7 @@ app.use(
     onAuthSuccess: (c, username) => {
       c.set('username', username)
     },
-  })
+  }),
 )
 
 app.get('/auth/page', (c) => {
@@ -4778,8 +4710,8 @@ app.use(
       username: 'hono-user-1',
       password: 'a-secret',
       // Or here
-    }
-  )
+    },
+  ),
 )
 ```
 
@@ -4795,11 +4727,10 @@ app.use(
       realm: 'www.example.com',
       ...users[0],
     },
-    ...users.slice(1)
-  )
+    ...users.slice(1),
+  ),
 )
 ```
-
 
 # ETag Middleware
 
@@ -4838,7 +4769,7 @@ app.use(
   '/etag/*',
   etag({
     retainedHeaders: ['x-message', ...RETAINED_304_HEADERS],
-  })
+  }),
 )
 ```
 
@@ -4855,7 +4786,6 @@ The headers that you want to retain in the 304 Response.
 ### <Badge type="info" text="optional" /> generateDigest: `(body: Uint8Array) => ArrayBuffer | Promise<ArrayBuffer>`
 
 A custom digest generation function. By default, it uses `SHA-1`. This function is called with the response body as a `Uint8Array` and should return a hash as an `ArrayBuffer` or a Promise of one.
-
 
 # Combine Middleware
 
@@ -4891,11 +4821,11 @@ app.use(
   some(
     every(
       ipRestriction(getConnInfo, { allowList: ['192.168.0.2'] }),
-      bearerAuth({ token })
+      bearerAuth({ token }),
     ),
     // If both conditions are met, rateLimit will not execute.
-    rateLimit()
-  )
+    rateLimit(),
+  ),
 )
 
 app.get('/', (c) => c.text('Hello Hono!'))
@@ -4912,10 +4842,7 @@ import { myRateLimit } from '@/rate-limit'
 
 // If client has a valid token, skip rate limiting.
 // Otherwise, apply rate limiting.
-app.use(
-  '/api/*',
-  some(bearerAuth({ token }), myRateLimit({ limit: 100 }))
-)
+app.use('/api/*', some(bearerAuth({ token }), myRateLimit({ limit: 100 })))
 ```
 
 ### every
@@ -4934,8 +4861,8 @@ app.use(
   '/api/*',
   some(
     myCheckLocalNetwork(),
-    every(bearerAuth({ token }), myRateLimit({ limit: 100 }))
-  )
+    every(bearerAuth({ token }), myRateLimit({ limit: 100 })),
+  ),
 )
 ```
 
@@ -4951,7 +4878,6 @@ import { bearerAuth } from 'hono/bearer-auth'
 // Otherwise, require a valid token.
 app.use('/api/*', except('/api/public/*', bearerAuth({ token })))
 ```
-
 
 # Compress Middleware
 
@@ -4986,7 +4912,6 @@ The compression scheme to allow for response compression. Either `gzip` or `defl
 
 The minimum size in bytes to compress. Defaults to 1024 bytes.
 
-
 # Secure Headers Middleware
 
 Secure Headers Middleware simplifies the setup of security headers. Inspired in part by the capabilities of Helmet, it allows you to control the activation and deactivation of specific security headers.
@@ -5016,7 +4941,7 @@ app.use(
   secureHeaders({
     xFrameOptions: false,
     xXssProtection: false,
-  })
+  }),
 )
 ```
 
@@ -5027,11 +4952,10 @@ const app = new Hono()
 app.use(
   '*',
   secureHeaders({
-    strictTransportSecurity:
-      'max-age=63072000; includeSubDomains; preload',
+    strictTransportSecurity: 'max-age=63072000; includeSubDomains; preload',
     xFrameOptions: 'DENY',
     xXssProtection: '1',
-  })
+  }),
 )
 ```
 
@@ -5128,7 +5052,7 @@ app.use(
       upgradeInsecureRequests: [],
       workerSrc: ["'self'"],
     },
-  })
+  }),
 )
 ```
 
@@ -5152,7 +5076,7 @@ app.get(
     contentSecurityPolicy: {
       scriptSrc: [NONCE, 'https://allowed1.example.com'],
     },
-  })
+  }),
 )
 
 // Get the value from `c.get('secureHeadersNonce')`:
@@ -5161,12 +5085,9 @@ app.get('/', (c) => {
     <html>
       <body>
         {/** contents */}
-        <script
-          src='/js/client.js'
-          nonce={c.get('secureHeadersNonce')}
-        />
+        <script src="/js/client.js" nonce={c.get('secureHeadersNonce')} />
       </body>
-    </html>
+    </html>,
   )
 })
 ```
@@ -5191,7 +5112,7 @@ app.get(
     contentSecurityPolicy: {
       scriptSrc: [myNonceGenerator, 'https://allowed1.example.com'],
     },
-  })
+  }),
 )
 
 app.get('/', (c) => {
@@ -5199,9 +5120,9 @@ app.get('/', (c) => {
     <html>
       <body>
         {/** contents */}
-        <script src='/js/client.js' nonce={c.get('myNonce')} />
+        <script src="/js/client.js" nonce={c.get('myNonce')} />
       </body>
-    </html>
+    </html>,
   )
 })
 ```
@@ -5226,15 +5147,11 @@ app.use(
       usb: ['self', 'https://a.example.com', 'https://b.example.com'], // usb=(self "https://a.example.com" "https://b.example.com")
       accelerometer: ['https://*.example.com'], // accelerometer=("https://*.example.com")
       gyroscope: ['src'], // gyroscope=(src)
-      magnetometer: [
-        'https://a.example.com',
-        'https://b.example.com',
-      ], // magnetometer=("https://a.example.com" "https://b.example.com")
+      magnetometer: ['https://a.example.com', 'https://b.example.com'], // magnetometer=("https://a.example.com" "https://b.example.com")
     },
-  })
+  }),
 )
 ```
-
 
 # Streaming Helper
 
@@ -5336,16 +5253,14 @@ app.get('/stream', (c) => {
         console.log('Aborted!')
       })
       // Write a Uint8Array.
-      await stream.write(
-        new Uint8Array([0x48, 0x65, 0x6c, 0x6c, 0x6f])
-      )
+      await stream.write(new Uint8Array([0x48, 0x65, 0x6c, 0x6c, 0x6f]))
       // Pipe a readable stream.
       await stream.pipe(anotherReadableStream)
     },
     (err, stream) => {
       stream.writeln('An error occurred!')
       console.error(err)
-    }
+    },
   )
 })
 ```
@@ -5359,7 +5274,6 @@ If the callback function of the streaming helper throws an error, the `onError` 
 `onError` is a hook to handle errors before the response is sent and overwrite the response. However, when the callback function is executed, the stream has already started, so it cannot be overwritten.
 
 :::
-
 
 # css Helper
 
@@ -5449,7 +5363,7 @@ return c.render(
     <header class={headerClass}>
       <h1>Hello!</h1>
     </header>
-  </div>
+  </div>,
 )
 ```
 
@@ -5470,7 +5384,7 @@ return c.render(
   <div class={globalClass}>
     <h1>Hello!</h1>
     <p>Today is a good day.</p>
-  </div>
+  </div>,
 )
 ```
 
@@ -5527,9 +5441,7 @@ const buttonClass = css`
 const primaryClass = css`
   background: orange;
 `
-const Button = () => (
-  <a class={cx(buttonClass, primaryClass)}>Click!</a>
-)
+const Button = () => <a class={cx(buttonClass, primaryClass)}>Click!</a>
 ```
 
 It can also compose simple strings.
@@ -5580,7 +5492,6 @@ app.get('/', (c) => {
 If you use VS Code, you can use [vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=styled-components.vscode-styled-components) for Syntax highlighting and IntelliSense for CSS tagged literals.
 
 ![](/images/css-ss.png)
-
 
 # Dev Helper
 
@@ -5646,7 +5557,6 @@ When set to `true`, it displays verbose information.
 ### <Badge type="info" text="optional" /> colorize: `boolean`
 
 When set to `false`, the output will not be colored.
-
 
 # JWT Authentication Helper
 
@@ -5827,7 +5737,6 @@ The module supports the following JWT cryptographic algorithms:
 - `ES512`: ECDSA using P-521 and SHA-512
 - `EdDSA`: EdDSA using Ed25519
 
-
 # ConnInfo Helper
 
 The ConnInfo Helper helps you to get the connection information. For example, you can get the client's remote address easily.
@@ -5939,7 +5848,6 @@ interface ConnInfo {
 }
 ```
 
-
 # Route Helper
 
 The Route Helper provides enhanced routing information for debugging and middleware development. It allows you to access detailed information about matched routes and the current route being processed.
@@ -5948,12 +5856,7 @@ The Route Helper provides enhanced routing information for debugging and middlew
 
 ```ts
 import { Hono } from 'hono'
-import {
-  matchedRoutes,
-  routePath,
-  baseRoutePath,
-  basePath,
-} from 'hono/route'
+import { matchedRoutes, routePath, baseRoutePath, basePath } from 'hono/route'
 ```
 
 ## Usage
@@ -6084,7 +5987,6 @@ subApp.get('/posts/:id', (c) => {
 app.route('/:sub', subApp)
 ```
 
-
 # Accepts Helper
 
 Accepts Helper helps to handle Accept headers in the Requests.
@@ -6146,7 +6048,6 @@ The default values.
 
 The custom match function.
 
-
 # html Helper
 
 The html Helper lets you write HTML in JavaScript template literal with a tag named `html`. Using `raw()`, the content will be rendered as is. You have to escape these strings by yourself.
@@ -6167,7 +6068,7 @@ app.get('/:username', (c) => {
   const { username } = c.req.param()
   return c.html(
     html`<!doctype html>
-      <h1>Hello! ${username}!</h1>`
+      <h1>Hello! ${username}!</h1>`,
   )
 })
 ```
@@ -6190,7 +6091,7 @@ app.get('/', (c) => {
         `}
       </head>
       <body>Hello!</body>
-    </html>
+    </html>,
   )
 })
 ```
@@ -6271,7 +6172,6 @@ Thanks to these libraries, Visual Studio Code and vim also interprets template l
 - <https://marketplace.visualstudio.com/items?itemName=bierner.lit-html>
 - <https://github.com/MaxMEllon/vim-jsx-pretty>
 
-
 # WebSocket Helper
 
 WebSocket Helper is a helper for server-side WebSockets in Hono applications.
@@ -6326,7 +6226,7 @@ app.get(
         console.log('Connection closed')
       },
     }
-  })
+  }),
 )
 ```
 
@@ -6355,7 +6255,7 @@ const wsApp = app.get(
   '/ws',
   upgradeWebSocket((c) => {
     //...
-  })
+  }),
 )
 
 export type WebSocketApp = typeof wsApp
@@ -6384,7 +6284,7 @@ const app = new Hono().get(
         console.log(event.data)
       },
     }
-  })
+  }),
 )
 
 export default app
@@ -6418,10 +6318,10 @@ app.get('/', (c) => {
   return c.html(
     <html>
       <head>
-        <meta charset='UTF-8' />
+        <meta charset="UTF-8" />
       </head>
       <body>
-        <div id='now-time'></div>
+        <div id="now-time"></div>
         {html`
           <script>
             const ws = new WebSocket('ws://localhost:3000/ws')
@@ -6432,7 +6332,7 @@ app.get('/', (c) => {
           </script>
         `}
       </body>
-    </html>
+    </html>,
   )
 })
 
@@ -6450,7 +6350,7 @@ const ws = app.get(
         clearInterval(intervalId)
       },
     }
-  })
+  }),
 )
 
 export default {
@@ -6458,7 +6358,6 @@ export default {
   websocket,
 }
 ```
-
 
 # Adapter Helper
 
@@ -6548,7 +6447,6 @@ Here are the available runtimes keys, unavailable runtime key runtimes may be su
 - `fastly` - Fastly Compute
 - `other` - Other unknown runtimes keys
 
-
 # Proxy Helper
 
 Proxy Helper provides useful functions when using Hono application as a (reverse) proxy.
@@ -6580,17 +6478,14 @@ Complicated usage:
 
 ```ts
 app.get('/proxy/:path', async (c) => {
-  const res = await proxy(
-    `http://${originServer}/${c.req.param('path')}`,
-    {
-      headers: {
-        ...c.req.header(), // optional, specify only when forwarding all the request data (including credentials) is necessary.
-        'X-Forwarded-For': '127.0.0.1',
-        'X-Forwarded-Host': c.req.header('host'),
-        Authorization: undefined, // do not propagate request headers contained in c.req.header('Authorization')
-      },
-    }
-  )
+  const res = await proxy(`http://${originServer}/${c.req.param('path')}`, {
+    headers: {
+      ...c.req.header(), // optional, specify only when forwarding all the request data (including credentials) is necessary.
+      'X-Forwarded-For': '127.0.0.1',
+      'X-Forwarded-Host': c.req.header('host'),
+      Authorization: undefined, // do not propagate request headers contained in c.req.header('Authorization')
+    },
+  })
   res.headers.delete('Set-Cookie')
   return res
 })
@@ -6658,13 +6553,9 @@ interface ProxyRequestInit extends Omit<RequestInit, 'headers'> {
 }
 
 interface ProxyFetch {
-  (
-    input: string | URL | Request,
-    init?: ProxyRequestInit
-  ): Promise<Response>
+  (input: string | URL | Request, init?: ProxyRequestInit): Promise<Response>
 }
 ```
-
 
 # Cookie Helper
 
@@ -6708,11 +6599,7 @@ app.get('/signed-cookie', (c) => {
   const secret = 'secret' // make sure it's a large enough string to be secure
 
   await setSignedCookie(c, 'cookie_name0', 'cookie_value', secret)
-  const fortuneCookie = await getSignedCookie(
-    c,
-    secret,
-    'cookie_name0'
-  )
+  const fortuneCookie = await getSignedCookie(c, secret, 'cookie_name0')
   deleteCookie(c, 'cookie_name0')
   // `getSignedCookie` will return `false` for a specified cookie if the signature was tampered with or is invalid
   const allSignedCookies = await getSignedCookie(c, secret)
@@ -6747,7 +6634,7 @@ const cookie = generateCookie('delicious_cookie', 'macha', {
 const signedCookie = await generateSignedCookie(
   'delicious_cookie',
   'macha',
-  'secret chocolate chips'
+  'secret chocolate chips',
 )
 
 // Signed cookie with options
@@ -6759,7 +6646,7 @@ const signedCookie = await generateSignedCookie(
     path: '/',
     secure: true,
     httpOnly: true,
-  }
+  },
 )
 ```
 
@@ -6808,7 +6695,7 @@ await setSignedCookie(
     maxAge: 1000,
     expires: new Date(Date.UTC(2000, 11, 24, 10, 30, 59, 900)),
     sameSite: 'Strict',
-  }
+  },
 )
 ```
 
@@ -6848,13 +6735,13 @@ const securePrefixSignedCookie = await getSignedCookie(
   c,
   secret,
   'fortune_cookie',
-  'secure'
+  'secure',
 )
 const hostPrefixSignedCookie = await getSignedCookie(
   c,
   secret,
   'fortune_cookie',
-  'host'
+  'host',
 )
 ```
 
@@ -6865,15 +6752,9 @@ setCookie(c, 'delicious_cookie', 'macha', {
   prefix: 'secure', // or `host`
 })
 
-await setSignedCookie(
-  c,
-  'delicious_cookie',
-  'macha',
-  'secret choco chips',
-  {
-    prefix: 'secure', // or `host`
-  }
-)
+await setSignedCookie(c, 'delicious_cookie', 'macha', 'secret choco chips', {
+  prefix: 'secure', // or `host`
+})
 ```
 
 ## Following the best practices
@@ -6895,7 +6776,6 @@ The cookie helper will throw an `Error` when parsing cookies under the following
 - The cookie name starts with `__Host-`, but `domain` is set.
 - The `maxAge` option value is greater than 400 days.
 - The `expires` option value is 400 days later than the current time.
-
 
 # Testing Helper
 
@@ -6986,7 +6866,7 @@ describe('Search Endpoint', () => {
           Authorization: `Bearer ${token}`,
           'Content-Type': `application/json`,
         },
-      }
+      },
     )
 
     // Assertions
@@ -6998,7 +6878,6 @@ describe('Search Endpoint', () => {
   })
 })
 ```
-
 
 # Factory Helper
 
@@ -7176,7 +7055,6 @@ app.post('/posts', (c) => {
 })
 ```
 
-
 # SSG Helper
 
 SSG Helper generates a static site from your Hono application. It will retrieve the contents of registered routes and save them as static files.
@@ -7201,7 +7079,7 @@ app.use('/about', async (c, next) => {
         <body>
           <p>{content}</p>
         </body>
-      </html>
+      </html>,
     )
   })
   await next()
@@ -7211,7 +7089,7 @@ app.get('/about', (c) => {
   return c.render(
     <>
       <title>Hono SSG Page</title>Hello!
-    </>
+    </>,
   )
 })
 
@@ -7257,7 +7135,7 @@ export interface ToSSGInterface {
   (
     app: Hono,
     fsModule: FileSystemModule,
-    options?: ToSSGOptions
+    options?: ToSSGOptions,
   ): Promise<ToSSGResult>
 }
 ```
@@ -7268,10 +7146,7 @@ export interface ToSSGInterface {
 ```ts
 export interface FileSystemModule {
   writeFile(path: string, data: string | Uint8Array): Promise<void>
-  mkdir(
-    path: string,
-    options: { recursive: boolean }
-  ): Promise<void | string>
+  mkdir(path: string, options: { recursive: boolean }): Promise<void | string>
 }
 ```
 
@@ -7479,9 +7354,7 @@ Plugins can use the following hooks to customize the `toSSG` process:
 ```ts
 export type BeforeRequestHook = (req: Request) => Request | false
 export type AfterResponseHook = (res: Response) => Response | false
-export type AfterGenerateHook = (
-  result: ToSSGResult
-) => void | Promise<void>
+export type AfterGenerateHook = (result: ToSSGResult) => void | Promise<void>
 ```
 
 - **BeforeRequestHook**: Called before processing each request. Return `false` to skip the route.
@@ -7554,9 +7427,7 @@ export const sitemapPlugin = (baseURL: string): SSGPlugin => {
     afterGenerateHook: (result, fsModule, options) => {
       const outputDir = options?.dir ?? DEFAULT_OUTPUT_DIR
       const filePath = path.join(outputDir, 'sitemap.xml')
-      const urls = result.files.map((file) =>
-        new URL(file, baseURL).toString()
-      )
+      const urls = result.files.map((file) => new URL(file, baseURL).toString())
       const siteMapText = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((url) => `<url><loc>${url}</loc></url>`).join('\n')}
@@ -7583,7 +7454,6 @@ toSSG(app, fs, {
   ],
 })
 ```
-
 
 # Best Practices
 
@@ -7729,7 +7599,6 @@ const client = hc<AppType>('http://localhost') // Typed correctly
 
 For more detailed information, please see [the RPC page](/docs/guides/rpc#using-rpc-with-larger-applications).
 
-
 # RPC
 
 The RPC feature allows sharing of the API specifications between the server and the client.
@@ -7841,7 +7710,7 @@ const app = new Hono().get(
     'query',
     z.object({
       id: z.string(),
-    })
+    }),
   ),
   async (c) => {
     const { id } = c.req.valid('query')
@@ -7852,7 +7721,7 @@ const app = new Hono().get(
     }
 
     return c.json({ post }, 200) // Specify 200
-  }
+  },
 )
 
 export type AppType = typeof app
@@ -7884,10 +7753,7 @@ if (res.ok) {
 type ResponseType = InferResponseType<typeof client.posts.$get>
 
 // { post: Post }
-type ResponseType200 = InferResponseType<
-  typeof client.posts.$get,
-  200
->
+type ResponseType200 = InferResponseType<typeof client.posts.$get, 200>
 ```
 
 ## Global Response
@@ -7949,7 +7815,7 @@ export const routes = new Hono().get(
     'query',
     z.object({
       id: z.string(),
-    })
+    }),
   ),
   async (c) => {
     const { id } = c.req.valid('query')
@@ -7960,7 +7826,7 @@ export const routes = new Hono().get(
     }
 
     return c.json({ post })
-  }
+  },
 )
 
 // client.ts
@@ -7986,7 +7852,7 @@ export const routes = new Hono().get(
     'query',
     z.object({
       id: z.string(),
-    })
+    }),
   ),
   async (c) => {
     const { id } = c.req.valid('query')
@@ -7997,7 +7863,7 @@ export const routes = new Hono().get(
     }
 
     return c.json({ post }, 200) // Specify 200
-  }
+  },
 )
 ```
 
@@ -8009,8 +7875,7 @@ import { Hono, TypedResponse } from 'hono'
 
 declare module 'hono' {
   interface NotFoundResponse
-    extends Response,
-      TypedResponse<{ error: string }, 404, 'json'> {}
+    extends Response, TypedResponse<{ error: string }, 404, 'json'> {}
 }
 
 const app = new Hono()
@@ -8039,7 +7904,7 @@ const route = app.get(
     'query',
     z.object({
       page: z.coerce.number().optional(), // coerce to convert to number
-    })
+    }),
   ),
   (c) => {
     // ...
@@ -8047,7 +7912,7 @@ const route = app.get(
       title: 'Night',
       body: 'Time to sleep',
     })
-  }
+  },
 )
 ```
 
@@ -8077,7 +7942,7 @@ const route = app.get(
     'query',
     z.object({
       page: z.string().optional(),
-    })
+    }),
   ),
   (c) => {
     // ...
@@ -8085,7 +7950,7 @@ const route = app.get(
       title: 'Night',
       body: 'Time to sleep',
     })
-  }
+  },
 )
 ```
 
@@ -8122,13 +7987,13 @@ const route = app.get(
     'param',
     z.object({
       id: z.string(),
-    })
+    }),
   ),
   (c) => {
     // id: 123/456
     const { id } = c.req.valid('param')
     // ...
-  }
+  },
 )
 ```
 
@@ -8149,7 +8014,7 @@ const res = await client.search.$get(
       'X-Custom-Header': 'Here is Hono Client',
       'X-User-Agent': 'hc',
     },
-  }
+  },
 )
 ```
 
@@ -8184,7 +8049,7 @@ const res = await client.api.posts.$post(
     init: {
       signal: abortController.signal,
     },
-  }
+  },
 )
 
 // ...
@@ -8241,7 +8106,7 @@ You can pass the base URL as the second type parameter to `hc` to get more preci
 
 ```ts
 const client = hc<typeof route, 'http://localhost:8787'>(
-  'http://localhost:8787/'
+  'http://localhost:8787/',
 )
 
 const url = client.api.posts.$url()
@@ -8308,8 +8173,8 @@ const route = app.put(
     'form',
     z.object({
       file: z.instanceof(File),
-    })
-  )
+    }),
+  ),
   // ...
 )
 ```
@@ -8383,7 +8248,7 @@ import { parseResponse, DetailedError } from 'hono/client'
 const result = await parseResponse(client.hello.$get()).catch(
   (e: DetailedError) => {
     console.error(e)
-  }
+  },
 )
 // parseResponse automatically throws an error if response is not ok
 ```
@@ -8402,11 +8267,10 @@ const App = () => {
   const client = hc<AppType>('/api')
   const $get = client.hello.$get
 
-  const fetcher =
-    (arg: InferRequestType<typeof $get>) => async () => {
-      const res = await $get(arg)
-      return await res.json()
-    }
+  const fetcher = (arg: InferRequestType<typeof $get>) => async () => {
+    const res = await $get(arg)
+    return await res.json()
+  }
 
   const { data, error, isLoading } = useSWR(
     'api-hello',
@@ -8414,7 +8278,7 @@ const App = () => {
       query: {
         name: 'SWR',
       },
-    })
+    }),
   )
 
   if (error) return <div>failed to load</div>
@@ -8483,9 +8347,7 @@ For example, suppose your app has a route like this:
 
 ```ts
 // app.ts
-export const app = new Hono().get('foo/:id', (c) =>
-  c.json({ ok: true }, 200)
-)
+export const app = new Hono().get('foo/:id', (c) => c.json({ ok: true }, 200))
 ```
 
 Hono will infer the type as follows:
@@ -8553,7 +8415,7 @@ This is a bit cumbersome, but you can specify type arguments manually to avoid t
 
 ```ts
 const app = new Hono().get<'foo/:id'>('foo/:id', (c) =>
-  c.json({ ok: true }, 200)
+  c.json({ ok: true }, 200),
 )
 ```
 
@@ -8579,11 +8441,9 @@ const booksClient = hc<typeof booksApp>('/books')
 
 This way, `tsserver` doesn't need to instantiate types for all routes at once.
 
-
 # Examples
 
 See the [Examples section](/examples/).
-
 
 # Frequently Asked Questions
 
@@ -8607,7 +8467,6 @@ In your `renovate.json` :
 ```
 
 see [renovate-config-hono](https://github.com/shinGangan/renovate-config-hono) repository for more details.
-
 
 # Helpers
 
@@ -8642,7 +8501,6 @@ app.get('/cookie', (c) => {
 - [Streaming](/docs/helpers/streaming)
 - [Testing](/docs/helpers/testing)
 - [WebSocket](/docs/helpers/websocket)
-
 
 # JSX
 
@@ -8705,9 +8563,7 @@ const Layout: FC = (props) => {
   )
 }
 
-const Top: FC<{ messages: string[] }> = (props: {
-  messages: string[]
-}) => {
+const Top: FC<{ messages: string[] }> = (props: { messages: string[] }) => {
   return (
     <Layout>
       <h1>Hello Hono!</h1>
@@ -8743,7 +8599,7 @@ app.use('*', async (c, next) => {
       <html>
         <head></head>
         <body>{content}</body>
-      </html>
+      </html>,
     )
   })
   await next()
@@ -8753,9 +8609,9 @@ app.get('/about', (c) => {
   return c.render(
     <>
       <title>About Page</title>
-      <meta name='description' content='This is the about page.' />
+      <meta name="description" content="This is the about page." />
       about page content
-    </>
+    </>,
   )
 })
 
@@ -8887,7 +8743,7 @@ app.get('/', (c) => {
       <ThemeContext.Provider value={themes.dark}>
         <Toolbar />
       </ThemeContext.Provider>
-    </div>
+    </div>,
   )
 })
 ```
@@ -8909,7 +8765,7 @@ app.get('/', (c) => {
       <body>
         <AsyncComponent />
       </body>
-    </html>
+    </html>,
   )
 })
 ```
@@ -8933,7 +8789,7 @@ app.get('/', (c) => {
           <Component />
         </Suspense>
       </body>
-    </html>
+    </html>,
   )
   return c.body(stream, {
     headers: {
@@ -8964,7 +8820,7 @@ app.get('/sync', async (c) => {
           <SyncComponent />
         </ErrorBoundary>
       </body>
-    </html>
+    </html>,
   )
 })
 ```
@@ -8988,7 +8844,7 @@ app.get('/with-suspense', async (c) => {
           </Suspense>
         </ErrorBoundary>
       </body>
-    </html>
+    </html>,
   )
 })
 ```
@@ -9006,23 +8862,20 @@ app.get('/', (c) => {
   const stream = renderToReadableStream(
     <html>
       <body>
-        <StreamingContext
-          value={{ scriptNonce: 'random-nonce-value' }}
-        >
+        <StreamingContext value={{ scriptNonce: 'random-nonce-value' }}>
           <Suspense fallback={<div>Loading...</div>}>
             <AsyncComponent />
           </Suspense>
         </StreamingContext>
       </body>
-    </html>
+    </html>,
   )
 
   return c.body(stream, {
     headers: {
       'Content-Type': 'text/html; charset=UTF-8',
       'Transfer-Encoding': 'chunked',
-      'Content-Security-Policy':
-        "script-src 'nonce-random-nonce-value'",
+      'Content-Security-Policy': "script-src 'nonce-random-nonce-value'",
     },
   })
 })
@@ -9096,7 +8949,6 @@ declare module 'hono/jsx' {
   }
 }
 ```
-
 
 # Create-hono
 
@@ -9182,7 +9034,6 @@ pnpm create hono@latest my-app --template deno --offline
 ## Links & references
 
 - `create-hono` repository : [create-hono](https://github.com/honojs/create-hono)
-
 
 # Client Components
 
@@ -9282,16 +9133,14 @@ export default function App() {
       <Style />
       <button
         onClick={() =>
-          startViewTransition(() =>
-            setShowLargeImage((state) => !state)
-          )
+          startViewTransition(() => setShowLargeImage((state) => !state))
         }
       >
         Click!
       </button>
       <div>
         {!showLargeImage ? (
-          <img src='https://hono.dev/images/logo.png' />
+          <img src="https://hono.dev/images/logo.png" />
         ) : (
           <div
             class={css`
@@ -9340,23 +9189,21 @@ export default function App() {
       ::view-transition-new() {
         animation-name: ${rotate};
       }
-    `)
+    `),
   )
   return (
     <>
       <Style />
       <button
         onClick={() =>
-          startViewTransition(() =>
-            setShowLargeImage((state) => !state)
-          )
+          startViewTransition(() => setShowLargeImage((state) => !state))
         }
       >
         Click!
       </button>
       <div>
         {!showLargeImage ? (
-          <img src='https://hono.dev/images/logo.png' />
+          <img src="https://hono.dev/images/logo.png" />
         ) : (
           <div
             class={css`
@@ -9410,23 +9257,21 @@ export default function App() {
       ::view-transition-new() {
         animation-name: ${rotate};
       }
-    `)
+    `),
   )
   return (
     <>
       <Style />
       <button
         onClick={() =>
-          startViewTransition(() =>
-            setShowLargeImage((state) => !state)
-          )
+          startViewTransition(() => setShowLargeImage((state) => !state))
         }
       >
         Click!
       </button>
       <div>
         {!showLargeImage ? (
-          <img src='https://hono.dev/images/logo.png' />
+          <img src="https://hono.dev/images/logo.png" />
         ) : (
           <div
             class={css`
@@ -9480,7 +9325,6 @@ export default defineConfig({
   },
 })
 ```
-
 
 # Validation
 
@@ -9553,7 +9397,7 @@ app.post(
   (c) => {
     const body = c.req.valid('json')
     return c.json(body)
-  }
+  },
 )
 ```
 
@@ -9604,7 +9448,7 @@ app.post(
   (c) => {
     const { idempotencyKey } = c.req.valid('header')
     // ...
-  }
+  },
 )
 
 // ✅ this will work
@@ -9624,7 +9468,7 @@ app.post(
   (c) => {
     const { idempotencyKey } = c.req.valid('header')
     // ...
-  }
+  },
 )
 ```
 
@@ -9705,9 +9549,9 @@ const route = app.post(
       {
         message: 'Created!',
       },
-      201
+      201,
     )
-  }
+  },
 )
 ```
 
@@ -9750,12 +9594,12 @@ const route = app.post(
     'form',
     z.object({
       body: z.string(),
-    })
+    }),
   ),
   (c) => {
     const validated = c.req.valid('form')
     // ... use your validated data
-  }
+  },
 )
 ```
 
@@ -9917,7 +9761,6 @@ app.post('/author', sValidator('json', schema), (c) => {
 })
 ```
 
-
 # Miscellaneous
 
 ## Contributing
@@ -9944,7 +9787,6 @@ You can sponsor Hono authors via the GitHub sponsor program.
 - GitHub repository: <a href="https://github.com/honojs">https://github.com/honojs</a>
 - npm registry: <a href="https://www.npmjs.com/package/hono">https://www.npmjs.com/package/hono</a>
 - JSR: <a href="https://jsr.io/@hono/hono">https://jsr.io/@hono/hono</a>
-
 
 # Middleware
 
@@ -10044,7 +9886,7 @@ app.use(
   basicAuth({
     username: 'hono',
     password: 'acoolproject',
-  })
+  }),
 )
 ```
 
@@ -10062,7 +9904,7 @@ app.get(
   '/ws',
   upgradeWebSocket(() => ({
     // ...
-  }))
+  })),
 )
 ```
 
@@ -10203,7 +10045,6 @@ Built-in middleware does not depend on external modules, but third-party middlew
 We can explore a variety of [third-party middleware](https://hono.dev/docs/middleware/third-party).
 For example, we have GraphQL Server Middleware, Sentry Middleware, Firebase Auth Middleware, and others.
 
-
 # Testing
 
 [Vitest]: https://vitest.dev/
@@ -10240,7 +10081,7 @@ app.post('/posts', (c) => {
     201,
     {
       'X-Custom': 'Thank you',
-    }
+    },
   )
 })
 ```
@@ -10343,7 +10184,6 @@ test('GET /posts', async () => {
   const res = await app.request('/posts', {}, MOCK_ENV)
 })
 ```
-
 
 # Fastly Compute
 
@@ -10501,7 +10341,6 @@ app.put('/upload/:key', async (c, next) => {
 
 fire(app)
 ```
-
 
 # Next.js
 
@@ -10670,7 +10509,6 @@ In order for this to work with the Pages Router, it's important to disable Verce
 NODEJS_HELPERS=0
 ```
 
-
 # Deno
 
 [Deno](https://deno.com/) is a JavaScript runtime built on V8. It's not Node.js.
@@ -10771,9 +10609,8 @@ app.get(
   '/static/*',
   serveStatic({
     root: './',
-    rewriteRequestPath: (path) =>
-      path.replace(/^\/static/, '/statics'),
-  })
+    rewriteRequestPath: (path) => path.replace(/^\/static/, '/statics'),
+  }),
 )
 ```
 
@@ -10789,7 +10626,7 @@ app.get(
       m3u8: 'application/vnd.apple.mpegurl',
       ts: 'video/mp2t',
     },
-  })
+  }),
 )
 ```
 
@@ -10805,7 +10642,7 @@ app.get(
     onFound: (_path, c) => {
       c.header('Cache-Control', `public, immutable, max-age=31536000`)
     },
-  })
+  }),
 )
 ```
 
@@ -10820,7 +10657,7 @@ app.get(
     onNotFound: (path, c) => {
       console.log(`${path} is not found, you access ${c.req.path}`)
     },
-  })
+  }),
 )
 ```
 
@@ -10833,7 +10670,7 @@ app.get(
   '/static/*',
   serveStatic({
     precompressed: true,
-  })
+  }),
 )
 ```
 
@@ -10918,7 +10755,6 @@ We also provide many third-party middleware packages on [JSR](https://jsr.io/@ho
   }
 }
 ```
-
 
 # Cloudflare Pages
 
@@ -11180,15 +11016,15 @@ app.get('/', (c) => {
     <html>
       <head>
         {import.meta.env.PROD ? (
-          <script type='module' src='/static/client.js'></script>
+          <script type="module" src="/static/client.js"></script>
         ) : (
-          <script type='module' src='/src/client.ts'></script>
+          <script type="module" src="/src/client.ts"></script>
         )}
       </head>
       <body>
         <h1>Hello</h1>
       </body>
-    </html>
+    </html>,
   )
 })
 ```
@@ -11266,7 +11102,7 @@ export const onRequest = handleMiddleware(
   basicAuth({
     username: 'hono',
     password: 'acoolproject',
-  })
+  }),
 )
 ```
 
@@ -11325,7 +11161,6 @@ app.get('/hello', (c) => {
 
 export const onRequest = handle(app)
 ```
-
 
 # Supabase Edge Functions
 
@@ -11418,7 +11253,6 @@ supabase functions deploy hello-world
 ```
 
 For more deployment methods, visit the Supabase documentation on [Deploying to Production](https://supabase.com/docs/guides/functions/deploy).
-
 
 # Azure Functions
 
@@ -11580,7 +11414,6 @@ Deploy your project to the function app in Azure Cloud. Replace `<YourFunctionAp
 ```sh
 func azure functionapp publish <YourFunctionAppName>
 ```
-
 
 # Node.js
 
@@ -11775,7 +11608,7 @@ import { serveStatic } from '@hono/node-server/serve-static'
 
 app.use(
   '/static/*',
-  serveStatic({ root: fileURLToPath(new URL('./', import.meta.url)) })
+  serveStatic({ root: fileURLToPath(new URL('./', import.meta.url)) }),
 )
 ```
 
@@ -11802,9 +11635,8 @@ app.get(
   '/static/*',
   serveStatic({
     root: './',
-    rewriteRequestPath: (path) =>
-      path.replace(/^\/static/, '/statics'),
-  })
+    rewriteRequestPath: (path) => path.replace(/^\/static/, '/statics'),
+  }),
 )
 ```
 
@@ -11896,7 +11728,6 @@ EXPOSE 3000
 
 CMD ["node", "/app/dist/index.js"]
 ```
-
 
 # Getting Started
 
@@ -12067,9 +11898,7 @@ We can easily handle POST, PUT, and DELETE not only GET.
 
 ```ts
 app.post('/posts', (c) => c.text('Created!', 201))
-app.delete('/posts/:id', (c) =>
-  c.text(`${c.req.param('id')} is deleted!`)
-)
+app.delete('/posts/:id', (c) => c.text(`${c.req.param('id')} is deleted!`))
 ```
 
 ## Return HTML
@@ -12117,7 +11946,7 @@ app.use(
   basicAuth({
     username: 'admin',
     password: 'secret',
-  })
+  }),
 )
 
 app.get('/admin', (c) => {
@@ -12141,7 +11970,7 @@ app.get(
   '/ws',
   upgradeWebSocket((c) => {
     // ...
-  })
+  }),
 )
 ```
 
@@ -12150,7 +11979,6 @@ app.get(
 Most code will work on any platform, but there are guides for each.
 For instance, how to set up projects or how to deploy.
 Please see the page for the exact platform you want to use to create your application!
-
 
 # Netlify
 
@@ -12245,12 +12073,11 @@ const app = new Hono<Env>()
 app.get('/country', (c) =>
   c.json({
     'You are in': c.env.context.geo.country?.name,
-  })
+  }),
 )
 
 export default handle(app)
 ```
-
 
 # Cloudflare Workers
 
@@ -12599,7 +12426,6 @@ Before you deploy your project to Cloudflare, remember to set the environment va
 > For more about this section you can find in the Cloudflare documentation:
 > https://developers.cloudflare.com/workers/configuration/environment-variables/#add-environment-variables-via-the-dashboard
 
-
 # Bun
 
 [Bun](https://bun.com) is another JavaScript runtime. It's not Node.js or Deno. Bun includes a transcompiler, we can write the code with TypeScript.
@@ -12729,9 +12555,8 @@ app.get(
   '/static/*',
   serveStatic({
     root: './',
-    rewriteRequestPath: (path) =>
-      path.replace(/^\/static/, '/statics'),
-  })
+    rewriteRequestPath: (path) => path.replace(/^\/static/, '/statics'),
+  }),
 )
 ```
 
@@ -12747,7 +12572,7 @@ app.get(
       m3u8: 'application/vnd.apple.mpegurl',
       ts: 'video/mp2t',
     },
-  })
+  }),
 )
 ```
 
@@ -12763,7 +12588,7 @@ app.get(
     onFound: (_path, c) => {
       c.header('Cache-Control', `public, immutable, max-age=31536000`)
     },
-  })
+  }),
 )
 ```
 
@@ -12778,7 +12603,7 @@ app.get(
     onNotFound: (path, c) => {
       console.log(`${path} is not found, you access ${c.req.path}`)
     },
-  })
+  }),
 )
 ```
 
@@ -12791,7 +12616,7 @@ app.get(
   '/static/*',
   serveStatic({
     precompressed: true,
-  })
+  }),
 )
 ```
 
@@ -12817,7 +12642,6 @@ Then, run the command.
 ```sh
 bun test index.test.ts
 ```
-
 
 # AWS Lambda
 
@@ -13047,7 +12871,6 @@ app.get('/stream', async (c) => {
 export const handler = streamHandle(app)
 ```
 
-
 # Google Cloud Run
 
 [Google Cloud Run](https://cloud.google.com/run) is a serverless platform built by Google Cloud. You can run your code in response to events and Google automatically manages the underlying compute resources for you.
@@ -13183,7 +13006,6 @@ For information on containerizing, please refer to:
 - [Bun](https://bun.com/guides/ecosystem/docker)
 - [Deno](https://docs.deno.com/examples/google_cloud_run_tutorial)
 
-
 # Service Worker
 
 [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) is a script that runs in the background of the browser to handle tasks like caching and push notifications. Using a Service Worker adapter, you can run applications made with Hono as [FetchEvent](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent) handler within the browser.
@@ -13279,19 +13101,17 @@ function register() {
       },
       function (_error) {
         console.log('Register Service Worker: Error')
-      }
+      },
     )
 }
 function start() {
-  navigator.serviceWorker
-    .getRegistrations()
-    .then(function (registrations) {
-      for (const registration of registrations) {
-        console.log('Unregister Service Worker')
-        registration.unregister()
-      }
-      register()
-    })
+  navigator.serviceWorker.getRegistrations().then(function (registrations) {
+    for (const registration of registrations) {
+      console.log('Unregister Service Worker')
+      registration.unregister()
+    }
+    register()
+  })
 }
 start()
 ```
@@ -13351,7 +13171,6 @@ bun run dev
 :::
 
 By default, the development server will run on port `5173`. Access `http://localhost:5173/` in your browser to complete the Service Worker registration. Then, access `/sw` to see the response from the Hono application.
-
 
 # Lambda@Edge
 
@@ -13505,7 +13324,7 @@ app.get(
   basicAuth({
     username: 'hono',
     password: 'acoolproject',
-  })
+  }),
 )
 
 app.get('/', async (c, next) => {
@@ -13515,7 +13334,6 @@ app.get('/', async (c, next) => {
 
 export const handler = handle(app)
 ```
-
 
 # Vercel
 
@@ -13625,7 +13443,6 @@ vercel deploy
 ## Further reading
 
 [Learn more about Hono in the Vercel documentation](https://vercel.com/docs/frameworks/backend/hono).
-
 
 # Alibaba Cloud Function Compute
 
@@ -13745,7 +13562,6 @@ Finally, run the command to deploy:
 npm run build # Compile the TypeScript code to JavaScript
 npm run deploy # Deploy the function to Alibaba Cloud Function Compute
 ```
-
 
 # WebAssembly (w/ WASI)
 
@@ -14092,5 +13908,3 @@ To reach out to the WebAssembly community with questions, comments, contribution
 [jco-book]: https://bytecodealliance.github.io/jco/
 [jco-example-components]: https://github.com/bytecodealliance/jco/tree/main/examples/components
 [jco-example-component-hono]: https://github.com/bytecodealliance/jco/tree/main/examples/components/http-server-hono
-
-

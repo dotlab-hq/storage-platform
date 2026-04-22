@@ -3,21 +3,21 @@ import { TanStackDevtools } from '@tanstack/react-devtools'
 import { ReactQueryDevtoolsPanel } from '@tanstack/react-query-devtools'
 
 export function TanstackDevtools() {
-    return (
-        <TanStackDevtools
-            config={{
-                position: 'bottom-right',
-            }}
-            plugins={[
-                {
-                    name: 'Tanstack Router',
-                    render: <TanStackRouterDevtoolsPanel />,
-                },
-                {
-                    name: 'Tanstack Query',
-                    render: <ReactQueryDevtoolsPanel />,
-                },
-            ]}
-        />
-    )
+  return (
+    <TanStackDevtools
+      config={{
+        position: 'bottom-right',
+      }}
+      plugins={[
+        {
+          name: 'Tanstack Router',
+          render: <TanStackRouterDevtoolsPanel />,
+        },
+        {
+          name: 'Tanstack Query',
+          render: <ReactQueryDevtoolsPanel />,
+        },
+      ]}
+    />
+  )
 }

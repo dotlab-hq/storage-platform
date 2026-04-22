@@ -23,11 +23,11 @@ type MessageRow = {
   updatedAt: Date
 }
 
-function toRole( value: string ): ChatRole {
+function toRole(value: string): ChatRole {
   return value === 'assistant' ? 'assistant' : 'user'
 }
 
-export function toThreadSnapshot( row: ThreadRow ): ChatThreadSnapshot {
+export function toThreadSnapshot(row: ThreadRow): ChatThreadSnapshot {
   return {
     id: row.id,
     title: row.title,
@@ -38,11 +38,11 @@ export function toThreadSnapshot( row: ThreadRow ): ChatThreadSnapshot {
   }
 }
 
-export function toMessageSnapshot( row: MessageRow ): ChatMessageSnapshot {
+export function toMessageSnapshot(row: MessageRow): ChatMessageSnapshot {
   return {
     id: row.id,
     threadId: row.threadId,
-    role: toRole( row.role ),
+    role: toRole(row.role),
     content: row.content,
     regenerationCount: row.regenerationCount,
     createdAt: row.createdAt.toISOString(),
@@ -50,8 +50,8 @@ export function toMessageSnapshot( row: MessageRow ): ChatMessageSnapshot {
   }
 }
 
-export function deriveThreadTitle( prompt: string ): string {
-  const normalized = prompt.trim().replace( /\s+/g, ' ' )
-  if ( !normalized ) return 'New Chat'
-  return normalized.length > 42 ? `${normalized.slice( 0, 42 )}...` : normalized
+export function deriveThreadTitle(prompt: string): string {
+  const normalized = prompt.trim().replace(/\s+/g, ' ')
+  if (!normalized) return 'New Chat'
+  return normalized.length > 42 ? `${normalized.slice(0, 42)}...` : normalized
 }

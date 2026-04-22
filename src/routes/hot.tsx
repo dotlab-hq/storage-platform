@@ -11,45 +11,45 @@ import type { OfferResponse, PollResponse } from './-hot-qr-server'
 
 const ONE_MINUTE_MS = 60_000
 
-export const Route = createFileRoute( '/hot' )( {
+export const Route = createFileRoute('/hot')({
   component: HotRoute,
   server: {
     middleware: [isNotAuthenticatedMiddleware],
   },
-} )
+})
 
 type UseCreateQrOfferReturn = {
   qrImage: string
-  setQrImage: ( image: string ) => void
+  setQrImage: (image: string) => void
   createOfferMutation: UseMutationResult<OfferResponse, Error, void>
 }
 
 function useCreateQrOffer(): UseCreateQrOfferReturn {
-  const [qrImage, setQrImage] = React.useState<string>( '' )
+  const [qrImage, setQrImage] = React.useState<string>('')
 
-  const createOfferMutation = useMutation( {
+  const createOfferMutation = useMutation({
     mutationFn: async () => {
       const result = await createQrOffer()
-      if ( !result.success ) {
-        throw new Error( result.error )
+      if (!result.success) {
+        throw new Error(result.error)
       }
       return result.data
     },
-    onSuccess: async ( data ) => {
+    onSuccess: async (data) => {
       try {
-        const dataUrl = await QRCode.toDataURL( data.payload, {
+        const dataUrl = await QRCode.toDataURL(data.payload, {
           width: 260,
           margin: 1,
-        } )
-        setQrImage( dataUrl )
-      } catch ( error ) {
-        console.error( 'Failed to generate QR image:', error )
+        })
+        setQrImage(dataUrl)
+      } catch (error) {
+        console.error('Failed to generate QR image:', error)
       }
     },
     onError: () => {
-      setQrImage( '' )
+      setQrImage('')
     },
-  } )
+  })
 
   return { qrImage, setQrImage, createOfferMutation }
 }
@@ -63,29 +63,29 @@ function usePollQrStatus(
   currentOffer: OfferResponse | null | undefined,
   enabled: boolean,
 ): UsePollQrStatusReturn {
-  const { data: pollResult, isLoading: isPolling } = useQuery( {
+  const { data: pollResult, isLoading: isPolling } = useQuery({
     queryKey: ['pollQrStatus', currentOffer?.pollKey],
     queryFn: async () => {
-      if ( !currentOffer ) return null
-      const result = await pollQrStatus( {
+      if (!currentOffer) return null
+      const result = await pollQrStatus({
         data: { pollKey: currentOffer.pollKey },
-      } )
-      if ( !result.success ) {
-        throw new Error( result.error )
+      })
+      if (!result.success) {
+        throw new Error(result.error)
       }
       return result.data
     },
     enabled: enabled && currentOffer !== undefined && currentOffer !== null,
     refetchInterval: currentOffer?.pollIntervalMs ?? 5000,
     retry: false,
-  } )
+  })
 
   return { pollResult, isPolling }
 }
 
 function HotRoute() {
-  const [expired, setExpired] = React.useState<boolean>( false )
-  const startedAtRef = React.useRef<number | null>( null )
+  const [expired, setExpired] = React.useState<boolean>(false)
+  const startedAtRef = React.useRef<number | null>(null)
   const [currentOffer, setCurrentOffer] = React.useState<OfferResponse | null>(
     null,
   )
@@ -94,54 +94,52 @@ function HotRoute() {
 
   const { pollResult, isPolling } = usePollQrStatus(
     currentOffer,
-    !expired && !( Date.now() - ( startedAtRef.current ?? 0 ) >= ONE_MINUTE_MS ),
+    !expired && !(Date.now() - (startedAtRef.current ?? 0) >= ONE_MINUTE_MS),
   )
 
-  React.useEffect( () => {
+  React.useEffect(() => {
     // Generate QR on mount
     void createOfferMutation.mutate()
-  }, [] )
+  }, [])
 
-  React.useEffect( () => {
-    if ( createOfferMutation.isSuccess ) {
+  React.useEffect(() => {
+    if (createOfferMutation.isSuccess) {
       startedAtRef.current = Date.now()
-      setExpired( false )
-      setCurrentOffer( createOfferMutation.data )
+      setExpired(false)
+      setCurrentOffer(createOfferMutation.data)
     }
-  }, [createOfferMutation.isSuccess, createOfferMutation.data] )
+  }, [createOfferMutation.isSuccess, createOfferMutation.data])
 
-  React.useEffect( () => {
-    if ( !startedAtRef.current ) return
-    if ( Date.now() - startedAtRef.current >= ONE_MINUTE_MS ) {
-      setExpired( true )
+  React.useEffect(() => {
+    if (!startedAtRef.current) return
+    if (Date.now() - startedAtRef.current >= ONE_MINUTE_MS) {
+      setExpired(true)
     }
-  }, [pollResult] )
+  }, [pollResult])
 
-  React.useEffect( () => {
-    if ( pollResult?.status === 'approved' ) {
+  React.useEffect(() => {
+    if (pollResult?.status === 'approved') {
       window.location.href = '/'
     }
-  }, [pollResult?.status] )
+  }, [pollResult?.status])
 
   const getStateMessage = (): string => {
-    if ( createOfferMutation.isPending ) {
+    if (createOfferMutation.isPending) {
       return 'Generating QR...'
     }
-    if ( createOfferMutation.isError ) {
-      return (
-        createOfferMutation.error.message || 'Failed to generate QR offer.'
-      )
+    if (createOfferMutation.isError) {
+      return createOfferMutation.error.message || 'Failed to generate QR offer.'
     }
-    if ( !createOfferMutation.isSuccess ) {
+    if (!createOfferMutation.isSuccess) {
       return 'Generate a QR to start a tiny session.'
     }
-    if ( expired ) {
+    if (expired) {
       return 'QR has expired - generate new QR.'
     }
-    if ( isPolling ) {
+    if (isPolling) {
       return 'Scan-based login ready. Processing...'
     }
-    if ( pollResult?.status === 'claimed' ) {
+    if (pollResult?.status === 'claimed') {
       return 'QR scanned. Finalizing tiny session...'
     }
     if (
@@ -193,7 +191,9 @@ function HotRoute() {
             disabled={createOfferMutation.isPending}
           >
             <RefreshCcw className="size-4" />
-            {createOfferMutation.isPending ? 'Generating...' : 'Generate new QR'}
+            {createOfferMutation.isPending
+              ? 'Generating...'
+              : 'Generate new QR'}
           </Button>
           <Button asChild variant="ghost">
             <Link to="/auth">Back to login</Link>

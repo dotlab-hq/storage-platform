@@ -45,9 +45,8 @@ Always premount any `<Sequence>`!
 Use `<Series>` when elements should play one after another without overlap.
 
 ```tsx
-import { Series } from "remotion";
-
-<Series>
+import { Series } from 'remotion'
+;<Series>
   <Series.Sequence durationInFrames={45}>
     <Intro />
   </Series.Sequence>
@@ -57,7 +56,7 @@ import { Series } from "remotion";
   <Series.Sequence durationInFrames={30}>
     <Outro />
   </Series.Sequence>
-</Series>;
+</Series>
 ```
 
 Same as with `<Sequence>`, the items will be wrapped in an absolute fill element by default when using `<Series.Sequence>`, unless the `layout` prop is set to `none`.

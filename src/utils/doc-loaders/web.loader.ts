@@ -1,18 +1,18 @@
-import { PuppeteerWebBaseLoader } from "@langchain/community/document_loaders/web/puppeteer";
+import { PuppeteerWebBaseLoader } from '@langchain/community/document_loaders/web/puppeteer'
 
 const webLoader = async (url: string) => {
   const loader = new PuppeteerWebBaseLoader(url, {
     gotoOptions: {
-     waitUntil:"domcontentloaded"
+      waitUntil: 'domcontentloaded',
     },
     launchOptions: {
       headless: true,
     },
-  });
+  })
 
-  const docs = await loader.load();
+  const docs = await loader.load()
 
-  return docs;
-};
+  return docs
+}
 
-export { webLoader };
+export { webLoader }

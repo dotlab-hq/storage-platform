@@ -27,7 +27,7 @@ npm install framer-motion
 ### Simple Animation
 
 ```tsx
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
 
 // Animate on mount
 export function FadeIn({ children }: { children: React.ReactNode }) {
@@ -39,7 +39,7 @@ export function FadeIn({ children }: { children: React.ReactNode }) {
     >
       {children}
     </motion.div>
-  );
+  )
 }
 
 // Animate on hover
@@ -52,14 +52,14 @@ export function ScaleOnHover({ children }: { children: React.ReactNode }) {
     >
       {children}
     </motion.div>
-  );
+  )
 }
 ```
 
 ### Exit Animations with AnimatePresence
 
 ```tsx
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion'
 
 export function Modal({ isOpen, onClose, children }: ModalProps) {
   return (
@@ -90,7 +90,7 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
         </>
       )}
     </AnimatePresence>
-  );
+  )
 }
 ```
 
@@ -108,7 +108,7 @@ const containerVariants = {
       delayChildren: 0.2,
     },
   },
-};
+}
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -117,22 +117,18 @@ const itemVariants = {
     y: 0,
     transition: { type: 'spring', stiffness: 300, damping: 24 },
   },
-};
+}
 
 export function StaggeredList({ items }: { items: string[] }) {
   return (
-    <motion.ul
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
+    <motion.ul variants={containerVariants} initial="hidden" animate="visible">
       {items.map((item, index) => (
         <motion.li key={index} variants={itemVariants}>
           {item}
         </motion.li>
       ))}
     </motion.ul>
-  );
+  )
 }
 ```
 
@@ -144,13 +140,9 @@ const buttonVariants = {
   hover: { scale: 1.05 },
   tap: { scale: 0.95 },
   disabled: { opacity: 0.5, scale: 1 },
-};
+}
 
-export function AnimatedButton({
-  children,
-  disabled,
-  onClick,
-}: ButtonProps) {
+export function AnimatedButton({ children, disabled, onClick }: ButtonProps) {
   return (
     <motion.button
       variants={buttonVariants}
@@ -164,7 +156,7 @@ export function AnimatedButton({
     >
       {children}
     </motion.button>
-  );
+  )
 }
 ```
 
@@ -174,9 +166,9 @@ export function AnimatedButton({
 
 ```tsx
 // app/template.tsx
-'use client';
+'use client'
 
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
 
 export default function Template({ children }: { children: React.ReactNode }) {
   return (
@@ -188,14 +180,14 @@ export default function Template({ children }: { children: React.ReactNode }) {
     >
       {children}
     </motion.div>
-  );
+  )
 }
 ```
 
 ### Shared Layout Animations
 
 ```tsx
-import { motion, LayoutGroup } from 'framer-motion';
+import { motion, LayoutGroup } from 'framer-motion'
 
 export function Tabs({ tabs, activeTab, onTabChange }: TabsProps) {
   return (
@@ -219,7 +211,7 @@ export function Tabs({ tabs, activeTab, onTabChange }: TabsProps) {
         ))}
       </div>
     </LayoutGroup>
-  );
+  )
 }
 ```
 
@@ -238,7 +230,7 @@ export function DraggableCard() {
       whileDrag={{ scale: 1.1, cursor: 'grabbing' }}
       className="w-32 h-32 bg-blue-500 rounded-lg cursor-grab"
     />
-  );
+  )
 }
 ```
 
@@ -252,7 +244,7 @@ export function SwipeToDelete({ onDelete, children }: SwipeProps) {
       dragConstraints={{ left: 0, right: 0 }}
       onDragEnd={(_, info) => {
         if (info.offset.x < -100) {
-          onDelete();
+          onDelete()
         }
       }}
       className="relative"
@@ -266,7 +258,7 @@ export function SwipeToDelete({ onDelete, children }: SwipeProps) {
         Delete
       </motion.div>
     </motion.div>
-  );
+  )
 }
 ```
 
@@ -275,12 +267,12 @@ export function SwipeToDelete({ onDelete, children }: SwipeProps) {
 ### Scroll-Triggered
 
 ```tsx
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 
 export function FadeInWhenVisible({ children }: { children: React.ReactNode }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
     <motion.div
@@ -291,19 +283,19 @@ export function FadeInWhenVisible({ children }: { children: React.ReactNode }) {
     >
       {children}
     </motion.div>
-  );
+  )
 }
 ```
 
 ### Scroll Progress
 
 ```tsx
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 export function ParallaxHero() {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const { scrollY } = useScroll()
+  const y = useTransform(scrollY, [0, 500], [0, 150])
+  const opacity = useTransform(scrollY, [0, 300], [1, 0])
 
   return (
     <motion.div
@@ -312,18 +304,18 @@ export function ParallaxHero() {
     >
       <h1 className="text-6xl font-bold">Parallax Hero</h1>
     </motion.div>
-  );
+  )
 }
 
 export function ScrollProgress() {
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll()
 
   return (
     <motion.div
       style={{ scaleX: scrollYProgress }}
       className="fixed top-0 left-0 right-0 h-1 bg-blue-500 origin-left z-50"
     />
-  );
+  )
 }
 ```
 
@@ -332,41 +324,41 @@ export function ScrollProgress() {
 ### useAnimate (Imperative)
 
 ```tsx
-import { useAnimate } from 'framer-motion';
+import { useAnimate } from 'framer-motion'
 
 export function SubmitButton() {
-  const [scope, animate] = useAnimate();
+  const [scope, animate] = useAnimate()
 
   const handleClick = async () => {
     // Sequence of animations
-    await animate(scope.current, { scale: 0.95 }, { duration: 0.1 });
-    await animate(scope.current, { scale: 1 }, { type: 'spring' });
+    await animate(scope.current, { scale: 0.95 }, { duration: 0.1 })
+    await animate(scope.current, { scale: 1 }, { type: 'spring' })
 
     // Success animation
     await animate(
       scope.current,
       { backgroundColor: '#22c55e' },
-      { duration: 0.2 }
-    );
-  };
+      { duration: 0.2 },
+    )
+  }
 
   return (
     <motion.button ref={scope} onClick={handleClick} className="px-4 py-2">
       Submit
     </motion.button>
-  );
+  )
 }
 ```
 
 ### useMotionValue & useTransform
 
 ```tsx
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useTransform } from 'framer-motion'
 
 export function RotatingCard() {
-  const x = useMotionValue(0);
-  const rotateY = useTransform(x, [-200, 200], [-45, 45]);
-  const opacity = useTransform(x, [-200, 0, 200], [0.5, 1, 0.5]);
+  const x = useMotionValue(0)
+  const rotateY = useTransform(x, [-200, 200], [-45, 45])
+  const opacity = useTransform(x, [-200, 0, 200], [0.5, 1, 0.5])
 
   return (
     <motion.div
@@ -375,7 +367,7 @@ export function RotatingCard() {
       style={{ x, rotateY, opacity }}
       className="w-64 h-96 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl"
     />
-  );
+  )
 }
 ```
 
@@ -385,7 +377,7 @@ export function RotatingCard() {
 
 ```tsx
 // components/AnimatedContainer.tsx
-import { motion, Variants } from 'framer-motion';
+import { motion, Variants } from 'framer-motion'
 
 const animations: Record<string, Variants> = {
   fadeIn: {
@@ -412,14 +404,14 @@ const animations: Record<string, Variants> = {
     hidden: { opacity: 0, x: 50 },
     visible: { opacity: 1, x: 0 },
   },
-};
+}
 
 interface AnimatedContainerProps {
-  children: React.ReactNode;
-  animation?: keyof typeof animations;
-  delay?: number;
-  duration?: number;
-  className?: string;
+  children: React.ReactNode
+  animation?: keyof typeof animations
+  delay?: number
+  duration?: number
+  className?: string
 }
 
 export function AnimatedContainer({
@@ -439,7 +431,7 @@ export function AnimatedContainer({
     >
       {children}
     </motion.div>
-  );
+  )
 }
 ```
 
@@ -447,7 +439,7 @@ export function AnimatedContainer({
 
 ```tsx
 // components/AnimatedList.tsx
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -457,18 +449,18 @@ const containerVariants = {
       staggerChildren: 0.05,
     },
   },
-};
+}
 
 const itemVariants = {
   hidden: { opacity: 0, x: -20 },
   visible: { opacity: 1, x: 0 },
-};
+}
 
 interface AnimatedListProps<T> {
-  items: T[];
-  renderItem: (item: T, index: number) => React.ReactNode;
-  keyExtractor: (item: T, index: number) => string;
-  className?: string;
+  items: T[]
+  renderItem: (item: T, index: number) => React.ReactNode
+  keyExtractor: (item: T, index: number) => string
+  className?: string
 }
 
 export function AnimatedList<T>({
@@ -490,7 +482,7 @@ export function AnimatedList<T>({
         </motion.li>
       ))}
     </motion.ul>
-  );
+  )
 }
 ```
 
@@ -524,19 +516,23 @@ export const transitions = {
     duration: 0.15,
     ease: [0.25, 0.1, 0.25, 1],
   },
-} as const;
+} as const
 
 // Usage
-<motion.div transition={transitions.spring} />
+;<motion.div transition={transitions.spring} />
 ```
 
 ## Reduced Motion Support
 
 ```tsx
-import { useReducedMotion } from 'framer-motion';
+import { useReducedMotion } from 'framer-motion'
 
-export function AccessibleAnimation({ children }: { children: React.ReactNode }) {
-  const shouldReduceMotion = useReducedMotion();
+export function AccessibleAnimation({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  const shouldReduceMotion = useReducedMotion()
 
   return (
     <motion.div
@@ -546,7 +542,7 @@ export function AccessibleAnimation({ children }: { children: React.ReactNode })
     >
       {children}
     </motion.div>
-  );
+  )
 }
 ```
 

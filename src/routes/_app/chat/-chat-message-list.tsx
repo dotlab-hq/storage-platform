@@ -7,12 +7,12 @@ type ChatMessageListProps = {
   activeMessageId: string | null
   isPending: boolean
   isStreaming: boolean
-  onRegenerate: ( messageId: string ) => void
-  onDelete: ( messageId: string ) => void
+  onRegenerate: (messageId: string) => void
+  onDelete: (messageId: string) => void
   messageLoadRef?: React.RefObject<HTMLDivElement | null>
 }
 
-export function ChatMessageList( {
+export function ChatMessageList({
   messages,
   activeMessageId,
   isPending,
@@ -20,11 +20,13 @@ export function ChatMessageList( {
   onRegenerate,
   onDelete,
   messageLoadRef,
-}: ChatMessageListProps ) {
+}: ChatMessageListProps) {
   const sorted = useMemo(
     () =>
-      [...messages].sort( ( left, right ) =>
-        new Date( left.createdAt ).getTime() - new Date( right.createdAt ).getTime(),
+      [...messages].sort(
+        (left, right) =>
+          new Date(left.createdAt).getTime() -
+          new Date(right.createdAt).getTime(),
       ),
     [messages],
   )
@@ -33,14 +35,10 @@ export function ChatMessageList( {
     <div className="space-y-3 pb-3 sm:space-y-4 sm:pb-4">
       {/* Observer at top to load older messages */}
       {messageLoadRef && (
-        <div
-          ref={messageLoadRef}
-          className="h-1"
-          data-observer="top"
-        />
+        <div ref={messageLoadRef} className="h-1" data-observer="top" />
       )}
 
-      {sorted.map( ( message ) => (
+      {sorted.map((message) => (
         <ChatMessageItem
           key={message.id}
           message={message}
@@ -49,7 +47,7 @@ export function ChatMessageList( {
           onRegenerate={onRegenerate}
           onDelete={onDelete}
         />
-      ) )}
+      ))}
     </div>
   )
 }

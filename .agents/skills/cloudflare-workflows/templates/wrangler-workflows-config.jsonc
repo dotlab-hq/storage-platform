@@ -38,7 +38,7 @@
        * Must match your TypeScript class:
        * export class MyWorkflow extends WorkflowEntrypoint { ... }
        */
-      "class_name": "MyWorkflow"
+      "class_name": "MyWorkflow",
     },
 
     /**
@@ -47,13 +47,13 @@
     {
       "name": "payment-workflow",
       "binding": "PAYMENT_WORKFLOW",
-      "class_name": "PaymentWorkflow"
+      "class_name": "PaymentWorkflow",
     },
     {
       "name": "approval-workflow",
       "binding": "APPROVAL_WORKFLOW",
-      "class_name": "ApprovalWorkflow"
-    }
+      "class_name": "ApprovalWorkflow",
+    },
 
     /**
      * Example: Workflow in different Worker script
@@ -120,7 +120,7 @@
    * Optional: Observability
    */
   "observability": {
-    "enabled": true
+    "enabled": true,
   },
 
   /**
@@ -129,29 +129,29 @@
   "env": {
     "staging": {
       "vars": {
-        "ENVIRONMENT": "staging"
+        "ENVIRONMENT": "staging",
       },
       "workflows": [
         {
           "name": "my-workflow-staging",
           "binding": "MY_WORKFLOW",
-          "class_name": "MyWorkflow"
-        }
-      ]
+          "class_name": "MyWorkflow",
+        },
+      ],
     },
     "production": {
       "vars": {
-        "ENVIRONMENT": "production"
+        "ENVIRONMENT": "production",
       },
       "workflows": [
         {
           "name": "my-workflow-production",
           "binding": "MY_WORKFLOW",
-          "class_name": "MyWorkflow"
-        }
-      ]
-    }
-  }
+          "class_name": "MyWorkflow",
+        },
+      ],
+    },
+  },
 }
 
 /**

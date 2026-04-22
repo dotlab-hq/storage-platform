@@ -23,16 +23,16 @@ const UNSELECTED = '__unselected__'
 
 type MoveModalProps = {
   open: boolean
-  onOpenChange: ( open: boolean ) => void
+  onOpenChange: (open: boolean) => void
   items: StorageItem[]
   currentFolderId: string | null
-  onMove: ( targetFolderId: string | null ) => void
+  onMove: (targetFolderId: string | null) => void
   isLoading?: boolean
   userId?: string | null
   mode?: 'move' | 'update-path'
 }
 
-export function MoveModal( {
+export function MoveModal({
   open,
   onOpenChange,
   items,
@@ -41,65 +41,65 @@ export function MoveModal( {
   isLoading = false,
   userId,
   mode = 'move',
-}: MoveModalProps ) {
-  const [selectedFolder, setSelectedFolder] = useState<string>( UNSELECTED )
-  const [pathQuery, setPathQuery] = useState( '' )
-  const [allFolders, setAllFolders] = useState<FolderOption[]>( [] )
-  const [fetching, setFetching] = useState( false )
-  const movingIds = new Set( items.map( ( i ) => i.id ) )
+}: MoveModalProps) {
+  const [selectedFolder, setSelectedFolder] = useState<string>(UNSELECTED)
+  const [pathQuery, setPathQuery] = useState('')
+  const [allFolders, setAllFolders] = useState<FolderOption[]>([])
+  const [fetching, setFetching] = useState(false)
+  const movingIds = new Set(items.map((i) => i.id))
 
   // Reset selection every time modal opens
-  useEffect( () => {
-    if ( open ) {
-      setSelectedFolder( UNSELECTED )
-      setPathQuery( '' )
+  useEffect(() => {
+    if (open) {
+      setSelectedFolder(UNSELECTED)
+      setPathQuery('')
     }
-  }, [open] )
+  }, [open])
 
-  useEffect( () => {
-    if ( !open || !userId ) return
-    setFetching( true )
+  useEffect(() => {
+    if (!open || !userId) return
+    setFetching(true)
     void getAllFoldersFn()
-      .then( ( data: FoldersPayload ) => setAllFolders( data.folders ?? [] ) )
-      .catch( () => setAllFolders( [] ) )
-      .finally( () => setFetching( false ) )
-  }, [open, userId] )
+      .then((data: FoldersPayload) => setAllFolders(data.folders ?? []))
+      .catch(() => setAllFolders([]))
+      .finally(() => setFetching(false))
+  }, [open, userId])
 
   const allPaths = useMemo(
-    () => buildFolderPathOptions( allFolders ),
+    () => buildFolderPathOptions(allFolders),
     [allFolders],
   )
 
   const movingFolderIds = useMemo(
     () =>
-      items.filter( ( item ) => item.type === 'folder' ).map( ( folder ) => folder.id ),
+      items.filter((item) => item.type === 'folder').map((folder) => folder.id),
     [items],
   )
 
   const availableFolders = useMemo(
     () =>
-      allPaths.filter( ( folder ) => {
-        if ( folder.id === currentFolderId ) return false
-        if ( movingIds.has( folder.id ) ) return false
-        for ( const movingFolderId of movingFolderIds ) {
-          if ( isDescendantFolder( movingFolderId, folder.id, allFolders ) ) {
+      allPaths.filter((folder) => {
+        if (folder.id === currentFolderId) return false
+        if (movingIds.has(folder.id)) return false
+        for (const movingFolderId of movingFolderIds) {
+          if (isDescendantFolder(movingFolderId, folder.id, allFolders)) {
             return false
           }
         }
         return true
-      } ),
+      }),
     [allFolders, allPaths, currentFolderId, movingFolderIds, movingIds],
   )
 
-  const filteredFolders = useMemo( () => {
+  const filteredFolders = useMemo(() => {
     const query = pathQuery.trim().toLowerCase()
-    if ( !query ) return availableFolders
+    if (!query) return availableFolders
     return availableFolders.filter(
-      ( folder ) =>
-        folder.path.toLowerCase().includes( query ) ||
-        folder.name.toLowerCase().includes( query ),
+      (folder) =>
+        folder.path.toLowerCase().includes(query) ||
+        folder.name.toLowerCase().includes(query),
     )
-  }, [availableFolders, pathQuery] )
+  }, [availableFolders, pathQuery])
 
   const itemLabel =
     items.length === 1
@@ -109,8 +109,8 @@ export function MoveModal( {
   const hasSelection = selectedFolder !== UNSELECTED
   const targetId = selectedFolder === 'root' ? null : selectedFolder
   const selectedPath = targetId
-    ? ( availableFolders.find( ( folder ) => folder.id === targetId )?.path ??
-      'Unknown path' )
+    ? (availableFolders.find((folder) => folder.id === targetId)?.path ??
+      'Unknown path')
     : '/'
   const isUpdatePath = mode === 'update-path'
   const actionLabel = isUpdatePath ? 'Update path' : 'Move here'
@@ -136,7 +136,7 @@ export function MoveModal( {
           <Search className="text-muted-foreground absolute left-3 top-2.5 h-4 w-4" />
           <Input
             value={pathQuery}
-            onChange={( event ) => setPathQuery( event.target.value )}
+            onChange={(event) => setPathQuery(event.target.value)}
             placeholder="Search destination path, e.g. /Projects/2026"
             className="pl-9"
           />
@@ -158,7 +158,7 @@ export function MoveModal( {
             <>
               <button
                 type="button"
-                onClick={() => setSelectedFolder( 'root' )}
+                onClick={() => setSelectedFolder('root')}
                 className={cn(
                   'animate-in fade-in-0 slide-in-from-bottom-2 flex w-full items-center gap-2 rounded-md border px-3 py-2 text-sm duration-200',
                   selectedFolder === 'root'
@@ -170,11 +170,11 @@ export function MoveModal( {
                 <span className="font-medium">/</span>
                 <span className="text-muted-foreground">My Files (Root)</span>
               </button>
-              {filteredFolders.map( ( folder ) => (
+              {filteredFolders.map((folder) => (
                 <button
                   key={folder.id}
                   type="button"
-                  onClick={() => setSelectedFolder( folder.id )}
+                  onClick={() => setSelectedFolder(folder.id)}
                   className={cn(
                     'animate-in fade-in-0 slide-in-from-bottom-2 flex w-full items-center gap-2 rounded-md border px-3 py-2 pl-4 text-left text-sm duration-200',
                     selectedFolder === folder.id
@@ -185,7 +185,7 @@ export function MoveModal( {
                   <Folder className="h-4 w-4" />
                   <span className="truncate">{folder.path}</span>
                 </button>
-              ) )}
+              ))}
               {filteredFolders.length === 0 && !fetching && (
                 <p className="text-muted-foreground px-3 py-4 text-center text-sm">
                   No matching destination paths.
@@ -195,11 +195,11 @@ export function MoveModal( {
           )}
         </div>
         <DialogFooter>
-          <Button variant="outline" onClick={() => onOpenChange( false )}>
+          <Button variant="outline" onClick={() => onOpenChange(false)}>
             Cancel
           </Button>
           <Button
-            onClick={() => onMove( targetId )}
+            onClick={() => onMove(targetId)}
             disabled={isLoading || fetching || !hasSelection}
           >
             {isLoading ? loadingLabel : actionLabel}

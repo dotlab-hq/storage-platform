@@ -15,6 +15,7 @@ user-invocable: true
 **Latest Versions**: wrangler@4.58.0, @cloudflare/workers-types@4.20260109.0
 
 **Recent Updates (2025)**:
+
 - **April 2025**: Workflows GA release - waitForEvent API, Vitest testing, CPU time metrics, 4,500 concurrent instances
 - **October 2025**: Instance creation rate 10x faster (100/sec), concurrency increased to 10,000
 - **2025 Limits**: Max steps 1,024, state persistence 1MB/step (100MB-1GB per instance), event payloads 1MB, CPU time 5 min max
@@ -75,10 +76,12 @@ This skill prevents **12** documented errors with Cloudflare Workflows.
 **Why It Happens**: Bug in miniflare that was fixed in production (May 2025) but not ported to local emulator. After a timeout, the event queue becomes corrupted for that instance.
 
 **Prevention**:
+
 - **Test waitForEvent timeout scenarios in production/staging**, not local dev
 - Avoid chaining multiple `waitForEvent()` calls where timeouts are expected
 
 **Example of Bug**:
+
 ```typescript
 export class MyWorkflow extends WorkflowEntrypoint<Env, Params> {
   async run(event: WorkflowEvent<Params>, step: WorkflowStep) {
@@ -86,11 +89,11 @@ export class MyWorkflow extends WorkflowEntrypoint<Env, Params> {
       try {
         const evt = await step.waitForEvent(`wait-${i}`, {
           type: 'user-action',
-          timeout: '5 seconds'
-        });
-        console.log(`Iteration ${i}: Received event`);
+          timeout: '5 seconds',
+        })
+        console.log(`Iteration ${i}: Received event`)
       } catch {
-        console.log(`Iteration ${i}: Timeout`);
+        console.log(`Iteration ${i}: Timeout`)
       }
     }
   }
@@ -114,6 +117,7 @@ export class MyWorkflow extends WorkflowEntrypoint<Env, Params> {
 **Why It Happens**: `getPlatformProxy()` from `wrangler` package doesn't support Workflow bindings (similar to how it handles Durable Objects). This blocks Next.js integration and local CLI scripts.
 
 **Prevention**:
+
 - **Option 1**: Comment out workflow bindings when using `getPlatformProxy()`
 - **Option 2**: Create separate `wrangler.cli.jsonc` without workflows for CLI scripts
 - **Option 3**: Access workflow bindings directly via deployed worker, not proxy
@@ -149,15 +153,19 @@ const { env } = await getPlatformProxy({ configPath: './wrangler.cli.jsonc' });
 
 ```typescript
 export default {
-  async fetch(req: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-    const workflow = await env.MY_WORKFLOW.create({ params: { userId: '123' } });
+  async fetch(
+    req: Request,
+    env: Env,
+    ctx: ExecutionContext,
+  ): Promise<Response> {
+    const workflow = await env.MY_WORKFLOW.create({ params: { userId: '123' } })
 
     // ✅ Ensure workflow initialization completes
-    ctx.waitUntil(workflow.status());
+    ctx.waitUntil(workflow.status())
 
-    return Response.redirect('/dashboard', 302);
-  }
-};
+    return Response.redirect('/dashboard', 302)
+  },
+}
 ```
 
 **Status**: Fixed in recent wrangler versions (post-Sept 2025), but workaround still recommended for compatibility.
@@ -173,13 +181,14 @@ export default {
 **Why It Happens**: `@cloudflare/vitest-pool-workers` has resource constraint issues in CI containers, affecting workflow tests more than other worker types.
 
 **Prevention**:
+
 1. Increase `testTimeout` in vitest config:
    ```typescript
    export default defineWorkersConfig({
      test: {
-       testTimeout: 60_000 // Default: 5000ms
-     }
-   });
+       testTimeout: 60_000, // Default: 5000ms
+     },
+   })
    ```
 2. Check CI resource limits (CPU/memory)
 3. Use `isolatedStorage: false` if not testing storage isolation
@@ -200,11 +209,11 @@ export default {
 **Prevention**: Test instance lifecycle management (pause/resume/terminate) in production or staging environment until local dev support is added.
 
 ```typescript
-const instance = await env.MY_WORKFLOW.get(instanceId);
+const instance = await env.MY_WORKFLOW.get(instanceId)
 
 // ❌ Fails in wrangler dev
-await instance.restart();    // Error: Not implemented yet
-await instance.terminate();  // Error: Not implemented yet
+await instance.restart() // Error: Not implemented yet
+await instance.terminate() // Error: Not implemented yet
 
 // ✅ Works in production
 ```
@@ -224,18 +233,18 @@ await instance.terminate();  // Error: Not implemented yet
 
 ```typescript
 // ❌ Bad - I/O outside step
-const response = await fetch('https://api.example.com/data');
-const data = await response.json();
+const response = await fetch('https://api.example.com/data')
+const data = await response.json()
 
 await step.do('use data', async () => {
-  return data;  // This will fail!
-});
+  return data // This will fail!
+})
 
 // ✅ Good - I/O inside step
 const data = await step.do('fetch data', async () => {
-  const response = await fetch('https://api.example.com/data');
-  return await response.json();
-});
+  const response = await fetch('https://api.example.com/data')
+  return await response.json()
+})
 ```
 
 ---
@@ -252,10 +261,10 @@ const data = await step.do('fetch data', async () => {
 
 ```typescript
 // ❌ Retries in dev, exits in prod
-throw new NonRetryableError('');
+throw new NonRetryableError('')
 
 // ✅ Exits in both environments
-throw new NonRetryableError('Validation failed');
+throw new NonRetryableError('Validation failed')
 ```
 
 **Status**: Known issue, workaround documented.
@@ -273,21 +282,21 @@ throw new NonRetryableError('Validation failed');
 
 ```typescript
 // ❌ BAD - In-memory variable lost on hibernation
-let counter = 0;
+let counter = 0
 export class MyWorkflow extends WorkflowEntrypoint<Env, Params> {
   async run(event: WorkflowEvent<Params>, step: WorkflowStep) {
-    counter = await step.do('increment', async () => counter + 1);
-    await step.sleep('wait', '1 hour'); // ← Hibernates here, in-memory state lost
-    console.log(counter); // ❌ Will be 0, not 1!
+    counter = await step.do('increment', async () => counter + 1)
+    await step.sleep('wait', '1 hour') // ← Hibernates here, in-memory state lost
+    console.log(counter) // ❌ Will be 0, not 1!
   }
 }
 
 // ✅ GOOD - State from step.do() return values persists
 export class MyWorkflow extends WorkflowEntrypoint<Env, Params> {
   async run(event: WorkflowEvent<Params>, step: WorkflowStep) {
-    const counter = await step.do('increment', async () => 1);
-    await step.sleep('wait', '1 hour');
-    console.log(counter); // ✅ Still 1
+    const counter = await step.do('increment', async () => 1)
+    await step.sleep('wait', '1 hour')
+    console.log(counter) // ✅ Still 1
   }
 }
 ```
@@ -306,14 +315,14 @@ export class MyWorkflow extends WorkflowEntrypoint<Env, Params> {
 ```typescript
 // ❌ BAD - Non-deterministic step name
 await step.do(`fetch-data-${Date.now()}`, async () => {
-  return await fetchExpensiveData();
-});
+  return await fetchExpensiveData()
+})
 // Every execution creates new cache key → step always re-runs
 
 // ✅ GOOD - Deterministic step name
 await step.do('fetch-data', async () => {
-  return await fetchExpensiveData();
-});
+  return await fetchExpensiveData()
+})
 // Same cache key → result reused on restart/retry
 ```
 
@@ -330,14 +339,14 @@ await step.do('fetch-data', async () => {
 
 ```typescript
 // ❌ BAD - Race outside step
-const fastest = await Promise.race([fetchA(), fetchB()]);
-await step.do('use result', async () => fastest);
+const fastest = await Promise.race([fetchA(), fetchB()])
+await step.do('use result', async () => fastest)
 // On restart: race runs again, different promise might win
 
 // ✅ GOOD - Race inside step
 const fastest = await step.do('fetch fastest', async () => {
-  return await Promise.race([fetchA(), fetchB()]);
-});
+  return await Promise.race([fetchA(), fetchB()])
+})
 // On restart: cached result used, consistent behavior
 ```
 
@@ -354,13 +363,15 @@ const fastest = await step.do('fetch fastest', async () => {
 
 ```typescript
 // ❌ BAD - Side effect outside step
-console.log('Workflow started'); // ← Logs multiple times on restart
-await step.do('work', async () => { /* work */ });
+console.log('Workflow started') // ← Logs multiple times on restart
+await step.do('work', async () => {
+  /* work */
+})
 
 // ✅ GOOD - Side effects inside step
 await step.do('log start', async () => {
-  console.log('Workflow started'); // ← Logs once (cached)
-});
+  console.log('Workflow started') // ← Logs once (cached)
+})
 ```
 
 ---
@@ -377,20 +388,19 @@ await step.do('log start', async () => {
 ```typescript
 // ❌ BAD - Charge customer without check
 await step.do('charge', async () => {
-  return await stripe.charges.create({ amount: 1000, customer: customerId });
-});
+  return await stripe.charges.create({ amount: 1000, customer: customerId })
+})
 // If step times out after charge succeeds, retry charges AGAIN!
 
 // ✅ GOOD - Check for existing charge first
 await step.do('charge', async () => {
-  const existing = await stripe.charges.list({ customer: customerId, limit: 1 });
-  if (existing.data.length > 0) return existing.data[0]; // Idempotent
-  return await stripe.charges.create({ amount: 1000, customer: customerId });
-});
+  const existing = await stripe.charges.list({ customer: customerId, limit: 1 })
+  if (existing.data.length > 0) return existing.data[0] // Idempotent
+  return await stripe.charges.create({ amount: 1000, customer: customerId })
+})
 ```
 
 ---
-
 
 ## Step Methods
 
@@ -401,6 +411,7 @@ step.do<T>(name: string, config?: WorkflowStepConfig, callback: () => Promise<T>
 ```
 
 **Parameters:**
+
 - `name` - Step name (for observability)
 - `config` (optional) - Retry configuration (retries, timeout, backoff)
 - `callback` - Async function that does the work
@@ -408,13 +419,22 @@ step.do<T>(name: string, config?: WorkflowStepConfig, callback: () => Promise<T>
 **Returns:** Value from callback (must be serializable)
 
 **Example:**
+
 ```typescript
-const result = await step.do('call API', { retries: { limit: 10, delay: '10s', backoff: 'exponential' }, timeout: '5 min' }, async () => {
-  return await fetch('https://api.example.com/data').then(r => r.json());
-});
+const result = await step.do(
+  'call API',
+  {
+    retries: { limit: 10, delay: '10s', backoff: 'exponential' },
+    timeout: '5 min',
+  },
+  async () => {
+    return await fetch('https://api.example.com/data').then((r) => r.json())
+  },
+)
 ```
 
 **CRITICAL - Serialization:**
+
 - ✅ Allowed: string, number, boolean, Array, Object, null
 - ❌ Forbidden: Function, Symbol, circular references, undefined
 - Throws error if return value isn't JSON serializable
@@ -428,15 +448,17 @@ step.sleep(name: string, duration: WorkflowDuration): Promise<void>
 ```
 
 **Parameters:**
+
 - `name` - Step name
 - `duration` - Number (ms) or string: `"second"`, `"minute"`, `"hour"`, `"day"`, `"week"`, `"month"`, `"year"` (plural forms accepted)
 
 **Examples:**
+
 ```typescript
-await step.sleep('wait 5 minutes', '5 minutes');
-await step.sleep('wait 1 hour', '1 hour');
-await step.sleep('wait 2 days', '2 days');
-await step.sleep('wait 30 seconds', 30000);  // milliseconds
+await step.sleep('wait 5 minutes', '5 minutes')
+await step.sleep('wait 1 hour', '1 hour')
+await step.sleep('wait 2 days', '2 days')
+await step.sleep('wait 30 seconds', 30000) // milliseconds
 ```
 
 **Note:** Resuming workflows take priority over new instances. Sleeps don't count toward step limits.
@@ -450,13 +472,15 @@ step.sleepUntil(name: string, timestamp: Date | number): Promise<void>
 ```
 
 **Parameters:**
+
 - `name` - Step name
 - `timestamp` - Date object or UNIX timestamp (milliseconds)
 
 **Examples:**
+
 ```typescript
-await step.sleepUntil('wait for launch', new Date('2025-12-25T00:00:00Z'));
-await step.sleepUntil('wait until time', Date.parse('24 Oct 2024 13:00:00 UTC'));
+await step.sleepUntil('wait for launch', new Date('2025-12-25T00:00:00Z'))
+await step.sleepUntil('wait until time', Date.parse('24 Oct 2024 13:00:00 UTC'))
 ```
 
 ---
@@ -468,6 +492,7 @@ step.waitForEvent<T>(name: string, options: { type: string; timeout?: string | n
 ```
 
 **Parameters:**
+
 - `name` - Step name
 - `options.type` - Event type to match
 - `options.timeout` (optional) - Max wait time (default: 24 hours, max: 30 days)
@@ -475,18 +500,23 @@ step.waitForEvent<T>(name: string, options: { type: string; timeout?: string | n
 **Returns:** Event payload sent via `instance.sendEvent()`
 
 **Example:**
+
 ```typescript
 export class PaymentWorkflow extends WorkflowEntrypoint<Env, Params> {
   async run(event: WorkflowEvent<Params>, step: WorkflowStep) {
-    await step.do('create payment', async () => { /* Stripe API */ });
+    await step.do('create payment', async () => {
+      /* Stripe API */
+    })
 
     const webhookData = await step.waitForEvent<StripeWebhook>(
       'wait for payment confirmation',
-      { type: 'stripe-webhook', timeout: '1 hour' }
-    );
+      { type: 'stripe-webhook', timeout: '1 hour' },
+    )
 
     if (webhookData.status === 'succeeded') {
-      await step.do('fulfill order', async () => { /* fulfill */ });
+      await step.do('fulfill order', async () => {
+        /* fulfill */
+      })
     }
   }
 }
@@ -495,20 +525,29 @@ export class PaymentWorkflow extends WorkflowEntrypoint<Env, Params> {
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     if (req.url.includes('/webhook/stripe')) {
-      const instance = await env.PAYMENT_WORKFLOW.get(instanceId);
-      await instance.sendEvent({ type: 'stripe-webhook', payload: await req.json() });
-      return new Response('OK');
+      const instance = await env.PAYMENT_WORKFLOW.get(instanceId)
+      await instance.sendEvent({
+        type: 'stripe-webhook',
+        payload: await req.json(),
+      })
+      return new Response('OK')
     }
-  }
-};
+  },
+}
 ```
 
 **Timeout handling:**
+
 ```typescript
 try {
-  const event = await step.waitForEvent('wait for user', { type: 'user-submitted', timeout: '10 minutes' });
+  const event = await step.waitForEvent('wait for user', {
+    type: 'user-submitted',
+    timeout: '10 minutes',
+  })
 } catch (error) {
-  await step.do('send reminder', async () => { /* reminder */ });
+  await step.do('send reminder', async () => {
+    /* reminder */
+  })
 }
 ```
 
@@ -519,17 +558,18 @@ try {
 ```typescript
 interface WorkflowStepConfig {
   retries?: {
-    limit: number;          // Max attempts (Infinity allowed)
-    delay: string | number; // Delay between retries
-    backoff?: 'constant' | 'linear' | 'exponential';
-  };
-  timeout?: string | number; // Max time per attempt
+    limit: number // Max attempts (Infinity allowed)
+    delay: string | number // Delay between retries
+    backoff?: 'constant' | 'linear' | 'exponential'
+  }
+  timeout?: string | number // Max time per attempt
 }
 ```
 
 **Default:** `{ retries: { limit: 5, delay: 10000, backoff: 'exponential' }, timeout: '10 minutes' }`
 
 **Backoff Examples:**
+
 ```typescript
 // Constant: 30s, 30s, 30s
 { retries: { limit: 3, delay: '30 seconds', backoff: 'constant' } }
@@ -556,33 +596,38 @@ interface WorkflowStepConfig {
 Force workflow to fail immediately without retrying:
 
 ```typescript
-import { WorkflowEntrypoint, WorkflowStep, WorkflowEvent } from 'cloudflare:workers';
-import { NonRetryableError } from 'cloudflare:workflows';
+import {
+  WorkflowEntrypoint,
+  WorkflowStep,
+  WorkflowEvent,
+} from 'cloudflare:workers'
+import { NonRetryableError } from 'cloudflare:workflows'
 
 export class MyWorkflow extends WorkflowEntrypoint<Env, Params> {
   async run(event: WorkflowEvent<Params>, step: WorkflowStep) {
     await step.do('validate input', async () => {
       if (!event.payload.userId) {
-        throw new NonRetryableError('userId is required');
+        throw new NonRetryableError('userId is required')
       }
 
       // Validate user exists
-      const user = await this.env.DB.prepare(
-        'SELECT * FROM users WHERE id = ?'
-      ).bind(event.payload.userId).first();
+      const user = await this.env.DB.prepare('SELECT * FROM users WHERE id = ?')
+        .bind(event.payload.userId)
+        .first()
 
       if (!user) {
         // Terminal error - retrying won't help
-        throw new NonRetryableError('User not found');
+        throw new NonRetryableError('User not found')
       }
 
-      return user;
-    });
+      return user
+    })
   }
 }
 ```
 
 **When to use NonRetryableError:**
+
 - ✅ Authentication/authorization failures
 - ✅ Invalid input that won't change
 - ✅ Resource doesn't exist (404)
@@ -600,28 +645,37 @@ Prevent workflow failure by catching optional step errors:
 ```typescript
 export class MyWorkflow extends WorkflowEntrypoint<Env, Params> {
   async run(event: WorkflowEvent<Params>, step: WorkflowStep) {
-    await step.do('process payment', async () => { /* critical */ });
+    await step.do('process payment', async () => {
+      /* critical */
+    })
 
     try {
-      await step.do('send email', async () => { /* optional */ });
+      await step.do('send email', async () => {
+        /* optional */
+      })
     } catch (error) {
       await step.do('log failure', async () => {
-        await this.env.DB.prepare('INSERT INTO failed_emails VALUES (?, ?)').bind(event.payload.userId, error.message).run();
-      });
+        await this.env.DB.prepare('INSERT INTO failed_emails VALUES (?, ?)')
+          .bind(event.payload.userId, error.message)
+          .run()
+      })
     }
 
-    await step.do('update status', async () => { /* continues */ });
+    await step.do('update status', async () => {
+      /* continues */
+    })
   }
 }
 ```
 
 **Graceful Degradation:**
+
 ```typescript
-let result;
+let result
 try {
-  result = await step.do('call primary API', async () => await callPrimaryAPI());
+  result = await step.do('call primary API', async () => await callPrimaryAPI())
 } catch {
-  result = await step.do('call backup API', async () => await callBackupAPI());
+  result = await step.do('call backup API', async () => await callBackupAPI())
 }
 ```
 
@@ -630,65 +684,87 @@ try {
 ## Triggering Workflows
 
 **Configure binding (wrangler.jsonc):**
+
 ```jsonc
 {
-  "workflows": [{
-    "name": "my-workflow",
-    "binding": "MY_WORKFLOW",
-    "class_name": "MyWorkflow",
-    "script_name": "workflow-worker"  // If workflow in different Worker
-  }]
+  "workflows": [
+    {
+      "name": "my-workflow",
+      "binding": "MY_WORKFLOW",
+      "class_name": "MyWorkflow",
+      "script_name": "workflow-worker", // If workflow in different Worker
+    },
+  ],
 }
 ```
 
 **Trigger from Worker:**
+
 ```typescript
-const instance = await env.MY_WORKFLOW.create({ params: { userId: '123' } });
-return Response.json({ id: instance.id, status: await instance.status() });
+const instance = await env.MY_WORKFLOW.create({ params: { userId: '123' } })
+return Response.json({ id: instance.id, status: await instance.status() })
 ```
 
 **Instance Management:**
+
 ```typescript
-const instance = await env.MY_WORKFLOW.get(instanceId);
-const status = await instance.status();  // { status: 'running'|'complete'|'errored'|'queued', error, output }
-await instance.sendEvent({ type: 'user-action', payload: { action: 'approved' } });
-await instance.pause();
-await instance.resume();
-await instance.terminate();
+const instance = await env.MY_WORKFLOW.get(instanceId)
+const status = await instance.status() // { status: 'running'|'complete'|'errored'|'queued', error, output }
+await instance.sendEvent({
+  type: 'user-action',
+  payload: { action: 'approved' },
+})
+await instance.pause()
+await instance.resume()
+await instance.terminate()
 ```
 
 ---
-
 
 ## State Persistence
 
 Workflows automatically persist state returned from `step.do()`:
 
 **✅ Serializable:**
+
 - Primitives: `string`, `number`, `boolean`, `null`
 - Arrays, Objects, Nested structures
 
 **❌ Non-Serializable:**
+
 - Functions, Symbols, circular references, undefined, class instances
 
 **Example:**
+
 ```typescript
 // ✅ Good
 const result = await step.do('fetch data', async () => ({
   users: [{ id: 1, name: 'Alice' }],
   timestamp: Date.now(),
-  metadata: null
-}));
+  metadata: null,
+}))
 
 // ❌ Bad - function not serializable
-const bad = await step.do('bad', async () => ({ data: [1, 2, 3], transform: (x) => x * 2 }));  // Throws error!
+const bad = await step.do('bad', async () => ({
+  data: [1, 2, 3],
+  transform: (x) => x * 2,
+})) // Throws error!
 ```
 
 **Access State Across Steps:**
+
 ```typescript
-const userData = await step.do('fetch user', async () => ({ id: 123, email: 'user@example.com' }));
-const orderData = await step.do('create order', async () => ({ userId: userData.id, orderId: 'ORD-456' }));
-await step.do('send email', async () => sendEmail({ to: userData.email, subject: `Order ${orderData.orderId}` }));
+const userData = await step.do('fetch user', async () => ({
+  id: 123,
+  email: 'user@example.com',
+}))
+const orderData = await step.do('create order', async () => ({
+  userId: userData.id,
+  orderId: 'ORD-456',
+}))
+await step.do('send email', async () =>
+  sendEmail({ to: userData.email, subject: `Order ${orderData.orderId}` }),
+)
 ```
 
 ---
@@ -698,6 +774,7 @@ await step.do('send email', async () => sendEmail({ to: userData.email, subject:
 ### Built-in Metrics (Enhanced in 2025)
 
 Workflows automatically track:
+
 - **Instance status**: queued, running, complete, errored, paused, waiting
 - **Step execution**: start/end times, duration, success/failure
 - **Retry history**: attempts, errors, delays
@@ -708,11 +785,13 @@ Workflows automatically track:
 ### View Metrics in Dashboard
 
 Access via Cloudflare dashboard:
+
 1. Workers & Pages
 2. Select your workflow
 3. View instances and metrics
 
 **Metrics include:**
+
 - Total instances created
 - Success/error rates
 - Average execution time
@@ -722,10 +801,10 @@ Access via Cloudflare dashboard:
 ### Programmatic Access
 
 ```typescript
-const instance = await env.MY_WORKFLOW.get(instanceId);
-const status = await instance.status();
+const instance = await env.MY_WORKFLOW.get(instanceId)
+const status = await instance.status()
 
-console.log(status);
+console.log(status)
 // {
 //   status: 'complete' | 'running' | 'errored' | 'queued' | 'waiting' | 'unknown',
 //   error: string | null,
@@ -734,35 +813,37 @@ console.log(status);
 ```
 
 **CPU Time Configuration (2025):**
+
 ```jsonc
 // wrangler.jsonc
-{ "limits": { "cpu_ms": 300000 } }  // 5 minutes max (default: 30 seconds)
+{ "limits": { "cpu_ms": 300000 } } // 5 minutes max (default: 30 seconds)
 ```
 
 ---
 
 ## Limits (Updated 2025)
 
-| Feature | Workers Free | Workers Paid |
-|---------|--------------|--------------|
-| **Max steps per workflow** | 1,024 | 1,024 |
-| **Max state per step** | 1 MiB | 1 MiB |
-| **Max state per instance** | 100 MB | 1 GB |
-| **Max event payload size** | 1 MiB | 1 MiB |
-| **Max sleep/sleepUntil duration** | 365 days | 365 days |
-| **Max waitForEvent timeout** | 365 days | 365 days |
-| **CPU time per step** | 10 ms | 30 sec (default), 5 min (max) |
-| **Duration (wall clock) per step** | Unlimited | Unlimited |
-| **Max workflow executions** | 100,000/day | Unlimited |
-| **Concurrent instances** | 25 | 10,000 (Oct 2025, up from 4,500) |
-| **Instance creation rate** | 100/second | 100/second (Oct 2025, 10x faster) |
-| **Max queued instances** | 100,000 | 1,000,000 |
-| **Max subrequests per instance** | 50/request | 1,000/request |
-| **Retention (completed state)** | 3 days | 30 days |
-| **Max Workflow name length** | 64 chars | 64 chars |
-| **Max instance ID length** | 100 chars | 100 chars |
+| Feature                            | Workers Free | Workers Paid                      |
+| ---------------------------------- | ------------ | --------------------------------- |
+| **Max steps per workflow**         | 1,024        | 1,024                             |
+| **Max state per step**             | 1 MiB        | 1 MiB                             |
+| **Max state per instance**         | 100 MB       | 1 GB                              |
+| **Max event payload size**         | 1 MiB        | 1 MiB                             |
+| **Max sleep/sleepUntil duration**  | 365 days     | 365 days                          |
+| **Max waitForEvent timeout**       | 365 days     | 365 days                          |
+| **CPU time per step**              | 10 ms        | 30 sec (default), 5 min (max)     |
+| **Duration (wall clock) per step** | Unlimited    | Unlimited                         |
+| **Max workflow executions**        | 100,000/day  | Unlimited                         |
+| **Concurrent instances**           | 25           | 10,000 (Oct 2025, up from 4,500)  |
+| **Instance creation rate**         | 100/second   | 100/second (Oct 2025, 10x faster) |
+| **Max queued instances**           | 100,000      | 1,000,000                         |
+| **Max subrequests per instance**   | 50/request   | 1,000/request                     |
+| **Retention (completed state)**    | 3 days       | 30 days                           |
+| **Max Workflow name length**       | 64 chars     | 64 chars                          |
+| **Max instance ID length**         | 100 chars    | 100 chars                         |
 
 **CRITICAL Notes:**
+
 - `step.sleep()` and `step.sleepUntil()` do NOT count toward 1,024 step limit
 - **Waiting instances** (sleeping, retrying, or waiting for events) do NOT count toward concurrency limits
 - Instance creation rate increased 10x (October 2025): 100 per 10 seconds → 100 per second
@@ -778,20 +859,21 @@ console.log(status);
 **Requires Workers Paid plan** ($5/month)
 
 **Workflow Executions:**
+
 - First 10,000,000 step executions/month: **FREE**
 - After that: **$0.30 per million step executions**
 
 **What counts as a step execution:**
+
 - Each `step.do()` call
 - Each retry of a step
 - `step.sleep()`, `step.sleepUntil()`, `step.waitForEvent()` do NOT count
 
 **Cost examples:**
+
 - Workflow with 5 steps, no retries: **5 step executions**
 - Workflow with 3 steps, 1 step retries 2 times: **5 step executions** (3 + 2)
 - 10M simple workflows/month (5 steps each): ((50M - 10M) / 1M) × $0.30 = **$12/month**
-
-
 
 ## Vitest Testing (GA April 2025)
 
@@ -804,33 +886,46 @@ npm install -D vitest@latest @cloudflare/vitest-pool-workers@latest
 ```
 
 **vitest.config.ts:**
+
 ```typescript
-import { defineWorkersConfig } from '@cloudflare/vitest-pool-workers/config';
-export default defineWorkersConfig({ test: { poolOptions: { workers: { miniflare: { bindings: { MY_WORKFLOW: { scriptName: 'workflow' } } } } } } });
+import { defineWorkersConfig } from '@cloudflare/vitest-pool-workers/config'
+export default defineWorkersConfig({
+  test: {
+    poolOptions: {
+      workers: {
+        miniflare: { bindings: { MY_WORKFLOW: { scriptName: 'workflow' } } },
+      },
+    },
+  },
+})
 ```
 
 ### Introspection API
 
 ```typescript
-import { env, introspectWorkflowInstance } from 'cloudflare:test';
+import { env, introspectWorkflowInstance } from 'cloudflare:test'
 
 it('should complete workflow', async () => {
-  const instance = await introspectWorkflowInstance(env.MY_WORKFLOW, 'test-123');
+  const instance = await introspectWorkflowInstance(env.MY_WORKFLOW, 'test-123')
 
   try {
     await instance.modify(async (m) => {
-      await m.disableSleeps();  // Skip all sleeps
-      await m.mockStepResult({ name: 'fetch data' }, { users: [{ id: 1 }] });  // Mock step result
-      await m.mockEvent({ type: 'approval', payload: { approved: true } });  // Send mock event
-      await m.mockStepError({ name: 'call API' }, new Error('Network timeout'), 1);  // Force error once
-    });
+      await m.disableSleeps() // Skip all sleeps
+      await m.mockStepResult({ name: 'fetch data' }, { users: [{ id: 1 }] }) // Mock step result
+      await m.mockEvent({ type: 'approval', payload: { approved: true } }) // Send mock event
+      await m.mockStepError(
+        { name: 'call API' },
+        new Error('Network timeout'),
+        1,
+      ) // Force error once
+    })
 
-    await env.MY_WORKFLOW.create({ id: 'test-123' });
-    await expect(instance.waitForStatus('complete')).resolves.not.toThrow();
+    await env.MY_WORKFLOW.create({ id: 'test-123' })
+    await expect(instance.waitForStatus('complete')).resolves.not.toThrow()
   } finally {
-    await instance.dispose();  // Cleanup
+    await instance.dispose() // Cleanup
   }
-});
+})
 ```
 
 ### Test Modifiers

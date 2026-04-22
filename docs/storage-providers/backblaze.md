@@ -30,6 +30,7 @@ Use these values in the admin provider form.
 - Active: enabled
 
 Notes:
+
 - Storage Limit and File-Size Limit are used by dynamic provider selection.
 - Upload routing will only choose providers that satisfy both:
   - remaining storage >= file size
@@ -55,6 +56,7 @@ Working example:
 uv run b2 bucket update dot-storage allPrivate --cors-rules "[{\"corsRuleName\":\"s3-fix\",\"allowedOrigins\":[\"*\"],\"allowedHeaders\":[\"*\"],\"allowedOperations\":[\"s3_put\",\"s3_get\",\"s3_head\"],\"exposeHeaders\":[\"ETag\"],\"maxAgeSeconds\":3600}]"
 
 Why this works:
+
 - Passing raw JSON as a positional argument fails.
 - You must pass JSON via the --cors-rules flag.
 
@@ -65,6 +67,7 @@ Run:
 uv run b2 bucket get dot-storage
 
 Confirm:
+
 - options contains s3
 - corsRules contains your s3-fix rule
 - allowedOperations includes s3_put, s3_get, s3_head
@@ -82,15 +85,18 @@ After adding provider in Admin:
 ## 7) Troubleshooting
 
 If you see unrecognized arguments with b2 bucket update:
+
 - Use --cors-rules explicitly
 - Keep JSON in one quoted string
 
 If upload fails with signature/CORS errors:
+
 - Recheck endpoint and region match the bucket
 - Re-run bucket update with --cors-rules
 - Verify browser requests are hitting the same endpoint as provider config
 
 If files fail due to size:
+
 - Check user file-size limit
 - Check provider file-size limit
 - Check provider remaining storage

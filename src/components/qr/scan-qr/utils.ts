@@ -24,7 +24,7 @@ export async function startScannerWithFallback(
   }
 
   try {
-    await scanner.start({ facingMode: 'user' }, config, onSuccess, onError)     
+    await scanner.start({ facingMode: 'user' }, config, onSuccess, onError)
     return
   } catch {
     // fallback

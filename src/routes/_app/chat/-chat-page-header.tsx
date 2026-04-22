@@ -15,20 +15,20 @@ import {
 type ChatPageHeaderProps = {
   isMobile: boolean
   sheetOpen: boolean
-  onSheetOpenChange: ( open: boolean ) => void
+  onSheetOpenChange: (open: boolean) => void
   threadPanelOpen: boolean
   onToggleThreadPanel: () => void
   sidebarContent: ReactNode
 }
 
-export function ChatPageHeader( {
+export function ChatPageHeader({
   isMobile,
   sheetOpen,
   onSheetOpenChange,
   threadPanelOpen,
   onToggleThreadPanel,
   sidebarContent,
-}: ChatPageHeaderProps ) {
+}: ChatPageHeaderProps) {
   return (
     <header className="flex h-14 shrink-0 items-center justify-between gap-2 px-2 sm:px-4">
       <div className="flex min-w-0 items-center gap-2">

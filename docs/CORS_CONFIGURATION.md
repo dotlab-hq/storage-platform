@@ -3,6 +3,7 @@
 ## Overview
 
 The CORS (Cross-Origin Resource Sharing) configuration system provides:
+
 - Default CORS configuration with open-to-all origins
 - Client-side validation using Zod schemas
 - Server-side configuration loading with caching
@@ -12,7 +13,9 @@ The CORS (Cross-Origin Resource Sharing) configuration system provides:
 ## Files
 
 ### 1. `cors.json` (Root)
+
 Default CORS configuration file:
+
 ```json
 {
   "CORSRules": [
@@ -28,7 +31,9 @@ Default CORS configuration file:
 ```
 
 ### 2. `src/lib/cors-validator.ts` (@client)
+
 Client-only validation module with:
+
 - `validateCorsConfig(config)` - Validates CORS config and returns validation result with errors
 - `getDefaultCorsConfig()` - Returns default CORS configuration
 - `convertDatabaseToCorsConfig(rules)` - Converts database JSON format to CorsConfig
@@ -36,16 +41,21 @@ Client-only validation module with:
 - Type exports: `CorsConfig`, `CorsRule`, `CorsConfigSchema`
 
 ### 3. `src/lib/cors-config-loader.ts` (@server)
+
 Server-only configuration loader with:
+
 - `loadCorsConfig()` - Loads cors.json, validates it, and caches the result
 - `getCachedCorsConfig()` - Retrieves cached configuration
 - `resetCorsConfigCache()` - Resets cache (useful for testing)
 
 ### 4. `src/lib/cors.ts`
+
 Barrel export consolidating all CORS utilities for easy importing.
 
 ### 5. `src/components/storage/bucket-settings-dialog.tsx`
+
 React component with integrated CORS validation:
+
 - Displays CORS rules in JSON format in a textarea
 - Validates rules before saving using `validateCorsConfig()`
 - Shows error alerts for validation failures
@@ -54,6 +64,7 @@ React component with integrated CORS validation:
 ## Usage Examples
 
 ### Client-Side Validation (React Components)
+
 ```typescript
 import { validateCorsConfig, getDefaultCorsConfig } from '@/lib/cors'
 
@@ -70,6 +81,7 @@ if (result.valid) {
 ```
 
 ### Server-Side Configuration Loading
+
 ```typescript
 import { loadCorsConfig, getCachedCorsConfig } from '@/lib/cors'
 
@@ -81,8 +93,12 @@ const cached = getCachedCorsConfig()
 ```
 
 ### Database Conversion
+
 ```typescript
-import { convertDatabaseToCorsConfig, convertCorsConfigToDatabase } from '@/lib/cors'
+import {
+  convertDatabaseToCorsConfig,
+  convertCorsConfigToDatabase,
+} from '@/lib/cors'
 
 // Convert from database format
 const dbRules = [
@@ -91,8 +107,8 @@ const dbRules = [
     allowedMethodsJson: '["GET","PUT"]',
     allowedHeadersJson: '["*"]',
     exposeHeadersJson: '["ETag"]',
-    maxAgeSeconds: 3000
-  }
+    maxAgeSeconds: 3000,
+  },
 ]
 const config = convertDatabaseToCorsConfig(dbRules)
 
@@ -102,7 +118,7 @@ const dbFormat = convertCorsConfigToDatabase(config)
 
 ## Validation Rules
 
-- **AllowedOrigins**: Array of strings, at least one required. Can use "*" for all origins.
+- **AllowedOrigins**: Array of strings, at least one required. Can use "\*" for all origins.
 - **AllowedMethods**: Array of enum values: GET, PUT, POST, DELETE, HEAD, OPTIONS. At least one required.
 - **AllowedHeaders**: Array of strings (optional). Defaults to ["*"]
 - **ExposeHeaders**: Array of strings (optional). Defaults to []
@@ -111,6 +127,7 @@ const dbFormat = convertCorsConfigToDatabase(config)
 ## Testing
 
 Test utility available in `src/lib/cors-test.ts`:
+
 ```typescript
 import { validateCorsTestCases } from '@/lib/cors-test'
 

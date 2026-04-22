@@ -15,9 +15,9 @@ Drive all animations from `useCurrentFrame()`.
 ## Bar Chart
 
 ```tsx
-const STAGGER_DELAY = 5;
-const frame = useCurrentFrame();
-const { fps } = useVideoConfig();
+const STAGGER_DELAY = 5
+const frame = useCurrentFrame()
+const { fps } = useVideoConfig()
 
 const bars = data.map((item, i) => {
   const height = spring({
@@ -25,9 +25,9 @@ const bars = data.map((item, i) => {
     fps,
     delay: i * STAGGER_DELAY,
     config: { damping: 200 },
-  });
-  return <div style={{ height: height * item.value }} />;
-});
+  })
+  return <div style={{ height: height * item.value }} />
+})
 ```
 
 ## Pie Chart
@@ -35,12 +35,12 @@ const bars = data.map((item, i) => {
 Animate segments using stroke-dashoffset, starting from 12 o'clock:
 
 ```tsx
-const progress = interpolate(frame, [0, 100], [0, 1]);
-const circumference = 2 * Math.PI * radius;
-const segmentLength = (value / total) * circumference;
-const offset = interpolate(progress, [0, 1], [segmentLength, 0]);
+const progress = interpolate(frame, [0, 100], [0, 1])
+const circumference = 2 * Math.PI * radius
+const segmentLength = (value / total) * circumference
+const offset = interpolate(progress, [0, 1], [segmentLength, 0])
 
-<circle
+;<circle
   r={radius}
   cx={center}
   cy={center}
@@ -50,7 +50,7 @@ const offset = interpolate(progress, [0, 1], [segmentLength, 0]);
   strokeDasharray={`${segmentLength} ${circumference}`}
   strokeDashoffset={offset}
   transform={`rotate(-90 ${center} ${center})`}
-/>;
+/>
 ```
 
 ## Line Chart / Path Animation
@@ -63,36 +63,36 @@ Docs: https://remotion.dev/docs/paths.md
 ### Convert data points to SVG path
 
 ```tsx
-type Point = { x: number; y: number };
+type Point = { x: number; y: number }
 
 const generateLinePath = (points: Point[]): string => {
-  if (points.length < 2) return "";
-  return points.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`).join(" ");
-};
+  if (points.length < 2) return ''
+  return points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ')
+}
 ```
 
 ### Draw path with animation
 
 ```tsx
-import { evolvePath } from "@remotion/paths";
+import { evolvePath } from '@remotion/paths'
 
-const path = "M 100 200 L 200 150 L 300 180 L 400 100";
+const path = 'M 100 200 L 200 150 L 300 180 L 400 100'
 const progress = interpolate(frame, [0, 2 * fps], [0, 1], {
-  extrapolateLeft: "clamp",
-  extrapolateRight: "clamp",
+  extrapolateLeft: 'clamp',
+  extrapolateRight: 'clamp',
   easing: Easing.out(Easing.quad),
-});
+})
 
-const { strokeDasharray, strokeDashoffset } = evolvePath(progress, path);
+const { strokeDasharray, strokeDashoffset } = evolvePath(progress, path)
 
-<path
+;<path
   d={path}
   fill="none"
   stroke="#FF3232"
   strokeWidth={4}
   strokeDasharray={strokeDasharray}
   strokeDashoffset={strokeDashoffset}
-/>;
+/>
 ```
 
 ### Follow path with marker/arrow
@@ -102,19 +102,19 @@ import {
   getLength,
   getPointAtLength,
   getTangentAtLength,
-} from "@remotion/paths";
+} from '@remotion/paths'
 
-const pathLength = getLength(path);
-const point = getPointAtLength(path, progress * pathLength);
-const tangent = getTangentAtLength(path, progress * pathLength);
-const angle = Math.atan2(tangent.y, tangent.x);
+const pathLength = getLength(path)
+const point = getPointAtLength(path, progress * pathLength)
+const tangent = getTangentAtLength(path, progress * pathLength)
+const angle = Math.atan2(tangent.y, tangent.x)
 
-<g
+;<g
   style={{
     transform: `translate(${point.x}px, ${point.y}px) rotate(${angle}rad)`,
-    transformOrigin: "0 0",
+    transformOrigin: '0 0',
   }}
 >
   <polygon points="0,0 -20,-10 -20,10" fill="#FF3232" />
-</g>;
+</g>
 ```

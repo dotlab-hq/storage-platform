@@ -31,15 +31,15 @@ The core API call for a single scene:
 const response = await fetch(
   `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`,
   {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "xi-api-key": process.env.ELEVENLABS_API_KEY!,
-      "Content-Type": "application/json",
-      Accept: "audio/mpeg",
+      'xi-api-key': process.env.ELEVENLABS_API_KEY!,
+      'Content-Type': 'application/json',
+      Accept: 'audio/mpeg',
     },
     body: JSON.stringify({
-      text: "Welcome to the show.",
-      model_id: "eleven_multilingual_v2",
+      text: 'Welcome to the show.',
+      model_id: 'eleven_multilingual_v2',
       voice_settings: {
         stability: 0.5,
         similarity_boost: 0.75,
@@ -47,10 +47,10 @@ const response = await fetch(
       },
     }),
   },
-);
+)
 
-const audioBuffer = Buffer.from(await response.arrayBuffer());
-writeFileSync(`public/voiceover/${compositionId}/${scene.id}.mp3`, audioBuffer);
+const audioBuffer = Buffer.from(await response.arrayBuffer())
+writeFileSync(`public/voiceover/${compositionId}/${scene.id}.mp3`, audioBuffer)
 ```
 
 ## Dynamic composition duration with calculateMetadata
@@ -58,32 +58,32 @@ writeFileSync(`public/voiceover/${compositionId}/${scene.id}.mp3`, audioBuffer);
 Use [`calculateMetadata`](./calculate-metadata.md) to measure the [audio durations](./get-audio-duration.md) and set the composition length accordingly.
 
 ```tsx
-import { CalculateMetadataFunction, staticFile } from "remotion";
-import { getAudioDuration } from "./get-audio-duration";
+import { CalculateMetadataFunction, staticFile } from 'remotion'
+import { getAudioDuration } from './get-audio-duration'
 
-const FPS = 30;
+const FPS = 30
 
 const SCENE_AUDIO_FILES = [
-  "voiceover/my-comp/scene-01-intro.mp3",
-  "voiceover/my-comp/scene-02-main.mp3",
-  "voiceover/my-comp/scene-03-outro.mp3",
-];
+  'voiceover/my-comp/scene-01-intro.mp3',
+  'voiceover/my-comp/scene-02-main.mp3',
+  'voiceover/my-comp/scene-03-outro.mp3',
+]
 
 export const calculateMetadata: CalculateMetadataFunction<Props> = async ({
   props,
 }) => {
   const durations = await Promise.all(
     SCENE_AUDIO_FILES.map((file) => getAudioDuration(staticFile(file))),
-  );
+  )
 
   const sceneDurations = durations.map((durationInSeconds) => {
-    return durationInSeconds * FPS;
-  });
+    return durationInSeconds * FPS
+  })
 
   return {
     durationInFrames: Math.ceil(sceneDurations.reduce((sum, d) => sum + d, 0)),
-  };
-};
+  }
+}
 ```
 
 The computed `sceneDurations` are passed into the component via a `voiceover` prop so the component knows how long each scene should be.

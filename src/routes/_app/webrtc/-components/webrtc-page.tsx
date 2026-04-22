@@ -11,10 +11,10 @@ import { IncomingFilesRegion } from '@/components/storage/incoming-files-region'
 import { useWebRTC } from '@/hooks/use-webrtc'
 import { useWebrtcTransfer } from './use-webrtc-transfer'
 
-const WebRTCScannerDialog = React.lazy( () =>
-  import( './webrtc-scanner-dialog' ).then( ( m ) => ( {
+const WebRTCScannerDialog = React.lazy(() =>
+  import('./webrtc-scanner-dialog').then((m) => ({
     default: m.WebRTCScannerDialog,
-  } ) ),
+  })),
 )
 
 export function WebRTCPage() {
@@ -28,13 +28,13 @@ export function WebRTCPage() {
     offer,
     toggleWebRTC,
     generateQr,
-  } = useWebrtcTransfer( isConnected )
+  } = useWebrtcTransfer(isConnected)
 
-  React.useEffect( () => {
-    if ( offer && !isConnected && offer.sessionToken ) {
-      startConnection( offer.sessionToken, 'offerer' )
+  React.useEffect(() => {
+    if (offer && !isConnected && offer.sessionToken) {
+      startConnection(offer.sessionToken, 'offerer')
     }
-  }, [offer, isConnected, startConnection] )
+  }, [offer, isConnected, startConnection])
 
   return (
     <SidebarInset>
@@ -107,7 +107,7 @@ export function WebRTCPage() {
                   {isConnected
                     ? 'Peer is connected. You can now transfer files.'
                     : errorMessage ||
-                    'Show the QR code to another device or scan their QR code to connect.'}
+                      'Show the QR code to another device or scan their QR code to connect.'}
                 </p>
               </div>
 
@@ -162,7 +162,7 @@ export function WebRTCPage() {
 
               <div className="rounded-lg border bg-card p-6">
                 <h2 className="mb-4 font-semibold">Receiving Files</h2>
-                <IncomingFilesRegion onSaveRequest={() => { }} />
+                <IncomingFilesRegion onSaveRequest={() => {}} />
                 {incomingFiles.length === 0 && (
                   <p className="text-sm text-muted-foreground">
                     No files received yet

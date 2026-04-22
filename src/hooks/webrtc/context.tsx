@@ -2,7 +2,9 @@
 import * as React from 'react'
 import type { WebRTCContextValue } from './types'
 
-export const WebRTCContext = React.createContext<WebRTCContextValue | null>(null)
+export const WebRTCContext = React.createContext<WebRTCContextValue | null>(
+  null,
+)
 
 export function useWebRTC() {
   const ctx = React.useContext(WebRTCContext)

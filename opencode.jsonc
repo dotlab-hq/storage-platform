@@ -1,11 +1,7 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": true,
-  "instructions": [
-    "overall architecture.md",
-    "Agents.md",
-    "plans/**"
-  ],
+  "instructions": ["overall architecture.md", "Agents.md", "plans/**"],
   "default_agent": "plan",
   "share": "manual",
   "formatter": {},
@@ -16,25 +12,14 @@
     },
     "chrome-devtools": {
       "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "chrome-devtools-mcp@latest"
-      ],
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest"],
     },
     "aceternityui": {
-      "command": [
-        "npx",
-        "aceternityui-mcp"
-      ],
+      "command": ["npx", "aceternityui-mcp"],
       "type": "local",
     },
     "shadcn": {
-      "command": [
-        "npx",
-        "shadcn@latest",
-        "mcp"
-      ],
+      "command": ["npx", "shadcn@latest", "mcp"],
       "type": "local",
     },
     // "drizzle": {
@@ -63,11 +48,11 @@
         "-y",
         "@21st-dev/magic@latest",
         "--api-key",
-        "${21ST_DEV_API_KEY}"
+        "${21ST_DEV_API_KEY}",
       ],
       "environment": {
-        "21ST_DEV_API_KEY": "07a337844845f18c59bc59e27eed9c36726fcbcee41a04edfe6172760ccaf651"
-      }
-    }
+        "21ST_DEV_API_KEY": "07a337844845f18c59bc59e27eed9c36726fcbcee41a04edfe6172760ccaf651",
+      },
+    },
   },
 }

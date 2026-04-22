@@ -17,7 +17,7 @@ Use `calculateMetadata` on a `<Composition>` to dynamically set duration, dimens
   fps={30}
   width={1920}
   height={1080}
-  defaultProps={{ videoSrc: "https://remotion.media/video.mp4" }}
+  defaultProps={{ videoSrc: 'https://remotion.media/video.mp4' }}
   calculateMetadata={calculateMetadata}
 />
 ```
@@ -27,18 +27,18 @@ Use `calculateMetadata` on a `<Composition>` to dynamically set duration, dimens
 Use the [`getVideoDuration`](./get-video-duration.md) and [`getVideoDimensions`](./get-video-dimensions.md) skills to get the video duration and dimensions:
 
 ```tsx
-import { CalculateMetadataFunction } from "remotion";
-import { getVideoDuration } from "./get-video-duration";
+import { CalculateMetadataFunction } from 'remotion'
+import { getVideoDuration } from './get-video-duration'
 
 const calculateMetadata: CalculateMetadataFunction<Props> = async ({
   props,
 }) => {
-  const durationInSeconds = await getVideoDuration(props.videoSrc);
+  const durationInSeconds = await getVideoDuration(props.videoSrc)
 
   return {
     durationInFrames: Math.ceil(durationInSeconds * 30),
-  };
-};
+  }
+}
 ```
 
 ## Matching dimensions of a video
@@ -46,20 +46,20 @@ const calculateMetadata: CalculateMetadataFunction<Props> = async ({
 Use the [`getVideoDimensions`](./get-video-dimensions.md) skill to get the video dimensions:
 
 ```tsx
-import { CalculateMetadataFunction } from "remotion";
-import { getVideoDuration } from "./get-video-duration";
-import { getVideoDimensions } from "./get-video-dimensions";
+import { CalculateMetadataFunction } from 'remotion'
+import { getVideoDuration } from './get-video-duration'
+import { getVideoDimensions } from './get-video-dimensions'
 
 const calculateMetadata: CalculateMetadataFunction<Props> = async ({
   props,
 }) => {
-  const dimensions = await getVideoDimensions(props.videoSrc);
+  const dimensions = await getVideoDimensions(props.videoSrc)
 
   return {
     width: dimensions.width,
     height: dimensions.height,
-  };
-};
+  }
+}
 ```
 
 ## Setting duration based on multiple videos
@@ -70,18 +70,18 @@ const calculateMetadata: CalculateMetadataFunction<Props> = async ({
 }) => {
   const metadataPromises = props.videos.map((video) =>
     getVideoDuration(video.src),
-  );
-  const allMetadata = await Promise.all(metadataPromises);
+  )
+  const allMetadata = await Promise.all(metadataPromises)
 
   const totalDuration = allMetadata.reduce(
     (sum, durationInSeconds) => sum + durationInSeconds,
     0,
-  );
+  )
 
   return {
     durationInFrames: Math.ceil(totalDuration * 30),
-  };
-};
+  }
+}
 ```
 
 ## Setting a default outName
@@ -94,8 +94,8 @@ const calculateMetadata: CalculateMetadataFunction<Props> = async ({
 }) => {
   return {
     defaultOutName: `video-${props.id}.mp4`,
-  };
-};
+  }
+}
 ```
 
 ## Transforming props
@@ -107,16 +107,16 @@ const calculateMetadata: CalculateMetadataFunction<Props> = async ({
   props,
   abortSignal,
 }) => {
-  const response = await fetch(props.dataUrl, { signal: abortSignal });
-  const data = await response.json();
+  const response = await fetch(props.dataUrl, { signal: abortSignal })
+  const data = await response.json()
 
   return {
     props: {
       ...props,
       fetchedData: data,
     },
-  };
-};
+  }
+}
 ```
 
 The `abortSignal` cancels stale requests when props change in the Studio.

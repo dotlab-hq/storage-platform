@@ -121,75 +121,93 @@ function ShareAccessPage() {
     )
   }
 
-    const typedData = data as ShareData
-    const shareUrl = typeof window !== "undefined" ? window.location.href : ""
+  const typedData = data as ShareData
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : ''
 
-    if ( typedData.type === "file" ) {
-        return (
-            <div className="flex min-h-screen flex-col items-center justify-center gap-6 p-4 text-center">
-                <div className="bg-muted rounded-full p-4">
-                    <FileText className="text-muted-foreground h-10 w-10" />
-                </div>
-                <div className="space-y-1">
-                    <h1 className="text-lg font-semibold">{typedData.name}</h1>
-                    <p className="text-muted-foreground text-sm">
-                        {typedData.mimeType ?? "File"} &middot; {formatBytes( typedData.sizeInBytes )}
-                    </p>
-                </div>
-                <div className="flex flex-wrap items-center justify-center gap-3">
-                    <Button onClick={() => window.open( typedData.presignedUrl, "_blank" )}>
-                        Open file
-                    </Button>
-                    <Button
-                        variant="outline"
-                        onClick={() => void handleDownload()}
-                        disabled={downloading}
-                    >
-                        {downloading
-                            ? <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                            : <Download className="mr-2 h-4 w-4" />}
-                        Download
-                    </Button>
-                    <Button variant="outline" onClick={() => setShowQr(true)}>
-                        <QrCode className="mr-2 h-4 w-4" />
-                        QR Code
-                    </Button>
-                </div>
-                <ShareQrDialog open={showQr} onOpenChange={setShowQr} shareUrl={shareUrl} itemName={typedData.name} />
-            </div>
-        )
-    }
-
+  if (typedData.type === 'file') {
     return (
-        <div className="flex min-h-screen flex-col items-center justify-center gap-6 p-4 text-center">
-            <div className="bg-muted rounded-full p-4">
-                <Folder className="text-muted-foreground h-10 w-10" />
-            </div>
-            <div className="space-y-1">
-                <h1 className="text-lg font-semibold">{typedData.name}</h1>
-                <p className="text-muted-foreground text-sm">Shared folder</p>
-                {typedData.tree && (
-                    <p className="text-muted-foreground text-xs">
-                        {typedData.tree.folders.length} folders · {typedData.tree.files.length} files exposed
-                    </p>
-                )}
-            </div>
-            {typedData.tree && (
-                <ShareFolderTree tree={typedData.tree} formatBytes={formatBytes} />
-            )}
-            <div className="flex flex-wrap items-center justify-center gap-3">
-                <Button onClick={() => { window.location.href = `/?nav=${btoa( JSON.stringify( { folderId: typedData.folderId } ) )}` }}>
-                    Open folder
-                </Button>
-                <Button variant="outline" onClick={() => setShowQr(true)}>
-                    <QrCode className="mr-2 h-4 w-4" />
-                    QR Code
-                </Button>
-            </div>
-            <ShareQrDialog open={showQr} onOpenChange={setShowQr} shareUrl={shareUrl} itemName={typedData.name} />
+      <div className="flex min-h-screen flex-col items-center justify-center gap-6 p-4 text-center">
+        <div className="bg-muted rounded-full p-4">
+          <FileText className="text-muted-foreground h-10 w-10" />
         </div>
+        <div className="space-y-1">
+          <h1 className="text-lg font-semibold">{typedData.name}</h1>
+          <p className="text-muted-foreground text-sm">
+            {typedData.mimeType ?? 'File'} &middot;{' '}
+            {formatBytes(typedData.sizeInBytes)}
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <Button onClick={() => window.open(typedData.presignedUrl, '_blank')}>
+            Open file
+          </Button>
+          <Button
+            variant="outline"
+            onClick={() => void handleDownload()}
+            disabled={downloading}
+          >
+            {downloading ? (
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            ) : (
+              <Download className="mr-2 h-4 w-4" />
+            )}
+            Download
+          </Button>
+          <Button variant="outline" onClick={() => setShowQr(true)}>
+            <QrCode className="mr-2 h-4 w-4" />
+            QR Code
+          </Button>
+        </div>
+        <ShareQrDialog
+          open={showQr}
+          onOpenChange={setShowQr}
+          shareUrl={shareUrl}
+          itemName={typedData.name}
+        />
+      </div>
     )
   }
+
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center gap-6 p-4 text-center">
+      <div className="bg-muted rounded-full p-4">
+        <Folder className="text-muted-foreground h-10 w-10" />
+      </div>
+      <div className="space-y-1">
+        <h1 className="text-lg font-semibold">{typedData.name}</h1>
+        <p className="text-muted-foreground text-sm">Shared folder</p>
+        {typedData.tree && (
+          <p className="text-muted-foreground text-xs">
+            {typedData.tree.folders.length} folders ·{' '}
+            {typedData.tree.files.length} files exposed
+          </p>
+        )}
+      </div>
+      {typedData.tree && (
+        <ShareFolderTree tree={typedData.tree} formatBytes={formatBytes} />
+      )}
+      <div className="flex flex-wrap items-center justify-center gap-3">
+        <Button
+          onClick={() => {
+            window.location.href = `/?nav=${btoa(JSON.stringify({ folderId: typedData.folderId }))}`
+          }}
+        >
+          Open folder
+        </Button>
+        <Button variant="outline" onClick={() => setShowQr(true)}>
+          <QrCode className="mr-2 h-4 w-4" />
+          QR Code
+        </Button>
+      </div>
+      <ShareQrDialog
+        open={showQr}
+        onOpenChange={setShowQr}
+        shareUrl={shareUrl}
+        itemName={typedData.name}
+      />
+    </div>
+  )
+}
 
 function formatBytes(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`

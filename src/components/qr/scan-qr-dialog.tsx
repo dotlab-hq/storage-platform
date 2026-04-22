@@ -28,13 +28,13 @@ export function ScanQrDialog({
     state,
     permission,
     setPermission,
-    
+
     cameraError,
     regionId,
     handleInvalidQr,
     submitScan,
     parsedCode,
-    reset
+    reset,
   } = useQrScanner(open, setOpen)
 
   const openScanner = () => {
@@ -42,7 +42,8 @@ export function ScanQrDialog({
       setOpen(true)
       return
     }
-    const hasSeenIntro = window.localStorage.getItem(SCAN_QR_INTRO_SEEN_KEY) === '1'
+    const hasSeenIntro =
+      window.localStorage.getItem(SCAN_QR_INTRO_SEEN_KEY) === '1'
     if (hasSeenIntro) {
       setOpen(true)
       return
@@ -60,7 +61,11 @@ export function ScanQrDialog({
 
   return (
     <>
-      <Button variant={triggerVariant} className={className} onClick={openScanner}>
+      <Button
+        variant={triggerVariant}
+        className={className}
+        onClick={openScanner}
+      >
         <QrCode className="size-4" />
         {triggerLabel}
       </Button>
@@ -70,7 +75,8 @@ export function ScanQrDialog({
           <DialogHeader>
             <DialogTitle>Scan a Login QR Code</DialogTitle>
             <DialogDescription>
-              Use another device to generate a QR code from the /hot page, then scan it.
+              Use another device to generate a QR code from the /hot page, then
+              scan it.
             </DialogDescription>
           </DialogHeader>
           <div className="my-8 flex justify-center text-muted-foreground p-6 bg-muted/30 rounded-lg">
@@ -99,7 +105,8 @@ export function ScanQrDialog({
           <DialogHeader>
             <DialogTitle>Scan QR Code</DialogTitle>
             <DialogDescription>
-              {state === 'scanning' && 'Point your camera at a login QR code...'}
+              {state === 'scanning' &&
+                'Point your camera at a login QR code...'}
               {state === 'review' && 'Review the scanned QR code below...'}
             </DialogDescription>
           </DialogHeader>
@@ -134,7 +141,12 @@ export function ScanQrDialog({
                   <p className="text-xs text-muted-foreground mb-3">
                     This doesn't look like a valid dot-storage login code.
                   </p>
-                  <Button variant="outline" size="sm" onClick={handleInvalidQr} className="w-full">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleInvalidQr}
+                    className="w-full"
+                  >
                     <RefreshCcw className="size-4 mr-2" />
                     Scan again
                   </Button>
@@ -184,7 +196,11 @@ export function ScanQrDialog({
           )}
 
           <DialogFooter className="mt-6 flex flex-col sm:flex-row gap-2">
-            <Button variant="secondary" onClick={() => setOpen(false)} className="w-full sm:w-auto">
+            <Button
+              variant="secondary"
+              onClick={() => setOpen(false)}
+              className="w-full sm:w-auto"
+            >
               Cancel
             </Button>
             {state !== 'scanning' && parsedCode && (

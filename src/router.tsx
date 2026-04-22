@@ -5,7 +5,7 @@ import { getContext } from './integrations/tanstack-query/root-provider'
 import { NotFoundPage } from '@/components/not-found'
 
 export function getRouter() {
-  const router = createTanStackRouter( {
+  const router = createTanStackRouter({
     routeTree,
 
     context: getContext(),
@@ -14,7 +14,7 @@ export function getRouter() {
     defaultPreload: 'intent',
     defaultPreloadStaleTime: 0,
     defaultNotFoundComponent: NotFoundPage,
-  } )
+  })
 
   return router
 }

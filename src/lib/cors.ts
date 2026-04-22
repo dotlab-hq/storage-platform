@@ -4,17 +4,17 @@
  */
 
 export {
-    validateCorsConfig,
-    getDefaultCorsConfig,
-    convertDatabaseToCorsConfig,
-    convertCorsConfigToDatabase,
-    CorsConfigSchema,
-    type CorsRule,
-    type CorsConfig,
+  validateCorsConfig,
+  getDefaultCorsConfig,
+  convertDatabaseToCorsConfig,
+  convertCorsConfigToDatabase,
+  CorsConfigSchema,
+  type CorsRule,
+  type CorsConfig,
 } from './cors-validator'
 
 export {
-    loadCorsConfig,
-    getCachedCorsConfig,
-    resetCorsConfigCache,
+  loadCorsConfig,
+  getCachedCorsConfig,
+  resetCorsConfigCache,
 } from './cors-config-loader'

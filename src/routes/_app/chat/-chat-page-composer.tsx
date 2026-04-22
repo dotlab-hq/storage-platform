@@ -27,62 +27,62 @@ type ChatPageComposerProps = {
   value: string
   isSending: boolean
   isStreaming?: boolean
-  onChange: ( value: string ) => void
-  onSubmit: ( value: string ) => void
+  onChange: (value: string) => void
+  onSubmit: (value: string) => void
   onStop?: () => void
 }
 
 function ComposerAttachments() {
   const attachments = usePromptInputAttachments()
 
-  if ( attachments.files.length === 0 ) {
+  if (attachments.files.length === 0) {
     return null
   }
 
   return (
     <Attachments variant="inline" className="mb-2 px-2">
-      {attachments.files.map( ( file ) => (
+      {attachments.files.map((file) => (
         <Attachment
           key={file.id}
           data={file}
-          onRemove={() => attachments.remove( file.id )}
+          onRemove={() => attachments.remove(file.id)}
         >
           <AttachmentPreview />
           <AttachmentInfo />
           <AttachmentRemove />
         </Attachment>
-      ) )}
+      ))}
     </Attachments>
   )
 }
 
-export function ChatPageComposer( {
+export function ChatPageComposer({
   value,
   isSending,
   isStreaming,
   onChange,
   onSubmit,
   onStop,
-}: ChatPageComposerProps ) {
+}: ChatPageComposerProps) {
   const status: ChatStatus = isSending || isStreaming ? 'submitted' : 'ready'
   const isActive = isSending || isStreaming
 
   return (
     <div className="sticky bottom-0 mt-2 bg-background/90 p-2 shadow-lg backdrop-blur sm:p-3">
       <PromptInput
-        onSubmit={( { text } ) => {
+        onSubmit={({ text }) => {
           const next = text.trim()
-          if ( next.length === 0 ) {
+          if (next.length === 0) {
             return
           }
-          onSubmit( next )
+          onSubmit(next)
         }}
       >
         <PromptInputBody>
           <ComposerAttachments />
           <PromptInputTextarea
             value={value}
-            onChange={( event ) => onChange( event.currentTarget.value )}
+            onChange={(event) => onChange(event.currentTarget.value)}
             placeholder="Type your message..."
             className="min-h-20"
             disabled={isActive}

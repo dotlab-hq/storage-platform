@@ -4,19 +4,19 @@ import { trimReasoning } from '@/utils/trimReasoning'
 const RETRY_LIMIT = 3
 
 export const generateText = async (
-    prompt: string,
-    count = 0,
+  prompt: string,
+  count = 0,
 ): Promise<string> => {
-    const model = count >= 2 ? Bllm : llm
-    const res = await model.invoke(prompt)
+  const model = count >= 2 ? Bllm : llm
+  const res = await model.invoke(prompt)
 
-    const response = trimReasoning(res)
+  const response = trimReasoning(res)
 
-    if (response) return response
+  if (response) return response
 
-    if (count > RETRY_LIMIT) {
-        throw new Error('No text output after retries')
-    }
+  if (count > RETRY_LIMIT) {
+    throw new Error('No text output after retries')
+  }
 
-    return generateText(prompt, count + 1)
+  return generateText(prompt, count + 1)
 }

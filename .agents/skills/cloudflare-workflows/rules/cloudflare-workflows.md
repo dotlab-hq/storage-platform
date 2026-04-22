@@ -34,7 +34,7 @@ async run(event, step) {
 await step.do('bad', async () => {
   return {
     callback: () => {}, // Error!
-    data: undefined,    // Error!
+    data: undefined, // Error!
   }
 })
 
@@ -85,10 +85,10 @@ await step.do('process', async () => {
 
 ## Quick Fixes
 
-| If Claude suggests... | Use instead... |
-|----------------------|----------------|
-| fetch() outside step | Move inside `step.do()` |
-| Returning functions/undefined | Return JSON-serializable only |
-| `NonRetryableError('')` | Include descriptive message |
-| Worrying about sleep limits | `step.sleep()` is unlimited |
-| All-or-nothing steps | Use try/catch for optional steps |
+| If Claude suggests...         | Use instead...                   |
+| ----------------------------- | -------------------------------- |
+| fetch() outside step          | Move inside `step.do()`          |
+| Returning functions/undefined | Return JSON-serializable only    |
+| `NonRetryableError('')`       | Include descriptive message      |
+| Worrying about sleep limits   | `step.sleep()` is unlimited      |
+| All-or-nothing steps          | Use try/catch for optional steps |

@@ -28,9 +28,9 @@ async function resolveAuthenticatedSession(
   headers: Headers,
 ): Promise<AuthenticatedSessionContext | null> {
   const auth = await loadAuth()
-  const session = await auth.api.getSession( { headers } )
-  if ( session?.user ) {
-    const role = normalizeUserRole( session.user.role )
+  const session = await auth.api.getSession({ headers })
+  if (session?.user) {
+    const role = normalizeUserRole(session.user.role)
     return {
       session: {
         id: session.session.id,
@@ -41,13 +41,13 @@ async function resolveAuthenticatedSession(
         email: session.user.email,
         name: session.user.name,
         role,
-        isAdmin: isAdminRole( role ),
+        isAdmin: isAdminRole(role),
       },
     }
   }
 
-  const tinySession = await resolveTinySessionFromHeaders( headers )
-  if ( !tinySession ) {
+  const tinySession = await resolveTinySessionFromHeaders(headers)
+  if (!tinySession) {
     return null
   }
 
@@ -71,22 +71,22 @@ async function resolveAuthenticatedSession(
 }
 
 const isAuthenticatedMiddleware = createMiddleware().server(
-  async ( { next, request } ) => {
+  async ({ next, request }) => {
     const headers = request.headers
-    const resolved = await resolveAuthenticatedSession( headers )
-    if ( !resolved ) {
-      throw redirect( {
+    const resolved = await resolveAuthenticatedSession(headers)
+    if (!resolved) {
+      throw redirect({
         to: '/auth',
-      } )
+      })
     }
 
-    return next( {
+    return next({
       context: {
         session: resolved.session,
         user: resolved.user,
         tinySession: resolved.tinySession,
       },
-    } )
+    })
   },
 )
 

@@ -12,13 +12,13 @@ metadata:
 Use `<AnimatedImage>` to display a GIF, APNG, AVIF or WebP image synchronized with Remotion's timeline:
 
 ```tsx
-import { AnimatedImage, staticFile } from "remotion";
+import { AnimatedImage, staticFile } from 'remotion'
 
 export const MyComposition = () => {
   return (
-    <AnimatedImage src={staticFile("animation.gif")} width={500} height={500} />
-  );
-};
+    <AnimatedImage src={staticFile('animation.gif')} width={500} height={500} />
+  )
+}
 ```
 
 Remote URLs are also supported (must have CORS enabled):
@@ -76,12 +76,12 @@ Use the `style` prop for additional CSS (use `width` and `height` props for sizi
 
 ```tsx
 <AnimatedImage
-  src={staticFile("animation.gif")}
+  src={staticFile('animation.gif')}
   width={500}
   height={500}
   style={{
     borderRadius: 20,
-    position: "absolute",
+    position: 'absolute',
     top: 100,
     left: 50,
   }}
@@ -97,25 +97,25 @@ npx remotion add @remotion/gif
 ```
 
 ```tsx
-import { getGifDurationInSeconds } from "@remotion/gif";
-import { staticFile } from "remotion";
+import { getGifDurationInSeconds } from '@remotion/gif'
+import { staticFile } from 'remotion'
 
-const duration = await getGifDurationInSeconds(staticFile("animation.gif"));
-console.log(duration); // e.g. 2.5
+const duration = await getGifDurationInSeconds(staticFile('animation.gif'))
+console.log(duration) // e.g. 2.5
 ```
 
 This is useful for setting the composition duration to match the GIF:
 
 ```tsx
-import { getGifDurationInSeconds } from "@remotion/gif";
-import { staticFile, CalculateMetadataFunction } from "remotion";
+import { getGifDurationInSeconds } from '@remotion/gif'
+import { staticFile, CalculateMetadataFunction } from 'remotion'
 
 const calculateMetadata: CalculateMetadataFunction = async () => {
-  const duration = await getGifDurationInSeconds(staticFile("animation.gif"));
+  const duration = await getGifDurationInSeconds(staticFile('animation.gif'))
   return {
     durationInFrames: Math.ceil(duration * 30),
-  };
-};
+  }
+}
 ```
 
 ## Alternative
@@ -130,12 +130,12 @@ pnpm exec remotion add @remotion/gif # If project uses pnpm
 ```
 
 ```tsx
-import { Gif } from "@remotion/gif";
-import { staticFile } from "remotion";
+import { Gif } from '@remotion/gif'
+import { staticFile } from 'remotion'
 
 export const MyComposition = () => {
-  return <Gif src={staticFile("animation.gif")} width={500} height={500} />;
-};
+  return <Gif src={staticFile('animation.gif')} width={500} height={500} />
+}
 ```
 
 The `<Gif>` component has the same props as `<AnimatedImage>` but only supports GIF files.

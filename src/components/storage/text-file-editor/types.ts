@@ -24,12 +24,12 @@ export type SaveFileResponse = {
 
 export type TextFileEditorDialogProps = {
   open: boolean
-  onOpenChange: ( open: boolean ) => void
+  onOpenChange: (open: boolean) => void
   currentFolderId: string | null
   item: StorageItem | null
   items: StorageItem[]
   userId: string | null
-  onSaved: ( file: StorageItem ) => void
+  onSaved: (file: StorageItem) => void
 }
 
 export type QuillModule = typeof Quill

@@ -12,40 +12,40 @@ import {
 } from './-chat-message-shell'
 import type { ChatMessageSnapshot } from './-chat-types'
 
-type ChatMessageResponseComponent = ( props: {
+type ChatMessageResponseComponent = (props: {
   content: string
   className?: string
   isStreaming?: boolean
-} ) => JSX.Element
+}) => JSX.Element
 
 const loadChatMessageResponse = createClientOnlyFn(
   async (): Promise<ChatMessageResponseComponent> => {
-    const module = await import( './-chat-message-response' )
+    const module = await import('./-chat-message-response')
     return module.ChatMessageResponse
   },
 )
 
-const ChatMessageResponseLazy = lazy( () =>
-  loadChatMessageResponse().then( ( component ) => ( {
+const ChatMessageResponseLazy = lazy(() =>
+  loadChatMessageResponse().then((component) => ({
     default: component,
-  } ) ),
+  })),
 )
 
 type ChatMessageItemProps = {
   message: ChatMessageSnapshot
   isPending: boolean
   isStreaming: boolean
-  onRegenerate: ( messageId: string ) => void
-  onDelete: ( messageId: string ) => void
+  onRegenerate: (messageId: string) => void
+  onDelete: (messageId: string) => void
 }
 
-export function ChatMessageItem( {
+export function ChatMessageItem({
   message,
   isPending,
   isStreaming,
   onRegenerate,
   onDelete,
-}: ChatMessageItemProps ) {
+}: ChatMessageItemProps) {
   const isUser = message.role === 'user'
 
   return (
@@ -72,7 +72,7 @@ export function ChatMessageItem( {
         <ChatMessageActions className="gap-1 opacity-80 group-hover:opacity-100">
           <ChatMessageActionButton
             className="h-7 w-7"
-            onClick={() => void navigator.clipboard.writeText( message.content )}
+            onClick={() => void navigator.clipboard.writeText(message.content)}
             aria-label="Copy message"
             tooltip="Copy message"
             label="Copy message"
@@ -82,7 +82,7 @@ export function ChatMessageItem( {
           {!isUser ? (
             <ChatMessageActionButton
               className="h-7 w-7"
-              onClick={() => onRegenerate( message.id )}
+              onClick={() => onRegenerate(message.id)}
               disabled={isPending}
               aria-label="Regenerate response"
               tooltip="Regenerate response"
@@ -93,7 +93,7 @@ export function ChatMessageItem( {
           ) : null}
           <ChatMessageActionButton
             className="h-7 w-7"
-            onClick={() => onDelete( message.id )}
+            onClick={() => onDelete(message.id)}
             disabled={isPending}
             aria-label="Delete message"
             tooltip="Delete message"
@@ -110,7 +110,9 @@ export function ChatMessageItem( {
           'group-[.is-user]:bg-transparent group-[.is-user]:px-0 group-[.is-user]:py-0',
         )}
       >
-        <ClientOnly fallback={<PageSkeleton variant="compact" className="h-5 w-32" />}>
+        <ClientOnly
+          fallback={<PageSkeleton variant="compact" className="h-5 w-32" />}
+        >
           <Suspense fallback={<PageSkeleton variant="chat" className="h-16" />}>
             <ChatMessageResponseLazy
               content={message.content}
