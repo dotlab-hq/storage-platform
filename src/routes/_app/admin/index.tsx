@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { Separator } from '@/components/ui/separator'
 import { toast } from '@/components/ui/sonner'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import {
   deleteStorageProviderFn,
   getAdminDashboardDataFn,
@@ -245,42 +246,59 @@ function AdminDashboardPage() {
         />
         <h1 className="text-sm font-semibold">Admin Dashboard</h1>
       </header>
-      <div className="grid gap-4 p-4 md:grid-cols-3">
-        <MetricCard title="Providers" value={data.summary.providerCount} />
-        <MetricCard title="Users" value={data.summary.userCount} />
-        <MetricCard
-          title="Total Used"
-          value={formatBytes(data.summary.totalUsedStorageBytes)}
-        />
-      </div>
-      <div className="grid gap-4 p-4 lg:grid-cols-2">
-        <ProvidersPanel
-          providers={data.providers}
-          onToggleAvailability={toggleProviderAvailability}
-          onDelete={deleteProvider}
-          onEdit={startEditingProvider}
-          onOpenS3Viewer={(bucketName) => {
-            setS3ViewerBucketName(bucketName)
-            setIsS3ViewerOpen(true)
-          }}
-        />
-        <UsersPanel users={data.users} />
-      </div>
       <div className="p-4">
-        <ProviderEditorCard
-          form={form}
-          isEditing={Boolean(editingProviderId)}
-          isSaving={isSaving}
-          storageLimitInput={storageLimitInput}
-          fileSizeLimitInput={fileSizeLimitInput}
-          onChange={setProviderField}
-          onStorageLimitChange={setStorageLimitInput}
-          onFileSizeLimitChange={setFileSizeLimitInput}
-          onSubmit={() => {
-            void submitProvider()
-          }}
-          onCancel={resetProviderForm}
-        />
+        <Tabs defaultValue="overview" className="w-full">
+          <TabsList className="mb-4 grid w-full grid-cols-4 bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900">
+            <TabsTrigger value="overview">Overview</TabsTrigger>
+            <TabsTrigger value="providers">Providers</TabsTrigger>
+            <TabsTrigger value="users">Users</TabsTrigger>
+            <TabsTrigger value="add">Add Provider</TabsTrigger>
+          </TabsList>
+          <TabsContent value="overview">
+            <div className="grid gap-4 md:grid-cols-3">
+              <MetricCard
+                title="Providers"
+                value={data.summary.providerCount}
+              />
+              <MetricCard title="Users" value={data.summary.userCount} />
+              <MetricCard
+                title="Total Used"
+                value={formatBytes(data.summary.totalUsedStorageBytes)}
+              />
+            </div>
+          </TabsContent>
+          <TabsContent value="providers">
+            <ProvidersPanel
+              providers={data.providers}
+              onToggleAvailability={toggleProviderAvailability}
+              onDelete={deleteProvider}
+              onEdit={startEditingProvider}
+              onOpenS3Viewer={(bucketName) => {
+                setS3ViewerBucketName(bucketName)
+                setIsS3ViewerOpen(true)
+              }}
+            />
+          </TabsContent>
+          <TabsContent value="users">
+            <UsersPanel users={data.users} />
+          </TabsContent>
+          <TabsContent value="add">
+            <ProviderEditorCard
+              form={form}
+              isEditing={Boolean(editingProviderId)}
+              isSaving={isSaving}
+              storageLimitInput={storageLimitInput}
+              fileSizeLimitInput={fileSizeLimitInput}
+              onChange={setProviderField}
+              onStorageLimitChange={setStorageLimitInput}
+              onFileSizeLimitChange={setFileSizeLimitInput}
+              onSubmit={() => {
+                void submitProvider()
+              }}
+              onCancel={resetProviderForm}
+            />
+          </TabsContent>
+        </Tabs>
       </div>
       <S3ViewerModal
         open={isS3ViewerOpen}

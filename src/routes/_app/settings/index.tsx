@@ -1,7 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { getSettingsSnapshotFn } from './-settings-server'
 import { updateSettings } from './-store'
 import { ProfileSection } from './-components/profile-section'
@@ -21,6 +22,7 @@ export const Route = createFileRoute('/_app/settings/')({
 
 function SettingsPage() {
   const initial = Route.useLoaderData()
+  const [activeTab, setActiveTab] = useState('profile')
 
   useEffect(() => {
     updateSettings({
@@ -40,12 +42,41 @@ function SettingsPage() {
         />
         <h1 className="text-sm font-semibold">Settings</h1>
       </header>
-      <div className="grid gap-6 p-4 lg:grid-cols-2">
-        <ProfileSection initial={initial} />
-        <AuthMethodsSection initial={initial} />
-        <TwoFactorSection />
-        <PasswordSection />
-        <TinySessionsSection initial={initial} />
+      <div className="p-4">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <TabsList className="mb-4 grid w-full grid-cols-5 bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900">
+            <TabsTrigger value="profile">Profile</TabsTrigger>
+            <TabsTrigger value="auth">Auth Methods</TabsTrigger>
+            <TabsTrigger value="2fa">2FA</TabsTrigger>
+            <TabsTrigger value="password">Password</TabsTrigger>
+            <TabsTrigger value="sessions">Sessions</TabsTrigger>
+          </TabsList>
+          <TabsContent value="profile">
+            <div className="rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 p-6 dark:from-slate-800 dark:to-slate-900">
+              <ProfileSection initial={initial} />
+            </div>
+          </TabsContent>
+          <TabsContent value="auth">
+            <div className="rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 p-6 dark:from-slate-800 dark:to-slate-900">
+              <AuthMethodsSection initial={initial} />
+            </div>
+          </TabsContent>
+          <TabsContent value="2fa">
+            <div className="rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 p-6 dark:from-slate-800 dark:to-slate-900">
+              <TwoFactorSection />
+            </div>
+          </TabsContent>
+          <TabsContent value="password">
+            <div className="rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 p-6 dark:from-slate-800 dark:to-slate-900">
+              <PasswordSection />
+            </div>
+          </TabsContent>
+          <TabsContent value="sessions">
+            <div className="rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 p-6 dark:from-slate-800 dark:to-slate-900">
+              <TinySessionsSection initial={initial} />
+            </div>
+          </TabsContent>
+        </Tabs>
       </div>
     </SidebarInset>
   )
