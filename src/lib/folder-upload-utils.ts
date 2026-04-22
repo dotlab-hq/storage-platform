@@ -2,7 +2,9 @@ import { authClient } from '@/lib/auth-client'
 import {
   initFolderUpload,
   completeFolderUpload,
+  abortFolderUpload,
 } from '@/lib/folder-upload-server'
+import { prepareUploadTarget } from '@/lib/upload-target-server'
 import type { UploadingFile } from '@/types/storage'
 
 type UploadStateUpdater = React.Dispatch<React.SetStateAction<UploadingFile[]>>
@@ -75,6 +77,65 @@ export type FolderUploadResult = {
   error?: string
 }
 
+async function uploadSingleFileWithProgress(
+  file: File,
+  objectKey: string,
+  _uploadId: string,
+  _setUploads: UploadStateUpdater,
+  onProgress: (progress: number) => void,
+): Promise<string | null> {
+  function toErrorMessage(error: unknown): string {
+    return error instanceof Error ? error.message : 'Folder file upload failed'
+  }
+
+  const contentType = file.type || 'application/octet-stream'
+
+  try {
+    const target = await prepareUploadTarget({
+      data: {
+        objectKey,
+        contentType,
+        fileSize: file.size,
+      },
+    })
+
+    await new Promise<void>((resolve, reject) => {
+      const xhr = new XMLHttpRequest()
+
+      xhr.upload.onprogress = (e) => {
+        if (e.lengthComputable) {
+          const progress = Math.round((e.loaded / e.total) * 100)
+          onProgress(Math.min(90, progress))
+        }
+      }
+
+      xhr.onload = () => {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          resolve()
+        } else {
+          reject(new Error(`Upload failed: HTTP ${xhr.status}`))
+        }
+      }
+
+      xhr.onerror = () => reject(new Error('Network error during upload'))
+      if (target.uploadMethod === 'proxy') {
+        xhr.open('POST', target.uploadUrl)
+        xhr.setRequestHeader('X-Upload-Object-Key', objectKey)
+        xhr.setRequestHeader('X-Upload-File-Size', String(file.size))
+        xhr.setRequestHeader('X-Upload-Provider-Id', target.providerId ?? '')
+      } else {
+        xhr.open('PUT', target.presignedUrl)
+      }
+      xhr.setRequestHeader('Content-Type', contentType)
+      xhr.send(file)
+    })
+
+    return target.providerId ?? null
+  } catch (error: unknown) {
+    throw new Error(toErrorMessage(error))
+  }
+}
+
 export async function uploadFolder(
   folderEntry: FileSystemDirectoryEntry,
   _userId: string,
@@ -117,8 +178,15 @@ export async function uploadFolder(
 
   setUploads((prev) => [...placeholderUploads, ...prev])
 
+  let uploadedObjectKeys: string[] = []
+  const providerIdByObjectKey = new Map<string, string | null>()
+  let initResponse: {
+    uploadSessionId: string
+    objectKeys: Record<string, string>
+  } | null = null
+
   try {
-    const initResponse = await initFolderUpload({
+    initResponse = await initFolderUpload({
       data: {
         folderName,
         parentFolderId,
@@ -131,11 +199,17 @@ export async function uploadFolder(
       },
     })
 
+    uploadedObjectKeys = flatFiles
+      .map((f) => initResponse?.objectKeys[f.name])
+      .filter((k): k is string => typeof k === 'string')
+
     for (const fileData of flatFiles) {
       const objectKey = initResponse.objectKeys[fileData.name]
       if (!objectKey) continue
 
-      await uploadSingleFileWithProgress(
+      let providerId: string | null = null
+
+      providerId = await uploadSingleFileWithProgress(
         fileData.file,
         objectKey,
         `${uploadId}-${fileData.name}`,
@@ -148,6 +222,7 @@ export async function uploadFolder(
           )
         },
       )
+      providerIdByObjectKey.set(objectKey, providerId)
 
       setUploads((prev) =>
         prev.map((u) =>
@@ -158,16 +233,20 @@ export async function uploadFolder(
 
     const completeResponse = await completeFolderUpload({
       data: {
-        uploadSessionId: initResponse.uploadSessionId,
+        uploadSessionId: initResponse!.uploadSessionId,
         folderName,
         parentFolderId,
-        files: flatFiles.map((f) => ({
-          fileName: f.file.name,
-          objectKey: initResponse.objectKeys[f.name],
-          sha256Hash: f.hash,
-          fileSize: f.size,
-          mimeType: f.file.type || null,
-        })),
+        files: flatFiles.map((f) => {
+          const completedObjectKey = initResponse!.objectKeys[f.name]
+          return {
+            fileName: f.file.name,
+            objectKey: completedObjectKey,
+            sha256Hash: f.hash,
+            fileSize: f.size,
+            mimeType: f.file.type || null,
+            providerId: providerIdByObjectKey.get(completedObjectKey) ?? null,
+          }
+        }),
         providerId: undefined,
       },
     })
@@ -198,6 +277,19 @@ export async function uploadFolder(
     const errorMessage =
       err instanceof Error ? err.message : 'Folder upload failed'
 
+    if (initResponse?.uploadSessionId) {
+      try {
+        await abortFolderUpload({
+          data: {
+            uploadSessionId: initResponse.uploadSessionId,
+            objectKeys: uploadedObjectKeys,
+          },
+        })
+      } catch {
+        // Best effort cleanup
+      }
+    }
+
     for (const fileData of flatFiles) {
       setUploads((prev) =>
         prev.map((u) =>
@@ -210,52 +302,6 @@ export async function uploadFolder(
 
     return { success: false, error: errorMessage }
   }
-}
-
-async function uploadSingleFileWithProgress(
-  file: File,
-  objectKey: string,
-  _uploadId: string,
-  _setUploads: UploadStateUpdater,
-  onProgress: (progress: number) => void,
-): Promise<void> {
-  const { uploadPresign } = await import('@/lib/upload-server')
-
-  const contentType = file.type || 'application/octet-stream'
-
-  const response = await uploadPresign({
-    data: {
-      objectKey,
-      contentType,
-      fileSize: file.size,
-    },
-  })
-
-  const presignedUrl = response.presignedUrl
-
-  await new Promise<void>((resolve, reject) => {
-    const xhr = new XMLHttpRequest()
-
-    xhr.upload.onprogress = (e) => {
-      if (e.lengthComputable) {
-        const progress = Math.round((e.loaded / e.total) * 100)
-        onProgress(Math.min(90, progress))
-      }
-    }
-
-    xhr.onload = () => {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        resolve()
-      } else {
-        reject(new Error(`S3 upload failed: HTTP ${xhr.status}`))
-      }
-    }
-
-    xhr.onerror = () => reject(new Error('Network error during S3 upload'))
-    xhr.open('PUT', presignedUrl)
-    xhr.setRequestHeader('Content-Type', contentType)
-    xhr.send(file)
-  })
 }
 
 export async function resolveUserId(

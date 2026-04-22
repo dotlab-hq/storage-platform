@@ -10,6 +10,39 @@ import { db } from '@/db'
 import { file as storageFile, folder, userStorage } from '@/db/schema/storage'
 import { eq, sql, and } from 'drizzle-orm'
 
+const AbortFolderUploadSchema = z.object({
+  uploadSessionId: z.string(),
+  objectKeys: z.array(z.string()),
+})
+
+export const abortFolderUpload = createServerFn({ method: 'POST' })
+  .inputValidator((d: z.infer<typeof AbortFolderUploadSchema>) =>
+    AbortFolderUploadSchema.parse(d),
+  )
+  .handler(async ({ data }) => {
+    const authUser = await getAuthenticatedUser()
+
+    const { DeleteObjectsCommand } = await import('@aws-sdk/client-s3')
+    const provider = await getProviderClientById(null)
+
+    const objectsToDelete = data.objectKeys.map((key) => ({ Key: key }))
+
+    if (objectsToDelete.length > 0) {
+      try {
+        await provider.client.send(
+          new DeleteObjectsCommand({
+            Bucket: provider.bucketName,
+            Delete: { Objects: objectsToDelete },
+          }),
+        )
+      } catch {
+        // Best effort - continue even if S3 cleanup fails
+      }
+    }
+
+    return { success: true }
+  })
+
 const FileHashSchema = z.object({
   fileName: z.string(),
   fileSize: z.number().nonnegative(),
@@ -96,6 +129,7 @@ const CompleteFolderUploadSchema = z.object({
       sha256Hash: z.string().length(64),
       fileSize: z.number().nonnegative(),
       mimeType: z.string().nullable().optional(),
+      providerId: z.string().nullable().optional(),
     }),
   ),
   providerId: z.string().nullable().optional(),
@@ -112,10 +146,11 @@ export const completeFolderUpload = createServerFn({ method: 'POST' })
       import('@aws-sdk/client-s3'),
     ])
 
-    const provider = await getProviderClientById(data.providerId ?? null)
-
     for (const file of data.files) {
       try {
+        const provider = await getProviderClientById(
+          file.providerId ?? data.providerId ?? null,
+        )
         const response = await provider.client.send(
           new HeadObjectCommand({
             Bucket: provider.bucketName,
@@ -167,7 +202,9 @@ export const completeFolderUpload = createServerFn({ method: 'POST' })
     let totalUploadedSize = 0
 
     for (const file of data.files) {
-      const resolvedProviderId = await resolveProviderId(data.providerId)
+      const resolvedProviderId = await resolveProviderId(
+        file.providerId ?? data.providerId,
+      )
 
       await db.insert(storageFile).values({
         name: file.fileName,

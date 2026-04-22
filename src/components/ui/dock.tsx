@@ -34,19 +34,20 @@ const DockIconButton = React.forwardRef<HTMLAnchorElement, DockIconButtonProps>(
         ref={ref}
         href={href}
         onClick={onClick}
-        whileHover={{ scale: 1.1, y: -2 }}
+        whileHover={{ scale: 1.05, y: -1 }}
         whileTap={{ scale: 0.95 }}
         className={cn(
-          'relative group p-3 rounded-lg',
-          'hover:bg-secondary transition-colors',
-          active && 'bg-secondary',
+          'relative group flex h-10 w-10 items-center justify-center rounded-xl',
+          'border border-transparent bg-white/[0.03] text-muted-foreground',
+          'transition-colors duration-200 hover:border-white/10 hover:bg-white/[0.08] hover:text-foreground',
+          active && 'border-white/10 bg-white/[0.12] text-foreground',
           className,
         )}
       >
-        <Icon className="w-5 h-5 text-foreground" />
+        <Icon className="h-4 w-4" />
         <span
           className={cn(
-            'absolute -top-8 left-1/2 -translate-x-1/2',
+            'absolute -top-9 left-1/2 -translate-x-1/2',
             'px-2 py-1 rounded text-xs',
             'bg-popover text-popover-foreground',
             'opacity-0 group-hover:opacity-100',
@@ -148,18 +149,16 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
         )}
       >
         <motion.div
-          initial={{ y: 0 }}
-          animate={{ y: [0, 4, 0] }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: 'easeInOut',
+            duration: 0.25,
+            ease: 'easeOut',
           }}
           className={cn(
-            'flex items-center gap-1 p-2 rounded-2xl',
-            'backdrop-blur-lg border shadow-lg',
-            'bg-background/90 border-border',
-            'hover:shadow-xl transition-shadow duration-300',
+            'flex items-center gap-2 rounded-[20px] px-2.5 py-2',
+            'border border-white/10 bg-background/70 shadow-[0_12px_40px_rgba(0,0,0,0.28)]',
+            'backdrop-blur-xl supports-[backdrop-filter]:bg-background/55',
           )}
         >
           {items.map((item) => (

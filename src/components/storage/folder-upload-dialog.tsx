@@ -52,52 +52,89 @@ export function FolderUploadDialog({
     }
   }, [open])
 
-  const resolveUserId = createClientOnlyFn(async (uid: string | null) => {
+  const resolveUserIdClient = createClientOnlyFn(async (uid: string | null) => {
     if (uid) return uid
     const { data } = await authClient.getSession()
     return data?.user?.id ?? null
   })
 
-  const handleDrop = async (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault()
-    setIsDragging(false)
-    const items = Array.from(e.dataTransfer.items)
+  const handleDragOver = React.useCallback(
+    (e: React.DragEvent<HTMLDivElement>) => {
+      e.preventDefault()
+      setIsDragging(true)
+    },
+    [],
+  )
 
-    const folders: FileSystemDirectoryEntry[] = []
-    for (const item of items) {
-      const entry = item.webkitGetAsEntry?.()
-      if (entry?.isDirectory) {
-        folders.push(entry as FileSystemDirectoryEntry)
+  const handleDragLeave = React.useCallback(
+    (e: React.DragEvent<HTMLDivElement>) => {
+      e.preventDefault()
+      if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+        setIsDragging(false)
       }
-    }
+    },
+    [],
+  )
 
-    if (folders.length > 0) {
-      setSelectedFolders(folders)
-    }
-  }
+  const handleDrop = React.useCallback(
+    async (e: React.DragEvent<HTMLDivElement>) => {
+      e.preventDefault()
+      setIsDragging(false)
+      const items = Array.from(e.dataTransfer.items)
 
-  const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files ? Array.from(e.target.files) : []
-
-    const folders: FileSystemDirectoryEntry[] = []
-    for (const file of files) {
-      const entry = (
-        file as File & { webkitGetAsEntry?: () => FileSystemEntry | null }
-      ).webkitGetAsEntry?.()
-      if (entry?.isDirectory) {
-        folders.push(entry as FileSystemDirectoryEntry)
+      const folders: FileSystemDirectoryEntry[] = []
+      for (const item of items) {
+        const entry = item.webkitGetAsEntry?.()
+        if (entry?.isDirectory) {
+          folders.push(entry as FileSystemDirectoryEntry)
+        }
       }
-    }
 
-    if (folders.length > 0) {
-      setSelectedFolders(folders)
-    }
-    e.target.value = ''
-  }
+      if (folders.length > 0) {
+        setSelectedFolders((prev) => [...prev, ...folders])
+      }
+    },
+    [],
+  )
+
+  const handleInputChange = React.useCallback(
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
+      const files = e.target.files ? Array.from(e.target.files) : []
+
+      const fileEntries: FileSystemDirectoryEntry[] = []
+      for (const file of files) {
+        const entry = (
+          file as File & { webkitGetAsEntry?: () => FileSystemEntry | null }
+        ).webkitGetAsEntry?.()
+        if (entry?.isDirectory) {
+          fileEntries.push(entry as FileSystemDirectoryEntry)
+        }
+      }
+
+      if (fileEntries.length > 0) {
+        setSelectedFolders((prev) => [...prev, ...fileEntries])
+      }
+      e.target.value = ''
+    },
+    [],
+  )
 
   const removeFolder = (index: number) => {
     setSelectedFolders((prev) => prev.filter((_, i) => i !== index))
   }
+
+  const processFolder = React.useCallback(
+    async (folderEntry: FileSystemDirectoryEntry, uid: string) => {
+      const result = await uploadFolder(
+        folderEntry,
+        uid,
+        currentFolderId,
+        setUploads,
+      )
+      return result
+    },
+    [currentFolderId, setUploads],
+  )
 
   const handleUpload = async () => {
     if (selectedFolders.length === 0) {
@@ -107,37 +144,60 @@ export function FolderUploadDialog({
     setUploadError(null)
     setIsUploading(true)
 
-    const uid = await resolveUserId(userId)
+    const uid = await resolveUserIdClient(userId)
     if (!uid) {
       setUploadError('Session not ready.')
       setIsUploading(false)
       return
     }
 
+    const folderConcurrency = 3
+    const queue = [...selectedFolders]
     let uploadedCount = 0
+    let failedCount = 0
 
-    for (const folderEntry of selectedFolders) {
-      const result = await uploadFolder(
-        folderEntry,
-        uid,
-        currentFolderId,
-        setUploads,
-      )
-      if (result.success && result.folderName && result.filesCount) {
-        uploadedCount += result.filesCount
-        toast.success(
-          `Folder "${result.folderName}" uploaded with ${result.filesCount} files`,
-        )
-      } else if (result.error) {
-        toast.error(`Folder upload failed: ${result.error}`)
+    const worker = async () => {
+      while (queue.length > 0) {
+        const folderEntry = queue.shift()
+        if (!folderEntry) break
+
+        try {
+          const result = await processFolder(folderEntry, uid)
+          if (result.success && result.filesCount) {
+            uploadedCount++
+            toast.success(
+              `Folder "${result.folderName}" uploaded with ${result.filesCount} files`,
+            )
+          } else if (result.error) {
+            failedCount++
+            toast.error(`Folder upload failed: ${result.error}`)
+          }
+        } catch (err) {
+          failedCount++
+          const msg = err instanceof Error ? err.message : 'Unknown error'
+          toast.error(`Folder "${folderEntry.name}" upload failed: ${msg}`)
+        }
       }
     }
+
+    await Promise.all(Array.from({ length: folderConcurrency }, () => worker()))
 
     setSelectedFolders([])
     onOpenChange(false)
     router.invalidate()
     await onUploadComplete()
     setIsUploading(false)
+
+    if (uploadedCount > 0) {
+      toast.success(
+        `Uploaded ${uploadedCount} folder${uploadedCount > 1 ? 's' : ''}`,
+      )
+    }
+    if (failedCount > 0) {
+      toast.error(
+        `${failedCount} folder${failedCount > 1 ? 's' : ''} failed to upload`,
+      )
+    }
   }
 
   return (
@@ -154,11 +214,8 @@ export function FolderUploadDialog({
           className={`rounded-lg border-2 border-dashed border-border p-8 text-center transition-colors ${
             isDragging ? 'border-primary bg-muted' : ''
           }`}
-          onDragOver={(e) => {
-            e.preventDefault()
-            setIsDragging(true)
-          }}
-          onDragLeave={() => setIsDragging(false)}
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
           onDrop={handleDrop}
         >
           <div className="flex flex-col items-center gap-3">

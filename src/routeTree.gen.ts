@@ -30,6 +30,7 @@ import { Route as ApiChatCompletionsRouteImport } from './routes/api/chat/comple
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as AppBucketsBucketNameRouteImport } from './routes/_app/buckets/$bucketName'
 import { Route as ApiStorageS3IndexRouteImport } from './routes/api/storage/s3/index'
+import { Route as ApiStorageUploadProxyRouteImport } from './routes/api/storage/upload/proxy'
 import { Route as ApiStorageS3UploadStatusRouteImport } from './routes/api/storage/s3/upload-status'
 import { Route as ApiStorageS3ObjectSettingsRouteImport } from './routes/api/storage/s3/object-settings'
 import { Route as ApiStorageS3InitiateUploadRouteImport } from './routes/api/storage/s3/initiate-upload'
@@ -41,6 +42,7 @@ import { Route as ApiStorageS3BucketSettingsRouteImport } from './routes/api/sto
 import { Route as ApiStorageS3BucketItemsRouteImport } from './routes/api/storage/s3/bucket-items'
 import { Route as ApiStorageS3BucketCredentialsRouteImport } from './routes/api/storage/s3/bucket-credentials'
 import { Route as ApiStorageS3SplatRouteImport } from './routes/api/storage/s3/$'
+import { Route as ApiAdminStorageProvidersProviderIdContentsRouteImport } from './routes/api/admin/storage-providers/$providerId/contents'
 
 const SwRoute = SwRouteImport.update({
   id: '/sw',
@@ -146,6 +148,11 @@ const ApiStorageS3IndexRoute = ApiStorageS3IndexRouteImport.update({
   path: '/',
   getParentRoute: () => ApiStorageS3Route,
 } as any)
+const ApiStorageUploadProxyRoute = ApiStorageUploadProxyRouteImport.update({
+  id: '/api/storage/upload/proxy',
+  path: '/api/storage/upload/proxy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiStorageS3UploadStatusRoute =
   ApiStorageS3UploadStatusRouteImport.update({
     id: '/upload-status',
@@ -208,6 +215,12 @@ const ApiStorageS3SplatRoute = ApiStorageS3SplatRouteImport.update({
   path: '/$',
   getParentRoute: () => ApiStorageS3Route,
 } as any)
+const ApiAdminStorageProvidersProviderIdContentsRoute =
+  ApiAdminStorageProvidersProviderIdContentsRouteImport.update({
+    id: '/api/admin/storage-providers/$providerId/contents',
+    path: '/api/admin/storage-providers/$providerId/contents',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof AppIndexRoute
@@ -240,7 +253,9 @@ export interface FileRoutesByFullPath {
   '/api/storage/s3/initiate-upload': typeof ApiStorageS3InitiateUploadRoute
   '/api/storage/s3/object-settings': typeof ApiStorageS3ObjectSettingsRoute
   '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
+  '/api/storage/upload/proxy': typeof ApiStorageUploadProxyRoute
   '/api/storage/s3/': typeof ApiStorageS3IndexRoute
+  '/api/admin/storage-providers/$providerId/contents': typeof ApiAdminStorageProvidersProviderIdContentsRoute
 }
 export interface FileRoutesByTo {
   '/hot': typeof HotRoute
@@ -272,7 +287,9 @@ export interface FileRoutesByTo {
   '/api/storage/s3/initiate-upload': typeof ApiStorageS3InitiateUploadRoute
   '/api/storage/s3/object-settings': typeof ApiStorageS3ObjectSettingsRoute
   '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
+  '/api/storage/upload/proxy': typeof ApiStorageUploadProxyRoute
   '/api/storage/s3': typeof ApiStorageS3IndexRoute
+  '/api/admin/storage-providers/$providerId/contents': typeof ApiAdminStorageProvidersProviderIdContentsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -307,7 +324,9 @@ export interface FileRoutesById {
   '/api/storage/s3/initiate-upload': typeof ApiStorageS3InitiateUploadRoute
   '/api/storage/s3/object-settings': typeof ApiStorageS3ObjectSettingsRoute
   '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
+  '/api/storage/upload/proxy': typeof ApiStorageUploadProxyRoute
   '/api/storage/s3/': typeof ApiStorageS3IndexRoute
+  '/api/admin/storage-providers/$providerId/contents': typeof ApiAdminStorageProvidersProviderIdContentsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -342,7 +361,9 @@ export interface FileRouteTypes {
     | '/api/storage/s3/initiate-upload'
     | '/api/storage/s3/object-settings'
     | '/api/storage/s3/upload-status'
+    | '/api/storage/upload/proxy'
     | '/api/storage/s3/'
+    | '/api/admin/storage-providers/$providerId/contents'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/hot'
@@ -374,7 +395,9 @@ export interface FileRouteTypes {
     | '/api/storage/s3/initiate-upload'
     | '/api/storage/s3/object-settings'
     | '/api/storage/s3/upload-status'
+    | '/api/storage/upload/proxy'
     | '/api/storage/s3'
+    | '/api/admin/storage-providers/$providerId/contents'
   id:
     | '__root__'
     | '/_app'
@@ -408,7 +431,9 @@ export interface FileRouteTypes {
     | '/api/storage/s3/initiate-upload'
     | '/api/storage/s3/object-settings'
     | '/api/storage/s3/upload-status'
+    | '/api/storage/upload/proxy'
     | '/api/storage/s3/'
+    | '/api/admin/storage-providers/$providerId/contents'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -422,6 +447,8 @@ export interface RootRouteChildren {
   ApiChatStreamRoute: typeof ApiChatStreamRoute
   ApiStorageFileLinkRoute: typeof ApiStorageFileLinkRoute
   ApiStorageS3Route: typeof ApiStorageS3RouteWithChildren
+  ApiStorageUploadProxyRoute: typeof ApiStorageUploadProxyRoute
+  ApiAdminStorageProvidersProviderIdContentsRoute: typeof ApiAdminStorageProvidersProviderIdContentsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -573,6 +600,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStorageS3IndexRouteImport
       parentRoute: typeof ApiStorageS3Route
     }
+    '/api/storage/upload/proxy': {
+      id: '/api/storage/upload/proxy'
+      path: '/api/storage/upload/proxy'
+      fullPath: '/api/storage/upload/proxy'
+      preLoaderRoute: typeof ApiStorageUploadProxyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/storage/s3/upload-status': {
       id: '/api/storage/s3/upload-status'
       path: '/upload-status'
@@ -650,6 +684,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStorageS3SplatRouteImport
       parentRoute: typeof ApiStorageS3Route
     }
+    '/api/admin/storage-providers/$providerId/contents': {
+      id: '/api/admin/storage-providers/$providerId/contents'
+      path: '/api/admin/storage-providers/$providerId/contents'
+      fullPath: '/api/admin/storage-providers/$providerId/contents'
+      preLoaderRoute: typeof ApiAdminStorageProvidersProviderIdContentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -726,6 +767,9 @@ const rootRouteChildren: RootRouteChildren = {
   ApiChatStreamRoute: ApiChatStreamRoute,
   ApiStorageFileLinkRoute: ApiStorageFileLinkRoute,
   ApiStorageS3Route: ApiStorageS3RouteWithChildren,
+  ApiStorageUploadProxyRoute: ApiStorageUploadProxyRoute,
+  ApiAdminStorageProvidersProviderIdContentsRoute:
+    ApiAdminStorageProvidersProviderIdContentsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -22,6 +22,7 @@ const SaveProviderSchema = z.object({
   secretAccessKey: z.string().default(''),
   storageLimitBytes: z.number().int().positive(),
   fileSizeLimitBytes: z.number().int().positive(),
+  proxyUploadsEnabled: z.boolean().default(false),
   isActive: z.boolean().default(true),
 })
 
@@ -115,6 +116,7 @@ export const saveStorageProviderFn = createServerFn({ method: 'POST' })
             : existing.secretAccessKeyEncrypted,
           storageLimitBytes: data.storageLimitBytes,
           fileSizeLimitBytes: data.fileSizeLimitBytes,
+          proxyUploadsEnabled: data.proxyUploadsEnabled,
           isActive: data.isActive,
         })
         .where(eq(storageProvider.id, existing.id))
@@ -142,6 +144,7 @@ export const saveStorageProviderFn = createServerFn({ method: 'POST' })
         secretAccessKeyEncrypted: nextSecretAccessKeyEncrypted,
         storageLimitBytes: data.storageLimitBytes,
         fileSizeLimitBytes: data.fileSizeLimitBytes,
+        proxyUploadsEnabled: data.proxyUploadsEnabled,
         isActive: data.isActive,
       })
       .returning({ id: storageProvider.id, name: storageProvider.name })

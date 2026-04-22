@@ -63,6 +63,7 @@ const MultipartInitSchema = z.object({
   contentType: z.string(),
   fileSize: z.number().positive(),
   partCount: z.number().int().positive().max(10000),
+  providerId: z.string().nullable().optional(),
 })
 
 export const uploadMultipartInit = createServerFn({ method: 'POST' })
@@ -95,7 +96,7 @@ export const uploadMultipartInit = createServerFn({ method: 'POST' })
     const { CreateMultipartUploadCommand, UploadPartCommand } =
       await import('@aws-sdk/client-s3')
     const { getSignedUrl } = await import('@aws-sdk/s3-request-presigner')
-    const provider = await selectProviderForUpload(data.fileSize)
+    const provider = await getProviderClientById(data.providerId ?? null)
 
     const createMultipartResult = await provider.client.send(
       new CreateMultipartUploadCommand({
