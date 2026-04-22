@@ -7,7 +7,7 @@ import { formatBytes } from '@/lib/format-bytes'
 
 type MetricCardProps = { title: string; value: string | number }
 
-export function MetricCard({ title, value }: MetricCardProps) {
+export function MetricCard( { title, value }: MetricCardProps ) {
   return (
     <div className="rounded-lg border p-4">
       <p className="text-muted-foreground text-sm">{title}</p>
@@ -16,24 +16,24 @@ export function MetricCard({ title, value }: MetricCardProps) {
   )
 }
 
-export function ProvidersPanel({
+export function ProvidersPanel( {
   providers,
   onToggleAvailability,
   onDelete,
   onEdit,
-  onOpenS3Viewer,
+  onViewContents,
 }: {
   providers: AdminProvider[]
-  onToggleAvailability: (providerId: string, isActive: boolean) => Promise<void>
-  onDelete: (providerId: string) => Promise<void>
-  onEdit: (provider: AdminProvider) => void
-  onOpenS3Viewer: (bucketName: string) => void
-}) {
+  onToggleAvailability: ( providerId: string, isActive: boolean ) => Promise<void>
+  onDelete: ( providerId: string ) => Promise<void>
+  onEdit: ( provider: AdminProvider ) => void
+  onViewContents: ( provider: AdminProvider ) => void
+} ) {
   return (
     <div className="rounded-lg border p-4">
       <h2 className="mb-3 text-base font-semibold">Storage Providers</h2>
       <div className="space-y-3">
-        {providers.map((provider) => (
+        {providers.map( ( provider ) => (
           <div key={provider.id} className="rounded-lg border p-3">
             <div className="flex items-center justify-between">
               <p className="font-medium">{provider.name}</p>
@@ -46,7 +46,7 @@ export function ProvidersPanel({
                   variant="outline"
                   size="sm"
                   onClick={() => {
-                    onOpenS3Viewer(provider.bucketName)
+                    onViewContents( provider )
                   }}
                 >
                   <Eye className="h-4 w-4" />
@@ -58,7 +58,7 @@ export function ProvidersPanel({
                       variant="outline"
                       size="sm"
                       onClick={() => {
-                        onEdit(provider)
+                        onEdit( provider )
                       }}
                     >
                       Edit
@@ -84,7 +84,7 @@ export function ProvidersPanel({
                       size="sm"
                       className="text-red-600"
                       onClick={() => {
-                        void onDelete(provider.id)
+                        void onDelete( provider.id )
                       }}
                     >
                       Delete
@@ -94,28 +94,28 @@ export function ProvidersPanel({
               </div>
             </div>
             <p className="text-muted-foreground text-xs">
-              Storage: {formatBytes(provider.usedStorageBytes)} /{' '}
-              {formatBytes(provider.storageLimitBytes)}
+              Storage: {formatBytes( provider.usedStorageBytes )} /{' '}
+              {formatBytes( provider.storageLimitBytes )}
             </p>
             <p className="text-muted-foreground text-xs">
-              Max file size: {formatBytes(provider.fileSizeLimitBytes)}
+              Max file size: {formatBytes( provider.fileSizeLimitBytes )}
             </p>
             <p className="text-muted-foreground text-xs">
-              Available: {formatBytes(provider.availableStorageBytes)}
+              Available: {formatBytes( provider.availableStorageBytes )}
             </p>
           </div>
-        ))}
+        ) )}
       </div>
     </div>
   )
 }
 
-export function UsersPanel({ users }: { users: AdminUser[] }) {
+export function UsersPanel( { users }: { users: AdminUser[] } ) {
   return (
     <div className="rounded-lg border p-4">
       <h2 className="mb-3 text-base font-semibold">Users</h2>
       <div className="space-y-2">
-        {users.map((user) => (
+        {users.map( ( user ) => (
           <div
             key={user.id}
             className="flex items-center justify-between rounded-lg border p-2"
@@ -125,11 +125,11 @@ export function UsersPanel({ users }: { users: AdminUser[] }) {
               <p className="text-muted-foreground text-xs">{user.email}</p>
             </div>
             <div className="text-right">
-              <p className="text-xs">{formatBytes(user.usedStorage)}</p>
+              <p className="text-xs">{formatBytes( user.usedStorage )}</p>
               {user.isAdmin ? <Badge variant="outline">Admin</Badge> : null}
             </div>
           </div>
-        ))}
+        ) )}
       </div>
     </div>
   )

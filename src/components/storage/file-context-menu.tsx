@@ -11,6 +11,8 @@ import {
   AlertTriangle,
   Link,
   FileText,
+  Upload,
+  FolderUp,
 } from 'lucide-react'
 import {
   ContextMenu,
@@ -27,6 +29,8 @@ type FileContextMenuProps = {
   isTrash?: boolean
   isReadOnly?: boolean
   onAction: (action: ContextMenuAction, item: StorageItem) => void
+  onUploadFiles?: () => void
+  onUploadFolder?: () => void
 }
 
 export function FileContextMenu({
@@ -35,6 +39,8 @@ export function FileContextMenu({
   isTrash = false,
   isReadOnly = false,
   onAction,
+  onUploadFiles,
+  onUploadFolder,
 }: FileContextMenuProps) {
   const trigger = (
     <div onContextMenuCapture={(event) => event.stopPropagation()}>
@@ -134,6 +140,25 @@ export function FileContextMenu({
           <Link className="mr-2 h-4 w-4" />
           Copy Link
         </ContextMenuItem>
+        {(item.type === 'folder' || !item.folderId) && (
+          <>
+            <ContextMenuSeparator />
+            <ContextMenuItem
+              onSelect={() => onUploadFiles?.()}
+              disabled={isReadOnly}
+            >
+              <Upload className="mr-2 h-4 w-4" />
+              Upload Files Here
+            </ContextMenuItem>
+            <ContextMenuItem
+              onSelect={() => onUploadFolder?.()}
+              disabled={isReadOnly}
+            >
+              <FolderUp className="mr-2 h-4 w-4" />
+              Upload Folder Here
+            </ContextMenuItem>
+          </>
+        )}
         <ContextMenuSeparator />
         <ContextMenuItem
           className="text-destructive focus:text-destructive"

@@ -2,10 +2,9 @@
 
 import * as React from 'react'
 import { createClientOnlyFn } from '@tanstack/react-start'
-import { Upload, X, FolderUp } from 'lucide-react'
+import { Upload, X } from 'lucide-react'
 import { authClient } from '@/lib/auth-client'
 import { uploadBatch } from '@/lib/upload-utils'
-import { uploadFolder } from '@/lib/folder-upload-utils'
 import { toast } from '@/components/ui/sonner'
 import { Button } from '@/components/ui/button'
 import {
@@ -19,8 +18,9 @@ import {
 import { formatFileSize } from '@/lib/file-utils'
 import type { StorageItem, UploadingFile } from '@/types/storage'
 import { cn } from '@/lib/utils'
+import { useRouter } from '@tanstack/react-router'
 
-type UploadDialogProps = {
+type FileUploadDialogProps = {
   open: boolean
   onOpenChange: (open: boolean) => void
   userId: string | null
@@ -31,9 +31,7 @@ type UploadDialogProps = {
   fileSizeLimit?: number | null
 }
 
-import { useRouter } from '@tanstack/react-router'
-
-export function UploadDialog({
+export function FileUploadDialog({
   open,
   onOpenChange,
   userId,
@@ -42,10 +40,9 @@ export function UploadDialog({
   onUploadComplete,
   setItems,
   fileSizeLimit,
-}: UploadDialogProps) {
+}: FileUploadDialogProps) {
   const router = useRouter()
   const fileInputRef = React.useRef<HTMLInputElement>(null)
-  const folderInputRef = React.useRef<HTMLInputElement>(null)
   const [isDragging, setIsDragging] = React.useState(false)
   const [selectedFiles, setSelectedFiles] = React.useState<File[]>([])
   const [uploadError, setUploadError] = React.useState<string | null>(null)
@@ -86,94 +83,11 @@ export function UploadDialog({
     [fileSizeLimit],
   )
 
-  const handleDrop = async (e: React.DragEvent<HTMLDivElement>) => {
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault()
     setIsDragging(false)
-    const items = Array.from(e.dataTransfer.items)
     const files = Array.from(e.dataTransfer.files)
-
-    const folders: FileSystemDirectoryEntry[] = []
-
-    for (const item of items) {
-      const entry = item.webkitGetAsEntry?.()
-      if (entry?.isDirectory) {
-        folders.push(entry as FileSystemDirectoryEntry)
-      }
-    }
-
-    if (folders.length > 0) {
-      const uid = await resolveUserId(userId)
-      if (!uid) {
-        setUploadError('Session not ready.')
-        return
-      }
-
-      onOpenChange(false)
-
-      for (const folderEntry of folders) {
-        const result = await uploadFolder(
-          folderEntry,
-          uid,
-          currentFolderId,
-          setUploads,
-        )
-        if (result.success) {
-          toast.success(
-            `Folder "${result.folderName}" uploaded with ${result.filesCount} files`,
-          )
-        } else {
-          toast.error(`Folder upload failed: ${result.error}`)
-        }
-      }
-      router.invalidate()
-      return
-    }
-
     if (files.length) dedupeAndAppend(files)
-  }
-
-  const handleFolderInputChange = async (
-    e: React.ChangeEvent<HTMLInputElement>,
-  ) => {
-    const items = e.target.files ? Array.from(e.target.files) : []
-    const folders: FileSystemDirectoryEntry[] = []
-
-    for (const item of items) {
-      const entry = (
-        item as File & { webkitGetAsEntry?: () => FileSystemEntry | null }
-      ).webkitGetAsEntry?.()
-      if (entry?.isDirectory) {
-        folders.push(entry as FileSystemDirectoryEntry)
-      }
-    }
-
-    if (folders.length > 0) {
-      const uid = await resolveUserId(userId)
-      if (!uid) {
-        setUploadError('Session not ready.')
-        return
-      }
-
-      onOpenChange(false)
-
-      for (const folderEntry of folders) {
-        const result = await uploadFolder(
-          folderEntry,
-          uid,
-          currentFolderId,
-          setUploads,
-        )
-        if (result.success) {
-          toast.success(
-            `Folder "${result.folderName}" uploaded with ${result.filesCount} files`,
-          )
-        } else {
-          toast.error(`Folder upload failed: ${result.error}`)
-        }
-      }
-      router.invalidate()
-    }
-    e.target.value = ''
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -218,7 +132,6 @@ export function UploadDialog({
       3,
       setUploads,
       (fileInfo) => {
-        // Optimistically add the completed file to the items list
         if (setItems) {
           setItems((prev) => [
             ...prev,
@@ -240,11 +153,7 @@ export function UploadDialog({
     )
     if (count > 0) {
       toast.success(`${count} file${count > 1 ? 's' : ''} uploaded`)
-      // Always invalidate the router cache so that subsequent navigations fetch fresh data
       router.invalidate()
-
-      // Skip full refresh when setItems is provided because each completed
-      // file has already been optimistically added to the items list.
       if (!setItems) await onUploadComplete()
     }
   }
@@ -275,32 +184,18 @@ export function UploadDialog({
           onDrop={handleDrop}
         >
           <div className="flex flex-col items-center gap-3">
-            <div className="flex items-center gap-2">
-              <Upload className="text-muted-foreground h-8 w-8" />
-              <FolderUp className="text-muted-foreground h-8 w-8" />
-            </div>
+            <Upload className="text-muted-foreground h-8 w-8" />
             <div className="space-y-1">
-              <p className="text-sm font-medium">Drop files or folders here</p>
-              <p className="text-muted-foreground text-xs">
-                Click to browse • Folders upload atomically
-              </p>
+              <p className="text-sm font-medium">Drop files here</p>
+              <p className="text-muted-foreground text-xs">Click to browse</p>
             </div>
-            <div className="flex gap-2 pt-2">
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() => fileInputRef.current?.click()}
-              >
-                Files
-              </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() => folderInputRef.current?.click()}
-              >
-                Folder
-              </Button>
-            </div>
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={() => fileInputRef.current?.click()}
+            >
+              Select Files
+            </Button>
           </div>
           <input
             ref={fileInputRef}
@@ -309,17 +204,6 @@ export function UploadDialog({
             className="hidden"
             onChange={handleInputChange}
             aria-label="Select files to upload"
-          />
-          <input
-            ref={folderInputRef}
-            type="file"
-            {...({
-              webkitdirectory: '',
-            } as React.InputHTMLAttributes<HTMLInputElement>)}
-            multiple
-            className="hidden"
-            onChange={handleFolderInputChange}
-            aria-label="Select folder to upload"
           />
         </div>
 
