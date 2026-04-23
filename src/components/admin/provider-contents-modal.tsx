@@ -5,9 +5,9 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { Button } from '@/components/ui/button'
-import { SearchBar } from '@/components/admin/search-bar'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ProviderContentsPanel } from '@/components/admin/provider-contents-panel'
+import { ProviderInfoPanel } from '@/components/admin/provider-info-panel'
 import { useProviderContents } from './use-provider-contents'
 import type { AdminProvider } from '@/lib/storage-provider-queries'
 
@@ -24,48 +24,35 @@ export function ProviderContentsModal({
 }: ProviderContentsModalProps) {
   const viewer = useProviderContents(provider?.id ?? null, open)
 
-  const prefixLabel = viewer.prefix.length > 0 ? viewer.prefix : '/'
-
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="flex h-[90vh] max-w-7xl flex-col gap-0 overflow-hidden p-0">
+      <DialogContent className="flex h-[90vh] max-w-4xl flex-col gap-0 overflow-hidden p-0">
         <DialogHeader className="border-b bg-linear-to-br from-background via-background to-muted/20 px-6 py-5">
           <DialogTitle className="text-xl font-semibold">
-            Provider contents
+            Provider Details
           </DialogTitle>
           <DialogDescription>
-            Direct listing from the provider, split into folders and files.
+            Manage and explore the contents of your storage provider.
           </DialogDescription>
-          <div className="mt-4 grid gap-3 sm:grid-cols-3">
-            <div className="rounded-xl border bg-background/80 p-3">
-              <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
-                Provider
-              </p>
-              <p className="truncate text-sm font-medium">
-                {provider?.name ?? '-'}
-              </p>
-            </div>
-            <div className="rounded-xl border bg-background/80 p-3">
-              <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
-                Bucket
-              </p>
-              <p className="truncate text-sm font-medium">
-                {provider?.bucketName ?? '-'}
-              </p>
-            </div>
-            <div className="rounded-xl border bg-background/80 p-3">
-              <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
-                Prefix
-              </p>
-              <p className="truncate text-sm font-medium">{prefixLabel}</p>
-            </div>
-          </div>
-          <div className="mt-4 flex items-end">
-            <SearchBar onSearch={(query) => viewer.setSearchQuery(query)} />
-          </div>
         </DialogHeader>
 
-        <ProviderContentsPanel viewer={viewer} />
+        <Tabs
+          defaultValue="explorer"
+          className="flex-1 flex flex-col overflow-hidden"
+        >
+          <div className="px-6 pt-4">
+            <TabsList className="grid w-full grid-cols-2">
+              <TabsTrigger value="explorer">Explorer</TabsTrigger>
+              <TabsTrigger value="info">Info</TabsTrigger>
+            </TabsList>
+          </div>
+          <TabsContent value="explorer" className="flex-1 m-0 overflow-hidden">
+            <ProviderContentsPanel viewer={viewer} />
+          </TabsContent>
+          <TabsContent value="info" className="flex-1 m-0 overflow-hidden">
+            <ProviderInfoPanel provider={provider} />
+          </TabsContent>
+        </Tabs>
       </DialogContent>
     </Dialog>
   )

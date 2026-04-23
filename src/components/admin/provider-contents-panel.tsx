@@ -5,6 +5,7 @@ import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { SectionShell } from '@/components/admin/section-shell'
 import { FolderSection } from '@/components/admin/folder-section'
 import { FileSection } from '@/components/admin/file-section'
+import { SearchBar } from '@/components/admin/search-bar'
 import type { UseProviderContentsResult } from './use-provider-contents'
 
 type ProviderContentsPanelProps = {
@@ -49,40 +50,45 @@ export function ProviderContentsPanel({ viewer }: ProviderContentsPanelProps) {
   return (
     <div className="flex-1 overflow-hidden p-6 flex flex-col">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3 flex-shrink-0">
-        <div className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
-          {breadcrumbNodes.map((crumb, index) => (
-            <div
-              key={`${crumb.label}-${crumb.value}`}
-              className="flex items-center gap-1"
-            >
-              {index > 0 ? <ChevronRight className="h-4 w-4" /> : null}
-              <Button
-                type="button"
-                variant="ghost"
-                size="sm"
-                className="h-8 px-2"
-                onClick={() => viewer.setPrefix(crumb.value)}
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
+            {breadcrumbNodes.map((crumb, index) => (
+              <div
+                key={`${crumb.label}-${crumb.value}`}
+                className="flex items-center gap-1"
               >
-                {crumb.label}
-              </Button>
-            </div>
-          ))}
-        </div>
+                {index > 0 ? <ChevronRight className="h-4 w-4" /> : null}
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className="h-8 px-2"
+                  onClick={() => viewer.setPrefix(crumb.value)}
+                >
+                  {crumb.label}
+                </Button>
+              </div>
+            ))}
+          </div>
 
-        <Button
-          type="button"
-          variant="outline"
-          size="sm"
-          onClick={() => viewer.refresh()}
-          disabled={viewer.isFetching}
-        >
-          {viewer.isFetching ? (
-            <Loader2 className="mr-1.5 h-4 w-4 animate-spin" />
-          ) : (
-            <RefreshCw className="mr-1.5 h-4 w-4" />
-          )}
-          Refresh
-        </Button>
+          <div className="flex items-center gap-3">
+            <SearchBar onSearch={(query) => viewer.setSearchQuery(query)} />
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => viewer.refresh()}
+              disabled={viewer.isFetching}
+            >
+              {viewer.isFetching ? (
+                <Loader2 className="mr-1.5 h-4 w-4 animate-spin" />
+              ) : (
+                <RefreshCw className="mr-1.5 h-4 w-4" />
+              )}
+              Refresh
+            </Button>
+          </div>
+        </div>
       </div>
 
       <div

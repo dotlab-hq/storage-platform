@@ -5,7 +5,9 @@ import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { HomeRoutePending } from '../-home-pending'
 import { getHomeSnapshotFn } from '../-home-server'
 
-const StoragePage = lazy(() => import('./-storage-page').then((m) => ({ default: m.StoragePage })))
+const StoragePage = lazy(() =>
+  import('./-storage-page').then((m) => ({ default: m.StoragePage })),
+)
 
 export const Route = createFileRoute('/_app/')({
   server: {
@@ -25,5 +27,3 @@ function StorageRouteComponent() {
     </Suspense>
   )
 }
-
-  
