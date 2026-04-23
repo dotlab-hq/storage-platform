@@ -3,10 +3,7 @@ import { toast } from '@/components/ui/sonner'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import {
-  changePasswordSettingsFn,
-  rotateBackupCodesSettingsFn,
-} from '../-settings-server'
+import { changePasswordSettingsFn } from '../-settings-server'
 import { updateSettings, useSettingsStore } from '../-store'
 
 export function PasswordSection() {
@@ -14,13 +11,9 @@ export function PasswordSection() {
     currentPassword: '',
     newPassword: '',
   })
-  const [twoFactorPassword] = useState('')
-
   const isChangingPassword = useSettingsStore(
     (state) => state.isChangingPassword,
   )
-  const isUpdating2FA = useSettingsStore((state) => state.isUpdating2FA)
-  const twoFactorEnabled = useSettingsStore((state) => state.twoFactorEnabled)
 
   const changePassword = async () => {
     updateSettings({ isChangingPassword: true })
@@ -34,25 +27,6 @@ export function PasswordSection() {
       )
     } finally {
       updateSettings({ isChangingPassword: false })
-    }
-  }
-
-  const rotateBackupCodes = async () => {
-    updateSettings({ isUpdating2FA: true })
-    try {
-      const result = await rotateBackupCodesSettingsFn({
-        data: { password: twoFactorPassword },
-      })
-      updateSettings({ backupCodes: result.backupCodes })
-      toast.success('Backup codes rotated.')
-    } catch (error) {
-      toast.error(
-        error instanceof Error
-          ? error.message
-          : 'Failed to rotate backup codes.',
-      )
-    } finally {
-      updateSettings({ isUpdating2FA: false })
     }
   }
 
@@ -91,13 +65,6 @@ export function PasswordSection() {
           onClick={() => void changePassword()}
         >
           {isChangingPassword ? 'Updating...' : 'Change password'}
-        </Button>
-        <Button
-          variant="outline"
-          disabled={isUpdating2FA || !twoFactorEnabled}
-          onClick={() => void rotateBackupCodes()}
-        >
-          Rotate backup codes
         </Button>
       </div>
     </section>
