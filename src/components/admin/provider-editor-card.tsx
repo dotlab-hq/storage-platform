@@ -87,12 +87,14 @@ export function ProviderEditorCard({
           label="Access Key ID"
           value={form.accessKeyId}
           onChange={(value) => onChange('accessKeyId', value)}
+          placeholder={isEditing ? '••••••••' : ''}
         />
         <ProviderFormField
           label="Secret Access Key"
           value={form.secretAccessKey}
           type="password"
           onChange={(value) => onChange('secretAccessKey', value)}
+          placeholder={isEditing ? '••••••••' : ''}
         />
         <ProviderFormField
           label="Storage Limit (bytes)"

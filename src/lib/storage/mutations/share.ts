@@ -6,6 +6,7 @@ import {
   getShareLink,
   toggleShareLink,
 } from '@/lib/share-mutations'
+import { withActivityLogging } from '@/lib/activity-logging'
 
 const GetShareSchema = z.object({
   itemId: z.string(),
@@ -14,8 +15,9 @@ const GetShareSchema = z.object({
 
 export const getShareLinkFn = createServerFn({ method: 'GET' })
   .inputValidator(GetShareSchema)
-  .handler(async ({ data }) => {
+  .handler(async ({ data, context }) => {
     const user = await getAuthenticatedUser()
+    // Query: maybe log? We'll skip GET for now; could be logged by plugin
     const link = await getShareLink(user.id, data.itemId, data.itemType)
     return { link }
   })
@@ -28,17 +30,28 @@ const CreateShareSchema = z.object({
 
 export const createShareLinkFn = createServerFn({ method: 'POST' })
   .inputValidator(CreateShareSchema)
-  .handler(async ({ data }) => {
+  .handler(async ({ data, context }) => {
     const user = await getAuthenticatedUser()
-    requireWritePermission(user)
-    const link = await createShareLink(
+    return withActivityLogging(
       user.id,
-      data.itemId,
-      data.itemType,
-      false,
-      Boolean(data.consentedPrivatelyUnlock),
+      'share_create',
+      {
+        resourceType: data.itemType,
+        resourceId: data.itemId,
+        tags: ['Files', 'Share'],
+      },
+      async () => {
+        requireWritePermission(user)
+        const link = await createShareLink(
+          user.id,
+          data.itemId,
+          data.itemType,
+          false,
+          Boolean(data.consentedPrivatelyUnlock),
+        )
+        return { link }
+      },
     )
-    return { link }
   })
 
 const ToggleShareSchema = z.object({
@@ -48,9 +61,21 @@ const ToggleShareSchema = z.object({
 
 export const toggleShareLinkFn = createServerFn({ method: 'POST' })
   .inputValidator(ToggleShareSchema)
-  .handler(async ({ data }) => {
+  .handler(async ({ data, context }) => {
     const user = await getAuthenticatedUser()
-    requireWritePermission(user)
-    const link = await toggleShareLink(user.id, data.linkId, data.isActive)
-    return { link }
+    return withActivityLogging(
+      user.id,
+      'share_access',
+      {
+        resourceType: 'share',
+        resourceId: data.linkId,
+        tags: ['Files', 'Share'],
+        meta: { isActive: data.isActive },
+      },
+      async () => {
+        requireWritePermission(user)
+        const link = await toggleShareLink(user.id, data.linkId, data.isActive)
+        return { link }
+      },
+    )
   })

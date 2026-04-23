@@ -10,6 +10,7 @@ import * as s3ControlsSchema from './schema/s3-controls.ts'
 import * as s3SecuritySchema from './schema/s3-security.ts'
 import * as chatSchema from './schema/chat.ts'
 import * as fileSummarySchema from './schema/file-summary.ts'
+import * as activitySchema from './schema/activity.ts'
 import { env } from 'cloudflare:workers'
 
 export const db = drizzle(env.DB_D1, {
@@ -23,5 +24,6 @@ export const db = drizzle(env.DB_D1, {
     ...s3SecuritySchema,
     ...chatSchema,
     ...fileSummarySchema,
+    ...activitySchema,
   },
 })

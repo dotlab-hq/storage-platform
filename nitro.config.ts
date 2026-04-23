@@ -6,4 +6,8 @@ export default defineNitroConfig({
   routeRules: {
     '/api/**': { cache: false, headers: { 'x-nitro-prerender': 'false' } },
   },
+  features: {
+    runtimeHooks: true,
+  },
+  plugins: ['~/plugins/telemetry'],
 })

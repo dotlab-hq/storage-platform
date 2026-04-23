@@ -1,4 +1,5 @@
 import { useState, useEffect, lazy, Suspense } from 'react'
+import { useQuery } from '@tanstack/react-query'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
@@ -14,6 +15,8 @@ import { useFolderHistory } from '@/hooks/use-folder-history'
 import { useHomeShellActions } from '@/hooks/use-home-shell-actions'
 import type { StorageItem } from '@/types/storage'
 import type { HomeLoaderData } from './-home-server'
+import { getHomeDashboardDataFn } from '../-home-server'
+import { HomeMetricsBar } from '@/components/storage/home-metrics-bar'
 
 const FileGrid = lazy(() =>
   import('@/components/storage/file-grid').then((m) => ({
@@ -199,6 +202,7 @@ export function StoragePage({ initial, search }: StoragePageProps) {
             selection.clearSelection()
           }}
         >
+          <HomeMetricsBar />
           <Suspense
             fallback={<PageSkeleton className="mb-2" variant="default" />}
           >

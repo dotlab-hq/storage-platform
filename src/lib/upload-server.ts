@@ -7,6 +7,7 @@ import {
   getProviderClientById,
 } from '@/lib/s3-provider-client'
 import { DEFAULT_FILE_SIZE_LIMIT_BYTES } from '@/lib/storage-quota-constants'
+import { logActivity } from '@/lib/activity'
 
 const PresignInputSchema = z.object({
   objectKey: z.string(),
@@ -53,6 +54,20 @@ export const uploadPresign = createServerFn({ method: 'POST' })
 
     const presignedUrl = await getSignedUrl(provider.client, command, {
       expiresIn: 3600,
+    })
+
+    await logActivity({
+      userId: authUser.id,
+      eventType: 's3_presign',
+      resourceType: 'file',
+      resourceId: data.objectKey,
+      tags: ['API', 'S3', 'Upload'],
+      meta: {
+        objectKey: data.objectKey,
+        fileSize: data.fileSize,
+        contentType: data.contentType,
+        providerId: provider.providerId,
+      },
     })
 
     return { presignedUrl, providerId: provider.providerId }
@@ -127,6 +142,19 @@ export const uploadMultipartInit = createServerFn({ method: 'POST' })
       }),
     )
 
+    await logActivity({
+      userId: authUser.id,
+      eventType: 'upload_multipart',
+      tags: ['API', 'Upload'],
+      meta: {
+        objectKey: data.objectKey,
+        fileSize: data.fileSize,
+        partCount: data.partCount,
+        providerId: provider.providerId,
+        uploadId,
+      },
+    })
+
     return {
       uploadId,
       providerId: provider.providerId,
@@ -145,7 +173,7 @@ export const uploadMultipartComplete = createServerFn({ method: 'POST' })
     MultipartCompleteSchema.parse(d),
   )
   .handler(async ({ data }) => {
-    await getAuthenticatedUser() // Ensure authenticated
+    const authUser = await getAuthenticatedUser()
 
     const { ListPartsCommand, CompleteMultipartUploadCommand } =
       await import('@aws-sdk/client-s3')
@@ -182,6 +210,18 @@ export const uploadMultipartComplete = createServerFn({ method: 'POST' })
         },
       }),
     )
+
+    await logActivity({
+      userId: authUser.id,
+      eventType: 'upload_complete',
+      tags: ['API', 'Upload'],
+      meta: {
+        objectKey: data.objectKey,
+        providerId: provider.providerId,
+        uploadId: data.uploadId,
+        partCount: parts.length,
+      },
+    })
 
     return { ok: true }
   })
@@ -284,6 +324,21 @@ export const registerFile = createServerFn({ method: 'POST' })
       await import('@/lib/cache-invalidation')
     await invalidateFolderCache(authUser.id, data.parentFolderId || null)
     await invalidateQuotaCache(authUser.id)
+
+    await logActivity({
+      userId: authUser.id,
+      eventType: 'file_upload',
+      resourceType: 'file',
+      resourceId: insertedFile.id,
+      tags: ['Files', 'Upload'],
+      meta: {
+        name: data.fileName,
+        size: data.fileSize,
+        mimeType: data.mimeType,
+        parentFolderId: data.parentFolderId,
+        providerId: resolvedProviderId,
+      },
+    })
 
     return { file: insertedFile }
   })

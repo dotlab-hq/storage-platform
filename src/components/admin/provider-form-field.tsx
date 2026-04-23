@@ -6,6 +6,7 @@ type ProviderFormFieldProps = {
   value: string
   onChange: (value: string) => void
   type?: 'text' | 'password'
+  placeholder?: string
 }
 
 export function ProviderFormField({
@@ -13,6 +14,7 @@ export function ProviderFormField({
   value,
   onChange,
   type = 'text',
+  placeholder,
 }: ProviderFormFieldProps) {
   return (
     <div className="space-y-1">
@@ -21,6 +23,7 @@ export function ProviderFormField({
         type={type}
         value={value}
         onChange={(event) => onChange(event.target.value)}
+        placeholder={placeholder}
       />
     </div>
   )

@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { db } from '@/db'
 import { chatMessage, chatMessageVersion } from '@/db/schema/chat'
 import { getAuthenticatedUser } from '@/lib/server-auth'
+import { logActivity } from '@/lib/activity'
 import { toMessageSnapshot } from './-chat-server-utils'
 import { generateAssistantReplyStream } from './-chat-assistant-reply-stream'
 import { findOwnedMessage, refreshThreadLatestMessage } from './-chat-server-db'
@@ -50,11 +51,9 @@ export const regenerateMessageFn = createServerFn({ method: 'POST' })
       .orderBy(desc(chatMessage.createdAt))
       .limit(1)
 
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     const prompt = lastUserMessage?.content ?? target.content
-
-    // Stream assistant reply
     let assistantContent = ''
+
     try {
       for await (const chunk of generateAssistantReplyStream(
         prompt,
@@ -86,12 +85,23 @@ export const regenerateMessageFn = createServerFn({ method: 'POST' })
         updatedAt: chatMessage.updatedAt,
       })
 
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    if (updated === undefined) {
+    if (!updated) {
       throw new Error('Failed to regenerate message.')
     }
 
     await refreshThreadLatestMessage(target.threadId)
+    await logActivity({
+      userId: currentUser.id,
+      eventType: 'message_regenerate',
+      resourceType: 'chatMessage',
+      resourceId: target.id,
+      tags: ['Chat'],
+      meta: {
+        threadId: target.threadId,
+        regenerationCount: updated.regenerationCount,
+      },
+    })
+
     return { message: toMessageSnapshot(updated) }
   })
 
@@ -111,5 +121,14 @@ export const deleteMessageFn = createServerFn({ method: 'POST' })
       .where(eq(chatMessage.id, target.id))
 
     await refreshThreadLatestMessage(target.threadId)
+    await logActivity({
+      userId: currentUser.id,
+      eventType: 'message_delete',
+      resourceType: 'chatMessage',
+      resourceId: target.id,
+      tags: ['Chat'],
+      meta: { threadId: target.threadId },
+    })
+
     return { ok: true as const, threadId: target.threadId }
   })

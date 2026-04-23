@@ -1,14 +1,13 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
-import { Trash2, RotateCcw, AlertTriangle } from 'lucide-react'
+import { Trash2, RotateCcw, AlertTriangle, Loader2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ConfirmDeleteModal } from '@/components/storage/confirm-delete-modal'
 import { TrashContent } from '@/components/storage/trash-content'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef } from 'react'
 import { useTrashData } from '@/hooks/use-trash-data'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
-
 import { useShellView } from '@/components/shell/shell-actions-registry'
 
 export const Route = createFileRoute('/_app/trash/')({
@@ -25,7 +24,24 @@ function TrashPage() {
     types: ('file' | 'folder')[]
   } | null>(null)
   const [isDeleting, setIsDeleting] = useState(false)
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set())
   const trash = useTrashData()
+
+  const toggleSelect = (id: string) => {
+    setSelectedIds((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id)
+      else next.add(id)
+      return next
+    })
+  }
+
+  const clearSelection = () => setSelectedIds(new Set())
+
+  const selectedItems = useMemo(
+    () => trash.items.filter((i) => selectedIds.has(i.id)),
+    [trash.items, selectedIds],
+  )
 
   const handleRestoreOne = (id: string, type: 'file' | 'folder') => {
     void trash.handleRestore([id], [type])
@@ -51,6 +67,25 @@ function TrashPage() {
       trash.items.map((i) => i.id),
       trash.items.map((i) => i.type),
     )
+  }
+
+  const handleBulkRestore = () => {
+    if (selectedItems.length === 0) return
+    void trash.handleRestore(
+      selectedItems.map((i) => i.id),
+      selectedItems.map((i) => i.type),
+    )
+    clearSelection()
+  }
+
+  const handleBulkDelete = () => {
+    if (selectedItems.length === 0) return
+    setPendingDelete({
+      ids: selectedItems.map((i) => i.id),
+      types: selectedItems.map((i) => i.type),
+    })
+    setDeleteOpen(true)
+    clearSelection()
   }
 
   const confirmPermanentDelete = async () => {
@@ -112,9 +147,32 @@ function TrashPage() {
         )}
       </header>
 
+      {selectedIds.size > 0 && (
+        <div className="mx-4 mt-4 flex items-center justify-between rounded-lg border bg-muted/50 px-4 py-2">
+          <span className="text-sm font-medium">
+            {selectedIds.size} item{selectedIds.size !== 1 ? 's' : ''} selected
+          </span>
+          <div className="flex items-center gap-2">
+            <Button size="sm" variant="outline" onClick={handleBulkRestore}>
+              <RotateCcw className="mr-1 h-3 w-3" />
+              Restore
+            </Button>
+            <Button size="sm" variant="destructive" onClick={handleBulkDelete}>
+              <AlertTriangle className="mr-1 h-3 w-3" />
+              Delete
+            </Button>
+            <Button size="sm" variant="ghost" onClick={clearSelection}>
+              Cancel
+            </Button>
+          </div>
+        </div>
+      )}
+
       <TrashContent
         items={trash.items}
         isLoading={trash.isLoading}
+        selectedIds={selectedIds}
+        onToggleSelect={toggleSelect}
         onRestore={handleRestoreOne}
         onDelete={handleDeleteOne}
       />

@@ -6,6 +6,7 @@ import {
   selectProviderForUpload,
 } from '@/lib/s3-provider-client'
 import { DEFAULT_FILE_SIZE_LIMIT_BYTES } from '@/lib/storage-quota-constants'
+import { logActivity } from '@/lib/activity'
 
 const PROXY_UPLOAD_URL = '/api/storage/upload/proxy'
 
@@ -54,6 +55,12 @@ export const prepareUploadTarget = createServerFn({ method: 'POST' })
     await assertFileSizeWithinLimit(authUser.id, data.fileSize)
 
     const provider = await selectProviderForUpload(data.fileSize)
+    let result: {
+      uploadMethod: 'proxy' | 'direct'
+      providerId: string
+      uploadUrl?: string
+      presignedUrl?: string
+    }
     if (provider.proxyUploadsEnabled) {
       if (data.fileSize > MAX_PROXY_STREAM_UPLOAD_BYTES) {
         throw new Error(
@@ -61,29 +68,44 @@ export const prepareUploadTarget = createServerFn({ method: 'POST' })
         )
       }
 
-      return {
-        uploadMethod: 'proxy' as const,
+      result = {
+        uploadMethod: 'proxy',
         providerId: provider.providerId,
         uploadUrl: PROXY_UPLOAD_URL,
       }
+    } else {
+      const { PutObjectCommand } = await import('@aws-sdk/client-s3')
+      const { getSignedUrl } = await import('@aws-sdk/s3-request-presigner')
+      const directProvider = await getProviderClientById(provider.providerId)
+      const command = new PutObjectCommand({
+        Bucket: directProvider.bucketName,
+        Key: data.objectKey,
+        ContentType: data.contentType,
+      })
+
+      const presignedUrl = await getSignedUrl(directProvider.client, command, {
+        expiresIn: 3600,
+      })
+
+      result = {
+        uploadMethod: 'direct',
+        providerId: directProvider.providerId,
+        presignedUrl,
+      }
     }
 
-    const { PutObjectCommand } = await import('@aws-sdk/client-s3')
-    const { getSignedUrl } = await import('@aws-sdk/s3-request-presigner')
-    const directProvider = await getProviderClientById(provider.providerId)
-    const command = new PutObjectCommand({
-      Bucket: directProvider.bucketName,
-      Key: data.objectKey,
-      ContentType: data.contentType,
+    await logActivity({
+      userId: authUser.id,
+      eventType: 'upload_prepare',
+      tags: ['API', 'Upload'],
+      meta: {
+        objectKey: data.objectKey,
+        fileSize: data.fileSize,
+        contentType: data.contentType,
+        providerId: result.providerId,
+        uploadMethod: result.uploadMethod,
+      },
     })
 
-    const presignedUrl = await getSignedUrl(directProvider.client, command, {
-      expiresIn: 3600,
-    })
-
-    return {
-      uploadMethod: 'direct' as const,
-      providerId: directProvider.providerId,
-      presignedUrl,
-    }
+    return result
   })
