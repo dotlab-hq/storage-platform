@@ -15,58 +15,59 @@ type ApiKeySnapshot = {
   createdAt: Date
 }
 
-export function ApiKeysSection({
+export function ApiKeysSection( {
   initialKeys,
 }: {
   initialKeys: ApiKeySnapshot[]
-}) {
+} ) {
   const queryClient = useQueryClient()
-  const [isCreating, setIsCreating] = useState(false)
-  const [newKeyName, setNewKeyName] = useState('')
+  const [isCreating, setIsCreating] = useState( false )
+  const [newKeyName, setNewKeyName] = useState( '' )
   const [revealedKey, setRevealedKey] = useState<{
     accessId: string
     secretKey: string
-  } | null>(null)
+  } | null>( null )
 
-  const createMutation = useMutation({
-    mutationFn: async (name: string) => {
-      const res = await createS3ApiKeyFn({ data: { name } })
+  const createMutation = useMutation( {
+    mutationFn: async ( name: string ) => {
+      const res = await createS3ApiKeyFn( { data: { name } } )
       return res
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['settings'] })
+      queryClient.invalidateQueries( { queryKey: ['settings'] } )
     },
-  })
+  } )
 
-  const deleteMutation = useMutation({
-    mutationFn: async (id: string) => {
-      await deleteS3ApiKeyFn({ data: { id } })
+  const deleteMutation = useMutation( {
+    mutationFn: async ( id: string ) => {
+      await deleteS3ApiKeyFn( { data: { id } } )
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['settings'] })
+      queryClient.invalidateQueries( { queryKey: ['settings'] } )
     },
-  })
+  } )
 
   const handleCreate = async () => {
-    setIsCreating(true)
+    setIsCreating( true )
     try {
-      const result = await createMutation.mutateAsync(newKeyName)
-      setRevealedKey({
+      const result = await createMutation.mutateAsync( newKeyName )
+      setRevealedKey( {
         accessId: result.apiKey.accessKeyId,
         secretKey: result.apiKey.secretKey,
-      })
-      setNewKeyName('')
-      toast.success('API Key created successfully')
-    } catch (e: any) {
-      toast.error(e.message || 'Failed to create API key')
+      } )
+      setNewKeyName( '' )
+      toast.success( 'API Key created successfully' )
+    } catch ( e: unknown ) {
+      const error = e as Error
+      toast.error( error.message || 'Failed to create API key' )
     } finally {
-      setIsCreating(false)
+      setIsCreating( false )
     }
   }
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text)
-    toast.success('Copied to clipboard')
+  const copyToClipboard = ( text: string ) => {
+    navigator.clipboard.writeText( text )
+    toast.success( 'Copied to clipboard' )
   }
 
   return (
@@ -81,7 +82,7 @@ export function ApiKeysSection({
         <Button
           size="sm"
           onClick={() => {
-            setRevealedKey(null)
+            setRevealedKey( null )
             // Focus input if needed
           }}
           variant="outline"
@@ -110,7 +111,7 @@ export function ApiKeysSection({
                   <Button
                     size="icon"
                     variant="outline"
-                    onClick={() => copyToClipboard(revealedKey.accessId)}
+                    onClick={() => copyToClipboard( revealedKey.accessId )}
                   >
                     <Copy className="h-4 w-4" />
                   </Button>
@@ -129,7 +130,7 @@ export function ApiKeysSection({
                   <Button
                     size="icon"
                     variant="outline"
-                    onClick={() => copyToClipboard(revealedKey.secretKey)}
+                    onClick={() => copyToClipboard( revealedKey.secretKey )}
                   >
                     <Copy className="h-4 w-4" />
                   </Button>
@@ -140,7 +141,7 @@ export function ApiKeysSection({
               size="sm"
               variant="destructive"
               className="w-fit"
-              onClick={() => setRevealedKey(null)}
+              onClick={() => setRevealedKey( null )}
             >
               I have saved it
             </Button>
@@ -152,8 +153,8 @@ export function ApiKeysSection({
         <Input
           placeholder="Key name (e.g. Production App)"
           value={newKeyName}
-          onChange={(e) => setNewKeyName(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && handleCreate()}
+          onChange={( e ) => setNewKeyName( e.target.value )}
+          onKeyDown={( e ) => e.key === 'Enter' && handleCreate()}
           disabled={isCreating}
         />
         <Button onClick={handleCreate} disabled={!newKeyName || isCreating}>
@@ -187,7 +188,7 @@ export function ApiKeysSection({
                 </td>
               </tr>
             ) : (
-              initialKeys.map((key) => (
+              initialKeys.map( ( key ) => (
                 <tr key={key.id} className="hover:bg-muted/30">
                   <td className="px-4 py-2 font-mono text-xs">
                     {key.accessKeyId}
@@ -196,7 +197,7 @@ export function ApiKeysSection({
                     ....{key.secretKeyLast4}
                   </td>
                   <td className="px-4 py-2 text-muted-foreground">
-                    {new Date(key.createdAt).toLocaleDateString()}
+                    {new Date( key.createdAt ).toLocaleDateString()}
                   </td>
                   <td className="px-4 py-2 text-right">
                     <Button
@@ -204,8 +205,8 @@ export function ApiKeysSection({
                       size="icon"
                       className="h-8 w-8 text-destructive hover:text-destructive"
                       onClick={() => {
-                        if (confirm('Delete this API key?')) {
-                          deleteMutation.mutate(key.id)
+                        if ( confirm( 'Delete this API key?' ) ) {
+                          deleteMutation.mutate( key.id )
                         }
                       }}
                       disabled={deleteMutation.isPending}
@@ -214,7 +215,7 @@ export function ApiKeysSection({
                     </Button>
                   </td>
                 </tr>
-              ))
+              ) )
             )}
           </tbody>
         </table>

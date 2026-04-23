@@ -13,6 +13,7 @@ import { useBulkActions } from '@/hooks/use-bulk-actions'
 import { useFolderHistory } from '@/hooks/use-folder-history'
 import { useHomeShellActions } from '@/hooks/use-home-shell-actions'
 import type { StorageItem } from '@/types/storage'
+import type { HomeLoaderData } from './-home-server'
 
 const FileGrid = lazy(() =>
   import('@/components/storage/file-grid').then((m) => ({
@@ -61,7 +62,7 @@ const DeviceTransferSection = lazy(() =>
 )
 
 type StoragePageProps = {
-  initial: any // This will be typed properly via Route.useLoaderData in the route file if needed, but here it's passed as prop
+  initial: HomeLoaderData
   search: { upload?: boolean }
 }
 
