@@ -107,6 +107,7 @@ export const getHomeDashboardDataFn = createServerFn({ method: 'GET' }).handler(
           usedStorage: userStorage.usedStorage,
           allocatedStorage: userStorage.allocatedStorage,
         })
+        .from(userStorage)
         .where(eq(userStorage.userId, currentUser.id))
         .limit(1),
       db.select({ count: count() }).from(storageProvider).limit(1),
