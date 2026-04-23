@@ -1,8 +1,14 @@
 import { trace } from '@opentelemetry/api'
-import { NodeTracerProvider } from '@opentelemetry/sdk-trace-base'
+import { BasicTracerProvider } from '@opentelemetry/sdk-trace-base'
 import { SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base'
 import type { SpanExporter } from '@opentelemetry/sdk-trace-base'
-import { AutoDetectResources } from '@opentelemetry/resources'
+import {
+  detectResources,
+  envDetector,
+  hostDetector,
+  osDetector,
+  processDetector,
+} from '@opentelemetry/resources'
 import { AsyncLocalStorage } from 'node:async_hooks'
 
 // Custom console exporter that logs spans as JSON
@@ -47,8 +53,10 @@ class ConsoleSpanExporter implements SpanExporter {
 export const requestContext = new AsyncLocalStorage<Record<string, unknown>>()
 
 // Initialize tracer provider
-const provider = new NodeTracerProvider({
-  resource: new AutoDetectResources(),
+const provider = new BasicTracerProvider({
+  resource: detectResources({
+    detectors: [envDetector, hostDetector, osDetector, processDetector],
+  }),
 })
 
 provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()))

@@ -1,5 +1,6 @@
 import { and, eq, isNull, sql } from 'drizzle-orm'
 import { selectProviderForUpload } from '@/lib/s3-provider-client'
+import { requireAuthenticatedServerOnlySession } from '@/lib/server-auth'
 
 const EXCLUDE_VIRTUAL_BUCKET_FOLDERS = sql<boolean>`
     NOT EXISTS (
@@ -21,6 +22,9 @@ export async function uploadSingleFile({
   file,
   parentFolderId = null,
 }: UploadFileInput) {
+  // Validate that the userId matches authenticated user
+  await requireAuthenticatedServerOnlySession()
+
   const { PutObjectCommand } = await import('@aws-sdk/client-s3')
   const [{ db }, { file: storageFile, folder }] = await Promise.all([
     import('@/db'),
@@ -97,6 +101,9 @@ export async function createNewFolder({
   name,
   parentFolderId = null,
 }: CreateFolderInput) {
+  // Validate that the userId matches authenticated user
+  await requireAuthenticatedServerOnlySession()
+
   const [{ db }, { folder }] = await Promise.all([
     import('@/db'),
     import('@/db/schema/storage'),
@@ -152,6 +159,9 @@ export async function createNewFolder({
 }
 
 export async function listRootItems(userId: string) {
+  // Validate that the userId matches authenticated user
+  await requireAuthenticatedServerOnlySession()
+
   const [{ db }, { file: storageFile, folder }] = await Promise.all([
     import('@/db'),
     import('@/db/schema/storage'),

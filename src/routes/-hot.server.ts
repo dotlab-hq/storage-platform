@@ -45,6 +45,8 @@ export type PollResponse = z.infer<typeof PollResponseSchema>
 export const createQrOffer = createServerFn({ method: 'POST' }).handler(
   async () => {
     try {
+      const currentUser = await getAuthenticatedUser()
+
       const code = createQrOfferCode()
       const pollKey = createPollKey()
       const expiresAt = new Date(Date.now() + QR_OFFER_TTL_MS)

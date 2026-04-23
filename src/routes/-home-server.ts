@@ -8,10 +8,6 @@ import { file, folder, userStorage } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'
 import { DEFAULT_ALLOCATED_STORAGE_BYTES } from '@/lib/storage-quota-constants'
 import type { UserQuota } from '@/types/storage'
-import { db } from '@/db'
-import { file, folder, userStorage } from '@/db/schema/storage'
-import { storageProvider } from '@/db/schema/storage-provider'
-import { DEFAULT_ALLOCATED_STORAGE_BYTES } from '@/lib/storage-quota-constants'
 
 type HomeRawFolder = {
   id: string

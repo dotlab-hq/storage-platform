@@ -1,6 +1,8 @@
+# Storage Platform
+
 Welcome to your new TanStack Start app!
 
-# Getting Started
+## Getting Started
 
 To run this application:
 
@@ -9,7 +11,7 @@ pnpm install
 pnpm dev
 ```
 
-# Building For Production
+## Building For Production
 
 To build this application for production:
 
@@ -231,13 +233,12 @@ function PeopleComponent() {
 
 Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
 
-# Demo files
+## Demo files
 
 Files prefixed with `demo` can be safely deleted. They are there to provide a starting point for you to play around with the features you've installed.
 
-# Learn More
+## Learn More
 
 You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
 
 For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
-

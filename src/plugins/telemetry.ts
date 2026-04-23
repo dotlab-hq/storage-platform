@@ -32,7 +32,7 @@ export default defineNitroPlugin((nitro) => {
         'http.method': method,
         'http.url': url,
         'http.route': path,
-        ...(userId ? ['user.id': userId] : {}),
+        ...(userId ? { 'user.id': userId } : {}),
         'request.id': requestId,
       },
     })

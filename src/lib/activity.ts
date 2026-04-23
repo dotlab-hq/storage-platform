@@ -2,7 +2,7 @@ import { db } from '@/db'
 import { userActivity, activityTag } from '@/db/schema/activity'
 import { log } from '@/lib/logger'
 import { requestContext } from '@/lib/telemetry'
-import { eq, insert } from 'drizzle-orm'
+import { eq } from 'drizzle-orm'
 import type { AnySQLiteColumn } from 'drizzle-orm/sqlite-core'
 
 export type ActivityEventType =
@@ -37,7 +37,17 @@ export type ActivityEventType =
   | 'upload_complete'
   | 'upload_abort'
 
-export type ActivityResourceType = 'file' | 'folder' | 'provider' | 'user' | 'api_key' | 'share' | 'chat' | 'bucket' | 'upload' | 'setting'
+export type ActivityResourceType =
+  | 'file'
+  | 'folder'
+  | 'provider'
+  | 'user'
+  | 'api_key'
+  | 'share'
+  | 'chat'
+  | 'bucket'
+  | 'upload'
+  | 'setting'
 
 export interface ActivityLogInput {
   userId: string
@@ -49,18 +59,17 @@ export interface ActivityLogInput {
   ipAddress?: string
   userAgent?: string
 }
-  userId: string
-  eventType: ActivityEventType
-  resourceType?: ActivityResourceType
-  resourceId?: string
-  tags?: string[]
-  meta?: Record<string, unknown>
-  ipAddress?: string
-  userAgent?: string
-}
-
 export async function logActivity(input: ActivityLogInput): Promise<void> {
-  const { userId, eventType, resourceType, resourceId, tags = [], meta, ipAddress, userAgent } = input
+  const {
+    userId,
+    eventType,
+    resourceType,
+    resourceId,
+    tags = [],
+    meta,
+    ipAddress,
+    userAgent,
+  } = input
 
   // Derive tags based on event type if not provided
   const derivedTags: string[] = [...tags]
@@ -122,7 +131,11 @@ function isApiEvent(eventType: ActivityEventType): boolean {
 }
 
 // Helper to extract request context from Nitro event if available
-export function getContextFromEvent(event: any): { userId?: string; ipAddress?: string; userAgent?: string } {
+export function getContextFromEvent(event: any): {
+  userId?: string
+  ipAddress?: string
+  userAgent?: string
+} {
   const store = requestContext.getStore()
   if (!store) return {}
 
@@ -130,7 +143,9 @@ export function getContextFromEvent(event: any): { userId?: string; ipAddress?: 
   const userId = store.get('userId') as string | undefined
   // IP and userAgent might be in event.nodeReq
   const nodeReq = event?.nodeReq
-  const ipAddress = nodeReq?.headers.get('x-forwarded-for') ?? nodeReq?.connection?.remoteAddress
+  const ipAddress =
+    nodeReq?.headers.get('x-forwarded-for') ??
+    nodeReq?.connection?.remoteAddress
   const userAgent = nodeReq?.headers.get('user-agent')
 
   return { requestId, userId, ipAddress: ipAddress as string, userAgent }
