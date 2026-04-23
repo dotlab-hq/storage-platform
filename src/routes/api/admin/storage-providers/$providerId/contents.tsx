@@ -34,7 +34,7 @@ function errorToMessage(error: unknown): string {
 }
 
 export const Route = createFileRoute(
-  '/api/admin/storage-providers/$providerId/contents' as never,
+  '/api/admin/storage-providers/$providerId/contents',
 )({
   component: () => null,
   server: {

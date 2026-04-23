@@ -46,9 +46,7 @@ function errorToMessage(error: unknown): string {
   return 'Failed to issue credentials'
 }
 
-export const Route = createFileRoute(
-  '/api/storage/s3/bucket-credentials' as never,
-)({
+export const Route = createFileRoute('/api/storage/s3/bucket-credentials')({
   component: () => null,
   server: {
     handlers: {

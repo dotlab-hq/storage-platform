@@ -3,7 +3,7 @@ import { BucketManager } from '@/components/storage/bucket-manager'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
-export const Route = createFileRoute('/buckets/' as never)({
+export const Route = createFileRoute('/_app/buckets/')({
   server: {
     middleware: [isAuthenticatedMiddleware],
   },

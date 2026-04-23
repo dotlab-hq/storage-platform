@@ -8,9 +8,7 @@ const CompleteUploadSchema = z.object({
   etag: z.string().trim().min(1).optional(),
 })
 
-export const Route = createFileRoute(
-  '/api/storage/s3/complete-upload' as never,
-)({
+export const Route = createFileRoute('/api/storage/s3/complete-upload')({
   component: () => null,
   server: {
     handlers: {

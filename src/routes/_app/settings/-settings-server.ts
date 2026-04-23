@@ -21,12 +21,21 @@ const TwoFactorPasswordSchema = z.object({
   password: z.string().min(8),
 })
 
-const VerifyTotpSchema = z.object({
-  code: z
-    .string()
-    .trim()
-    .regex(/^\d{6}$/),
+const ApiKeySchema = z.object({
+  name: z.string().trim().min(1).max(60),
 })
+
+const DeleteKeySchema = z.object({
+  id: z.string(),
+})
+
+type ApiKeySnapshot = {
+  id: string
+  accessKeyId: string
+  secretKeyLast4: string
+  status: string
+  createdAt: Date
+}
 
 type AuthAccountMethod = {
   id: string
@@ -67,11 +76,15 @@ export const getSettingsSnapshotFn = createServerFn({ method: 'GET' }).handler(
     const auth = await loadAuth()
     const request = getRequest()
     const headers = request.headers
-    const [session, methods] = await Promise.all([
+    const [session, methods, apiKeys] = await Promise.all([
       auth.api.getSession({ headers }),
       auth.api.listUserAccounts({ headers }).catch((error: unknown) => {
         console.error('[settings] listUserAccounts failed', error)
         return [] as AuthAccountMethod[]
+      }),
+      db.query.apiKey.findMany({
+        where: eq(apiKey.userId, currentUser.id),
+        orderBy: (apiKey, { desc }) => [desc(apiKey.createdAt)],
       }),
     ])
     if (!session?.user) throw new Error('Unauthorized')
@@ -94,6 +107,13 @@ export const getSettingsSnapshotFn = createServerFn({ method: 'GET' }).handler(
         providerId: method.providerId,
         accountId: method.accountId,
         createdAt: method.createdAt,
+      })),
+      apiKeys: apiKeys.map((key) => ({
+        id: key.id,
+        accessKeyId: key.accessKeyId,
+        secretKeyLast4: key.secretKeyLast4,
+        status: key.status,
+        createdAt: key.createdAt,
       })),
       tinySessions: {
         active: [],
@@ -210,19 +230,48 @@ export const disableTwoFactorSettingsFn = createServerFn({ method: 'POST' })
     }
   })
 
-export const rotateBackupCodesSettingsFn = createServerFn({ method: 'POST' })
-  .inputValidator(TwoFactorPasswordSchema)
+export const createS3ApiKeyFn = createServerFn({ method: 'POST' })
+  .inputValidator(ApiKeySchema)
   .handler(async ({ data }) => {
-    await getAuthenticatedUser()
-    const auth = await loadAuth()
-    const request = getRequest()
-    const headers = request.headers
-    try {
-      return await auth.api.generateBackupCodes({
-        headers,
-        body: { password: data.password },
-      })
-    } catch (error) {
-      throw new Error(toErrorMessage(error, 'Failed to rotate backup codes.'))
+    const currentUser = await getAuthenticatedUser()
+
+    const accessKeyId = `AK${crypto.randomUUID().replace(/-/g, '').toUpperCase().substring(0, 16)}`
+    const secretKey = crypto.randomBytes(32).toString('base64')
+    const secretKeyHash = crypto
+      .createHash('sha256')
+      .update(secretKey)
+      .digest('hex')
+    const secretKeyLast4 = secretKey.slice(-4)
+
+    await db.insert(apiKey).values({
+      userId: currentUser.id,
+      accessKeyId,
+      secretKeyHash,
+      secretKeyLast4,
+    })
+
+    return {
+      success: true,
+      apiKey: {
+        accessKeyId,
+        secretKey,
+      },
     }
+  })
+
+export const deleteS3ApiKeyFn = createServerFn({ method: 'POST' })
+  .inputValidator(DeleteKeySchema)
+  .handler(async ({ data }) => {
+    const currentUser = await getAuthenticatedUser()
+
+    const result = await db
+      .delete(apiKey)
+      .where(and(eq(apiKey.id, data.id), eq(apiKey.userId, currentUser.id)))
+      .returning()
+
+    if (result.length === 0) {
+      throw new Error('API Key not found or unauthorized')
+    }
+
+    return { success: true }
   })

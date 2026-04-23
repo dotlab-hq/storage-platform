@@ -10,9 +10,7 @@ const InitiateUploadSchema = z.object({
   contentType: z.string().min(1),
 })
 
-export const Route = createFileRoute(
-  '/api/storage/s3/initiate-upload' as never,
-)({
+export const Route = createFileRoute('/api/storage/s3/initiate-upload')({
   component: () => null,
   server: {
     handlers: {

@@ -113,9 +113,7 @@ async function loadUserBucket(
   return bucket
 }
 
-export const Route = createFileRoute(
-  '/api/storage/s3/bucket-settings' as never,
-)({
+export const Route = createFileRoute('/api/storage/s3/bucket-settings')({
   component: () => null,
   server: {
     handlers: {

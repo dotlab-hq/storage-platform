@@ -17,7 +17,7 @@ function errorToMessage(error: unknown): string {
   return 'Failed to empty bucket'
 }
 
-export const Route = createFileRoute('/api/storage/s3/empty-bucket' as never)({
+export const Route = createFileRoute('/api/storage/s3/empty-bucket')({
   component: () => null,
   server: {
     handlers: {

@@ -7,7 +7,7 @@ const UploadStatusQuerySchema = z.object({
   uploadId: z.string().uuid(),
 })
 
-export const Route = createFileRoute('/api/storage/s3/upload-status' as never)({
+export const Route = createFileRoute('/api/storage/s3/upload-status')({
   component: () => null,
   server: {
     handlers: {

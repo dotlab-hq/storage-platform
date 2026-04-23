@@ -10,6 +10,7 @@ import { AuthMethodsSection } from './-components/auth-methods-section'
 import { TwoFactorSection } from './-components/two-factor-section'
 import { PasswordSection } from './-components/password-section'
 import { TinySessionsSection } from './-components/tiny-sessions-section'
+import { ApiKeysSection } from './-components/api-keys-section'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
 
 export const Route = createFileRoute('/_app/settings/')({
@@ -44,12 +45,13 @@ function SettingsPage() {
       </header>
       <div className="p-4">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="mb-4 grid w-full grid-cols-5">
+          <TabsList className="mb-4 grid w-full grid-cols-6">
             <TabsTrigger value="profile">Profile</TabsTrigger>
             <TabsTrigger value="auth">Auth Methods</TabsTrigger>
             <TabsTrigger value="2fa">2FA</TabsTrigger>
             <TabsTrigger value="password">Password</TabsTrigger>
             <TabsTrigger value="sessions">Sessions</TabsTrigger>
+            <TabsTrigger value="api-keys">API Keys</TabsTrigger>
           </TabsList>
           <TabsContent value="profile">
             <ProfileSection initial={initial} />
@@ -65,6 +67,9 @@ function SettingsPage() {
           </TabsContent>
           <TabsContent value="sessions">
             <TinySessionsSection initial={initial} />
+          </TabsContent>
+          <TabsContent value="api-keys">
+            <ApiKeysSection initialKeys={initial.apiKeys} />
           </TabsContent>
         </Tabs>
       </div>

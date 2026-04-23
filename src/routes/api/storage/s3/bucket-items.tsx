@@ -48,7 +48,7 @@ function toFileEntry(
   }
 }
 
-export const Route = createFileRoute('/api/storage/s3/bucket-items' as never)({
+export const Route = createFileRoute('/api/storage/s3/bucket-items')({
   component: () => null,
   server: {
     handlers: {

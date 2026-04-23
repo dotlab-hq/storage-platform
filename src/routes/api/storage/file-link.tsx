@@ -14,7 +14,7 @@ const FileLinkSchema = z.object({
   nav: z.string().min(1),
 })
 
-export const Route = createFileRoute('/api/storage/file-link' as never)({
+export const Route = createFileRoute('/api/storage/file-link')({
   component: () => null,
   server: {
     handlers: {

@@ -26,7 +26,7 @@ function errorToMessage(error: unknown, fallback: string): string {
   return fallback
 }
 
-export const Route = createFileRoute('/api/storage/s3/buckets' as never)({
+export const Route = createFileRoute('/api/storage/s3/buckets')({
   component: () => null,
   server: {
     handlers: {

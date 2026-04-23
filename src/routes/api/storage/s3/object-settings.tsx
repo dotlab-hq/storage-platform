@@ -128,9 +128,7 @@ async function resolveOwnedObject(
   }
 }
 
-export const Route = createFileRoute(
-  '/api/storage/s3/object-settings' as never,
-)({
+export const Route = createFileRoute('/api/storage/s3/object-settings')({
   component: () => null,
   server: {
     handlers: {

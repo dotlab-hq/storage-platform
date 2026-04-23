@@ -17,7 +17,7 @@ function errorToMessage(error: unknown): string {
   return 'Failed to delete bucket'
 }
 
-export const Route = createFileRoute('/api/storage/s3/delete-bucket' as never)({
+export const Route = createFileRoute('/api/storage/s3/delete-bucket')({
   component: () => null,
   server: {
     handlers: {
