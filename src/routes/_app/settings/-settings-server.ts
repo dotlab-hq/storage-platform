@@ -2,6 +2,7 @@ import { getAuthenticatedUser } from '@/lib/server-auth'
 import { loadAuth } from '@/lib/auth-loader'
 import { db } from '@/db'
 import { account } from '@/db/schema/auth-schema'
+import { apiKey } from '@/db/schema/s3-security'
 import { createServerFn } from '@tanstack/react-start'
 import { getRequest } from '@tanstack/react-start/server'
 import { and, eq } from 'drizzle-orm'
@@ -19,6 +20,10 @@ const PasswordSchema = z.object({
 
 const TwoFactorPasswordSchema = z.object({
   password: z.string().min(8),
+})
+
+const VerifyTotpSchema = z.object({
+  code: z.string().length(6, 'TOTP code must be 6 digits'),
 })
 
 const ApiKeySchema = z.object({
