@@ -3,8 +3,13 @@ import { toast } from '@/components/ui/sonner'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { changePasswordSettingsFn } from '../-settings-server'
 import { updateSettings, useSettingsStore } from '../-store'
+
+// Dynamically load server function
+async function loadChangePasswordSettingsFn() {
+  const mod = await import('../-settings-server')
+  return mod.changePasswordSettingsFn
+}
 
 export function PasswordSection() {
   const [passwords, setPasswords] = useState({
@@ -18,7 +23,8 @@ export function PasswordSection() {
   const changePassword = async () => {
     updateSettings({ isChangingPassword: true })
     try {
-      await changePasswordSettingsFn({ data: passwords })
+      const fn = await loadChangePasswordSettingsFn()
+      await fn({ data: passwords })
       setPasswords({ currentPassword: '', newPassword: '' })
       toast.success('Password updated.')
     } catch (error) {

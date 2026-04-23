@@ -22,8 +22,13 @@ import {
 import { Checkbox } from '@/components/ui/checkbox'
 import { toast } from '@/components/ui/sonner'
 import { formatBytes } from '@/lib/format-bytes'
-import { updateUserRoleFn } from '@/routes/_app/admin/-admin-server'
 import type { AdminUser } from '@/lib/storage-provider-queries'
+
+// Dynamically load the server function to keep client bundle small
+async function loadUpdateUserRoleFn() {
+  const mod = await import('@/routes/_app/admin/-admin-server')
+  return mod.updateUserRoleFn
+}
 
 type UserTableRow = AdminUser & { isUpdating?: boolean }
 
@@ -186,6 +191,7 @@ export function UsersTable({ users, onUserUpdate }: UsersTableProps) {
   const handleRoleChange = async (userId: string, isAdmin: boolean) => {
     setUpdatingUsers((prev) => new Set([...prev, userId]))
     try {
+      const updateUserRoleFn = await loadUpdateUserRoleFn()
       await updateUserRoleFn({ data: { userId, isAdmin } })
       setData((prev) =>
         prev.map((u) => (u.id === userId ? { ...u, isAdmin } : u)),

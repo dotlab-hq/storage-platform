@@ -99,6 +99,7 @@ export const getHomeDashboardDataFn = createServerFn({ method: 'GET' }).handler(
         .limit(1),
       db
         .select({ sum: sum(file.sizeInBytes) })
+        .from(file)
         .where(eq(file.userId, currentUser.id), eq(file.isDeleted, false))
         .limit(1),
       db

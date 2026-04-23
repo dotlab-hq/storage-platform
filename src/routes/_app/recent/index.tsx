@@ -7,7 +7,6 @@ import { formatRelativeTime } from '@/lib/file-utils'
 import { toast } from '@/components/ui/sonner'
 import { encodeNavToken } from '@/lib/nav-token'
 import { useShellView } from '@/components/shell/shell-actions-registry'
-import { getRecentFileUrlFn, getRecentSnapshotFn } from './-recent-server'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
 
 type RecentItem = {
@@ -23,7 +22,7 @@ export const Route = createFileRoute('/_app/recent/')({
     middleware: [isAuthenticatedMiddleware],
   },
   component: RecentPage,
-  loader: () => getRecentSnapshotFn(),
+  loader: () => import('./-recent-server').then((m) => m.getRecentSnapshotFn()),
 })
 
 function RecentPage() {
@@ -56,7 +55,9 @@ function RecentPage() {
         return
       }
       try {
-        const { url } = await getRecentFileUrlFn({ data: { fileId: item.id } })
+        const mod = await import('./-recent-server')
+        const fn = mod.getRecentFileUrlFn
+        const { url } = await fn({ data: { fileId: item.id } })
         window.open(url, '_blank')
       } catch {
         toast.error('Failed to open file')

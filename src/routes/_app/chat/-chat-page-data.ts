@@ -1,7 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { listThreadMessagesFn } from './-chat-message-queries-server'
-import { listChatThreadsFn } from './-chat-thread-server'
 import { chatQueryKeys } from './-chat-query-keys'
 import { usePaginationObserver } from './-chat-pagination-observers'
 import { useFlatMessages, useMessagePages } from './-chat-page-message-data'
@@ -11,6 +9,17 @@ import {
   useThreadPages,
 } from './-chat-page-thread-data'
 import type { ChatRouteSnapshot, PaginatedMessages } from './-chat-types'
+
+// Dynamically load server functions
+async function loadListThreadMessagesFn() {
+  const mod = await import('./-chat-message-queries-server')
+  return mod.listThreadMessagesFn
+}
+
+async function loadListChatThreadsFn() {
+  const mod = await import('./-chat-thread-server')
+  return mod.listChatThreadsFn
+}
 
 const THREAD_PAGE_LIMIT = 20
 const MESSAGE_PAGE_LIMIT = 30
@@ -47,10 +56,12 @@ export function useChatPageData({
 
   const threadQuery = useQuery({
     queryKey: [...chatQueryKeys.threads, threadPage],
-    queryFn: () =>
-      listChatThreadsFn({
+    queryFn: async () => {
+      const fn = await loadListChatThreadsFn()
+      return fn({
         data: { page: threadPage, limit: THREAD_PAGE_LIMIT },
-      }),
+      })
+    },
     initialData: threadPage === 1 ? initial.threads : undefined,
   })
 
@@ -74,11 +85,12 @@ export function useChatPageData({
 
   const messageQuery = useQuery({
     queryKey: [...chatQueryKeys.messages(activeThreadId), messagePage],
-    queryFn: () => {
+    queryFn: async () => {
       if (!activeThreadId) {
         return Promise.resolve(initialMessages())
       }
-      return listThreadMessagesFn({
+      const fn = await loadListThreadMessagesFn()
+      return fn({
         data: {
           threadId: activeThreadId,
           page: messagePage,

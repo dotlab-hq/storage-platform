@@ -16,10 +16,30 @@ import {
   UsersPanel,
 } from '@/components/admin/dashboard-panels'
 import { formatBytes } from '@/lib/format-bytes'
-import type { AdminProvider } from '@/lib/storage-provider-queries'
+import type {
+  AdminProvider,
+  AdminSummary,
+  AdminUser,
+} from '@/lib/storage-provider-queries'
 import { ProviderEditorCard } from '@/components/admin/provider-editor-card'
 import { ProviderContentsModal } from '@/components/admin/provider-contents-modal'
 import { isAdminMiddleware } from '@/middlewares/isAdmin'
+
+type AdminDashboardData = {
+  summary: AdminSummary
+  providers: AdminProvider[]
+  users: AdminUser[]
+}
+
+const emptyDashboardData: AdminDashboardData = {
+  summary: {
+    providerCount: 0,
+    userCount: 0,
+    totalUsedStorageBytes: 0,
+  },
+  providers: [],
+  users: [],
+}
 
 const emptyProviderForm = {
   name: '',
@@ -58,8 +78,10 @@ export const Route = createFileRoute('/_app/admin/')({
 })
 
 function AdminDashboardPage() {
-  const initial = Route.useLoaderData()
-  const [data, setData] = useState(initial)
+  const initial = Route.useLoaderData() as AdminDashboardData | undefined
+  const [data, setData] = useState<AdminDashboardData>(
+    initial ?? emptyDashboardData,
+  )
   const [isSaving, setIsSaving] = useState(false)
   const [form, setForm] = useState(emptyProviderForm)
   const [editingProviderId, setEditingProviderId] = useState<string | null>(
@@ -161,7 +183,11 @@ function AdminDashboardPage() {
         },
       })
       const refreshed = await getAdminDashboardDataFn()
-      setData(refreshed)
+      if (refreshed) {
+        setData(refreshed)
+      } else {
+        toast.error('Failed to refresh dashboard data after save')
+      }
       setForm(emptyProviderForm)
       setEditingProviderId(null)
       setStorageLimitInput(String(emptyProviderForm.storageLimitBytes))
@@ -173,7 +199,11 @@ function AdminDashboardPage() {
       )
     } catch (error) {
       const latest = await getAdminDashboardDataFn()
-      setData(latest)
+      if (latest) {
+        setData(latest)
+      } else {
+        toast.error('Failed to refresh dashboard data')
+      }
       const message =
         error instanceof Error ? error.message : 'Failed to create provider'
       toast.error(message)
@@ -222,7 +252,9 @@ function AdminDashboardPage() {
       )
     } catch (error) {
       const refreshed = await getAdminDashboardDataFn()
-      setData(refreshed)
+      if (refreshed) {
+        setData(refreshed)
+      }
       const message =
         error instanceof Error
           ? error.message
@@ -234,7 +266,11 @@ function AdminDashboardPage() {
     try {
       await deleteStorageProviderFn({ data: { providerId } })
       const refreshed = await getAdminDashboardDataFn()
-      setData(refreshed)
+      if (refreshed) {
+        setData(refreshed)
+      } else {
+        toast.error('Failed to refresh dashboard data after delete')
+      }
       toast.success('Storage provider deleted')
     } catch (error) {
       const message =

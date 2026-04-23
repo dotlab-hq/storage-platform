@@ -1,14 +1,23 @@
 import { useQuery } from '@tanstack/react-query'
-import { getHomeDashboardDataFn } from '@/routes/-home-server'
+import type { GetHomeDashboardDataFn } from '@/routes/-home-server'
 import { MetricCard } from '@/components/admin/dashboard-panels'
 import { formatBytes } from '@/lib/format-bytes'
 import { Loader2 } from 'lucide-react'
 import { Skeleton } from '@/components/ui/skeleton'
 
+// Dynamically import the server function to keep client bundle small
+async function loadGetHomeDashboardDataFn(): Promise<GetHomeDashboardDataFn> {
+  const mod = await import('@/routes/-home-server')
+  return mod.getHomeDashboardDataFn
+}
+
 export function HomeMetricsBar() {
   const { data, isLoading, error } = useQuery({
     queryKey: ['home-dashboard'],
-    queryFn: getHomeDashboardDataFn,
+    queryFn: async () => {
+      const fn = await loadGetHomeDashboardDataFn()
+      return fn()
+    },
   })
 
   if (isLoading) {

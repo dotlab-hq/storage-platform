@@ -1,14 +1,21 @@
 import { useCallback, useRef } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from '@/components/ui/sonner'
-import {
-  deleteMessageFn,
-  regenerateMessageFn,
-} from './-chat-message-mutations-server'
 import { chatQueryKeys } from './-chat-query-keys'
 import { updateChatUi } from './-chat-store'
 import { consumeSseEvents } from './-chat-stream-events'
 import type { ChatMessageSnapshot, PaginatedMessages } from './-chat-types'
+
+// Dynamically load server functions
+async function loadDeleteMessageFn() {
+  const mod = await import('./-chat-message-mutations-server')
+  return mod.deleteMessageFn
+}
+
+async function loadRegenerateMessageFn() {
+  const mod = await import('./-chat-message-mutations-server')
+  return mod.regenerateMessageFn
+}
 
 const MESSAGE_PAGE_LIMIT = 30
 
@@ -294,8 +301,10 @@ export function useChatMessageActions({
   })
 
   const regenerateMutation = useMutation({
-    mutationFn: async (messageId: string) =>
-      regenerateMessageFn({ data: { messageId } }),
+    mutationFn: async (messageId: string) => {
+      const fn = await loadRegenerateMessageFn()
+      return fn({ data: { messageId } })
+    },
     onSuccess: (result) => {
       if (!activeThreadId) return
       queryClient.setQueryData<PaginatedMessages>(
@@ -320,8 +329,10 @@ export function useChatMessageActions({
   })
 
   const deleteMessageMutation = useMutation({
-    mutationFn: async (messageId: string) =>
-      deleteMessageFn({ data: { messageId } }),
+    mutationFn: async (messageId: string) => {
+      const fn = await loadDeleteMessageFn()
+      return fn({ data: { messageId } })
+    },
     onSuccess: (_result, messageId) => {
       if (!activeThreadId) return
       queryClient.setQueryData<PaginatedMessages>(

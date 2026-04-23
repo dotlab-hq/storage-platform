@@ -1,12 +1,23 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from '@/components/ui/sonner'
-import {
-  createChatThreadFn,
-  deleteChatThreadFn,
-  renameChatThreadFn,
-} from './-chat-thread-server'
 import { chatQueryKeys } from './-chat-query-keys'
 import type { ChatRouteSnapshot, PaginatedThreads } from './-chat-types'
+
+// Dynamically load server functions
+async function loadCreateChatThreadFn() {
+  const mod = await import('./-chat-thread-server')
+  return mod.createChatThreadFn
+}
+
+async function loadDeleteChatThreadFn() {
+  const mod = await import('./-chat-thread-server')
+  return mod.deleteChatThreadFn
+}
+
+async function loadRenameChatThreadFn() {
+  const mod = await import('./-chat-thread-server')
+  return mod.renameChatThreadFn
+}
 
 type ThreadActionsParams = {
   initial: ChatRouteSnapshot
@@ -48,7 +59,10 @@ export function useChatThreadActions({
   const queryClient = useQueryClient()
 
   const createThreadMutation = useMutation({
-    mutationFn: async () => createChatThreadFn({ data: { title: 'New Chat' } }),
+    mutationFn: async () => {
+      const fn = await loadCreateChatThreadFn()
+      return fn({ data: { title: 'New Chat' } })
+    },
     onSuccess: (result) => {
       queryClient.setQueryData<PaginatedThreads>(
         [...chatQueryKeys.threads, 1],
@@ -78,8 +92,10 @@ export function useChatThreadActions({
   }
 
   const renameThreadMutation = useMutation({
-    mutationFn: async (payload: { threadId: string; title: string }) =>
-      renameChatThreadFn({ data: payload }),
+    mutationFn: async (payload: { threadId: string; title: string }) => {
+      const fn = await loadRenameChatThreadFn()
+      return fn({ data: payload })
+    },
     onSuccess: (result) => {
       queryClient.setQueryData<PaginatedThreads>(
         [...chatQueryKeys.threads, 1],
@@ -105,8 +121,10 @@ export function useChatThreadActions({
   })
 
   const deleteThreadMutation = useMutation({
-    mutationFn: async (threadId: string) =>
-      deleteChatThreadFn({ data: { threadId } }),
+    mutationFn: async (threadId: string) => {
+      const fn = await loadDeleteChatThreadFn()
+      return fn({ data: { threadId } })
+    },
     onSuccess: () => {
       if (!deleteTargetId) return
       queryClient.setQueryData<PaginatedThreads>(

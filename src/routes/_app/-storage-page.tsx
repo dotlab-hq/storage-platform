@@ -1,4 +1,5 @@
 import { useState, useEffect, lazy, Suspense } from 'react'
+import { Upload } from 'lucide-react'
 import { useQuery } from '@tanstack/react-query'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
@@ -14,8 +15,6 @@ import { useBulkActions } from '@/hooks/use-bulk-actions'
 import { useFolderHistory } from '@/hooks/use-folder-history'
 import { useHomeShellActions } from '@/hooks/use-home-shell-actions'
 import type { StorageItem } from '@/types/storage'
-import type { HomeLoaderData } from './-home-server'
-import { getHomeDashboardDataFn } from '../-home-server'
 import { HomeMetricsBar } from '@/components/storage/home-metrics-bar'
 
 const FileGrid = lazy(() =>
@@ -232,10 +231,39 @@ export function StoragePage({ initial, search }: StoragePageProps) {
           </Suspense>
         </div>
       </SidebarInset>
-      <Suspense fallback={null}>
+      <Suspense
+        fallback={
+          <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center opacity-100 backdrop-blur-sm">
+            <div className="flex flex-col items-center gap-4 rounded-2xl border-2 border-dashed border-primary bg-primary/5 p-12 scale-100">
+              <div className="bg-primary/10 text-primary rounded-full p-4">
+                <Upload className="h-8 w-8" />
+              </div>
+              <div className="text-center">
+                <p className="text-foreground text-lg font-semibold animate-pulse">
+                  Preparing upload area...
+                </p>
+                <p className="text-muted-foreground text-sm">
+                  Drop files here when ready
+                </p>
+              </div>
+            </div>
+          </div>
+        }
+      >
         <DragDropOverlay isDragging={dragDrop.isDragging} />
       </Suspense>
-      <Suspense fallback={null}>
+      <Suspense
+        fallback={
+          <div className="fixed bottom-6 left-1/2 z-40 -translate-x-1/2 animate-in slide-in-from-bottom-4 fade-in duration-300">
+            <div className="bg-card flex items-center gap-2 rounded-xl border px-4 py-2 shadow-lg backdrop-blur-sm">
+              <span className="text-foreground mr-2 h-4 w-24 animate-pulse rounded-md bg-muted/50" />
+              <div className="bg-border mx-1 h-6 w-px" />
+              <div className="h-8 w-16 animate-pulse rounded-md bg-muted/50" />
+              <div className="h-8 w-16 animate-pulse rounded-md bg-muted/50" />
+            </div>
+          </div>
+        }
+      >
         <FloatingActionBar
           selectedCount={selection.selectedCount}
           onDelete={() => {
@@ -282,7 +310,7 @@ export function StoragePage({ initial, search }: StoragePageProps) {
           }}
         />
       </Suspense>
-      <Suspense fallback={null}>
+      <Suspense fallback={<PageSkeleton variant="modal" className="p-4" />}>
         <FileUploadDialog
           open={uploadFileOpen}
           onOpenChange={setUploadFileOpen}

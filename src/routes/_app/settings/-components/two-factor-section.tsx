@@ -3,12 +3,23 @@ import { toast } from '@/components/ui/sonner'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import {
-  disableTwoFactorSettingsFn,
-  enableTwoFactorSettingsFn,
-  verifyTwoFactorSettingsFn,
-} from '../-settings-server'
 import { updateSettings, useSettingsStore } from '../-store'
+
+// Dynamically load server functions
+async function loadEnableTwoFactorSettingsFn() {
+  const mod = await import('../-settings-server')
+  return mod.enableTwoFactorSettingsFn
+}
+
+async function loadVerifyTwoFactorSettingsFn() {
+  const mod = await import('../-settings-server')
+  return mod.verifyTwoFactorSettingsFn
+}
+
+async function loadDisableTwoFactorSettingsFn() {
+  const mod = await import('../-settings-server')
+  return mod.disableTwoFactorSettingsFn
+}
 
 export function TwoFactorSection() {
   const [twoFactorPassword, setTwoFactorPassword] = useState('')
@@ -22,7 +33,8 @@ export function TwoFactorSection() {
     const previous = twoFactorEnabled
     updateSettings({ isUpdating2FA: true, twoFactorEnabled: true })
     try {
-      const result = await enableTwoFactorSettingsFn({
+      const fn = await loadEnableTwoFactorSettingsFn()
+      const result = await fn({
         data: { password: twoFactorPassword },
       })
       updateSettings({ backupCodes: result.backupCodes })
@@ -40,7 +52,8 @@ export function TwoFactorSection() {
   const verify2FA = async () => {
     updateSettings({ isUpdating2FA: true })
     try {
-      await verifyTwoFactorSettingsFn({ data: { code: totpCode } })
+      const fn = await loadVerifyTwoFactorSettingsFn()
+      await fn({ data: { code: totpCode } })
       setTotpCode('')
       toast.success('2FA verified.')
     } catch (error) {
@@ -56,7 +69,8 @@ export function TwoFactorSection() {
     const previous = twoFactorEnabled
     updateSettings({ isUpdating2FA: true, twoFactorEnabled: false })
     try {
-      await disableTwoFactorSettingsFn({
+      const fn = await loadDisableTwoFactorSettingsFn()
+      await fn({
         data: { password: twoFactorPassword },
       })
       updateSettings({ backupCodes: [] })

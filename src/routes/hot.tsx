@@ -6,8 +6,18 @@ import type { UseMutationResult } from '@tanstack/react-query'
 import QRCode from 'qrcode'
 import { Button } from '@/components/ui/button'
 import { isNotAuthenticatedMiddleware } from '@/middlewares/isNotAuthenticated'
-import { createQrOffer, pollQrStatus } from './-hot-qr-server'
 import type { OfferResponse, PollResponse } from './-hot-qr-server'
+
+// Dynamically load server functions
+async function loadCreateQrOffer() {
+  const mod = await import('./-hot-qr-server')
+  return mod.createQrOffer
+}
+
+async function loadPollQrStatus() {
+  const mod = await import('./-hot-qr-server')
+  return mod.pollQrStatus
+}
 
 const ONE_MINUTE_MS = 60_000
 
@@ -29,7 +39,8 @@ function useCreateQrOffer(): UseCreateQrOfferReturn {
 
   const createOfferMutation = useMutation({
     mutationFn: async () => {
-      const result = await createQrOffer()
+      const fn = await loadCreateQrOffer()
+      const result = await fn()
       if (!result.success) {
         throw new Error(result.error)
       }
@@ -67,7 +78,8 @@ function usePollQrStatus(
     queryKey: ['pollQrStatus', currentOffer?.pollKey],
     queryFn: async () => {
       if (!currentOffer) return null
-      const result = await pollQrStatus({
+      const fn = await loadPollQrStatus()
+      const result = await fn({
         data: { pollKey: currentOffer.pollKey },
       })
       if (!result.success) {

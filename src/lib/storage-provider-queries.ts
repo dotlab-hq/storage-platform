@@ -4,22 +4,22 @@ import { storageProvider } from '@/db/schema/storage-provider'
 import { count, eq, sql, sum } from 'drizzle-orm'
 
 async function loadDb() {
-  const { db } = await import( '@/db' )
+  const { db } = await import('@/db')
   return db
 }
 
-function toNonNegativeBytes( value: number | string | null | undefined ): number {
-  const parsed = typeof value === 'string' ? Number( value ) : value
-  if ( typeof parsed !== 'number' || !Number.isFinite( parsed ) ) {
+function toNonNegativeBytes(value: number | string | null | undefined): number {
+  const parsed = typeof value === 'string' ? Number(value) : value
+  if (typeof parsed !== 'number' || !Number.isFinite(parsed)) {
     return 0
   }
-  return Math.max( 0, parsed )
+  return Math.max(0, parsed)
 }
 
 export async function listProvidersWithUsage() {
   const db = await loadDb()
   const providers = await db
-    .select( {
+    .select({
       id: storageProvider.id,
       name: storageProvider.name,
       region: storageProvider.region,
@@ -30,29 +30,29 @@ export async function listProvidersWithUsage() {
       proxyUploadsEnabled: storageProvider.proxyUploadsEnabled,
       isActive: storageProvider.isActive,
       createdAt: storageProvider.createdAt,
-    } )
-    .from( storageProvider )
+    })
+    .from(storageProvider)
 
   const usageByProvider = await db
-    .select( {
+    .select({
       providerId: file.providerId,
-      usedBytes: sum( file.sizeInBytes ).mapWith( Number ),
-    } )
-    .from( file )
-    .where( eq( file.isDeleted, false ) )
-    .groupBy( file.providerId )
+      usedBytes: sum(file.sizeInBytes).mapWith(Number),
+    })
+    .from(file)
+    .where(eq(file.isDeleted, false))
+    .groupBy(file.providerId)
 
   const usageMap = new Map(
-    usageByProvider.map( ( row ) => [
+    usageByProvider.map((row) => [
       row.providerId ?? 'unassigned',
-      toNonNegativeBytes( row.usedBytes ),
-    ] ),
+      toNonNegativeBytes(row.usedBytes),
+    ]),
   )
 
-  return providers.map( ( provider ) => {
-    const storageLimitBytes = toNonNegativeBytes( provider.storageLimitBytes )
-    const fileSizeLimitBytes = toNonNegativeBytes( provider.fileSizeLimitBytes )
-    const usedStorageBytes = usageMap.get( provider.id ) ?? 0
+  return providers.map((provider) => {
+    const storageLimitBytes = toNonNegativeBytes(provider.storageLimitBytes)
+    const fileSizeLimitBytes = toNonNegativeBytes(provider.fileSizeLimitBytes)
+    const usedStorageBytes = usageMap.get(provider.id) ?? 0
     const availableStorageBytes = Math.max(
       0,
       storageLimitBytes - usedStorageBytes,
@@ -64,7 +64,7 @@ export async function listProvidersWithUsage() {
       usedStorageBytes,
       availableStorageBytes,
     }
-  } )
+  })
 }
 
 export type AdminProvider = Awaited<
@@ -76,22 +76,22 @@ export type AdminUser = Awaited<ReturnType<typeof getUsersWithUsage>>[number]
 export async function getStorageAdminSummary() {
   const db = await loadDb()
   const [providerCountRow] = await db
-    .select( {
+    .select({
       count: count(),
-    } )
-    .from( storageProvider )
+    })
+    .from(storageProvider)
   const [userCountRow] = await db
-    .select( {
+    .select({
       count: count(),
-    } )
-    .from( user )
+    })
+    .from(user)
   const [totalUsedRow] = await db
-    .select( { total: sum( file.sizeInBytes ).mapWith( Number ) } )
-    .from( file )
-    .where( eq( file.isDeleted, false ) )
-  const providerCount = providerCountRow.count
-  const userCount = userCountRow.count
-  const totalUsedStorageBytes = toNonNegativeBytes( totalUsedRow.total )
+    .select({ total: sum(file.sizeInBytes).mapWith(Number) })
+    .from(file)
+    .where(eq(file.isDeleted, false))
+  const providerCount = Number(providerCountRow?.count ?? 0)
+  const userCount = Number(userCountRow?.count ?? 0)
+  const totalUsedStorageBytes = toNonNegativeBytes(totalUsedRow.total)
   return {
     providerCount,
     userCount,
@@ -110,7 +110,7 @@ export async function getUsersWithUsage() {
     banned: boolean
     usedStorage: number | string | null
     createdAt: number
-  }>( sql`
+  }>(sql`
         SELECT 
           u.id,
           u.name,
@@ -125,8 +125,8 @@ export async function getUsersWithUsage() {
         GROUP BY u.id, u.name, u.email, u.is_admin, u.role, u.banned, u.created_at
         ORDER BY u.created_at DESC
     `)
-  return rows.map( ( row ) => ( {
+  return rows.map((row) => ({
     ...row,
-    usedStorage: toNonNegativeBytes( row.usedStorage ),
-  } ) )
+    usedStorage: toNonNegativeBytes(row.usedStorage),
+  }))
 }

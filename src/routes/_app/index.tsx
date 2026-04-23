@@ -3,7 +3,13 @@ import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
 import { lazy, Suspense } from 'react'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { HomeRoutePending } from '../-home-pending'
-import { getHomeSnapshotFn } from '../-home-server'
+import type { GetHomeSnapshotFn } from '../-home-server'
+
+// Lazy-load the server function to keep client bundle small
+async function loadGetHomeSnapshotFn(): Promise<GetHomeSnapshotFn> {
+  const mod = await import('../-home-server')
+  return mod.getHomeSnapshotFn
+}
 
 const StoragePage = lazy(() =>
   import('./-storage-page').then((m) => ({ default: m.StoragePage })),
@@ -14,7 +20,10 @@ export const Route = createFileRoute('/_app/')({
     middleware: [isAuthenticatedMiddleware],
   },
   component: StorageRouteComponent,
-  loader: () => getHomeSnapshotFn(),
+  loader: async () => {
+    const fn = await loadGetHomeSnapshotFn()
+    return fn()
+  },
   pendingComponent: HomeRoutePending,
 })
 
