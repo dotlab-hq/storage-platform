@@ -1,46 +1,37 @@
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import { loadAuth } from '@/lib/auth-loader'
 import { db } from '@/db'
-import { account } from '@/db/schema/auth-schema'
-import { apiKey } from '@/db/schema/s3-security'
+import { account, apikey } from '@/db/schema/auth-schema'
 import { createServerFn } from '@tanstack/react-start'
 import { getRequest } from '@tanstack/react-start/server'
 import { and, eq } from 'drizzle-orm'
 import { z } from 'zod'
 
-const ProfileSchema = z.object( {
-  name: z.string().trim().min( 1 ).max( 120 ),
-  image: z.string().trim().url().or( z.literal( '' ) ),
-} )
+const ProfileSchema = z.object({
+  name: z.string().trim().min(1).max(120),
+  image: z.string().trim().url().or(z.literal('')),
+})
 
-const PasswordSchema = z.object( {
+const PasswordSchema = z.object({
   currentPassword: z.string().optional(),
-  newPassword: z.string().min( 8, 'Password must be at least 8 characters.' ),
-} )
+  newPassword: z.string().min(8, 'Password must be at least 8 characters.'),
+})
 
-const TwoFactorPasswordSchema = z.object( {
-  password: z.string().min( 8 ),
-} )
+const TwoFactorPasswordSchema = z.object({
+  password: z.string().min(8),
+})
 
-const VerifyTotpSchema = z.object( {
-  code: z.string().length( 6, 'TOTP code must be 6 digits' ),
-} )
+const VerifyTotpSchema = z.object({
+  code: z.string().length(6, 'TOTP code must be 6 digits'),
+})
 
-const ApiKeySchema = z.object( {
-  name: z.string().trim().min( 1 ).max( 60 ),
-} )
+const ApiKeySchema = z.object({
+  name: z.string().trim().min(1).max(60),
+})
 
-const DeleteKeySchema = z.object( {
+const DeleteKeySchema = z.object({
   id: z.string(),
-} )
-
-type ApiKeySnapshot = {
-  id: string
-  accessKeyId: string
-  secretKeyLast4: string
-  status: string
-  createdAt: Date
-}
+})
 
 type AuthAccountMethod = {
   id: string
@@ -54,26 +45,14 @@ type SessionUserWith2FA = {
   twoFactorEnabled?: boolean
 }
 
-const bytesToBase64 = ( bytes: Uint8Array ): string => {
-  let binary = ''
-  for ( const value of bytes ) {
-    binary += String.fromCharCode( value )
-  }
-  return btoa( binary )
+const bytesToBase64Url = (bytes: Uint8Array): string => {
+  const base64 = Buffer.from(bytes).toString('base64')
+  return base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '')
 }
 
-const bytesToHex = ( bytes: Uint8Array ): string =>
-  Array.from( bytes, ( value ) => value.toString( 16 ).padStart( 2, '0' ) ).join( '' )
-
-const sha256Hex = async ( value: string ): Promise<string> => {
-  const encoded = new TextEncoder().encode( value )
-  const digest = await crypto.subtle.digest( 'SHA-256', encoded )
-  return bytesToHex( new Uint8Array( digest ) )
-}
-
-const toErrorMessage = ( error: unknown, fallback: string ): string => {
-  if ( error instanceof Error && error.message ) {
-    if ( /at least 8|minPasswordLength|password length/i.test( error.message ) ) {
+const toErrorMessage = (error: unknown, fallback: string): string => {
+  if (error instanceof Error && error.message) {
+    if (/at least 8|minPasswordLength|password length/i.test(error.message)) {
       return 'Password must be at least 8 characters.'
     }
     return error.message
@@ -81,37 +60,57 @@ const toErrorMessage = ( error: unknown, fallback: string ): string => {
   return fallback
 }
 
-const hasPasswordCredential = async ( userId: string ): Promise<boolean> => {
-  const credentialAccount = await db.query.account.findFirst( {
+const hasPasswordCredential = async (userId: string): Promise<boolean> => {
+  const credentialAccount = await db.query.account.findFirst({
     columns: { password: true },
     where: and(
-      eq( account.userId, userId ),
-      eq( account.providerId, 'credential' ),
+      eq(account.userId, userId),
+      eq(account.providerId, 'credential'),
     ),
-  } )
-  return Boolean( credentialAccount?.password )
+  })
+  return Boolean(credentialAccount?.password)
 }
 
-export const getSettingsSnapshotFn = createServerFn( { method: 'GET' } ).handler(
+const hasChatScope = (permissions: string | null): boolean => {
+  if (!permissions) {
+    return false
+  }
+
+  try {
+    const parsed = JSON.parse(permissions) as unknown
+    if (!Array.isArray(parsed)) {
+      return false
+    }
+
+    return parsed.some(
+      (value): value is string =>
+        typeof value === 'string' && value === 'chat:completions',
+    )
+  } catch {
+    return false
+  }
+}
+
+export const getSettingsSnapshotFn = createServerFn({ method: 'GET' }).handler(
   async () => {
     const currentUser = await getAuthenticatedUser()
     const auth = await loadAuth()
     const request = getRequest()
     const headers = request.headers
-    const [session, methods, apiKeys] = await Promise.all( [
-      auth.api.getSession( { headers } ),
-      auth.api.listUserAccounts( { headers } ).catch( ( error: unknown ) => {
-        console.error( '[settings] listUserAccounts failed', error )
+    const [session, methods, apiKeys] = await Promise.all([
+      auth.api.getSession({ headers }),
+      auth.api.listUserAccounts({ headers }).catch((error: unknown) => {
+        console.error('[settings] listUserAccounts failed', error)
         return [] as AuthAccountMethod[]
-      } ),
-      db.query.apiKey.findMany( {
-        where: eq( apiKey.userId, currentUser.id ),
-        orderBy: ( apiKey, { desc } ) => [desc( apiKey.createdAt )],
-      } ),
-    ] )
-    if ( !session?.user ) throw new Error( 'Unauthorized' )
+      }),
+      db.query.apikey.findMany({
+        where: eq(apikey.userId, currentUser.id),
+        orderBy: (apiKeyRow, { desc }) => [desc(apiKeyRow.createdAt)],
+      }),
+    ])
+    if (!session?.user) throw new Error('Unauthorized')
     const sessionUser = session.user as SessionUserWith2FA
-    const twoFactorEnabled = Boolean( sessionUser.twoFactorEnabled )
+    const twoFactorEnabled = Boolean(sessionUser.twoFactorEnabled)
     return {
       user: {
         id: currentUser.id,
@@ -124,19 +123,22 @@ export const getSettingsSnapshotFn = createServerFn( { method: 'GET' } ).handler
         twoFactorEnabled,
         passkeysSupported: false,
       },
-      methods: methods.map( ( method ) => ( {
+      methods: methods.map((method) => ({
         id: method.id,
         providerId: method.providerId,
         accountId: method.accountId,
         createdAt: method.createdAt,
-      } ) ),
-      apiKeys: apiKeys.map( ( key ) => ( {
-        id: key.id,
-        accessKeyId: key.accessKeyId,
-        secretKeyLast4: key.secretKeyLast4,
-        status: key.status,
-        createdAt: key.createdAt,
-      } ) ),
+      })),
+      apiKeys: apiKeys
+        .filter((key) => hasChatScope(key.permissions))
+        .map((key) => ({
+          id: key.id,
+          name: key.name?.trim() || 'Chat API Key',
+          keyPreview: key.key.slice(0, 8),
+          status: key.enabled === false ? 'revoked' : 'active',
+          scope: 'chat:completions',
+          createdAt: key.createdAt,
+        })),
       tinySessions: {
         active: [],
         recent: [],
@@ -145,153 +147,163 @@ export const getSettingsSnapshotFn = createServerFn( { method: 'GET' } ).handler
   },
 )
 
-export const updateProfileSettingsFn = createServerFn( { method: 'POST' } )
-  .inputValidator( ProfileSchema )
-  .handler( async ( { data } ) => {
+export const updateProfileSettingsFn = createServerFn({ method: 'POST' })
+  .inputValidator(ProfileSchema)
+  .handler(async ({ data }) => {
     await getAuthenticatedUser()
     const auth = await loadAuth()
     const request = getRequest()
     const headers = request.headers
     try {
-      await auth.api.updateUser( {
+      await auth.api.updateUser({
         headers,
         body: {
           name: data.name,
           image: data.image.trim() ? data.image.trim() : null,
         },
-      } )
+      })
       return { success: true, message: 'Profile updated.' }
-    } catch ( error ) {
-      throw new Error( toErrorMessage( error, 'Failed to update profile.' ) )
+    } catch (error) {
+      throw new Error(toErrorMessage(error, 'Failed to update profile.'))
     }
-  } )
+  })
 
-export const changePasswordSettingsFn = createServerFn( { method: 'POST' } )
-  .inputValidator( PasswordSchema )
-  .handler( async ( { data } ) => {
+export const changePasswordSettingsFn = createServerFn({ method: 'POST' })
+  .inputValidator(PasswordSchema)
+  .handler(async ({ data }) => {
     const currentUser = await getAuthenticatedUser()
     const auth = await loadAuth()
     const request = getRequest()
     const headers = request.headers
     try {
-      const hasPassword = await hasPasswordCredential( currentUser.id )
-      if ( hasPassword ) {
-        if ( !data.currentPassword?.trim() ) {
-          throw new Error( 'Current password is required.' )
+      const hasPassword = await hasPasswordCredential(currentUser.id)
+      if (hasPassword) {
+        if (!data.currentPassword?.trim()) {
+          throw new Error('Current password is required.')
         }
-        await auth.api.changePassword( {
+        await auth.api.changePassword({
           headers,
           body: {
             currentPassword: data.currentPassword,
             newPassword: data.newPassword,
             revokeOtherSessions: true,
           },
-        } )
+        })
       } else {
-        await auth.api.setPassword( {
+        await auth.api.setPassword({
           headers,
           body: { newPassword: data.newPassword },
-        } )
+        })
       }
       return { success: true, message: 'Password updated.' }
-    } catch ( error ) {
-      throw new Error( toErrorMessage( error, 'Failed to update password.' ) )
+    } catch (error) {
+      throw new Error(toErrorMessage(error, 'Failed to update password.'))
     }
-  } )
+  })
 
-export const enableTwoFactorSettingsFn = createServerFn( { method: 'POST' } )
-  .inputValidator( TwoFactorPasswordSchema )
-  .handler( async ( { data } ) => {
+export const enableTwoFactorSettingsFn = createServerFn({ method: 'POST' })
+  .inputValidator(TwoFactorPasswordSchema)
+  .handler(async ({ data }) => {
     await getAuthenticatedUser()
     const auth = await loadAuth()
     const request = getRequest()
     const headers = request.headers
     try {
-      return await auth.api.enableTwoFactor( {
+      return await auth.api.enableTwoFactor({
         headers,
         body: {
           password: data.password,
           issuer: 'DOT Storage Platform',
         },
-      } )
-    } catch ( error ) {
-      throw new Error( toErrorMessage( error, 'Failed to enable 2FA.' ) )
+      })
+    } catch (error) {
+      throw new Error(toErrorMessage(error, 'Failed to enable 2FA.'))
     }
-  } )
+  })
 
-export const verifyTwoFactorSettingsFn = createServerFn( { method: 'POST' } )
-  .inputValidator( VerifyTotpSchema )
-  .handler( async ( { data } ) => {
+export const verifyTwoFactorSettingsFn = createServerFn({ method: 'POST' })
+  .inputValidator(VerifyTotpSchema)
+  .handler(async ({ data }) => {
     await getAuthenticatedUser()
     const auth = await loadAuth()
     const request = getRequest()
     const headers = request.headers
     try {
-      await auth.api.verifyTOTP( { headers, body: { code: data.code } } )
+      await auth.api.verifyTOTP({ headers, body: { code: data.code } })
       return { success: true, message: '2FA verified and enabled.' }
-    } catch ( error ) {
-      throw new Error( toErrorMessage( error, 'Failed to verify 2FA code.' ) )
+    } catch (error) {
+      throw new Error(toErrorMessage(error, 'Failed to verify 2FA code.'))
     }
-  } )
+  })
 
-export const disableTwoFactorSettingsFn = createServerFn( { method: 'POST' } )
-  .inputValidator( TwoFactorPasswordSchema )
-  .handler( async ( { data } ) => {
+export const disableTwoFactorSettingsFn = createServerFn({ method: 'POST' })
+  .inputValidator(TwoFactorPasswordSchema)
+  .handler(async ({ data }) => {
     await getAuthenticatedUser()
     const auth = await loadAuth()
     const request = getRequest()
     const headers = request.headers
     try {
-      await auth.api.disableTwoFactor( {
+      await auth.api.disableTwoFactor({
         headers,
         body: { password: data.password },
-      } )
+      })
       return { success: true, message: '2FA disabled.' }
-    } catch ( error ) {
-      throw new Error( toErrorMessage( error, 'Failed to disable 2FA.' ) )
+    } catch (error) {
+      throw new Error(toErrorMessage(error, 'Failed to disable 2FA.'))
     }
-  } )
+  })
 
-export const createS3ApiKeyFn = createServerFn( { method: 'POST' } )
-  .inputValidator( ApiKeySchema )
-  .handler( async ( { data } ) => {
+export const createChatApiKeyFn = createServerFn({ method: 'POST' })
+  .inputValidator(ApiKeySchema)
+  .handler(async ({ data }) => {
     const currentUser = await getAuthenticatedUser()
 
-    const accessKeyId = `AK${crypto.randomUUID().replace( /-/g, '' ).toUpperCase().substring( 0, 16 )}`
-    const secretBytes = crypto.getRandomValues( new Uint8Array( 32 ) )
-    const secretKey = bytesToBase64( secretBytes )
-    const secretKeyHash = await sha256Hex( secretKey )
-    const secretKeyLast4 = secretKey.slice( -4 )
+    const randomBytes = crypto.getRandomValues(new Uint8Array(32))
+    const tokenBody = bytesToBase64Url(randomBytes)
+    const token = `sp_chat_${tokenBody}`
+    const now = new Date()
 
-    await db.insert( apiKey ).values( {
+    await db.insert(apikey).values({
+      id: crypto.randomUUID(),
+      name: data.name,
+      start: token.slice(0, 8),
+      prefix: 'sp_chat',
+      key: token,
       userId: currentUser.id,
-      accessKeyId,
-      secretKeyHash,
-      secretKeyLast4,
-    } )
+      enabled: true,
+      rateLimitEnabled: true,
+      rateLimitTimeWindow: 60_000,
+      rateLimitMax: 120,
+      requestCount: 0,
+      remaining: 120,
+      permissions: JSON.stringify(['chat:completions']),
+      metadata: JSON.stringify({ usage: 'chat-completions' }),
+      createdAt: now,
+      updatedAt: now,
+    })
 
     return {
       success: true,
       apiKey: {
-        accessKeyId,
-        secretKey,
+        key: token,
       },
     }
-  } )
+  })
 
-export const deleteS3ApiKeyFn = createServerFn( { method: 'POST' } )
-  .inputValidator( DeleteKeySchema )
-  .handler( async ( { data } ) => {
+export const deleteChatApiKeyFn = createServerFn({ method: 'POST' })
+  .inputValidator(DeleteKeySchema)
+  .handler(async ({ data }) => {
     const currentUser = await getAuthenticatedUser()
 
     const result = await db
-      .delete( apiKey )
-      .where( and( eq( apiKey.id, data.id ), eq( apiKey.userId, currentUser.id ) ) )
+      .delete(apikey)
+      .where(and(eq(apikey.id, data.id), eq(apikey.userId, currentUser.id)))
       .returning()
 
-    if ( result.length === 0 ) {
-      throw new Error( 'API Key not found or unauthorized' )
+    if (result.length === 0) {
+      throw new Error('API Key not found or unauthorized')
     }
 
     return { success: true }
-  } )
+  })

@@ -5,6 +5,7 @@ import { getAuthenticatedUser, requireWritePermission } from '@/lib/server-auth'
 import { db } from '@/db'
 import { folder, file as storageFile } from '@/db/schema/storage'
 import { withActivityLogging } from '@/lib/activity-logging'
+import { seedNodeById } from '@/lib/storage-btree/seed'
 
 const RenameItemSchema = z.object({
   itemId: z.string().min(1),
@@ -41,6 +42,9 @@ export const renameItemFn = createServerFn({ method: 'POST' })
               parentFolderId: folder.parentFolderId,
             })
           parentFolderId = updated?.parentFolderId ?? null
+          if (updated?.id) {
+            await seedNodeById(user.id, 'folder', updated.id)
+          }
         } else {
           const [updated] = await db
             .update(storageFile)
@@ -54,11 +58,18 @@ export const renameItemFn = createServerFn({ method: 'POST' })
               folderId: storageFile.folderId,
             })
           parentFolderId = updated?.folderId ?? null
+          if (updated?.id) {
+            await seedNodeById(user.id, 'file', updated.id)
+          }
         }
 
-        const { invalidateFolderCache } =
-          await import('@/lib/cache-invalidation')
-        await invalidateFolderCache(user.id, parentFolderId)
+        const { patchFolderCache } = await import('@/lib/cache-invalidation')
+        await patchFolderCache(user.id, parentFolderId, {
+          renameFolder:
+            itemType === 'folder' ? { id: itemId, name: newName } : undefined,
+          renameFile:
+            itemType === 'file' ? { id: itemId, name: newName } : undefined,
+        })
 
         return { id: itemId, name: newName }
       },

@@ -1,17 +1,22 @@
 import { useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { Trash2, Key, Copy, Loader2 } from 'lucide-react'
+import { Copy, KeyRound, Loader2, Trash2 } from 'lucide-react'
+import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Alert, AlertDescription } from '@/components/ui/alert'
 import { toast } from 'sonner'
 
 type ApiKeySnapshot = {
   id: string
-  accessKeyId: string
-  secretKeyLast4: string
+  name: string
+  keyPreview: string
   status: string
+  scope: string
   createdAt: Date
+}
+
+type RevealedKey = {
+  value: string
 }
 
 export function ApiKeysSection({
@@ -20,19 +25,13 @@ export function ApiKeysSection({
   initialKeys: ApiKeySnapshot[]
 }) {
   const queryClient = useQueryClient()
-  const [isCreating, setIsCreating] = useState(false)
-  const [newKeyName, setNewKeyName] = useState('')
-  const [revealedKey, setRevealedKey] = useState<{
-    accessId: string
-    secretKey: string
-  } | null>(null)
+  const [newKeyName, setNewKeyName] = useState('Chat Completions Key')
+  const [revealedKey, setRevealedKey] = useState<RevealedKey | null>(null)
 
   const createMutation = useMutation({
     mutationFn: async (name: string) => {
       const mod = await import('../-settings-server')
-      const fn = mod.createS3ApiKeyFn
-      const res = await fn({ data: { name } })
-      return res
+      return mod.createChatApiKeyFn({ data: { name } })
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['settings'] })
@@ -42,8 +41,7 @@ export function ApiKeysSection({
   const deleteMutation = useMutation({
     mutationFn: async (id: string) => {
       const mod = await import('../-settings-server')
-      const fn = mod.deleteS3ApiKeyFn
-      await fn({ data: { id } })
+      await mod.deleteChatApiKeyFn({ data: { id } })
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['settings'] })
@@ -51,131 +49,97 @@ export function ApiKeysSection({
   })
 
   const handleCreate = async () => {
-    setIsCreating(true)
     try {
       const result = await createMutation.mutateAsync(newKeyName)
-      setRevealedKey({
-        accessId: result.apiKey.accessKeyId,
-        secretKey: result.apiKey.secretKey,
-      })
-      setNewKeyName('')
-      toast.success('API Key created successfully')
-    } catch (e: unknown) {
-      const error = e as Error
-      toast.error(error.message || 'Failed to create API key')
-    } finally {
-      setIsCreating(false)
+      setRevealedKey({ value: result.apiKey.key })
+      toast.success('Chat API key generated')
+    } catch (error: unknown) {
+      const message =
+        error instanceof Error ? error.message : 'Failed to create API key'
+      toast.error(message)
     }
   }
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text)
-    toast.success('Copied to clipboard')
+  const copyToClipboard = async (value: string) => {
+    await navigator.clipboard.writeText(value)
+    toast.success('Copied')
   }
 
   return (
     <section className="space-y-4 rounded-lg border p-4">
-      <div className="flex items-center justify-between">
-        <div>
-          <h2 className="text-base font-semibold">S3 API Keys</h2>
-          <p className="text-muted-foreground text-sm">
-            Manage your access keys for S3 storage
-          </p>
-        </div>
-        <Button
-          size="sm"
-          onClick={() => {
-            setRevealedKey(null)
-            // Focus input if needed
-          }}
-          variant="outline"
-        >
-          <Key className="mr-2 h-4 w-4" /> Manage Keys
-        </Button>
+      <div>
+        <h2 className="text-base font-semibold">Chat Completions API Keys</h2>
+        <p className="text-muted-foreground text-sm">
+          Generate a single `apiKey` token for `POST /api/chat/stream`.
+        </p>
       </div>
 
-      {revealedKey && (
-        <Alert className="bg-amber-50 border-amber-200">
-          <div className="flex flex-col gap-3">
+      {revealedKey ? (
+        <Alert className="border-amber-200 bg-amber-50">
+          <div className="space-y-3">
             <AlertDescription className="font-medium text-amber-800">
-              ⚠️ Save this secret key now. You won't be able to see it again!
+              Save this API key now. It will not be shown again.
             </AlertDescription>
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-              <div className="space-y-1">
-                <label className="text-xs font-bold text-amber-700">
-                  Access Key ID
-                </label>
-                <div className="flex gap-2">
-                  <Input
-                    readOnly
-                    value={revealedKey.accessId}
-                    className="bg-white"
-                  />
-                  <Button
-                    size="icon"
-                    variant="outline"
-                    onClick={() => copyToClipboard(revealedKey.accessId)}
-                  >
-                    <Copy className="h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
-              <div className="space-y-1">
-                <label className="text-xs font-bold text-amber-700">
-                  Secret Access Key
-                </label>
-                <div className="flex gap-2">
-                  <Input
-                    readOnly
-                    value={revealedKey.secretKey}
-                    className="bg-white"
-                  />
-                  <Button
-                    size="icon"
-                    variant="outline"
-                    onClick={() => copyToClipboard(revealedKey.secretKey)}
-                  >
-                    <Copy className="h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
+            <div className="flex gap-2">
+              <Input
+                readOnly
+                value={revealedKey.value}
+                className="bg-white font-mono text-xs"
+              />
+              <Button
+                size="icon"
+                variant="outline"
+                onClick={() => void copyToClipboard(revealedKey.value)}
+              >
+                <Copy className="h-4 w-4" />
+              </Button>
             </div>
+            <p className="text-muted-foreground text-xs">
+              Use header: Authorization: Bearer &lt;apiKey&gt;
+            </p>
             <Button
               size="sm"
               variant="destructive"
-              className="w-fit"
               onClick={() => setRevealedKey(null)}
             >
-              I have saved it
+              I saved it
             </Button>
           </div>
         </Alert>
-      )}
+      ) : null}
 
       <div className="flex gap-2">
         <Input
-          placeholder="Key name (e.g. Production App)"
+          placeholder="Key name"
           value={newKeyName}
-          onChange={(e) => setNewKeyName(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && handleCreate()}
-          disabled={isCreating}
+          onChange={(event) => setNewKeyName(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' && newKeyName.trim()) {
+              void handleCreate()
+            }
+          }}
+          disabled={createMutation.isPending}
         />
-        <Button onClick={handleCreate} disabled={!newKeyName || isCreating}>
-          {isCreating ? (
-            <Loader2 className="h-4 w-4 animate-spin mr-2" />
+        <Button
+          onClick={() => void handleCreate()}
+          disabled={!newKeyName.trim() || createMutation.isPending}
+        >
+          {createMutation.isPending ? (
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
           ) : (
-            <Key className="h-4 w-4 mr-2" />
+            <KeyRound className="mr-2 h-4 w-4" />
           )}
-          Create
+          Generate
         </Button>
       </div>
 
       <div className="overflow-hidden rounded-md border">
-        <table className="w-full text-sm text-left">
+        <table className="w-full text-left text-sm">
           <thead className="bg-muted/50 font-medium">
             <tr>
-              <th className="px-4 py-2">Access Key ID</th>
-              <th className="px-4 py-2">Secret (Last 4)</th>
+              <th className="px-4 py-2">Name</th>
+              <th className="px-4 py-2">Preview</th>
+              <th className="px-4 py-2">Scope</th>
               <th className="px-4 py-2">Created</th>
               <th className="px-4 py-2 text-right">Actions</th>
             </tr>
@@ -184,35 +148,34 @@ export function ApiKeysSection({
             {initialKeys.length === 0 ? (
               <tr>
                 <td
-                  colSpan={4}
-                  className="px-4 py-8 text-center text-muted-foreground"
+                  colSpan={5}
+                  className="text-muted-foreground px-4 py-8 text-center"
                 >
-                  No API keys found. Create one above.
+                  No chat API keys yet.
                 </td>
               </tr>
             ) : (
               initialKeys.map((key) => (
                 <tr key={key.id} className="hover:bg-muted/30">
+                  <td className="px-4 py-2">{key.name}</td>
                   <td className="px-4 py-2 font-mono text-xs">
-                    {key.accessKeyId}
+                    {key.keyPreview}...
                   </td>
-                  <td className="px-4 py-2 font-mono text-xs">
-                    ....{key.secretKeyLast4}
-                  </td>
-                  <td className="px-4 py-2 text-muted-foreground">
+                  <td className="px-4 py-2">{key.scope}</td>
+                  <td className="text-muted-foreground px-4 py-2">
                     {new Date(key.createdAt).toLocaleDateString()}
                   </td>
                   <td className="px-4 py-2 text-right">
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="h-8 w-8 text-destructive hover:text-destructive"
+                      className="text-destructive hover:text-destructive h-8 w-8"
+                      disabled={deleteMutation.isPending}
                       onClick={() => {
                         if (confirm('Delete this API key?')) {
                           deleteMutation.mutate(key.id)
                         }
                       }}
-                      disabled={deleteMutation.isPending}
                     >
                       <Trash2 className="h-4 w-4" />
                     </Button>

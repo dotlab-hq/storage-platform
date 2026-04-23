@@ -2,6 +2,11 @@ import { createHash, createHmac } from 'node:crypto'
 import { db } from '@/db'
 import { virtualBucket } from '@/db/schema/s3-gateway'
 import { and, eq } from 'drizzle-orm'
+import {
+  getCachedBucketByAccessKey,
+  getCachedBucketByName,
+  upsertBucketContextCache,
+} from '@/lib/s3-gateway/virtual-bucket-kv-cache'
 
 export type BucketContext = {
   userId: string
@@ -354,6 +359,11 @@ function toContext(row: BucketRow): BucketContext {
 export async function resolveBucketByName(
   bucketName: string,
 ): Promise<BucketContext | null> {
+  const cached = await getCachedBucketByName(bucketName)
+  if (cached) {
+    return cached
+  }
+
   const rows = await db
     .select({
       userId: virtualBucket.userId,
@@ -368,12 +378,21 @@ export async function resolveBucketByName(
     )
     .limit(1)
 
-  return rows[0] ? toContext(rows[0]) : null
+  const context = rows[0] ? toContext(rows[0]) : null
+  if (context) {
+    await upsertBucketContextCache(context)
+  }
+  return context
 }
 
 export async function resolveBucketByAccessKey(
   accessKeyId: string,
 ): Promise<BucketContext | null> {
+  const cached = await getCachedBucketByAccessKey(accessKeyId)
+  if (cached) {
+    return cached
+  }
+
   const rows = await db
     .select({
       userId: virtualBucket.userId,
@@ -386,7 +405,11 @@ export async function resolveBucketByAccessKey(
     .where(eq(virtualBucket.isActive, true))
 
   const matched = rows.find((row) => accessKeyForBucket(row.id) === accessKeyId)
-  return matched ? toContext(matched) : null
+  const context = matched ? toContext(matched) : null
+  if (context) {
+    await upsertBucketContextCache(context)
+  }
+  return context
 }
 
 export function parseAccessKeyId(request: Request): string | null {

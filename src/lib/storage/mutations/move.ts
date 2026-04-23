@@ -6,6 +6,7 @@ import { db } from '@/db'
 import { folder, file as storageFile } from '@/db/schema/storage'
 import { isDescendantFolder } from '@/lib/folder-paths'
 import { withActivityLogging } from '@/lib/activity-logging'
+import { seedNodeById } from '@/lib/storage-btree/seed'
 
 const MoveItemsSchema = z.object({
   itemIds: z.array(z.string().min(1)),
@@ -100,6 +101,7 @@ export const moveItemsFn = createServerFn({ method: 'POST' })
               .update(folder)
               .set({ parentFolderId: targetFolderId })
               .where(and(eq(folder.id, id), eq(folder.userId, userId)))
+            await seedNodeById(userId, 'folder', id)
           } else {
             const [f] = await db
               .select({ folderId: storageFile.folderId })
@@ -119,13 +121,17 @@ export const moveItemsFn = createServerFn({ method: 'POST' })
               .where(
                 and(eq(storageFile.id, id), eq(storageFile.userId, userId)),
               )
+            await seedNodeById(userId, 'file', id)
           }
         }
 
-        const { invalidateFolderCache } =
+        const { patchFolderCache, invalidateFolderCache } =
           await import('@/lib/cache-invalidation')
         for (const parentId of Array.from(distinctParents)) {
-          await invalidateFolderCache(userId, parentId)
+          await patchFolderCache(userId, parentId, {
+            removeFolderIds: movingFolderIds,
+            removeFileIds: itemIds.filter((_, i) => itemTypes[i] === 'file'),
+          })
         }
         await invalidateFolderCache(userId, targetFolderId)
 

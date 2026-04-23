@@ -83,8 +83,24 @@ export async function uploadSingleFile({
     .returning({
       id: storageFile.id,
       name: storageFile.name,
+      folderId: storageFile.folderId,
+      sizeInBytes: storageFile.sizeInBytes,
+      etag: storageFile.etag,
+      lastModified: storageFile.lastModified,
       createdAt: storageFile.createdAt,
     })
+
+  const { upsertFileNode } = await import('@/lib/storage-btree/index')
+  await upsertFileNode({
+    userId,
+    fileId: insertedFile.id,
+    name: insertedFile.name,
+    folderId: insertedFile.folderId,
+    isDeleted: false,
+    sizeInBytes: insertedFile.sizeInBytes,
+    etag: insertedFile.etag,
+    lastModified: insertedFile.lastModified,
+  })
 
   console.log(`[Server] DB insert successful`)
   return insertedFile
@@ -152,8 +168,19 @@ export async function createNewFolder({
     .returning({
       id: folder.id,
       name: folder.name,
+      parentFolderId: folder.parentFolderId,
+      isDeleted: folder.isDeleted,
       createdAt: folder.createdAt,
     })
+
+  const { upsertFolderNode } = await import('@/lib/storage-btree/index')
+  await upsertFolderNode({
+    userId,
+    folderId: created.id,
+    name: created.name,
+    parentFolderId: created.parentFolderId,
+    isDeleted: created.isDeleted,
+  })
 
   return created
 }

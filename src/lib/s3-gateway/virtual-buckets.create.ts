@@ -6,6 +6,8 @@ import { and, eq } from 'drizzle-orm'
 import { replaceBucketCors } from '@/lib/s3-gateway/s3-bucket-controls'
 import { toBucketItem } from '@/lib/s3-gateway/virtual-buckets.shared'
 import { DEFAULT_ASSETS_BUCKET_NAME } from '@/lib/storage/assets-bucket'
+import { upsertFolderNode } from '@/lib/storage-btree/index'
+import { upsertBucketContextCache } from '@/lib/s3-gateway/virtual-bucket-kv-cache'
 
 type CreateBucketInput = {
   userId: string
@@ -47,6 +49,14 @@ async function createVirtualBucketRow(
       createdAt: virtualBucket.createdAt,
     })
 
+  await upsertFolderNode({
+    userId: input.userId,
+    folderId: createdFolders[0].id,
+    name: input.bucketName,
+    parentFolderId: null,
+    isDeleted: false,
+  })
+
   await replaceBucketCors(bucketId, [
     {
       allowedOrigins: ['*'],
@@ -56,6 +66,14 @@ async function createVirtualBucketRow(
       maxAgeSeconds: 3000,
     },
   ])
+
+  await upsertBucketContextCache({
+    userId: input.userId,
+    bucketId,
+    bucketName: input.bucketName,
+    mappedFolderId: createdFolders[0].id,
+    createdAt: createdRows[0].createdAt,
+  })
 
   return toBucketItem(createdRows[0])
 }

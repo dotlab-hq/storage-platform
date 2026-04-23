@@ -5,6 +5,8 @@ import { getAuthenticatedUser, requireWritePermission } from '@/lib/server-auth'
 import { db } from '@/db'
 import { folder, file as storageFile } from '@/db/schema/storage'
 import { withActivityLogging } from '@/lib/activity-logging'
+import { markFolderSubtreeDeleted } from '@/lib/storage-btree/index'
+import { seedNodeById } from '@/lib/storage-btree/seed'
 
 const DeleteItemsSchema = z.object({
   itemIds: z.array(z.string().min(1)),
@@ -57,6 +59,10 @@ export const deleteItemsFn = createServerFn({ method: 'POST' })
                 eq(storageFile.userId, userId),
               ),
             )
+
+          await Promise.all(
+            fileIds.map((id) => seedNodeById(userId, 'file', id)),
+          )
         }
 
         if (folderIds.length > 0) {
@@ -114,9 +120,14 @@ export const deleteItemsFn = createServerFn({ method: 'POST' })
                 eq(storageFile.userId, userId),
               ),
             )
+
+          for (const folderId of folderIds) {
+            await seedNodeById(userId, 'folder', folderId)
+            await markFolderSubtreeDeleted(userId, folderId, true)
+          }
         }
 
-        const { invalidateFolderCache, invalidateQuotaCache } =
+        const { patchFolderCache, invalidateQuotaCache } =
           await import('@/lib/cache-invalidation')
         await invalidateQuotaCache(userId)
 
@@ -129,7 +140,10 @@ export const deleteItemsFn = createServerFn({ method: 'POST' })
         }
 
         for (const parentId of Array.from(distinctParents)) {
-          await invalidateFolderCache(userId, parentId)
+          await patchFolderCache(userId, parentId, {
+            removeFolderIds: folderIds,
+            removeFileIds: fileIds,
+          })
         }
 
         return {

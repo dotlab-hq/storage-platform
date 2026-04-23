@@ -8,6 +8,7 @@ import * as storageProviderSchema from './schema/storage-provider.ts'
 import * as s3GatewaySchema from './schema/s3-gateway.ts'
 import * as s3ControlsSchema from './schema/s3-controls.ts'
 import * as s3SecuritySchema from './schema/s3-security.ts'
+import * as storageBtreeSchema from './schema/storage-btree.ts'
 import * as chatSchema from './schema/chat.ts'
 import * as fileSummarySchema from './schema/file-summary.ts'
 import * as activitySchema from './schema/activity.ts'
@@ -22,6 +23,7 @@ export const db = drizzle(env.DB_D1, {
     ...s3GatewaySchema,
     ...s3ControlsSchema,
     ...s3SecuritySchema,
+    ...storageBtreeSchema,
     ...chatSchema,
     ...fileSummarySchema,
     ...activitySchema,

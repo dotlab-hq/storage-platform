@@ -13,6 +13,7 @@ import {
   hasActiveObjects,
   softDeleteByPrefix,
 } from '@/lib/s3-gateway/virtual-buckets.fallback'
+import { removeBucketContextCache } from '@/lib/s3-gateway/virtual-bucket-kv-cache'
 
 export async function emptyVirtualBucket(
   userId: string,
@@ -65,4 +66,9 @@ export async function deleteVirtualBucket(
   if (row.mappedFolderId) {
     await deleteMappedFolder(userId, row.mappedFolderId)
   }
+
+  await removeBucketContextCache({
+    bucketName: row.name,
+    bucketId: row.id,
+  })
 }

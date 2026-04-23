@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
-import { Button } from '@/components/ui/button'
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { getSettingsSnapshotFn } from './-settings-server'
 import { updateSettings } from './-store'
 import { ProfileSection } from './-components/profile-section'
@@ -61,19 +61,23 @@ function SettingsPage() {
         <h1 className="text-sm font-semibold">Settings</h1>
       </header>
       <div className="flex h-[calc(100vh-theme(spacing.14))] p-4">
-        <nav className="flex w-64 flex-col space-y-1">
-          {tabs.map((tab) => (
-            <Button
-              key={tab.id}
-              variant={activeTab === tab.id ? 'secondary' : 'ghost'}
-              className="justify-start"
-              onClick={() => setActiveTab(tab.id)}
-            >
-              {tab.label}
-            </Button>
-          ))}
-        </nav>
-        <main className="flex-1 overflow-auto pl-6">
+        <main className="flex-1 overflow-auto">
+          <Tabs
+            value={activeTab}
+            onValueChange={(value) => setActiveTab(value as SettingsTab)}
+          >
+            <TabsList className="mb-4 grid h-auto w-full grid-cols-2 gap-1 p-1 md:grid-cols-6">
+              {tabs.map((tab) => (
+                <TabsTrigger
+                  key={tab.id}
+                  value={tab.id}
+                  className="py-1.5 text-xs md:text-sm"
+                >
+                  {tab.label}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </Tabs>
           {activeTab === 'profile' && <ProfileSection initial={initial} />}
           {activeTab === 'auth' && <AuthMethodsSection initial={initial} />}
           {activeTab === '2fa' && <TwoFactorSection />}

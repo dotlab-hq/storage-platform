@@ -137,10 +137,58 @@ export async function searchItems(userId: string, query: string) {
 }
 
 export async function getFolderBreadcrumbs(userId: string, folderId: string) {
-  const [{ db }, { folder }] = await Promise.all([
+  const [{ db }, { folder }, { storageNodeBtree }] = await Promise.all([
     import('@/db'),
     import('@/db/schema/storage'),
+    import('@/db/schema/storage-btree'),
   ])
+
+  const btreeRows = await db
+    .select({ fullPath: storageNodeBtree.fullPath })
+    .from(storageNodeBtree)
+    .where(
+      and(
+        eq(storageNodeBtree.userId, userId),
+        eq(storageNodeBtree.nodeType, 'folder'),
+        eq(storageNodeBtree.nodeId, folderId),
+      ),
+    )
+    .limit(1)
+
+  const btreePath = btreeRows[0]?.fullPath
+  if (btreePath) {
+    const segments = btreePath
+      .split('/')
+      .filter((segment) => segment.length > 0)
+    if (segments.length === 0) return []
+
+    const crumbs: { id: string; name: string }[] = []
+    let fullPath = ''
+    for (const segment of segments) {
+      fullPath = fullPath ? `${fullPath}/${segment}` : segment
+      const rows = await db
+        .select({ id: storageNodeBtree.nodeId, name: storageNodeBtree.name })
+        .from(storageNodeBtree)
+        .where(
+          and(
+            eq(storageNodeBtree.userId, userId),
+            eq(storageNodeBtree.nodeType, 'folder'),
+            eq(storageNodeBtree.fullPath, fullPath),
+            eq(storageNodeBtree.isDeleted, false),
+          ),
+        )
+        .limit(1)
+      if (rows[0]) {
+        crumbs.push({ id: rows[0].id, name: rows[0].name })
+      }
+    }
+    if (crumbs.length > 0) {
+      return crumbs
+    }
+  }
+
+  const { seedNodeById } = await import('@/lib/storage-btree/seed')
+  await seedNodeById(userId, 'folder', folderId)
 
   const crumbs: { id: string; name: string }[] = []
   let currentId: string | null = folderId

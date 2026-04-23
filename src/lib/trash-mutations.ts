@@ -1,5 +1,10 @@
 import { eq, and } from 'drizzle-orm'
 import { getProviderClientById } from '@/lib/s3-provider-client'
+import {
+  deleteNodeByEntity,
+  markFolderSubtreeDeleted,
+} from '@/lib/storage-btree/index'
+import { seedNodeById } from '@/lib/storage-btree/seed'
 
 export async function restoreItems(
   userId: string,
@@ -32,6 +37,12 @@ export async function restoreItems(
         .where(and(eq(folder.id, id), eq(folder.userId, userId))),
     ),
   ])
+
+  await Promise.all(fileIds.map((id) => seedNodeById(userId, 'file', id)))
+  for (const id of folderIds) {
+    await seedNodeById(userId, 'folder', id)
+    await markFolderSubtreeDeleted(userId, id, false)
+  }
 
   const { invalidateFolderCache, invalidateQuotaCache } =
     await import('@/lib/cache-invalidation')
@@ -93,6 +104,7 @@ export async function permanentDeleteItems(
     await db
       .delete(storageFile)
       .where(and(eq(storageFile.id, id), eq(storageFile.userId, userId)))
+    await deleteNodeByEntity(userId, 'file', id)
   }
 
   // Delete folders from DB
@@ -100,6 +112,7 @@ export async function permanentDeleteItems(
     await db
       .delete(folder)
       .where(and(eq(folder.id, id), eq(folder.userId, userId)))
+    await deleteNodeByEntity(userId, 'folder', id)
   }
 
   // Update used storage

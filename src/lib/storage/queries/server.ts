@@ -10,6 +10,32 @@ import {
   DEFAULT_FILE_SIZE_LIMIT_BYTES,
 } from '@/lib/storage-quota-constants'
 
+type CachedFolderItems = {
+  folders: Array<{
+    id: string
+    name: string
+    createdAt: Date
+    parentFolderId: string | null
+    isPrivatelyLocked?: boolean
+  }>
+  files: Array<{
+    id: string
+    name: string
+    sizeInBytes: number
+    mimeType: string | null
+    objectKey: string
+    createdAt: Date
+    isPrivatelyLocked?: boolean
+  }>
+  breadcrumbs: Array<{ id: string; name: string }>
+}
+
+type CachedQuota = {
+  usedStorage: number
+  allocatedStorage: number
+  fileSizeLimit: number
+}
+
 const FolderItemsSchema = z.object({
   folderId: z.string().nullable().optional(),
   page: z.number().optional().default(1),
@@ -25,7 +51,7 @@ export const getFolderItemsFn = createServerFn({ method: 'GET' })
     const limit = data.limit ?? 100
 
     const cacheKey = `items:${user.id}:${folderId ?? 'root'}:p${page}:l${limit}`
-    const cached = await Cache.get<any>(cacheKey)
+    const cached = await Cache.get<CachedFolderItems>(cacheKey)
     if (cached) {
       if (folderId) {
         void touchFolderOpenedFn({ data: { folderId } }).catch(() => {})
@@ -65,7 +91,7 @@ export const getQuotaFn = createServerFn({ method: 'GET' }).handler(
     const userId = user.id
 
     const cacheKey = `quota:${userId}`
-    const cached = await Cache.get<any>(cacheKey)
+    const cached = await Cache.get<CachedQuota>(cacheKey)
     if (cached) return cached
 
     const [{ db }, { userStorage }] = await Promise.all([

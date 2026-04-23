@@ -33,6 +33,10 @@ import {
 import { upsertCommittedFile } from './upload-file-records'
 import { buildUpstreamObjectKey, deriveFileName } from './upload-key-utils'
 import { resolveVirtualFolder, splitObjectKey } from './virtual-fs'
+import { listObjectsByBtree } from '@/lib/storage-btree/list'
+import { backfillStorageBtree } from '@/lib/storage-btree/backfill'
+import { deleteNodeByEntity } from '@/lib/storage-btree/index'
+import { patchQuotaUsedStorage } from '@/lib/cache-invalidation'
 
 async function* streamWebChunks(
   stream: ReadableStream<Uint8Array>,
@@ -75,6 +79,25 @@ export async function listObjectsV2(
   bucket: BucketContext,
   prefix: string,
 ): Promise<ListedS3Object[]> {
+  const btreeResults = await listObjectsByBtree({
+    userId: bucket.userId,
+    mappedFolderId: bucket.mappedFolderId,
+    prefix,
+  })
+  if (btreeResults.length > 0) {
+    return btreeResults
+  }
+
+  await backfillStorageBtree(bucket.userId)
+  const btreeAfterBackfill = await listObjectsByBtree({
+    userId: bucket.userId,
+    mappedFolderId: bucket.mappedFolderId,
+    prefix,
+  })
+  if (btreeAfterBackfill.length > 0) {
+    return btreeAfterBackfill
+  }
+
   const results: ListedS3Object[] = []
 
   const visited = new Set<string>()
@@ -589,7 +612,7 @@ export async function deleteObject(
 
   try {
     const existingRows = await db
-      .select({ sizeInBytes: file.sizeInBytes })
+      .select({ id: file.id, sizeInBytes: file.sizeInBytes })
       .from(file)
       .where(
         and(
@@ -614,6 +637,12 @@ export async function deleteObject(
         ),
       )
 
+    await Promise.all(
+      existingRows.map((row) =>
+        deleteNodeByEntity(bucket.userId, 'file', row.id),
+      ),
+    )
+
     if (deletedBytes > 0) {
       const storageRows = await db
         .select({ usedStorage: userStorage.usedStorage })
@@ -631,6 +660,7 @@ export async function deleteObject(
           .set({ usedStorage: nextUsedStorage })
           .where(eq(userStorage.userId, bucket.userId))
       }
+      await patchQuotaUsedStorage(bucket.userId, -deletedBytes)
     }
   } catch (error) {
     const message =

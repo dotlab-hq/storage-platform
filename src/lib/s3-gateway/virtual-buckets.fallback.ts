@@ -1,6 +1,8 @@
 import { and, eq, like } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, folder, userStorage } from '@/db/schema/storage'
+import { markFolderSubtreeDeleted } from '@/lib/storage-btree/index'
+import { seedNodeById } from '@/lib/storage-btree/seed'
 
 type BucketFileRow = {
   objectKey: string
@@ -75,6 +77,17 @@ export async function softDeleteByPrefix(
   prefix: string,
 ): Promise<void> {
   const now = new Date()
+  const candidateRows = await db
+    .select({ id: file.id })
+    .from(file)
+    .where(
+      and(
+        eq(file.userId, userId),
+        eq(file.isDeleted, false),
+        like(file.objectKey, prefix),
+      ),
+    )
+
   try {
     await db
       .update(file)
@@ -86,6 +99,9 @@ export async function softDeleteByPrefix(
           like(file.objectKey, prefix),
         ),
       )
+    await Promise.all(
+      candidateRows.map((row) => seedNodeById(userId, 'file', row.id)),
+    )
   } catch (error) {
     const message =
       error instanceof Error ? `${error.name}: ${error.message}` : 'Unknown'
@@ -176,4 +192,5 @@ export async function deleteMappedFolder(
     .update(folder)
     .set({ isDeleted: true, deletedAt: new Date() })
     .where(and(eq(folder.id, mappedFolderId), eq(folder.userId, userId)))
+  await markFolderSubtreeDeleted(userId, mappedFolderId, true)
 }

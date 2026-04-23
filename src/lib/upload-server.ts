@@ -296,11 +296,26 @@ export const registerFile = createServerFn({ method: 'POST' })
       .returning({
         id: storageFile.id,
         name: storageFile.name,
+        folderId: storageFile.folderId,
         mimeType: storageFile.mimeType,
         sizeInBytes: storageFile.sizeInBytes,
         objectKey: storageFile.objectKey,
+        etag: storageFile.etag,
+        lastModified: storageFile.lastModified,
         createdAt: storageFile.createdAt,
       })
+
+    const { upsertFileNode } = await import('@/lib/storage-btree/index')
+    await upsertFileNode({
+      userId: authUser.id,
+      fileId: insertedFile.id,
+      name: insertedFile.name,
+      folderId: insertedFile.folderId,
+      isDeleted: false,
+      sizeInBytes: insertedFile.sizeInBytes,
+      etag: insertedFile.etag,
+      lastModified: insertedFile.lastModified,
+    })
 
     // Upsert userStorage and increment usedStorage atomically
     try {
@@ -320,10 +335,10 @@ export const registerFile = createServerFn({ method: 'POST' })
       console.error('[Server] Failed to update usedStorage:', storageErr)
     }
 
-    const { invalidateFolderCache, invalidateQuotaCache } =
+    const { invalidateFolderCache, patchQuotaUsedStorage } =
       await import('@/lib/cache-invalidation')
     await invalidateFolderCache(authUser.id, data.parentFolderId || null)
-    await invalidateQuotaCache(authUser.id)
+    await patchQuotaUsedStorage(authUser.id, data.fileSize)
 
     await logActivity({
       userId: authUser.id,

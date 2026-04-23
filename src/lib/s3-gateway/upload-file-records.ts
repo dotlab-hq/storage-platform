@@ -1,6 +1,7 @@
 import { db } from '@/db'
 import { file } from '@/db/schema/storage'
 import { and, eq, isNull, ne } from 'drizzle-orm'
+import { upsertFileNode } from '@/lib/storage-btree/index'
 
 export type CompletedUpload = {
   id: string
@@ -149,6 +150,16 @@ export async function upsertCommittedFile(input: {
       fileName: input.fileName,
       keepId: updatedRows[0].id,
     })
+    await upsertFileNode({
+      userId: input.userId,
+      fileId: updatedRows[0].id,
+      name: updatedRows[0].name,
+      folderId: input.mappedFolderId,
+      isDeleted: false,
+      sizeInBytes: updatedRows[0].sizeInBytes,
+      etag: updatedRows[0].etag,
+      lastModified: updatedRows[0].lastModified,
+    })
     return updatedRows[0]
   }
 
@@ -177,6 +188,17 @@ export async function upsertCommittedFile(input: {
       cacheControl: file.cacheControl,
       lastModified: file.lastModified,
     })
+
+  await upsertFileNode({
+    userId: input.userId,
+    fileId: insertedRows[0].id,
+    name: insertedRows[0].name,
+    folderId: input.mappedFolderId,
+    isDeleted: false,
+    sizeInBytes: insertedRows[0].sizeInBytes,
+    etag: insertedRows[0].etag,
+    lastModified: insertedRows[0].lastModified,
+  })
 
   return insertedRows[0]
 }

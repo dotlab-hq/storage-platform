@@ -1,6 +1,9 @@
 import { db } from '@/db'
 import { folder } from '@/db/schema/storage'
 import { and, eq, isNull } from 'drizzle-orm'
+import { storageNodeBtree } from '@/db/schema/storage-btree'
+import { resolveFolderPath, upsertFolderNode } from '@/lib/storage-btree/index'
+import { seedNodeById } from '@/lib/storage-btree/seed'
 
 export async function resolveVirtualFolder(
   userId: string,
@@ -13,9 +16,31 @@ export async function resolveVirtualFolder(
   }
 
   let currentFolderId = rootFolderId
+  let currentFolderPath = await resolveFolderPath(userId, currentFolderId)
 
   for (const segment of segments) {
-    let condition = and(
+    const parentIdForSegment = currentFolderId
+    const btreeRows = await db
+      .select({ nodeId: storageNodeBtree.nodeId })
+      .from(storageNodeBtree)
+      .where(
+        and(
+          eq(storageNodeBtree.userId, userId),
+          eq(storageNodeBtree.nodeType, 'folder'),
+          eq(storageNodeBtree.isDeleted, false),
+          eq(storageNodeBtree.folderPath, currentFolderPath),
+          eq(storageNodeBtree.name, segment),
+        ),
+      )
+      .limit(1)
+
+    if (btreeRows[0]) {
+      currentFolderId = btreeRows[0].nodeId
+      currentFolderPath = await resolveFolderPath(userId, currentFolderId)
+      continue
+    }
+
+    const condition = and(
       eq(folder.userId, userId),
       eq(folder.name, segment),
       currentFolderId
@@ -24,8 +49,8 @@ export async function resolveVirtualFolder(
       eq(folder.isDeleted, false),
     )
 
-    let rows = await db
-      .select({ id: folder.id })
+    const rows = await db
+      .select({ id: folder.id, parentFolderId: folder.parentFolderId })
       .from(folder)
       .where(condition)
       .limit(1)
@@ -36,14 +61,24 @@ export async function resolveVirtualFolder(
         .values({
           userId,
           name: segment,
-          parentFolderId: currentFolderId,
+          parentFolderId: parentIdForSegment,
           isDeleted: false,
         })
         .returning({ id: folder.id })
       currentFolderId = inserted[0].id
+      await upsertFolderNode({
+        userId,
+        folderId: currentFolderId,
+        name: segment,
+        parentFolderId: parentIdForSegment,
+        isDeleted: false,
+      })
     } else {
       currentFolderId = rows[0].id
+      await seedNodeById(userId, 'folder', currentFolderId)
     }
+
+    currentFolderPath = await resolveFolderPath(userId, currentFolderId)
   }
 
   return currentFolderId
