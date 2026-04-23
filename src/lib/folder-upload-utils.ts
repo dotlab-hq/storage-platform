@@ -167,16 +167,30 @@ export async function uploadFolder(
     return { success: false, error: 'No files found in folder' }
   }
 
+  const totalFiles = flatFiles.length
   const totalSize = flatFiles.reduce((sum, f) => sum + f.size, 0)
 
-  const placeholderUploads: UploadingFile[] = flatFiles.map((f) => ({
+  // Create a single folder-level upload entry
+  const folderUploadId = `${uploadId}-folder`
+  const folderUploadEntry: UploadingFile = {
+    id: folderUploadId,
+    progress: 0,
+    status: 'uploading',
+    folderName,
+    totalFilesCount: totalFiles,
+    uploadedFilesCount: 0,
+  }
+
+  // Create child file entries linked to the folder
+  const childFileEntries: UploadingFile[] = flatFiles.map((f) => ({
     id: `${uploadId}-${f.name}`,
     file: f.file,
     progress: 0,
     status: 'uploading' as const,
+    parentUploadId: folderUploadId,
   }))
 
-  setUploads((prev) => [...placeholderUploads, ...prev])
+  setUploads((prev) => [folderUploadEntry, ...childFileEntries, ...prev])
 
   let uploadedObjectKeys: string[] = []
   const providerIdByObjectKey = new Map<string, string | null>()
@@ -203,6 +217,7 @@ export async function uploadFolder(
       .map((f) => initResponse?.objectKeys[f.name])
       .filter((k): k is string => typeof k === 'string')
 
+    let processedCount = 0
     for (const fileData of flatFiles) {
       const objectKey = initResponse.objectKeys[fileData.name]
       if (!objectKey) continue
@@ -224,9 +239,25 @@ export async function uploadFolder(
       )
       providerIdByObjectKey.set(objectKey, providerId)
 
+      // Mark file as 95% done (before finalization)
       setUploads((prev) =>
         prev.map((u) =>
           u.id === `${uploadId}-${fileData.name}` ? { ...u, progress: 95 } : u,
+        ),
+      )
+
+      // File uploaded to S3 successfully: update folder progress
+      processedCount++
+      const newFolderProgress = Math.round((processedCount / totalFiles) * 100)
+      setUploads((prev) =>
+        prev.map((u) =>
+          u.id === folderUploadId
+            ? {
+                ...u,
+                uploadedFilesCount: processedCount,
+                progress: newFolderProgress,
+              }
+            : u,
         ),
       )
     }
@@ -251,21 +282,33 @@ export async function uploadFolder(
       },
     })
 
-    for (const fileData of flatFiles) {
+    // Mark all child files as completed
+    setUploads((prev) =>
+      prev.map((u) =>
+        u.parentUploadId === folderUploadId
+          ? { ...u, progress: 100, status: 'completed' as const }
+          : u,
+      ),
+    )
+
+    // Mark folder as completed
+    setUploads((prev) =>
+      prev.map((u) =>
+        u.id === folderUploadId
+          ? { ...u, status: 'completed' as const, progress: 100 }
+          : u,
+      ),
+    )
+
+    // Remove folder and its child files after a delay
+    setTimeout(() => {
       setUploads((prev) =>
-        prev.map((u) =>
-          u.id === `${uploadId}-${fileData.name}`
-            ? { ...u, progress: 100, status: 'completed' as const }
-            : u,
+        prev.filter(
+          (u) =>
+            !(u.id === folderUploadId || u.parentUploadId === folderUploadId),
         ),
       )
-
-      setTimeout(() => {
-        setUploads((prev) =>
-          prev.filter((u) => u.id !== `${uploadId}-${fileData.name}`),
-        )
-      }, 1500)
-    }
+    }, 1500)
 
     return {
       success: true,
@@ -290,6 +333,7 @@ export async function uploadFolder(
       }
     }
 
+    // Mark all child files as failed
     for (const fileData of flatFiles) {
       setUploads((prev) =>
         prev.map((u) =>
@@ -299,6 +343,21 @@ export async function uploadFolder(
         ),
       )
     }
+
+    // Mark folder as failed
+    setUploads((prev) =>
+      prev.map((u) =>
+        u.id === folderUploadId
+          ? {
+              ...u,
+              status: 'failed' as const,
+              progress: 100,
+              uploadedFilesCount: totalFiles,
+              error: errorMessage,
+            }
+          : u,
+      ),
+    )
 
     return { success: false, error: errorMessage }
   }

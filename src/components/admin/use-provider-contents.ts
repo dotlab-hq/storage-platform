@@ -141,5 +141,8 @@ export function useProviderContents(providerId: string | null, open: boolean) {
         await query.fetchNextPage()
       }
     },
+    setSearchQuery,
   }
 }
+
+export type UseProviderContentsResult = ReturnType<typeof useProviderContents>

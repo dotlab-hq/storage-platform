@@ -2,6 +2,7 @@ import { db } from '@/db'
 import { file } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'
 import { encryptProviderSecret } from '@/lib/provider-crypto'
+import { requireAdminUser } from '@/lib/server-auth'
 import {
   getStorageAdminSummary,
   getUsersWithUsage,
@@ -38,6 +39,7 @@ const UpdateProviderAvailabilitySchema = z.object({
 export const getAdminDashboardDataFn = createServerFn({
   method: 'GET',
 }).handler(async () => {
+  await requireAdminUser()
   const [summary, providers, users] = await Promise.all([
     getStorageAdminSummary(),
     listProvidersWithUsage(),
@@ -49,6 +51,7 @@ export const getAdminDashboardDataFn = createServerFn({
 export const saveStorageProviderFn = createServerFn({ method: 'POST' })
   .inputValidator(SaveProviderSchema)
   .handler(async ({ data }) => {
+    await requireAdminUser()
     if (data.fileSizeLimitBytes > data.storageLimitBytes) {
       throw new Error('File-size limit cannot exceed storage limit')
     }
@@ -156,6 +159,7 @@ export const setStorageProviderAvailabilityFn = createServerFn({
 })
   .inputValidator(UpdateProviderAvailabilitySchema)
   .handler(async ({ data }) => {
+    await requireAdminUser()
     const providers = await db
       .update(storageProvider)
       .set({ isActive: data.isActive })
@@ -174,6 +178,7 @@ export const setStorageProviderAvailabilityFn = createServerFn({
 export const deleteStorageProviderFn = createServerFn({ method: 'POST' })
   .inputValidator(ProviderIdSchema)
   .handler(async ({ data }) => {
+    await requireAdminUser()
     const [inUseRow] = await db
       .select({ count: count() })
       .from(file)

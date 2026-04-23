@@ -30,10 +30,16 @@ export type StorageItem =
 
 export type UploadingFile = {
   id: string
-  file: File
+  file?: File // Optional: for file uploads; undefined for folder-level entries
   progress: number
   status: 'uploading' | 'completed' | 'failed'
   error?: string
+  // Optional: For files belonging to a folder upload
+  parentUploadId?: string
+  // Optional: For folder-level entries
+  folderName?: string
+  totalFilesCount?: number
+  uploadedFilesCount?: number
 }
 
 export type UserQuota = {

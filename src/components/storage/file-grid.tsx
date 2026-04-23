@@ -204,7 +204,11 @@ export function FileGrid({
     return <SkeletonGrid count={12} />
   }
 
-  const activeUploads = uploads.filter((u) => u.status !== 'completed')
+  const activeUploads = uploads.filter((u) => {
+    // Hide child file entries that belong to a folder upload
+    if (u.parentUploadId) return false
+    return u.status !== 'completed'
+  })
   const hasContent = items.length > 0 || activeUploads.length > 0
 
   if (!hasContent && !isLoading) return <FileGridEmptyState />

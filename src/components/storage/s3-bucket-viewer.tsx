@@ -15,6 +15,7 @@ import {
   S3ViewerUploadingFileListItem,
 } from '@/components/storage/s3-bucket-viewer-cards'
 import { useS3BucketViewer } from '@/components/storage/use-s3-bucket-viewer'
+import { useCallback, useRef } from 'react'
 
 type S3BucketViewerProps = {
   bucketName: string
@@ -22,9 +23,21 @@ type S3BucketViewerProps = {
 
 export function S3BucketViewer({ bucketName }: S3BucketViewerProps) {
   const viewer = useS3BucketViewer(bucketName)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
 
   const totalItems =
     viewer.folders.length + viewer.files.length + viewer.uploadingFiles.length
+
+  // Handle infinite scroll: load more when user scrolls near bottom (~70%)
+  const handleScroll = useCallback(() => {
+    const container = scrollContainerRef.current
+    if (!container || !viewer.hasNextPage || viewer.isFetchingNextPage) return
+    const { scrollTop, scrollHeight, clientHeight } = container
+    const progress = (scrollTop + clientHeight) / scrollHeight
+    if (progress >= 0.7) {
+      void viewer.loadMore()
+    }
+  }, [viewer])
 
   return (
     <section className="flex flex-col h-full bg-background">
@@ -125,7 +138,11 @@ export function S3BucketViewer({ bucketName }: S3BucketViewerProps) {
       </div>
 
       {/* File List Content */}
-      <div className="flex-1 overflow-y-auto border-x border-b rounded-b-lg">
+      <div
+        ref={scrollContainerRef}
+        onScroll={handleScroll}
+        className="flex-1 overflow-y-auto border-x border-b rounded-b-lg"
+      >
         {totalItems === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-muted-foreground py-12">
             {viewer.isLoading ? (
@@ -175,6 +192,12 @@ export function S3BucketViewer({ bucketName }: S3BucketViewerProps) {
                 }}
               />
             ))}
+          </div>
+        )}
+        {/* Load more trigger / spinner */}
+        {viewer.isFetchingNextPage && (
+          <div className="flex items-center justify-center py-3 border-t">
+            <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
           </div>
         )}
       </div>

@@ -15,6 +15,8 @@ export function UploadingCard({ upload, onRetry }: UploadingCardProps) {
   const isCompleted = upload.status === 'completed'
   const isFailed = upload.status === 'failed'
 
+  const isFolder = !!upload.folderName
+
   return (
     <div
       className={cn(
@@ -35,12 +37,14 @@ export function UploadingCard({ upload, onRetry }: UploadingCardProps) {
         {isFailed && <AlertCircle className="text-destructive h-4 w-4" />}
       </div>
 
-      {/* File info */}
+      {/* File/Folder info */}
       <div className="mb-3 truncate pr-6 text-sm font-medium">
-        {upload.file.name}
+        {isFolder ? upload.folderName : upload.file!.name}
       </div>
       <div className="text-muted-foreground mb-2 text-xs">
-        {formatFileSize(upload.file.size)}
+        {isFolder
+          ? `${upload.uploadedFilesCount || 0} / ${upload.totalFilesCount || 0} files`
+          : formatFileSize(upload.file!.size)}
       </div>
 
       {/* Progress */}
@@ -57,7 +61,7 @@ export function UploadingCard({ upload, onRetry }: UploadingCardProps) {
           <span className="text-destructive text-xs">
             {upload.error ?? 'Upload failed'}
           </span>
-          {onRetry && (
+          {onRetry && !isFolder && (
             <Button
               size="sm"
               variant="ghost"
