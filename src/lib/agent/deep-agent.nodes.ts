@@ -197,7 +197,7 @@ export const toolNode: GraphNode<typeof DeepAgentStateSchema> = async (
 export const reflectNode: GraphNode<typeof DeepAgentStateSchema> = async (
   state: DeepAgentState,
 ) => {
-  const metadata: DeepAgentState['metadata']
+  const metadata = state.metadata
 
   // Check if we've hit max iterations
   if (state.metadata.iteration >= state.metadata.maxIterations) {

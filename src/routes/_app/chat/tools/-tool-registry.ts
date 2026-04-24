@@ -8,6 +8,9 @@ for (const tool of MATH_TOOLS) {
   toolMap[tool.name] = tool
 }
 
+// Re-export MATH_TOOLS as mathTools for compatibility
+export const mathTools = MATH_TOOLS
+
 /**
  * Get all available tools
  */
