@@ -50,6 +50,8 @@ export const chatMessage = schema.table(
       .references(() => user.id, { onDelete: 'cascade' }),
     role: text('role').notNull(),
     content: text('content').notNull(),
+    toolCallId: text('tool_call_id'), // For tool response messages
+    toolCalls: text('tool_calls'), // JSON string for tool call requests
     regenerationCount: integer('regeneration_count').default(0).notNull(),
     isDeleted: integer('is_deleted', { mode: 'boolean' })
       .default(false)
@@ -70,7 +72,34 @@ export const chatMessage = schema.table(
     index('chatMessage_isDeleted_idx').on(table.isDeleted),
     check(
       'chat_message_role_check',
-      sql`${table.role} IN ('user', 'assistant')`,
+      sql`${table.role} IN ('user', 'assistant', 'tool')`,
+    ),
+  ],
+)
+
+export const chatMessageAttachment = schema.table(
+  'chat_message_attachment',
+  {
+    id: text('id')
+      .$defaultFn(() => crypto.randomUUID())
+      .primaryKey(),
+    messageId: text('message_id')
+      .notNull()
+      .references(() => chatMessage.id, { onDelete: 'cascade' }),
+    bucketName: text('bucket_name').notNull(),
+    objectKey: text('object_key').notNull(),
+    filename: text('filename').notNull(),
+    mimeType: text('mime_type'),
+    sizeBytes: integer('size_bytes', { mode: 'number' }),
+    createdAt: integer('created_at', { mode: 'timestamp' })
+      .$defaultFn(() => new Date())
+      .notNull(),
+  },
+  (table) => [
+    index('chatMessageAttachment_messageId_idx').on(table.messageId),
+    index('chatMessageAttachment_bucket_object_idx').on(
+      table.bucketName,
+      table.objectKey,
     ),
   ],
 )
@@ -114,6 +143,7 @@ export const chatMessageRelations = relations(chatMessage, ({ one, many }) => ({
     references: [user.id],
   }),
   versions: many(chatMessageVersion),
+  attachments: many(chatMessageAttachment),
 }))
 
 export const chatMessageVersionRelations = relations(
@@ -121,6 +151,16 @@ export const chatMessageVersionRelations = relations(
   ({ one }) => ({
     message: one(chatMessage, {
       fields: [chatMessageVersion.messageId],
+      references: [chatMessage.id],
+    }),
+  }),
+)
+
+export const chatMessageAttachmentRelations = relations(
+  chatMessageAttachment,
+  ({ one }) => ({
+    message: one(chatMessage, {
+      fields: [chatMessageAttachment.messageId],
       references: [chatMessage.id],
     }),
   }),

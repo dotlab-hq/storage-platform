@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/routes/api/v1/chat/**/*.ts",
+    "src/routes/_app/chat/**/*.ts",
+    "src/lib/token-counter.ts",
+    "src/lib/chat-assets-upload.ts",
+    "src/routes/api/v1/schemas.ts",
+    "src/routes/api/v1/models.ts",
+    "src/routes/api/v1/converters.ts"
+  ]
+}

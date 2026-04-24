@@ -25,6 +25,7 @@ import { Route as AppRecentIndexRouteImport } from './routes/_app/recent/index'
 import { Route as AppChatIndexRouteImport } from './routes/_app/chat/index'
 import { Route as AppBucketsIndexRouteImport } from './routes/_app/buckets/index'
 import { Route as AppAdminIndexRouteImport } from './routes/_app/admin/index'
+import { Route as ApiV1ModelsRouteImport } from './routes/api/v1/models'
 import { Route as ApiStorageS3RouteImport } from './routes/api/storage/s3'
 import { Route as ApiStorageFileLinkRouteImport } from './routes/api/storage/file-link'
 import { Route as ApiChatStreamRouteImport } from './routes/api/chat/stream'
@@ -32,6 +33,7 @@ import { Route as ApiChatCompletionsRouteImport } from './routes/api/chat/comple
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as AppBucketsBucketNameRouteImport } from './routes/_app/buckets/$bucketName'
 import { Route as ApiStorageS3IndexRouteImport } from './routes/api/storage/s3/index'
+import { Route as ApiV1ChatCompletionsRouteImport } from './routes/api/v1/chat/completions'
 import { Route as ApiStorageUploadProxyRouteImport } from './routes/api/storage/upload/proxy'
 import { Route as ApiStorageS3UploadStatusRouteImport } from './routes/api/storage/s3/upload-status'
 import { Route as ApiStorageS3ObjectSettingsRouteImport } from './routes/api/storage/s3/object-settings'
@@ -125,6 +127,11 @@ const AppAdminIndexRoute = AppAdminIndexRouteImport.update({
   path: '/admin/',
   getParentRoute: () => AppRoute,
 } as any)
+const ApiV1ModelsRoute = ApiV1ModelsRouteImport.update({
+  id: '/api/v1/models',
+  path: '/api/v1/models',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiStorageS3Route = ApiStorageS3RouteImport.update({
   id: '/api/storage/s3',
   path: '/api/storage/s3',
@@ -159,6 +166,11 @@ const ApiStorageS3IndexRoute = ApiStorageS3IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => ApiStorageS3Route,
+} as any)
+const ApiV1ChatCompletionsRoute = ApiV1ChatCompletionsRouteImport.update({
+  id: '/api/v1/chat/completions',
+  path: '/api/v1/chat/completions',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ApiStorageUploadProxyRoute = ApiStorageUploadProxyRouteImport.update({
   id: '/api/storage/upload/proxy',
@@ -247,6 +259,7 @@ export interface FileRoutesByFullPath {
   '/api/chat/stream': typeof ApiChatStreamRoute
   '/api/storage/file-link': typeof ApiStorageFileLinkRoute
   '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
+  '/api/v1/models': typeof ApiV1ModelsRoute
   '/admin/': typeof AppAdminIndexRoute
   '/buckets/': typeof AppBucketsIndexRoute
   '/chat/': typeof AppChatIndexRoute
@@ -268,6 +281,7 @@ export interface FileRoutesByFullPath {
   '/api/storage/s3/object-settings': typeof ApiStorageS3ObjectSettingsRoute
   '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
   '/api/storage/upload/proxy': typeof ApiStorageUploadProxyRoute
+  '/api/v1/chat/completions': typeof ApiV1ChatCompletionsRoute
   '/api/storage/s3/': typeof ApiStorageS3IndexRoute
   '/api/admin/storage-providers/$providerId/contents': typeof ApiAdminStorageProvidersProviderIdContentsRoute
 }
@@ -283,6 +297,7 @@ export interface FileRoutesByTo {
   '/api/chat/completions': typeof ApiChatCompletionsRoute
   '/api/chat/stream': typeof ApiChatStreamRoute
   '/api/storage/file-link': typeof ApiStorageFileLinkRoute
+  '/api/v1/models': typeof ApiV1ModelsRoute
   '/admin': typeof AppAdminIndexRoute
   '/buckets': typeof AppBucketsIndexRoute
   '/chat': typeof AppChatIndexRoute
@@ -304,6 +319,7 @@ export interface FileRoutesByTo {
   '/api/storage/s3/object-settings': typeof ApiStorageS3ObjectSettingsRoute
   '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
   '/api/storage/upload/proxy': typeof ApiStorageUploadProxyRoute
+  '/api/v1/chat/completions': typeof ApiV1ChatCompletionsRoute
   '/api/storage/s3': typeof ApiStorageS3IndexRoute
   '/api/admin/storage-providers/$providerId/contents': typeof ApiAdminStorageProvidersProviderIdContentsRoute
 }
@@ -322,6 +338,7 @@ export interface FileRoutesById {
   '/api/chat/stream': typeof ApiChatStreamRoute
   '/api/storage/file-link': typeof ApiStorageFileLinkRoute
   '/api/storage/s3': typeof ApiStorageS3RouteWithChildren
+  '/api/v1/models': typeof ApiV1ModelsRoute
   '/_app/admin/': typeof AppAdminIndexRoute
   '/_app/buckets/': typeof AppBucketsIndexRoute
   '/_app/chat/': typeof AppChatIndexRoute
@@ -343,6 +360,7 @@ export interface FileRoutesById {
   '/api/storage/s3/object-settings': typeof ApiStorageS3ObjectSettingsRoute
   '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
   '/api/storage/upload/proxy': typeof ApiStorageUploadProxyRoute
+  '/api/v1/chat/completions': typeof ApiV1ChatCompletionsRoute
   '/api/storage/s3/': typeof ApiStorageS3IndexRoute
   '/api/admin/storage-providers/$providerId/contents': typeof ApiAdminStorageProvidersProviderIdContentsRoute
 }
@@ -361,6 +379,7 @@ export interface FileRouteTypes {
     | '/api/chat/stream'
     | '/api/storage/file-link'
     | '/api/storage/s3'
+    | '/api/v1/models'
     | '/admin/'
     | '/buckets/'
     | '/chat/'
@@ -382,6 +401,7 @@ export interface FileRouteTypes {
     | '/api/storage/s3/object-settings'
     | '/api/storage/s3/upload-status'
     | '/api/storage/upload/proxy'
+    | '/api/v1/chat/completions'
     | '/api/storage/s3/'
     | '/api/admin/storage-providers/$providerId/contents'
   fileRoutesByTo: FileRoutesByTo
@@ -397,6 +417,7 @@ export interface FileRouteTypes {
     | '/api/chat/completions'
     | '/api/chat/stream'
     | '/api/storage/file-link'
+    | '/api/v1/models'
     | '/admin'
     | '/buckets'
     | '/chat'
@@ -418,6 +439,7 @@ export interface FileRouteTypes {
     | '/api/storage/s3/object-settings'
     | '/api/storage/s3/upload-status'
     | '/api/storage/upload/proxy'
+    | '/api/v1/chat/completions'
     | '/api/storage/s3'
     | '/api/admin/storage-providers/$providerId/contents'
   id:
@@ -435,6 +457,7 @@ export interface FileRouteTypes {
     | '/api/chat/stream'
     | '/api/storage/file-link'
     | '/api/storage/s3'
+    | '/api/v1/models'
     | '/_app/admin/'
     | '/_app/buckets/'
     | '/_app/chat/'
@@ -456,6 +479,7 @@ export interface FileRouteTypes {
     | '/api/storage/s3/object-settings'
     | '/api/storage/s3/upload-status'
     | '/api/storage/upload/proxy'
+    | '/api/v1/chat/completions'
     | '/api/storage/s3/'
     | '/api/admin/storage-providers/$providerId/contents'
   fileRoutesById: FileRoutesById
@@ -472,8 +496,10 @@ export interface RootRouteChildren {
   ApiChatStreamRoute: typeof ApiChatStreamRoute
   ApiStorageFileLinkRoute: typeof ApiStorageFileLinkRoute
   ApiStorageS3Route: typeof ApiStorageS3RouteWithChildren
+  ApiV1ModelsRoute: typeof ApiV1ModelsRoute
   DeviceApproveIndexRoute: typeof DeviceApproveIndexRoute
   ApiStorageUploadProxyRoute: typeof ApiStorageUploadProxyRoute
+  ApiV1ChatCompletionsRoute: typeof ApiV1ChatCompletionsRoute
   ApiAdminStorageProvidersProviderIdContentsRoute: typeof ApiAdminStorageProvidersProviderIdContentsRoute
 }
 
@@ -591,6 +617,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAdminIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/api/v1/models': {
+      id: '/api/v1/models'
+      path: '/api/v1/models'
+      fullPath: '/api/v1/models'
+      preLoaderRoute: typeof ApiV1ModelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/storage/s3': {
       id: '/api/storage/s3'
       path: '/api/storage/s3'
@@ -639,6 +672,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/api/storage/s3/'
       preLoaderRoute: typeof ApiStorageS3IndexRouteImport
       parentRoute: typeof ApiStorageS3Route
+    }
+    '/api/v1/chat/completions': {
+      id: '/api/v1/chat/completions'
+      path: '/api/v1/chat/completions'
+      fullPath: '/api/v1/chat/completions'
+      preLoaderRoute: typeof ApiV1ChatCompletionsRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/api/storage/upload/proxy': {
       id: '/api/storage/upload/proxy'
@@ -808,8 +848,10 @@ const rootRouteChildren: RootRouteChildren = {
   ApiChatStreamRoute: ApiChatStreamRoute,
   ApiStorageFileLinkRoute: ApiStorageFileLinkRoute,
   ApiStorageS3Route: ApiStorageS3RouteWithChildren,
+  ApiV1ModelsRoute: ApiV1ModelsRoute,
   DeviceApproveIndexRoute: DeviceApproveIndexRoute,
   ApiStorageUploadProxyRoute: ApiStorageUploadProxyRoute,
+  ApiV1ChatCompletionsRoute: ApiV1ChatCompletionsRoute,
   ApiAdminStorageProvidersProviderIdContentsRoute:
     ApiAdminStorageProvidersProviderIdContentsRoute,
 }
