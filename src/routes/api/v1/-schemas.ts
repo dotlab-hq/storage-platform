@@ -159,7 +159,7 @@ export const OpenAIChatCompletionsSchema = z
     // Generation parameters
     temperature: z.number().min(0).max(2).optional(),
     top_p: z.number().min(0).max(1).optional(),
-    max_tokens: z.number().int().min(1).max(8192).optional(),
+    max_tokens: z.number().int().min(1).optional(),
     frequency_penalty: z.number().min(-2).max(2).optional(),
     presence_penalty: z.number().min(-2).max(2).optional(),
     stop: z.union([z.string(), z.array(z.string())]).optional(),
