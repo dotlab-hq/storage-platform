@@ -174,7 +174,7 @@ export const OpenAIChatCompletionsSchema = z
           function: z.object({
             name: z.string(),
             description: z.string().optional(),
-            parameters: z.record(z.string(), z.unknown()).optional(),
+            parameters: z.unknown().optional(),
             strict: z.boolean().optional(),
           }),
         }),

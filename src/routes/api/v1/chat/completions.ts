@@ -55,7 +55,22 @@ export async function POST({ request }: { request: Request }) {
     }
 
     const body = await request.json()
+    console.log(
+      '[Chat] Full body (first 500 chars):',
+      JSON.stringify(body)?.slice(0, 500),
+    )
+    console.log(
+      '[Chat] body.tools is:',
+      typeof body.tools,
+      Array.isArray(body.tools)
+        ? 'array[' + body.tools?.length + ']'
+        : body.tools,
+    )
     const validated = OpenAIChatCompletionsSchema.parse(body)
+    console.log(
+      '[Chat] Parsed validated.tools:',
+      validated.tools?.map((t) => t.function.name),
+    )
 
     // Authentication (session OR API key)
     let currentUser = await getAuthenticatedUser().catch(() => null)
