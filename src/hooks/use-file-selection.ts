@@ -1,4 +1,5 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import { setHasSelectedFiles } from '@/lib/stores/file-selection-ui-store'
 import type { StorageItem } from '@/types/storage'
 
 type SelectionState = {
@@ -11,6 +12,14 @@ export function useFileSelection(items: StorageItem[]) {
     selectedIds: new Set(),
     lastSelectedId: null,
   })
+
+  useEffect(() => {
+    setHasSelectedFiles(state.selectedIds.size > 0)
+  }, [state.selectedIds.size])
+
+  useEffect(() => {
+    return () => setHasSelectedFiles(false)
+  }, [])
 
   const select = useCallback(
     (id: string, shiftKey = false) => {

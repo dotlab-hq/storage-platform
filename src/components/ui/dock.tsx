@@ -3,16 +3,7 @@ import { Link, useNavigate } from '@tanstack/react-router'
 import { motion } from 'motion/react'
 import { cn } from '@/lib/utils'
 import type { LucideIcon } from 'lucide-react'
-import {
-  Upload,
-  Settings,
-  Trash2,
-  Shield,
-  FolderOpen,
-  ArrowUp,
-  ArrowDown,
-} from 'lucide-react'
-import { useSortStore } from '@/stores/sort-store'
+import { Upload, Settings, Trash2, Shield, FolderOpen } from 'lucide-react'
 
 interface DockProps {
   className?: string
@@ -71,7 +62,6 @@ DockIconButton.displayName = 'DockIconButton'
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(
   ({ className }, ref) => {
     const navigate = useNavigate()
-    const sort = useSortStore()
 
     const handleUploadClick = () => {
       const url = new URL(window.location.href)
@@ -91,21 +81,6 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
       navigate({ to: '/' })
     }
 
-    const handleSortClick = () => {
-      sort.toggleOrder()
-    }
-
-    const getSortLabel = () => {
-      const fieldLabels: Record<string, string> = {
-        name: 'Name',
-        createdAt: 'Created',
-        updatedAt: 'Modified',
-        size: 'Size',
-      }
-      const orderLabel = sort.order === 'asc' ? ' ↑' : ' ↓'
-      return `Sort: ${fieldLabels[sort.field]}${orderLabel}`
-    }
-
     const items = [
       {
         icon: Upload,
@@ -117,11 +92,6 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
         label: 'Files',
         href: '/',
         onClick: handleFilesClick,
-      },
-      {
-        icon: sort.order === 'asc' ? ArrowUp : ArrowDown,
-        label: getSortLabel(),
-        onClick: handleSortClick,
       },
       {
         icon: Trash2,

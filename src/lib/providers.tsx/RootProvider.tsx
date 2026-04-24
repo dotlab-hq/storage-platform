@@ -8,7 +8,7 @@ import { useTinySession } from '@/hooks/use-tiny-session'
 import { useQuota } from '@/hooks/use-quota'
 import { ShaderBackdrop } from '@/components/background/shader-backdrop'
 import { lazy, Suspense } from 'react'
-import { PageSkeleton } from '@/components/ui/page-skeleton'
+import { useFileSelectionUiStore } from '@/lib/stores/file-selection-ui-store'
 
 const AppSidebar = lazy(() =>
   import('@/components/app-sidebar').then((m) => ({
@@ -41,7 +41,10 @@ export function RootLayout({ children }: RootLayoutProps) {
   const tinySession = useTinySession()
   const quota = useQuota()
   const location = useLocation()
-  const hideDock = shouldHideDock(location.pathname)
+  const hasSelectedFiles = useFileSelectionUiStore(
+    (state) => state.hasSelectedFiles,
+  )
+  const hideDock = shouldHideDock(location.pathname) || hasSelectedFiles
 
   return (
     <WebRTCProvider

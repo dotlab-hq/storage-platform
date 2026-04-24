@@ -1,6 +1,4 @@
 import { useState, useEffect, lazy, Suspense, useCallback, useRef } from 'react'
-import { Upload } from 'lucide-react'
-import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
@@ -15,8 +13,6 @@ import { useBulkActions } from '@/hooks/use-bulk-actions'
 import { useFolderHistory } from '@/hooks/use-folder-history'
 import { useHomeShellActions } from '@/hooks/use-home-shell-actions'
 import type { StorageItem } from '@/types/storage'
-import { HomeMetricsBar } from '@/components/storage/home-metrics-bar'
-import { FolderStatsPanel } from '@/components/storage/folder-stats-panel'
 import type { HomeLoaderData } from '../-home-server'
 
 const FileGrid = lazy(() =>
@@ -211,8 +207,6 @@ export function StoragePage({ initial, search }: StoragePageProps) {
             selection.clearSelection()
           }}
         >
-          <HomeMetricsBar />
-          <FolderStatsPanel folderId={storage.currentFolderId} />
           <Suspense
             fallback={<PageSkeleton className="mb-2" variant="default" />}
           >
