@@ -1,14 +1,21 @@
 import { ChatGoogle } from '@langchain/google'
 
-// Use a model that supports function calling (Gemini 1.5 Flash)
 const llm = new ChatGoogle({
-  model: 'gemini-1.5-flash',
-  // Optional: You can fine-tune temperature, etc.
+  model: 'gemma-4-31b-it',
+  thinkingConfig: {
+    includeThoughts: true,
+    thinkingLevel: 'high',
+  },
+  responseModalities: ['TEXT', 'IMAGE'],
 })
 
-// Fallback lightweight model (also supports function calling)
 export const Bllm = new ChatGoogle({
-  model: 'gemini-1.5-flash-lite',
+  model: 'gemini-3.1-flash-lite-preview',
+  thinkingConfig: {
+    includeThoughts: true,
+    thinkingLevel: 'high',
+  },
+  responseModalities: ['TEXT', 'IMAGE'],
 })
 
 export { llm }
