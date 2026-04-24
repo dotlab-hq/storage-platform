@@ -10,15 +10,11 @@ import { ChatEmptyState } from './-chat-empty-state'
 import type { ChatPageContentProps } from './-chat-page-content'
 
 const ChatMessageList = lazy(() =>
-  import('./-chat-message-list').then((module) => ({
-    default: module.ChatMessageList,
-  })),
+  import('./-chat-message-list').then((module) => module.ChatMessageList),
 )
 
 const ChatPageComposer = lazy(() =>
-  import('./-chat-page-composer').then((module) => ({
-    default: module.ChatPageComposer,
-  })),
+  import('./-chat-page-composer').then((module) => module.ChatPageComposer),
 )
 
 export function ChatPageContentRich({
