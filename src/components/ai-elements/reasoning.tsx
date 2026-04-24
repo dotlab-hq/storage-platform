@@ -7,12 +7,8 @@ import {
   CollapsibleTrigger,
 } from '@/components/ui/collapsible'
 import { cn } from '@/lib/utils'
-import { cjk } from '@streamdown/cjk'
-import { code } from '@streamdown/code'
-import { math } from '@streamdown/math'
-import { mermaid } from '@streamdown/mermaid'
 import { BrainIcon, ChevronDownIcon } from 'lucide-react'
-import type { ComponentProps, ReactNode } from 'react'
+import type { ComponentProps, ReactNode, Suspense } from 'react'
 import {
   createContext,
   memo,
@@ -22,10 +18,14 @@ import {
   useMemo,
   useRef,
   useState,
+  lazy,
 } from 'react'
-import { Streamdown } from 'streamdown'
 
 import { Shimmer } from './shimmer'
+
+const StreamdownRenderer = lazy(
+  () => import('@/components/ai-elements/streamdown-renderer'),
+)
 
 interface ReasoningContextValue {
   isStreaming: boolean
@@ -204,7 +204,20 @@ export type ReasoningContentProps = ComponentProps<
   children: string
 }
 
-const streamdownPlugins = { cjk, code, math, mermaid }
+function ReasoningContentInner({
+  className,
+  children,
+  ...props
+}: ReasoningContentProps) {
+  return (
+    <StreamdownRenderer
+      className={cn('text-sm text-muted-foreground', className)}
+      isStreaming={false}
+    >
+      {children}
+    </StreamdownRenderer>
+  )
+}
 
 export const ReasoningContent = memo(
   ({ className, children, ...props }: ReasoningContentProps) => (
@@ -216,7 +229,11 @@ export const ReasoningContent = memo(
       )}
       {...props}
     >
-      <Streamdown plugins={streamdownPlugins}>{children}</Streamdown>
+      <Suspense
+        fallback={<div className="h-32 bg-muted/20 animate-pulse rounded-md" />}
+      >
+        <ReasoningContentInner>{children}</ReasoningContentInner>
+      </Suspense>
     </CollapsibleContent>
   ),
 )

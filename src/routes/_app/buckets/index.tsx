@@ -1,8 +1,16 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { BucketManager } from '@/components/storage/bucket-manager'
+import { lazy, Suspense } from 'react'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
+import { PageSkeleton } from '@/components/ui/page-skeleton'
+
+const BucketManager = lazy(() =>
+  import('@/components/storage/bucket-manager').then((m) => ({
+    default: m.BucketManager,
+  })),
+)
+
 export const Route = createFileRoute('/_app/buckets/')({
   server: {
     middleware: [isAuthenticatedMiddleware],
@@ -22,7 +30,11 @@ function BucketsPage() {
         <h1 className="text-sm font-semibold">Buckets</h1>
       </header>
       <div className="p-4">
-        <BucketManager />
+        <Suspense
+          fallback={<PageSkeleton className="mb-2" variant="default" />}
+        >
+          <BucketManager />
+        </Suspense>
       </div>
     </SidebarInset>
   )

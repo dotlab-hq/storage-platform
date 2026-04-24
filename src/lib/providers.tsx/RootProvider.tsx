@@ -6,9 +6,20 @@ import { SidebarProvider } from '@/components/ui/sidebar'
 import { WebRTCProvider } from '@/hooks/use-webrtc'
 import { useTinySession } from '@/hooks/use-tiny-session'
 import { useQuota } from '@/hooks/use-quota'
-import { AppSidebar } from '@/components/app-sidebar'
 import { ShaderBackdrop } from '@/components/background/shader-backdrop'
-import { Dock } from '@/components/ui/dock'
+import { lazy, Suspense } from 'react'
+import { PageSkeleton } from '@/components/ui/page-skeleton'
+
+const AppSidebar = lazy(() =>
+  import('@/components/app-sidebar').then((m) => ({
+    default: m.AppSidebar,
+  })),
+)
+const Dock = lazy(() =>
+  import('@/components/ui/dock').then((m) => ({
+    default: m.Dock,
+  })),
+)
 
 export type RootLayoutProps = {
   children: React.ReactNode
@@ -39,10 +50,16 @@ export function RootLayout({ children }: RootLayoutProps) {
       <div className="min-h-screen">
         <ShaderBackdrop />
         <SidebarProvider>
-          <AppSidebar quota={quota} />
+          <Suspense fallback={null}>
+            <AppSidebar quota={quota} />
+          </Suspense>
           <div className="flex-1 flex flex-col min-h-[100dvh]">
             {children}
-            {!hideDock && <Dock />}
+            {!hideDock && (
+              <Suspense fallback={null}>
+                <Dock />
+              </Suspense>
+            )}
           </div>
         </SidebarProvider>
       </div>

@@ -1,27 +1,14 @@
-import { useEffect, useMemo, useState } from 'react'
-import { Streamdown } from 'streamdown'
-import { cjk } from '@streamdown/cjk'
-import { code } from '@streamdown/code'
-import { math } from '@streamdown/math'
+import { useEffect, useMemo, useState, lazy, Suspense } from 'react'
 import { cn } from '@/lib/utils'
-import {
-  JSXPreview,
-  JSXPreviewContent,
-  JSXPreviewError,
-} from '@/components/ai-elements/jsx-preview'
-import {
-  Artifact,
-  ArtifactAction,
-  ArtifactActions,
-  ArtifactClose,
-  ArtifactContent,
-  ArtifactDescription,
-  ArtifactHeader,
-  ArtifactTitle,
-} from '@/components/ai-elements/artifact'
-import { Canvas } from '@/components/ai-elements/canvas'
 
 type MermaidPluginType = (typeof import('@streamdown/mermaid'))['mermaid']
+
+const StreamdownRenderer = lazy(
+  () => import('@/components/ai-elements/streamdown-renderer'),
+)
+const ArtifactPreview = lazy(
+  () => import('@/components/ai-elements/artifact-preview'),
+)
 
 const JSX_FENCE_PATTERN = /```(?:tsx|jsx)\s*([\s\S]*?)```/i
 const ARTIFACT_MARKERS = [
@@ -70,22 +57,6 @@ export function ChatMessageResponse({
   )
 
   const artifact = useMemo(() => extractArtifactBlock(content), [content])
-
-  const artifactComponents = useMemo(
-    () => ({
-      Artifact,
-      ArtifactAction,
-      ArtifactActions,
-      ArtifactClose,
-      ArtifactContent,
-      ArtifactDescription,
-      ArtifactHeader,
-      ArtifactTitle,
-      Canvas,
-    }),
-    [],
-  )
-
   const markdownContent = artifact ? artifact.markdown : content
 
   const shouldLoadMermaid = useMemo(
@@ -111,33 +82,28 @@ export function ChatMessageResponse({
     }
   }, [mermaidPlugin, shouldLoadMermaid])
 
-  const plugins = mermaidPlugin
-    ? { cjk, code, math, mermaid: mermaidPlugin }
-    : { cjk, code, math }
-
   return (
     <div className="space-y-3">
       {artifact ? (
-        <div className="overflow-hidden rounded-md border bg-muted/20 p-3">
-          <JSXPreview jsx={artifact.jsx} components={artifactComponents}>
-            <JSXPreviewError />
-            <JSXPreviewContent />
-          </JSXPreview>
-        </div>
+        <Suspense
+          fallback={
+            <div className="h-32 bg-muted/20 animate-pulse rounded-md border" />
+          }
+        >
+          <ArtifactPreview jsx={artifact.jsx} />
+        </Suspense>
       ) : null}
 
       {markdownContent.length > 0 ? (
-        <Streamdown
-          animated
-          className={cn(
-            'size-full [&>*:first-child]:mt-0 [&>*:last-child]:mb-0',
-            className,
-          )}
-          isAnimating={isStreaming}
-          plugins={plugins}
+        <Suspense
+          fallback={
+            <div className="h-32 bg-muted/20 animate-pulse rounded-md" />
+          }
         >
-          {markdownContent}
-        </Streamdown>
+          <StreamdownRenderer className={className} isStreaming={isStreaming}>
+            {markdownContent}
+          </StreamdownRenderer>
+        </Suspense>
       ) : null}
     </div>
   )

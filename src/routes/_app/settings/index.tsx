@@ -1,17 +1,43 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, lazy, Suspense } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { getSettingsSnapshotFn } from './-settings-server'
 import { updateSettings } from './-store'
-import { ProfileSection } from './-components/profile-section'
-import { AuthMethodsSection } from './-components/auth-methods-section'
-import { TwoFactorSection } from './-components/two-factor-section'
-import { PasswordSection } from './-components/password-section'
-import { TinySessionsSection } from './-components/tiny-sessions-section'
-import { ApiKeysSection } from './-components/api-keys-section'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
+import { PageSkeleton } from '@/components/ui/page-skeleton'
+
+const ProfileSection = lazy(() =>
+  import('./-components/profile-section').then((m) => ({
+    default: m.ProfileSection,
+  })),
+)
+const AuthMethodsSection = lazy(() =>
+  import('./-components/auth-methods-section').then((m) => ({
+    default: m.AuthMethodsSection,
+  })),
+)
+const TwoFactorSection = lazy(() =>
+  import('./-components/two-factor-section').then((m) => ({
+    default: m.TwoFactorSection,
+  })),
+)
+const PasswordSection = lazy(() =>
+  import('./-components/password-section').then((m) => ({
+    default: m.PasswordSection,
+  })),
+)
+const TinySessionsSection = lazy(() =>
+  import('./-components/tiny-sessions-section').then((m) => ({
+    default: m.TinySessionsSection,
+  })),
+)
+const ApiKeysSection = lazy(() =>
+  import('./-components/api-keys-section').then((m) => ({
+    default: m.ApiKeysSection,
+  })),
+)
 
 export const Route = createFileRoute('/_app/settings/')({
   server: {
@@ -78,16 +104,28 @@ function SettingsPage() {
               ))}
             </TabsList>
           </Tabs>
-          {activeTab === 'profile' && <ProfileSection initial={initial} />}
-          {activeTab === 'auth' && <AuthMethodsSection initial={initial} />}
-          {activeTab === '2fa' && <TwoFactorSection />}
-          {activeTab === 'password' && <PasswordSection />}
-          {activeTab === 'sessions' && (
-            <TinySessionsSection initial={initial} />
-          )}
-          {activeTab === 'api-keys' && (
-            <ApiKeysSection initialKeys={initial.apiKeys} />
-          )}
+          <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
+            {activeTab === 'profile' && <ProfileSection initial={initial} />}
+          </Suspense>
+          <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
+            {activeTab === 'auth' && <AuthMethodsSection initial={initial} />}
+          </Suspense>
+          <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
+            {activeTab === '2fa' && <TwoFactorSection />}
+          </Suspense>
+          <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
+            {activeTab === 'password' && <PasswordSection />}
+          </Suspense>
+          <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
+            {activeTab === 'sessions' && (
+              <TinySessionsSection initial={initial} />
+            )}
+          </Suspense>
+          <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
+            {activeTab === 'api-keys' && (
+              <ApiKeysSection initialKeys={initial.apiKeys} />
+            )}
+          </Suspense>
         </main>
       </div>
     </SidebarInset>

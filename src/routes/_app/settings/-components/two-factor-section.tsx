@@ -181,7 +181,7 @@ export function TwoFactorSection() {
                   </p>
                 </div>
               </div>
-                <div className="flex items-end gap-2">
+              <div className="flex items-end gap-2">
                 <div className="flex-1 space-y-2">
                   <Label>Authenticator Code</Label>
                   <Input
@@ -199,8 +199,6 @@ export function TwoFactorSection() {
                   Verify
                 </Button>
               </div>
-            </div>
-
             </div>
 
             {/* Backup Codes Table */}

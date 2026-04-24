@@ -15,6 +15,58 @@ const config = defineConfig({
   build: {
     rollupOptions: {
       external: ['cloudflare:workers'],
+      output: {
+        manualChunks(id) {
+          const heavyLibs = [
+            'react',
+            'react-dom',
+            '@tanstack/react-query',
+            '@tanstack/react-router',
+            '@tanstack/react-query-devtools',
+            '@tanstack/react-router-ssr-query',
+            '@tanstack/react-start',
+            '@tanstack/store',
+            '@tanstack/db',
+            'react-jsx-parser',
+            '@xyflow/react',
+            'shiki',
+            'streamdown',
+            '@streamdown/code',
+            '@streamdown/cjk',
+            '@streamdown/math',
+            '@streamdown/mermaid',
+            'motion',
+            'mermaid',
+            'quill',
+            'highlight.js',
+            'katex',
+            'zustand',
+            '@rive-app/react-webgl2',
+          ]
+
+          if (id.includes('node_modules') && !id.includes('cloudflare:')) {
+            // Find the package name after the *last* node_modules segment to support pnpm's layout:
+            // node_modules/.pnpm/.../node_modules/<package-name>/...
+            const marker = 'node_modules/'
+            const lastIdx = id.lastIndexOf(marker)
+            if (lastIdx !== -1) {
+              const after = id.slice(lastIdx + marker.length)
+              // after starts with either '<package>' or '@<scope>/<package>'
+              const segments = after.split('/')
+              let pkg: string
+              if (segments[0].startsWith('@')) {
+                pkg = `${segments[0]}/${segments[1]}`
+              } else {
+                pkg = segments[0]
+              }
+              if (heavyLibs.includes(pkg)) {
+                return pkg.replace('@', '').replace(/\//g, '-')
+              }
+            }
+            // For non-heavy node_modules, fall through (no split)
+          }
+        },
+      },
     },
   },
   plugins: [
