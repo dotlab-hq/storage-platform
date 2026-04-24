@@ -1,8 +1,6 @@
 import { StateGraph, START, END, type GraphNode } from '@langchain/langgraph'
 import type { DeepAgentState } from './deep-agent.state'
-import { StateGraph, START, END, type GraphNode } from '@langchain/langgraph'
 import { DeepAgentStateSchema } from './deep-agent.state'
-import type { DeepAgentState } from './deep-agent.state'
 import {
   startNode,
   createAgentNode,
