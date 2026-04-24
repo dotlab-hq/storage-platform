@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import { toast } from '@/components/ui/sonner'
 import { Button } from '@/components/ui/button'
@@ -5,12 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { KeyRound, Lock } from 'lucide-react'
 import { updateSettings, useSettingsStore } from '../-store'
-
-// Dynamically load server function
-async function loadChangePasswordSettingsFn() {
-  const mod = await import('../-settings-server')
-  return mod.changePasswordSettingsFn
-}
+import { changePasswordSettingsFn } from '../-settings-server'
 
 export function PasswordSection() {
   const [passwords, setPasswords] = useState({
@@ -24,8 +21,7 @@ export function PasswordSection() {
   const changePassword = async () => {
     updateSettings({ isChangingPassword: true })
     try {
-      const fn = await loadChangePasswordSettingsFn()
-      await fn({ data: passwords })
+      await changePasswordSettingsFn({ data: passwords })
       setPasswords({ currentPassword: '', newPassword: '' })
       toast.success('Password updated.')
     } catch (error) {

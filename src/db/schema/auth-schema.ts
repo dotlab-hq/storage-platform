@@ -115,6 +115,28 @@ export const twoFactor = sqliteTable(
   ],
 )
 
+export const deviceCode = sqliteTable(
+  'device_code',
+  {
+    id: text('id').primaryKey(),
+    deviceCode: text('device_code').notNull(),
+    userCode: text('user_code').notNull().unique(),
+    userId: text('user_id').references(() => user.id, { onDelete: 'cascade' }),
+    clientId: text('client_id').notNull(),
+    scope: text('scope'),
+    status: text('status').notNull().default('pending'),
+    expiresAt: integer('expires_at', { mode: 'timestamp_ms' }).notNull(),
+    lastPolledAt: integer('last_polled_at', { mode: 'timestamp_ms' }),
+    pollingInterval: integer('polling_interval').default(5),
+  },
+  (table) => [
+    index('deviceCode_deviceCode_idx').on(table.deviceCode),
+    index('deviceCode_userCode_idx').on(table.userCode),
+    index('deviceCode_userId_idx').on(table.userId),
+    index('deviceCode_status_idx').on(table.status),
+  ],
+)
+
 export const apikey = sqliteTable(
   'apikey',
   {
@@ -155,6 +177,7 @@ export const userRelations = relations(user, ({ many }) => ({
   accounts: many(account),
   twoFactors: many(twoFactor),
   apikeys: many(apikey),
+  deviceCodes: many(deviceCode),
 }))
 
 export const sessionRelations = relations(session, ({ one }) => ({
@@ -174,6 +197,13 @@ export const accountRelations = relations(account, ({ one }) => ({
 export const twoFactorRelations = relations(twoFactor, ({ one }) => ({
   user: one(user, {
     fields: [twoFactor.userId],
+    references: [user.id],
+  }),
+}))
+
+export const deviceCodeRelations = relations(deviceCode, ({ one }) => ({
+  user: one(user, {
+    fields: [deviceCode.userId],
     references: [user.id],
   }),
 }))

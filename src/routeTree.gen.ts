@@ -12,9 +12,11 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SwRouteImport } from './routes/sw'
 import { Route as HotRouteImport } from './routes/hot'
 import { Route as AppRouteImport } from './routes/_app'
+import { Route as DeviceIndexRouteImport } from './routes/device/index'
 import { Route as AuthIndexRouteImport } from './routes/auth/index'
 import { Route as AppIndexRouteImport } from './routes/_app/index'
 import { Route as ShareTokenRouteImport } from './routes/share/$token'
+import { Route as DeviceApproveIndexRouteImport } from './routes/device/approve/index'
 import { Route as AppWebrtcIndexRouteImport } from './routes/_app/webrtc/index'
 import { Route as AppTrashIndexRouteImport } from './routes/_app/trash/index'
 import { Route as AppSharedIndexRouteImport } from './routes/_app/shared/index'
@@ -58,6 +60,11 @@ const AppRoute = AppRouteImport.update({
   id: '/_app',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DeviceIndexRoute = DeviceIndexRouteImport.update({
+  id: '/device/',
+  path: '/device/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthIndexRoute = AuthIndexRouteImport.update({
   id: '/auth/',
   path: '/auth/',
@@ -71,6 +78,11 @@ const AppIndexRoute = AppIndexRouteImport.update({
 const ShareTokenRoute = ShareTokenRouteImport.update({
   id: '/share/$token',
   path: '/share/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DeviceApproveIndexRoute = DeviceApproveIndexRouteImport.update({
+  id: '/device/approve/',
+  path: '/device/approve/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppWebrtcIndexRoute = AppWebrtcIndexRouteImport.update({
@@ -228,6 +240,7 @@ export interface FileRoutesByFullPath {
   '/sw': typeof SwRoute
   '/share/$token': typeof ShareTokenRoute
   '/auth/': typeof AuthIndexRoute
+  '/device/': typeof DeviceIndexRoute
   '/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/chat/completions': typeof ApiChatCompletionsRoute
@@ -242,6 +255,7 @@ export interface FileRoutesByFullPath {
   '/shared/': typeof AppSharedIndexRoute
   '/trash/': typeof AppTrashIndexRoute
   '/webrtc/': typeof AppWebrtcIndexRoute
+  '/device/approve/': typeof DeviceApproveIndexRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
@@ -263,6 +277,7 @@ export interface FileRoutesByTo {
   '/share/$token': typeof ShareTokenRoute
   '/': typeof AppIndexRoute
   '/auth': typeof AuthIndexRoute
+  '/device': typeof DeviceIndexRoute
   '/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/chat/completions': typeof ApiChatCompletionsRoute
@@ -276,6 +291,7 @@ export interface FileRoutesByTo {
   '/shared': typeof AppSharedIndexRoute
   '/trash': typeof AppTrashIndexRoute
   '/webrtc': typeof AppWebrtcIndexRoute
+  '/device/approve': typeof DeviceApproveIndexRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
@@ -299,6 +315,7 @@ export interface FileRoutesById {
   '/share/$token': typeof ShareTokenRoute
   '/_app/': typeof AppIndexRoute
   '/auth/': typeof AuthIndexRoute
+  '/device/': typeof DeviceIndexRoute
   '/_app/buckets/$bucketName': typeof AppBucketsBucketNameRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/chat/completions': typeof ApiChatCompletionsRoute
@@ -313,6 +330,7 @@ export interface FileRoutesById {
   '/_app/shared/': typeof AppSharedIndexRoute
   '/_app/trash/': typeof AppTrashIndexRoute
   '/_app/webrtc/': typeof AppWebrtcIndexRoute
+  '/device/approve/': typeof DeviceApproveIndexRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
@@ -336,6 +354,7 @@ export interface FileRouteTypes {
     | '/sw'
     | '/share/$token'
     | '/auth/'
+    | '/device/'
     | '/buckets/$bucketName'
     | '/api/auth/$'
     | '/api/chat/completions'
@@ -350,6 +369,7 @@ export interface FileRouteTypes {
     | '/shared/'
     | '/trash/'
     | '/webrtc/'
+    | '/device/approve/'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
     | '/api/storage/s3/bucket-items'
@@ -371,6 +391,7 @@ export interface FileRouteTypes {
     | '/share/$token'
     | '/'
     | '/auth'
+    | '/device'
     | '/buckets/$bucketName'
     | '/api/auth/$'
     | '/api/chat/completions'
@@ -384,6 +405,7 @@ export interface FileRouteTypes {
     | '/shared'
     | '/trash'
     | '/webrtc'
+    | '/device/approve'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
     | '/api/storage/s3/bucket-items'
@@ -406,6 +428,7 @@ export interface FileRouteTypes {
     | '/share/$token'
     | '/_app/'
     | '/auth/'
+    | '/device/'
     | '/_app/buckets/$bucketName'
     | '/api/auth/$'
     | '/api/chat/completions'
@@ -420,6 +443,7 @@ export interface FileRouteTypes {
     | '/_app/shared/'
     | '/_app/trash/'
     | '/_app/webrtc/'
+    | '/device/approve/'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
     | '/api/storage/s3/bucket-items'
@@ -442,11 +466,13 @@ export interface RootRouteChildren {
   SwRoute: typeof SwRoute
   ShareTokenRoute: typeof ShareTokenRoute
   AuthIndexRoute: typeof AuthIndexRoute
+  DeviceIndexRoute: typeof DeviceIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   ApiChatCompletionsRoute: typeof ApiChatCompletionsRoute
   ApiChatStreamRoute: typeof ApiChatStreamRoute
   ApiStorageFileLinkRoute: typeof ApiStorageFileLinkRoute
   ApiStorageS3Route: typeof ApiStorageS3RouteWithChildren
+  DeviceApproveIndexRoute: typeof DeviceApproveIndexRoute
   ApiStorageUploadProxyRoute: typeof ApiStorageUploadProxyRoute
   ApiAdminStorageProvidersProviderIdContentsRoute: typeof ApiAdminStorageProvidersProviderIdContentsRoute
 }
@@ -474,6 +500,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/device/': {
+      id: '/device/'
+      path: '/device'
+      fullPath: '/device/'
+      preLoaderRoute: typeof DeviceIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/auth/': {
       id: '/auth/'
       path: '/auth'
@@ -493,6 +526,13 @@ declare module '@tanstack/react-router' {
       path: '/share/$token'
       fullPath: '/share/$token'
       preLoaderRoute: typeof ShareTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/device/approve/': {
+      id: '/device/approve/'
+      path: '/device/approve'
+      fullPath: '/device/approve/'
+      preLoaderRoute: typeof DeviceApproveIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_app/webrtc/': {
@@ -762,11 +802,13 @@ const rootRouteChildren: RootRouteChildren = {
   SwRoute: SwRoute,
   ShareTokenRoute: ShareTokenRoute,
   AuthIndexRoute: AuthIndexRoute,
+  DeviceIndexRoute: DeviceIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   ApiChatCompletionsRoute: ApiChatCompletionsRoute,
   ApiChatStreamRoute: ApiChatStreamRoute,
   ApiStorageFileLinkRoute: ApiStorageFileLinkRoute,
   ApiStorageS3Route: ApiStorageS3RouteWithChildren,
+  DeviceApproveIndexRoute: DeviceApproveIndexRoute,
   ApiStorageUploadProxyRoute: ApiStorageUploadProxyRoute,
   ApiAdminStorageProvidersProviderIdContentsRoute:
     ApiAdminStorageProvidersProviderIdContentsRoute,

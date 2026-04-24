@@ -1,16 +1,13 @@
+'use client'
+
 import { toast } from '@/components/ui/sonner'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { updateSettings, useSettingsStore } from '../-store'
+import { updateProfileSettingsFn } from '../-settings-server'
 import { useRef } from 'react'
-
-// Dynamically load server function
-async function loadUpdateProfileSettingsFn() {
-  const mod = await import('../-settings-server')
-  return mod.updateProfileSettingsFn
-}
 
 export function ProfileSection({
   initial,
@@ -46,8 +43,7 @@ export function ProfileSection({
     const previous = { name: initial.user.name, image: initial.user.image }
     updateSettings({ isSavingProfile: true })
     try {
-      const fn = await loadUpdateProfileSettingsFn()
-      await fn({ data: { name, image } })
+      await updateProfileSettingsFn({ data: { name, image } })
       toast.success('Profile saved.')
     } catch (error) {
       updateSettings({ name: previous.name, image: previous.image ?? '' })

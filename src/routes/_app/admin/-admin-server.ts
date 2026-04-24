@@ -2,6 +2,7 @@ import { db } from '@/db'
 import { file } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'
 import { user } from '@/db/schema/auth-schema'
+import { userStorage } from '@/db/schema/storage'
 import { encryptProviderSecret } from '@/lib/provider-crypto'
 import { requireAdminUser } from '@/lib/server-auth'
 import {
@@ -13,6 +14,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { and, count, eq, ne } from 'drizzle-orm'
 import { z } from 'zod'
 import { UNDETERMINED_PROVIDER_VALUE } from '@/lib/storage-provider-constants'
+import { DEFAULT_FILE_SIZE_LIMIT_BYTES } from '@/lib/storage-quota-constants'
 import { logActivity } from '@/lib/activity'
 
 const SaveProviderSchema = z.object({
@@ -452,18 +454,37 @@ export const updateUserStorageLimitFn = createServerFn({ method: 'POST' })
   .handler(async ({ data }) => {
     const adminUser = await requireAdminUser()
     try {
-      const [updated] = await db
-        .update(user)
-        .set({ storageLimitBytes: data.storageLimitBytes })
-        .where(eq(user.id, data.userId))
-        .returning({
+      const [userRecord] = await db
+        .select({
           id: user.id,
           name: user.name,
-          storageLimitBytes: user.storageLimitBytes,
+        })
+        .from(user)
+        .where(eq(user.id, data.userId))
+
+      if (!userRecord) {
+        throw new Error('User not found')
+      }
+
+      const [storageRecord] = await db
+        .insert(userStorage)
+        .values({
+          userId: data.userId,
+          allocatedStorage: data.storageLimitBytes,
+          usedStorage: 0,
+          fileSizeLimit: DEFAULT_FILE_SIZE_LIMIT_BYTES,
+        })
+        .onConflictDoUpdate({
+          target: userStorage.userId,
+          set: { allocatedStorage: data.storageLimitBytes },
+        })
+        .returning({
+          userId: userStorage.userId,
+          allocatedStorage: userStorage.allocatedStorage,
         })
 
-      if (!updated) {
-        throw new Error('User not found')
+      if (!storageRecord) {
+        throw new Error('Failed to update storage limit')
       }
 
       await logActivity({
@@ -475,7 +496,14 @@ export const updateUserStorageLimitFn = createServerFn({ method: 'POST' })
         meta: { storageLimitBytes: data.storageLimitBytes },
       })
 
-      return { success: true, user: updated }
+      return {
+        success: true,
+        user: {
+          id: userRecord.id,
+          name: userRecord.name,
+          storageLimitBytes: storageRecord.allocatedStorage,
+        },
+      }
     } catch (error) {
       await logActivity({
         userId: adminUser.id,

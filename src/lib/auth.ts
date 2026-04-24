@@ -2,6 +2,7 @@ import { betterAuth } from 'better-auth'
 import { tanstackStartCookies } from 'better-auth/tanstack-start'
 import { admin } from 'better-auth/plugins/admin'
 import { twoFactor } from 'better-auth/plugins/two-factor'
+import { deviceAuthorization } from 'better-auth/plugins/device-authorization'
 import { drizzleAdapter } from 'better-auth/adapters/drizzle'
 import { db } from '@/db' // your drizzle instance
 import { USER_ROLES } from '@/lib/authz'
@@ -89,5 +90,6 @@ export const auth = betterAuth({
       adminRoles: [USER_ROLES.admin],
     }),
     twoFactor(),
+    // deviceAuthorization({ verificationUri: '/device' }),
   ],
 })

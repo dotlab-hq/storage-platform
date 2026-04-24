@@ -1,7 +1,8 @@
 import { user } from '@/db/schema/auth-schema'
-import { file } from '@/db/schema/storage'
+import { file, userStorage } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'
 import { count, eq, sql, sum } from 'drizzle-orm'
+import { DEFAULT_ALLOCATED_STORAGE_BYTES } from '@/lib/storage-quota-constants'
 
 async function loadDb() {
   const { db } = await import('@/db')
@@ -109,7 +110,7 @@ export async function getUsersWithUsage() {
     role: string | null
     banned: boolean
     usedStorage: number | string | null
-    storageLimitBytes: number | null
+    allocatedStorage: number | string | null
     createdAt: number
   }>(sql`
         SELECT 
@@ -119,20 +120,16 @@ export async function getUsersWithUsage() {
           u.is_admin AS "isAdmin",
           u.role,
           u.banned,
-          COALESCE(SUM(f.size_in_bytes), 0) AS "usedStorage",
-          u.storage_limit_bytes AS "storageLimitBytes",
+          COALESCE(us.used_storage, 0) AS "usedStorage",
+          COALESCE(us.allocated_storage, ${DEFAULT_ALLOCATED_STORAGE_BYTES}) AS "allocatedStorage",
           u.created_at AS "createdAt"
         FROM "user" u
-        LEFT JOIN "file" f ON f.user_id = u.id AND f.is_deleted = false
-        GROUP BY u.id, u.name, u.email, u.is_admin, u.role, u.banned, u.storage_limit_bytes, u.created_at
+        LEFT JOIN "user_storage" us ON us.user_id = u.id
         ORDER BY u.created_at DESC
     `)
   return rows.map((row) => ({
     ...row,
     usedStorage: toNonNegativeBytes(row.usedStorage),
-    storageLimitBytes:
-      row.storageLimitBytes === null
-        ? 10 * 1024 * 1024 * 1024
-        : toNonNegativeBytes(row.storageLimitBytes),
+    storageLimitBytes: toNonNegativeBytes(row.allocatedStorage),
   }))
 }

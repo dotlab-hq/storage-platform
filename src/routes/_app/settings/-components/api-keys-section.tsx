@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { Key, Trash2, Copy, Loader2, KeyRound } from 'lucide-react'
@@ -44,7 +46,9 @@ export function ApiKeysSection({
 
   const createMutation = useMutation({
     mutationFn: async (name: string) => {
-      return createChatApiKeyFn({ data: { name } })
+      return createChatApiKeyFn({
+        data: { name, scopes: ['chat:completions'] },
+      })
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['settings'] })
@@ -188,7 +192,7 @@ export function ApiKeysSection({
                     {key.keyPreview}...
                   </TableCell>
                   <TableCell>
-                    <Badge variant="outline">{key.scope}</Badge>
+                    <Badge variant="outline">{key.scopes.join(', ')}</Badge>
                   </TableCell>
                   <TableCell className="text-muted-foreground">
                     {new Date(key.createdAt).toLocaleDateString()}
