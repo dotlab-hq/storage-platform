@@ -11,6 +11,7 @@ type StreamdownRendererProps = {
   children: string
   className?: string
   isStreaming?: boolean
+  isAnimating?: boolean
 }
 
 export function StreamdownRenderer({

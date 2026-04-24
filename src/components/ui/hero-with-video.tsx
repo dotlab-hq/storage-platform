@@ -23,7 +23,6 @@ interface NavbarHeroProps {
 const NavbarHero: React.FC<NavbarHeroProps> = ({
   brandName = 'DOT',
   heroTitle = 'Storage for Gods',
-  heroSubtitle = 'Join the community',
   heroDescription = 'Your files, anywhere. Secure cloud storage powered by S3-compatible providers.',
   emailPlaceholder = 'enter@email.com',
 }) => {

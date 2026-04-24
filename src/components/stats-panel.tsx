@@ -1,14 +1,15 @@
 'use client'
 
-import * as React from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { BarChart3, Files, Folder, HardDrive } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 import { formatBytes } from '@/lib/format-bytes'
-import type { GetHomeDashboardDataFn } from '@/routes/-home-server'
+import type { getHomeDashboardDataFn } from '@/routes/-home-server'
 
-async function loadGetHomeDashboardDataFn(): Promise<GetHomeDashboardDataFn> {
+async function loadGetHomeDashboardDataFn(): Promise<
+  typeof getHomeDashboardDataFn
+> {
   const mod = await import('@/routes/-home-server')
   return mod.getHomeDashboardDataFn
 }

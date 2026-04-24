@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { Loader2, Save } from 'lucide-react'
+import { Save } from 'lucide-react'
 import {
   Dialog,
   DialogContent,

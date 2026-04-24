@@ -205,11 +205,7 @@ export type ReasoningContentProps = ComponentProps<
   children: string
 }
 
-function ReasoningContentInner({
-  className,
-  children,
-  ...props
-}: ReasoningContentProps) {
+function ReasoningContentInner({ className, children }: ReasoningContentProps) {
   return (
     <StreamdownRenderer
       className={cn('text-sm text-muted-foreground', className)}

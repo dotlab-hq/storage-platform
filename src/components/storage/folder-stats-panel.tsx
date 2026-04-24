@@ -1,12 +1,10 @@
 'use client'
 
-import * as React from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { Files, Folder, HardDrive } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 import { formatBytes } from '@/lib/format-bytes'
-import type { FolderStatsData } from '@/routes/-home-server'
 
 async function loadGetFolderStatsFn() {
   const mod = await import('@/routes/-home-server')

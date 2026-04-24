@@ -45,7 +45,6 @@ export function TopbarActions({
   onUploadComplete,
   onNewFile,
   onNewFolder,
-  onSearch,
   setItems,
   fileSizeLimit,
   openUploadFiles: controlledUploadFilesOpen,
@@ -137,14 +136,6 @@ type UploadMenuProps = Omit<TopbarActionsProps, 'onSearch' | 'isReadOnly'> & {
 }
 
 function UploadMenu({
-  userId,
-  currentFolderId,
-  setUploads,
-  onUploadComplete,
-  onNewFile,
-  onNewFolder,
-  setItems,
-  fileSizeLimit,
   uploadFilesOpen,
   setUploadFilesOpen,
   uploadFolderOpen,

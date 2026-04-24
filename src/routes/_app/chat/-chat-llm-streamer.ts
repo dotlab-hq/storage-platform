@@ -103,6 +103,11 @@ export async function* generateAssistantReplyStream(
     name?: string
     args?: string
   }> = []
+  let directToolCalls: Array<{
+    id: string
+    type: 'function'
+    function: { name: string; arguments: string }
+  }> = []
   let finalUsage: Usage | null = null
 
   try {
@@ -197,12 +202,35 @@ export async function* generateAssistantReplyStream(
         }
         allToolCallChunks.push(...toolChunks)
       }
+
+      // Some providers emit complete tool_calls directly on the chunk
+      if (
+        'toolCalls' in chunk &&
+        chunk.toolCalls &&
+        Array.isArray(chunk.toolCalls)
+      ) {
+        directToolCalls = chunk.toolCalls as Array<{
+          id: string
+          type: 'function'
+          function: { name: string; arguments: string }
+        }>
+        console.log('[LLM] Received direct toolCalls:', directToolCalls)
+      }
     }
 
-    // Parse all accumulated tool call chunks into final tool calls
-    const accumulatedToolCalls = parseToolCallChunks(allToolCallChunks)
-    if (accumulatedToolCalls.length > 0) {
-      console.log('[LLM] Final tool calls:', accumulatedToolCalls)
+    // After streaming all chunks, determine final tool calls
+    let accumulatedToolCalls: Array<{
+      id: string
+      type: 'function'
+      function: { name: string; arguments: string }
+    }> = []
+
+    if (allToolCallChunks.length > 0) {
+      accumulatedToolCalls = parseToolCallChunks(allToolCallChunks)
+      console.log('[LLM] Final tool calls (from chunks):', accumulatedToolCalls)
+    } else if (directToolCalls.length > 0) {
+      accumulatedToolCalls = directToolCalls
+      console.log('[LLM] Final tool calls (direct):', accumulatedToolCalls)
     }
 
     // Determine finish reason

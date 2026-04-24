@@ -147,8 +147,14 @@ export async function POST({ request }: { request: Request }) {
       .returning({ id: chatMessage.id })
 
     // Determine tools
-    const availableTools = getToolsByName(
-      validated.tools?.map((t) => t.function.name) || [],
+    const requestedToolNames =
+      validated.tools?.map((t) => t.function.name) || []
+    const availableTools = getToolsByName(requestedToolNames)
+    console.log(
+      '[Chat] Requested tools:',
+      requestedToolNames,
+      '| Resolved:',
+      availableTools.map((t) => t.name),
     )
 
     // Prepare LLM parameters

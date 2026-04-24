@@ -1,12 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
-import type { GetHomeDashboardDataFn } from '@/routes/-home-server'
+import type { getHomeDashboardDataFn } from '@/routes/-home-server'
 import { MetricCard } from '@/components/admin/dashboard-panels'
 import { formatBytes } from '@/lib/format-bytes'
-import { Loader2 } from 'lucide-react'
 import { Skeleton } from '@/components/ui/skeleton'
 
 // Dynamically import the server function to keep client bundle small
-async function loadGetHomeDashboardDataFn(): Promise<GetHomeDashboardDataFn> {
+async function loadGetHomeDashboardDataFn(): Promise<
+  typeof getHomeDashboardDataFn
+> {
   const mod = await import('@/routes/-home-server')
   return mod.getHomeDashboardDataFn
 }

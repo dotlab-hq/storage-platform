@@ -11,7 +11,6 @@ import {
   ArtifactHeader,
   ArtifactTitle,
 } from './artifact'
-import { cn } from '@/lib/utils'
 
 const artifactComponents = {
   Artifact,
@@ -51,3 +50,5 @@ export function ArtifactPreview({ jsx }: ArtifactPreviewProps) {
     </Suspense>
   )
 }
+
+export default ArtifactPreview
