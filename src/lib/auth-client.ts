@@ -15,6 +15,17 @@ export const authClient = createAuthClient({
       },
     }),
     twoFactorClient(),
-    // deviceAuthorizationClient(),
+    deviceAuthorizationClient(),
   ],
 })
+
+export function useAuth() {
+  const { data: session, isPending, error } = authClient.useSession()
+  return {
+    user: session?.user ?? null,
+    session: session?.session ?? null,
+    isPending,
+    error,
+    ...authClient,
+  }
+}
