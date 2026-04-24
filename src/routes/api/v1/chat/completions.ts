@@ -10,6 +10,7 @@ import { OpenAIChatCompletionsSchema } from '../-schemas'
 import type { LLMStreamParams } from '@/routes/_app/chat/-chat-llm-streamer'
 import { handleStreamingResponse } from './-streaming-handler'
 import { handleNonStreamingResponse } from './-non-streaming-handler'
+import { handleDeepAgentStream } from './-deep-agent-stream-handler'
 import { getUserFromApiKey } from './-auth-helpers'
 
 // @ts-expect-error - route type will be generated after router rebuild
@@ -146,17 +147,40 @@ export async function POST({ request }: { request: Request }) {
       streamDelayMs: 0,
     }
 
+    // Check for DeepAgent mode via custom header or parameter
+    const useDeepAgent =
+      request.headers.get('X-Use-Deep-Agent') === 'true' ||
+      (body as any)?.deep_agent === true
+
     // Route to appropriate handler
     if (validated.stream) {
-      return handleStreamingResponse({
-        messages: langchainMessages,
-        params: llmParams,
-        threadId,
-        userId: user.id,
-        userMessageId: userMessage.id,
-        model: validated.model,
-      })
+      if (useDeepAgent) {
+        return handleDeepAgentStream({
+          messages: langchainMessages,
+          params: llmParams,
+          threadId,
+          userId: user.id,
+          userMessageId: userMessage.id,
+          model: validated.model,
+        })
+      } else {
+        return handleStreamingResponse({
+          messages: langchainMessages,
+          params: llmParams,
+          threadId,
+          userId: user.id,
+          userMessageId: userMessage.id,
+          model: validated.model,
+        })
+      }
     } else {
+      if (useDeepAgent) {
+        // For now, deep agent only supports streaming
+        // Fallback to non-streaming with warning
+        console.warn(
+          '[DeepAgent] Non-streaming mode not yet implemented, falling back to standard handler',
+        )
+      }
       return handleNonStreamingResponse({
         messages: langchainMessages,
         params: llmParams,
@@ -167,14 +191,26 @@ export async function POST({ request }: { request: Request }) {
       })
     }
   } catch (error) {
-    console.error('[OpenAI Chat] Request error:', error)
+    // Enhanced error handling - capture full error details
+    const err = error instanceof Error ? error : new Error(String(error))
+
+    // Log the complete error with stack for debugging
+    console.error('[OpenAI Chat] Request error:', {
+      name: err.name,
+      message: err.message,
+      stack: err.stack,
+      cause: err.cause,
+    })
+
+    // Return detailed error to client (in dev mode, include stack)
+    const isDev = process.env.NODE_ENV === 'development'
     return json(
       {
         error: {
-          message:
-            error instanceof Error ? error.message : 'Internal server error',
+          message: err.message,
           type: 'invalid_request_error',
           code: 'server_error',
+          ...(isDev && { stack: err.stack, cause: err.cause }),
         },
       },
       { status: 500 },
