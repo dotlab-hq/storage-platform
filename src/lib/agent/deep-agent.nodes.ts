@@ -1,16 +1,15 @@
-import { type GraphNode } from '@langchain/langgraph'
-import { type BaseMessage } from '@langchain/core/messages'
+import type { BaseMessage } from '@langchain/core/messages'
 import type { DeepAgentState, DeepAgentMetadata } from './deep-agent.state'
 import type { StructuredTool } from '@langchain/core/tools'
-import { z } from 'zod'
 
 /**
  * Start node - Entry point of the agent graph
  * Validates input and initializes state
  */
-export const startNode: GraphNode<typeof DeepAgentStateSchema> = async (
+export const startNode = async (
   state: DeepAgentState,
-) => {
+  _config?: any,
+): Promise<DeepAgentState> => {
   const metadata: DeepAgentMetadata = {
     ...state.metadata,
     step: 'thinking',
@@ -31,6 +30,7 @@ export const startNode: GraphNode<typeof DeepAgentStateSchema> = async (
 export const createAgentNode = (tools: StructuredTool[]) => {
   return async function* agentNode(
     state: DeepAgentState,
+    _config?: any,
   ): AsyncGenerator<DeepAgentState, DeepAgentState, unknown> {
     const metadata: DeepAgentMetadata = {
       ...state.metadata,
@@ -104,9 +104,8 @@ export const createAgentNode = (tools: StructuredTool[]) => {
       }
 
       // Add assistant message to conversation
-      const assistantMessage = new (
-        await import('@langchain/core/messages')
-      ).AIMessage(fullContent)
+      const { AIMessage } = await import('@langchain/core/messages')
+      const assistantMessage = new AIMessage(fullContent)
       if (toolCalls.length > 0) {
         ;(assistantMessage as any).tool_calls = toolCalls.map((tc) => ({
           id: tc.id,
@@ -132,9 +131,10 @@ export const createAgentNode = (tools: StructuredTool[]) => {
 /**
  * Tool execution node - Runs tools in parallel
  */
-export const toolNode: GraphNode<typeof DeepAgentStateSchema> = async (
+export const toolNode = async (
   state: DeepAgentState,
-) => {
+  _config?: any,
+): Promise<DeepAgentState> => {
   const metadata: DeepAgentMetadata = {
     ...state.metadata,
     step: 'reflection',
@@ -194,9 +194,10 @@ export const toolNode: GraphNode<typeof DeepAgentStateSchema> = async (
 /**
  * Reflection node - Decides whether to continue or end
  */
-export const reflectNode: GraphNode<typeof DeepAgentStateSchema> = async (
+export const reflectNode = async (
   state: DeepAgentState,
-) => {
+  _config?: any,
+): Promise<DeepAgentState> => {
   const metadata = state.metadata
 
   // Check if we've hit max iterations
@@ -215,10 +216,7 @@ export const reflectNode: GraphNode<typeof DeepAgentStateSchema> = async (
   }
 
   // Check if the last message indicates completion
-  // If no tool calls were made in the last assistant message, we're done
-  const lastMessage = state.messages[state.messages.length - 1]
-
-  // Simple heuristic: if there are no tool call results pending, end
+  // If no tool call results pending, end
   const hasToolResults = state.metadata.toolResults?.some(
     (r) => !r.error && r.result,
   )

@@ -1,5 +1,5 @@
-import React from 'react'
-import { createColumnHelper, type ColumnDef } from '@tanstack/react-table'
+import { createColumnHelper } from '@tanstack/react-table'
+import type { ColumnDef } from '@tanstack/react-table'
 import { Checkbox } from '@/components/ui/checkbox'
 import {
   Select,
@@ -45,7 +45,7 @@ export const getColumns = (
         {info.getValue()}
       </div>
     ),
-  }),
+  }) as ColumnDef<UserTableRow>,
   columnHelper.accessor('email', {
     header: 'Email',
     size: 220,
@@ -54,7 +54,7 @@ export const getColumns = (
         {info.getValue()}
       </div>
     ),
-  }),
+  }) as ColumnDef<UserTableRow>,
   columnHelper.accessor((row) => row.isAdmin, {
     id: 'role',
     header: 'Role',
@@ -82,7 +82,7 @@ export const getColumns = (
         </Select>
       )
     },
-  }),
+  }) as ColumnDef<UserTableRow>,
   columnHelper.accessor('usedStorage', {
     header: 'Usage',
     size: 120,
@@ -91,7 +91,7 @@ export const getColumns = (
         {formatBytes(info.getValue())}
       </div>
     ),
-  }),
+  }) as ColumnDef<UserTableRow>,
   columnHelper.accessor('storageLimitBytes', {
     header: 'Allocated',
     size: 120,
@@ -100,7 +100,7 @@ export const getColumns = (
         {formatBytes(info.getValue())}
       </div>
     ),
-  }),
+  }) as ColumnDef<UserTableRow>,
   columnHelper.accessor('banned', {
     header: 'Status',
     size: 100,
@@ -119,7 +119,7 @@ export const getColumns = (
         </div>
       )
     },
-  }),
+  }) as ColumnDef<UserTableRow>,
   columnHelper.accessor('createdAt', {
     header: 'Joined',
     size: 120,
@@ -131,5 +131,5 @@ export const getColumns = (
         </div>
       )
     },
-  }),
+  }) as ColumnDef<UserTableRow>,
 ]

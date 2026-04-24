@@ -37,6 +37,23 @@ export async function OPTIONS() {
 
 export async function POST({ request }: { request: Request }) {
   try {
+    // Check for required API keys early
+    const googleApiKey = process.env.GOOGLE_API_KEY
+    if (!googleApiKey) {
+      console.error('[Chat] Missing GOOGLE_API_KEY environment variable')
+      return json(
+        {
+          error: {
+            message:
+              'Language model service is not configured. Please set GOOGLE_API_KEY environment variable.',
+            type: 'configuration_error',
+            code: 'missing_api_key',
+          },
+        },
+        { status: 500 },
+      )
+    }
+
     const body = await request.json()
     const validated = OpenAIChatCompletionsSchema.parse(body)
 

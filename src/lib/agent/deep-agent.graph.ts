@@ -1,6 +1,7 @@
-import { StateGraph, START, END, type GraphNode } from '@langchain/langgraph'
+import { StateGraph, START, END } from '@langchain/langgraph'
 import type { DeepAgentState } from './deep-agent.state'
 import { DeepAgentStateSchema } from './deep-agent.state'
+import type { BaseMessage } from '@langchain/core/messages'
 import {
   startNode,
   createAgentNode,
@@ -19,49 +20,32 @@ import {
  *   3. Reflect: if more tools needed, back to agent; else END
  */
 export function createDeepAgentGraph(tools: any[] = []) {
-  // Define the graph
-  const graph = new StateGraph<DeepAgentState>({
-    name: 'deep_agent',
-    stateSchema: DeepAgentStateSchema,
-  })
+  // Build graph with chaining to preserve node name types
+  const graph = new StateGraph(DeepAgentStateSchema)
+    .addNode('start', startNode)
+    .addNode('agent', createAgentNode(tools))
+    .addNode('tool', toolNode)
+    .addNode('reflect', reflectNode)
+    .addEdge(START, 'start')
+    .addEdge('start', 'agent')
+    .addConditionalEdges('agent', (state: DeepAgentState, _config?: any) => {
+      const step = state.metadata?.step
+      if (step === 'tool_execution') {
+        return 'tool'
+      }
+      return END
+    })
+    .addEdge('tool', 'reflect')
+    .addConditionalEdges('reflect', (state: DeepAgentState, _config?: any) => {
+      const step = state.metadata?.step
+      if (step === 'thinking') {
+        return 'agent'
+      }
+      return END
+    })
 
-  // Add nodes
-  graph.addNode('start', startNode as GraphNode<typeof DeepAgentStateSchema>)
-  graph.addNode(
-    'agent',
-    createAgentNode(tools) as GraphNode<typeof DeepAgentStateSchema>,
-  )
-  graph.addNode('tool', toolNode as GraphNode<typeof DeepAgentStateSchema>)
-  graph.addNode(
-    'reflect',
-    reflectNode as GraphNode<typeof DeepAgentStateSchema>,
-  )
-
-  // Define edges
-  graph.addEdge(START, 'start')
-  graph.addEdge('start', 'agent')
-
-  // Agent can either use tools or finish
-  graph.addConditionalEdges('agent', (state) => {
-    const step = state.metadata?.step
-    if (step === 'tool_execution') {
-      return 'tool'
-    }
-    return END
-  })
-
-  // After tools, reflect on whether to continue
-  graph.addEdge('tool', 'reflect')
-  graph.addConditionalEdges('reflect', (state) => {
-    const step = state.metadata?.step
-    if (step === 'thinking') {
-      return 'agent'
-    }
-    return END
-  })
-
-  // Compile and return
-  return graph.compile()
+  // Compile with a name for checkpointing/debugging
+  return graph.compile({ name: 'deep_agent' })
 }
 
 /**
@@ -121,10 +105,11 @@ export async function* runDeepAgent(
 
   try {
     // Stream the graph execution
-    for await (const event of graph.stream(initialState, {
+    const stream = await graph.stream(initialState, {
       streamMode: 'custom',
-      streamChannel: 'custom',
-    })) {
+    })
+
+    for await (const event of stream) {
       if (signal?.aborted) {
         yield {
           type: 'error',

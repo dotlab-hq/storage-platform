@@ -92,11 +92,6 @@ export async function* generateAssistantReplyStream(
     streamOptions.tool_choice = toolChoice
   }
 
-  const stream = await llm.stream(messages, {
-    ...streamOptions,
-    ...generationConfig,
-  })
-
   let fullContent = ''
   let accumulatedToolCalls: Array<{
     id: string
@@ -105,89 +100,145 @@ export async function* generateAssistantReplyStream(
   }> = []
   let finalUsage: Usage | null = null
 
-  // Process the streaming response
-  for await (const chunk of stream) {
-    if (signal?.aborted) {
-      return
-    }
+  try {
+    const stream = await llm.stream(messages, {
+      ...streamOptions,
+      ...generationConfig,
+    })
 
-    // Extract usage if present in chunk
-    const chunkUsage = extractUsageFromChunk(chunk)
-    if (chunkUsage) {
-      finalUsage = chunkUsage
-    }
+    // Process the streaming response
+    for await (const chunk of stream) {
+      if (signal?.aborted) {
+        return
+      }
 
-    // Check for content blocks (separates reasoning from text when available)
-    const chunkObj = chunk as {
-      contentBlocks?: Array<{ type: string; text?: string; reasoning?: string }>
-    }
-    const contentBlocks = chunkObj.contentBlocks
+      // Extract usage if present in chunk
+      const chunkUsage = extractUsageFromChunk(chunk)
+      if (chunkUsage) {
+        finalUsage = chunkUsage
+      }
 
-    if (contentBlocks && Array.isArray(contentBlocks)) {
-      // Process each block separately to emit reasoning and content in separate chunks
-      for (const block of contentBlocks) {
-        if (block.type === 'reasoning' && block.reasoning) {
-          yield { type: 'reasoning', reasoning: block.reasoning }
-        } else if (block.type === 'text' && block.text) {
-          fullContent += block.text
+      // Check for content blocks (separates reasoning from text when available)
+      const chunkObj = chunk as {
+        contentBlocks?: Array<{
+          type: string
+          text?: string
+          reasoning?: string
+        }>
+      }
+      const contentBlocks = chunkObj.contentBlocks
+
+      if (contentBlocks && Array.isArray(contentBlocks)) {
+        // Process each block separately to emit reasoning and content in separate chunks
+        for (const block of contentBlocks) {
+          if (block.type === 'reasoning' && block.reasoning) {
+            yield { type: 'reasoning', reasoning: block.reasoning }
+          } else if (block.type === 'text' && block.text) {
+            fullContent += block.text
+            if (streamDelayMs > 0) {
+              for await (const char of streamWithCadence(
+                block.text,
+                signal,
+                streamDelayMs,
+              )) {
+                yield { type: 'content', content: char }
+              }
+            } else {
+              yield { type: 'content', content: block.text }
+            }
+          }
+        }
+      } else {
+        // Fallback: Extract content from chunk.content (legacy behavior)
+        let content: string
+        if (!chunk || typeof chunk !== 'object') {
+          content = ''
+        } else {
+          const chunkContent = (chunk as { content?: unknown }).content
+          if (typeof chunkContent === 'string') {
+            content = chunkContent
+          } else if (Array.isArray(chunkContent)) {
+            content = chunkContent
+              .map((part) => {
+                if (typeof part === 'string') return part
+                if (part && typeof part === 'object' && 'text' in part) {
+                  const text = (part as { text?: string }).text
+                  return typeof text === 'string' ? text : ''
+                }
+                return ''
+              })
+              .join('')
+          } else {
+            content = ''
+          }
+        }
+
+        if (content) {
+          fullContent += content
           if (streamDelayMs > 0) {
             for await (const char of streamWithCadence(
-              block.text,
+              content,
               signal,
               streamDelayMs,
             )) {
               yield { type: 'content', content: char }
             }
           } else {
-            yield { type: 'content', content: block.text }
+            yield { type: 'content', content }
           }
-        }
-      }
-    } else {
-      // Fallback: Extract content from chunk.content (legacy behavior)
-      let content: string
-      if (!chunk || typeof chunk !== 'object') {
-        content = ''
-      } else {
-        const chunkContent = (chunk as { content?: unknown }).content
-        if (typeof chunkContent === 'string') {
-          content = chunkContent
-        } else if (Array.isArray(chunkContent)) {
-          content = chunkContent
-            .map((part) => {
-              if (typeof part === 'string') return part
-              if (part && typeof part === 'object' && 'text' in part) {
-                const text = (part as { text?: string }).text
-                return typeof text === 'string' ? text : ''
-              }
-              return ''
-            })
-            .join('')
-        } else {
-          content = ''
         }
       }
 
-      if (content) {
-        fullContent += content
-        if (streamDelayMs > 0) {
-          for await (const char of streamWithCadence(
-            content,
-            signal,
-            streamDelayMs,
-          )) {
-            yield { type: 'content', content: char }
-          }
-        } else {
-          yield { type: 'content', content }
-        }
+      // Handle tool call chunks
+      if ('toolCallChunks' in chunk && chunk.toolCallChunks) {
+        const parsed = parseToolCallChunks(chunk.toolCallChunks as any)
+        accumulatedToolCalls = parsed
       }
     }
+  } catch (error) {
+    // Enhanced error handling for LLM API errors
+    const err = error instanceof Error ? error : new Error(String(error))
 
-    // Handle tool call chunks
-    if ('toolCallChunks' in chunk && chunk.toolCallChunks) {
-      const parsed = parseToolCallChunks(chunk.toolCallChunks as any)
-      accumulatedToolCalls = parsed
+    // Log the error with full details for debugging
+    console.error('[LLM Stream] Error:', {
+      name: err.name,
+      message: err.message,
+      stack: err.stack,
+    })
+
+    // Check for specific error types
+    const errorMessage = err.message.toLowerCase()
+
+    if (
+      errorMessage.includes('api key') ||
+      errorMessage.includes('authentication') ||
+      errorMessage.includes('unauthorized')
+    ) {
+      throw new Error(
+        'Invalid or missing API key for language model. Please check your Google AI API key configuration.',
+      )
+    } else if (
+      errorMessage.includes('quota') ||
+      errorMessage.includes('rate limit')
+    ) {
+      throw new Error(
+        'Language model API quota exceeded or rate limited. Please try again later.',
+      )
+    } else if (
+      errorMessage.includes('model') &&
+      errorMessage.includes('not found')
+    ) {
+      throw new Error(
+        'Requested language model is not available. Please check model configuration.',
+      )
+    } else if (errorMessage.includes('internal')) {
+      // Generic internal error from the API
+      throw new Error(
+        'Language model service encountered an internal error. Please try again.',
+      )
+    } else {
+      // Re-throw original error for unknown issues
+      throw err
     }
   }
 

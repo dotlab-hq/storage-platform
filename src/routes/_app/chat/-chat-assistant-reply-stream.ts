@@ -1,7 +1,8 @@
+import type {
+  BaseMessage} from '@langchain/core/messages';
 import {
   HumanMessage,
-  SystemMessage,
-  BaseMessage,
+  SystemMessage
 } from '@langchain/core/messages'
 import { generateAssistantReplyStream as newGenerateStream } from './-chat-llm-streamer'
 

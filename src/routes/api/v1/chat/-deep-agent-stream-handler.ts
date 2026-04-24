@@ -3,19 +3,15 @@ import { chatMessage } from '@/db/schema/chat'
 import { eq } from 'drizzle-orm'
 import type { BaseMessage } from '@langchain/core/messages'
 import type { LLMStreamParams } from '@/routes/_app/chat/-chat-llm-streamer'
-import type { OpenAiToolCall } from '@/routes/api/v1/-schemas'
-import { executeToolCalls } from '@/routes/_app/chat/tools/-tool-executor'
 import {
   toOpenAiChunk,
   toOpenAiChunkWithUsage,
   toSseEvent,
 } from '@/routes/_app/chat/-openai-helpers'
-import type { Usage, SYSTEM_FINGERPRINT } from '@/lib/token-counter'
+import type { Usage } from '@/lib/token-counter'
+import { SYSTEM_FINGERPRINT } from '@/lib/token-counter'
 import { refreshThreadLatestMessage } from '@/routes/_app/chat/-chat-server-db'
-import {
-  runDeepAgent,
-  type DeepAgentStreamChunk,
-} from '@/lib/agent/deep-agent.graph'
+import { runDeepAgent } from '@/lib/agent/deep-agent.graph'
 import { mathTools } from '@/routes/_app/chat/tools/-tool-registry'
 
 export interface StreamingHandlerParams {
@@ -248,6 +244,29 @@ export async function handleDeepAgentStream(params: StreamingHandlerParams) {
             ),
           ),
         )
+
+        // Save critical error to DB
+        if (!assistantMessageId) {
+          try {
+            const [saved] = await db
+              .insert(chatMessage)
+              .values({
+                threadId: params.threadId,
+                userId: params.userId,
+                role: 'assistant',
+                content: `Critical Error: ${errorMessage}`,
+                toolCalls: null,
+                regenerationCount: 0,
+                isDeleted: false,
+                createdAt: new Date(),
+                updatedAt: new Date(),
+              })
+              .returning({ id: chatMessage.id })
+            assistantMessageId = saved.id
+          } catch (dbErr) {
+            console.error('[DeepAgent] Failed to save error message:', dbErr)
+          }
+        }
 
         controller.enqueue(encoder.encode(toSseEvent('[DONE]')))
       } finally {
