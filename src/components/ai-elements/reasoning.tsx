@@ -8,8 +8,9 @@ import {
 } from '@/components/ui/collapsible'
 import { cn } from '@/lib/utils'
 import { BrainIcon, ChevronDownIcon } from 'lucide-react'
-import type { ComponentProps, ReactNode, Suspense } from 'react'
+import type { ComponentProps, ReactNode } from 'react'
 import {
+  Suspense,
   createContext,
   memo,
   useCallback,

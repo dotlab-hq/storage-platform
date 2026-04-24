@@ -11,12 +11,7 @@ import {
 import { cn } from '@/lib/utils'
 import type { UIMessage } from 'ai'
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
-import type {
-  ComponentProps,
-  HTMLAttributes,
-  ReactElement,
-  Suspense,
-} from 'react'
+import type { ComponentProps, HTMLAttributes, ReactElement } from 'react'
 import {
   createContext,
   memo,
@@ -24,7 +19,6 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useRef,
   useState,
   lazy,
 } from 'react'

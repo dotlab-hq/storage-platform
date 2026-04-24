@@ -1,10 +1,7 @@
-import { BaseMessage } from '@langchain/core/messages'
+import type { BaseMessage } from '@langchain/core/messages'
 import { parseToolCallChunks } from '@/routes/api/v1/-converters'
-import {
-  countTokens,
-  extractUsageFromChunk,
-  type Usage,
-} from '@/lib/token-counter'
+import { countTokens, extractUsageFromChunk } from '@/lib/token-counter'
+import type { Usage } from '@/lib/token-counter'
 import type { StructuredTool } from '@langchain/core/tools'
 
 /**
@@ -67,6 +64,20 @@ export async function* generateAssistantReplyStream(
 
   const { llm } = await import('@/llm/gemini.llm')
 
+  // Bind tools using LangChain's bindTools for proper schema conversion
+  let streamingLLM = llm
+  if (tools && tools.length > 0) {
+    streamingLLM = llm.bindTools(tools, { toolChoice })
+    console.log(
+      '[LLM] Bound tools:',
+      tools.map((t) => t.name),
+      'toolChoice:',
+      toolChoice,
+    )
+  } else {
+    console.log('[LLM] No tools provided')
+  }
+
   // Build generation config
   const generationConfig: Record<string, unknown> = {
     temperature,
@@ -78,35 +89,23 @@ export async function* generateAssistantReplyStream(
     }),
   }
 
-  // Prepare tools if provided
-  const streamOptions: Record<string, unknown> = { signal }
-  if (tools && tools.length > 0) {
-    streamOptions.tools = tools.map((tool) => ({
-      type: 'function',
-      function: {
-        name: tool.name,
-        description: tool.description,
-        parameters: (tool as any).schema as any,
-      },
-    }))
-    streamOptions.tool_choice = toolChoice
-  }
+  // Start streaming
+  const stream = await streamingLLM.stream(messages, {
+    ...generationConfig,
+    signal,
+  })
 
+  // Accumulate content and raw tool call chunks across stream chunks
   let fullContent = ''
-  let accumulatedToolCalls: Array<{
-    id: string
-    type: 'function'
-    function: { name: string; arguments: string }
+  const allToolCallChunks: Array<{
+    index: number
+    id?: string
+    name?: string
+    args?: string
   }> = []
   let finalUsage: Usage | null = null
 
   try {
-    const stream = await llm.stream(messages, {
-      ...streamOptions,
-      ...generationConfig,
-    })
-
-    // Process the streaming response
     for await (const chunk of stream) {
       if (signal?.aborted) {
         return
@@ -150,10 +149,8 @@ export async function* generateAssistantReplyStream(
         }
       } else {
         // Fallback: Extract content from chunk.content (legacy behavior)
-        let content: string
-        if (!chunk || typeof chunk !== 'object') {
-          content = ''
-        } else {
+        let content: string = ''
+        if (chunk && typeof chunk === 'object') {
           const chunkContent = (chunk as { content?: unknown }).content
           if (typeof chunkContent === 'string') {
             content = chunkContent
@@ -168,8 +165,6 @@ export async function* generateAssistantReplyStream(
                 return ''
               })
               .join('')
-          } else {
-            content = ''
           }
         }
 
@@ -189,26 +184,63 @@ export async function* generateAssistantReplyStream(
         }
       }
 
-      // Handle tool call chunks
+      // Accumulate raw tool call chunks for later merging
       if ('toolCallChunks' in chunk && chunk.toolCallChunks) {
-        const parsed = parseToolCallChunks(chunk.toolCallChunks as any)
-        accumulatedToolCalls = parsed
+        const toolChunks = chunk.toolCallChunks as Array<{
+          index: number
+          id?: string
+          name?: string
+          args?: string
+        }>
+        if (toolChunks.length > 0) {
+          console.log('[LLM] Received toolCallChunks:', toolChunks)
+        }
+        allToolCallChunks.push(...toolChunks)
       }
     }
-  } catch (error) {
-    // Enhanced error handling for LLM API errors
-    const err = error instanceof Error ? error : new Error(String(error))
 
-    // Log the error with full details for debugging
+    // Parse all accumulated tool call chunks into final tool calls
+    const accumulatedToolCalls = parseToolCallChunks(allToolCallChunks)
+    if (accumulatedToolCalls.length > 0) {
+      console.log('[LLM] Final tool calls:', accumulatedToolCalls)
+    }
+
+    // Determine finish reason
+    const finishReason: 'stop' | 'length' | 'tool_calls' | 'content_filter' =
+      accumulatedToolCalls.length > 0 ? 'tool_calls' : 'stop'
+
+    // Compute usage if not provided by the model
+    let computedUsage: Usage | undefined
+    if (!finalUsage && fullContent) {
+      const messagesText = messages
+        .map((msg) => `${msg.getType()}: ${String(msg.content)}`)
+        .join('\n\n')
+      const promptTokens = countTokens(messagesText)
+      const completionTokens = countTokens(fullContent)
+      computedUsage = {
+        prompt_tokens: promptTokens,
+        completion_tokens: completionTokens,
+        total_tokens: promptTokens + completionTokens,
+      }
+    }
+
+    // Yield final chunk
+    yield {
+      type: 'final',
+      content: fullContent,
+      toolCalls: accumulatedToolCalls,
+      finishReason,
+      usage: finalUsage || computedUsage,
+    }
+  } catch (error) {
+    const err = error instanceof Error ? error : new Error(String(error))
     console.error('[LLM Stream] Error:', {
       name: err.name,
       message: err.message,
       stack: err.stack,
     })
 
-    // Check for specific error types
     const errorMessage = err.message.toLowerCase()
-
     if (
       errorMessage.includes('api key') ||
       errorMessage.includes('authentication') ||
@@ -232,44 +264,12 @@ export async function* generateAssistantReplyStream(
         'Requested language model is not available. Please check model configuration.',
       )
     } else if (errorMessage.includes('internal')) {
-      // Generic internal error from the API
       throw new Error(
         'Language model service encountered an internal error. Please try again.',
       )
     } else {
-      // Re-throw original error for unknown issues
       throw err
     }
-  }
-
-  // Determine finish reason
-  let finishReason: 'stop' | 'length' | 'tool_calls' | 'content_filter' = 'stop'
-  if (accumulatedToolCalls.length > 0) {
-    finishReason = 'tool_calls'
-  }
-
-  // Compute usage if not provided by the model
-  let computedUsage: Usage | undefined
-  if (!finalUsage && fullContent) {
-    const messagesText = messages
-      .map((msg) => `${msg.getType()}: ${String(msg.content)}`)
-      .join('\n\n')
-    const promptTokens = countTokens(messagesText)
-    const completionTokens = countTokens(fullContent)
-    computedUsage = {
-      prompt_tokens: promptTokens,
-      completion_tokens: completionTokens,
-      total_tokens: promptTokens + completionTokens,
-    }
-  }
-
-  // Yield final chunk
-  yield {
-    type: 'final',
-    content: fullContent,
-    toolCalls: accumulatedToolCalls,
-    finishReason,
-    usage: finalUsage || computedUsage,
   }
 }
 

@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, type ComponentType } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { Streamdown } from 'streamdown'
 import { cjk } from '@streamdown/cjk'
 import { code } from '@streamdown/code'
@@ -56,3 +56,5 @@ export function StreamdownRenderer({
     </Streamdown>
   )
 }
+
+export default StreamdownRenderer

@@ -45,27 +45,27 @@ export const createAgentNode = (tools: StructuredTool[]) => {
     const messages: BaseMessage[] = state.messages
 
     try {
+      // Bind tools to LLM for proper schema handling
+      let llmWithTools = llm
+      if (tools.length > 0) {
+        llmWithTools = llm.bindTools(tools, { toolChoice: 'auto' })
+        console.log(
+          '[DeepAgent] Bound tools:',
+          tools.map((t) => t.name),
+        )
+      }
+
       // Stream from LLM - this yields partial content for real-time updates
-      const stream = await llm.stream(messages, {
-        tools:
-          tools.length > 0
-            ? tools.map((tool) => ({
-                type: 'function',
-                function: {
-                  name: tool.name,
-                  description: tool.description,
-                  parameters: (tool as any).schema as any,
-                },
-              }))
-            : undefined,
-        tool_choice: tools.length > 0 ? 'auto' : undefined,
+      const stream = await llmWithTools.stream(messages, {
+        // No need to manually pass tools; bindTools already attached them
       })
 
       let fullContent = ''
-      const toolCalls: Array<{
-        id: string
-        name: string
-        arguments: Record<string, unknown>
+      const allToolCallChunks: Array<{
+        index: number
+        id?: string
+        name?: string
+        args?: string
       }> = []
 
       // Yield intermediate states as we stream
@@ -84,19 +84,27 @@ export const createAgentNode = (tools: StructuredTool[]) => {
           }
         }
 
-        // Check for tool call chunks
+        // Check for tool call chunks - accumulate raw chunks
         if ('toolCallChunks' in chunk && chunk.toolCallChunks) {
-          const parsed = parseToolCallChunks(chunk.toolCallChunks as any)
-          toolCalls.push(...parsed)
+          const toolChunks = chunk.toolCallChunks as Array<{
+            index: number
+            id?: string
+            name?: string
+            args?: string
+          }>
+          allToolCallChunks.push(...toolChunks)
         }
       }
+
+      // Parse all accumulated tool call chunks into final tool calls
+      const parsedToolCalls = parseToolCallChunks(allToolCallChunks)
 
       // Update state with final result
       const newMetadata: DeepAgentMetadata = {
         ...metadata,
-        step: toolCalls.length > 0 ? 'tool_execution' : 'end',
+        step: parsedToolCalls.length > 0 ? 'tool_execution' : 'end',
         reasoning: fullContent,
-        activeToolCalls: toolCalls.map((tc) => ({
+        activeToolCalls: parsedToolCalls.map((tc) => ({
           id: tc.id,
           name: tc.name,
           arguments: tc.arguments,
@@ -106,8 +114,8 @@ export const createAgentNode = (tools: StructuredTool[]) => {
       // Add assistant message to conversation
       const { AIMessage } = await import('@langchain/core/messages')
       const assistantMessage = new AIMessage(fullContent)
-      if (toolCalls.length > 0) {
-        ;(assistantMessage as any).tool_calls = toolCalls.map((tc) => ({
+      if (parsedToolCalls.length > 0) {
+        ;(assistantMessage as any).tool_calls = parsedToolCalls.map((tc) => ({
           id: tc.id,
           name: tc.name,
           arguments: tc.arguments,

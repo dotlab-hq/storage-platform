@@ -1,7 +1,11 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": true,
-  "instructions": ["overall architecture.md", "Agents.md", "plans/**"],
+  "instructions": [
+    "overall architecture.md",
+    "Agents.md",
+    "plans/**"
+  ],
   "default_agent": "plan",
   "share": "manual",
   "formatter": {},
@@ -12,14 +16,25 @@
     },
     "chrome-devtools": {
       "type": "local",
-      "command": ["npx", "-y", "chrome-devtools-mcp@latest"],
+      "command": [
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ],
     },
     "aceternityui": {
-      "command": ["npx", "aceternityui-mcp"],
+      "command": [
+        "npx",
+        "aceternityui-mcp"
+      ],
       "type": "local",
     },
     "shadcn": {
-      "command": ["npx", "shadcn@latest", "mcp"],
+      "command": [
+        "npx",
+        "shadcn@latest",
+        "mcp"
+      ],
       "type": "local",
     },
     // "drizzle": {
@@ -55,4 +70,7 @@
       },
     },
   },
+  "plugin": [
+    ".opencode/plugins/graphify.js"
+  ]
 }

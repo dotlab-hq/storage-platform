@@ -6,7 +6,7 @@ import {
   useReactTable,
   type SortingState,
 } from '@tanstack/react-table'
-import React, { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import { ChevronDown, Search } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { toast } from '@/components/ui/sonner'
@@ -35,7 +35,15 @@ export function UsersTable({
   const [globalFilter, setGlobalFilter] = useState('')
   const [updatingUsers, setUpdatingUsers] = useState<Set<string>>(new Set())
   const [data] = useState<UserTableRow[]>(users)
-  const [rowSelection, setRowSelection] = useState<Record<string, boolean>>({})
+  const [rowSelection, setRowSelection] = useState<Record<string, boolean>>(
+    () => {
+      const initial: Record<string, boolean> = {}
+      selectedUsers.forEach((id) => {
+        initial[id] = true
+      })
+      return initial
+    },
+  )
 
   const handleRoleChange = async (userId: string, isAdmin: boolean) => {
     setUpdatingUsers((prev) => new Set([...prev, userId]))

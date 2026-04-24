@@ -53,3 +53,13 @@ Use `useQuery` and `useMutation` hooks from Tanstack Query to manage data fetchi
 for more files So for loading the endpoints, it should have pagination as well. By pagination, I mean it should include both limit and page number. What it should do is: if the page has space and a user is visible—say, around the 70th percentile—then it should load the next batch of files. This ensures that not all the data is dumped on the user side at once, and everything happens dynamically to reduce load.
 
 # Prioritize using dynamic imports in the folders. Ensure that API calls and anything network-related are in a separate file for each path or route, handling everything from there.
+
+## graphify
+
+This project has a graphify knowledge graph at graphify-out/.
+
+Rules:
+- Before answering architecture or codebase questions, read graphify-out/GRAPH_REPORT.md for god nodes and community structure
+- If graphify-out/wiki/index.md exists, navigate it instead of reading raw files
+- For cross-module "how does X relate to Y" questions, prefer `uv tool run --from graphifyy graphify query "<question>"`, `uv tool run --from graphifyy graphify path "<A>" "<B>"`, or `uv tool run --from graphifyy graphify explain "<concept>"` over grep — these traverse the graph's EXTRACTED + INFERRED edges instead of scanning files
+- After modifying code files in this session, run `uv tool run --from graphifyy graphify update .` to keep the graph current (AST-only, no API cost)
