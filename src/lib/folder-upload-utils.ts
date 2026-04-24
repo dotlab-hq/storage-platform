@@ -166,56 +166,6 @@ async function uploadSingleFileWithProgress(
   }
 }
 
-  const contentType = file.type || 'application/octet-stream'
-
-  try {
-    const target = await prepareUploadTarget({
-      data: {
-        objectKey,
-        contentType,
-        fileSize: file.size,
-      },
-    })
-
-    const total = file.size
-    let loaded = 0
-
-    const progressTransform = new TransformStream({
-      transform(chunk: Uint8Array, controller) {
-        loaded += chunk.byteLength
-        onProgress(Math.round((loaded / total) * 100))
-        controller.enqueue(chunk)
-      },
-    })
-
-    const bodyStream = file.stream().pipeThrough(progressTransform)
-
-    const method = target.uploadMethod === 'proxy' ? 'POST' : 'PUT'
-    const url =
-      target.uploadMethod === 'proxy' ? target.uploadUrl : target.presignedUrl
-
-    const headers: Record<string, string> = {
-      'Content-Type': contentType,
-    }
-    if (target.uploadMethod === 'proxy') {
-      headers['X-Upload-Object-Key'] = objectKey
-      headers['X-Upload-File-Size'] = String(file.size)
-      headers['X-Upload-Provider-Id'] = target.providerId ?? ''
-    }
-
-    const response = await fetch(url, { method, headers, body: bodyStream })
-
-    if (!response.ok) {
-      const errorBody = await response.text()
-      throw new Error(`Upload failed: HTTP ${response.status} - ${errorBody}`)
-    }
-
-    return target.providerId ?? null
-  } catch (error: unknown) {
-    throw new Error(toErrorMessage(error))
-  }
-}
-
 export async function uploadFolder(
   folderEntry: FileSystemDirectoryEntry,
   _userId: string,
