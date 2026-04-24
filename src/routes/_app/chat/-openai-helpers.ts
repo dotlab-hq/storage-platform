@@ -50,32 +50,6 @@ export function toOpenAiChunk({
     ],
   }
 }
-  finishReason: 'stop' | 'length' | 'tool_calls' | 'content_filter' | null
-}): OpenAiChunk {
-  return {
-    id,
-    object: 'chat.completion.chunk',
-    created,
-    model,
-    choices: [
-      {
-        index: 0,
-        delta: {
-          role: delta.role as
-            | 'assistant'
-            | 'user'
-            | 'system'
-            | 'tool'
-            | undefined,
-          content: delta.content,
-          reasoning: delta.reasoning,
-          tool_calls: delta.tool_calls,
-        },
-        finish_reason: finishReason,
-      },
-    ],
-  }
-}
 
 /**
  * Build final streaming chunk with usage and system_fingerprint
