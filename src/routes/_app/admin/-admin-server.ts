@@ -45,6 +45,21 @@ const UpdateUserRoleSchema = z.object({
   banned: z.boolean().optional(),
 })
 
+const BanUsersSchema = z.object({
+  userIds: z.array(z.string().min(1)).min(1),
+  banned: z.boolean(),
+  banReason: z.string().optional(),
+})
+
+const DeleteUsersSchema = z.object({
+  userIds: z.array(z.string().min(1)).min(1),
+})
+
+const UpdateUserStorageLimitSchema = z.object({
+  userId: z.string().min(1),
+  storageLimitBytes: z.number().int().positive(),
+})
+
 export const getAdminDashboardDataFn = createServerFn({
   method: 'GET',
 }).handler(async () => {
@@ -338,6 +353,133 @@ export const updateUserRoleFn = createServerFn({ method: 'POST' })
       await logActivity({
         userId: adminUser.id,
         eventType: 'user_role_update',
+        tags: ['Admin'],
+        meta: {
+          success: false,
+          error: error instanceof Error ? error.message : String(error),
+        },
+      })
+      throw error
+    }
+  })
+
+export const banUsersFn = createServerFn({ method: 'POST' })
+  .inputValidator(BanUsersSchema)
+  .handler(async ({ data }) => {
+    const adminUser = await requireAdminUser()
+    try {
+      if (data.userIds.includes(adminUser.id)) {
+        throw new Error('Cannot ban yourself')
+      }
+
+      const updateData: Record<string, unknown> = {
+        banned: data.banned,
+      }
+      if (data.banReason) {
+        updateData.banReason = data.banReason
+      }
+
+      await db.update(user).set(updateData).where(eq(user.id, data.userIds[0]))
+
+      await logActivity({
+        userId: adminUser.id,
+        eventType: data.banned ? 'user_ban' : 'user_unban',
+        resourceType: 'user',
+        resourceId: data.userIds[0],
+        tags: ['Admin'],
+        meta: { userIds: data.userIds, banned: data.banned },
+      })
+
+      return { success: true, banned: data.banned }
+    } catch (error) {
+      await logActivity({
+        userId: adminUser.id,
+        eventType: data.banned ? 'user_ban' : 'user_unban',
+        tags: ['Admin'],
+        meta: {
+          success: false,
+          error: error instanceof Error ? error.message : String(error),
+        },
+      })
+      throw error
+    }
+  })
+
+export const deleteUsersFn = createServerFn({ method: 'POST' })
+  .inputValidator(DeleteUsersSchema)
+  .handler(async ({ data }) => {
+    const adminUser = await requireAdminUser()
+    try {
+      if (data.userIds.includes(adminUser.id)) {
+        throw new Error('Cannot delete your own account')
+      }
+
+      const deleted = await db
+        .delete(user)
+        .where(eq(user.id, data.userIds[0]))
+        .returning({ id: user.id })
+
+      if (deleted.length === 0) {
+        throw new Error('User not found')
+      }
+
+      await logActivity({
+        userId: adminUser.id,
+        eventType: 'user_delete',
+        resourceType: 'user',
+        resourceId: data.userIds[0],
+        tags: ['Admin'],
+        meta: { userIds: data.userIds },
+      })
+
+      return { success: true }
+    } catch (error) {
+      await logActivity({
+        userId: adminUser.id,
+        eventType: 'user_delete',
+        tags: ['Admin'],
+        meta: {
+          success: false,
+          error: error instanceof Error ? error.message : String(error),
+        },
+      })
+      throw error
+    }
+  })
+
+export const updateUserStorageLimitFn = createServerFn({ method: 'POST' })
+  .inputValidator(UpdateUserStorageLimitSchema)
+  .handler(async ({ data }) => {
+    const adminUser = await requireAdminUser()
+    try {
+      const [updated] = await db
+        .update(user)
+        .set({ storageLimitBytes: data.storageLimitBytes })
+        .where(eq(user.id, data.userId))
+        .returning({
+          id: user.id,
+          name: user.name,
+          storageLimitBytes: user.storageLimitBytes,
+        })
+
+      if (!updated) {
+        throw new Error('User not found')
+      }
+
+      await logActivity({
+        userId: adminUser.id,
+        eventType: 'user_storage_limit_update',
+        resourceType: 'user',
+        resourceId: data.userId,
+        tags: ['Admin'],
+        meta: { storageLimitBytes: data.storageLimitBytes },
+      })
+
+      return { success: true, user: updated }
+    } catch (error) {
+      await logActivity({
+        userId: adminUser.id,
+        eventType: 'user_storage_limit_update',
         tags: ['Admin'],
         meta: {
           success: false,

@@ -66,12 +66,12 @@ function SettingsPage() {
             value={activeTab}
             onValueChange={(value) => setActiveTab(value as SettingsTab)}
           >
-            <TabsList className="mb-4 grid h-auto w-full grid-cols-2 gap-1 p-1 md:grid-cols-6">
+            <TabsList className="mb-4 flex h-auto w-full flex-nowrap overflow-x-auto gap-1 p-1 md:grid md:grid-cols-6">
               {tabs.map((tab) => (
                 <TabsTrigger
                   key={tab.id}
                   value={tab.id}
-                  className="py-1.5 text-xs md:text-sm"
+                  className="flex-shrink-0 py-1.5 text-xs md:text-sm"
                 >
                   {tab.label}
                 </TabsTrigger>

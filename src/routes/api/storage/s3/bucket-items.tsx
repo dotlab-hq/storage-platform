@@ -5,7 +5,7 @@ import { getVirtualBucketCredentials } from '@/lib/s3-gateway/virtual-buckets'
 import { ListObjectsV2Command, S3Client } from '@aws-sdk/client-s3'
 
 const BucketItemsQuerySchema = z.object({
-  bucketName: z.string().trim().min(3).max(63),
+  bucketName: z.string().trim().min(1).max(63),
   prefix: z.string().optional(),
   continuationToken: z.string().optional(),
   maxKeys: z.coerce.number().int().min(1).max(1000).optional().default(250),

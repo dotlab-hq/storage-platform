@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 export const BucketSchema = z.object({
-  bucketName: z.string().trim().min(3).max(63),
+  bucketName: z.string().trim().min(1).max(63),
 })
 
 export const ListSchema = BucketSchema.extend({

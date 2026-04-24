@@ -24,6 +24,9 @@ export const user = sqliteTable('user', {
     false,
   ),
   isAdmin: integer('is_admin', { mode: 'boolean' }),
+  storageLimitBytes: integer('storage_limit_bytes', { mode: 'number' }).default(
+    10 * 1024 * 1024 * 1024,
+  ),
 })
 
 export const session = sqliteTable(

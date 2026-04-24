@@ -1,14 +1,17 @@
+import { useState, useCallback } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Eye } from 'lucide-react'
+import { toast } from '@/components/ui/sonner'
 import { DEFAULT_PROVIDER_ID } from '@/lib/storage-provider-constants'
 import type { AdminProvider, AdminUser } from '@/lib/storage-provider-queries'
 import { formatBytes } from '@/lib/format-bytes'
 import { UsersTable } from './users-table'
+import { AdminFloatingActionBar } from './floating-action-bar'
 
 type MetricCardProps = { title: string; value: string | number }
 
-export function MetricCard( { title, value }: MetricCardProps ) {
+export function MetricCard({ title, value }: MetricCardProps) {
   return (
     <div className="group relative overflow-hidden rounded-lg bg-gradient-to-br from-primary/10 via-background to-secondary/10 p-4 backdrop-blur-sm transition-all duration-300 hover:from-primary/15 hover:via-background hover:to-secondary/15">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -24,7 +27,7 @@ export function MetricCard( { title, value }: MetricCardProps ) {
   )
 }
 
-export function ProvidersPanel( {
+export function ProvidersPanel({
   providers,
   onToggleAvailability,
   onDelete,
@@ -32,11 +35,11 @@ export function ProvidersPanel( {
   onViewContents,
 }: {
   providers: AdminProvider[]
-  onToggleAvailability: ( providerId: string, isActive: boolean ) => Promise<void>
-  onDelete: ( providerId: string ) => Promise<void>
-  onEdit: ( provider: AdminProvider ) => void
-  onViewContents: ( provider: AdminProvider ) => void
-} ) {
+  onToggleAvailability: (providerId: string, isActive: boolean) => Promise<void>
+  onDelete: (providerId: string) => Promise<void>
+  onEdit: (provider: AdminProvider) => void
+  onViewContents: (provider: AdminProvider) => void
+}) {
   return (
     <div className="space-y-4">
       <div className="space-y-2">
@@ -48,7 +51,7 @@ export function ProvidersPanel( {
         </p>
       </div>
       <div className="space-y-3">
-        {providers.map( ( provider ) => (
+        {providers.map((provider) => (
           <div
             key={provider.id}
             className="group relative overflow-hidden rounded-lg border border-border/50 bg-gradient-to-br from-blue-50/40 via-background to-cyan-50/40 p-4 transition-all duration-300 hover:border-border/80 hover:from-blue-50/60 hover:via-background hover:to-cyan-50/60 dark:from-blue-950/20 dark:to-cyan-950/20 dark:hover:from-blue-950/40 dark:hover:to-cyan-950/40"
@@ -57,9 +60,9 @@ export function ProvidersPanel( {
               <div className="space-y-1">
                 <p className="font-semibold text-foreground">{provider.name}</p>
                 <p className="text-xs text-muted-foreground">
-                  Storage: {formatBytes( provider.usedStorageBytes )} /{' '}
-                  {formatBytes( provider.storageLimitBytes )} • Max file size:{' '}
-                  {formatBytes( provider.fileSizeLimitBytes )}
+                  Storage: {formatBytes(provider.usedStorageBytes)} /{' '}
+                  {formatBytes(provider.storageLimitBytes)} • Max file size:{' '}
+                  {formatBytes(provider.fileSizeLimitBytes)}
                 </p>
               </div>
               <div className="flex flex-col gap-2">
@@ -72,7 +75,7 @@ export function ProvidersPanel( {
                     variant="outline"
                     size="sm"
                     onClick={() => {
-                      onViewContents( provider )
+                      onViewContents(provider)
                     }}
                   >
                     <Eye className="h-4 w-4" />
@@ -84,7 +87,7 @@ export function ProvidersPanel( {
                         variant="outline"
                         size="sm"
                         onClick={() => {
-                          onEdit( provider )
+                          onEdit(provider)
                         }}
                       >
                         Edit
@@ -110,7 +113,7 @@ export function ProvidersPanel( {
                         size="sm"
                         className="text-red-600"
                         onClick={() => {
-                          void onDelete( provider.id )
+                          void onDelete(provider.id)
                         }}
                       >
                         Delete
@@ -121,19 +124,108 @@ export function ProvidersPanel( {
               </div>
             </div>
           </div>
-        ) )}
+        ))}
       </div>
     </div>
   )
 }
 
-export function UsersPanel( {
+export function UsersPanel({
   users,
   onUserUpdate,
 }: {
   users: AdminUser[]
   onUserUpdate?: () => void
-} ) {
+}) {
+  const [selectedUserIds, setSelectedUserIds] = useState<string[]>([])
+  const [isLoading, setIsLoading] = useState(false)
+
+  const clearSelection = useCallback(() => {
+    setSelectedUserIds([])
+  }, [])
+
+  const handleBan = useCallback(
+    async (banned: boolean) => {
+      if (selectedUserIds.length === 0) return
+
+      setIsLoading(true)
+      try {
+        const { banUsersFn } = await import('@/routes/_app/admin/-admin-server')
+        await banUsersFn({
+          data: { userIds: selectedUserIds, banned },
+        })
+        toast.success(banned ? 'User(s) banned' : 'User(s) unbanned')
+        clearSelection()
+        onUserUpdate?.()
+      } catch (error) {
+        const message =
+          error instanceof Error
+            ? error.message
+            : `Failed to ${banned ? 'ban' : 'unban'} user(s)`
+        toast.error(message)
+      } finally {
+        setIsLoading(false)
+      }
+    },
+    [selectedUserIds, clearSelection, onUserUpdate],
+  )
+
+  const handleDelete = useCallback(async () => {
+    if (selectedUserIds.length === 0) return
+
+    const confirmed = window.confirm(
+      `Are you sure you want to delete ${selectedUserIds.length} user(s)? This action cannot be undone.`,
+    )
+    if (!confirmed) return
+
+    setIsLoading(true)
+    try {
+      const { deleteUsersFn } =
+        await import('@/routes/_app/admin/-admin-server')
+      await deleteUsersFn({
+        data: { userIds: selectedUserIds },
+      })
+      toast.success('User(s) deleted')
+      clearSelection()
+      onUserUpdate?.()
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : 'Failed to delete user(s)'
+      toast.error(message)
+    } finally {
+      setIsLoading(false)
+    }
+  }, [selectedUserIds, clearSelection, onUserUpdate])
+
+  const handleUpdateStorage = useCallback(
+    async (storageLimitBytes: number) => {
+      if (selectedUserIds.length === 0) return
+
+      setIsLoading(true)
+      try {
+        const { updateUserStorageLimitFn } =
+          await import('@/routes/_app/admin/-admin-server')
+        for (const userId of selectedUserIds) {
+          await updateUserStorageLimitFn({
+            data: { userId, storageLimitBytes },
+          })
+        }
+        toast.success('Storage limit updated')
+        clearSelection()
+        onUserUpdate?.()
+      } catch (error) {
+        const message =
+          error instanceof Error
+            ? error.message
+            : 'Failed to update storage limit'
+        toast.error(message)
+      } finally {
+        setIsLoading(false)
+      }
+    },
+    [selectedUserIds, clearSelection, onUserUpdate],
+  )
+
   return (
     <div className="space-y-4">
       <div className="space-y-2">
@@ -142,7 +234,20 @@ export function UsersPanel( {
           Manage user accounts, roles, and access permissions
         </p>
       </div>
-      <UsersTable users={users} onUserUpdate={onUserUpdate} />
+      <UsersTable
+        users={users}
+        onUserUpdate={onUserUpdate}
+        selectedUsers={selectedUserIds}
+        onSelectionChange={setSelectedUserIds}
+      />
+      <AdminFloatingActionBar
+        selectedCount={selectedUserIds.length}
+        onClear={clearSelection}
+        onBan={handleBan}
+        onDelete={handleDelete}
+        onUpdateStorage={handleUpdateStorage}
+        isLoading={isLoading}
+      />
     </div>
   )
 }

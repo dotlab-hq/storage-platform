@@ -1,0 +1,265 @@
+'use client'
+
+import { useState } from 'react'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { Loader2 } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
+import { TagInput } from '@/components/ui/tag-input'
+import { toast } from 'sonner'
+import type { ApiScope } from '@/lib/permissions/scopes'
+import { getScopeDisplayName } from '@/lib/permissions/scopes'
+
+type CreateApiKeyModalProps = {
+  open: boolean
+  onOpenChange: (open: boolean) => void
+  onSuccess?: () => void
+}
+
+export function CreateApiKeyModal({
+  open,
+  onOpenChange,
+  onSuccess,
+}: CreateApiKeyModalProps) {
+  const [keyName, setKeyName] = useState('')
+  const [selectedScopes, setSelectedScopes] = useState<string[]>([])
+  const [errors, setErrors] = useState<{ name?: string; scopes?: string }>({})
+
+  const queryClient = useQueryClient()
+
+  const createMutation = useMutation({
+    mutationFn: async ({
+      name,
+      scopes,
+    }: {
+      name: string
+      scopes: ApiScope[]
+    }) => {
+      const mod = await import('../-settings-server')
+      return mod.createChatApiKeyFn({ data: { name, scopes } })
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['settings'] })
+      onOpenChange(false)
+      onSuccess?.()
+      toast.success('API key created successfully')
+      // Reset form
+      setKeyName('')
+      setSelectedScopes([])
+      setErrors({})
+    },
+    onError: (error: Error) => {
+      toast.error(error.message || 'Failed to create API key')
+    },
+  })
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    const newErrors: { name?: string; scopes?: string } = {}
+
+    if (!keyName.trim()) {
+      newErrors.name = 'Key name is required'
+    }
+
+    if (selectedScopes.length === 0) {
+      newErrors.scopes = 'At least one scope must be selected'
+    }
+
+    setErrors(newErrors)
+
+    if (Object.keys(newErrors).length > 0) {
+      return
+    }
+
+    createMutation.mutate({
+      name: keyName.trim(),
+      scopes: selectedScopes as ApiScope[],
+    })
+  }
+
+  const handleScopesChange = (scopes: string[]) => {
+    setSelectedScopes(scopes)
+    if (scopes.length === 0) {
+      setErrors((prev) => ({
+        ...prev,
+        scopes: 'At least one scope must be selected',
+      }))
+    } else {
+      setErrors((prev) => ({ ...prev, scopes: undefined }))
+    }
+  }
+
+  const handleOpenChange = (newOpen: boolean) => {
+    if (!newOpen) {
+      // Reset form when closing
+      setKeyName('')
+      setSelectedScopes([])
+      setErrors({})
+    }
+    onOpenChange(newOpen)
+  }
+
+  return (
+    <Dialog open={open} onOpenChange={handleOpenChange}>
+      <DialogContent className="sm:max-w-lg">
+        <DialogHeader>
+          <DialogTitle>Create New API Key</DialogTitle>
+          <DialogDescription>
+            Generate a new API key with specific permissions. Choose at least
+            one scope.
+          </DialogDescription>
+        </DialogHeader>
+
+        <form onSubmit={handleSubmit}>
+          <div className="space-y-4 py-4">
+            {/* Key Name */}
+            <div className="space-y-2">
+              <Label htmlFor="key-name">Key Name</Label>
+              <Input
+                id="key-name"
+                placeholder="My First API Key"
+                value={keyName}
+                onChange={(e) => {
+                  setKeyName(e.target.value)
+                  if (e.target.value.trim()) {
+                    setErrors((prev) => ({ ...prev, name: undefined }))
+                  }
+                }}
+                className={errors.name ? 'border-destructive' : ''}
+                disabled={createMutation.isPending}
+              />
+              {errors.name && (
+                <p className="text-destructive text-xs">{errors.name}</p>
+              )}
+            </div>
+
+            {/* Scopes Selection */}
+            <div className="space-y-2">
+              <Label>Scopes (Permissions)</Label>
+              <TagInput
+                value={selectedScopes}
+                onChange={handleScopesChange}
+                placeholder="Select scopes..."
+                disabled={createMutation.isPending}
+                className={errors.scopes ? 'border-destructive' : ''}
+              />
+              <p className="text-muted-foreground text-xs">
+                Start typing to see available scopes. Click on a scope to add it
+                as a tag.
+              </p>
+              {errors.scopes && (
+                <p className="text-destructive text-xs">{errors.scopes}</p>
+              )}
+
+              {/* Quick selection helpers */}
+              <div className="flex flex-wrap gap-1 pt-2">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setSelectedScopes(['chat:completions'])}
+                  disabled={createMutation.isPending}
+                >
+                  Chat Only
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() =>
+                    setSelectedScopes(['files:full', 'folders:full'])
+                  }
+                  disabled={createMutation.isPending}
+                >
+                  Files & Folders
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setSelectedScopes(['s3:full'])}
+                  disabled={createMutation.isPending}
+                >
+                  Full S3
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setSelectedScopes(['admin:system'])}
+                  disabled={createMutation.isPending}
+                >
+                  Admin
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setSelectedScopes([])}
+                  disabled={createMutation.isPending}
+                >
+                  Clear All
+                </Button>
+              </div>
+            </div>
+
+            {/* Selected Scopes Preview */}
+            {selectedScopes.length > 0 && (
+              <div className="space-y-2">
+                <Label>Selected Scopes:</Label>
+                <div className="flex flex-wrap gap-2">
+                  {selectedScopes.map((scope) => (
+                    <div
+                      key={scope}
+                      className="bg-primary/10 text-primary rounded-md px-2 py-1 text-xs font-medium"
+                    >
+                      {getScopeDisplayName(scope as ApiScope)}
+                      <span className="ml-1 opacity-70">({scope})</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <DialogFooter>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => handleOpenChange(false)}
+              disabled={createMutation.isPending}
+            >
+              Cancel
+            </Button>
+            <Button
+              type="submit"
+              disabled={
+                createMutation.isPending ||
+                !keyName.trim() ||
+                selectedScopes.length === 0
+              }
+            >
+              {createMutation.isPending ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Creating...
+                </>
+              ) : (
+                'Create API Key'
+              )}
+            </Button>
+          </DialogFooter>
+        </form>
+      </DialogContent>
+    </Dialog>
+  )
+}

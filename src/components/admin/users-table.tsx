@@ -8,9 +8,8 @@ import {
   type ColumnDef,
   type SortingState,
 } from '@tanstack/react-table'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { ChevronDown, Search } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import {
   Select,
@@ -24,7 +23,6 @@ import { toast } from '@/components/ui/sonner'
 import { formatBytes } from '@/lib/format-bytes'
 import type { AdminUser } from '@/lib/storage-provider-queries'
 
-// Dynamically load the server function to keep client bundle small
 async function loadUpdateUserRoleFn() {
   const mod = await import('@/routes/_app/admin/-admin-server')
   return mod.updateUserRoleFn
@@ -37,13 +35,29 @@ const columnHelper = createColumnHelper<UserTableRow>()
 interface UsersTableProps {
   users: AdminUser[]
   onUserUpdate?: () => void
+  selectedUsers?: string[]
+  onSelectionChange?: (selectedIds: string[]) => void
 }
 
-export function UsersTable({ users, onUserUpdate }: UsersTableProps) {
+export function UsersTable({
+  users,
+  onUserUpdate,
+  selectedUsers = [],
+  onSelectionChange,
+}: UsersTableProps) {
   const [sorting, setSorting] = useState<SortingState>([])
   const [globalFilter, setGlobalFilter] = useState('')
   const [updatingUsers, setUpdatingUsers] = useState<Set<string>>(new Set())
-  const [data, setData] = useState<UserTableRow[]>(users)
+  const [data] = useState<UserTableRow[]>(users)
+  const [rowSelection, setRowSelection] = useState<Record<string, boolean>>({})
+
+  useEffect(() => {
+    const newSelection: Record<string, boolean> = {}
+    for (const id of selectedUsers) {
+      newSelection[id] = true
+    }
+    setRowSelection(newSelection)
+  }, [selectedUsers])
 
   const columns = useMemo<ColumnDef<UserTableRow>[]>(
     () => [
@@ -69,24 +83,20 @@ export function UsersTable({ users, onUserUpdate }: UsersTableProps) {
       columnHelper.accessor('name', {
         header: 'Name',
         size: 180,
-        cell: (info) => {
-          const value = info.getValue()
-          return (
-            <div className="truncate font-medium text-foreground">{value}</div>
-          )
-        },
+        cell: (info) => (
+          <div className="truncate font-medium text-foreground">
+            {info.getValue()}
+          </div>
+        ),
       }),
       columnHelper.accessor('email', {
         header: 'Email',
         size: 220,
-        cell: (info) => {
-          const value = info.getValue()
-          return (
-            <div className="truncate text-sm text-muted-foreground">
-              {value}
-            </div>
-          )
-        },
+        cell: (info) => (
+          <div className="truncate text-sm text-muted-foreground">
+            {info.getValue()}
+          </div>
+        ),
       }),
       columnHelper.accessor((row) => row.isAdmin, {
         id: 'role',
@@ -119,14 +129,20 @@ export function UsersTable({ users, onUserUpdate }: UsersTableProps) {
       columnHelper.accessor('usedStorage', {
         header: 'Usage',
         size: 120,
-        cell: (info) => {
-          const bytes = info.getValue()
-          return (
-            <div className="text-sm text-muted-foreground">
-              {formatBytes(bytes)}
-            </div>
-          )
-        },
+        cell: (info) => (
+          <div className="text-sm text-muted-foreground">
+            {formatBytes(info.getValue())}
+          </div>
+        ),
+      }),
+      columnHelper.accessor('storageLimitBytes', {
+        header: 'Allocated',
+        size: 120,
+        cell: (info) => (
+          <div className="text-sm text-muted-foreground">
+            {formatBytes(info.getValue())}
+          </div>
+        ),
       }),
       columnHelper.accessor('banned', {
         header: 'Status',
@@ -180,8 +196,17 @@ export function UsersTable({ users, onUserUpdate }: UsersTableProps) {
     state: {
       sorting,
       globalFilter,
+      rowSelection,
     },
     onSortingChange: setSorting,
+    onRowSelectionChange: (updater) => {
+      setRowSelection((prev) => {
+        const newSelection =
+          typeof updater === 'function' ? updater(prev) : updater
+        onSelectionChange?.(Object.keys(newSelection))
+        return newSelection
+      })
+    },
     getSortedRowModel: getSortedRowModel(),
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
@@ -193,9 +218,6 @@ export function UsersTable({ users, onUserUpdate }: UsersTableProps) {
     try {
       const updateUserRoleFn = await loadUpdateUserRoleFn()
       await updateUserRoleFn({ data: { userId, isAdmin } })
-      setData((prev) =>
-        prev.map((u) => (u.id === userId ? { ...u, isAdmin } : u)),
-      )
       toast.success('User role updated')
       onUserUpdate?.()
     } catch (error) {

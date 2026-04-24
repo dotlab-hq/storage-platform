@@ -22,8 +22,8 @@ export function HomeMetricsBar() {
 
   if (isLoading) {
     return (
-      <div className="grid gap-4 md:grid-cols-4">
-        {[...Array(4)].map((_, i) => (
+      <div className="grid gap-4 md:grid-cols-3">
+        {[...Array(3)].map((_, i) => (
           <div key={i} className="rounded-lg border bg-card p-4 space-y-3">
             <Skeleton className="h-4 w-20" />
             <Skeleton className="h-8 w-16" />
@@ -38,11 +38,10 @@ export function HomeMetricsBar() {
   }
 
   return (
-    <div className="grid gap-4 md:grid-cols-4">
+    <div className="grid gap-4 md:grid-cols-3">
       <MetricCard title="Files" value={data.fileCount} />
       <MetricCard title="Folders" value={data.folderCount} />
       <MetricCard title="Storage Used" value={formatBytes(data.storageUsed)} />
-      <MetricCard title="Providers" value={data.providerCount} />
     </div>
   )
 }

@@ -14,7 +14,7 @@ import { FileUploadDialog } from '@/components/storage/upload-dialog'
 import { FolderUploadDialog } from '@/components/storage/folder-upload-dialog'
 import { NewFolderDialog } from '@/components/storage/new-folder-dialog'
 
-import { WebRTCToggle } from '@/components/webrtc-toggle'
+import { StatsDropdown } from '@/components/stats-dropdown'
 import { TopbarSearch } from '@/components/topbar-search'
 import type { StorageItem, UploadingFile } from '@/types/storage'
 
@@ -88,7 +88,7 @@ export function TopbarActions({
   return (
     <div className="flex items-center gap-2">
       <TopbarSearch userId={userId} onSearch={onSearch} />
-      <WebRTCToggle />
+      <StatsDropdown />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button size="icon" variant="outline" aria-label="Create or upload">

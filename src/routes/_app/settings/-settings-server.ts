@@ -6,6 +6,10 @@ import { createServerFn } from '@tanstack/react-start'
 import { getRequest } from '@tanstack/react-start/server'
 import { and, eq } from 'drizzle-orm'
 import { z } from 'zod'
+import { getAllScopes } from '@/lib/permissions/scopes'
+import type { ApiScope } from '@/lib/permissions/scopes'
+
+const ALL_SCOPES = getAllScopes() as readonly ApiScope[]
 
 const ProfileSchema = z.object({
   name: z.string().trim().min(1).max(120),
@@ -27,6 +31,10 @@ const VerifyTotpSchema = z.object({
 
 const ApiKeySchema = z.object({
   name: z.string().trim().min(1).max(60),
+  scopes: z
+    .array(z.enum(ALL_SCOPES))
+    .min(1, 'At least one scope must be selected')
+    .max(20, 'Maximum 20 scopes allowed'),
 })
 
 const DeleteKeySchema = z.object({
@@ -131,14 +139,24 @@ export const getSettingsSnapshotFn = createServerFn({ method: 'GET' }).handler(
       })),
       apiKeys: apiKeys
         .filter((key) => hasChatScope(key.permissions))
-        .map((key) => ({
-          id: key.id,
-          name: key.name?.trim() || 'Chat API Key',
-          keyPreview: key.key.slice(0, 8),
-          status: key.enabled === false ? 'revoked' : 'active',
-          scope: 'chat:completions',
-          createdAt: key.createdAt,
-        })),
+        .map((key) => {
+          let scopes: string[] = []
+          if (key.permissions) {
+            try {
+              scopes = JSON.parse(key.permissions)
+            } catch {
+              scopes = []
+            }
+          }
+          return {
+            id: key.id,
+            name: key.name?.trim() || 'Chat API Key',
+            keyPreview: key.key.slice(0, 8),
+            status: key.enabled === false ? 'revoked' : 'active',
+            scopes,
+            createdAt: key.createdAt,
+          }
+        }),
       tinySessions: {
         active: [],
         recent: [],
@@ -277,7 +295,7 @@ export const createChatApiKeyFn = createServerFn({ method: 'POST' })
       rateLimitMax: 120,
       requestCount: 0,
       remaining: 120,
-      permissions: JSON.stringify(['chat:completions']),
+      permissions: JSON.stringify(data.scopes),
       metadata: JSON.stringify({ usage: 'chat-completions' }),
       createdAt: now,
       updatedAt: now,

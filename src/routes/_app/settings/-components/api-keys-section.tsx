@@ -1,22 +1,158 @@
 import { useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { Copy, KeyRound, Loader2, Trash2 } from 'lucide-react'
-import { Alert, AlertDescription } from '@/components/ui/alert'
+import { Key, Plus, Trash2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
+import { Badge } from '@/components/ui/badge'
 import { toast } from 'sonner'
+import { CreateApiKeyModal } from './create-api-key-modal'
 
 type ApiKeySnapshot = {
   id: string
   name: string
   keyPreview: string
   status: string
-  scope: string
+  scopes: string[]
   createdAt: Date
 }
 
-type RevealedKey = {
-  value: string
+export function ApiKeysSection({
+  initialKeys,
+}: {
+  initialKeys: ApiKeySnapshot[]
+}) {
+  const queryClient = useQueryClient()
+  const [showCreateModal, setShowCreateModal] = useState(false)
+
+  const deleteMutation = useMutation({
+    mutationFn: async (id: string) => {
+      const mod = await import('../-settings-server')
+      await mod.deleteChatApiKeyFn({ data: { id } })
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['settings'] })
+      toast.success('API key deleted')
+    },
+    onError: (error: Error) => {
+      toast.error(error.message || 'Failed to delete API key')
+    },
+  })
+
+  const copyToClipboard = async (value: string) => {
+    await navigator.clipboard.writeText(value)
+    toast.success('Copied to clipboard')
+  }
+
+  const handleCreateSuccess = () => {
+    queryClient.invalidateQueries({ queryKey: ['settings'] })
+  }
+
+  return (
+    <section className="overflow-hidden rounded-2xl bg-gradient-to-br from-background via-background to-muted/30 p-6 shadow-sm">
+      <div className="mb-6 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="bg-primary/10 flex size-10 items-center justify-center rounded-lg">
+            <Key className="text-primary size-5" />
+          </div>
+          <div>
+            <h2 className="text-lg font-semibold">Chat Completions API Keys</h2>
+            <p className="text-muted-foreground text-sm">
+              Generate tokens for accessing the chat API
+            </p>
+          </div>
+        </div>
+        <Button onClick={() => setShowCreateModal(true)}>
+          <Plus className="mr-2 h-4 w-4" />
+          Generate New Key
+        </Button>
+      </div>
+
+      <CreateApiKeyModal
+        open={showCreateModal}
+        onOpenChange={setShowCreateModal}
+        onSuccess={handleCreateSuccess}
+      />
+
+      {/* Keys Table */}
+      <div className="rounded-xl border overflow-hidden">
+        {initialKeys.length === 0 ? (
+          <div className="flex flex-col items-center justify-center gap-3 py-12">
+            <div className="bg-muted/50 flex size-12 items-center justify-center rounded-lg">
+              <Key className="text-muted-foreground size-6" />
+            </div>
+            <div className="text-center">
+              <p className="font-medium">No API keys yet</p>
+              <p className="text-muted-foreground text-sm">
+                Click "Generate New Key" to create your first API key
+              </p>
+            </div>
+          </div>
+        ) : (
+          <table className="w-full">
+            <thead className="border-b bg-muted/30">
+              <tr>
+                <th className="px-4 py-3 text-left text-sm font-medium text-muted-foreground">
+                  Name
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-medium text-muted-foreground">
+                  Preview
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-medium text-muted-foreground">
+                  Scopes
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-medium text-muted-foreground">
+                  Created
+                </th>
+                <th className="px-4 py-3 text-right text-sm font-medium text-muted-foreground">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y">
+              {initialKeys.map((key) => (
+                <tr key={key.id}>
+                  <td className="px-4 py-3 font-medium">{key.name}</td>
+                  <td className="px-4 py-3 font-mono text-xs">
+                    {key.keyPreview}...
+                  </td>
+                  <td className="px-4 py-3">
+                    <div className="flex flex-wrap gap-1">
+                      {key.scopes.map((scope) => (
+                        <Badge
+                          key={scope}
+                          variant="secondary"
+                          className="text-xs"
+                        >
+                          {scope}
+                        </Badge>
+                      ))}
+                    </div>
+                  </td>
+                  <td className="px-4 py-3 text-muted-foreground">
+                    {new Date(key.createdAt).toLocaleDateString()}
+                  </td>
+                  <td className="px-4 py-3 text-right">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="text-destructive hover:text-destructive h-8 w-8"
+                      disabled={deleteMutation.isPending}
+                      onClick={() => {
+                        if (confirm('Delete this API key?')) {
+                          deleteMutation.mutate(key.id)
+                        }
+                      }}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
+    </section>
+  )
 }
 
 export function ApiKeysSection({
@@ -26,7 +162,8 @@ export function ApiKeysSection({
 }) {
   const queryClient = useQueryClient()
   const [newKeyName, setNewKeyName] = useState('Chat Completions Key')
-  const [revealedKey, setRevealedKey] = useState<RevealedKey | null>(null)
+  const [showKeyDialog, setShowKeyDialog] = useState(false)
+  const [revealedKey, setRevealedKey] = useState<string>('')
 
   const createMutation = useMutation({
     mutationFn: async (name: string) => {
@@ -51,7 +188,8 @@ export function ApiKeysSection({
   const handleCreate = async () => {
     try {
       const result = await createMutation.mutateAsync(newKeyName)
-      setRevealedKey({ value: result.apiKey.key })
+      setRevealedKey(result.apiKey.key)
+      setShowKeyDialog(true)
       toast.success('Chat API key generated')
     } catch (error: unknown) {
       const message =
@@ -62,53 +200,62 @@ export function ApiKeysSection({
 
   const copyToClipboard = async (value: string) => {
     await navigator.clipboard.writeText(value)
-    toast.success('Copied')
+    toast.success('Copied to clipboard')
   }
 
   return (
-    <section className="space-y-4 rounded-lg border p-4">
-      <div>
-        <h2 className="text-base font-semibold">Chat Completions API Keys</h2>
-        <p className="text-muted-foreground text-sm">
-          Generate a single `apiKey` token for `POST /api/chat/stream`.
-        </p>
+    <section className="overflow-hidden rounded-2xl bg-gradient-to-br from-background via-background to-muted/30 p-6 shadow-sm">
+      <div className="mb-6 flex items-center gap-3">
+        <div className="bg-primary/10 flex size-10 items-center justify-center rounded-lg">
+          <Key className="text-primary size-5" />
+        </div>
+        <div>
+          <h2 className="text-lg font-semibold">Chat Completions API Keys</h2>
+          <p className="text-muted-foreground text-sm">
+            Generate tokens for accessing the chat API
+          </p>
+        </div>
       </div>
 
-      {revealedKey ? (
-        <Alert className="border-amber-200 bg-amber-50">
-          <div className="space-y-3">
-            <AlertDescription className="font-medium text-amber-800">
+      <Dialog open={showKeyDialog} onOpenChange={setShowKeyDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>API Key Generated</DialogTitle>
+            <DialogDescription>
               Save this API key now. It will not be shown again.
-            </AlertDescription>
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex flex-col gap-4 py-4">
             <div className="flex gap-2">
               <Input
                 readOnly
-                value={revealedKey.value}
-                className="bg-white font-mono text-xs"
+                value={revealedKey}
+                className="font-mono text-xs"
+                aria-label="Generated API key"
               />
               <Button
                 size="icon"
                 variant="outline"
-                onClick={() => void copyToClipboard(revealedKey.value)}
+                onClick={() => void copyToClipboard(revealedKey)}
+                aria-label="Copy API key to clipboard"
               >
                 <Copy className="h-4 w-4" />
               </Button>
             </div>
             <p className="text-muted-foreground text-xs">
-              Use header: Authorization: Bearer &lt;apiKey&gt;
+              Use header:{' '}
+              <code className="bg-muted px-1 py-0.5 rounded">
+                Authorization: Bearer &lt;apiKey&gt;
+              </code>
             </p>
-            <Button
-              size="sm"
-              variant="destructive"
-              onClick={() => setRevealedKey(null)}
-            >
-              I saved it
-            </Button>
           </div>
-        </Alert>
-      ) : null}
+          <DialogFooter>
+            <Button onClick={() => setShowKeyDialog(false)}>I saved it</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
-      <div className="flex gap-2">
+      <div className="mb-4 flex max-w-md items-center gap-2">
         <Input
           placeholder="Key name"
           value={newKeyName}
@@ -133,39 +280,45 @@ export function ApiKeysSection({
         </Button>
       </div>
 
-      <div className="overflow-hidden rounded-md border">
-        <table className="w-full text-left text-sm">
-          <thead className="bg-muted/50 font-medium">
-            <tr>
-              <th className="px-4 py-2">Name</th>
-              <th className="px-4 py-2">Preview</th>
-              <th className="px-4 py-2">Scope</th>
-              <th className="px-4 py-2">Created</th>
-              <th className="px-4 py-2 text-right">Actions</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y">
-            {initialKeys.length === 0 ? (
-              <tr>
-                <td
-                  colSpan={5}
-                  className="text-muted-foreground px-4 py-8 text-center"
-                >
-                  No chat API keys yet.
-                </td>
-              </tr>
-            ) : (
-              initialKeys.map((key) => (
-                <tr key={key.id} className="hover:bg-muted/30">
-                  <td className="px-4 py-2">{key.name}</td>
-                  <td className="px-4 py-2 font-mono text-xs">
+      {/* Keys Table */}
+      <div className="rounded-xl border overflow-hidden">
+        {initialKeys.length === 0 ? (
+          <div className="flex flex-col items-center justify-center gap-3 py-12">
+            <div className="bg-muted/50 flex size-12 items-center justify-center rounded-lg">
+              <Key className="text-muted-foreground size-6" />
+            </div>
+            <div className="text-center">
+              <p className="font-medium">No API keys yet</p>
+              <p className="text-muted-foreground text-sm">
+                Generate a key to access the chat API
+              </p>
+            </div>
+          </div>
+        ) : (
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Name</TableHead>
+                <TableHead>Preview</TableHead>
+                <TableHead>Scope</TableHead>
+                <TableHead>Created</TableHead>
+                <TableHead className="text-right">Actions</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {initialKeys.map((key) => (
+                <TableRow key={key.id}>
+                  <TableCell className="font-medium">{key.name}</TableCell>
+                  <TableCell className="font-mono text-xs">
                     {key.keyPreview}...
-                  </td>
-                  <td className="px-4 py-2">{key.scope}</td>
-                  <td className="text-muted-foreground px-4 py-2">
+                  </TableCell>
+                  <TableCell>
+                    <Badge variant="outline">{key.scope}</Badge>
+                  </TableCell>
+                  <TableCell className="text-muted-foreground">
                     {new Date(key.createdAt).toLocaleDateString()}
-                  </td>
-                  <td className="px-4 py-2 text-right">
+                  </TableCell>
+                  <TableCell className="text-right">
                     <Button
                       variant="ghost"
                       size="icon"
@@ -179,12 +332,12 @@ export function ApiKeysSection({
                     >
                       <Trash2 className="h-4 w-4" />
                     </Button>
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        )}
       </div>
     </section>
   )
