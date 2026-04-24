@@ -1,7 +1,7 @@
 import { ChatGoogle } from '@langchain/google'
 
 const llm = new ChatGoogle({
-  model: 'gemini-2.5-pro-preview-03-25',
+  model: 'gemma-4-31b-it',
   thinkingConfig: {
     includeThoughts: true,
     thinkingLevel: 'high',
@@ -10,7 +10,7 @@ const llm = new ChatGoogle({
 })
 
 export const Bllm = new ChatGoogle({
-  model: 'gemini-2.5-flash-preview-04-17',
+  model: 'gemini-3.1-flash-lite-preview',
   thinkingConfig: {
     includeThoughts: true,
     thinkingLevel: 'high',
