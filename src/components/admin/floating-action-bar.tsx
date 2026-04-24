@@ -23,7 +23,7 @@ export function AdminFloatingActionBar({
   isLoading,
 }: AdminFloatingActionBarProps) {
   const [showStorageModal, setShowStorageModal] = useState(false)
-  const [storageInput, setStorageInput] = React.useState('')
+  const [storageInput, setStorageInput] = useState('')
 
   if (selectedCount === 0) return null
 
