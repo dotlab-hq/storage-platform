@@ -71,8 +71,7 @@ const config = defineConfig({
   },
   plugins: [
     cloudflare({
-      viteEnvironment: { name: 'ssr' },
-      compatibilityFlags: ['nodejs_compat'],
+      viteEnvironment: { name: 'ssr' }
     }),
     devtools(),
     // nitro( {
