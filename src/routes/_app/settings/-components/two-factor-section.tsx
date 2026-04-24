@@ -199,14 +199,8 @@ export function TwoFactorSection() {
                   Verify
                 </Button>
               </div>
-                <Button
-                  variant="outline"
-                  disabled={!totpCode || totpCode.length < 6}
-                  onClick={() => void verify2FA()}
-                >
-                  Verify
-                </Button>
-              </div>
+            </div>
+
             </div>
 
             {/* Backup Codes Table */}

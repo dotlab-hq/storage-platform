@@ -58,9 +58,10 @@ export const Route = createFileRoute('/api/storage/s3/bucket-items')({
           const url = new URL(request.url)
           const query = BucketItemsQuerySchema.parse({
             bucketName: url.searchParams.get('bucketName'),
-            prefix: url.searchParams.get('prefix'),
-            continuationToken: url.searchParams.get('continuationToken'),
-            maxKeys: url.searchParams.get('maxKeys'),
+            prefix: url.searchParams.get('prefix') ?? undefined,
+            continuationToken:
+              url.searchParams.get('continuationToken') ?? undefined,
+            maxKeys: url.searchParams.get('maxKeys') ?? undefined,
           })
 
           // Get virtual bucket credentials (S3-compatible)
