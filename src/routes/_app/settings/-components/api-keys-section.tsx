@@ -21,6 +21,7 @@ import {
   TableBody,
   TableCell,
 } from '@/components/ui/table'
+import { createChatApiKeyFn, deleteChatApiKeyFn } from '../-settings-server'
 
 type ApiKeySnapshot = {
   id: string
@@ -43,8 +44,7 @@ export function ApiKeysSection({
 
   const createMutation = useMutation({
     mutationFn: async (name: string) => {
-      const mod = await import('../-settings-server')
-      return mod.createChatApiKeyFn({ data: { name } })
+      return createChatApiKeyFn({ data: { name } })
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['settings'] })
@@ -53,8 +53,7 @@ export function ApiKeysSection({
 
   const deleteMutation = useMutation({
     mutationFn: async (id: string) => {
-      const mod = await import('../-settings-server')
-      await mod.deleteChatApiKeyFn({ data: { id } })
+      return deleteChatApiKeyFn({ data: { id } })
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['settings'] })

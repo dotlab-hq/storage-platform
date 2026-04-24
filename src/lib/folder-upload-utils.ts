@@ -99,36 +99,116 @@ async function uploadSingleFileWithProgress(
       },
     })
 
-    await new Promise<void>((resolve, reject) => {
-      const xhr = new XMLHttpRequest()
+    if (target.uploadMethod === 'proxy') {
+      const total = file.size
+      let loaded = 0
 
-      xhr.upload.onprogress = (e) => {
-        if (e.lengthComputable) {
-          const progress = Math.round((e.loaded / e.total) * 100)
-          onProgress(Math.min(90, progress))
-        }
+      const progressTransform = new TransformStream({
+        transform(chunk: Uint8Array, controller) {
+          loaded += chunk.byteLength
+          // Cap at 90% during upload; will be set to 95% after per-file success
+          onProgress(Math.min(90, Math.round((loaded / total) * 100)))
+          controller.enqueue(chunk)
+        },
+      })
+
+      const bodyStream = file.stream().pipeThrough(progressTransform)
+
+      const response = await fetch(target.uploadUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': contentType,
+          'X-Upload-Object-Key': objectKey,
+          'X-Upload-File-Size': String(file.size),
+          'X-Upload-Provider-Id': target.providerId ?? '',
+        },
+        body: bodyStream,
+      })
+
+      if (!response.ok) {
+        const errorBody = await response.text()
+        throw new Error(
+          `Proxy upload failed: HTTP ${response.status} - ${errorBody}`,
+        )
       }
 
-      xhr.onload = () => {
-        if (xhr.status >= 200 && xhr.status < 300) {
-          resolve()
-        } else {
-          reject(new Error(`Upload failed: HTTP ${xhr.status}`))
-        }
-      }
+      return target.providerId ?? null
+    } else {
+      // Direct upload via presigned URL (single PUT) - use XHR for accurate Content-Length and progress
+      await new Promise<void>((resolve, reject) => {
+        const xhr = new XMLHttpRequest()
 
-      xhr.onerror = () => reject(new Error('Network error during upload'))
-      if (target.uploadMethod === 'proxy') {
-        xhr.open('POST', target.uploadUrl)
-        xhr.setRequestHeader('X-Upload-Object-Key', objectKey)
-        xhr.setRequestHeader('X-Upload-File-Size', String(file.size))
-        xhr.setRequestHeader('X-Upload-Provider-Id', target.providerId ?? '')
-      } else {
+        xhr.upload.onprogress = (e) => {
+          if (e.lengthComputable) {
+            const progress = Math.round((e.loaded / e.total) * 100)
+            onProgress(Math.min(90, progress))
+          }
+        }
+
+        xhr.onload = () => {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            resolve()
+          } else {
+            reject(new Error(`Upload failed: HTTP ${xhr.status}`))
+          }
+        }
+
+        xhr.onerror = () => reject(new Error('Network error during upload'))
         xhr.open('PUT', target.presignedUrl)
-      }
-      xhr.setRequestHeader('Content-Type', contentType)
-      xhr.send(file)
+        xhr.setRequestHeader('Content-Type', contentType)
+        xhr.send(file)
+      })
+
+      return target.providerId ?? null
+    }
+  } catch (error: unknown) {
+    throw new Error(toErrorMessage(error))
+  }
+}
+
+  const contentType = file.type || 'application/octet-stream'
+
+  try {
+    const target = await prepareUploadTarget({
+      data: {
+        objectKey,
+        contentType,
+        fileSize: file.size,
+      },
     })
+
+    const total = file.size
+    let loaded = 0
+
+    const progressTransform = new TransformStream({
+      transform(chunk: Uint8Array, controller) {
+        loaded += chunk.byteLength
+        onProgress(Math.round((loaded / total) * 100))
+        controller.enqueue(chunk)
+      },
+    })
+
+    const bodyStream = file.stream().pipeThrough(progressTransform)
+
+    const method = target.uploadMethod === 'proxy' ? 'POST' : 'PUT'
+    const url =
+      target.uploadMethod === 'proxy' ? target.uploadUrl : target.presignedUrl
+
+    const headers: Record<string, string> = {
+      'Content-Type': contentType,
+    }
+    if (target.uploadMethod === 'proxy') {
+      headers['X-Upload-Object-Key'] = objectKey
+      headers['X-Upload-File-Size'] = String(file.size)
+      headers['X-Upload-Provider-Id'] = target.providerId ?? ''
+    }
+
+    const response = await fetch(url, { method, headers, body: bodyStream })
+
+    if (!response.ok) {
+      const errorBody = await response.text()
+      throw new Error(`Upload failed: HTTP ${response.status} - ${errorBody}`)
+    }
 
     return target.providerId ?? null
   } catch (error: unknown) {

@@ -18,6 +18,7 @@ import { TagInput } from '@/components/ui/tag-input'
 import { toast } from 'sonner'
 import type { ApiScope } from '@/lib/permissions/scopes'
 import { getScopeDisplayName } from '@/lib/permissions/scopes'
+import { createChatApiKeyFn } from '../-settings-server'
 
 type CreateApiKeyModalProps = {
   open: boolean
@@ -44,8 +45,7 @@ export function CreateApiKeyModal({
       name: string
       scopes: ApiScope[]
     }) => {
-      const mod = await import('../-settings-server')
-      return mod.createChatApiKeyFn({ data: { name, scopes } })
+      return createChatApiKeyFn({ data: { name, scopes } })
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['settings'] })

@@ -70,7 +70,10 @@ const config = defineConfig({
     },
   },
   plugins: [
-    cloudflare({ viteEnvironment: { name: 'ssr' } }),
+    cloudflare({
+      viteEnvironment: { name: 'ssr' },
+      compatibilityFlags: ['nodejs_compat'],
+    }),
     devtools(),
     // nitro( {
     //   preset: 'cloudflare_module',

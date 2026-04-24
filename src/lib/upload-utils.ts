@@ -217,31 +217,36 @@ async function uploadFileViaProxy(
   contentType: string,
   onProgress: (progress: number) => void,
 ): Promise<string | null> {
-  await new Promise<void>((resolve, reject) => {
-    const xhr = new XMLHttpRequest()
+  const total = file.size
+  let loaded = 0
 
-    xhr.upload.onprogress = (e) => {
-      if (e.lengthComputable) {
-        onProgress(Math.round((e.loaded / e.total) * 100))
-      }
-    }
-
-    xhr.onload = () => {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        resolve()
-      } else {
-        reject(new Error(`Proxy upload failed: HTTP ${xhr.status}`))
-      }
-    }
-
-    xhr.onerror = () => reject(new Error('Network error during proxy upload'))
-    xhr.open('POST', uploadUrl)
-    xhr.setRequestHeader('Content-Type', contentType)
-    xhr.setRequestHeader('X-Upload-Object-Key', objectKey)
-    xhr.setRequestHeader('X-Upload-File-Size', String(file.size))
-    xhr.setRequestHeader('X-Upload-Provider-Id', providerId ?? '')
-    xhr.send(file)
+  const progressTransform = new TransformStream({
+    transform(chunk: Uint8Array, controller) {
+      loaded += chunk.byteLength
+      onProgress(Math.round((loaded / total) * 100))
+      controller.enqueue(chunk)
+    },
   })
+
+  const bodyStream = file.stream().pipeThrough(progressTransform)
+
+  const response = await fetch(uploadUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': contentType,
+      'X-Upload-Object-Key': objectKey,
+      'X-Upload-File-Size': String(file.size),
+      'X-Upload-Provider-Id': providerId ?? '',
+    },
+    body: bodyStream,
+  })
+
+  if (!response.ok) {
+    const errorBody = await response.text()
+    throw new Error(
+      `Proxy upload failed: HTTP ${response.status} - ${errorBody}`,
+    )
+  }
 
   return providerId
 }
