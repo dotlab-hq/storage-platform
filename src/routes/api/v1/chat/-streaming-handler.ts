@@ -61,6 +61,21 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                   ),
                 ),
               )
+            } else if (chunk.type === 'reasoning') {
+              // Send reasoning content separately with reasoning_content field
+              controller.enqueue(
+                encoder.encode(
+                  toSseEvent(
+                    toOpenAiChunk({
+                      id: `chatcmpl-${assistantMessageId || 'pending'}`,
+                      created: Math.floor(Date.now() / 1000),
+                      model: params.model,
+                      delta: { reasoning_content: chunk.reasoning },
+                      finishReason: null,
+                    }),
+                  ),
+                ),
+              )
             } else if (chunk.type === 'final') {
               if (!assistantMessageId) {
                 const [saved] = await db

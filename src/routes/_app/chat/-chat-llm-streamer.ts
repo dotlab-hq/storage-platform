@@ -11,8 +11,9 @@ import type { StructuredTool } from '@langchain/core/tools'
  * Stream chunk emitted to client
  */
 export interface StreamChunk {
-  type: 'content' | 'final' | 'error'
+  type: 'content' | 'reasoning' | 'final' | 'error'
   content?: string
+  reasoning?: string
   toolCalls?: Array<{
     id: string
     type: 'function'
@@ -116,45 +117,70 @@ export async function* generateAssistantReplyStream(
       finalUsage = chunkUsage
     }
 
-    // Extract content from chunk
-    let content: string
-    if (!chunk || typeof chunk !== 'object') {
-      content = ''
-    } else {
-      const chunkObj = chunk as { content?: unknown }
-      const chunkContent = chunkObj.content
-      if (typeof chunkContent === 'string') {
-        content = chunkContent
-      } else if (Array.isArray(chunkContent)) {
-        content = chunkContent
-          .map((part) => {
-            if (typeof part === 'string') return part
-            if (part && typeof part === 'object' && 'text' in part) {
-              const text = (part as { text?: string }).text
-              return typeof text === 'string' ? text : ''
-            }
-            return ''
-          })
-          .join('')
-      } else {
-        content = ''
-      }
+    // Check for content blocks (separates reasoning from text when available)
+    const chunkObj = chunk as {
+      contentBlocks?: Array<{ type: string; text?: string; reasoning?: string }>
     }
+    const contentBlocks = chunkObj.contentBlocks
 
-    if (content) {
-      fullContent += content
-
-      // Apply artificial delay if configured
-      if (streamDelayMs > 0) {
-        for await (const char of streamWithCadence(
-          content,
-          signal,
-          streamDelayMs,
-        )) {
-          yield { type: 'content', content: char }
+    if (contentBlocks && Array.isArray(contentBlocks)) {
+      // Process each block separately to emit reasoning and content in separate chunks
+      for (const block of contentBlocks) {
+        if (block.type === 'reasoning' && block.reasoning) {
+          yield { type: 'reasoning', reasoning: block.reasoning }
+        } else if (block.type === 'text' && block.text) {
+          fullContent += block.text
+          if (streamDelayMs > 0) {
+            for await (const char of streamWithCadence(
+              block.text,
+              signal,
+              streamDelayMs,
+            )) {
+              yield { type: 'content', content: char }
+            }
+          } else {
+            yield { type: 'content', content: block.text }
+          }
         }
+      }
+    } else {
+      // Fallback: Extract content from chunk.content (legacy behavior)
+      let content: string
+      if (!chunk || typeof chunk !== 'object') {
+        content = ''
       } else {
-        yield { type: 'content', content }
+        const chunkContent = (chunk as { content?: unknown }).content
+        if (typeof chunkContent === 'string') {
+          content = chunkContent
+        } else if (Array.isArray(chunkContent)) {
+          content = chunkContent
+            .map((part) => {
+              if (typeof part === 'string') return part
+              if (part && typeof part === 'object' && 'text' in part) {
+                const text = (part as { text?: string }).text
+                return typeof text === 'string' ? text : ''
+              }
+              return ''
+            })
+            .join('')
+        } else {
+          content = ''
+        }
+      }
+
+      if (content) {
+        fullContent += content
+        if (streamDelayMs > 0) {
+          for await (const char of streamWithCadence(
+            content,
+            signal,
+            streamDelayMs,
+          )) {
+            yield { type: 'content', content: char }
+          }
+        } else {
+          yield { type: 'content', content }
+        }
       }
     }
 

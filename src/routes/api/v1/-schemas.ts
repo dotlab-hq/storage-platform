@@ -46,6 +46,7 @@ export type OpenAiTool = {
 export type OpenAiChunkDelta = {
   role?: 'assistant' | 'user' | 'system' | 'tool'
   content?: string
+  reasoning_content?: string
   tool_calls?: Array<{
     index: number
     id?: string
