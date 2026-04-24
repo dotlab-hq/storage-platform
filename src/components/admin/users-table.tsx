@@ -37,13 +37,25 @@ export function UsersTable({
   const [data] = useState<UserTableRow[]>(users)
   const [rowSelection, setRowSelection] = useState<Record<string, boolean>>({})
 
-  useEffect(() => {
-    const newSelection: Record<string, boolean> = {}
-    for (const id of selectedUsers) {
-      newSelection[id] = true
+  const handleRoleChange = async (userId: string, isAdmin: boolean) => {
+    setUpdatingUsers((prev) => new Set([...prev, userId]))
+    try {
+      const updateUserRoleFn = await loadUpdateUserRoleFn()
+      await updateUserRoleFn({ data: { userId, isAdmin } })
+      toast.success('User role updated')
+      onUserUpdate?.()
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : 'Failed to update user role'
+      toast.error(message)
+    } finally {
+      setUpdatingUsers((prev) => {
+        const next = new Set(prev)
+        next.delete(userId)
+        return next
+      })
     }
-    setRowSelection(newSelection)
-  }, [selectedUsers])
+  }
 
   const columns = useMemo(
     () => getColumns(updatingUsers, handleRoleChange),
@@ -83,26 +95,6 @@ export function UsersTable({
     getFilteredRowModel: getFilteredRowModel(),
     getRowId: (row) => row.id,
   })
-
-  const handleRoleChange = async (userId: string, isAdmin: boolean) => {
-    setUpdatingUsers((prev) => new Set([...prev, userId]))
-    try {
-      const updateUserRoleFn = await loadUpdateUserRoleFn()
-      await updateUserRoleFn({ data: { userId, isAdmin } })
-      toast.success('User role updated')
-      onUserUpdate?.()
-    } catch (error) {
-      const message =
-        error instanceof Error ? error.message : 'Failed to update user role'
-      toast.error(message)
-    } finally {
-      setUpdatingUsers((prev) => {
-        const next = new Set(prev)
-        next.delete(userId)
-        return next
-      })
-    }
-  }
 
   const selectedCount = table.getSelectedRowModel().rows.length
 

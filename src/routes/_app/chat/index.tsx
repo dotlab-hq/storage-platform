@@ -21,10 +21,10 @@ export const Route = createFileRoute('/_app/chat/')({
 function ChatRoutePage() {
   const initial = Route.useLoaderData()
   return (
-    <ClientOnly fallback={<ChatRouteSkeleton />}>
-      <Suspense fallback={<ChatRouteSkeleton />}>
+    <Suspense fallback={<ChatRouteSkeleton />}>
+      <ClientOnly fallback={<ChatRouteSkeleton />}>
         <ChatPage initial={initial} />
-      </Suspense>
-    </ClientOnly>
+      </ClientOnly>
+    </Suspense>
   )
 }
