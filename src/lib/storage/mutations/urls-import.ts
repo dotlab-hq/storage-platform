@@ -4,7 +4,7 @@ import { getAuthenticatedUser } from '@/lib/server-auth'
 import { selectProviderForUpload } from '@/lib/s3-provider-client'
 import { DEFAULT_FILE_SIZE_LIMIT_BYTES } from '@/lib/storage-quota-constants'
 import { logActivity } from '@/lib/activity'
-import { registerFile } from './urls'
+import { registerFile } from '@/lib/upload-server'
 
 const ImportFromUrlSchema = z.object({
   url: z.string().url(),
