@@ -1,5 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
-import { count, eq, sum } from 'drizzle-orm'
+import { count, eq, sum, isNull } from 'drizzle-orm'
+import { z } from 'zod'
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import { listFolderItems } from '@/lib/storage-queries'
 import { getUserQuotaSnapshotByUserId } from '@/lib/server-functions/quota.server'
@@ -133,3 +134,62 @@ export const getHomeDashboardDataFn = createServerFn({ method: 'GET' }).handler(
     }
   },
 )
+
+export type FolderStatsData = {
+  fileCount: number
+  folderCount: number
+  storageUsed: number
+}
+
+const FolderStatsSchema = z.object({
+  folderId: z.string().nullable().optional(),
+})
+
+export const getFolderStatsFn = createServerFn({ method: 'GET' })
+  .inputValidator(FolderStatsSchema)
+  .handler(async ({ data }) => {
+    const currentUser = await getAuthenticatedUser()
+    const folderId = data.folderId ?? null
+
+    const [fileCountRow, folderCountRow, storageSumRow] = await Promise.all([
+      db
+        .select({ count: count() })
+        .from(file)
+        .where(
+          eq(file.userId, currentUser.id),
+          eq(file.isDeleted, false),
+          folderId ? eq(file.folderId, folderId) : isNull(file.folderId),
+        )
+        .limit(1),
+      db
+        .select({ count: count() })
+        .from(folder)
+        .where(
+          eq(folder.userId, currentUser.id),
+          eq(folder.isDeleted, false),
+          folderId
+            ? eq(folder.parentFolderId, folderId)
+            : isNull(folder.parentFolderId),
+        )
+        .limit(1),
+      db
+        .select({ sum: sum(file.sizeInBytes) })
+        .from(file)
+        .where(
+          eq(file.userId, currentUser.id),
+          eq(file.isDeleted, false),
+          folderId ? eq(file.folderId, folderId) : isNull(file.folderId),
+        )
+        .limit(1),
+    ])
+
+    const fileCount = Number(fileCountRow?.count ?? 0)
+    const folderCount = Number(folderCountRow?.count ?? 0)
+    const storageUsed = storageSumRow?.sum
+      ? typeof storageSumRow.sum === 'bigint'
+        ? Number(storageSumRow.sum)
+        : Number(storageSumRow.sum)
+      : 0
+
+    return { fileCount, folderCount, storageUsed }
+  })

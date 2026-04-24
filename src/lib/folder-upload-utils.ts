@@ -123,6 +123,7 @@ async function uploadSingleFileWithProgress(
           'X-Upload-Provider-Id': target.providerId ?? '',
         },
         body: bodyStream,
+        duplex: 'half',
       })
 
       if (!response.ok) {

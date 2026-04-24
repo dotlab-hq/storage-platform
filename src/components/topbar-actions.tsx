@@ -1,7 +1,14 @@
 'use client'
 
 import * as React from 'react'
-import { Plus, FilePlus, FolderPlus, Upload, FolderUp } from 'lucide-react'
+import {
+  Plus,
+  FilePlus,
+  FolderPlus,
+  Upload,
+  FolderUp,
+  Link,
+} from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -10,12 +17,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { FileUploadDialog } from '@/components/storage/upload-dialog'
-import { FolderUploadDialog } from '@/components/storage/folder-upload-dialog'
-import { NewFolderDialog } from '@/components/storage/new-folder-dialog'
-
-import { StatsDropdown } from '@/components/stats-dropdown'
-import { TopbarSearch } from '@/components/topbar-search'
 import type { StorageItem, UploadingFile } from '@/types/storage'
 
 type TopbarActionsProps = {
@@ -33,6 +34,8 @@ type TopbarActionsProps = {
   onOpenUploadFilesChange?: (open: boolean) => void
   openUploadFolder?: boolean
   onOpenUploadFolderChange?: (open: boolean) => void
+  openUrlImport?: boolean
+  onOpenUrlImportChange?: (open: boolean) => void
 }
 
 export function TopbarActions({
@@ -49,10 +52,14 @@ export function TopbarActions({
   onOpenUploadFilesChange,
   openUploadFolder: controlledUploadFolderOpen,
   onOpenUploadFolderChange,
+  openUrlImport: controlledUrlImportOpen,
+  onOpenUrlImportChange,
 }: TopbarActionsProps) {
   const [uncontrolledUploadFilesOpen, setUncontrolledUploadFilesOpen] =
     React.useState(false)
   const [uncontrolledUploadFolderOpen, setUncontrolledUploadFolderOpen] =
+    React.useState(false)
+  const [uncontrolledUrlImportOpen, setUncontrolledUrlImportOpen] =
     React.useState(false)
   const [newFolderOpen, setNewFolderOpen] = React.useState(false)
 
@@ -64,6 +71,8 @@ export function TopbarActions({
     controlledUploadFolderOpen ?? uncontrolledUploadFolderOpen
   const setUploadFolderOpen =
     onOpenUploadFolderChange ?? setUncontrolledUploadFolderOpen
+  const urlImportOpen = controlledUrlImportOpen ?? uncontrolledUrlImportOpen
+  const setUrlImportOpen = onOpenUrlImportChange ?? setUncontrolledUrlImportOpen
 
   React.useEffect(() => {
     const openUploadFile = () => {
@@ -74,71 +83,108 @@ export function TopbarActions({
       if (onOpenUploadFolderChange) onOpenUploadFolderChange(true)
       else setUncontrolledUploadFolderOpen(true)
     }
+    const openUrlImport = () => {
+      if (onOpenUrlImportChange) onOpenUrlImportChange(true)
+      else setUncontrolledUrlImportOpen(true)
+    }
     const openNewFolder = () => setNewFolderOpen(true)
     window.addEventListener('dot:open-upload', openUploadFile)
     window.addEventListener('dot:open-upload-folder', openUploadFolder)
+    window.addEventListener('dot:open-url-import', openUrlImport)
     window.addEventListener('dot:open-new-folder', openNewFolder)
     return () => {
       window.removeEventListener('dot:open-upload', openUploadFile)
       window.removeEventListener('dot:open-upload-folder', openUploadFolder)
+      window.removeEventListener('dot:open-url-import', openUrlImport)
       window.removeEventListener('dot:open-new-folder', openNewFolder)
     }
-  }, [onOpenUploadFilesChange, onOpenUploadFolderChange])
+  }, [onOpenUploadFilesChange, onOpenUploadFolderChange, onOpenUrlImportChange])
 
   return (
     <div className="flex items-center gap-2">
-      <TopbarSearch userId={userId} onSearch={onSearch} />
-      <StatsDropdown />
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button size="icon" variant="outline" aria-label="Create or upload">
-            <Plus className="h-4 w-4" />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
-          <DropdownMenuItem onSelect={onNewFile}>
-            <FilePlus className="mr-2 h-4 w-4" />
-            Create New File
-          </DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem onSelect={() => setUploadFilesOpen(true)}>
-            <Upload className="mr-2 h-4 w-4" />
-            Upload Files
-          </DropdownMenuItem>
-          <DropdownMenuItem onSelect={() => setUploadFolderOpen(true)}>
-            <FolderUp className="mr-2 h-4 w-4" />
-            Upload Folder
-          </DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem onSelect={() => setNewFolderOpen(true)}>
-            <FolderPlus className="mr-2 h-4 w-4" />
-            New Folder
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-      <FileUploadDialog
-        open={uploadFilesOpen}
-        onOpenChange={setUploadFilesOpen}
+      {/* Add your TopbarSearch and StatsDropdown here if needed */}
+      <UploadMenu
         userId={userId}
         currentFolderId={currentFolderId}
         setUploads={setUploads}
         onUploadComplete={onUploadComplete}
+        onNewFile={onNewFile}
+        onNewFolder={onNewFolder}
         setItems={setItems}
         fileSizeLimit={fileSizeLimit}
-      />
-      <FolderUploadDialog
-        open={uploadFolderOpen}
-        onOpenChange={setUploadFolderOpen}
-        userId={userId}
-        currentFolderId={currentFolderId}
-        setUploads={setUploads}
-        onUploadComplete={onUploadComplete}
-      />
-      <NewFolderDialog
-        open={newFolderOpen}
-        onOpenChange={setNewFolderOpen}
-        onConfirm={onNewFolder}
+        uploadFilesOpen={uploadFilesOpen}
+        setUploadFilesOpen={setUploadFilesOpen}
+        uploadFolderOpen={uploadFolderOpen}
+        setUploadFolderOpen={setUploadFolderOpen}
+        urlImportOpen={urlImportOpen}
+        setUrlImportOpen={setUrlImportOpen}
+        newFolderOpen={newFolderOpen}
+        setNewFolderOpen={setNewFolderOpen}
       />
     </div>
+  )
+}
+
+type UploadMenuProps = Omit<TopbarActionsProps, 'onSearch' | 'isReadOnly'> & {
+  uploadFilesOpen: boolean
+  setUploadFilesOpen: (open: boolean) => void
+  uploadFolderOpen: boolean
+  setUploadFolderOpen: (open: boolean) => void
+  urlImportOpen: boolean
+  setUrlImportOpen: (open: boolean) => void
+  newFolderOpen: boolean
+  setNewFolderOpen: (open: boolean) => void
+}
+
+function UploadMenu({
+  userId,
+  currentFolderId,
+  setUploads,
+  onUploadComplete,
+  onNewFile,
+  onNewFolder,
+  setItems,
+  fileSizeLimit,
+  uploadFilesOpen,
+  setUploadFilesOpen,
+  uploadFolderOpen,
+  setUploadFolderOpen,
+  urlImportOpen,
+  setUrlImportOpen,
+  newFolderOpen,
+  setNewFolderOpen,
+}: UploadMenuProps) {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button size="icon" variant="outline" aria-label="Create or upload">
+          <Plus className="h-4 w-4" />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuItem onSelect={onNewFile}>
+          <FilePlus className="mr-2 h-4 w-4" />
+          Create New File
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem onSelect={() => setUploadFilesOpen(true)}>
+          <Upload className="mr-2 h-4 w-4" />
+          Upload Files
+        </DropdownMenuItem>
+        <DropdownMenuItem onSelect={() => setUploadFolderOpen(true)}>
+          <FolderUp className="mr-2 h-4 w-4" />
+          Upload Folder
+        </DropdownMenuItem>
+        <DropdownMenuItem onSelect={() => setUrlImportOpen(true)}>
+          <Link className="mr-2 h-4 w-4" />
+          Import from URL
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem onSelect={() => setNewFolderOpen(true)}>
+          <FolderPlus className="mr-2 h-4 w-4" />
+          New Folder
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }

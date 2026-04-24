@@ -24,7 +24,8 @@ function pageKey(page: number): string {
 
 export function ChatPage({ initial }: ChatPageProps) {
   const { isMobile } = useSidebar()
-  const activeThreadId = useChatUiStore((state) => state.activeThreadId)
+  const storeActiveThreadId = useChatUiStore((state) => state.activeThreadId)
+  const activeThreadId = storeActiveThreadId ?? initial.activeThreadId
   const isComposingNewThread = useChatUiStore(
     (state) => state.isComposingNewThread,
   )

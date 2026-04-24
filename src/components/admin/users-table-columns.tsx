@@ -1,0 +1,135 @@
+import React from 'react'
+import { createColumnHelper, type ColumnDef } from '@tanstack/react-table'
+import { Checkbox } from '@/components/ui/checkbox'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { formatBytes } from '@/lib/format-bytes'
+import type { AdminUser } from '@/lib/storage-provider-queries'
+
+export type UserTableRow = AdminUser & { isUpdating?: boolean }
+const columnHelper = createColumnHelper<UserTableRow>()
+
+export const getColumns = (
+  updatingUsers: Set<string>,
+  handleRoleChange: (userId: string, isAdmin: boolean) => Promise<void>,
+): ColumnDef<UserTableRow>[] => [
+  {
+    id: 'select',
+    header: ({ table }) => (
+      <Checkbox
+        checked={table.getIsAllRowsSelected()}
+        indeterminate={table.getIsSomeRowsSelected()}
+        onChange={table.getToggleAllRowsSelectedHandler()}
+        aria-label="Select all rows"
+      />
+    ),
+    cell: ({ row }) => (
+      <Checkbox
+        checked={row.getIsSelected()}
+        onChange={row.getToggleSelectedHandler()}
+        aria-label="Select row"
+      />
+    ),
+    size: 40,
+  },
+  columnHelper.accessor('name', {
+    header: 'Name',
+    size: 180,
+    cell: (info) => (
+      <div className="truncate font-medium text-foreground">
+        {info.getValue()}
+      </div>
+    ),
+  }),
+  columnHelper.accessor('email', {
+    header: 'Email',
+    size: 220,
+    cell: (info) => (
+      <div className="truncate text-sm text-muted-foreground">
+        {info.getValue()}
+      </div>
+    ),
+  }),
+  columnHelper.accessor((row) => row.isAdmin, {
+    id: 'role',
+    header: 'Role',
+    size: 120,
+    cell: (info) => {
+      const row = info.row.original
+      const isAdmin = info.getValue()
+      const isUpdating = updatingUsers.has(row.id)
+
+      return (
+        <Select
+          value={isAdmin ? 'admin' : 'user'}
+          onValueChange={(value) => {
+            void handleRoleChange(row.id, value === 'admin')
+          }}
+          disabled={isUpdating}
+        >
+          <SelectTrigger className="w-24 h-8 text-xs">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="user">User</SelectItem>
+            <SelectItem value="admin">Admin</SelectItem>
+          </SelectContent>
+        </Select>
+      )
+    },
+  }),
+  columnHelper.accessor('usedStorage', {
+    header: 'Usage',
+    size: 120,
+    cell: (info) => (
+      <div className="text-sm text-muted-foreground">
+        {formatBytes(info.getValue())}
+      </div>
+    ),
+  }),
+  columnHelper.accessor('storageLimitBytes', {
+    header: 'Allocated',
+    size: 120,
+    cell: (info) => (
+      <div className="text-sm text-muted-foreground">
+        {formatBytes(info.getValue())}
+      </div>
+    ),
+  }),
+  columnHelper.accessor('banned', {
+    header: 'Status',
+    size: 100,
+    cell: (info) => {
+      const isBanned = info.getValue()
+      return (
+        <div className="flex items-center gap-2">
+          <div
+            className={`h-2 w-2 rounded-full ${
+              isBanned ? 'bg-destructive' : 'bg-green-500'
+            }`}
+          />
+          <span className="text-xs font-medium text-muted-foreground">
+            {isBanned ? 'Banned' : 'Active'}
+          </span>
+        </div>
+      )
+    },
+  }),
+  columnHelper.accessor('createdAt', {
+    header: 'Joined',
+    size: 120,
+    cell: (info) => {
+      const date = new Date(info.getValue())
+      return (
+        <div className="text-xs text-muted-foreground">
+          {date.toLocaleDateString()}
+        </div>
+      )
+    },
+  }),
+]

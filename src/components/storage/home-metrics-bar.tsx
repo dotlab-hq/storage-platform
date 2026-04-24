@@ -39,9 +39,9 @@ export function HomeMetricsBar() {
 
   return (
     <div className="grid gap-4 md:grid-cols-3">
-      <MetricCard title="Files" value={data.fileCount} />
-      <MetricCard title="Folders" value={data.folderCount} />
-      <MetricCard title="Storage Used" value={formatBytes(data.storageUsed)} />
+      <MetricCard title="All Files" value={data.fileCount} />
+      <MetricCard title="All Folders" value={data.folderCount} />
+      <MetricCard title="Total Storage" value={formatBytes(data.storageUsed)} />
     </div>
   )
 }

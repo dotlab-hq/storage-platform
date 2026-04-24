@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import { createClientOnlyFn } from '@tanstack/react-start'
-import { Plus, Upload, X } from 'lucide-react'
+import { Plus, Upload, Link, X } from 'lucide-react'
 
 import { authClient } from '@/lib/auth-client'
 import { Button } from '@/components/ui/button'
@@ -20,6 +20,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { FileUploadDialog } from '@/components/storage/upload-dialog'
+import { UrlImportDialog } from '@/components/storage/url-import-dialog'
 
 type HeaderUploadMenuProps = {
   userId: string | null
@@ -31,7 +33,8 @@ export function HeaderUploadMenu({
   onUploadComplete,
 }: HeaderUploadMenuProps) {
   const inputRef = React.useRef<HTMLInputElement>(null)
-  const [open, setOpen] = React.useState(false)
+  const [uploadOpen, setUploadOpen] = React.useState(false)
+  const [urlImportOpen, setUrlImportOpen] = React.useState(false)
   const [isDragging, setIsDragging] = React.useState(false)
   const [isUploading, setIsUploading] = React.useState(false)
   const [uploadError, setUploadError] = React.useState<string | null>(null)
@@ -146,7 +149,7 @@ export function HeaderUploadMenu({
       await uploadFiles(selectedFiles, currentUserId)
       setSelectedFiles([])
       await onUploadComplete()
-      setOpen(false)
+      setUploadOpen(false)
     } catch (error) {
       const errorMsg = error instanceof Error ? error.message : String(error)
       console.error('Upload error:', error)
@@ -154,6 +157,11 @@ export function HeaderUploadMenu({
     } finally {
       setIsUploading(false)
     }
+  }
+
+  const handleUrlImportComplete = async () => {
+    await onUploadComplete()
+    setUrlImportOpen(false)
   }
 
   return (
@@ -165,99 +173,35 @@ export function HeaderUploadMenu({
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuItem onSelect={() => setOpen(true)}>
+          <DropdownMenuItem onSelect={() => setUploadOpen(true)}>
             <Upload />
             Upload Files
+          </DropdownMenuItem>
+          <DropdownMenuItem onSelect={() => setUrlImportOpen(true)}>
+            <Link />
+            Import from URL
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
 
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Upload Files</DialogTitle>
-            <DialogDescription>
-              Drag and drop files here, or use the upload button.
-            </DialogDescription>
-          </DialogHeader>
+      <FileUploadDialog
+        open={uploadOpen}
+        onOpenChange={setUploadOpen}
+        userId={userId}
+        currentFolderId={currentFolderId}
+        setUploads={() => {}}
+        onUploadComplete={onUploadComplete}
+        setItems={setItems}
+      />
 
-          <div
-            className={`rounded-lg border border-dashed p-6 text-center ${
-              isDragging ? 'bg-muted' : ''
-            }`}
-            onClick={() => inputRef.current?.click()}
-            onDragOver={(event) => {
-              event.preventDefault()
-              setIsDragging(true)
-            }}
-            onDragLeave={() => setIsDragging(false)}
-            onDrop={handleDrop}
-          >
-            <p className="text-sm">Drag and drop files in this space</p>
-            <Button
-              type="button"
-              variant="secondary"
-              className="mt-4"
-              onClick={() => inputRef.current?.click()}
-            >
-              Upload
-            </Button>
-            <input
-              ref={inputRef}
-              type="file"
-              multiple
-              title="Upload files"
-              aria-label="Upload files"
-              className="hidden"
-              onChange={handleInputChange}
-            />
-          </div>
-
-          <div className="max-h-56 overflow-y-auto rounded-md border">
-            {selectedFiles.length === 0 ? (
-              <p className="text-muted-foreground p-3 text-sm">
-                No files selected.
-              </p>
-            ) : (
-              <ul className="divide-y">
-                {selectedFiles.map((file, index) => (
-                  <li
-                    key={`${file.name}-${file.lastModified}-${index}`}
-                    className="flex items-center justify-between gap-3 p-3"
-                  >
-                    <div className="min-w-0">
-                      <p className="truncate text-sm font-medium">
-                        {file.name}
-                      </p>
-                      <p className="text-muted-foreground text-xs">
-                        {(file.size / 1024).toFixed(2)} KB
-                      </p>
-                    </div>
-                    <Button
-                      type="button"
-                      size="icon-sm"
-                      variant="ghost"
-                      aria-label={`Remove ${file.name}`}
-                      onClick={() => handleRemoveFile(index)}
-                    >
-                      <X />
-                    </Button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          <DialogFooter>
-            {uploadError ? (
-              <p className="text-destructive mr-auto text-sm">{uploadError}</p>
-            ) : null}
-            <Button type="button" onClick={handleUpload} disabled={isUploading}>
-              {isUploading ? 'Uploading...' : 'Upload Selected'}
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+      <UrlImportDialog
+        open={urlImportOpen}
+        onOpenChange={setUrlImportOpen}
+        userId={userId}
+        currentFolderId={currentFolderId}
+        setItems={setItems}
+        onImportComplete={handleUrlImportComplete}
+      />
     </>
   )
 }

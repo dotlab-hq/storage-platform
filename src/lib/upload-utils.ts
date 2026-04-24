@@ -239,6 +239,7 @@ async function uploadFileViaProxy(
       'X-Upload-Provider-Id': providerId ?? '',
     },
     body: bodyStream,
+    duplex: 'half',
   })
 
   if (!response.ok) {

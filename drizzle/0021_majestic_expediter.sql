@@ -1,0 +1,1 @@
+ALTER TABLE `user` ADD `storage_limit_bytes` integer DEFAULT 10737418240;

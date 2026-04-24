@@ -1,36 +1,22 @@
 import {
-  createColumnHelper,
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
   getSortedRowModel,
   useReactTable,
-  type ColumnDef,
   type SortingState,
 } from '@tanstack/react-table'
-import { useState, useMemo, useEffect } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import { ChevronDown, Search } from 'lucide-react'
 import { Input } from '@/components/ui/input'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-import { Checkbox } from '@/components/ui/checkbox'
 import { toast } from '@/components/ui/sonner'
-import { formatBytes } from '@/lib/format-bytes'
 import type { AdminUser } from '@/lib/storage-provider-queries'
+import { getColumns, type UserTableRow } from './users-table-columns'
 
 async function loadUpdateUserRoleFn() {
   const mod = await import('@/routes/_app/admin/-admin-server')
   return mod.updateUserRoleFn
 }
-
-type UserTableRow = AdminUser & { isUpdating?: boolean }
-
-const columnHelper = createColumnHelper<UserTableRow>()
 
 interface UsersTableProps {
   users: AdminUser[]
@@ -59,124 +45,9 @@ export function UsersTable({
     setRowSelection(newSelection)
   }, [selectedUsers])
 
-  const columns = useMemo<ColumnDef<UserTableRow>[]>(
-    () => [
-      {
-        id: 'select',
-        header: ({ table }) => (
-          <Checkbox
-            checked={table.getIsAllRowsSelected()}
-            indeterminate={table.getIsSomeRowsSelected()}
-            onChange={table.getToggleAllRowsSelectedHandler()}
-            aria-label="Select all rows"
-          />
-        ),
-        cell: ({ row }) => (
-          <Checkbox
-            checked={row.getIsSelected()}
-            onChange={row.getToggleSelectedHandler()}
-            aria-label="Select row"
-          />
-        ),
-        size: 40,
-      },
-      columnHelper.accessor('name', {
-        header: 'Name',
-        size: 180,
-        cell: (info) => (
-          <div className="truncate font-medium text-foreground">
-            {info.getValue()}
-          </div>
-        ),
-      }),
-      columnHelper.accessor('email', {
-        header: 'Email',
-        size: 220,
-        cell: (info) => (
-          <div className="truncate text-sm text-muted-foreground">
-            {info.getValue()}
-          </div>
-        ),
-      }),
-      columnHelper.accessor((row) => row.isAdmin, {
-        id: 'role',
-        header: 'Role',
-        size: 120,
-        cell: (info) => {
-          const row = info.row.original
-          const isAdmin = info.getValue()
-          const isUpdating = updatingUsers.has(row.id)
-
-          return (
-            <Select
-              value={isAdmin ? 'admin' : 'user'}
-              onValueChange={(value) => {
-                void handleRoleChange(row.id, value === 'admin')
-              }}
-              disabled={isUpdating}
-            >
-              <SelectTrigger className="w-24 h-8 text-xs">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="user">User</SelectItem>
-                <SelectItem value="admin">Admin</SelectItem>
-              </SelectContent>
-            </Select>
-          )
-        },
-      }),
-      columnHelper.accessor('usedStorage', {
-        header: 'Usage',
-        size: 120,
-        cell: (info) => (
-          <div className="text-sm text-muted-foreground">
-            {formatBytes(info.getValue())}
-          </div>
-        ),
-      }),
-      columnHelper.accessor('storageLimitBytes', {
-        header: 'Allocated',
-        size: 120,
-        cell: (info) => (
-          <div className="text-sm text-muted-foreground">
-            {formatBytes(info.getValue())}
-          </div>
-        ),
-      }),
-      columnHelper.accessor('banned', {
-        header: 'Status',
-        size: 100,
-        cell: (info) => {
-          const isBanned = info.getValue()
-          return (
-            <div className="flex items-center gap-2">
-              <div
-                className={`h-2 w-2 rounded-full ${
-                  isBanned ? 'bg-destructive' : 'bg-green-500'
-                }`}
-              />
-              <span className="text-xs font-medium text-muted-foreground">
-                {isBanned ? 'Banned' : 'Active'}
-              </span>
-            </div>
-          )
-        },
-      }),
-      columnHelper.accessor('createdAt', {
-        header: 'Joined',
-        size: 120,
-        cell: (info) => {
-          const date = new Date(info.getValue())
-          return (
-            <div className="text-xs text-muted-foreground">
-              {date.toLocaleDateString()}
-            </div>
-          )
-        },
-      }),
-    ],
-    [updatingUsers],
+  const columns = useMemo(
+    () => getColumns(updatingUsers, handleRoleChange),
+    [updatingUsers, handleRoleChange],
   )
 
   const filteredData = useMemo(() => {
