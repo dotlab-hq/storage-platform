@@ -75,8 +75,8 @@ export const Route = createFileRoute('/api/admin/users/$userId/folder-items')({
           return Response.json({
             userId: targetUserId,
             folderId,
-            items,
             folders: mappedFolders,
+            files: rawItems.files,
             breadcrumbs: mappedBreadcrumbs,
             hasMore,
             nextPage,

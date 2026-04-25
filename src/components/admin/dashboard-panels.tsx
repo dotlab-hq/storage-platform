@@ -8,6 +8,12 @@ import type { AdminProvider, AdminUser } from '@/lib/storage-provider-queries'
 import { formatBytes } from '@/lib/format-bytes'
 import { UsersTable } from './users-table'
 import { AdminFloatingActionBar } from './floating-action-bar'
+import {
+  banUsersFn,
+  deleteUsersFn,
+  updateUserStorageLimitFn,
+  updateUserRoleFn,
+} from '@/routes/_app/admin/-admin-server'
 
 type MetricCardProps = { title: string; value: string | number }
 
@@ -152,7 +158,6 @@ export function UsersPanel({
 
       setIsLoading(true)
       try {
-        const { banUsersFn } = await import('@/routes/_app/admin/-admin-server')
         await banUsersFn({
           data: { userIds: selectedUserIds, banned },
         })
@@ -182,8 +187,6 @@ export function UsersPanel({
 
     setIsLoading(true)
     try {
-      const { deleteUsersFn } =
-        await import('@/routes/_app/admin/-admin-server')
       await deleteUsersFn({
         data: { userIds: selectedUserIds },
       })
@@ -205,8 +208,6 @@ export function UsersPanel({
 
       setIsLoading(true)
       try {
-        const { updateUserStorageLimitFn } =
-          await import('@/routes/_app/admin/-admin-server')
         for (const userId of selectedUserIds) {
           await updateUserStorageLimitFn({
             data: { userId, storageLimitBytes },
@@ -234,8 +235,6 @@ export function UsersPanel({
 
       setIsLoading(true)
       try {
-        const { updateUserRoleFn } =
-          await import('@/routes/_app/admin/-admin-server')
         for (const userId of selectedUserIds) {
           await updateUserRoleFn({
             data: { userId, isAdmin },

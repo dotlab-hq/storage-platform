@@ -12,11 +12,7 @@ import { Input } from '@/components/ui/input'
 import { toast } from '@/components/ui/sonner'
 import type { AdminUser } from '@/lib/storage-provider-queries'
 import { getColumns, type UserTableRow } from './users-table-columns'
-
-async function loadUpdateUserRoleFn() {
-  const mod = await import('@/routes/_app/admin/-admin-server')
-  return mod.updateUserRoleFn
-}
+import { updateUserRoleFn } from '@/routes/_app/admin/-admin-server'
 
 interface UsersTableProps {
   users: AdminUser[]
@@ -50,7 +46,6 @@ export function UsersTable({
   const handleRoleChange = async (userId: string, isAdmin: boolean) => {
     setUpdatingUsers((prev) => new Set([...prev, userId]))
     try {
-      const updateUserRoleFn = await loadUpdateUserRoleFn()
       await updateUserRoleFn({ data: { userId, isAdmin } })
       toast.success('User role updated')
       onUserUpdate?.()
