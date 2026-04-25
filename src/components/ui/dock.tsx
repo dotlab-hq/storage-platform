@@ -90,22 +90,22 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
       {
         icon: FolderOpen,
         label: 'Files',
-        href: '/_app',
+        href: '/',
       },
       {
         icon: Trash2,
         label: 'Trash',
-        href: '/_app/trash',
+        href: '/trash',
       },
       {
         icon: Shield,
         label: 'Admin',
-        href: '/_app/admin',
+        href: '/admin',
       },
       {
         icon: Settings,
         label: 'Settings',
-        href: '/_app/settings',
+        href: '/settings',
       },
     ]
 
