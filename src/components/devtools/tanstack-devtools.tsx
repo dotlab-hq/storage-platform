@@ -1,7 +1,6 @@
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import { ReactQueryDevtoolsPanel } from '@tanstack/react-query-devtools'
-import { hotkeysDevtoolsPlugin } from '@tanstack/react-hotkeys-devtools'
 
 export function TanstackDevtools() {
   return (
@@ -18,7 +17,6 @@ export function TanstackDevtools() {
           name: 'Tanstack Query',
           render: <ReactQueryDevtoolsPanel />,
         },
-        hotkeysDevtoolsPlugin(),
       ]}
     />
   )
