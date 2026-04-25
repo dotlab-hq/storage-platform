@@ -4,7 +4,7 @@ import * as React from 'react'
 import { createClientOnlyFn } from '@tanstack/react-start'
 import { FolderUp, X } from 'lucide-react'
 import { authClient } from '@/lib/auth-client'
-import { uploadFolder } from '@/lib/folder-upload-utils'
+import { uploadFolder, uploadFolderFromFiles } from '@/lib/folder-upload-utils'
 import { toast } from '@/components/ui/sonner'
 import { Button } from '@/components/ui/button'
 import {
@@ -16,6 +16,14 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import type { UploadingFile } from '@/types/storage'
+
+type FolderSource =
+  | { type: 'entry'; entry: FileSystemDirectoryEntry }
+  | {
+      type: 'files'
+      folderName: string
+      files: Array<{ file: File; relativePath: string }>
+    }
 
 type FolderUploadDialogProps = {
   open: boolean
@@ -39,9 +47,9 @@ export function FolderUploadDialog({
   const router = useRouter()
   const folderInputRef = React.useRef<HTMLInputElement>(null)
   const [isDragging, setIsDragging] = React.useState(false)
-  const [selectedFolders, setSelectedFolders] = React.useState<
-    FileSystemDirectoryEntry[]
-  >([])
+  const [selectedFolders, setSelectedFolders] = React.useState<FolderSource[]>(
+    [],
+  )
   const [uploadError, setUploadError] = React.useState<string | null>(null)
   const [isUploading, setIsUploading] = React.useState(false)
 
@@ -82,16 +90,19 @@ export function FolderUploadDialog({
       setIsDragging(false)
       const items = Array.from(e.dataTransfer.items)
 
-      const folders: FileSystemDirectoryEntry[] = []
+      const sources: FolderSource[] = []
       for (const item of items) {
         const entry = item.webkitGetAsEntry?.()
         if (entry?.isDirectory) {
-          folders.push(entry as FileSystemDirectoryEntry)
+          sources.push({
+            type: 'entry',
+            entry: entry as FileSystemDirectoryEntry,
+          })
         }
       }
 
-      if (folders.length > 0) {
-        setSelectedFolders((prev) => [...prev, ...folders])
+      if (sources.length > 0) {
+        setSelectedFolders((prev) => [...prev, ...sources])
       }
     },
     [],
@@ -100,19 +111,35 @@ export function FolderUploadDialog({
   const handleInputChange = React.useCallback(
     async (e: React.ChangeEvent<HTMLInputElement>) => {
       const files = e.target.files ? Array.from(e.target.files) : []
-
-      const fileEntries: FileSystemDirectoryEntry[] = []
-      for (const file of files) {
-        const entry = (
-          file as File & { webkitGetAsEntry?: () => FileSystemEntry | null }
-        ).webkitGetAsEntry?.()
-        if (entry?.isDirectory) {
-          fileEntries.push(entry as FileSystemDirectoryEntry)
-        }
+      if (files.length === 0) {
+        e.target.value = ''
+        return
       }
 
-      if (fileEntries.length > 0) {
-        setSelectedFolders((prev) => [...prev, ...fileEntries])
+      // Group files by their root folder (first segment of webkitRelativePath)
+      const groups = new Map<
+        string,
+        Array<{ file: File; relativePath: string }>
+      >()
+      for (const file of files) {
+        const fullPath = file.webkitRelativePath || file.name
+        const slashIdx = fullPath.indexOf('/')
+        const rootFolderName =
+          slashIdx === -1 ? fullPath : fullPath.slice(0, slashIdx)
+        const relativePath =
+          slashIdx === -1 ? file.name : fullPath.slice(slashIdx + 1)
+        const list = groups.get(rootFolderName) ?? []
+        list.push({ file, relativePath })
+        groups.set(rootFolderName, list)
+      }
+
+      const newSources: FolderSource[] = []
+      for (const [folderName, fileList] of groups.entries()) {
+        newSources.push({ type: 'files', folderName, files: fileList })
+      }
+
+      if (newSources.length > 0) {
+        setSelectedFolders((prev) => [...prev, ...newSources])
       }
       e.target.value = ''
     },
@@ -124,14 +151,23 @@ export function FolderUploadDialog({
   }
 
   const processFolder = React.useCallback(
-    async (folderEntry: FileSystemDirectoryEntry, uid: string) => {
-      const result = await uploadFolder(
-        folderEntry,
-        uid,
-        currentFolderId,
-        setUploads,
-      )
-      return result
+    async (folder: FolderSource, uid: string) => {
+      if (folder.type === 'entry') {
+        return await uploadFolder(
+          folder.entry,
+          uid,
+          currentFolderId,
+          setUploads,
+        )
+      } else {
+        return await uploadFolderFromFiles({
+          folderName: folder.folderName,
+          files: folder.files,
+          userId: uid,
+          parentFolderId: currentFolderId,
+          setUploads,
+        })
+      }
     },
     [currentFolderId, setUploads],
   )
@@ -158,11 +194,11 @@ export function FolderUploadDialog({
 
     const worker = async () => {
       while (queue.length > 0) {
-        const folderEntry = queue.shift()
-        if (!folderEntry) break
+        const folder = queue.shift()
+        if (!folder) break
 
         try {
-          const result = await processFolder(folderEntry, uid)
+          const result = await processFolder(folder, uid)
           if (result.success && result.filesCount) {
             uploadedCount++
             toast.success(
@@ -175,7 +211,9 @@ export function FolderUploadDialog({
         } catch (err) {
           failedCount++
           const msg = err instanceof Error ? err.message : 'Unknown error'
-          toast.error(`Folder "${folderEntry.name}" upload failed: ${msg}`)
+          toast.error(
+            `Folder "${folder.type === 'entry' ? folder.entry.name : folder.folderName}" upload failed: ${msg}`,
+          )
         }
       }
     }
@@ -256,7 +294,11 @@ export function FolderUploadDialog({
                   key={i}
                   className="flex items-center justify-between p-2 text-sm"
                 >
-                  <span className="truncate">{folder.name}</span>
+                  <span className="truncate">
+                    {folder.type === 'entry'
+                      ? folder.entry.name
+                      : folder.folderName}
+                  </span>
                   <Button
                     size="icon"
                     variant="ghost"
