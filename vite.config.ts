@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import { devtools } from '@tanstack/devtools-vite'
-import tsconfigPaths from 'vite-tsconfig-paths'
 import { cloudflare } from '@cloudflare/vite-plugin'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import svgr from 'vite-plugin-svgr'
@@ -8,7 +7,10 @@ import viteReact from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 // import { nitro } from 'nitro/vite'
 
-const config = defineConfig({
+const config = defineConfig( {
+  resolve: {
+    tsconfigPaths: true,
+  },
   server: {
     port: 3000,
   },
@@ -16,7 +18,7 @@ const config = defineConfig({
     rollupOptions: {
       external: ['cloudflare:workers'],
       output: {
-        manualChunks(id) {
+        manualChunks( id ) {
           const heavyLibs = [
             'react',
             'react-dom',
@@ -44,23 +46,23 @@ const config = defineConfig({
             '@rive-app/react-webgl2',
           ]
 
-          if (id.includes('node_modules') && !id.includes('cloudflare:')) {
+          if ( id.includes( 'node_modules' ) && !id.includes( 'cloudflare:' ) ) {
             // Find the package name after the *last* node_modules segment to support pnpm's layout:
             // node_modules/.pnpm/.../node_modules/<package-name>/...
             const marker = 'node_modules/'
-            const lastIdx = id.lastIndexOf(marker)
-            if (lastIdx !== -1) {
-              const after = id.slice(lastIdx + marker.length)
+            const lastIdx = id.lastIndexOf( marker )
+            if ( lastIdx !== -1 ) {
+              const after = id.slice( lastIdx + marker.length )
               // after starts with either '<package>' or '@<scope>/<package>'
-              const segments = after.split('/')
+              const segments = after.split( '/' )
               let pkg: string
-              if (segments[0].startsWith('@')) {
+              if ( segments[0].startsWith( '@' ) ) {
                 pkg = `${segments[0]}/${segments[1]}`
               } else {
                 pkg = segments[0]
               }
-              if (heavyLibs.includes(pkg)) {
-                return pkg.replace('@', '').replace(/\//g, '-')
+              if ( heavyLibs.includes( pkg ) ) {
+                return pkg.replace( '@', '' ).replace( /\//g, '-' )
               }
             }
             // For non-heavy node_modules, fall through (no split)
@@ -70,9 +72,9 @@ const config = defineConfig({
     },
   },
   plugins: [
-    cloudflare({
+    cloudflare( {
       viteEnvironment: { name: 'ssr' }
-    }),
+    } ),
     devtools(),
     // nitro( {
     //   preset: 'cloudflare_module',
@@ -129,12 +131,13 @@ const config = defineConfig({
     //   // }
 
     // } ),
-    tsconfigPaths({ projects: ['./tsconfig.json'] }),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart( {
+      routeFileIgnorePattern: '^tools$',
+    } ),
     svgr(),
     viteReact(),
   ],
-})
+} )
 
 export default config
