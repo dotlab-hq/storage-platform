@@ -31,9 +31,9 @@ const DockIconButton = React.forwardRef<HTMLAnchorElement, DockIconButtonProps>(
         whileTap={{ scale: 0.95 }}
         className={cn(
           'relative group flex h-10 w-10 items-center justify-center rounded-xl',
-          'border border-transparent bg-white/[0.03] text-muted-foreground',
+          'border border-transparent bg-white/3 text-muted-foreground',
           'transition-colors duration-200 hover:border-white/10 hover:bg-white/[0.08] hover:text-foreground',
-          active && 'border-white/10 bg-white/[0.12] text-foreground',
+          active && 'border-white/10 bg-white/12 text-foreground',
           className,
         )}
       >
@@ -67,16 +67,17 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     const location = useLocation()
 
     const handleUploadClick = () => {
-      // Check if we're already on the main storage page (/_app)
+      // check if query params has nav=
+      const searchParams = new URLSearchParams(location.search)
       const isOnStoragePage =
-        location.pathname === '/_app' || location.pathname === '/_app/'
-
+        location.pathname === '/' && searchParams.has('upload')
+      // Check if we're already on the main storage page (/_app)
       if (isOnStoragePage) {
         // Dispatch event to open upload dialog (TopbarActions listens)
         window.dispatchEvent(new CustomEvent('dot:open-upload'))
       } else {
         // Navigate to storage page with upload flag
-        navigate({ to: '/_app', search: { upload: true } })
+        navigate({ to: '/', search: { upload: true } })
       }
     }
 
