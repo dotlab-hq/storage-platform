@@ -1,7 +1,16 @@
 'use client'
 
 import { useState } from 'react'
-import { MoreHorizontal, Eye, UserCog, Ban, Trash2, HardDrive, ShieldPlay, ShieldOff, Loader2 } from 'lucide-react'
+import {
+  MoreHorizontal,
+  Eye,
+  UserCog,
+  Ban,
+  Trash2,
+  HardDrive,
+  ShieldOff,
+  Loader2,
+} from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -28,10 +37,15 @@ type UserRowActionsDropdownProps = {
   onViewFiles?: () => void
 }
 
-export function UserRowActionsDropdown({ user, onUserUpdate }: UserRowActionsDropdownProps) {
+export function UserRowActionsDropdown({
+  user,
+  onUserUpdate,
+}: UserRowActionsDropdownProps) {
   const { authClient } = useAuth()
   const [showStorageDialog, setShowStorageDialog] = useState(false)
-  const [storageInput, setStorageInput] = useState(String(user.storageLimitBytes))
+  const [storageInput, setStorageInput] = useState(
+    String(user.storageLimitBytes),
+  )
   const [isUpdating, setIsUpdating] = useState(false)
 
   const handleImpersonate = async () => {
@@ -39,7 +53,8 @@ export function UserRowActionsDropdown({ user, onUserUpdate }: UserRowActionsDro
       await authClient.admin.impersonateUser({ userId: user.id })
       window.location.href = '/'
     } catch (error) {
-      const message = error instanceof Error ? error.message : 'Failed to impersonate user'
+      const message =
+        error instanceof Error ? error.message : 'Failed to impersonate user'
       toast.error(message)
     }
   }
@@ -60,7 +75,8 @@ export function UserRowActionsDropdown({ user, onUserUpdate }: UserRowActionsDro
       setShowStorageDialog(false)
       onUserUpdate?.()
     } catch (error) {
-      const message = error instanceof Error ? error.message : 'Failed to update storage'
+      const message =
+        error instanceof Error ? error.message : 'Failed to update storage'
       toast.error(message)
     } finally {
       setIsUpdating(false)
@@ -77,7 +93,8 @@ export function UserRowActionsDropdown({ user, onUserUpdate }: UserRowActionsDro
       toast.success(banned ? 'User banned' : 'User unbanned')
       onUserUpdate?.()
     } catch (error) {
-      const message = error instanceof Error ? error.message : 'Failed to update ban status'
+      const message =
+        error instanceof Error ? error.message : 'Failed to update ban status'
       toast.error(message)
     } finally {
       setIsUpdating(false)
@@ -85,7 +102,9 @@ export function UserRowActionsDropdown({ user, onUserUpdate }: UserRowActionsDro
   }
 
   const handleDelete = async () => {
-    const confirmed = window.confirm(`Are you sure you want to delete user "${user.name}"? This cannot be undone.`)
+    const confirmed = window.confirm(
+      `Are you sure you want to delete user "${user.name}"? This cannot be undone.`,
+    )
     if (!confirmed) return
     setIsUpdating(true)
     try {
@@ -96,7 +115,8 @@ export function UserRowActionsDropdown({ user, onUserUpdate }: UserRowActionsDro
       toast.success('User deleted')
       onUserUpdate?.()
     } catch (error) {
-      const message = error instanceof Error ? error.message : 'Failed to delete user'
+      const message =
+        error instanceof Error ? error.message : 'Failed to delete user'
       toast.error(message)
     } finally {
       setIsUpdating(false)
@@ -113,7 +133,8 @@ export function UserRowActionsDropdown({ user, onUserUpdate }: UserRowActionsDro
       toast.success('User role updated')
       onUserUpdate?.()
     } catch (error) {
-      const message = error instanceof Error ? error.message : 'Failed to update role'
+      const message =
+        error instanceof Error ? error.message : 'Failed to update role'
       toast.error(message)
     } finally {
       setIsUpdating(false)
@@ -144,7 +165,10 @@ export function UserRowActionsDropdown({ user, onUserUpdate }: UserRowActionsDro
               Unban
             </DropdownMenuItem>
           ) : (
-            <DropdownMenuItem onClick={() => toggleBan(true)} className="text-destructive focus:text-destructive">
+            <DropdownMenuItem
+              onClick={() => toggleBan(true)}
+              className="text-destructive focus:text-destructive"
+            >
               <ShieldPlay className="mr-2 h-4 w-4" />
               Ban
             </DropdownMenuItem>
@@ -186,16 +210,23 @@ export function UserRowActionsDropdown({ user, onUserUpdate }: UserRowActionsDro
               onChange={(e) => setStorageInput(e.target.value)}
             />
             <div className="flex justify-end gap-2">
-              <Button variant="outline" onClick={() => setShowStorageDialog(false)}>
+              <Button
+                variant="outline"
+                onClick={() => setShowStorageDialog(false)}
+              >
                 Cancel
               </Button>
               <Button onClick={handleStorageUpdate} disabled={isUpdating}>
-                {isUpdating ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Update'}
+                {isUpdating ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  'Update'
+                )}
               </Button>
             </div>
           </div>
         </DialogContent>
-      </DropdownMenu>
+      </Dialog>
     </>
   )
 }
