@@ -1,5 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { json, createFileRoute } from '@tanstack/react-start'
+
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import { db } from '@/db'
 import { chatMessage, chatThread } from '@/db/schema/chat'
@@ -15,6 +14,8 @@ import { handleStreamingResponse } from './-streaming-handler'
 import { handleNonStreamingResponse } from './-non-streaming-handler'
 import { handleDeepAgentStream } from './-deep-agent-stream-handler'
 import { getUserFromApiKey } from './-auth-helpers'
+import { createFileRoute } from '@tanstack/react-router'
+import { json } from '@tanstack/react-start'
 
 export const Route = createFileRoute( '/api/v1/chat/completions' )( {
   server: {
