@@ -18,6 +18,53 @@ import { generalAgent } from '@/lib/agent/agents/general-agent'
 import { getFilteredTools } from '@/routes/_app/chat/tools/-tool-registry-scoped'
 import { hasScope } from '@/lib/permissions/scopes'
 
+function messageContentToText(content: unknown): string {
+  if (typeof content === 'string') {
+    return content
+  }
+  if (!Array.isArray(content)) {
+    return ''
+  }
+  return content
+    .map((part) => {
+      if (typeof part === 'string') {
+        return part
+      }
+      if (part && typeof part === 'object' && 'text' in part) {
+        const text = (part as { text?: unknown }).text
+        return typeof text === 'string' ? text : ''
+      }
+      return ''
+    })
+    .join('')
+}
+
+function extractReasoningChunks(content: unknown): string[] {
+  if (!Array.isArray(content)) {
+    return []
+  }
+  return content
+    .map((part) => {
+      if (!part || typeof part !== 'object') {
+        return ''
+      }
+      const rec = part as {
+        thought?: boolean
+        type?: string
+        text?: unknown
+        reasoning?: unknown
+      }
+      if (rec.type === 'reasoning' && typeof rec.reasoning === 'string') {
+        return rec.reasoning
+      }
+      if (rec.thought === true && typeof rec.text === 'string') {
+        return rec.text
+      }
+      return ''
+    })
+    .filter((chunk) => chunk.length > 0)
+}
+
 export interface OrchestratedHandlerParams {
   messages: BaseMessage[]
   params: LLMStreamParams
@@ -90,28 +137,27 @@ export async function handleOrchestratedAgentStream(
           const msgs = state.messages as BaseMessage[]
           const last = msgs[msgs.length - 1]
 
-          // Agent transition
-          if (state.next && state.next !== last?._getType()) {
-            controller.enqueue(
-              encoder.encode(
-                toSseEvent(
-                  toOpenAiChunk({
-                    id: `chatcmpl-${assistantMessageId || 'pending'}`,
-                    created: Math.floor(Date.now() / 1000),
-                    model: params.model,
-                    delta: {
-                      reasoning_content: `[Agent: ${state.next}] `,
-                    },
-                    finishReason: null,
-                  }),
-                ),
-              ),
-            )
-          }
-
           // AI streaming
           if (last?._getType() === 'ai') {
-            const content = (last as any).content || ''
+            const rawContent = (last as { content?: unknown }).content
+            const content = messageContentToText(rawContent)
+            const reasoningChunks = extractReasoningChunks(rawContent)
+
+            for (const reasoning of reasoningChunks) {
+              controller.enqueue(
+                encoder.encode(
+                  toSseEvent(
+                    toOpenAiChunk({
+                      id: `chatcmpl-${assistantMessageId || 'pending'}`,
+                      created: Math.floor(Date.now() / 1000),
+                      model: params.model,
+                      delta: { reasoning_content: reasoning },
+                      finishReason: null,
+                    }),
+                  ),
+                ),
+              )
+            }
 
             if (content.length > collectedContent.length) {
               const delta = content.slice(collectedContent.length)
@@ -166,13 +212,17 @@ export async function handleOrchestratedAgentStream(
 
           // Tool result
           if (last?._getType() === 'tool') {
-            const toolMsg = last as any
+            const toolMsg = last as {
+              content?: unknown
+              tool_call_id?: string
+            }
+            const toolContent = messageContentToText(toolMsg.content)
 
             await db.insert(chatMessage).values({
               threadId: params.threadId,
               userId: params.userId,
               role: 'tool',
-              content: toolMsg.content || '',
+              content: toolContent,
               toolCallId: toolMsg.tool_call_id,
               regenerationCount: 0,
               isDeleted: false,
@@ -188,7 +238,7 @@ export async function handleOrchestratedAgentStream(
                     created: Math.floor(Date.now() / 1000),
                     model: params.model,
                     delta: {
-                      content: `\n[Tool Result] ${toolMsg.content}`,
+                      content: `\n[Tool Result] ${toolContent}`,
                     },
                     finishReason: null,
                   }),
