@@ -67,17 +67,33 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     const location = useLocation()
 
     const handleUploadClick = () => {
-      // check if query params has nav=
       const searchParams = new URLSearchParams(location.search)
-      const isOnStoragePage =
-        location.pathname === '/' && searchParams.has('upload')
-      // Check if we're already on the main storage page (/_app)
+
+      // Preserve existing query params (like nav=) and add upload flag
+      if (!searchParams.has('upload')) {
+        searchParams.set('upload', 'true')
+      }
+
+      const isOnStoragePage = location.pathname === '/'
+
       if (isOnStoragePage) {
+        // If already on storage page, just update the URL with the upload flag
+        const newSearch = searchParams.toString()
+        if (newSearch !== location.search) {
+          window.history.replaceState(
+            null,
+            '',
+            `${location.pathname}?${newSearch}`,
+          )
+        }
         // Dispatch event to open upload dialog (TopbarActions listens)
         window.dispatchEvent(new CustomEvent('dot:open-upload'))
       } else {
-        // Navigate to storage page with upload flag
-        navigate({ to: '/', search: { upload: true } })
+        // Navigate to storage page preserving all query params
+        navigate({
+          to: '/',
+          search: Object.fromEntries(searchParams.entries()),
+        })
       }
     }
 
