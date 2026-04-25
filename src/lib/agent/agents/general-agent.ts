@@ -1,6 +1,6 @@
 import type { StructuredTool } from '@langchain/core/tools'
 import { createWorkerNode } from '../orchestration/graph'
-import { mathTools } from '../../routes/_app/chat/tools/-math-tools'
+import { mathTools } from '../tools/math-tools'
 
 /**
  * General Agent
@@ -17,7 +17,7 @@ export class GeneralAgent {
   }
 
   createNode() {
-    return createWorkerNode(this.name, this.getTools())
+    return createWorkerNode( this.name, this.getTools() )
   }
 }
 

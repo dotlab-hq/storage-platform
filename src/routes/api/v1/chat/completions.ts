@@ -10,7 +10,6 @@ import {
 import { getFilteredTools } from '@/routes/_app/chat/tools/tool-registry-scoped'
 import { OpenAIChatCompletionsSchema } from '../-schemas'
 import type { LLMStreamParams } from '@/routes/_app/chat/-chat-llm-streamer'
-import { handleStreamingResponse } from './-streaming-handler'
 import { handleNonStreamingResponse } from './-non-streaming-handler'
 import { handleDeepAgentStream } from './-deep-agent-stream-handler'
 import { handleOrchestratedAgentStream } from './-orchestrated-stream-handler'
@@ -19,17 +18,17 @@ import { createExternalPassthroughTools } from './-external-tools'
 import { createFileRoute } from '@tanstack/react-router'
 import { json } from '@tanstack/react-start'
 
-export const Route = createFileRoute('/api/v1/chat/completions')({
+export const Route = createFileRoute( '/api/v1/chat/completions' )( {
   server: {
     handlers: {
       POST: POST,
       OPTIONS: OPTIONS,
     },
   },
-})
+} )
 
 export async function OPTIONS() {
-  return json(null, {
+  return json( null, {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -37,15 +36,15 @@ export async function OPTIONS() {
       'Access-Control-Max-Age': '86400',
     },
     status: 204,
-  })
+  } )
 }
 
-export async function POST({ request }: { request: Request }) {
+export async function POST( { request }: { request: Request } ) {
   try {
     // Check for required API keys early
     const googleApiKey = process.env.GOOGLE_API_KEY
-    if (!googleApiKey) {
-      console.error('[Chat] Missing GOOGLE_API_KEY environment variable')
+    if ( !googleApiKey ) {
+      console.error( '[Chat] Missing GOOGLE_API_KEY environment variable' )
       return json(
         {
           error: {
@@ -62,25 +61,26 @@ export async function POST({ request }: { request: Request }) {
     const body: unknown = await request.json()
     const bodyRecord =
       typeof body === 'object' && body !== null
-        ? (body as Record<string, unknown>)
+        ? ( body as Record<string, unknown> )
         : null
     const bodyTools = bodyRecord?.tools
     console.log(
       '[Chat] Full body (first 500 chars):',
-      JSON.stringify(body).slice(0, 500),
+      JSON.stringify( body ).slice( 0, 500 ),
     )
     console.log(
       '[Chat] body.tools is:',
       typeof bodyTools,
-      Array.isArray(bodyTools) ? 'array[' + bodyTools.length + ']' : bodyTools,
+      Array.isArray( bodyTools ) ? 'array[' + bodyTools.length + ']' : bodyTools,
     )
+    const validated = OpenAIChatCompletionsSchema.parse( body )
     // Authentication (session OR API key)
-    const currentUser = await getAuthenticatedUser().catch(() => null)
-    const apiKeyUser = await getUserFromApiKey(request.headers).catch(
+    const currentUser = await getAuthenticatedUser().catch( () => null )
+    const apiKeyUser = await getUserFromApiKey( request.headers ).catch(
       () => null,
     )
 
-    if (!currentUser && !apiKeyUser) {
+    if ( !currentUser && !apiKeyUser ) {
       return json(
         {
           error: {
@@ -97,21 +97,21 @@ export async function POST({ request }: { request: Request }) {
     const apiKeyPermissions = apiKeyUser?.permissions || null
 
     // Determine tools based on permissions (scope-based)
-    const availableTools =
+    const initialAvailableTools =
       apiKeyUser && apiKeyPermissions
-        ? getFilteredTools(apiKeyPermissions)
+        ? getFilteredTools( apiKeyPermissions )
         : validated.tools && validated.tools.length > 0
-          ? getToolsByName(validated.tools.map((t) => t.function.name))
+          ? getToolsByName( validated.tools.map( ( t ) => t.function.name ) )
           : getAllTools()
 
-    if (validated.tools && validated.tools.length > 0 && !apiKeyUser) {
+    if ( validated.tools && validated.tools.length > 0 && !apiKeyUser ) {
       // Append external passthrough tools for session auth
       const externalPassthroughTools = createExternalPassthroughTools(
         validated.tools,
-        (availableTools || []).map((tool) => tool.name),
+        initialAvailableTools.map( ( tool ) => tool.name ),
       )
       // Use array spread to combine
-      ;(availableTools as any[]).push(...externalPassthroughTools)
+      initialAvailableTools.push( ...externalPassthroughTools )
     }
 
     console.log(
@@ -120,7 +120,7 @@ export async function POST({ request }: { request: Request }) {
       '| Auth:',
       apiKeyUser ? 'API Key' : 'Session',
       '| Tools:',
-      availableTools.map((t) => t.name),
+      initialAvailableTools.map( ( t ) => t.name ),
       '| Scopes:',
       apiKeyPermissions,
     )
@@ -128,20 +128,20 @@ export async function POST({ request }: { request: Request }) {
     // Determine threadId
     let threadId: string
     const inputThreadId = validated.thread_id || validated.threadId
-    if (inputThreadId) {
+    if ( inputThreadId ) {
       const existing = await db
-        .select({ id: chatThread.id })
-        .from(chatThread)
+        .select( { id: chatThread.id } )
+        .from( chatThread )
         .where(
           and(
-            eq(chatThread.id, inputThreadId),
-            eq(chatThread.userId, user.id),
-            eq(chatThread.isDeleted, false),
+            eq( chatThread.id, inputThreadId ),
+            eq( chatThread.userId, user.id ),
+            eq( chatThread.isDeleted, false ),
           ),
         )
-        .limit(1)
+        .limit( 1 )
 
-      if (existing.length === 0) {
+      if ( existing.length === 0 ) {
         return json(
           {
             error: {
@@ -157,8 +157,8 @@ export async function POST({ request }: { request: Request }) {
     } else {
       const now = new Date()
       const [newThread] = await db
-        .insert(chatThread)
-        .values({
+        .insert( chatThread )
+        .values( {
           userId: user.id,
           title: 'New Chat',
           latestPreview: null,
@@ -166,62 +166,62 @@ export async function POST({ request }: { request: Request }) {
           isDeleted: false,
           createdAt: now,
           updatedAt: now,
-        })
-        .returning({ id: chatThread.id })
+        } )
+        .returning( { id: chatThread.id } )
       threadId = newThread.id
     }
 
     // Convert messages to LangChain format
-    const langchainMessages = openAIMessagesToLangChain(validated.messages)
+    const langchainMessages = openAIMessagesToLangChain( validated.messages )
 
     // Insert user message
     const userMessageContent =
       validated.messages[validated.messages.length - 1].content
     const now = new Date()
     const [userMessage] = await db
-      .insert(chatMessage)
-      .values({
+      .insert( chatMessage )
+      .values( {
         threadId,
         userId: user.id,
         role: 'user',
         content:
           typeof userMessageContent === 'string'
             ? userMessageContent
-            : JSON.stringify(userMessageContent),
+            : JSON.stringify( userMessageContent ),
         regenerationCount: 0,
         isDeleted: false,
         createdAt: now,
         updatedAt: now,
-      })
-      .returning({ id: chatMessage.id })
+      } )
+      .returning( { id: chatMessage.id } )
 
     // Determine tools - always include default tools if none specified
     const requestedToolNames =
-      validated.tools?.map((t) => t.function.name) || []
-    const internalTools = getToolsByName(requestedToolNames)
+      validated.tools?.map( ( t ) => t.function.name ) || []
+    const internalTools = getToolsByName( requestedToolNames )
     const externalPassthroughTools = createExternalPassthroughTools(
       validated.tools,
-      internalTools.map((tool) => tool.name),
+      internalTools.map( ( tool ) => tool.name ),
     )
     let availableTools = [...internalTools, ...externalPassthroughTools]
 
     // If no tools explicitly requested, provide all available tools by default
-    if (requestedToolNames.length === 0) {
+    if ( requestedToolNames.length === 0 ) {
       availableTools = getAllTools()
-      console.log('[Chat] No tools requested, enabling all available tools')
+      console.log( '[Chat] No tools requested, enabling all available tools' )
     }
 
     console.log(
       '[Chat] Requested tools:',
       requestedToolNames,
       '| Resolved:',
-      availableTools.map((t) => t.name),
+      availableTools.map( ( t ) => t.name ),
     )
 
     const stopSequences =
       typeof validated.stop === 'string'
         ? [validated.stop]
-        : Array.isArray(validated.stop)
+        : Array.isArray( validated.stop )
           ? validated.stop
           : undefined
 
@@ -232,7 +232,7 @@ export async function POST({ request }: { request: Request }) {
       maxOutputTokens: validated.max_tokens,
       stopSequences,
       seed: validated.seed,
-      tools: availableTools,
+      tools: initialAvailableTools,
       toolChoice: validated.tool_choice,
       responseFormat: validated.response_format,
       streamDelayMs: 0,
@@ -241,26 +241,25 @@ export async function POST({ request }: { request: Request }) {
     // Routing: Use orchestrated agent for streaming, standard for non-streaming
     // (DeepAgent is now deprecated in favor of supervisor orchestration)
     // Use header X-Use-Deep-Agent=true to force old DeepAgent (if needed)
-    const useOrchestrated = validated.stream // default: stream uses orchestrated
     const useDeepAgentLegacy =
-      request.headers.get('X-Use-Deep-Agent') === 'true' ||
+      request.headers.get( 'X-Use-Deep-Agent' ) === 'true' ||
       bodyRecord?.deep_agent === true
 
     // Route to appropriate handler
-    if (validated.stream) {
-      if (useDeepAgentLegacy) {
+    if ( validated.stream ) {
+      if ( useDeepAgentLegacy ) {
         // Legacy DeepAgent (minimal math tools only)
-        return handleDeepAgentStream({
+        return handleDeepAgentStream( {
           messages: langchainMessages,
           params: llmParams,
           threadId,
           userId: user.id,
           userMessageId: userMessage.id,
           model: validated.model,
-        })
+        } )
       } else {
         // New Orchestrated Multi-Agent system
-        return handleOrchestratedAgentStream({
+        return handleOrchestratedAgentStream( {
           messages: langchainMessages,
           params: llmParams,
           threadId,
@@ -268,34 +267,34 @@ export async function POST({ request }: { request: Request }) {
           userMessageId: userMessage.id,
           model: validated.model,
           permissions: apiKeyPermissions,
-        })
+        } )
       }
     } else {
-      if (useDeepAgentLegacy) {
+      if ( useDeepAgentLegacy ) {
         console.warn(
           '[Chat] Legacy DeepAgent non-streaming not supported, falling back to standard',
         )
       }
-      return handleNonStreamingResponse({
+      return handleNonStreamingResponse( {
         messages: langchainMessages,
         params: llmParams,
         threadId,
         userId: user.id,
         userMessageId: userMessage.id,
         model: validated.model,
-      })
+      } )
     }
-  } catch (error) {
+  } catch ( error ) {
     // Enhanced error handling - capture full error details
-    const err = error instanceof Error ? error : new Error(String(error))
+    const err = error instanceof Error ? error : new Error( String( error ) )
 
     // Log the complete error with stack for debugging
-    console.error('[OpenAI Chat] Request error:', {
+    console.error( '[OpenAI Chat] Request error:', {
       name: err.name,
       message: err.message,
       stack: err.stack,
       cause: err.cause,
-    })
+    } )
 
     // Return detailed error to client (in dev mode, include stack)
     const isDev = process.env.NODE_ENV === 'development'
@@ -305,7 +304,7 @@ export async function POST({ request }: { request: Request }) {
           message: err.message,
           type: 'invalid_request_error',
           code: 'server_error',
-          ...(isDev && { stack: err.stack, cause: err.cause }),
+          ...( isDev && { stack: err.stack, cause: err.cause } ),
         },
       },
       { status: 500 },

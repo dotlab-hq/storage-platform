@@ -1,6 +1,6 @@
 import type { StructuredTool } from '@langchain/core/tools'
 import { createWorkerNode } from '../orchestration/graph'
-import { TAVILY_TOOL } from '../../routes/_app/chat/tools/tavily-search'
+import { TAVILY_TOOL } from '../tools/tavily-search'
 
 /**
  * Web Search Agent
@@ -16,7 +16,7 @@ export class WebAgent {
   }
 
   createNode() {
-    return createWorkerNode(this.name, this.getTools())
+    return createWorkerNode( this.name, this.getTools() )
   }
 }
 
