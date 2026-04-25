@@ -1,5 +1,13 @@
 import { useState } from 'react'
-import { Ban, Trash2, X, HardDrive, Loader2 } from 'lucide-react'
+import {
+  Ban,
+  Trash2,
+  X,
+  HardDrive,
+  Loader2,
+  ShieldCheck,
+  Shield,
+} from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
@@ -11,6 +19,8 @@ type AdminFloatingActionBarProps = {
   onBan: (banned: boolean) => Promise<void>
   onDelete: () => Promise<void>
   onUpdateStorage: (storageLimitBytes: number) => Promise<void>
+  onMakeAdmin?: () => Promise<void>
+  onMakeUser?: () => Promise<void>
   isLoading?: boolean
 }
 
@@ -20,6 +30,8 @@ export function AdminFloatingActionBar({
   onBan,
   onDelete,
   onUpdateStorage,
+  onMakeAdmin,
+  onMakeUser,
   isLoading,
 }: AdminFloatingActionBarProps) {
   const [showStorageModal, setShowStorageModal] = useState(false)
@@ -72,6 +84,34 @@ export function AdminFloatingActionBar({
             <Ban className="mr-1 h-4 w-4" />
             Unban
           </Button>
+
+          <div className="bg-border mx-1 h-6 w-px" />
+
+          {onMakeAdmin && (
+            <Button
+              size="sm"
+              variant="ghost"
+              onClick={() => void onMakeAdmin()}
+              disabled={isLoading}
+            >
+              <ShieldCheck className="mr-1 h-4 w-4" />
+              Make Admin
+            </Button>
+          )}
+          {onMakeUser && (
+            <Button
+              size="sm"
+              variant="ghost"
+              onClick={() => void onMakeUser()}
+              disabled={isLoading}
+            >
+              <Shield className="mr-1 h-4 w-4" />
+              Make User
+            </Button>
+          )}
+
+          <div className="bg-border mx-1 h-6 w-px" />
+
           <Button
             size="sm"
             variant="ghost"

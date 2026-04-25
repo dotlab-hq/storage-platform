@@ -44,6 +44,11 @@ const ProviderContentsModal = lazy(() =>
     default: m.ProviderContentsModal,
   })),
 )
+const UserFilesModal = lazy(() =>
+  import('@/components/admin/user-files-modal').then((m) => ({
+    default: m.UserFilesModal,
+  })),
+)
 
 export type AdminDashboardData = {
   summary: AdminSummary
@@ -103,6 +108,8 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
   const [isProviderViewerOpen, setIsProviderViewerOpen] = useState(false)
   const [selectedProvider, setSelectedProvider] =
     useState<AdminProvider | null>(null)
+  const [isUserFilesModalOpen, setIsUserFilesModalOpen] = useState(false)
+  const [selectedUser, setSelectedUser] = useState<AdminUser | null>(null)
   const [activeTab, setActiveTab] = useState('overview')
   type ProviderTextField =
     | 'name'
@@ -347,6 +354,10 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
                     setData(refreshed)
                   }
                 }}
+                onViewUserFiles={(user) => {
+                  setSelectedUser(user)
+                  setIsUserFilesModalOpen(true)
+                }}
               />
             </Suspense>
           </TabsContent>
@@ -384,6 +395,20 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
           }}
           provider={selectedProvider}
         />
+      </Suspense>
+      <Suspense fallback={null}>
+        {selectedUser && (
+          <UserFilesModal
+            open={isUserFilesModalOpen}
+            onOpenChange={(open) => {
+              setIsUserFilesModalOpen(open)
+              if (!open) {
+                setSelectedUser(null)
+              }
+            }}
+            user={selectedUser}
+          />
+        )}
       </Suspense>
     </SidebarInset>
   )

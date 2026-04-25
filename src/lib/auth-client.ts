@@ -3,6 +3,7 @@ import {
   inferAdditionalFields,
   twoFactorClient,
   deviceAuthorizationClient,
+  adminClient,
 } from 'better-auth/client/plugins'
 
 export const authClient = createAuthClient({
@@ -16,6 +17,7 @@ export const authClient = createAuthClient({
     }),
     twoFactorClient(),
     deviceAuthorizationClient(),
+    adminClient(),
   ],
 })
 

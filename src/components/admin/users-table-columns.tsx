@@ -9,6 +9,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { formatBytes } from '@/lib/format-bytes'
+import { UserRowActionsDropdown } from './user-row-actions-dropdown'
 import type { AdminUser } from '@/lib/storage-provider-queries'
 
 export type UserTableRow = AdminUser & { isUpdating?: boolean }
@@ -17,6 +18,8 @@ const columnHelper = createColumnHelper<UserTableRow>()
 export const getColumns = (
   updatingUsers: Set<string>,
   handleRoleChange: (userId: string, isAdmin: boolean) => Promise<void>,
+  onUserUpdate?: () => void,
+  onViewUserFiles?: (user: UserTableRow) => void,
 ): ColumnDef<UserTableRow>[] => [
   {
     id: 'select',
@@ -132,4 +135,21 @@ export const getColumns = (
       )
     },
   }) as ColumnDef<UserTableRow>,
+  {
+    id: 'actions',
+    header: () => <div className="text-right">Actions</div>,
+    cell: ({ row }) => {
+      const user = row.original
+      return (
+        <div className="flex justify-end">
+          <UserRowActionsDropdown
+            user={user}
+            onUserUpdate={onUserUpdate}
+            onViewFiles={() => onViewUserFiles?.(user)}
+          />
+        </div>
+      )
+    },
+    size: 80,
+  } as ColumnDef<UserTableRow>,
 ]

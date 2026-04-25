@@ -47,6 +47,7 @@ import { Route as ApiStorageS3BucketSettingsRouteImport } from './routes/api/sto
 import { Route as ApiStorageS3BucketItemsRouteImport } from './routes/api/storage/s3/bucket-items'
 import { Route as ApiStorageS3BucketCredentialsRouteImport } from './routes/api/storage/s3/bucket-credentials'
 import { Route as ApiStorageS3SplatRouteImport } from './routes/api/storage/s3/$'
+import { Route as ApiAdminUsersUserIdFolderItemsRouteImport } from './routes/api/admin/users/$userId/folder-items'
 import { Route as ApiAdminStorageProvidersProviderIdContentsRouteImport } from './routes/api/admin/storage-providers/$providerId/contents'
 
 const SwRoute = SwRouteImport.update({
@@ -246,6 +247,12 @@ const ApiStorageS3SplatRoute = ApiStorageS3SplatRouteImport.update({
   path: '/$',
   getParentRoute: () => ApiStorageS3Route,
 } as any)
+const ApiAdminUsersUserIdFolderItemsRoute =
+  ApiAdminUsersUserIdFolderItemsRouteImport.update({
+    id: '/api/admin/users/$userId/folder-items',
+    path: '/api/admin/users/$userId/folder-items',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiAdminStorageProvidersProviderIdContentsRoute =
   ApiAdminStorageProvidersProviderIdContentsRouteImport.update({
     id: '/api/admin/storage-providers/$providerId/contents',
@@ -292,6 +299,7 @@ export interface FileRoutesByFullPath {
   '/api/v1/chat/completions': typeof ApiV1ChatCompletionsRoute
   '/api/storage/s3/': typeof ApiStorageS3IndexRoute
   '/api/admin/storage-providers/$providerId/contents': typeof ApiAdminStorageProvidersProviderIdContentsRoute
+  '/api/admin/users/$userId/folder-items': typeof ApiAdminUsersUserIdFolderItemsRoute
 }
 export interface FileRoutesByTo {
   '/hot': typeof HotRoute
@@ -331,6 +339,7 @@ export interface FileRoutesByTo {
   '/api/v1/chat/completions': typeof ApiV1ChatCompletionsRoute
   '/api/storage/s3': typeof ApiStorageS3IndexRoute
   '/api/admin/storage-providers/$providerId/contents': typeof ApiAdminStorageProvidersProviderIdContentsRoute
+  '/api/admin/users/$userId/folder-items': typeof ApiAdminUsersUserIdFolderItemsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -373,6 +382,7 @@ export interface FileRoutesById {
   '/api/v1/chat/completions': typeof ApiV1ChatCompletionsRoute
   '/api/storage/s3/': typeof ApiStorageS3IndexRoute
   '/api/admin/storage-providers/$providerId/contents': typeof ApiAdminStorageProvidersProviderIdContentsRoute
+  '/api/admin/users/$userId/folder-items': typeof ApiAdminUsersUserIdFolderItemsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -415,6 +425,7 @@ export interface FileRouteTypes {
     | '/api/v1/chat/completions'
     | '/api/storage/s3/'
     | '/api/admin/storage-providers/$providerId/contents'
+    | '/api/admin/users/$userId/folder-items'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/hot'
@@ -454,6 +465,7 @@ export interface FileRouteTypes {
     | '/api/v1/chat/completions'
     | '/api/storage/s3'
     | '/api/admin/storage-providers/$providerId/contents'
+    | '/api/admin/users/$userId/folder-items'
   id:
     | '__root__'
     | '/_app'
@@ -495,6 +507,7 @@ export interface FileRouteTypes {
     | '/api/v1/chat/completions'
     | '/api/storage/s3/'
     | '/api/admin/storage-providers/$providerId/contents'
+    | '/api/admin/users/$userId/folder-items'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -514,6 +527,7 @@ export interface RootRouteChildren {
   ApiStorageUploadProxyRoute: typeof ApiStorageUploadProxyRoute
   ApiV1ChatCompletionsRoute: typeof ApiV1ChatCompletionsRoute
   ApiAdminStorageProvidersProviderIdContentsRoute: typeof ApiAdminStorageProvidersProviderIdContentsRoute
+  ApiAdminUsersUserIdFolderItemsRoute: typeof ApiAdminUsersUserIdFolderItemsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -784,6 +798,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStorageS3SplatRouteImport
       parentRoute: typeof ApiStorageS3Route
     }
+    '/api/admin/users/$userId/folder-items': {
+      id: '/api/admin/users/$userId/folder-items'
+      path: '/api/admin/users/$userId/folder-items'
+      fullPath: '/api/admin/users/$userId/folder-items'
+      preLoaderRoute: typeof ApiAdminUsersUserIdFolderItemsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/admin/storage-providers/$providerId/contents': {
       id: '/api/admin/storage-providers/$providerId/contents'
       path: '/api/admin/storage-providers/$providerId/contents'
@@ -876,6 +897,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiV1ChatCompletionsRoute: ApiV1ChatCompletionsRoute,
   ApiAdminStorageProvidersProviderIdContentsRoute:
     ApiAdminStorageProvidersProviderIdContentsRoute,
+  ApiAdminUsersUserIdFolderItemsRoute: ApiAdminUsersUserIdFolderItemsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

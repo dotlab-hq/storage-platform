@@ -5,7 +5,10 @@ import { db } from '@/db'
 import { chatMessage, chatThread } from '@/db/schema/chat'
 import { and, eq } from 'drizzle-orm'
 import { openAIMessagesToLangChain } from '@/routes/_app/chat/-converters'
-import { getToolsByName } from '@/routes/_app/chat/tools/-tool-registry'
+import {
+  getToolsByName,
+  getAllTools,
+} from '@/routes/_app/chat/tools/-tool-registry'
 import { OpenAIChatCompletionsSchema } from '../-schemas'
 import type { LLMStreamParams } from '@/routes/_app/chat/-chat-llm-streamer'
 import { handleStreamingResponse } from './-streaming-handler'
@@ -73,8 +76,8 @@ export async function POST({ request }: { request: Request }) {
     )
 
     // Authentication (session OR API key)
-    let currentUser = await getAuthenticatedUser().catch(() => null)
-    let apiKeyUser = await getUserFromApiKey(request.headers).catch(() => null)
+    const currentUser = await getAuthenticatedUser().catch(() => null)
+    const apiKeyUser = await getUserFromApiKey(request.headers).catch(() => null)
 
     if (!currentUser && !apiKeyUser) {
       return json(
@@ -161,10 +164,17 @@ export async function POST({ request }: { request: Request }) {
       })
       .returning({ id: chatMessage.id })
 
-    // Determine tools
+    // Determine tools - always include default tools if none specified
     const requestedToolNames =
       validated.tools?.map((t) => t.function.name) || []
-    const availableTools = getToolsByName(requestedToolNames)
+    let availableTools = getToolsByName(requestedToolNames)
+
+    // If no tools explicitly requested, provide all available tools by default
+    if (requestedToolNames.length === 0) {
+      availableTools = getAllTools()
+      console.log('[Chat] No tools requested, enabling all available tools')
+    }
+
     console.log(
       '[Chat] Requested tools:',
       requestedToolNames,

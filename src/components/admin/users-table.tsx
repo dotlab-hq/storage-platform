@@ -23,6 +23,7 @@ interface UsersTableProps {
   onUserUpdate?: () => void
   selectedUsers?: string[]
   onSelectionChange?: (selectedIds: string[]) => void
+  onViewUserFiles?: (user: AdminUser) => void
 }
 
 export function UsersTable({
@@ -30,6 +31,7 @@ export function UsersTable({
   onUserUpdate,
   selectedUsers = [],
   onSelectionChange,
+  onViewUserFiles,
 }: UsersTableProps) {
   const [sorting, setSorting] = useState<SortingState>([])
   const [globalFilter, setGlobalFilter] = useState('')
@@ -66,8 +68,14 @@ export function UsersTable({
   }
 
   const columns = useMemo(
-    () => getColumns(updatingUsers, handleRoleChange),
-    [updatingUsers, handleRoleChange],
+    () =>
+      getColumns(
+        updatingUsers,
+        handleRoleChange,
+        onUserUpdate,
+        onViewUserFiles,
+      ),
+    [updatingUsers, handleRoleChange, onUserUpdate, onViewUserFiles],
   )
 
   const filteredData = useMemo(() => {

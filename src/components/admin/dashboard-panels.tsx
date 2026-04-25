@@ -133,9 +133,11 @@ export function ProvidersPanel({
 export function UsersPanel({
   users,
   onUserUpdate,
+  onViewUserFiles,
 }: {
   users: AdminUser[]
   onUserUpdate?: () => void
+  onViewUserFiles?: (user: AdminUser) => void
 }) {
   const [selectedUserIds, setSelectedUserIds] = useState<string[]>([])
   const [isLoading, setIsLoading] = useState(false)
@@ -226,6 +228,33 @@ export function UsersPanel({
     [selectedUserIds, clearSelection, onUserUpdate],
   )
 
+  const handleBulkRoleChange = useCallback(
+    async (isAdmin: boolean) => {
+      if (selectedUserIds.length === 0) return
+
+      setIsLoading(true)
+      try {
+        const { updateUserRoleFn } =
+          await import('@/routes/_app/admin/-admin-server')
+        for (const userId of selectedUserIds) {
+          await updateUserRoleFn({
+            data: { userId, isAdmin },
+          })
+        }
+        toast.success(`Users ${isAdmin ? 'made admin' : 'made regular users'}`)
+        clearSelection()
+        onUserUpdate?.()
+      } catch (error) {
+        const message =
+          error instanceof Error ? error.message : 'Failed to update roles'
+        toast.error(message)
+      } finally {
+        setIsLoading(false)
+      }
+    },
+    [selectedUserIds, clearSelection, onUserUpdate],
+  )
+
   return (
     <div className="space-y-4">
       <div className="space-y-2">
@@ -239,6 +268,7 @@ export function UsersPanel({
         onUserUpdate={onUserUpdate}
         selectedUsers={selectedUserIds}
         onSelectionChange={setSelectedUserIds}
+        onViewUserFiles={onViewUserFiles}
       />
       <AdminFloatingActionBar
         selectedCount={selectedUserIds.length}
@@ -246,6 +276,8 @@ export function UsersPanel({
         onBan={handleBan}
         onDelete={handleDelete}
         onUpdateStorage={handleUpdateStorage}
+        onMakeAdmin={() => handleBulkRoleChange(true)}
+        onMakeUser={() => handleBulkRoleChange(false)}
         isLoading={isLoading}
       />
     </div>
