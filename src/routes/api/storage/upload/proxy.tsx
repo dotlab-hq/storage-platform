@@ -8,7 +8,6 @@ import {
   assertFileSizeWithinLimit,
   MAX_PROXY_STREAM_UPLOAD_BYTES,
 } from '@/lib/upload-target-server'
-import { sendWithProviderTimeout } from '@/lib/s3-gateway/s3-provider-timeout'
 
 const ProxyUploadRequestSchema = z.object({
   objectKey: z.string().min(1),
@@ -87,19 +86,17 @@ export const Route = createFileRoute('/api/storage/upload/proxy')({
             )
           }
 
-          const result = await sendWithProviderTimeout((abortSignal) =>
-            provider.client.send(
-              new PutObjectCommand({
-                Bucket: provider.bucketName,
-                Key: payload.objectKey,
-                Body: toNodeReadable(
-                  request.body as ReadableStream<Uint8Array>,
-                ),
-                ContentType: payload.contentType,
-                ContentLength: payload.fileSize,
-              }),
-              { abortSignal },
-            ),
+          const result = await provider.client.send(
+            new PutObjectCommand({
+              Bucket: provider.bucketName,
+              Key: payload.objectKey,
+              Body: toNodeReadable(request.body as ReadableStream<Uint8Array>),
+              ContentType: payload.contentType,
+              ContentLength: payload.fileSize,
+            }),
+            {
+              abortSignal: request.signal,
+            },
           )
 
           return Response.json({ ok: true, etag: result.ETag ?? null })
