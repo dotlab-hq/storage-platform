@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Link, useNavigate } from '@tanstack/react-router'
+import { Link, Route, useNavigate } from '@tanstack/react-router'
 import { motion } from 'motion/react'
 import { cn } from '@/lib/utils'
 import type { LucideIcon } from 'lucide-react'
@@ -69,7 +69,8 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
       if (bucketName) {
         window.dispatchEvent(new CustomEvent('dot:open-upload'))
       } else {
-        navigate({ to: '/' }).then(() => {
+        const search = Route.useSearch()
+        navigate({ to: '/', search }).then(() => {
           setTimeout(() => {
             window.dispatchEvent(new CustomEvent('dot:open-upload'))
           }, 100)
