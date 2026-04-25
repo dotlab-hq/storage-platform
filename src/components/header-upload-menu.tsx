@@ -22,15 +22,20 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { FileUploadDialog } from '@/components/storage/upload-dialog'
 import { UrlImportDialog } from '@/components/storage/url-import-dialog'
+import type { StorageItem } from '@/types/storage'
 
 type HeaderUploadMenuProps = {
   userId: string | null
   onUploadComplete: () => Promise<void> | void
+  currentFolderId?: string | null
+  setItems?: React.Dispatch<React.SetStateAction<StorageItem[]>>
 }
 
 export function HeaderUploadMenu({
   userId,
   onUploadComplete,
+  currentFolderId = null,
+  setItems,
 }: HeaderUploadMenuProps) {
   const inputRef = React.useRef<HTMLInputElement>(null)
   const [uploadOpen, setUploadOpen] = React.useState(false)

@@ -1,5 +1,7 @@
+'use client'
+
 import * as React from 'react'
-import { Link, Route, useNavigate } from '@tanstack/react-router'
+import { Link, useNavigate, useLocation } from '@tanstack/react-router'
 import { motion } from 'motion/react'
 import { cn } from '@/lib/utils'
 import type { LucideIcon } from 'lucide-react'
@@ -62,24 +64,20 @@ DockIconButton.displayName = 'DockIconButton'
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(
   ({ className }, ref) => {
     const navigate = useNavigate()
+    const location = useLocation()
 
     const handleUploadClick = () => {
-      const url = new URL(window.location.href)
-      const bucketName = url.pathname.match(/\/buckets\/([^/]+)/)?.[1]
-      if (bucketName) {
+      // Check if we're already on the main storage page (/_app)
+      const isOnStoragePage =
+        location.pathname === '/_app' || location.pathname === '/_app/'
+
+      if (isOnStoragePage) {
+        // Dispatch event to open upload dialog (TopbarActions listens)
         window.dispatchEvent(new CustomEvent('dot:open-upload'))
       } else {
-        const search = Route.useSearch()
-        navigate({ to: '/', search }).then(() => {
-          setTimeout(() => {
-            window.dispatchEvent(new CustomEvent('dot:open-upload'))
-          }, 100)
-        })
+        // Navigate to storage page with upload flag
+        navigate({ to: '/_app', search: { upload: true } })
       }
-    }
-
-    const handleFilesClick = () => {
-      navigate({ to: '/' })
     }
 
     const items = [
@@ -91,23 +89,22 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
       {
         icon: FolderOpen,
         label: 'Files',
-        href: '/',
-        onClick: handleFilesClick,
+        href: '/_app',
       },
       {
         icon: Trash2,
         label: 'Trash',
-        href: '/trash',
+        href: '/_app/trash',
       },
       {
         icon: Shield,
         label: 'Admin',
-        href: '/admin',
+        href: '/_app/admin',
       },
       {
         icon: Settings,
         label: 'Settings',
-        href: '/settings',
+        href: '/_app/settings',
       },
     ]
 

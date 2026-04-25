@@ -1,143 +1,220 @@
 'use client'
 
 import * as React from 'react'
-import { useUploadStore } from '@/lib/stores/upload-store'
+import { useUploadStore, removeUpload } from '@/lib/stores/upload-store'
 import { UploadingCard } from '@/components/storage/uploading-card'
-import { Upload, X, ChevronUp, ChevronDown, CheckCircle2 } from 'lucide-react'
+import { Upload, X, ChevronDown, CheckCircle2, Trash2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 
 export function UploadWidget() {
   const uploads = useUploadStore((state) => state.uploads)
   const [isExpanded, setIsExpanded] = React.useState(false)
-  const [isVisible, setIsVisible] = React.useState(true)
+  const [isVisible, setIsVisible] = React.useState(false)
 
-  // Show widget if there are any active, completed (not yet auto-dismissed), or failed uploads
   const activeUploads = uploads.filter((u) => u.status === 'uploading')
-  const failedUploads = uploads.filter((u) => u.status === 'failed')
+  const completedCount = uploads.filter((u) => u.status === 'completed').length
+  const failedCount = uploads.filter((u) => u.status === 'failed').length
 
-  // Hide widget if no uploads at all
-  const hasAnyUploads = uploads.length > 0
+  // Calculate overall progress (0-100)
+  const overallProgress =
+    activeUploads.length > 0
+      ? Math.round(
+          activeUploads.reduce((sum, u) => sum + u.progress, 0) /
+            activeUploads.length,
+        )
+      : completedCount > 0 || failedCount > 0
+        ? 100
+        : 0
 
-  // Auto-hide after a delay when all uploads are done (success or failure)
+  // Show widget when there are any uploads
   React.useEffect(() => {
-    if (!hasAnyUploads) {
-      const timer = setTimeout(() => setIsVisible(false), 300)
-      return () => clearTimeout(timer)
-    } else {
+    if (uploads.length > 0) {
       setIsVisible(true)
     }
-  }, [hasAnyUploads])
+  }, [uploads.length])
 
-  // Don't render if not visible and no uploads
-  if (!isVisible && !hasAnyUploads) {
-    return null
-  }
-
-  const totalCount = uploads.length
-  const activeCount = activeUploads.length
-  const hasFailed = failedUploads.length > 0
+  // Never auto-hide; user manually dismisses with X button
+  if (!isVisible || uploads.length === 0) return null
 
   const handleClose = () => {
     setIsVisible(false)
-    // Optionally clear completed uploads when manually closing
-    // Could also just hide the widget but keep uploads in store
   }
 
+  const handleClearCompleted = () => {
+    uploads.forEach((u) => {
+      if (u.status === 'completed') removeUpload(u.id)
+    })
+  }
+
+  // Circular progress: SVG stroke-dasharray trick
+  const size = 48
+  const strokeWidth = 3
+  const radius = (size - strokeWidth) / 2
+  const circumference = 2 * Math.PI * radius
+  const strokeDashoffset =
+    circumference - (overallProgress / 100) * circumference
+
   return (
-    <div
-      className={cn(
-        'fixed bottom-4 right-4 z-50 w-80 transition-all duration-300 ease-in-out',
-        isVisible
-          ? 'opacity-100 translate-y-0'
-          : 'opacity-0 translate-y-4 pointer-events-none',
-      )}
-    >
-      <div className="rounded-xl border bg-card shadow-lg">
-        {/* Header */}
-        <div className="flex items-center justify-between p-3 border-b">
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="flex items-center gap-2 hover:underline"
-          >
-            <div className="flex items-center gap-2">
-              {activeCount > 0 ? (
-                <div className="relative">
-                  <Upload className="h-4 w-4 text-primary animate-pulse" />
-                </div>
-              ) : (
-                <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-              )}
-              <span className="text-sm font-semibold">
-                {activeCount > 0
-                  ? `${activeCount} uploading${totalCount > 1 ? '...' : ''}`
-                  : 'Uploads'}
-              </span>
-            </div>
-            {isExpanded ? (
-              <ChevronDown className="h-4 w-4 text-muted-foreground" />
-            ) : (
-              <ChevronUp className="h-4 w-4 text-muted-foreground" />
-            )}
-          </button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-6 w-6"
-            onClick={handleClose}
-          >
-            <X className="h-3 w-3" />
-          </Button>
-        </div>
+    <TooltipProvider>
+      <div
+        className={cn(
+          'fixed bottom-4 right-4 z-50 transition-all duration-300 ease-in-out',
+          isVisible
+            ? 'opacity-100 translate-y-0'
+            : 'opacity-0 translate-y-4 pointer-events-none',
+        )}
+      >
+        {/* Main circular badge */}
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="relative flex items-center justify-center w-12 h-12 rounded-full bg-background border border-border shadow-lg hover:shadow-xl transition-shadow"
+              aria-label={`Uploads: ${activeUploads.length} active, ${completedCount} completed, ${failedCount} failed`}
+            >
+              {/* Circular progress ring */}
+              <svg
+                className="absolute inset-0 -rotate-90"
+                width={size}
+                height={size}
+              >
+                {/* Background circle */}
+                <circle
+                  cx={size / 2}
+                  cy={size / 2}
+                  r={radius}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={strokeWidth}
+                  className="text-muted/20"
+                />
+                {/* Progress arc */}
+                <circle
+                  cx={size / 2}
+                  cy={size / 2}
+                  r={radius}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={strokeWidth}
+                  strokeDasharray={circumference}
+                  strokeDashoffset={strokeDashoffset}
+                  strokeLinecap="round"
+                  className={cn(
+                    'transition-all duration-200',
+                    failedCount > 0
+                      ? 'text-destructive'
+                      : activeUploads.length > 0
+                        ? 'text-primary'
+                        : 'text-emerald-500',
+                  )}
+                />
+              </svg>
 
-        {/* Content - Upload list */}
-        <div
-          className={cn(
-            'overflow-y-auto transition-all duration-300 ease-in-out',
-            isExpanded ? 'max-h-96' : 'max-h-0',
-          )}
-        >
-          <div className="p-2 space-y-2">
-            {uploads.map((upload) => (
-              <div key={upload.id} className="relative">
-                <UploadingCard upload={upload} />
+              {/* Center icon / count */}
+              <div className="relative flex items-center justify-center">
+                {activeUploads.length > 0 ? (
+                  <Upload
+                    className={cn(
+                      'h-5 w-5',
+                      failedCount > 0
+                        ? 'text-destructive'
+                        : 'text-primary animate-pulse',
+                    )}
+                  />
+                ) : uploads.length > 0 ? (
+                  <CheckCircle2 className="h-5 w-5 text-emerald-500" />
+                ) : null}
               </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Mini progress bar when collapsed */}
-        {!isExpanded && activeCount > 0 && (
-          <div className="px-3 pb-3">
-            <div className="flex items-center justify-between text-xs text-muted-foreground mb-1">
-              <span>Overall progress</span>
-              <span>
-                {Math.round(
-                  (activeUploads.reduce((sum, u) => sum + u.progress, 0) /
-                    (activeCount * 100)) *
-                    100,
-                )}
-                %
-              </span>
-            </div>
-            <div className="h-1.5 w-full bg-muted rounded-full overflow-hidden">
-              <div
-                className={cn(
-                  'h-full transition-all duration-300',
-                  hasFailed ? 'bg-destructive' : 'bg-primary',
-                )}
-                style={{
-                  width: `${Math.round(
-                    (activeUploads.reduce((sum, u) => sum + u.progress, 0) /
-                      (activeCount * 100)) *
-                      100,
-                  )}%`,
+              {/* Close button - top right, always visible */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleClose()
                 }}
-              />
+                className="absolute -top-1 -right-1 z-10 flex items-center justify-center w-5 h-5 rounded-full bg-muted border border-border hover:bg-accent transition-colors"
+                aria-label="Close upload widget"
+              >
+                <X className="h-3 w-3" />
+              </button>
+            </button>
+          </TooltipTrigger>
+          <TooltipContent side="left">
+            <p className="text-xs">
+              {activeUploads.length > 0
+                ? `${activeUploads.length} uploading...`
+                : `${uploads.length} upload${uploads.length !== 1 ? 's' : ''}`}
+            </p>
+          </TooltipContent>
+        </Tooltip>
+
+        {/* Expanded dropdown panel */}
+        {isExpanded && (
+          <div className="absolute bottom-full right-0 mb-2 w-80 rounded-xl border bg-card shadow-xl animate-in fade-in slide-in-from-bottom-2 duration-200">
+            {/* Header */}
+            <div className="flex items-center justify-between p-3 border-b">
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-semibold">Uploads</span>
+                <span className="text-xs text-muted-foreground">
+                  ({activeUploads.length} active, {completedCount} done,
+                  {failedCount > 0 ? ` ${failedCount} failed` : ''})
+                </span>
+              </div>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setIsExpanded(false)
+                }}
+                className="hover:bg-muted rounded p-1 transition-colors"
+              >
+                <ChevronDown className="h-4 w-4" />
+              </button>
             </div>
+
+            {/* Upload list */}
+            <div className="max-h-80 overflow-y-auto p-2 space-y-2">
+              {uploads.map((upload) => (
+                <div key={upload.id} className="relative group">
+                  <UploadingCard upload={upload} />
+                </div>
+              ))}
+            </div>
+
+            {/* Footer actions */}
+            {(completedCount > 0 || failedCount > 0) && (
+              <div className="p-2 border-t flex gap-2">
+                {completedCount > 0 && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex-1 text-xs"
+                    onClick={handleClearCompleted}
+                  >
+                    <Trash2 className="h-3 w-3 mr-1.5" />
+                    Clear completed
+                  </Button>
+                )}
+                {failedCount > 0 && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex-1 text-xs text-destructive hover:text-destructive"
+                  >
+                    Retry all
+                  </Button>
+                )}
+              </div>
+            )}
           </div>
         )}
       </div>
-    </div>
+    </TooltipProvider>
   )
 }
