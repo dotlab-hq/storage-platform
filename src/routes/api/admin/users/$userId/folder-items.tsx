@@ -2,8 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import { listFolderItems, getFolderBreadcrumbs } from '@/lib/storage-queries'
-import { mapItems, mapBreadcrumbs } from '@/hooks/storage-data-mapper'
-import type { FetchResponse } from '@/hooks/storage-data-mapper'
+import { mapBreadcrumbs } from '@/hooks/storage-data-mapper'
 
 const AdminUserItemsQuerySchema = z.object({
   folderId: z.string().nullable().optional(),
@@ -56,26 +55,16 @@ export const Route = createFileRoute('/api/admin/users/$userId/folder-items')({
             breadcrumbs = await getFolderBreadcrumbs(targetUserId, folderId)
           }
 
-          const fetchResponse: FetchResponse = {
-            folders: rawItems.folders,
-            files: rawItems.files,
-            breadcrumbs,
-          }
-
-          const { items, folders: mappedFolders } = mapItems(
-            fetchResponse,
-            targetUserId,
-          )
           const mappedBreadcrumbs = mapBreadcrumbs(breadcrumbs)
 
-          const totalCount = items.length
+          const totalCount = rawItems.folders.length + rawItems.files.length
           const hasMore = totalCount >= limit
           const nextPage = hasMore ? page + 1 : null
 
           return Response.json({
             userId: targetUserId,
             folderId,
-            folders: mappedFolders,
+            folders: rawItems.folders,
             files: rawItems.files,
             breadcrumbs: mappedBreadcrumbs,
             hasMore,
