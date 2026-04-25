@@ -1,2 +1,5 @@
 export * from './-admin-provider-fns'
 export * from './-admin-user-fns'
+export * from './-admin-user-role-fns'
+export * from './-admin-user-storage-fns'
+export * from './-admin-impersonation-fns'

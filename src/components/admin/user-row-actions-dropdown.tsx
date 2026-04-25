@@ -21,7 +21,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { toast } from '@/components/ui/sonner'
-import { useAuth } from '@/lib/auth-client'
 import { Input } from '@/components/ui/input'
 import {
   Dialog,
@@ -43,7 +42,6 @@ export function UserRowActionsDropdown( {
   onUserUpdate,
   onViewFiles,
 }: UserRowActionsDropdownProps ) {
-  const auth = useAuth()
   const [showStorageDialog, setShowStorageDialog] = useState( false )
   const [storageInput, setStorageInput] = useState(
     String( user.storageLimitBytes ),
@@ -52,7 +50,8 @@ export function UserRowActionsDropdown( {
 
   const handleImpersonate = async () => {
     try {
-      await auth.admin.impersonateUser( { userId: user.id } )
+      const mod = await import( '@/routes/_app/admin/-admin-server' )
+      await mod.impersonateUserFn( { data: { userId: user.id } } )
       window.location.href = '/'
     } catch ( error ) {
       const message =
