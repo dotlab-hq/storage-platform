@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useHotkey } from '@tanstack/react-hotkeys'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { Key, Trash2, Copy, Loader2, KeyRound } from 'lucide-react'
+import { Key, Trash2, Copy, Loader2, KeyRound, Pencil } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Activity } from '@/components/ui/activity'
@@ -27,6 +27,7 @@ import {
   TableCell,
 } from '@/components/ui/table'
 import { createChatApiKeyFn, deleteChatApiKeyFn } from '../-settings-server'
+import { EditApiKeyModal } from './edit-api-key-modal'
 
 type ApiKeySnapshot = {
   id: string
@@ -37,35 +38,36 @@ type ApiKeySnapshot = {
   createdAt: Date
 }
 
-export function ApiKeysSection( {
+export function ApiKeysSection({
   initialKeys,
 }: {
   initialKeys: ApiKeySnapshot[]
-} ) {
+}) {
   const queryClient = useQueryClient()
-  const [newKeyName, setNewKeyName] = useState( 'Chat Completions Key' )
-  const [showKeyDialog, setShowKeyDialog] = useState( false )
-  const [revealedKey, setRevealedKey] = useState<string>( '' )
+  const [newKeyName, setNewKeyName] = useState('Chat Completions Key')
+  const [showKeyDialog, setShowKeyDialog] = useState(false)
+  const [revealedKey, setRevealedKey] = useState<string>('')
+  const [editingKey, setEditingKey] = useState<ApiKeySnapshot | null>(null)
 
-  const createMutation = useMutation( {
-    mutationFn: async ( name: string ) => {
-      return createChatApiKeyFn( {
+  const createMutation = useMutation({
+    mutationFn: async (name: string) => {
+      return createChatApiKeyFn({
         data: { name, scopes: ['chat:completions'] },
-      } )
+      })
     },
     onSuccess: () => {
-      queryClient.invalidateQueries( { queryKey: ['settings'] } )
+      queryClient.invalidateQueries({ queryKey: ['settings'] })
     },
-  } )
+  })
 
-  const deleteMutation = useMutation( {
-    mutationFn: async ( id: string ) => {
-      return deleteChatApiKeyFn( { data: { id } } )
+  const deleteMutation = useMutation({
+    mutationFn: async (id: string) => {
+      return deleteChatApiKeyFn({ data: { id } })
     },
     onSuccess: () => {
-      queryClient.invalidateQueries( { queryKey: ['settings'] } )
+      queryClient.invalidateQueries({ queryKey: ['settings'] })
     },
-  } )
+  })
 
   const canCreate =
     !createMutation.isPending && newKeyName.trim().length > 0 && !showKeyDialog
@@ -73,7 +75,7 @@ export function ApiKeysSection( {
   useHotkey(
     'Mod+Enter',
     () => {
-      if ( canCreate ) {
+      if (canCreate) {
         void handleCreate()
       }
     },
@@ -83,8 +85,8 @@ export function ApiKeysSection( {
   useHotkey(
     'Escape',
     () => {
-      if ( showKeyDialog ) {
-        setShowKeyDialog( false )
+      if (showKeyDialog) {
+        setShowKeyDialog(false)
       }
     },
     { enabled: showKeyDialog },
@@ -93,8 +95,8 @@ export function ApiKeysSection( {
   useHotkey(
     'Mod+C',
     () => {
-      if ( showKeyDialog && revealedKey.length > 0 ) {
-        void copyToClipboard( revealedKey )
+      if (showKeyDialog && revealedKey.length > 0) {
+        void copyToClipboard(revealedKey)
       }
     },
     { enabled: showKeyDialog && revealedKey.length > 0 },
@@ -102,20 +104,20 @@ export function ApiKeysSection( {
 
   const handleCreate = async () => {
     try {
-      const result = await createMutation.mutateAsync( newKeyName )
-      setRevealedKey( result.apiKey.key )
-      setShowKeyDialog( true )
-      toast.success( 'Chat API key generated' )
-    } catch ( error: unknown ) {
+      const result = await createMutation.mutateAsync(newKeyName)
+      setRevealedKey(result.apiKey.key)
+      setShowKeyDialog(true)
+      toast.success('Chat API key generated')
+    } catch (error: unknown) {
       const message =
         error instanceof Error ? error.message : 'Failed to create API key'
-      toast.error( message )
+      toast.error(message)
     }
   }
 
-  const copyToClipboard = async ( value: string ) => {
-    await navigator.clipboard.writeText( value )
-    toast.success( 'Copied to clipboard' )
+  const copyToClipboard = async (value: string) => {
+    await navigator.clipboard.writeText(value)
+    toast.success('Copied to clipboard')
   }
 
   return (
@@ -151,7 +153,7 @@ export function ApiKeysSection( {
               <Button
                 size="icon"
                 variant="outline"
-                onClick={() => void copyToClipboard( revealedKey )}
+                onClick={() => void copyToClipboard(revealedKey)}
                 aria-label="Copy API key to clipboard"
               >
                 <Copy className="h-4 w-4" />
@@ -166,7 +168,7 @@ export function ApiKeysSection( {
             </p>
           </div>
           <DialogFooter>
-            <Button onClick={() => setShowKeyDialog( false )}>
+            <Button onClick={() => setShowKeyDialog(false)}>
               I saved it
               <KeyboardShortcut keys="Escape" className="ml-2" />
             </Button>
@@ -178,9 +180,9 @@ export function ApiKeysSection( {
         <Input
           placeholder="Key name"
           value={newKeyName}
-          onChange={( event ) => setNewKeyName( event.target.value )}
-          onKeyDown={( event ) => {
-            if ( event.key === 'Enter' && newKeyName.trim() ) {
+          onChange={(event) => setNewKeyName(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' && newKeyName.trim()) {
               void handleCreate()
             }
           }}
@@ -221,35 +223,47 @@ export function ApiKeysSection( {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {initialKeys.map( ( key ) => (
+                {initialKeys.map((key) => (
                   <TableRow key={key.id}>
                     <TableCell className="font-medium">{key.name}</TableCell>
                     <TableCell className="font-mono text-xs">
                       {key.keyPreview}...
                     </TableCell>
                     <TableCell>
-                      <Badge variant="outline">{key.scopes.join( ', ' )}</Badge>
+                      <Badge variant="outline">{key.scopes.join(', ')}</Badge>
                     </TableCell>
                     <TableCell className="text-muted-foreground">
-                      {new Date( key.createdAt ).toLocaleDateString()}
+                      {new Date(key.createdAt).toLocaleDateString()}
                     </TableCell>
                     <TableCell className="text-right">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="text-destructive hover:text-destructive h-8 w-8"
-                        disabled={deleteMutation.isPending}
-                        onClick={() => {
-                          if ( confirm( 'Delete this API key?' ) ) {
-                            deleteMutation.mutate( key.id )
-                          }
-                        }}
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </Button>
+                      <div className="flex justify-end gap-2">
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-8 w-8"
+                          disabled={deleteMutation.isPending}
+                          onClick={() => setEditingKey(key)}
+                          title="Edit API key"
+                        >
+                          <Pencil className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="text-destructive hover:text-destructive h-8 w-8"
+                          disabled={deleteMutation.isPending}
+                          onClick={() => {
+                            if (confirm('Delete this API key?')) {
+                              deleteMutation.mutate(key.id)
+                            }
+                          }}
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </TableCell>
                   </TableRow>
-                ) )}
+                ))}
               </TableBody>
             </Table>
           }
@@ -267,6 +281,14 @@ export function ApiKeysSection( {
           </div>
         </Activity>
       </div>
+
+      {/* Edit API Key Modal */}
+      <EditApiKeyModal
+        open={editingKey !== null}
+        onOpenChange={(open) => !open && setEditingKey(null)}
+        apiKey={editingKey}
+        onSuccess={() => setEditingKey(null)}
+      />
     </section>
   )
 }

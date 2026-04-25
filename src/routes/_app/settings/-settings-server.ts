@@ -37,6 +37,16 @@ const ApiKeySchema = z.object({
     .max(20, 'Maximum 20 scopes allowed'),
 })
 
+const UpdateApiKeySchema = z.object({
+  id: z.string(),
+  name: z.string().trim().min(1).max(60).optional(),
+  scopes: z
+    .array(z.enum(ALL_SCOPES))
+    .min(1, 'At least one scope must be selected')
+    .max(20, 'Maximum 20 scopes allowed')
+    .optional(),
+})
+
 const DeleteKeySchema = z.object({
   id: z.string(),
 })
@@ -324,4 +334,47 @@ export const deleteChatApiKeyFn = createServerFn({ method: 'POST' })
     }
 
     return { success: true }
+  })
+
+export const updateChatApiKeyFn = createServerFn({ method: 'POST' })
+  .inputValidator(UpdateApiKeySchema)
+  .handler(async ({ data }) => {
+    const currentUser = await getAuthenticatedUser()
+
+    // Build update values
+    const updateValues: any = { updatedAt: new Date() }
+    if (data.name !== undefined) {
+      updateValues.name = data.name.trim()
+    }
+    if (data.scopes !== undefined) {
+      updateValues.permissions = JSON.stringify(data.scopes)
+    }
+
+    const result = await db
+      .update(apikey)
+      .set(updateValues)
+      .where(and(eq(apikey.id, data.id), eq(apikey.userId, currentUser.id)))
+      .returning()
+
+    if (result.length === 0) {
+      throw new Error('API Key not found or unauthorized')
+    }
+
+    let scopes: string[] = []
+    if (result[0].permissions) {
+      try {
+        scopes = JSON.parse(result[0].permissions)
+      } catch {
+        scopes = []
+      }
+    }
+
+    return {
+      success: true,
+      apiKey: {
+        id: result[0].id,
+        name: result[0].name,
+        scopes,
+      },
+    }
   })

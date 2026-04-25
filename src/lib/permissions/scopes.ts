@@ -7,6 +7,15 @@ export const API_SCOPES = {
   // Chat Completions
   CHAT_COMPLETIONS: 'chat:completions',
 
+  // Chat Tools - Web Search
+  CHAT_TOOL_WEB: 'chat:tool:web',
+
+  // Chat Tools - Storage Operations
+  CHAT_TOOL_STORAGE: 'chat:tool:storage',
+
+  // Chat Memory - Long-term persistent memory
+  CHAT_MEMORY: 'chat:memory',
+
   // Files - CRUD operations
   FILES_READ: 'files:read',
   FILES_WRITE: 'files:write',
@@ -94,6 +103,9 @@ export function getAllScopes(): ApiScope[] {
 export function getScopeDisplayName(scope: ApiScope): string {
   const names: Record<ApiScope, string> = {
     'chat:completions': 'Chat Completions',
+    'chat:tool:web': 'Web Search Tool',
+    'chat:tool:storage': 'Storage Operations Tool',
+    'chat:memory': 'Long-term Memory',
     'files:read': 'Read Files',
     'files:write': 'Write Files',
     'files:delete': 'Delete Files',

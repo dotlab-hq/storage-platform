@@ -137,7 +137,7 @@ export const createAgentNode = (tools: StructuredTool[]) => {
 }
 
 /**
- * Tool execution node - Runs tools in parallel
+ * Tool execution node - Runs tools in parallel with user context
  */
 export const toolNode = async (
   state: DeepAgentState,
@@ -155,7 +155,11 @@ export const toolNode = async (
   }
 
   try {
-    // Execute all tools in parallel
+    // Extract user context from state metadata
+    const userId = state.metadata.userId
+    const threadId = state.metadata.threadId
+
+    // Execute all tools in parallel with context
     const { executeToolCalls } =
       await import('@/routes/_app/chat/tools/-tool-executor')
 
@@ -168,6 +172,8 @@ export const toolNode = async (
           arguments: JSON.stringify(tc.arguments),
         },
       })),
+      userId,
+      threadId,
     )
 
     // Create tool messages

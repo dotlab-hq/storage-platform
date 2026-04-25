@@ -6,12 +6,14 @@ export class AddTool extends StructuredTool {
   description =
     'Add multiple numbers together. Use this when you need to calculate the sum of two or more numbers. Example: add([1, 2, 3]) returns 6.'
 
-  schema = z.object({
-    numbers: z
-      .array(z.number())
-      .min(1)
-      .describe('List of numbers to add together'),
-  })
+  schema = z
+    .object({
+      numbers: z
+        .array(z.number())
+        .min(1)
+        .describe('List of numbers to add together'),
+    })
+    .describe('Input schema for adding numbers')
 
   async _call({ numbers }: { numbers: number[] }): Promise<string> {
     const sum = numbers.reduce((a, b) => a + b, 0)
@@ -24,10 +26,12 @@ export class SubtractTool extends StructuredTool {
   description =
     'Subtract numbers. First number minus all subsequent numbers. Example: subtract({ a: 10, b: 3 }) returns 7.'
 
-  schema = z.object({
-    a: z.number().describe('The number to subtract from (minuend)'),
-    b: z.number().describe('The number to subtract (subtrahend)'),
-  })
+  schema = z
+    .object({
+      a: z.number().describe('The number to subtract from (minuend)'),
+      b: z.number().describe('The number to subtract (subtrahend)'),
+    })
+    .describe('Input schema for subtracting numbers')
 
   async _call({ a, b }: { a: number; b: number }): Promise<string> {
     const result = a - b
@@ -40,12 +44,14 @@ export class MultiplyTool extends StructuredTool {
   description =
     'Multiply multiple numbers together. Example: multiply([2, 3, 4]) returns 24.'
 
-  schema = z.object({
-    numbers: z
-      .array(z.number())
-      .min(1)
-      .describe('List of numbers to multiply together'),
-  })
+  schema = z
+    .object({
+      numbers: z
+        .array(z.number())
+        .min(1)
+        .describe('List of numbers to multiply together'),
+    })
+    .describe('Input schema for multiplying numbers')
 
   async _call({ numbers }: { numbers: number[] }): Promise<string> {
     const product = numbers.reduce((a, b) => a * b, 1)
@@ -58,10 +64,12 @@ export class DivideTool extends StructuredTool {
   description =
     'Divide two numbers. Returns the quotient. Example: divide({ a: 10, b: 2 }) returns 5.'
 
-  schema = z.object({
-    a: z.number().describe('The dividend (number to be divided)'),
-    b: z.number().describe('The divisor (number to divide by)'),
-  })
+  schema = z
+    .object({
+      a: z.number().describe('The dividend (number to be divided)'),
+      b: z.number().describe('The divisor (number to divide by)'),
+    })
+    .describe('Input schema for dividing numbers')
 
   async _call({ a, b }: { a: number; b: number }): Promise<string> {
     if (b === 0) {

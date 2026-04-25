@@ -3,8 +3,7 @@ import { chatMessage } from '@/db/schema/chat'
 import { eq } from 'drizzle-orm'
 import type { BaseMessage } from '@langchain/core/messages'
 import { AIMessage, ToolMessage } from '@langchain/core/messages'
-import { executeToolCalls } from '@/routes/_app/chat/tools/-tool-executor'
-import { getTool } from '@/routes/_app/chat/tools/-tool-registry'
+import { getTool, getAllTools } from '@/routes/_app/chat/tools/-tool-registry'
 import {
   toOpenAiChunk,
   toOpenAiChunkWithUsage,
@@ -15,6 +14,13 @@ import type { Usage } from '@/lib/token-counter'
 import { refreshThreadLatestMessage } from '@/routes/_app/chat/-chat-server-db'
 import type { LLMStreamParams } from '@/routes/_app/chat/-chat-llm-streamer'
 import type { OpenAiToolCall } from '@/routes/api/v1/-schemas'
+import { customAlphabet } from 'nanoid'
+
+const nanoid = customAlphabet('0123456789abcdef', 21)
+
+function generateInvocationId(): string {
+  return `call_${nanoid()}`
+}
 
 export interface StreamingHandlerParams {
   messages: BaseMessage[]
@@ -25,8 +31,57 @@ export interface StreamingHandlerParams {
   model: string
 }
 
+/**
+ * Parse tool arguments from JSON string safely
+ */
+function parseToolArguments(argStr: string): Record<string, unknown> {
+  try {
+    return JSON.parse(argStr)
+  } catch {
+    return { raw: argStr }
+  }
+}
+
+/**
+ * Enhanced streaming handler with tool orchestration
+ * Replaces simple executeToolCalls with ToolOrchestrator
+ */
 export async function handleStreamingResponse(params: StreamingHandlerParams) {
   const encoder = new TextEncoder()
+
+  // ToolOrchestrator creation
+  const { ToolOrchestrator, createDefaultOrchestrator } =
+    await import('@/routes/_app/chat/tools/tool-orchestrator')
+  const orchestrator = createDefaultOrchestrator()
+
+  // Register enhanced tools
+  const allTools = getAllTools()
+  for (const tool of allTools) {
+    // Try to import enhanced metadata (lazy to avoid circular)
+    try {
+      const { enhanceToolWithHeuristics } =
+        await import('@/routes/_app/chat/tools/base-enhanced-tool')
+      const enhanced = enhanceToolWithHeuristics(tool)
+      orchestrator.register(enhanced)
+    } catch {
+      // Fallback: basic metadata
+      orchestrator.register({
+        name: tool.name,
+        description: tool.description,
+        schema: (tool as any).schema,
+        tool,
+        capabilities: {
+          concurrencySafe: true,
+          readOnly: false,
+          interruptible: true,
+          requiresNetwork: false,
+          longRunning: false,
+        },
+        executionContext: 'server',
+      } as any)
+    }
+  }
+
   const stream = new ReadableStream({
     async start(controller) {
       try {
@@ -50,6 +105,7 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
               currentMessages,
               params.params,
             )) {
+              // [Send SSE chunks as before - lines 53-138]
               if (!roleChunkSent) {
                 roleChunkSent = true
                 controller.enqueue(
@@ -83,7 +139,6 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                   ),
                 )
               } else if (chunk.type === 'reasoning') {
-                // Send reasoning content separately with reasoning_content field
                 controller.enqueue(
                   encoder.encode(
                     toSseEvent(
@@ -98,7 +153,6 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                   ),
                 )
               } else if (chunk.type === 'error' && chunk.error) {
-                // Handle explicit error chunks
                 const errorMessage = chunk.error
                 console.error('[LLM] Error chunk received:', errorMessage)
 
@@ -202,6 +256,7 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                     )
                   })
 
+                  // ORCHESTRATOR EXECUTION
                   const internalToolCalls = allToolCalls.filter(
                     (toolCall) => getTool(toolCall.function.name) !== undefined,
                   )
@@ -210,12 +265,13 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                   )
 
                   if (externalToolCalls.length > 0) {
+                    // Unrecognized tool - send finish and exit
                     if (finalUsage) {
                       controller.enqueue(
                         encoder.encode(
                           toSseEvent(
                             toOpenAiChunkWithUsage({
-                              id: `chatcmpl-${assistantMessageId || 'pending'}`,
+                              id: completionId,
                               created: Math.floor(Date.now() / 1000),
                               model: params.model,
                               usage: finalUsage,
@@ -230,7 +286,7 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                         encoder.encode(
                           toSseEvent(
                             toOpenAiChunk({
-                              id: `chatcmpl-${assistantMessageId || 'pending'}`,
+                              id: completionId,
                               created: Math.floor(Date.now() / 1000),
                               model: params.model,
                               delta: {},
@@ -247,32 +303,79 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                     break
                   }
 
-                  const toolResults = await executeToolCalls(internalToolCalls)
+                  // ORCHESTRATED tool execution
+                  const toolResults: Array<{
+                    toolCallId: string
+                    result: string
+                    error?: string
+                  }> = []
 
-                  for (const result of toolResults) {
-                    await db.insert(chatMessage).values({
-                      threadId: params.threadId,
+                  if (internalToolCalls.length > 0) {
+                    // Build context for this iteration
+                    const context: ToolExecutionContext = {
+                      invocationId: generateInvocationId(),
                       userId: params.userId,
-                      role: 'tool',
-                      content: result.error
-                        ? `Error: ${result.error}`
-                        : result.result,
-                      toolCallId: result.toolCallId,
-                      regenerationCount: 0,
-                      isDeleted: false,
-                      createdAt: new Date(),
-                      updatedAt: new Date(),
-                    })
+                      threadId: params.threadId,
+                      startedAt: new Date(),
+                      metadata: { iteration, phase: 'tool_execution' },
+                    }
+
+                    const executions = await orchestrator.execute(
+                      internalToolCalls,
+                      {
+                        onProgress: (progress) => {
+                          // Optional: stream progress updates to client
+                          controller.enqueue(
+                            encoder.encode(
+                              toSseEvent({
+                                type: 'tool_progress',
+                                tool_name: progress.message.split(' ')[0] || '',
+                                elapsed_time_seconds: 0,
+                                progress,
+                              } as any),
+                            ),
+                          )
+                        },
+                      },
+                    )
+
+                    // Save results & build messages
+                    for (const resp of executions) {
+                      const { result } = resp
+                      await db.insert(chatMessage).values({
+                        threadId: params.threadId,
+                        userId: params.userId,
+                        role: 'tool',
+                        content: result.success
+                          ? String(result.data ?? 'OK')
+                          : `Error: ${result.error}`,
+                        toolCallId: resp.invocationId,
+                        regenerationCount: 0,
+                        isDeleted: false,
+                        createdAt: new Date(),
+                        updatedAt: new Date(),
+                      })
+
+                      toolResults.push({
+                        toolCallId: resp.invocationId,
+                        result: result.success
+                          ? String(result.data ?? 'OK')
+                          : '',
+                        error: result.success ? undefined : result.error,
+                      })
+                    }
                   }
 
+                  // Create tool messages to send back to LLM
                   const toolMessages: BaseMessage[] = toolResults.map(
-                    (result) =>
+                    (r) =>
                       new ToolMessage(
-                        result.error ? `Error: ${result.error}` : result.result,
-                        result.toolCallId,
+                        r.error ? `Error: ${r.error}` : r.result,
+                        r.toolCallId,
                       ),
                   )
 
+                  // Update conversation state
                   const aiMessage = new AIMessage(combinedContent)
                   aiMessage.tool_calls = allToolCalls.map((tc) => ({
                     id: tc.id,
@@ -302,7 +405,6 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                       ),
                     )
                   }
-
                   controller.enqueue(encoder.encode(toSseEvent('[DONE]')))
                   break
                 }
@@ -313,7 +415,7 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
             allToolCalls = []
           }
         } catch (streamError) {
-          // Handle errors from the streaming process
+          // [Same error handling as before]
           const err =
             streamError instanceof Error
               ? streamError
@@ -325,7 +427,6 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
             cause: err.cause,
           })
 
-          // Send error event to client
           const errorMessage = `Error: ${err.message}`
           controller.enqueue(
             encoder.encode(
@@ -334,14 +435,13 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                   id: `chatcmpl-error`,
                   created: Math.floor(Date.now() / 1000),
                   model: params.model,
-                  delta: { content: `\n\n[Error: ${errorMessage}]` },
+                  delta: { content: `\n\n[${errorMessage}]` },
                   finishReason: null,
                 }),
               ),
             ),
           )
 
-          // Save error message to DB
           if (!assistantMessageId) {
             try {
               const [saved] = await db
@@ -350,7 +450,7 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                   threadId: params.threadId,
                   userId: params.userId,
                   role: 'assistant',
-                  content: errorMessage,
+                  content: `Error: ${errorMessage}`,
                   toolCalls: null,
                   regenerationCount: 0,
                   isDeleted: false,
@@ -360,52 +460,41 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                 .returning({ id: chatMessage.id })
               assistantMessageId = saved.id
             } catch (dbErr) {
-              console.error('[DB] Failed to save error message:', dbErr)
+              console.error('[DB] Failed to save error:', dbErr)
             }
           }
 
           controller.enqueue(encoder.encode(toSseEvent('[DONE]')))
-        }
-
-        // Refresh thread's latest message index
-        if (assistantMessageId) {
-          try {
-            await refreshThreadLatestMessage(params.threadId)
-          } catch (err) {
-            console.error('[Chat] Failed to refresh thread:', err)
+        } finally {
+          if (assistantMessageId) {
+            try {
+              await db
+                .update(chatMessage)
+                .set({
+                  content: combinedContent,
+                  updatedAt: new Date(),
+                })
+                .where(eq(chatMessage.id, assistantMessageId))
+              await refreshThreadLatestMessage(params.threadId)
+            } catch (dbErr) {
+              console.error('[DB] Final persist failed:', dbErr)
+            }
           }
         }
+
         controller.close()
       } catch (error) {
-        console.error('[OpenAI Chat Stream] Unexpected error:', error)
         controller.error(error)
       }
     },
   })
 
-  return new Response(stream, {
+  return new Response(responseStream, {
     headers: {
       'Content-Type': 'text/event-stream',
       'Cache-Control': 'no-cache',
       Connection: 'keep-alive',
       'Access-Control-Allow-Origin': '*',
-      'X-Thread-Id': params.threadId,
     },
   })
-}
-
-function parseToolArguments(argumentsJson: string): Record<string, unknown> {
-  if (!argumentsJson) {
-    return {}
-  }
-
-  try {
-    const parsed: unknown = JSON.parse(argumentsJson)
-    if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
-      return parsed as Record<string, unknown>
-    }
-    return {}
-  } catch {
-    return {}
-  }
 }

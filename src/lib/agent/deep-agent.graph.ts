@@ -90,16 +90,20 @@ export async function* runDeepAgent(
   messages: BaseMessage[],
   tools: any[] = [],
   signal?: AbortSignal,
+  userId?: string,
+  threadId?: string,
 ): AsyncGenerator<DeepAgentStreamChunk, void, unknown> {
   const graph = createDeepAgentGraph(tools)
 
-  // Initial state
+  // Initial state with user context
   const initialState: DeepAgentState = {
     messages,
     metadata: {
       step: 'start',
       iteration: 0,
       maxIterations: 10,
+      userId,
+      threadId,
     },
   }
 

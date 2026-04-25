@@ -49,7 +49,11 @@ export async function handleNonStreamingResponse(
           usage = chunk.usage || usage
 
           if (chunk.finishReason === 'tool_calls') {
-            const toolResults = await executeToolCalls(toolCalls)
+            const toolResults = await executeToolCalls(
+              toolCalls,
+              params.userId,
+              params.threadId,
+            )
             fullContent += '\n\nTool Results:\n'
             for (const result of toolResults) {
               fullContent += result.error

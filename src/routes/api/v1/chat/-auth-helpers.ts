@@ -24,7 +24,12 @@ export function hasChatCompletionsScope(permissions: string | null): boolean {
 
 export async function getUserFromApiKey(
   headers: Headers,
-): Promise<{ id: string; email: string; name: string } | null> {
+): Promise<{
+  id: string
+  email: string
+  name: string
+  permissions: string | null
+} | null> {
   const authHeader = headers.get('Authorization')
   if (!authHeader?.startsWith('Bearer ')) {
     return null
@@ -55,6 +60,7 @@ export async function getUserFromApiKey(
       id: userRow.id,
       email: userRow.email,
       name: userRow.name ?? 'API User',
+      permissions: keyRow.permissions,
     }
   } catch {
     return null

@@ -7,11 +7,13 @@ import {
   getToolsByName,
   getAllTools,
 } from '@/routes/_app/chat/tools/-tool-registry'
+import { getFilteredTools } from '@/routes/_app/chat/tools/tool-registry-scoped'
 import { OpenAIChatCompletionsSchema } from '../-schemas'
 import type { LLMStreamParams } from '@/routes/_app/chat/-chat-llm-streamer'
 import { handleStreamingResponse } from './-streaming-handler'
 import { handleNonStreamingResponse } from './-non-streaming-handler'
 import { handleDeepAgentStream } from './-deep-agent-stream-handler'
+import { handleOrchestratedAgentStream } from './-orchestrated-stream-handler'
 import { getUserFromApiKey } from './-auth-helpers'
 import { createExternalPassthroughTools } from './-external-tools'
 import { createFileRoute } from '@tanstack/react-router'
@@ -72,12 +74,6 @@ export async function POST({ request }: { request: Request }) {
       typeof bodyTools,
       Array.isArray(bodyTools) ? 'array[' + bodyTools.length + ']' : bodyTools,
     )
-    const validated = OpenAIChatCompletionsSchema.parse(body)
-    console.log(
-      '[Chat] Parsed validated.tools:',
-      validated.tools?.map((t) => t.function.name),
-    )
-
     // Authentication (session OR API key)
     const currentUser = await getAuthenticatedUser().catch(() => null)
     const apiKeyUser = await getUserFromApiKey(request.headers).catch(
@@ -98,6 +94,36 @@ export async function POST({ request }: { request: Request }) {
     }
 
     const user = currentUser ?? apiKeyUser!
+    const apiKeyPermissions = apiKeyUser?.permissions || null
+
+    // Determine tools based on permissions (scope-based)
+    const availableTools =
+      apiKeyUser && apiKeyPermissions
+        ? getFilteredTools(apiKeyPermissions)
+        : validated.tools && validated.tools.length > 0
+          ? getToolsByName(validated.tools.map((t) => t.function.name))
+          : getAllTools()
+
+    if (validated.tools && validated.tools.length > 0 && !apiKeyUser) {
+      // Append external passthrough tools for session auth
+      const externalPassthroughTools = createExternalPassthroughTools(
+        validated.tools,
+        (availableTools || []).map((tool) => tool.name),
+      )
+      // Use array spread to combine
+      ;(availableTools as any[]).push(...externalPassthroughTools)
+    }
+
+    console.log(
+      '[Chat] User:',
+      user.id,
+      '| Auth:',
+      apiKeyUser ? 'API Key' : 'Session',
+      '| Tools:',
+      availableTools.map((t) => t.name),
+      '| Scopes:',
+      apiKeyPermissions,
+    )
 
     // Determine threadId
     let threadId: string
@@ -212,14 +238,18 @@ export async function POST({ request }: { request: Request }) {
       streamDelayMs: 0,
     }
 
-    // Check for DeepAgent mode via custom header or parameter
-    const useDeepAgent =
+    // Routing: Use orchestrated agent for streaming, standard for non-streaming
+    // (DeepAgent is now deprecated in favor of supervisor orchestration)
+    // Use header X-Use-Deep-Agent=true to force old DeepAgent (if needed)
+    const useOrchestrated = validated.stream // default: stream uses orchestrated
+    const useDeepAgentLegacy =
       request.headers.get('X-Use-Deep-Agent') === 'true' ||
       bodyRecord?.deep_agent === true
 
     // Route to appropriate handler
     if (validated.stream) {
-      if (useDeepAgent) {
+      if (useDeepAgentLegacy) {
+        // Legacy DeepAgent (minimal math tools only)
         return handleDeepAgentStream({
           messages: langchainMessages,
           params: llmParams,
@@ -229,21 +259,21 @@ export async function POST({ request }: { request: Request }) {
           model: validated.model,
         })
       } else {
-        return handleStreamingResponse({
+        // New Orchestrated Multi-Agent system
+        return handleOrchestratedAgentStream({
           messages: langchainMessages,
           params: llmParams,
           threadId,
           userId: user.id,
           userMessageId: userMessage.id,
           model: validated.model,
+          permissions: apiKeyPermissions,
         })
       }
     } else {
-      if (useDeepAgent) {
-        // For now, deep agent only supports streaming
-        // Fallback to non-streaming with warning
+      if (useDeepAgentLegacy) {
         console.warn(
-          '[DeepAgent] Non-streaming mode not yet implemented, falling back to standard handler',
+          '[Chat] Legacy DeepAgent non-streaming not supported, falling back to standard',
         )
       }
       return handleNonStreamingResponse({

@@ -46,8 +46,14 @@ export async function handleDeepAgentStream(params: StreamingHandlerParams) {
             ? params.params.tools
             : mathTools
 
-        // Stream from DeepAgent graph
-        for await (const chunk of runDeepAgent(params.messages, tools)) {
+        // Stream from DeepAgent graph with user context
+        for await (const chunk of runDeepAgent(
+          params.messages,
+          tools,
+          undefined,
+          params.userId,
+          params.threadId,
+        )) {
           iteration++
 
           if (chunk.type === 'error') {

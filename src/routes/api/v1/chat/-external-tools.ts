@@ -12,7 +12,10 @@ type RequestedTool = {
   }
 }
 
-const ExternalToolInputSchema = z.object({}).passthrough()
+const ExternalToolInputSchema = z
+  .object({})
+  .passthrough()
+  .describe('Generic passthrough input for external tools')
 
 export function createExternalPassthroughTools(
   requestedTools: RequestedTool[] | undefined,

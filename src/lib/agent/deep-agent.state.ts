@@ -65,6 +65,16 @@ const MetadataSchema = z.object({
    * Maximum iterations allowed
    */
   maxIterations: z.number().default(10),
+
+  /**
+   * User ID for tool execution context
+   */
+  userId: z.string().optional(),
+
+  /**
+   * Thread ID for tool execution context
+   */
+  threadId: z.string().optional(),
 })
 
 /**
