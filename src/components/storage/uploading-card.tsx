@@ -82,11 +82,6 @@ export function UploadingCard({
                 )}
                 aria-label="Remove upload"
               >
-                <X className={variant === 'compact' ? 'h-3 w-3' : 'h-3.5 w-3.5'} />
-              </button>
-            )}
-                aria-label="Remove upload"
-              >
                 <X
                   className={variant === 'compact' ? 'h-3 w-3' : 'h-3.5 w-3.5'}
                 />

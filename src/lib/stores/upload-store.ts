@@ -76,20 +76,6 @@ export function clearUploads(): void {
 }
 
 /**
- * Remove an upload and any child uploads (e.g., files inside a folder)
- */
-export function removeUploadWithChildren(id: string): void {
-  uploadStore.setState((state) => {
-    const childIds = new Set(
-      state.uploads.filter((u) => u.parentUploadId === id).map((u) => u.id),
-    )
-    return {
-      uploads: state.uploads.filter((u) => u.id !== id && !childIds.has(u.id)),
-    }
-  })
-}
-
-/**
  * Get count of active uploads (uploading status only)
  */
 export function getActiveUploadCount(): number {
