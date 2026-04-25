@@ -331,15 +331,8 @@ export async function uploadFolder(
       ),
     )
 
-    // Remove folder and its child files after a delay
-    setTimeout(() => {
-      setUploads((prev) =>
-        prev.filter(
-          (u) =>
-            !(u.id === folderUploadId || u.parentUploadId === folderUploadId),
-        ),
-      )
-    }, 1500)
+    // Note: We intentionally do NOT auto-remove completed uploads;
+    // user will clear them manually via the widget's "Clear completed" button.
 
     return {
       success: true,

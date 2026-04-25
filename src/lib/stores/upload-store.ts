@@ -55,10 +55,38 @@ export function removeUpload(id: string): void {
 }
 
 /**
+ * Remove an upload and all its child uploads (e.g., files in a folder upload)
+ */
+export function removeUploadWithChildren(id: string): void {
+  uploadStore.setState((state) => {
+    const childIds = new Set(
+      state.uploads.filter((u) => u.parentUploadId === id).map((u) => u.id),
+    )
+    return {
+      uploads: state.uploads.filter((u) => u.id !== id && !childIds.has(u.id)),
+    }
+  })
+}
+
+/**
  * Clear all uploads from the store
  */
 export function clearUploads(): void {
   uploadStore.setState({ uploads: [] })
+}
+
+/**
+ * Remove an upload and any child uploads (e.g., files inside a folder)
+ */
+export function removeUploadWithChildren(id: string): void {
+  uploadStore.setState((state) => {
+    const childIds = new Set(
+      state.uploads.filter((u) => u.parentUploadId === id).map((u) => u.id),
+    )
+    return {
+      uploads: state.uploads.filter((u) => u.id !== id && !childIds.has(u.id)),
+    }
+  })
 }
 
 /**

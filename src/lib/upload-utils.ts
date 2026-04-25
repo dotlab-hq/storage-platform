@@ -409,9 +409,7 @@ export async function uploadBatch(
         updateUpload(task.id, { progress: 100, status: 'completed' })
         onFileUploaded?.(fileInfo)
         completed++
-        setTimeout(() => {
-          removeUpload(task.id)
-        }, 1500)
+        // Do NOT auto-remove; let user clear manually via widget
       } catch (err) {
         const msg = err instanceof Error ? err.message : String(err)
         updateUpload(task.id, { status: 'failed', error: msg })

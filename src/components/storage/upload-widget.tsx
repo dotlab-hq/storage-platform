@@ -1,7 +1,11 @@
 'use client'
 
 import * as React from 'react'
-import { useUploadStore, removeUpload } from '@/lib/stores/upload-store'
+import {
+  useUploadStore,
+  removeUpload,
+  removeUploadWithChildren,
+} from '@/lib/stores/upload-store'
 import { UploadingCard } from '@/components/storage/uploading-card'
 import { Upload, X, ChevronDown, CheckCircle2, Trash2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -157,32 +161,58 @@ export function UploadWidget() {
 
         {/* Expanded dropdown panel */}
         {isExpanded && (
-          <div className="absolute bottom-full right-0 mb-2 w-80 rounded-xl border bg-card shadow-xl animate-in fade-in slide-in-from-bottom-2 duration-200">
+          <div className="absolute bottom-full right-0 mb-2 w-72 rounded-xl border bg-card shadow-xl animate-in fade-in slide-in-from-bottom-2 duration-200">
             {/* Header */}
-            <div className="flex items-center justify-between p-3 border-b">
-              <div className="flex items-center gap-2">
+            <div className="flex items-center justify-between p-2 border-b">
+              <div className="flex items-center gap-2 truncate">
                 <span className="text-sm font-semibold">Uploads</span>
-                <span className="text-xs text-muted-foreground">
+                <span className="text-xs text-muted-foreground whitespace-nowrap">
                   ({activeUploads.length} active, {completedCount} done,
                   {failedCount > 0 ? ` ${failedCount} failed` : ''})
                 </span>
               </div>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  setIsExpanded(false)
-                }}
-                className="hover:bg-muted rounded p-1 transition-colors"
-              >
-                <ChevronDown className="h-4 w-4" />
-              </button>
+              <div className="flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setIsExpanded(false)
+                  }}
+                  className="hover:bg-muted rounded p-1 transition-colors"
+                  aria-label="Collapse"
+                >
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setIsExpanded(false)
+                    setIsVisible(false)
+                  }}
+                  className="hover:bg-muted rounded p-1 transition-colors"
+                  aria-label="Close upload widget"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
             </div>
 
             {/* Upload list */}
             <div className="max-h-80 overflow-y-auto p-2 space-y-2">
               {uploads.map((upload) => (
                 <div key={upload.id} className="relative group">
-                  <UploadingCard upload={upload} />
+                  <UploadingCard
+                    upload={upload}
+                    variant="compact"
+                    onRemove={() => {
+                      if (upload.folderName) {
+                        removeUploadWithChildren(upload.id)
+                      } else {
+                        removeUpload(upload.id)
+                      }
+                    }}
+                  />
                 </div>
               ))}
             </div>
