@@ -11,6 +11,8 @@ import {
   Link,
   Route,
   ArrowRightLeft,
+  Upload,
+  FolderUp,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import {
@@ -45,6 +47,8 @@ type FileCardProps = {
     targetFolderId: string,
   ) => void
   isReadOnly?: boolean
+  onUploadFiles?: () => void
+  onUploadFolder?: () => void
 }
 
 export function FileCard({
@@ -57,6 +61,8 @@ export function FileCard({
   onRenameCancel,
   onDropOnFolder,
   isReadOnly = false,
+  onUploadFiles,
+  onUploadFolder,
 }: FileCardProps) {
   const isFolder = item.type === 'folder'
   const Icon = isFolder
@@ -186,6 +192,19 @@ export function FileCard({
             >
               <Link className="mr-2 h-4 w-4" /> Copy Link
             </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            {item.type === 'folder' && onUploadFiles && (
+              <DropdownMenuItem onClick={onUploadFiles} disabled={isReadOnly}>
+                <Upload className="mr-2 h-4 w-4" />
+                Upload Files Here
+              </DropdownMenuItem>
+            )}
+            {item.type === 'folder' && onUploadFolder && (
+              <DropdownMenuItem onClick={onUploadFolder} disabled={isReadOnly}>
+                <FolderUp className="mr-2 h-4 w-4" />
+                Upload Folder Here
+              </DropdownMenuItem>
+            )}
             <DropdownMenuSeparator />
             <DropdownMenuItem
               className="text-destructive focus:text-destructive"

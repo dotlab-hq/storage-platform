@@ -60,6 +60,11 @@ const ConfirmDeleteModal = lazy(() =>
     default: m.ConfirmDeleteModal,
   })),
 )
+const NewFolderDialog = lazy(() =>
+  import('@/components/storage/new-folder-dialog').then((m) => ({
+    default: m.NewFolderDialog,
+  })),
+)
 const DeviceTransferSection = lazy(() =>
   import('@/components/storage/device-transfer-section').then((m) => ({
     default: m.DeviceTransferSection,
@@ -94,6 +99,7 @@ export function StoragePage({ initial, search }: StoragePageProps) {
   const [uploadFileOpen, setUploadFileOpen] = useState(false)
   const [uploadFolderOpen, setUploadFolderOpen] = useState(false)
   const [urlImportOpen, setUrlImportOpen] = useState(false)
+  const [newFolderOpen, setNewFolderOpen] = useState(false)
 
   useEffect(() => {
     if (search.upload) {
@@ -194,6 +200,8 @@ export function StoragePage({ initial, search }: StoragePageProps) {
               onOpenUploadFolderChange={setUploadFolderOpen}
               openUrlImport={urlImportOpen}
               onOpenUrlImportChange={setUrlImportOpen}
+              openNewFolder={newFolderOpen}
+              onOpenNewFolderChange={setNewFolderOpen}
             />
           </div>
         </header>
@@ -323,6 +331,11 @@ export function StoragePage({ initial, search }: StoragePageProps) {
           currentFolderId={storage.currentFolderId}
           setItems={storage.setItems}
           onImportComplete={storage.refresh}
+        />
+        <NewFolderDialog
+          open={newFolderOpen}
+          onOpenChange={setNewFolderOpen}
+          onConfirm={actions.handleNewFolder}
         />
       </Suspense>
     </>

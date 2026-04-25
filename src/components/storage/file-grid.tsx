@@ -254,6 +254,8 @@ export function FileGrid({
               onRenameCancel={onRenameCancel}
               onDropOnFolder={handleDropOnFolder}
               isReadOnly={isReadOnly}
+              onUploadFiles={onUploadFiles}
+              onUploadFolder={onUploadFolder}
             />
           </FileContextMenu>
         ))}

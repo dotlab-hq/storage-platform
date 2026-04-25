@@ -5,6 +5,9 @@ import { createClientOnlyFn } from '@tanstack/react-start'
 import { FolderUp, X } from 'lucide-react'
 import { authClient } from '@/lib/auth-client'
 import { uploadFolder, uploadFolderFromFiles } from '@/lib/folder-upload-utils'
+import { classifyDroppedUploads } from '@/lib/drop-upload-classifier'
+import { runScheduledFolderUploads } from '@/lib/folder-upload-scheduler'
+import type { FolderUploadSource } from '@/lib/drop-upload-classifier'
 import { toast } from '@/components/ui/sonner'
 import { Button } from '@/components/ui/button'
 import {
@@ -17,17 +20,9 @@ import {
 } from '@/components/ui/dialog'
 import type { UploadingFile } from '@/types/storage'
 
-type FolderSource =
-  | { type: 'entry'; entry: FileSystemDirectoryEntry }
-  | {
-      type: 'files'
-      folderName: string
-      files: Array<{ file: File; relativePath: string }>
-    }
-
 type FolderUploadDialogProps = {
   open: boolean
-  onOpenChange: (open: boolean) => void
+  onOpenChange: ( open: boolean ) => void
   userId: string | null
   currentFolderId: string | null
   setUploads: React.Dispatch<React.SetStateAction<UploadingFile[]>>
@@ -36,82 +31,71 @@ type FolderUploadDialogProps = {
 
 import { useRouter } from '@tanstack/react-router'
 
-export function FolderUploadDialog({
+export function FolderUploadDialog( {
   open,
   onOpenChange,
   userId,
   currentFolderId,
   setUploads,
   onUploadComplete,
-}: FolderUploadDialogProps) {
+}: FolderUploadDialogProps ) {
   const router = useRouter()
-  const folderInputRef = React.useRef<HTMLInputElement>(null)
-  const [isDragging, setIsDragging] = React.useState(false)
-  const [selectedFolders, setSelectedFolders] = React.useState<FolderSource[]>(
-    [],
-  )
-  const [uploadError, setUploadError] = React.useState<string | null>(null)
-  const [isUploading, setIsUploading] = React.useState(false)
+  const folderInputRef = React.useRef<HTMLInputElement>( null )
+  const [isDragging, setIsDragging] = React.useState( false )
+  const [selectedFolders, setSelectedFolders] = React.useState<
+    FolderUploadSource[]
+  >( [] )
+  const [uploadError, setUploadError] = React.useState<string | null>( null )
+  const [isUploading, setIsUploading] = React.useState( false )
 
-  React.useEffect(() => {
-    if (!open) {
-      setSelectedFolders([])
-      setUploadError(null)
+  React.useEffect( () => {
+    if ( !open ) {
+      setSelectedFolders( [] )
+      setUploadError( null )
     }
-  }, [open])
+  }, [open] )
 
-  const resolveUserIdClient = createClientOnlyFn(async (uid: string | null) => {
-    if (uid) return uid
+  const resolveUserIdClient = createClientOnlyFn( async ( uid: string | null ) => {
+    if ( uid ) return uid
     const { data } = await authClient.getSession()
     return data?.user?.id ?? null
-  })
+  } )
 
   const handleDragOver = React.useCallback(
-    (e: React.DragEvent<HTMLDivElement>) => {
+    ( e: React.DragEvent<HTMLDivElement> ) => {
       e.preventDefault()
-      setIsDragging(true)
+      setIsDragging( true )
     },
     [],
   )
 
   const handleDragLeave = React.useCallback(
-    (e: React.DragEvent<HTMLDivElement>) => {
+    ( e: React.DragEvent<HTMLDivElement> ) => {
       e.preventDefault()
-      if (!e.currentTarget.contains(e.relatedTarget as Node)) {
-        setIsDragging(false)
+      if ( !e.currentTarget.contains( e.relatedTarget as Node ) ) {
+        setIsDragging( false )
       }
     },
     [],
   )
 
   const handleDrop = React.useCallback(
-    async (e: React.DragEvent<HTMLDivElement>) => {
+    async ( e: React.DragEvent<HTMLDivElement> ) => {
       e.preventDefault()
-      setIsDragging(false)
-      const items = Array.from(e.dataTransfer.items)
+      setIsDragging( false )
+      const { folders: sources } = classifyDroppedUploads( e.dataTransfer )
 
-      const sources: FolderSource[] = []
-      for (const item of items) {
-        const entry = item.webkitGetAsEntry?.()
-        if (entry?.isDirectory) {
-          sources.push({
-            type: 'entry',
-            entry: entry as FileSystemDirectoryEntry,
-          })
-        }
-      }
-
-      if (sources.length > 0) {
-        setSelectedFolders((prev) => [...prev, ...sources])
+      if ( sources.length > 0 ) {
+        setSelectedFolders( ( prev ) => [...prev, ...sources] )
       }
     },
     [],
   )
 
   const handleInputChange = React.useCallback(
-    async (e: React.ChangeEvent<HTMLInputElement>) => {
-      const files = e.target.files ? Array.from(e.target.files) : []
-      if (files.length === 0) {
+    async ( e: React.ChangeEvent<HTMLInputElement> ) => {
+      const files = e.target.files ? Array.from( e.target.files ) : []
+      if ( files.length === 0 ) {
         e.target.value = ''
         return
       }
@@ -121,117 +105,114 @@ export function FolderUploadDialog({
         string,
         Array<{ file: File; relativePath: string }>
       >()
-      for (const file of files) {
+      for ( const file of files ) {
         const fullPath = file.webkitRelativePath || file.name
-        const slashIdx = fullPath.indexOf('/')
+        const slashIdx = fullPath.indexOf( '/' )
         const rootFolderName =
-          slashIdx === -1 ? fullPath : fullPath.slice(0, slashIdx)
+          slashIdx === -1 ? fullPath : fullPath.slice( 0, slashIdx )
         const relativePath =
-          slashIdx === -1 ? file.name : fullPath.slice(slashIdx + 1)
-        const list = groups.get(rootFolderName) ?? []
-        list.push({ file, relativePath })
-        groups.set(rootFolderName, list)
+          slashIdx === -1 ? file.name : fullPath.slice( slashIdx + 1 )
+        const list = groups.get( rootFolderName ) ?? []
+        list.push( { file, relativePath } )
+        groups.set( rootFolderName, list )
       }
 
-      const newSources: FolderSource[] = []
-      for (const [folderName, fileList] of groups.entries()) {
-        newSources.push({ type: 'files', folderName, files: fileList })
+      const newSources: FolderUploadSource[] = []
+      for ( const [folderName, fileList] of groups.entries() ) {
+        newSources.push( { type: 'files', folderName, files: fileList } )
       }
 
-      if (newSources.length > 0) {
-        setSelectedFolders((prev) => [...prev, ...newSources])
+      if ( newSources.length > 0 ) {
+        setSelectedFolders( ( prev ) => [...prev, ...newSources] )
       }
       e.target.value = ''
     },
     [],
   )
 
-  const removeFolder = (index: number) => {
-    setSelectedFolders((prev) => prev.filter((_, i) => i !== index))
+  const removeFolder = ( index: number ) => {
+    setSelectedFolders( ( prev ) => prev.filter( ( _, i ) => i !== index ) )
   }
 
   const processFolder = React.useCallback(
-    async (folder: FolderSource, uid: string) => {
-      if (folder.type === 'entry') {
+    async (
+      folder: FolderUploadSource,
+      uid: string,
+      fileConcurrency: number,
+    ) => {
+      if ( folder.type === 'entry' ) {
         return await uploadFolder(
           folder.entry,
           uid,
           currentFolderId,
           setUploads,
+          { fileConcurrency },
         )
       } else {
-        return await uploadFolderFromFiles({
+        return await uploadFolderFromFiles( {
           folderName: folder.folderName,
           files: folder.files,
           userId: uid,
           parentFolderId: currentFolderId,
           setUploads,
-        })
+          options: { fileConcurrency },
+        } )
       }
     },
     [currentFolderId, setUploads],
   )
 
   const handleUpload = async () => {
-    if (selectedFolders.length === 0) {
-      setUploadError('Select at least one folder.')
+    if ( selectedFolders.length === 0 ) {
+      setUploadError( 'Select at least one folder.' )
       return
     }
-    setUploadError(null)
-    setIsUploading(true)
+    setUploadError( null )
+    setIsUploading( true )
 
-    const uid = await resolveUserIdClient(userId)
-    if (!uid) {
-      setUploadError('Session not ready.')
-      setIsUploading(false)
+    const uid = await resolveUserIdClient( userId )
+    if ( !uid ) {
+      setUploadError( 'Session not ready.' )
+      setIsUploading( false )
       return
     }
 
-    const folderConcurrency = 3
-    const queue = [...selectedFolders]
     let uploadedCount = 0
     let failedCount = 0
 
-    const worker = async () => {
-      while (queue.length > 0) {
-        const folder = queue.shift()
-        if (!folder) break
+    const results = await runScheduledFolderUploads( {
+      sources: selectedFolders,
+      uploadFolder: ( source, fileConcurrency ) =>
+        processFolder( source, uid, fileConcurrency ),
+    } )
 
-        try {
-          const result = await processFolder(folder, uid)
-          if (result.success && result.filesCount) {
-            uploadedCount++
-            toast.success(
-              `Folder "${result.folderName}" uploaded with ${result.filesCount} files`,
-            )
-          } else if (result.error) {
-            failedCount++
-            toast.error(`Folder upload failed: ${result.error}`)
-          }
-        } catch (err) {
-          failedCount++
-          const msg = err instanceof Error ? err.message : 'Unknown error'
-          toast.error(
-            `Folder "${folder.type === 'entry' ? folder.entry.name : folder.folderName}" upload failed: ${msg}`,
-          )
-        }
+    for ( const result of results ) {
+      if ( result.success && result.filesCount ) {
+        uploadedCount++
+        toast.success(
+          `Folder "${result.folderName}" uploaded with ${result.filesCount} files`,
+        )
+        continue
       }
+
+      failedCount++
+      toast.error(
+        `Folder upload failed: ${result.error ?? 'Unknown error occurred'}`,
+      )
     }
 
-    await Promise.all(Array.from({ length: folderConcurrency }, () => worker()))
-
-    setSelectedFolders([])
-    onOpenChange(false)
+    setSelectedFolders( [] )
+    onOpenChange( false )
     router.invalidate()
     await onUploadComplete()
-    setIsUploading(false)
+    setIsUploading( false )
 
-    if (uploadedCount > 0) {
+    if ( uploadedCount > 0 ) {
       toast.success(
         `Uploaded ${uploadedCount} folder${uploadedCount > 1 ? 's' : ''}`,
       )
     }
-    if (failedCount > 0) {
+    if ( failedCount > 0 ) {
       toast.error(
         `${failedCount} folder${failedCount > 1 ? 's' : ''} failed to upload`,
       )
@@ -249,9 +230,8 @@ export function FolderUploadDialog({
         </DialogHeader>
 
         <div
-          className={`rounded-lg border-2 border-dashed border-border p-8 text-center transition-colors ${
-            isDragging ? 'border-primary bg-muted' : ''
-          }`}
+          className={`rounded-lg border-2 border-dashed border-border p-8 text-center transition-colors ${isDragging ? 'border-primary bg-muted' : ''
+            }`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
@@ -275,10 +255,10 @@ export function FolderUploadDialog({
           <input
             ref={folderInputRef}
             type="file"
-            {...({
+            {...( {
               webkitdirectory: '',
               directory: '',
-            } as React.InputHTMLAttributes<HTMLInputElement>)}
+            } as React.InputHTMLAttributes<HTMLInputElement> )}
             multiple
             className="hidden"
             onChange={handleInputChange}
@@ -289,7 +269,7 @@ export function FolderUploadDialog({
         {selectedFolders.length > 0 && (
           <div className="max-h-40 overflow-y-auto rounded-md border">
             <ul className="divide-y">
-              {selectedFolders.map((folder, i) => (
+              {selectedFolders.map( ( folder, i ) => (
                 <li
                   key={i}
                   className="flex items-center justify-between p-2 text-sm"
@@ -303,12 +283,12 @@ export function FolderUploadDialog({
                     size="icon"
                     variant="ghost"
                     className="h-6 w-6 shrink-0"
-                    onClick={() => removeFolder(i)}
+                    onClick={() => removeFolder( i )}
                   >
                     <X className="h-3 w-3" />
                   </Button>
                 </li>
-              ))}
+              ) )}
             </ul>
           </div>
         )}

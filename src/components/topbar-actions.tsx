@@ -36,6 +36,8 @@ type TopbarActionsProps = {
   onOpenUploadFolderChange?: (open: boolean) => void
   openUrlImport?: boolean
   onOpenUrlImportChange?: (open: boolean) => void
+  openNewFolder?: boolean
+  onOpenNewFolderChange?: (open: boolean) => void
 }
 
 export function TopbarActions({
@@ -53,6 +55,8 @@ export function TopbarActions({
   onOpenUploadFolderChange,
   openUrlImport: controlledUrlImportOpen,
   onOpenUrlImportChange,
+  openNewFolder: controlledNewFolderOpen,
+  onOpenNewFolderChange,
 }: TopbarActionsProps) {
   const [uncontrolledUploadFilesOpen, setUncontrolledUploadFilesOpen] =
     React.useState(false)
@@ -60,7 +64,8 @@ export function TopbarActions({
     React.useState(false)
   const [uncontrolledUrlImportOpen, setUncontrolledUrlImportOpen] =
     React.useState(false)
-  const [newFolderOpen, setNewFolderOpen] = React.useState(false)
+  const [uncontrolledNewFolderOpen, setUncontrolledNewFolderOpen] =
+    React.useState(false)
 
   const uploadFilesOpen =
     controlledUploadFilesOpen ?? uncontrolledUploadFilesOpen
@@ -72,6 +77,8 @@ export function TopbarActions({
     onOpenUploadFolderChange ?? setUncontrolledUploadFolderOpen
   const urlImportOpen = controlledUrlImportOpen ?? uncontrolledUrlImportOpen
   const setUrlImportOpen = onOpenUrlImportChange ?? setUncontrolledUrlImportOpen
+  const newFolderOpen = controlledNewFolderOpen ?? uncontrolledNewFolderOpen
+  const setNewFolderOpen = onOpenNewFolderChange ?? setUncontrolledNewFolderOpen
 
   React.useEffect(() => {
     const openUploadFile = () => {
@@ -86,7 +93,10 @@ export function TopbarActions({
       if (onOpenUrlImportChange) onOpenUrlImportChange(true)
       else setUncontrolledUrlImportOpen(true)
     }
-    const openNewFolder = () => setNewFolderOpen(true)
+    const openNewFolder = () => {
+      if (onOpenNewFolderChange) onOpenNewFolderChange(true)
+      else setUncontrolledNewFolderOpen(true)
+    }
     window.addEventListener('dot:open-upload', openUploadFile)
     window.addEventListener('dot:open-upload-folder', openUploadFolder)
     window.addEventListener('dot:open-url-import', openUrlImport)
@@ -97,7 +107,12 @@ export function TopbarActions({
       window.removeEventListener('dot:open-url-import', openUrlImport)
       window.removeEventListener('dot:open-new-folder', openNewFolder)
     }
-  }, [onOpenUploadFilesChange, onOpenUploadFolderChange, onOpenUrlImportChange])
+  }, [
+    onOpenUploadFilesChange,
+    onOpenUploadFolderChange,
+    onOpenUrlImportChange,
+    onOpenNewFolderChange,
+  ])
 
   return (
     <div className="flex items-center gap-2">

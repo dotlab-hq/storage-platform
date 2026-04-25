@@ -1,244 +1,95 @@
 # Storage Platform
 
-Welcome to your new TanStack Start app!
+A modern cloud storage service built with a Google Drive-like experience, using S3-compatible providers as a backend. Supports multiple storage providers, offline caching, file synchronization, and a seamless UI.
+
+## Tech Stack
+
+- **Frontend**: React 19, TypeScript, Tailwind CSS v4
+- **Routing**: TanStack Router (file-based routing)
+- **Data Fetching**: TanStack Query, Tanstack Store
+- **Backend**: Hono (via @tanstack/react-start), Cloudflare Workers, Nitro
+- **Database**: Drizzle ORM + Cloudflare D1 (SQLite)
+- **Auth**: better-auth
+- **Validation**: Zod
 
 ## Getting Started
-
-To run this application:
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-## Building For Production
-
-To build this application for production:
+## Building for Production
 
 ```bash
 pnpm build
 ```
 
-## Testing
+## Project Structure
 
-This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
-
-```bash
-pnpm test
+```
+src/
+├── components/         # UI components
+│   ├── storage/       # Storage-specific components (modals, grid, upload)
+│   ├── ui/            # Reusable UI from Radix/shadcn
+│   └── ...
+├── routes/            # TanStack Router file-based routes
+│   ├── __root.tsx     # Root layout
+│   ├── _app/          # Route group for authenticated app area
+│   │   ├── index.tsx  # Main storage page (home)
+│   │   ├── chat/      # Chat feature
+│   │   ├── settings/  # User settings
+│   │   └── ...
+│   └── ...
+├── lib/               # Utilities, queries, mutations, stores
+├── db/                # Drizzle schemas
+└── hooks/             # Custom React hooks
 ```
 
-## Styling
+**Note on `_app/`:** This is a **TanStack Router route group**. The `_` prefix groups routes under a common layout without affecting the URL. It is not a legacy Next.js pattern.
 
-This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
+## Key Features
 
-### Removing Tailwind CSS
+- **Multi-provider storage**: Connect multiple S3-compatible providers
+- **File management**: Create folders, upload files/folders, drag & drop
+- **Sharing & links**: Generate shareable links, copy file/folder URLs
+- **Offline support**: Service worker caches the app; syncs when online
+- **Private locks**: Mark folders as privately locked
+- **Bulk operations**: Select multiple items, move, delete
+- **Search**: Find files and folders quickly
+- **Chat integration**: AI-powered file summarization and chat (optional)
+- **Admin dashboard**: Manage providers and view bucket contents
 
-If you prefer not to use Tailwind CSS:
+## Authentication
 
-1. Remove the demo pages in `src/routes/demo/`
-2. Replace the Tailwind import in `src/styles.css` with your own styles
-3. Remove `tailwindcss()` from the plugins array in `vite.config.ts`
-4. Uninstall the packages: `pnpm add @tailwindcss/vite tailwindcss --dev`
+Uses `better-auth`. Configure via environment variables:
 
-## Linting & Formatting
-
-This project uses [eslint](https://eslint.org/) and [prettier](https://prettier.io/) for linting and formatting. Eslint is configured using [tanstack/eslint-config](https://tanstack.com/config/latest/docs/eslint). The following scripts are available:
-
-```bash
-pnpm lint
-pnpm format
-pnpm check
+```
+BETTER_AUTH_SECRET=<generated-secret>
 ```
 
-## Shadcn
+See the [Better Auth docs](https://www.better-auth.com) for advanced setup.
 
-Add components using the latest version of [Shadcn](https://ui.shadcn.com/).
+## Database
 
-```bash
-pnpm dlx shadcn@latest add button
-```
-
-## Setting up Better Auth
-
-1. Generate and set the `BETTER_AUTH_SECRET` environment variable in your `.env.local`:
-
-   ```bash
-   pnpm dlx @better-auth/cli secret
-   ```
-
-2. Visit the [Better Auth documentation](https://www.better-auth.com) to unlock the full potential of authentication in your app.
-
-### Adding a Database (Optional)
-
-Better Auth can work in stateless mode, but to persist user data, add a database:
-
-```typescript
-// src/lib/auth.ts
-import { betterAuth } from 'better-auth'
-import { Pool } from 'pg'
-
-export const auth = betterAuth({
-  database: new Pool({
-    connectionString: process.env.DATABASE_URL,
-  }),
-  // ... rest of config
-})
-```
-
-Then run migrations:
-
-```bash
-pnpm dlx @better-auth/cli migrate
-```
-
-## Routing
-
-This project uses [TanStack Router](https://tanstack.com/router) with file-based routing. Routes are managed as files in `src/routes`.
-
-### Adding A Route
-
-To add a new route to your application just add a new file in the `./src/routes` directory.
-
-TanStack will automatically generate the content of the route file for you.
-
-Now that you have two routes you can use a `Link` component to navigate between them.
-
-### Adding Links
-
-To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
-
-```tsx
-import { Link } from '@tanstack/react-router'
-```
-
-Then anywhere in your JSX you can use it like so:
-
-```tsx
-<Link to="/about">About</Link>
-```
-
-This will create a link that will navigate to the `/about` route.
-
-More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
-
-### Using A Layout
-
-In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you render `{children}` in the `shellComponent`.
-
-Here is an example layout that includes a header:
-
-```tsx
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-
-export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'My App' },
-    ],
-  }),
-  shellComponent: ({ children }) => (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        <header>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-          </nav>
-        </header>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  ),
-})
-```
-
-More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
+Drizzle ORM with migrations. Schema files in `src/db/schema/`.
 
 ## Server Functions
 
-TanStack Start provides server functions that allow you to write server-side code that seamlessly integrates with your client components.
+Server-side logic lives in `createServerFn` handlers with Zod validation. Each page/module defines its own server functions.
 
-```tsx
-import { createServerFn } from '@tanstack/react-start'
+## Client State & Caching
 
-const getServerTime = createServerFn({
-  method: 'GET',
-}).handler(async () => {
-  return new Date().toISOString()
-})
+- **TanStack Query** for server state
+- **Tanstack Store** for global UI state (e.g., upload progress)
+- Optimistic updates and error handling built-in
 
-// Use in a component
-function MyComponent() {
-  const [time, setTime] = useState('')
+## Development Hints
 
-  useEffect(() => {
-    getServerTime().then(setTime)
-  }, [])
+- Modals are lazy-loaded in the main storage page to reduce bundle size
+- Context menus (right-click and three-dot) provide quick actions with icons
+- Pagination uses infinite scroll with a 300px threshold
 
-  return <div>Server time: {time}</div>
-}
-```
+## Contribution
 
-## API Routes
-
-You can create API routes by using the `server` property in your route definitions:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-import { json } from '@tanstack/react-start'
-
-export const Route = createFileRoute('/api/hello')({
-  server: {
-    handlers: {
-      GET: () => json({ message: 'Hello, World!' }),
-    },
-  },
-})
-```
-
-## Data Fetching
-
-There are multiple ways to fetch data in your application. You can use TanStack Query to fetch data from a server. But you can also use the `loader` functionality built into TanStack Router to load the data for a route before it's rendered.
-
-For example:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-
-export const Route = createFileRoute('/people')({
-  loader: async () => {
-    const response = await fetch('https://swapi.dev/api/people')
-    return response.json()
-  },
-  component: PeopleComponent,
-})
-
-function PeopleComponent() {
-  const data = Route.useLoaderData()
-  return (
-    <ul>
-      {data.results.map((person) => (
-        <li key={person.name}>{person.name}</li>
-      ))}
-    </ul>
-  )
-}
-```
-
-Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
-
-## Demo files
-
-Files prefixed with `demo` can be safely deleted. They are there to provide a starting point for you to play around with the features you've installed.
-
-## Learn More
-
-You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
-
-For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
+Run `pnpm lint`, `pnpm format`, and `pnpm check` before committing.

@@ -13,22 +13,22 @@ import type { UploadingFile } from '@/types/storage'
 
 type UploadingCardProps = {
   upload: UploadingFile
-  onRetry?: (id: string) => void
+  onRetry?: ( id: string ) => void
   onRemove?: () => void
   variant?: 'default' | 'compact'
 }
 
-function clampText(text: string, maxLength: number): string {
-  if (text.length <= maxLength) return text
-  return text.slice(0, maxLength - 3) + '...'
+function clampText( text: string, maxLength: number ): string {
+  if ( text.length <= maxLength ) return text
+  return text.slice( 0, maxLength - 3 ) + '...'
 }
 
-export function UploadingCard({
+export function UploadingCard( {
   upload,
   onRetry,
   onRemove,
   variant = 'default',
-}: UploadingCardProps) {
+}: UploadingCardProps ) {
   const isUploading = upload.status === 'uploading'
   const isCompleted = upload.status === 'completed'
   const isFailed = upload.status === 'failed'
@@ -36,12 +36,12 @@ export function UploadingCard({
   const isFolder = !!upload.folderName
 
   const fileName = isFolder ? upload.folderName : upload.file!.name
-  const clampedName = clampText(fileName, 28)
+  const clampedName = clampText( fileName, 28 )
   const needsTooltip = fileName.length > 28
 
   const sizeText = isFolder
     ? `${upload.uploadedFilesCount || 0} / ${upload.totalFilesCount || 0} files`
-    : formatFileSize(upload.file!.size)
+    : formatFileSize( upload.file!.size )
 
   // Variant-based styling
   const paddingClass = variant === 'compact' ? 'p-2' : 'p-3'
@@ -72,7 +72,7 @@ export function UploadingCard({
             {onRemove && (
               <button
                 type="button"
-                onClick={(e) => {
+                onClick={( e ) => {
                   e.stopPropagation()
                   onRemove()
                 }}
@@ -148,12 +148,12 @@ export function UploadingCard({
                 <span className="text-destructive text-[11px] truncate">
                   {upload.error ?? 'Upload failed'}
                 </span>
-                {onRetry && !isFolder && (
+                {onRetry && !isFolder && !upload.parentUploadId && (
                   <Button
                     size="sm"
                     variant="ghost"
                     className="h-5 px-1.5 text-[11px] shrink-0"
-                    onClick={() => onRetry(upload.id)}
+                    onClick={() => onRetry( upload.id )}
                   >
                     <RotateCw className="h-3 w-3" />
                   </Button>
