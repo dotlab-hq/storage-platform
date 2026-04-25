@@ -6,8 +6,7 @@ import {
   registerFile,
 } from './upload-server'
 import { prepareUploadTarget } from './upload-target-server'
-
-type UploadStateUpdater = React.Dispatch<React.SetStateAction<UploadingFile[]>>
+import { updateUpload, removeUpload } from '@/lib/stores/upload-store'
 
 const MIN_PART_SIZE_BYTES = 5 * 1024 * 1024
 const MAX_MULTIPART_PARTS = 10000
@@ -380,7 +379,7 @@ export async function uploadFileToS3(
 
 /**
  * Upload a batch of files with a concurrency limit (default 3).
- * Progress / status updates are pushed to the global uploads state.
+ * Progress / status updates are pushed to the global upload store.
  * Calls onFileUploaded after each successful upload for optimistic UI.
  * Returns the number of successfully uploaded files.
  */
@@ -389,7 +388,6 @@ export async function uploadBatch(
   userId: string,
   folderId: string | null,
   concurrency: number,
-  setUploads: UploadStateUpdater,
   onFileUploaded?: (file: CompletedFileInfo) => void,
 ): Promise<number> {
   let completed = 0
@@ -405,32 +403,18 @@ export async function uploadBatch(
           userId,
           folderId,
           (progress) => {
-            setUploads((prev) =>
-              prev.map((u) => (u.id === task.id ? { ...u, progress } : u)),
-            )
+            updateUpload(task.id, { progress })
           },
         )
-        setUploads((prev) =>
-          prev.map((u) =>
-            u.id === task.id
-              ? { ...u, progress: 100, status: 'completed' as const }
-              : u,
-          ),
-        )
+        updateUpload(task.id, { progress: 100, status: 'completed' })
         onFileUploaded?.(fileInfo)
         completed++
         setTimeout(() => {
-          setUploads((prev) => prev.filter((u) => u.id !== task.id))
+          removeUpload(task.id)
         }, 1500)
       } catch (err) {
         const msg = err instanceof Error ? err.message : String(err)
-        setUploads((prev) =>
-          prev.map((u) =>
-            u.id === task.id
-              ? { ...u, status: 'failed' as const, error: msg }
-              : u,
-          ),
-        )
+        updateUpload(task.id, { status: 'failed', error: msg })
       }
     }
   }

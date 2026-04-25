@@ -117,7 +117,6 @@ export function useDragDrop(
           userId,
           currentFolderId,
           3,
-          setUploads,
           setItems
             ? (fileInfo) => {
                 setItems((prev) => [

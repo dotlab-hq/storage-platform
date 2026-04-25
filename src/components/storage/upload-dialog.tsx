@@ -130,7 +130,6 @@ export function FileUploadDialog({
       uid,
       currentFolderId,
       3,
-      setUploads,
       (fileInfo) => {
         if (setItems) {
           setItems((prev) => [

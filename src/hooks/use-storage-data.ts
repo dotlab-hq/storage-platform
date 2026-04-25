@@ -15,6 +15,7 @@ import type {
   UserQuota,
   BreadcrumbItem,
 } from '@/types/storage'
+import { uploadStore, useUploadStore } from '@/lib/stores/upload-store'
 
 // Dynamically load server functions to reduce initial client bundle
 async function loadGetFolderItemsFn() {
@@ -87,7 +88,22 @@ export function useStorageData(initialData?: HomeLoaderData) {
   const [folders, setFolders] = useState<StorageFolder[]>(
     initialMapped?.folders ?? [],
   )
-  const [uploads, setUploads] = useState<UploadingFile[]>([])
+  // Use global upload store instead of local state
+  const uploads = useUploadStore((state) => state.uploads)
+  const setUploads = useCallback(
+    (updater: React.SetStateAction<UploadingFile[]>) => {
+      uploadStore.setState((current) => {
+        const newUploads =
+          typeof updater === 'function'
+            ? (updater as (prev: UploadingFile[]) => UploadingFile[])(
+                current.uploads,
+              )
+            : updater
+        return { ...current, uploads: newUploads }
+      })
+    },
+    [],
+  )
   const [quota, setQuota] = useState<UserQuota | null>(
     initialMapped?.quota ?? null,
   )

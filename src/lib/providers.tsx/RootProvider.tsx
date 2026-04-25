@@ -20,6 +20,11 @@ const Dock = lazy(() =>
     default: m.Dock,
   })),
 )
+const UploadWidget = lazy(() =>
+  import('@/components/storage/upload-widget').then((m) => ({
+    default: m.UploadWidget,
+  })),
+)
 
 export type RootLayoutProps = {
   children: React.ReactNode
@@ -64,6 +69,10 @@ export function RootLayout({ children }: RootLayoutProps) {
               </Suspense>
             )}
           </div>
+          {/* Global Upload Widget - appears bottom-right */}
+          <Suspense fallback={null}>
+            <UploadWidget />
+          </Suspense>
         </SidebarProvider>
       </div>
     </WebRTCProvider>
