@@ -38,6 +38,7 @@ import {
 } from '@/components/ui/sidebar'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Button } from '@/components/ui/button'
+import { PageSkeleton } from '@/components/ui/page-skeleton'
 import {
   Tooltip,
   TooltipContent,
