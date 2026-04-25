@@ -4,6 +4,7 @@ import { eq } from 'drizzle-orm'
 import type { BaseMessage } from '@langchain/core/messages'
 import { AIMessage, ToolMessage } from '@langchain/core/messages'
 import { executeToolCalls } from '@/routes/_app/chat/tools/-tool-executor'
+import { getTool } from '@/routes/_app/chat/tools/-tool-registry'
 import {
   toOpenAiChunk,
   toOpenAiChunkWithUsage,
@@ -36,6 +37,7 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
         let finalUsage: Usage | null = null
         let iteration = 0
         const MAX_ITERATIONS = 10
+        let roleChunkSent = false
 
         try {
           while (iteration < MAX_ITERATIONS) {
@@ -48,6 +50,23 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
               currentMessages,
               params.params,
             )) {
+              if (!roleChunkSent) {
+                roleChunkSent = true
+                controller.enqueue(
+                  encoder.encode(
+                    toSseEvent(
+                      toOpenAiChunk({
+                        id: `chatcmpl-${assistantMessageId || 'pending'}`,
+                        created: Math.floor(Date.now() / 1000),
+                        model: params.model,
+                        delta: { role: 'assistant' },
+                        finishReason: null,
+                      }),
+                    ),
+                  ),
+                )
+              }
+
               if (chunk.type === 'content') {
                 combinedContent += chunk.content
                 controller.enqueue(
@@ -153,7 +172,82 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                   chunk.finishReason === 'tool_calls' &&
                   allToolCalls.length > 0
                 ) {
-                  const toolResults = await executeToolCalls(allToolCalls)
+                  const toolCallCreated = Math.floor(Date.now() / 1000)
+
+                  allToolCalls.forEach((toolCall, index) => {
+                    controller.enqueue(
+                      encoder.encode(
+                        toSseEvent(
+                          toOpenAiChunk({
+                            id: `chatcmpl-${assistantMessageId || 'pending'}`,
+                            created: toolCallCreated,
+                            model: params.model,
+                            delta: {
+                              tool_calls: [
+                                {
+                                  index,
+                                  id: toolCall.id,
+                                  type: 'function',
+                                  function: {
+                                    name: toolCall.function.name,
+                                    arguments: toolCall.function.arguments,
+                                  },
+                                },
+                              ],
+                            },
+                            finishReason: null,
+                          }),
+                        ),
+                      ),
+                    )
+                  })
+
+                  const internalToolCalls = allToolCalls.filter(
+                    (toolCall) => getTool(toolCall.function.name) !== undefined,
+                  )
+                  const externalToolCalls = allToolCalls.filter(
+                    (toolCall) => getTool(toolCall.function.name) === undefined,
+                  )
+
+                  if (externalToolCalls.length > 0) {
+                    if (finalUsage) {
+                      controller.enqueue(
+                        encoder.encode(
+                          toSseEvent(
+                            toOpenAiChunkWithUsage({
+                              id: `chatcmpl-${assistantMessageId || 'pending'}`,
+                              created: Math.floor(Date.now() / 1000),
+                              model: params.model,
+                              usage: finalUsage,
+                              systemFingerprint: SYSTEM_FINGERPRINT,
+                              finishReason: 'tool_calls',
+                            }),
+                          ),
+                        ),
+                      )
+                    } else {
+                      controller.enqueue(
+                        encoder.encode(
+                          toSseEvent(
+                            toOpenAiChunk({
+                              id: `chatcmpl-${assistantMessageId || 'pending'}`,
+                              created: Math.floor(Date.now() / 1000),
+                              model: params.model,
+                              delta: {},
+                              finishReason: 'tool_calls',
+                            }),
+                          ),
+                        ),
+                      )
+                    }
+
+                    controller.enqueue(encoder.encode(toSseEvent('[DONE]')))
+                    allToolCalls = []
+                    iteration = MAX_ITERATIONS
+                    break
+                  }
+
+                  const toolResults = await executeToolCalls(internalToolCalls)
 
                   for (const result of toolResults) {
                     await db.insert(chatMessage).values({
@@ -183,9 +277,7 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                   aiMessage.tool_calls = allToolCalls.map((tc) => ({
                     id: tc.id,
                     name: tc.function.name,
-                    args: tc.function.arguments
-                      ? JSON.parse(tc.function.arguments)
-                      : {},
+                    args: parseToolArguments(tc.function.arguments),
                     type: 'tool_call' as const,
                   }))
                   currentMessages = [
@@ -300,4 +392,20 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
       'X-Thread-Id': params.threadId,
     },
   })
+}
+
+function parseToolArguments(argumentsJson: string): Record<string, unknown> {
+  if (!argumentsJson) {
+    return {}
+  }
+
+  try {
+    const parsed: unknown = JSON.parse(argumentsJson)
+    if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+      return parsed as Record<string, unknown>
+    }
+    return {}
+  } catch {
+    return {}
+  }
 }

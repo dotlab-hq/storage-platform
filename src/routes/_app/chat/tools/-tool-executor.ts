@@ -33,7 +33,10 @@ async function executeSingleTool(toolCall: {
     const args = JSON.parse(toolCall.function.arguments)
 
     // Validate with Zod schema
-    const validated = await (tool.schema as any).parseAsync(args)
+    const schema = tool.schema as {
+      parseAsync: (value: unknown) => Promise<unknown>
+    }
+    const validated = await schema.parseAsync(args)
 
     // Execute the tool
     const result = await tool.call(validated)

@@ -22,7 +22,15 @@ export function toOpenAiChunk({
     role?: string
     content?: string
     reasoning_content?: string
-    tool_calls?: any[]
+    tool_calls?: Array<{
+      index: number
+      id?: string
+      type?: 'function'
+      function: {
+        name?: string
+        arguments?: string
+      }
+    }>
   }
   finishReason: 'stop' | 'length' | 'tool_calls' | 'content_filter' | null
 }): OpenAiChunk {
@@ -60,12 +68,14 @@ export function toOpenAiChunkWithUsage({
   model,
   usage,
   systemFingerprint,
+  finishReason = 'stop',
 }: {
   id: string
   created: number
   model: string
   usage: Usage
   systemFingerprint: string
+  finishReason?: 'stop' | 'length' | 'tool_calls' | 'content_filter'
 }): OpenAiChunk {
   return {
     id,
@@ -76,7 +86,7 @@ export function toOpenAiChunkWithUsage({
       {
         index: 0,
         delta: {},
-        finish_reason: 'stop',
+        finish_reason: finishReason,
       },
     ],
     usage,

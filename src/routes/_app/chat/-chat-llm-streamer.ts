@@ -189,31 +189,16 @@ export async function* generateAssistantReplyStream(
         }
       }
 
-      // Accumulate raw tool call chunks for later merging
-      if ('toolCallChunks' in chunk && chunk.toolCallChunks) {
-        const toolChunks = chunk.toolCallChunks as Array<{
-          index: number
-          id?: string
-          name?: string
-          args?: string
-        }>
-        if (toolChunks.length > 0) {
-          console.log('[LLM] Received toolCallChunks:', toolChunks)
-        }
+      // Accumulate tool calls from provider-specific chunk shapes
+      const toolChunks = extractToolCallChunksFromChunk(chunk)
+      if (toolChunks.length > 0) {
+        console.log('[LLM] Received toolCallChunks:', toolChunks)
         allToolCallChunks.push(...toolChunks)
       }
 
-      // Some providers emit complete tool_calls directly on the chunk
-      if (
-        'toolCalls' in chunk &&
-        chunk.toolCalls &&
-        Array.isArray(chunk.toolCalls)
-      ) {
-        directToolCalls = chunk.toolCalls as Array<{
-          id: string
-          type: 'function'
-          function: { name: string; arguments: string }
-        }>
+      const normalizedDirectToolCalls = extractDirectToolCallsFromChunk(chunk)
+      if (normalizedDirectToolCalls.length > 0) {
+        directToolCalls = normalizedDirectToolCalls
         console.log('[LLM] Received direct toolCalls:', directToolCalls)
       }
     }
@@ -322,5 +307,136 @@ async function* streamWithCadence(
     await new Promise<void>((resolve) => {
       setTimeout(resolve, delayMs)
     })
+  }
+}
+
+type RawToolCallChunk = {
+  index: number
+  id?: string
+  name?: string
+  args?: string
+}
+
+type RawDirectToolCall = {
+  id?: string
+  name?: string
+  args?: unknown
+  type?: string
+  function?: {
+    name?: string
+    arguments?: unknown
+  }
+}
+
+function extractToolCallChunksFromChunk(chunk: unknown): RawToolCallChunk[] {
+  if (!chunk || typeof chunk !== 'object') {
+    return []
+  }
+
+  const chunkRecord = chunk as Record<string, unknown>
+  const direct = chunkRecord.toolCallChunks
+  if (Array.isArray(direct)) {
+    return direct.filter(isRawToolCallChunk)
+  }
+
+  const snake = chunkRecord.tool_call_chunks
+  if (Array.isArray(snake)) {
+    return snake.filter(isRawToolCallChunk)
+  }
+
+  const additional = chunkRecord.additional_kwargs
+  if (additional && typeof additional === 'object') {
+    const additionalRecord = additional as Record<string, unknown>
+    const nestedChunks = additionalRecord.tool_call_chunks
+    if (Array.isArray(nestedChunks)) {
+      return nestedChunks.filter(isRawToolCallChunk)
+    }
+  }
+
+  return []
+}
+
+function extractDirectToolCallsFromChunk(chunk: unknown): Array<{
+  id: string
+  type: 'function'
+  function: { name: string; arguments: string }
+}> {
+  if (!chunk || typeof chunk !== 'object') {
+    return []
+  }
+
+  const chunkRecord = chunk as Record<string, unknown>
+  const candidates: unknown[] = []
+
+  candidates.push(chunkRecord.toolCalls)
+  candidates.push(chunkRecord.tool_calls)
+
+  const additional = chunkRecord.additional_kwargs
+  if (additional && typeof additional === 'object') {
+    const additionalRecord = additional as Record<string, unknown>
+    candidates.push(additionalRecord.tool_calls)
+  }
+
+  for (const candidate of candidates) {
+    if (!Array.isArray(candidate)) {
+      continue
+    }
+
+    const normalized = candidate
+      .filter(isRawDirectToolCall)
+      .map(normalizeDirectToolCall)
+      .filter(
+        (
+          toolCall,
+        ): toolCall is {
+          id: string
+          type: 'function'
+          function: { name: string; arguments: string }
+        } => toolCall !== null,
+      )
+
+    if (normalized.length > 0) {
+      return normalized
+    }
+  }
+
+  return []
+}
+
+function isRawToolCallChunk(value: unknown): value is RawToolCallChunk {
+  if (!value || typeof value !== 'object') {
+    return false
+  }
+  const record = value as Record<string, unknown>
+  return typeof record.index === 'number'
+}
+
+function isRawDirectToolCall(value: unknown): value is RawDirectToolCall {
+  return !!value && typeof value === 'object'
+}
+
+function normalizeDirectToolCall(value: RawDirectToolCall): {
+  id: string
+  type: 'function'
+  function: { name: string; arguments: string }
+} | null {
+  const functionName = value.function?.name ?? value.name
+  if (!functionName) {
+    return null
+  }
+
+  const rawArgs = value.function?.arguments ?? value.args
+  const args =
+    typeof rawArgs === 'string'
+      ? rawArgs
+      : JSON.stringify(rawArgs ?? {}, null, 0)
+
+  return {
+    id: value.id ?? `call_${Math.random().toString(36).slice(2, 10)}`,
+    type: 'function',
+    function: {
+      name: functionName,
+      arguments: args,
+    },
   }
 }
