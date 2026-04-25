@@ -1,7 +1,13 @@
-import { StateGraph, START, END } from '@langchain/langgraph'
-import { MessagesState } from '@langchain/langgraph'
+import {
+  StateGraph,
+  START,
+  END,
+  MessagesValue,
+  StateSchema,
+} from '@langchain/langgraph'
 import type { BaseMessage } from '@langchain/core/messages'
 import { ToolNode } from '@langchain/langgraph'
+import { z } from 'zod'
 import type { StructuredTool } from '@langchain/core/tools'
 
 /**
@@ -16,10 +22,17 @@ import type { StructuredTool } from '@langchain/core/tools'
  * 6. supervisor decides: another agent OR END
  */
 
-export interface OrchestrationState extends MessagesState {
+export interface OrchestrationState {
+  messages: BaseMessage[]
   next: string | null
   iteration: number
 }
+
+const OrchestrationStateSchema = new StateSchema({
+  messages: MessagesValue,
+  next: z.string().nullable(),
+  iteration: z.number(),
+})
 
 function supervisorNode(state: OrchestrationState): OrchestrationState {
   const messages = state.messages as BaseMessage[]
@@ -78,7 +91,7 @@ export function buildSupervisorGraph(
   agentTools: Record<string, StructuredTool[]>,
   allTools: StructuredTool[],
 ) {
-  const graph = new StateGraph(OrchestrationState)
+  const graph = new StateGraph(OrchestrationStateSchema)
 
   // Add nodes
   graph.addNode('supervisor', supervisorNode)

@@ -1,7 +1,13 @@
-import { StateGraph, START, END } from '@langchain/langgraph'
-import { MessagesState } from '@langchain/langgraph'
+import {
+  StateGraph,
+  START,
+  END,
+  MessagesValue,
+  StateSchema,
+} from '@langchain/langgraph'
 import type { BaseMessage } from '@langchain/core/messages'
 import { ToolNode } from '@langchain/langgraph'
+import { z } from 'zod'
 
 /**
  * Simple Supervisor Orchestration Graph
@@ -13,12 +19,19 @@ import { ToolNode } from '@langchain/langgraph'
  * 4. back to supervisor for next decision, or END
  */
 
-export interface OrchestrationState extends MessagesState {
+export interface OrchestrationState {
+  messages: BaseMessage[]
   // Next agent to invoke (e.g., "web_agent", "general_agent")
   next: string | null
   // Track iteration count to prevent infinite loops
   iteration: number
 }
+
+const OrchestrationStateSchema = new StateSchema({
+  messages: MessagesValue,
+  next: z.string().nullable(),
+  iteration: z.number(),
+})
 
 /**
  * Supervisor node: decides which agent should handle the request
@@ -59,7 +72,7 @@ export function createSupervisorNode() {
 export function buildSupervisorGraph(
   agents: Record<string, { tools: any[]; llm: any }>,
 ) {
-  const graph = new StateGraph(OrchestrationState).addNode(
+  const graph = new StateGraph(OrchestrationStateSchema).addNode(
     'supervisor',
     createSupervisorNode(),
   )
