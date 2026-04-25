@@ -1,5 +1,6 @@
+import { createFileRoute } from '@tanstack/react-router'
+import { Link, createFileRoute } from '@tanstack/react-start'
 import { lazy, Suspense } from 'react'
-import { Link, createFileRoute } from '@tanstack/react-router'
 import { isNotAuthenticatedMiddleware } from '@/middlewares/isNotAuthenticated'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
 

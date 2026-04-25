@@ -1,5 +1,6 @@
+import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, useSearch, redirect } from '@tanstack/react-start'
 import * as React from 'react'
-import { createFileRoute, useSearch, redirect } from '@tanstack/react-router'
 import { useAuth } from '@/lib/auth-client'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'

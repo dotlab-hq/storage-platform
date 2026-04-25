@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-start'
 import { loadAuth } from '@/lib/auth-loader'
 
 const AUTH_HANDLER_TIMEOUT_MS = Number(

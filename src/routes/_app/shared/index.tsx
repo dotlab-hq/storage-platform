@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-start'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { Share2 } from 'lucide-react'

@@ -18,11 +18,11 @@ import {
 import { formatFileSize } from '@/lib/file-utils'
 import type { StorageItem, UploadingFile } from '@/types/storage'
 import { cn } from '@/lib/utils'
-import { useRouter } from '@tanstack/react-router'
+import { useRouter } from '@tanstack/react-start'
 
 type FileUploadDialogProps = {
   open: boolean
-  onOpenChange: ( open: boolean ) => void
+  onOpenChange: (open: boolean) => void
   userId: string | null
   currentFolderId: string | null
   setUploads: React.Dispatch<React.SetStateAction<UploadingFile[]>>
@@ -31,7 +31,7 @@ type FileUploadDialogProps = {
   fileSizeLimit?: number | null
 }
 
-export function FileUploadDialog( {
+export function FileUploadDialog({
   open,
   onOpenChange,
   userId,
@@ -40,100 +40,100 @@ export function FileUploadDialog( {
   onUploadComplete,
   setItems,
   fileSizeLimit,
-}: FileUploadDialogProps ) {
+}: FileUploadDialogProps) {
   const router = useRouter()
-  const fileInputRef = React.useRef<HTMLInputElement>( null )
-  const [isDragging, setIsDragging] = React.useState( false )
-  const [selectedFiles, setSelectedFiles] = React.useState<File[]>( [] )
-  const [uploadError, setUploadError] = React.useState<string | null>( null )
+  const fileInputRef = React.useRef<HTMLInputElement>(null)
+  const [isDragging, setIsDragging] = React.useState(false)
+  const [selectedFiles, setSelectedFiles] = React.useState<File[]>([])
+  const [uploadError, setUploadError] = React.useState<string | null>(null)
 
-  React.useEffect( () => {
-    if ( !open ) {
-      setSelectedFiles( [] )
-      setUploadError( null )
+  React.useEffect(() => {
+    if (!open) {
+      setSelectedFiles([])
+      setUploadError(null)
     }
-  }, [open] )
+  }, [open])
 
   const dedupeAndAppend = React.useCallback(
-    ( incoming: File[] ) => {
-      if ( fileSizeLimit ) {
-        const oversized = incoming.filter( ( f ) => f.size > fileSizeLimit )
-        if ( oversized.length > 0 ) {
+    (incoming: File[]) => {
+      if (fileSizeLimit) {
+        const oversized = incoming.filter((f) => f.size > fileSizeLimit)
+        if (oversized.length > 0) {
           const MAX_SHOWN = 3
-          const shown = oversized.slice( 0, MAX_SHOWN ).map( ( f ) => f.name )
+          const shown = oversized.slice(0, MAX_SHOWN).map((f) => f.name)
           const extra = oversized.length - MAX_SHOWN
           const names = extra > 0 ? [...shown, `and ${extra} more`] : shown
           setUploadError(
-            `${oversized.length} file${oversized.length > 1 ? 's' : ''} exceed${oversized.length === 1 ? 's' : ''} the ${formatFileSize( fileSizeLimit )} limit: ${names.join( ', ' )}`,
+            `${oversized.length} file${oversized.length > 1 ? 's' : ''} exceed${oversized.length === 1 ? 's' : ''} the ${formatFileSize(fileSizeLimit)} limit: ${names.join(', ')}`,
           )
-          incoming = incoming.filter( ( f ) => f.size <= fileSizeLimit )
-          if ( incoming.length === 0 ) return
+          incoming = incoming.filter((f) => f.size <= fileSizeLimit)
+          if (incoming.length === 0) return
         }
       }
-      setSelectedFiles( ( cur ) => {
+      setSelectedFiles((cur) => {
         const existing = new Set(
-          cur.map( ( f ) => `${f.name}-${f.size}-${f.lastModified}` ),
+          cur.map((f) => `${f.name}-${f.size}-${f.lastModified}`),
         )
         const additions = incoming.filter(
-          ( f ) => !existing.has( `${f.name}-${f.size}-${f.lastModified}` ),
+          (f) => !existing.has(`${f.name}-${f.size}-${f.lastModified}`),
         )
         return [...cur, ...additions]
-      } )
+      })
     },
     [fileSizeLimit],
   )
 
-  const handleDrop = ( e: React.DragEvent<HTMLDivElement> ) => {
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault()
-    setIsDragging( false )
-    const files = Array.from( e.dataTransfer.files )
-    if ( files.length ) dedupeAndAppend( files )
+    setIsDragging(false)
+    const files = Array.from(e.dataTransfer.files)
+    if (files.length) dedupeAndAppend(files)
   }
 
-  const handleInputChange = ( e: React.ChangeEvent<HTMLInputElement> ) => {
-    const files = e.target.files ? Array.from( e.target.files ) : []
-    if ( files.length ) dedupeAndAppend( files )
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files ? Array.from(e.target.files) : []
+    if (files.length) dedupeAndAppend(files)
     e.target.value = ''
   }
 
-  const resolveUserId = createClientOnlyFn( async ( uid: string | null ) => {
-    if ( uid ) return uid
+  const resolveUserId = createClientOnlyFn(async (uid: string | null) => {
+    if (uid) return uid
     const { data } = await authClient.getSession()
     return data?.user?.id ?? null
-  } )
+  })
 
   const handleUpload = async () => {
-    if ( !selectedFiles.length ) {
-      setUploadError( 'Select at least one file.' )
+    if (!selectedFiles.length) {
+      setUploadError('Select at least one file.')
       return
     }
-    setUploadError( null )
-    const uid = await resolveUserId( userId )
-    if ( !uid ) {
-      setUploadError( 'Session not ready.' )
+    setUploadError(null)
+    const uid = await resolveUserId(userId)
+    if (!uid) {
+      setUploadError('Session not ready.')
       return
     }
 
-    const newUploads: UploadingFile[] = selectedFiles.map( ( file ) => ( {
+    const newUploads: UploadingFile[] = selectedFiles.map((file) => ({
       id: crypto.randomUUID(),
       file,
       progress: 0,
       status: 'uploading' as const,
       targetFolderId: currentFolderId,
-    } ) )
-    setUploads( ( prev ) => [...newUploads, ...prev] )
-    setSelectedFiles( [] )
-    onOpenChange( false )
+    }))
+    setUploads((prev) => [...newUploads, ...prev])
+    setSelectedFiles([])
+    onOpenChange(false)
 
-    const tasks = newUploads.map( ( u ) => ( { id: u.id, file: u.file } ) )
+    const tasks = newUploads.map((u) => ({ id: u.id, file: u.file }))
     const count = await uploadBatch(
       tasks,
       uid,
       currentFolderId,
       3,
-      ( fileInfo ) => {
-        if ( setItems ) {
-          setItems( ( prev ) => [
+      (fileInfo) => {
+        if (setItems) {
+          setItems((prev) => [
             ...prev,
             {
               id: fileInfo.id,
@@ -147,14 +147,14 @@ export function FileUploadDialog( {
               updatedAt: fileInfo.createdAt,
               type: 'file' as const,
             },
-          ] )
+          ])
         }
       },
     )
-    if ( count > 0 ) {
-      toast.success( `${count} file${count > 1 ? 's' : ''} uploaded` )
+    if (count > 0) {
+      toast.success(`${count} file${count > 1 ? 's' : ''} uploaded`)
       router.invalidate()
-      if ( !setItems ) await onUploadComplete()
+      if (!setItems) await onUploadComplete()
     }
   }
 
@@ -166,7 +166,7 @@ export function FileUploadDialog( {
           <DialogDescription>
             Drag and drop files or click to browse.
             {fileSizeLimit
-              ? ` Max file size: ${formatFileSize( fileSizeLimit )}.`
+              ? ` Max file size: ${formatFileSize(fileSizeLimit)}.`
               : ''}
           </DialogDescription>
         </DialogHeader>
@@ -176,11 +176,11 @@ export function FileUploadDialog( {
             'rounded-lg border-2 border-dashed p-8 text-center transition-colors',
             isDragging ? 'border-primary' : 'border-border',
           )}
-          onDragOver={( e ) => {
+          onDragOver={(e) => {
             e.preventDefault()
-            setIsDragging( true )
+            setIsDragging(true)
           }}
-          onDragLeave={() => setIsDragging( false )}
+          onDragLeave={() => setIsDragging(false)}
           onDrop={handleDrop}
         >
           <div className="flex flex-col items-center gap-3">
@@ -210,7 +210,7 @@ export function FileUploadDialog( {
         {selectedFiles.length > 0 && (
           <div className="max-h-40 overflow-y-auto rounded-md border">
             <ul className="divide-y">
-              {selectedFiles.map( ( file, i ) => (
+              {selectedFiles.map((file, i) => (
                 <li
                   key={`${file.name}-${file.lastModified}-${i}`}
                   className="flex items-center justify-between p-2 text-sm"
@@ -221,13 +221,13 @@ export function FileUploadDialog( {
                     variant="ghost"
                     className="h-6 w-6 shrink-0"
                     onClick={() =>
-                      setSelectedFiles( ( f ) => f.filter( ( _, idx ) => idx !== i ) )
+                      setSelectedFiles((f) => f.filter((_, idx) => idx !== i))
                     }
                   >
                     <X className="h-3 w-3" />
                   </Button>
                 </li>
-              ) )}
+              ))}
             </ul>
           </div>
         )}

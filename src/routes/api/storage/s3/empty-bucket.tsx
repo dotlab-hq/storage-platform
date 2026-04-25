@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-start'
 import { z } from 'zod'
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import { emptyVirtualBucket } from '@/lib/s3-gateway/virtual-buckets'
@@ -38,3 +39,4 @@ export const Route = createFileRoute('/api/storage/s3/empty-bucket')({
     },
   },
 })
+

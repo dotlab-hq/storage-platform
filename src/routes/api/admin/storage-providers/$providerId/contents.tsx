@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-start'
 import { z } from 'zod'
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import { listAdminProviderContents } from '@/lib/admin-provider-browser'

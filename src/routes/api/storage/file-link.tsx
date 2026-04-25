@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-start'
 import { z } from 'zod'
 import { decodeNavToken } from '@/lib/nav-token'
 import { getAuthenticatedUser } from '@/lib/server-auth'
@@ -103,3 +104,4 @@ export const Route = createFileRoute('/api/storage/file-link')({
     },
   },
 })
+

@@ -1,7 +1,7 @@
+import { useNavigate } from '@tanstack/react-start'
 'use client'
 
 import { useCallback, useMemo } from 'react'
-import { useNavigate } from '@tanstack/react-router'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { Clock, Folder, FileText } from 'lucide-react'

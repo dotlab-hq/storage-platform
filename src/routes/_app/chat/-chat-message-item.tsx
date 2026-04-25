@@ -1,7 +1,6 @@
+import { ClientOnly, createClientOnlyFn } from '@tanstack/react-start'
 import { Copy, RefreshCw, Trash2, UserRound } from 'lucide-react'
-import { ClientOnly } from '@tanstack/react-router'
 import { Suspense, lazy } from 'react'
-import { createClientOnlyFn } from '@tanstack/react-start'
 import { cn } from '@/lib/utils'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
 import {

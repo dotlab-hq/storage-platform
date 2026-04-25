@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-start'
 import { z } from 'zod'
 import { db } from '@/db'
 import { objectAcl, fileTag, fileVersion } from '@/db/schema/s3-controls'
@@ -290,3 +291,4 @@ export const Route = createFileRoute('/api/storage/s3/object-settings')({
     },
   },
 })
+

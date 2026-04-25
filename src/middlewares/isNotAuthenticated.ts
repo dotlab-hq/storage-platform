@@ -1,8 +1,7 @@
 // the middleware will always ensure that the user is not authenticated before allowing access further
 
 import { loadAuth } from '@/lib/auth-loader'
-import { createMiddleware } from '@tanstack/react-start'
-import { redirect } from '@tanstack/react-router'
+import { createMiddleware, redirect } from '@tanstack/react-start'
 
 const isNotAuthenticatedMiddleware = createMiddleware().server(
   async ({ next, request }) => {

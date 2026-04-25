@@ -1,7 +1,8 @@
+import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-start'
 'use client'
 
 import { useEffect, useState, lazy, Suspense } from 'react'
-import { createFileRoute } from '@tanstack/react-router'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'

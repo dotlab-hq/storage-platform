@@ -1,23 +1,5 @@
-import { json } from '@tanstack/react-start'
-import { eq } from 'drizzle-orm'
-import { db } from '@/db'
-import { chatMessage, chatThread } from '@/db/schema/chat'
-import { getAuthenticatedUser } from '@/lib/server-auth'
-import { generateAssistantReplyStream } from '../../_app/chat/-chat-assistant-reply-stream'
-import { deriveThreadTitle } from '../../_app/chat/-chat-server-utils'
-import {
-  findOwnedThread,
-  refreshThreadLatestMessage,
-} from '../../_app/chat/-chat-server-db'
-import {
-  normalizeChatStreamRequest,
-  toOpenAiChunk,
-  toOpenAiCompletion,
-  toSseEvent,
-} from './-openai-chat-compat'
-import { apikey } from '@/db/schema/auth-schema'
-
 import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, json } from '@tanstack/react-start'
 
 export const Route = createFileRoute('/api/chat/stream')({
   server: {
@@ -380,3 +362,4 @@ export async function POST({ request }: { request: Request }) {
     )
   }
 }
+

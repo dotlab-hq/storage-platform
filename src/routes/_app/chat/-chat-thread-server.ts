@@ -1,5 +1,5 @@
-import { and, desc, eq, sql } from 'drizzle-orm'
 import { createServerFn } from '@tanstack/react-start'
+import { and, desc, eq, sql } from 'drizzle-orm'
 import { z } from 'zod'
 import { db } from '@/db'
 import { chatThread } from '@/db/schema/chat'

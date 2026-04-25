@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-start'
 import { POST as streamPost } from './stream'
 
 export const Route = createFileRoute('/api/chat/completions')({

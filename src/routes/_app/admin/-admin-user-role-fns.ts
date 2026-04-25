@@ -1,7 +1,7 @@
+import { createServerFn } from '@tanstack/react-start'
 import { db } from '@/db'
 import { user } from '@/db/schema/auth-schema'
 import { requireAdminUser } from '@/lib/server-auth'
-import { createServerFn } from '@tanstack/react-start'
 import { eq } from 'drizzle-orm'
 import { z } from 'zod'
 import { logActivity } from '@/lib/activity'

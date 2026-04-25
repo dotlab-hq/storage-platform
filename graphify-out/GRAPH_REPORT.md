@@ -1,12 +1,12 @@
 # Graph Report - storage-platform  (2026-04-25)
 
 ## Corpus Check
-- 524 files · ~275,316 words
+- 534 files · ~278,710 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2997 nodes · 5899 edges · 51 communities detected
-- Extraction: 80% EXTRACTED · 20% INFERRED · 0% AMBIGUOUS · INFERRED: 1155 edges (avg confidence: 0.8)
+- 3017 nodes · 5914 edges · 52 communities detected
+- Extraction: 80% EXTRACTED · 20% INFERRED · 0% AMBIGUOUS · INFERRED: 1163 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -50,17 +50,18 @@
 - [[_COMMUNITY_Community 56|Community 56]]
 - [[_COMMUNITY_Community 61|Community 61]]
 - [[_COMMUNITY_Community 62|Community 62]]
+- [[_COMMUNITY_Community 63|Community 63]]
 - [[_COMMUNITY_Community 64|Community 64]]
-- [[_COMMUNITY_Community 71|Community 71]]
-- [[_COMMUNITY_Community 73|Community 73]]
-- [[_COMMUNITY_Community 74|Community 74]]
+- [[_COMMUNITY_Community 66|Community 66]]
+- [[_COMMUNITY_Community 68|Community 68]]
 - [[_COMMUNITY_Community 75|Community 75]]
-- [[_COMMUNITY_Community 76|Community 76]]
 - [[_COMMUNITY_Community 77|Community 77]]
-- [[_COMMUNITY_Community 98|Community 98]]
-- [[_COMMUNITY_Community 99|Community 99]]
-- [[_COMMUNITY_Community 108|Community 108]]
-- [[_COMMUNITY_Community 218|Community 218]]
+- [[_COMMUNITY_Community 78|Community 78]]
+- [[_COMMUNITY_Community 79|Community 79]]
+- [[_COMMUNITY_Community 100|Community 100]]
+- [[_COMMUNITY_Community 101|Community 101]]
+- [[_COMMUNITY_Community 110|Community 110]]
+- [[_COMMUNITY_Community 221|Community 221]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `mt()` - 99 edges
@@ -71,8 +72,8 @@
 6. `update()` - 45 edges
 7. `bA` - 40 edges
 8. `wA` - 36 edges
-9. `r()` - 35 edges
-10. `gx()` - 34 edges
+9. `error()` - 36 edges
+10. `r()` - 35 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Gi()` --calls--> `gx()`  [INFERRED]
@@ -81,60 +82,60 @@
   playwright-report\trace\sw.bundle.js → playwright-report\trace\assets\defaultSettingsView-GTWI-W_B.js
 - `getContextFromEvent()` --calls--> `GET()`  [INFERRED]
   src\lib\activity.ts → src\routes\api\v1\models.ts
-- `handlePut()` --calls--> `parseCopySource()`  [INFERRED]
-  src\lib\s3-gateway\s3-dispatch-put.ts → src\lib\s3-gateway\s3-request.ts
-- `POST()` --calls--> `getToolsByName()`  [INFERRED]
-  src\routes\api\v1\chat\completions.ts → src\routes\_app\chat\tools\-tool-registry.ts
+- `handlePut()` --calls--> `parseObjectTaggingXml()`  [INFERRED]
+  src\lib\s3-gateway\s3-dispatch-put.ts → src\lib\s3-gateway\s3-object-tagging.ts
+- `handleGet()` --calls--> `objectTaggingXml()`  [INFERRED]
+  src\lib\s3-gateway\s3-dispatch-read.ts → src\lib\s3-gateway\s3-object-tagging.ts
 
 ## Communities
 
 ### Community 0 - "Community 0"
 Cohesion: 0.01
-Nodes (288): __(), AA(), ac(), Ad(), ar(), AS(), av(), ax() (+280 more)
+Nodes (294): mt(), __(), AA(), ac(), Ad(), aE(), ar(), AS() (+286 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.02
-Nodes (256): listAdminProviderContents(), normalizePrefix(), toFileEntry(), toFolderEntry(), isDefaultAssetsBucketName(), backfillStorageBtree(), toFileEntry(), toFolderEntry() (+248 more)
+Cohesion: 0.01
+Nodes (164): af(), ef(), ff(), Ja(), lf(), nf(), of(), po() (+156 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.01
-Nodes (171): af(), ef(), ff(), Ja(), lf(), mt(), nf(), of() (+163 more)
+Cohesion: 0.02
+Nodes (214): listAdminProviderContents(), normalizePrefix(), toFileEntry(), toFolderEntry(), isDefaultAssetsBucketName(), backfillStorageBtree(), toFileEntry(), toFolderEntry() (+206 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.03
-Nodes (20): closeConnection(), setupPeerConnection(), stopSignalPolling(), bA, Bh(), Cb(), Dh(), el() (+12 more)
+Nodes (21): closeConnection(), setupPeerConnection(), stopSignalPolling(), bA, Bh(), Cb(), Dh(), el() (+13 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.03
-Nodes (39): buildFolderPathOptions(), isDescendantFolder(), GET(), inferS3Operation(), recordS3Audit(), auditResponse(), mapProviderStatusToS3Error(), parseContentLength() (+31 more)
+Nodes (106): buildFolderPathOptions(), isDescendantFolder(), GET(), bucketAclXml(), ensureBucketAcl(), escapeXml(), getBucketAclXml(), getObjectAclXml() (+98 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.03
-Nodes (47): getContextFromEvent(), isApiEvent(), logActivity(), withActivityLogging(), deleteProvider(), isNotFoundPayload(), setData(), submitProvider() (+39 more)
+Nodes (62): getUserFromApiKey(), hasChatCompletionsScope(), getOrCreateThread(), deriveThreadTitle(), toMessageSnapshot(), toRole(), consumeSseEvents(), isRecord() (+54 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.04
-Nodes (12): DE(), La(), lb(), or, Ri(), rv(), rx, handleUploadClick() (+4 more)
+Cohesion: 0.03
+Nodes (59): getContextFromEvent(), isApiEvent(), logActivity(), withActivityLogging(), deleteProvider(), isNotFoundPayload(), submitProvider(), toggleProviderAvailability() (+51 more)
 
 ### Community 7 - "Community 7"
 Cohesion: 0.04
-Nodes (40): getUserFromApiKey(), hasChatCompletionsScope(), consumeSseEvents(), isRecord(), parseEventPayload(), readLegacyPayload(), readOpenAiPayload(), createDeepAgentGraph() (+32 more)
+Nodes (21): _t(), be(), ce, ct(), de, _e(), Ee(), fe() (+13 more)
 
 ### Community 8 - "Community 8"
+Cohesion: 0.04
+Nodes (9): DE(), or, rv(), rx, handleUploadClick(), toggleWebRTC(), computePartSize(), uploadFileWithMultipartPresignedUrl() (+1 more)
+
+### Community 9 - "Community 9"
 Cohesion: 0.03
 Nodes (54): downloadFromUrl(), captureScreenshot(), convertBlobUrlToDataUrl(), onDrop(), PromptInputActionAddAttachments(), PromptInputActionAddScreenshot(), useOptionalProviderAttachments(), usePromptInputAttachments() (+46 more)
 
-### Community 9 - "Community 9"
-Cohesion: 0.04
-Nodes (42): computeFileHash(), computeFilesHashes(), computeFolderHashes(), flattenFileMap(), getFolderNameFromEntry(), resolveUserId(), uploadSingleFileWithProgress(), handleUpload() (+34 more)
-
 ### Community 10 - "Community 10"
 Cohesion: 0.05
-Nodes (40): _0, b_(), eE, j_(), nl(), Oh(), v_(), W_ (+32 more)
+Nodes (30): _0, b_(), eE, j_(), nl(), Oh(), v_(), W_ (+22 more)
 
 ### Community 11 - "Community 11"
-Cohesion: 0.05
-Nodes (44): getFileSummaryLimits(), getFileSummaryModelName(), getFileSummaryOllamaBaseUrl(), toPositiveInteger(), decodeUtf8WithReplacement(), loadTextExcerptForSummary(), toUint8Array(), getFileExtension() (+36 more)
+Cohesion: 0.1
+Nodes (6): Bo(), ds(), Fv(), oc, Ui, ZT()
 
 ### Community 12 - "Community 12"
 Cohesion: 0.07
@@ -142,23 +143,23 @@ Nodes (24): loadAuth(), isAdminRole(), normalizeUserRole(), getRequestOrigin(), 
 
 ### Community 13 - "Community 13"
 Cohesion: 0.14
-Nodes (9): a_, Ah, gc(), k0(), l_, mc(), qt, s_ (+1 more)
+Nodes (8): a_, Ah, gc(), k0(), l_, mc(), s_, yt()
 
 ### Community 14 - "Community 14"
 Cohesion: 0.09
 Nodes (3): _2, E2, fr
 
 ### Community 15 - "Community 15"
+Cohesion: 0.07
+Nodes (22): resolveUserId(), handleMediaInputChange(), mapBreadcrumbs(), mapItems(), handleDrop(), handleInputChange(), handleUpload(), updateUpload() (+14 more)
+
+### Community 16 - "Community 16"
 Cohesion: 0.22
 Nodes (4): NS, sd(), Wn(), ia
 
-### Community 16 - "Community 16"
-Cohesion: 0.17
-Nodes (3): Bo(), oc, Ui
-
 ### Community 17 - "Community 17"
-Cohesion: 0.15
-Nodes (2): m0, $t()
+Cohesion: 0.11
+Nodes (3): m0, mt, $t()
 
 ### Community 19 - "Community 19"
 Cohesion: 0.13
@@ -242,61 +243,63 @@ Nodes (2): CarouselNext(), useCarousel()
 
 ### Community 61 - "Community 61"
 Cohesion: 0.5
-Nodes (1): Nr
+Nodes (1): xx()
 
 ### Community 62 - "Community 62"
+Cohesion: 0.5
+Nodes (1): Nr
+
+### Community 63 - "Community 63"
+Cohesion: 0.5
+Nodes (1): e0()
+
+### Community 64 - "Community 64"
+Cohesion: 0.5
+Nodes (1): ic
+
+### Community 66 - "Community 66"
 Cohesion: 0.67
 Nodes (2): getAttachmentLabel(), getMediaCategory()
 
-### Community 64 - "Community 64"
+### Community 68 - "Community 68"
 Cohesion: 0.67
 Nodes (2): TranscriptionSegment(), useTranscription()
 
-### Community 71 - "Community 71"
+### Community 75 - "Community 75"
 Cohesion: 0.5
 Nodes (2): WebRTCProvider(), useWebRTCConnection()
 
-### Community 73 - "Community 73"
-Cohesion: 0.67
-Nodes (2): includesCaseInsensitive(), originMatches()
-
-### Community 74 - "Community 74"
-Cohesion: 0.5
-Nodes (1): ProviderRequestTimeoutError
-
-### Community 75 - "Community 75"
+### Community 77 - "Community 77"
 Cohesion: 0.67
 Nodes (2): handleSubmit(), verifyCode()
 
-### Community 76 - "Community 76"
+### Community 78 - "Community 78"
 Cohesion: 0.67
 Nodes (3): createS3Client(), readFixtureBytes(), readRequiredEnv()
 
-### Community 77 - "Community 77"
+### Community 79 - "Community 79"
 Cohesion: 0.67
 Nodes (1): Xo
 
-### Community 98 - "Community 98"
+### Community 100 - "Community 100"
 Cohesion: 0.67
 Nodes (1): getDefaultUntitledName()
 
-### Community 99 - "Community 99"
+### Community 101 - "Community 101"
 Cohesion: 0.67
 Nodes (1): formatTime()
 
-### Community 108 - "Community 108"
+### Community 110 - "Community 110"
 Cohesion: 1.0
 Nodes (2): generateFileSummaryForItem(), wait()
 
-### Community 218 - "Community 218"
+### Community 221 - "Community 221"
 Cohesion: 1.0
 Nodes (1): Tagify
 
 ## Knowledge Gaps
 - **43 isolated node(s):** `DOMException`, `CompileError`, `RuntimeError`, `Global`, `Instance` (+38 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 17`** (23 nodes): `m0`, `.constructor()`, `$t()`, `.begin()`, `._cached()`, `._callMatches()`, `._callQuery()`, `._checkSelector()`, `.end()`, `._expandContextForScopeMatching()`, `._getEngine()`, `._hasScopeClause()`, `._markScore()`, `.matches()`, `._matchesEngine()`, `._matchesParents()`, `._matchesSimple()`, `.query()`, `._queryCSS()`, `._queryEngine()`, `._querySimple()`, `.toJSON()`, `.toString()`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 27`** (10 nodes): `MicSelector()`, `MicSelectorContent()`, `MicSelectorEmpty()`, `MicSelectorInput()`, `MicSelectorItem()`, `MicSelectorLabel()`, `MicSelectorList()`, `MicSelectorTrigger()`, `useAudioDevices()`, `mic-selector.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 31`** (8 nodes): `makeData()`, `newPerson()`, `range()`, `shuffle()`, `ShuffleHero()`, `shuffleSquares()`, `shuffle-grid.tsx`, `demo-table-data.ts`
@@ -317,40 +320,42 @@ Nodes (1): Tagify
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 56`** (5 nodes): `Carousel()`, `CarouselNext()`, `cn()`, `useCarousel()`, `carousel.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 61`** (4 nodes): `Nr`, `.ASCIIMatch()`, `.constructor()`, `.toJSON()`
+- **Thin community `Community 61`** (4 nodes): `xx()`, `.constructor()`, `.toJSON()`, `.toString()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 62`** (4 nodes): `cn()`, `getAttachmentLabel()`, `getMediaCategory()`, `attachments.tsx`
+- **Thin community `Community 62`** (4 nodes): `Nr`, `.ASCIIMatch()`, `.constructor()`, `.toJSON()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 64`** (4 nodes): `transcription.tsx`, `Transcription()`, `TranscriptionSegment()`, `useTranscription()`
+- **Thin community `Community 63`** (4 nodes): `e0()`, `.constructor()`, `.toSource()`, `.toString()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 71`** (4 nodes): `WebRTCProvider()`, `provider.tsx`, `useWebRTCConnection.ts`, `useWebRTCConnection()`
+- **Thin community `Community 64`** (4 nodes): `ic`, `.constructor()`, `.toSource()`, `.toString()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 73`** (4 nodes): `headersMatch()`, `includesCaseInsensitive()`, `originMatches()`, `s3-cors.ts`
+- **Thin community `Community 66`** (4 nodes): `cn()`, `getAttachmentLabel()`, `getMediaCategory()`, `attachments.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 74`** (4 nodes): `parsePositiveInt()`, `ProviderRequestTimeoutError`, `.constructor()`, `s3-provider-timeout.ts`
+- **Thin community `Community 68`** (4 nodes): `transcription.tsx`, `Transcription()`, `TranscriptionSegment()`, `useTranscription()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 75`** (4 nodes): `goToApprove()`, `handleSubmit()`, `verifyCode()`, `index.tsx`
+- **Thin community `Community 75`** (4 nodes): `WebRTCProvider()`, `provider.tsx`, `useWebRTCConnection.ts`, `useWebRTCConnection()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 77`** (3 nodes): `Xo`, `.constructor()`, `.toSource()`
+- **Thin community `Community 77`** (4 nodes): `goToApprove()`, `handleSubmit()`, `verifyCode()`, `index.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 98`** (3 nodes): `utils.ts`, `getDefaultUntitledName()`, `looksLikeHtml()`
+- **Thin community `Community 79`** (3 nodes): `Xo`, `.constructor()`, `.toSource()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 99`** (3 nodes): `cn()`, `formatTime()`, `ai-prompt-box.tsx`
+- **Thin community `Community 100`** (3 nodes): `utils.ts`, `getDefaultUntitledName()`, `looksLikeHtml()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 108`** (3 nodes): `generateFileSummaryForItem()`, `wait()`, `client.ts`
+- **Thin community `Community 101`** (3 nodes): `cn()`, `formatTime()`, `ai-prompt-box.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 218`** (2 nodes): `tagify.d.ts`, `Tagify`
+- **Thin community `Community 110`** (3 nodes): `generateFileSummaryForItem()`, `wait()`, `client.ts`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 221`** (2 nodes): `tagify.d.ts`, `Tagify`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `mt()` connect `Community 2` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 6`, `Community 7`, `Community 13`, `Community 14`, `Community 15`, `Community 17`?**
-  _High betweenness centrality (0.096) - this node is a cross-community bridge._
-- **Why does `error()` connect `Community 5` to `Community 0`, `Community 1`, `Community 2`, `Community 3`, `Community 9`, `Community 12`?**
-  _High betweenness centrality (0.032) - this node is a cross-community bridge._
-- **Why does `log()` connect `Community 5` to `Community 0`, `Community 1`, `Community 11`, `Community 7`?**
-  _High betweenness centrality (0.030) - this node is a cross-community bridge._
+- **Why does `mt()` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 5`, `Community 7`, `Community 8`, `Community 11`, `Community 14`, `Community 16`, `Community 17`?**
+  _High betweenness centrality (0.090) - this node is a cross-community bridge._
+- **Why does `error()` connect `Community 6` to `Community 0`, `Community 1`, `Community 2`, `Community 3`, `Community 5`, `Community 10`, `Community 12`, `Community 15`?**
+  _High betweenness centrality (0.044) - this node is a cross-community bridge._
+- **Why does `Select()` connect `Community 2` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 5`, `Community 8`, `Community 12`, `Community 29`?**
+  _High betweenness centrality (0.035) - this node is a cross-community bridge._
 - **Are the 82 inferred relationships involving `mt()` (e.g. with `PE()` and `Select()`) actually correct?**
   _`mt()` has 82 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 82 inferred relationships involving `Select()` (e.g. with `mt()` and `po()`) actually correct?**
