@@ -5,7 +5,7 @@ import {
   resolveProviderId,
   getProviderClientById,
 } from '@/lib/s3-provider-client'
-import { DEFAULT_FILE_SIZE_LIMIT_BYTES } from '@/lib/storage-quota-constants'
+
 import { db } from '@/db'
 import { file as storageFile, folder, userStorage } from '@/db/schema/storage'
 import { eq, sql, and } from 'drizzle-orm'
@@ -84,22 +84,6 @@ export const initFolderUpload = createServerFn({ method: 'POST' })
         },
       },
       async () => {
-        const storageRows = await db
-          .select({ fileSizeLimit: userStorage.fileSizeLimit })
-          .from(userStorage)
-          .where(eq(userStorage.userId, authUser.id))
-          .limit(1)
-        const fileSizeLimit =
-          storageRows[0]?.fileSizeLimit ?? DEFAULT_FILE_SIZE_LIMIT_BYTES
-
-        for (const file of data.files) {
-          if (file.fileSize > fileSizeLimit) {
-            throw new Error(
-              `File "${file.fileName}" exceeds maximum allowed size (${fileSizeLimit} bytes)`,
-            )
-          }
-        }
-
         const totalSizeRows = await db
           .select({
             usedStorage: userStorage.usedStorage,

@@ -36,6 +36,7 @@ import { Route as ApiStorageS3IndexRouteImport } from './routes/api/storage/s3/i
 import { Route as ApiV1ChatCompletionsRouteImport } from './routes/api/v1/chat/completions'
 import { Route as ApiStorageUploadProxyRouteImport } from './routes/api/storage/upload/proxy'
 import { Route as ApiStorageS3UploadStatusRouteImport } from './routes/api/storage/s3/upload-status'
+import { Route as ApiStorageS3RotateCredentialsRouteImport } from './routes/api/storage/s3/rotate-credentials'
 import { Route as ApiStorageS3ObjectSettingsRouteImport } from './routes/api/storage/s3/object-settings'
 import { Route as ApiStorageS3InitiateUploadRouteImport } from './routes/api/storage/s3/initiate-upload'
 import { Route as ApiStorageS3EmptyBucketRouteImport } from './routes/api/storage/s3/empty-bucket'
@@ -183,6 +184,12 @@ const ApiStorageS3UploadStatusRoute =
     path: '/upload-status',
     getParentRoute: () => ApiStorageS3Route,
   } as any)
+const ApiStorageS3RotateCredentialsRoute =
+  ApiStorageS3RotateCredentialsRouteImport.update({
+    id: '/rotate-credentials',
+    path: '/rotate-credentials',
+    getParentRoute: () => ApiStorageS3Route,
+  } as any)
 const ApiStorageS3ObjectSettingsRoute =
   ApiStorageS3ObjectSettingsRouteImport.update({
     id: '/object-settings',
@@ -279,6 +286,7 @@ export interface FileRoutesByFullPath {
   '/api/storage/s3/empty-bucket': typeof ApiStorageS3EmptyBucketRoute
   '/api/storage/s3/initiate-upload': typeof ApiStorageS3InitiateUploadRoute
   '/api/storage/s3/object-settings': typeof ApiStorageS3ObjectSettingsRoute
+  '/api/storage/s3/rotate-credentials': typeof ApiStorageS3RotateCredentialsRoute
   '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
   '/api/storage/upload/proxy': typeof ApiStorageUploadProxyRoute
   '/api/v1/chat/completions': typeof ApiV1ChatCompletionsRoute
@@ -317,6 +325,7 @@ export interface FileRoutesByTo {
   '/api/storage/s3/empty-bucket': typeof ApiStorageS3EmptyBucketRoute
   '/api/storage/s3/initiate-upload': typeof ApiStorageS3InitiateUploadRoute
   '/api/storage/s3/object-settings': typeof ApiStorageS3ObjectSettingsRoute
+  '/api/storage/s3/rotate-credentials': typeof ApiStorageS3RotateCredentialsRoute
   '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
   '/api/storage/upload/proxy': typeof ApiStorageUploadProxyRoute
   '/api/v1/chat/completions': typeof ApiV1ChatCompletionsRoute
@@ -358,6 +367,7 @@ export interface FileRoutesById {
   '/api/storage/s3/empty-bucket': typeof ApiStorageS3EmptyBucketRoute
   '/api/storage/s3/initiate-upload': typeof ApiStorageS3InitiateUploadRoute
   '/api/storage/s3/object-settings': typeof ApiStorageS3ObjectSettingsRoute
+  '/api/storage/s3/rotate-credentials': typeof ApiStorageS3RotateCredentialsRoute
   '/api/storage/s3/upload-status': typeof ApiStorageS3UploadStatusRoute
   '/api/storage/upload/proxy': typeof ApiStorageUploadProxyRoute
   '/api/v1/chat/completions': typeof ApiV1ChatCompletionsRoute
@@ -399,6 +409,7 @@ export interface FileRouteTypes {
     | '/api/storage/s3/empty-bucket'
     | '/api/storage/s3/initiate-upload'
     | '/api/storage/s3/object-settings'
+    | '/api/storage/s3/rotate-credentials'
     | '/api/storage/s3/upload-status'
     | '/api/storage/upload/proxy'
     | '/api/v1/chat/completions'
@@ -437,6 +448,7 @@ export interface FileRouteTypes {
     | '/api/storage/s3/empty-bucket'
     | '/api/storage/s3/initiate-upload'
     | '/api/storage/s3/object-settings'
+    | '/api/storage/s3/rotate-credentials'
     | '/api/storage/s3/upload-status'
     | '/api/storage/upload/proxy'
     | '/api/v1/chat/completions'
@@ -477,6 +489,7 @@ export interface FileRouteTypes {
     | '/api/storage/s3/empty-bucket'
     | '/api/storage/s3/initiate-upload'
     | '/api/storage/s3/object-settings'
+    | '/api/storage/s3/rotate-credentials'
     | '/api/storage/s3/upload-status'
     | '/api/storage/upload/proxy'
     | '/api/v1/chat/completions'
@@ -694,6 +707,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStorageS3UploadStatusRouteImport
       parentRoute: typeof ApiStorageS3Route
     }
+    '/api/storage/s3/rotate-credentials': {
+      id: '/api/storage/s3/rotate-credentials'
+      path: '/rotate-credentials'
+      fullPath: '/api/storage/s3/rotate-credentials'
+      preLoaderRoute: typeof ApiStorageS3RotateCredentialsRouteImport
+      parentRoute: typeof ApiStorageS3Route
+    }
     '/api/storage/s3/object-settings': {
       id: '/api/storage/s3/object-settings'
       path: '/object-settings'
@@ -813,6 +833,7 @@ interface ApiStorageS3RouteChildren {
   ApiStorageS3EmptyBucketRoute: typeof ApiStorageS3EmptyBucketRoute
   ApiStorageS3InitiateUploadRoute: typeof ApiStorageS3InitiateUploadRoute
   ApiStorageS3ObjectSettingsRoute: typeof ApiStorageS3ObjectSettingsRoute
+  ApiStorageS3RotateCredentialsRoute: typeof ApiStorageS3RotateCredentialsRoute
   ApiStorageS3UploadStatusRoute: typeof ApiStorageS3UploadStatusRoute
   ApiStorageS3IndexRoute: typeof ApiStorageS3IndexRoute
 }
@@ -828,6 +849,7 @@ const ApiStorageS3RouteChildren: ApiStorageS3RouteChildren = {
   ApiStorageS3EmptyBucketRoute: ApiStorageS3EmptyBucketRoute,
   ApiStorageS3InitiateUploadRoute: ApiStorageS3InitiateUploadRoute,
   ApiStorageS3ObjectSettingsRoute: ApiStorageS3ObjectSettingsRoute,
+  ApiStorageS3RotateCredentialsRoute: ApiStorageS3RotateCredentialsRoute,
   ApiStorageS3UploadStatusRoute: ApiStorageS3UploadStatusRoute,
   ApiStorageS3IndexRoute: ApiStorageS3IndexRoute,
 }

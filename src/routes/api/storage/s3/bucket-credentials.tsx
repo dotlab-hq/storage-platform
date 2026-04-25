@@ -28,14 +28,6 @@ function resolveCompatEndpoint(request: Request): string {
   return `${origin}/api/storage/s3`
 }
 
-function resolveCompatRegion(): string {
-  const configured = process.env.S3_COMPAT_REGION?.trim()
-  if (configured && configured.length > 0) {
-    return configured
-  }
-  return 'auto'
-}
-
 function errorToMessage(error: unknown): string {
   if (error instanceof z.ZodError) {
     return error.issues[0]?.message ?? 'Invalid request'
@@ -64,7 +56,7 @@ export const Route = createFileRoute('/api/storage/s3/bucket-credentials')({
             credentials: {
               ...credentials,
               endpoint: resolveCompatEndpoint(request),
-              region: resolveCompatRegion(),
+              // region is already correctly set from the bucket's stored region
             },
           })
         } catch (error) {

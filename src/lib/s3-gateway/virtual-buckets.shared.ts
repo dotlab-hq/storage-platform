@@ -33,6 +33,7 @@ export async function getActiveBucketRow(userId: string, bucketName: string) {
       mappedFolderId: virtualBucket.mappedFolderId,
       isActive: virtualBucket.isActive,
       credentialVersion: virtualBucket.credentialVersion,
+      region: virtualBucket.region,
     })
     .from(virtualBucket)
     .where(
@@ -104,6 +105,7 @@ export function createBucketCredentials(
   bucketId: string,
   bucketName: string,
   credentialVersion: number,
+  region?: string,
 ): S3BucketCredentials {
   const digest = createHmac('sha256', resolveCredentialSecret())
     .update(`${userId}:${bucketId}:${bucketName}:${credentialVersion}`)
@@ -115,6 +117,6 @@ export function createBucketCredentials(
     secretAccessKey: `${digest}${digest.slice(0, 24)}`,
     bucket: bucketName,
     endpoint: resolveCompatEndpoint(),
-    region: resolveCompatRegion(),
+    region: region ?? resolveCompatRegion(),
   }
 }

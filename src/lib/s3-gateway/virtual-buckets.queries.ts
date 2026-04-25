@@ -42,5 +42,6 @@ export async function getVirtualBucketCredentials(
     row.id,
     row.name,
     row.credentialVersion,
+    row.region,
   )
 }

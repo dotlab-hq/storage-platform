@@ -1,4 +1,4 @@
-import { eq } from 'drizzle-orm'
+import { eq, sql } from 'drizzle-orm'
 import { db } from '@/db'
 import { virtualBucket } from '@/db/schema/s3-gateway'
 import { z } from 'zod'
@@ -35,7 +35,9 @@ export async function rotateBucketCredentials(
   // Increment credential version
   const updatedRows = await db
     .update(virtualBucket)
-    .set({ credentialVersion: virtualBucket.credentialVersion + 1 })
+    .set({
+      credentialVersion: sql`${virtualBucket.credentialVersion} + 1`,
+    })
     .where(eq(virtualBucket.id, row.id))
     .returning({
       id: virtualBucket.id,
@@ -54,12 +56,13 @@ export async function rotateBucketCredentials(
     bucketId: row.id,
   })
 
-  // Generate new credentials with new version
+  // Generate new credentials with new version (preserve bucket's region)
   const credentials = createBucketCredentials(
     userId,
     row.id,
     row.name,
     newVersion,
+    row.region,
   )
 
   await logActivity({

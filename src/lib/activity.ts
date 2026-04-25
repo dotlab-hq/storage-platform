@@ -36,6 +36,7 @@ export type ActivityEventType =
   | 'upload_multipart'
   | 'upload_complete'
   | 'upload_abort'
+  | 'bucket_credentials_rotate'
 
 export type ActivityResourceType =
   | 'file'
