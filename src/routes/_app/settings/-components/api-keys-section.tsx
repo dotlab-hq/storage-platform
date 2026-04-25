@@ -1,10 +1,13 @@
 'use client'
 
 import { useState } from 'react'
+import { useHotkey } from '@tanstack/react-hotkeys'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { Key, Trash2, Copy, Loader2, KeyRound } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { Activity } from '@/components/ui/activity'
+import { KeyboardShortcut } from '@/components/ui/keyboard-shortcut'
 import { toast } from 'sonner'
 import {
   Dialog,
@@ -34,56 +37,89 @@ type ApiKeySnapshot = {
   createdAt: Date
 }
 
-export function ApiKeysSection({
+export function ApiKeysSection( {
   initialKeys,
 }: {
   initialKeys: ApiKeySnapshot[]
-}) {
+} ) {
   const queryClient = useQueryClient()
-  const [newKeyName, setNewKeyName] = useState('Chat Completions Key')
-  const [showKeyDialog, setShowKeyDialog] = useState(false)
-  const [revealedKey, setRevealedKey] = useState<string>('')
+  const [newKeyName, setNewKeyName] = useState( 'Chat Completions Key' )
+  const [showKeyDialog, setShowKeyDialog] = useState( false )
+  const [revealedKey, setRevealedKey] = useState<string>( '' )
 
-  const createMutation = useMutation({
-    mutationFn: async (name: string) => {
-      return createChatApiKeyFn({
+  const createMutation = useMutation( {
+    mutationFn: async ( name: string ) => {
+      return createChatApiKeyFn( {
         data: { name, scopes: ['chat:completions'] },
-      })
+      } )
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['settings'] })
+      queryClient.invalidateQueries( { queryKey: ['settings'] } )
     },
-  })
+  } )
 
-  const deleteMutation = useMutation({
-    mutationFn: async (id: string) => {
-      return deleteChatApiKeyFn({ data: { id } })
+  const deleteMutation = useMutation( {
+    mutationFn: async ( id: string ) => {
+      return deleteChatApiKeyFn( { data: { id } } )
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['settings'] })
+      queryClient.invalidateQueries( { queryKey: ['settings'] } )
     },
-  })
+  } )
+
+  const canCreate =
+    !createMutation.isPending && newKeyName.trim().length > 0 && !showKeyDialog
+
+  useHotkey(
+    'Mod+Enter',
+    () => {
+      if ( canCreate ) {
+        void handleCreate()
+      }
+    },
+    { enabled: canCreate },
+  )
+
+  useHotkey(
+    'Escape',
+    () => {
+      if ( showKeyDialog ) {
+        setShowKeyDialog( false )
+      }
+    },
+    { enabled: showKeyDialog },
+  )
+
+  useHotkey(
+    'Mod+C',
+    () => {
+      if ( showKeyDialog && revealedKey.length > 0 ) {
+        void copyToClipboard( revealedKey )
+      }
+    },
+    { enabled: showKeyDialog && revealedKey.length > 0 },
+  )
 
   const handleCreate = async () => {
     try {
-      const result = await createMutation.mutateAsync(newKeyName)
-      setRevealedKey(result.apiKey.key)
-      setShowKeyDialog(true)
-      toast.success('Chat API key generated')
-    } catch (error: unknown) {
+      const result = await createMutation.mutateAsync( newKeyName )
+      setRevealedKey( result.apiKey.key )
+      setShowKeyDialog( true )
+      toast.success( 'Chat API key generated' )
+    } catch ( error: unknown ) {
       const message =
         error instanceof Error ? error.message : 'Failed to create API key'
-      toast.error(message)
+      toast.error( message )
     }
   }
 
-  const copyToClipboard = async (value: string) => {
-    await navigator.clipboard.writeText(value)
-    toast.success('Copied to clipboard')
+  const copyToClipboard = async ( value: string ) => {
+    await navigator.clipboard.writeText( value )
+    toast.success( 'Copied to clipboard' )
   }
 
   return (
-    <section className="overflow-hidden rounded-2xl bg-gradient-to-br from-background via-background to-muted/30 p-6 shadow-sm">
+    <section className="overflow-hidden rounded-2xl bg-linear-to-br from-background via-background to-muted/30 p-6 shadow-sm">
       <div className="mb-6 flex items-center gap-3">
         <div className="bg-primary/10 flex size-10 items-center justify-center rounded-lg">
           <Key className="text-primary size-5" />
@@ -115,11 +151,12 @@ export function ApiKeysSection({
               <Button
                 size="icon"
                 variant="outline"
-                onClick={() => void copyToClipboard(revealedKey)}
+                onClick={() => void copyToClipboard( revealedKey )}
                 aria-label="Copy API key to clipboard"
               >
                 <Copy className="h-4 w-4" />
               </Button>
+              <KeyboardShortcut keys="Mod+C" className="self-center" />
             </div>
             <p className="text-muted-foreground text-xs">
               Use header:{' '}
@@ -129,7 +166,10 @@ export function ApiKeysSection({
             </p>
           </div>
           <DialogFooter>
-            <Button onClick={() => setShowKeyDialog(false)}>I saved it</Button>
+            <Button onClick={() => setShowKeyDialog( false )}>
+              I saved it
+              <KeyboardShortcut keys="Escape" className="ml-2" />
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
@@ -138,9 +178,9 @@ export function ApiKeysSection({
         <Input
           placeholder="Key name"
           value={newKeyName}
-          onChange={(event) => setNewKeyName(event.target.value)}
-          onKeyDown={(event) => {
-            if (event.key === 'Enter' && newKeyName.trim()) {
+          onChange={( event ) => setNewKeyName( event.target.value )}
+          onKeyDown={( event ) => {
+            if ( event.key === 'Enter' && newKeyName.trim() ) {
               void handleCreate()
             }
           }}
@@ -150,18 +190,70 @@ export function ApiKeysSection({
           onClick={() => void handleCreate()}
           disabled={!newKeyName.trim() || createMutation.isPending}
         >
-          {createMutation.isPending ? (
+          <Activity
+            when={createMutation.isPending}
+            fallback={
+              <>
+                <KeyRound className="mr-2 h-4 w-4" />
+                Generate
+                <KeyboardShortcut keys="Mod+Enter" className="ml-2" />
+              </>
+            }
+          >
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          ) : (
-            <KeyRound className="mr-2 h-4 w-4" />
-          )}
-          Generate
+          </Activity>
         </Button>
       </div>
 
       {/* Keys Table */}
       <div className="rounded-xl border overflow-hidden">
-        {initialKeys.length === 0 ? (
+        <Activity
+          when={initialKeys.length === 0}
+          fallback={
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Name</TableHead>
+                  <TableHead>Preview</TableHead>
+                  <TableHead>Scope</TableHead>
+                  <TableHead>Created</TableHead>
+                  <TableHead className="text-right">Actions</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {initialKeys.map( ( key ) => (
+                  <TableRow key={key.id}>
+                    <TableCell className="font-medium">{key.name}</TableCell>
+                    <TableCell className="font-mono text-xs">
+                      {key.keyPreview}...
+                    </TableCell>
+                    <TableCell>
+                      <Badge variant="outline">{key.scopes.join( ', ' )}</Badge>
+                    </TableCell>
+                    <TableCell className="text-muted-foreground">
+                      {new Date( key.createdAt ).toLocaleDateString()}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="text-destructive hover:text-destructive h-8 w-8"
+                        disabled={deleteMutation.isPending}
+                        onClick={() => {
+                          if ( confirm( 'Delete this API key?' ) ) {
+                            deleteMutation.mutate( key.id )
+                          }
+                        }}
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ) )}
+              </TableBody>
+            </Table>
+          }
+        >
           <div className="flex flex-col items-center justify-center gap-3 py-12">
             <div className="bg-muted/50 flex size-12 items-center justify-center rounded-lg">
               <Key className="text-muted-foreground size-6" />
@@ -173,50 +265,7 @@ export function ApiKeysSection({
               </p>
             </div>
           </div>
-        ) : (
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Name</TableHead>
-                <TableHead>Preview</TableHead>
-                <TableHead>Scope</TableHead>
-                <TableHead>Created</TableHead>
-                <TableHead className="text-right">Actions</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {initialKeys.map((key) => (
-                <TableRow key={key.id}>
-                  <TableCell className="font-medium">{key.name}</TableCell>
-                  <TableCell className="font-mono text-xs">
-                    {key.keyPreview}...
-                  </TableCell>
-                  <TableCell>
-                    <Badge variant="outline">{key.scopes.join(', ')}</Badge>
-                  </TableCell>
-                  <TableCell className="text-muted-foreground">
-                    {new Date(key.createdAt).toLocaleDateString()}
-                  </TableCell>
-                  <TableCell className="text-right">
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="text-destructive hover:text-destructive h-8 w-8"
-                      disabled={deleteMutation.isPending}
-                      onClick={() => {
-                        if (confirm('Delete this API key?')) {
-                          deleteMutation.mutate(key.id)
-                        }
-                      }}
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        )}
+        </Activity>
       </div>
     </section>
   )

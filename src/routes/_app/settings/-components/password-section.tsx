@@ -1,40 +1,65 @@
 'use client'
 
 import { useState } from 'react'
+import { useMutation } from '@tanstack/react-query'
+import { useHotkey } from '@tanstack/react-hotkeys'
 import { toast } from '@/components/ui/sonner'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Activity } from '@/components/ui/activity'
+import { KeyboardShortcut } from '@/components/ui/keyboard-shortcut'
 import { KeyRound, Lock } from 'lucide-react'
 import { updateSettings, useSettingsStore } from '../-store'
 import { changePasswordSettingsFn } from '../-settings-server'
 
 export function PasswordSection() {
-  const [passwords, setPasswords] = useState({
+  const [passwords, setPasswords] = useState( {
     currentPassword: '',
     newPassword: '',
-  })
+  } )
   const isChangingPassword = useSettingsStore(
-    (state) => state.isChangingPassword,
+    ( state ) => state.isChangingPassword,
   )
 
-  const changePassword = async () => {
-    updateSettings({ isChangingPassword: true })
-    try {
-      await changePasswordSettingsFn({ data: passwords })
-      setPasswords({ currentPassword: '', newPassword: '' })
-      toast.success('Password updated.')
-    } catch (error) {
+  const canSubmit =
+    !isChangingPassword &&
+    passwords.currentPassword.trim().length > 0 &&
+    passwords.newPassword.trim().length > 0
+
+  const changePasswordMutation = useMutation( {
+    mutationFn: async () => {
+      await changePasswordSettingsFn( { data: passwords } )
+    },
+    onMutate: () => {
+      updateSettings( { isChangingPassword: true } )
+    },
+    onSuccess: () => {
+      setPasswords( { currentPassword: '', newPassword: '' } )
+      toast.success( 'Password updated.' )
+    },
+    onError: ( error ) => {
       toast.error(
         error instanceof Error ? error.message : 'Failed to update password.',
       )
-    } finally {
-      updateSettings({ isChangingPassword: false })
-    }
-  }
+    },
+    onSettled: () => {
+      updateSettings( { isChangingPassword: false } )
+    },
+  } )
+
+  useHotkey(
+    'Mod+Enter',
+    () => {
+      if ( canSubmit ) {
+        changePasswordMutation.mutate()
+      }
+    },
+    { enabled: canSubmit },
+  )
 
   return (
-    <section className="overflow-hidden rounded-2xl bg-gradient-to-br from-background via-background to-muted/30 p-6 shadow-sm">
+    <section className="overflow-hidden rounded-2xl bg-linear-to-br from-background via-background to-muted/30 p-6 shadow-sm">
       <div className="mb-6 flex items-center gap-3">
         <div className="bg-primary/10 flex size-10 items-center justify-center rounded-lg">
           <Lock className="text-primary size-5" />
@@ -53,11 +78,11 @@ export function PasswordSection() {
           <Input
             type="password"
             value={passwords.currentPassword}
-            onChange={(e) =>
-              setPasswords((prev) => ({
+            onChange={( e ) =>
+              setPasswords( ( prev ) => ( {
                 ...prev,
                 currentPassword: e.target.value,
-              }))
+              } ) )
             }
             placeholder="Enter current password"
           />
@@ -67,35 +92,35 @@ export function PasswordSection() {
           <Input
             type="password"
             value={passwords.newPassword}
-            onChange={(e) =>
-              setPasswords((prev) => ({
+            onChange={( e ) =>
+              setPasswords( ( prev ) => ( {
                 ...prev,
                 newPassword: e.target.value,
-              }))
+              } ) )
             }
             placeholder="Enter new password"
           />
         </div>
         <div className="flex justify-end pt-2">
           <Button
-            disabled={
-              isChangingPassword ||
-              !passwords.currentPassword ||
-              !passwords.newPassword
-            }
-            onClick={() => void changePassword()}
+            disabled={!canSubmit}
+            onClick={() => changePasswordMutation.mutate()}
           >
-            {isChangingPassword ? (
+            <Activity
+              when={isChangingPassword}
+              fallback={
+                <>
+                  <KeyRound className="mr-2 size-4" />
+                  Change Password
+                  <KeyboardShortcut keys="Mod+Enter" className="ml-2" />
+                </>
+              }
+            >
               <>
                 <span className="mr-2 size-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
                 Updating...
               </>
-            ) : (
-              <>
-                <KeyRound className="mr-2 size-4" />
-                Change Password
-              </>
-            )}
+            </Activity>
           </Button>
         </div>
       </div>

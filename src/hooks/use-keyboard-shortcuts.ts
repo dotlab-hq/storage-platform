@@ -4,17 +4,24 @@ import { useKeyboardShortcutsStore } from '@/stores/keyboard-shortcuts-store'
 
 type ShortcutMap = Record<string, () => void>
 
-export function useKeyboardShortcuts(shortcuts: ShortcutMap) {
-  const register = useKeyboardShortcutsStore((state) => state.register)
-  const runSelectAll = useEffectEvent(() => shortcuts['mod+a']?.())
-  const runEscape = useEffectEvent(() => shortcuts.escape?.())
-  const runDelete = useEffectEvent(() => shortcuts.delete?.())
+export function useKeyboardShortcuts( shortcuts: ShortcutMap ) {
+  const register = useKeyboardShortcutsStore( ( state ) => state.register )
+  const setHandlers = useKeyboardShortcutsStore( ( state ) => state.setHandlers )
+  const run = useKeyboardShortcutsStore( ( state ) => state.run )
+  const runShortcut = useEffectEvent( ( key: string ) => run( key ) )
 
-  useLayoutEffect(() => {
-    register(Object.keys(shortcuts))
-  }, [register, shortcuts])
+  useLayoutEffect( () => {
+    setHandlers( shortcuts )
+    register( Object.keys( shortcuts ) )
+  }, [register, setHandlers, shortcuts] )
 
-  useHotkey('Mod+A', runSelectAll, { enabled: Boolean(shortcuts['mod+a']) })
-  useHotkey('Escape', runEscape, { enabled: Boolean(shortcuts.escape) })
-  useHotkey('Delete', runDelete, { enabled: Boolean(shortcuts.delete) })
+  useHotkey( 'Mod+A', () => runShortcut( 'mod+a' ), {
+    enabled: Boolean( shortcuts['mod+a'] ),
+  } )
+  useHotkey( 'Escape', () => runShortcut( 'escape' ), {
+    enabled: Boolean( shortcuts.escape ),
+  } )
+  useHotkey( 'Delete', () => runShortcut( 'delete' ), {
+    enabled: Boolean( shortcuts.delete ),
+  } )
 }
