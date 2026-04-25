@@ -37,5 +37,10 @@ export async function getVirtualBucketCredentials(
     throw new Error('Virtual bucket not found')
   }
 
-  return createBucketCredentials(userId, row.id, row.name)
+  return createBucketCredentials(
+    userId,
+    row.id,
+    row.name,
+    row.credentialVersion,
+  )
 }

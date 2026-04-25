@@ -58,6 +58,7 @@ export function BucketManager() {
     createNewBucket,
     runBucketAction,
     fetchCredentials,
+    rotateCredentials,
   } = useS3Buckets()
 
   useEffect(() => {
@@ -188,6 +189,16 @@ export function BucketManager() {
           bucketName={activeCredentialsBucket}
           credentials={activeCredentials}
           onCopy={async (value) => navigator.clipboard.writeText(value)}
+          onRotate={
+            activeCredentialsBucket
+              ? async () => {
+                  if (activeCredentialsBucket) {
+                    return await rotateCredentials(activeCredentialsBucket)
+                  }
+                  return null
+                }
+              : undefined
+          }
           onOpenChange={(open) => {
             if (!open) {
               setActiveCredentialsBucket(null)

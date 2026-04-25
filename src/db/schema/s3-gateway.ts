@@ -37,6 +37,7 @@ export const virtualBucket = schema.table(
       .$defaultFn(() => new Date())
       .$onUpdate(() => /* @__PURE__ */ new Date())
       .notNull(),
+    credentialVersion: integer('credential_version').default(1).notNull(),
   },
   (table) => [
     uniqueIndex('virtualBucket_userId_name_unq').on(table.userId, table.name),

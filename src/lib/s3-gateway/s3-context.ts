@@ -14,6 +14,7 @@ export type BucketContext = {
   bucketName: string
   mappedFolderId: string | null
   createdAt: Date
+  credentialVersion: number
 }
 
 type BucketRow = {
@@ -22,6 +23,7 @@ type BucketRow = {
   name: string
   mappedFolderId: string | null
   createdAt: Date
+  credentialVersion: number
 }
 
 const SKEW_WINDOW_MS = 5 * 60 * 1000
@@ -339,9 +341,10 @@ function secretForBucket(
   userId: string,
   bucketId: string,
   bucketName: string,
+  credentialVersion: number,
 ): string {
   const digest = createHmac('sha256', signingSecret())
-    .update(`${userId}:${bucketId}:${bucketName}`)
+    .update(`${userId}:${bucketId}:${bucketName}:${credentialVersion}`)
     .digest('hex')
   return `${digest}${digest.slice(0, 24)}`
 }
@@ -353,6 +356,7 @@ function toContext(row: BucketRow): BucketContext {
     bucketName: row.name,
     mappedFolderId: row.mappedFolderId,
     createdAt: row.createdAt,
+    credentialVersion: row.credentialVersion,
   }
 }
 
@@ -371,6 +375,7 @@ export async function resolveBucketByName(
       name: virtualBucket.name,
       mappedFolderId: virtualBucket.mappedFolderId,
       createdAt: virtualBucket.createdAt,
+      credentialVersion: virtualBucket.credentialVersion,
     })
     .from(virtualBucket)
     .where(
@@ -400,6 +405,7 @@ export async function resolveBucketByAccessKey(
       name: virtualBucket.name,
       mappedFolderId: virtualBucket.mappedFolderId,
       createdAt: virtualBucket.createdAt,
+      credentialVersion: virtualBucket.credentialVersion,
     })
     .from(virtualBucket)
     .where(eq(virtualBucket.isActive, true))
@@ -436,8 +442,12 @@ export function parseAccessKeyId(request: Request): string | null {
 
 export function isSecretValid(bucket: BucketContext, secret: string): boolean {
   return (
-    secretForBucket(bucket.userId, bucket.bucketId, bucket.bucketName) ===
-    secret
+    secretForBucket(
+      bucket.userId,
+      bucket.bucketId,
+      bucket.bucketName,
+      bucket.credentialVersion,
+    ) === secret
   )
 }
 
@@ -449,6 +459,7 @@ export function isSigV4Valid(request: Request, bucket: BucketContext): boolean {
     bucket.userId,
     bucket.bucketId,
     bucket.bucketName,
+    bucket.credentialVersion,
   )
 
   if (authorization) {

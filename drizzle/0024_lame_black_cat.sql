@@ -1,0 +1,1 @@
+ALTER TABLE `virtual_bucket` ADD `credential_version` integer DEFAULT 1 NOT NULL;

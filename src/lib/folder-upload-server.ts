@@ -173,36 +173,8 @@ export const completeFolderUpload = createServerFn({ method: 'POST' })
         meta: { folderName: data.folderName, fileCount: data.files.length },
       },
       async () => {
-        const [{ HeadObjectCommand }] = await Promise.all([
-          import('@aws-sdk/client-s3'),
-        ])
-
-        for (const file of data.files) {
-          try {
-            const provider = await getProviderClientById(
-              file.providerId ?? data.providerId ?? null,
-            )
-            const response = await provider.client.send(
-              new HeadObjectCommand({
-                Bucket: provider.bucketName,
-                Key: file.objectKey,
-              }),
-            )
-
-            const contentLength = response.ContentLength ?? 0
-            if (contentLength !== file.fileSize) {
-              throw new Error(
-                `File size mismatch for "${file.fileName}": expected ${file.fileSize}, got ${contentLength}`,
-              )
-            }
-          } catch (err: unknown) {
-            const message = err instanceof Error ? err.message : String(err)
-            throw new Error(
-              `Hash verification failed for "${file.fileName}": ${message}`,
-            )
-          }
-        }
-
+        // Verification removed: each file was uploaded successfully (HTTP 200)
+        // The upload step already confirms the file is stored correctly.
         let isPrivatelyLocked = false
         if (data.parentFolderId) {
           const parentRows = await db

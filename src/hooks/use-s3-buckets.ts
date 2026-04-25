@@ -13,6 +13,7 @@ import {
   createBucketWithOptimisticUpdate,
   mutateBucketAction,
   requestBucketCredentials,
+  rotateBucketCredentials,
 } from '@/hooks/use-s3-buckets.mutations'
 
 const BUCKETS_QUERY_KEY = ['s3-buckets'] as const
@@ -75,6 +76,11 @@ export function useS3Buckets() {
       ),
   })
 
+  const rotateMutation = useMutation({
+    mutationFn: async (bucketName: string) =>
+      rotateBucketCredentials(setError, bucketName),
+  })
+
   const buckets = bucketsQuery.data ?? []
   const defaultBucket = useMemo(
     () => buckets.find((bucket) => bucket.isDefault),
@@ -103,6 +109,20 @@ export function useS3Buckets() {
     fetchCredentials: async (bucketName?: string) => {
       try {
         return await credentialsMutation.mutateAsync(bucketName)
+      } catch {
+        return null
+      }
+    },
+    rotateCredentials: async (bucketName: string) => {
+      try {
+        const credentials = await rotateMutation.mutateAsync(bucketName)
+        if (credentials) {
+          setCredentialByBucket((previous) => ({
+            ...previous,
+            [bucketName]: credentials,
+          }))
+        }
+        return credentials
       } catch {
         return null
       }

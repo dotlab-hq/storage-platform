@@ -160,3 +160,30 @@ export async function requestBucketCredentials(
     return null
   }
 }
+
+export async function rotateBucketCredentials(
+  setError: SetError,
+  bucketName: string,
+): Promise<S3BucketCredentials | null> {
+  try {
+    const response = await fetch('/api/storage/s3/rotate-credentials', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ bucketName }),
+    })
+    const payload = await parseJson<S3BucketCredentialsResponse>(response)
+    if (!response.ok || !payload.ok) {
+      const message = payload.ok
+        ? 'Failed to rotate credentials'
+        : payload.error
+      throw new Error(message)
+    }
+
+    return payload.credentials
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : 'Failed to rotate credentials'
+    setError(message)
+    return null
+  }
+}

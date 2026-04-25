@@ -1,28 +1,33 @@
 import { useEffect, useRef, useState } from 'react'
-import { Check, Copy } from 'lucide-react'
+import { Check, Copy, Loader2, KeyRound } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
+import { toast } from '@/components/ui/sonner'
 import type { S3BucketCredentials } from '@/types/s3-buckets'
+import { DEFAULT_ASSETS_BUCKET_NAME } from '@/lib/storage/assets-bucket'
 
 type BucketCredentialsDialogProps = {
   bucketName: string | null
   credentials: S3BucketCredentials | undefined
   onOpenChange: (open: boolean) => void
   onCopy: (value: string) => Promise<void>
+  onRotate?: (() => Promise<S3BucketCredentials | null>) | undefined
 }
 
 export function BucketCredentialsDialog(props: BucketCredentialsDialogProps) {
-  const { bucketName, credentials, onOpenChange, onCopy } = props
+  const { bucketName, credentials, onOpenChange, onCopy, onRotate } = props
   const [copiedField, setCopiedField] = useState<'access' | 'secret' | null>(
     null,
   )
   const copyResetTimerRef = useRef<number | null>(null)
+  const [isRotating, setIsRotating] = useState(false)
 
   useEffect(() => {
     return () => {
@@ -118,6 +123,44 @@ export function BucketCredentialsDialog(props: BucketCredentialsDialogProps) {
             <p className="text-muted-foreground">
               Region: {credentials.region}
             </p>
+            {onRotate && (
+              <DialogFooter className="pt-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={async () => {
+                    const confirmed = window.confirm(
+                      'Rotating credentials will invalidate the current access key and secret. Are you sure you want to continue?',
+                    )
+                    if (!confirmed) return
+                    setIsRotating(true)
+                    try {
+                      const result = await onRotate?.()
+                      if (result) {
+                        toast.success('Credentials rotated successfully')
+                      } else {
+                        toast.error('Failed to rotate credentials')
+                      }
+                    } catch {
+                      toast.error('Failed to rotate credentials')
+                    } finally {
+                      setIsRotating(false)
+                    }
+                  }}
+                  disabled={
+                    isRotating || bucketName === DEFAULT_ASSETS_BUCKET_NAME
+                  }
+                  className="gap-2"
+                >
+                  {isRotating ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <KeyRound className="h-4 w-4" />
+                  )}
+                  Rotate Credentials
+                </Button>
+              </DialogFooter>
+            )}
           </div>
         )}
       </DialogContent>

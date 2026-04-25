@@ -47,6 +47,7 @@ async function createVirtualBucketRow(
       mappedFolderId: virtualBucket.mappedFolderId,
       isActive: virtualBucket.isActive,
       createdAt: virtualBucket.createdAt,
+      credentialVersion: virtualBucket.credentialVersion,
     })
 
   await upsertFolderNode({
@@ -73,6 +74,7 @@ async function createVirtualBucketRow(
     bucketName: input.bucketName,
     mappedFolderId: createdFolders[0].id,
     createdAt: createdRows[0].createdAt,
+    credentialVersion: createdRows[0].credentialVersion,
   })
 
   return toBucketItem(createdRows[0])
