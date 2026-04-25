@@ -8,7 +8,7 @@ import type {
   ValidationResult,
   PreToolUseResult,
   ToolProgress,
-} from './tool-types'
+} from './-tool-types'
 
 /**
  * Base class for creating enhanced tools with metadata and hooks
@@ -50,24 +50,25 @@ export abstract class BaseEnhancedTool extends StructuredTool {
   // Optional metadata
   whenToUse?: string[] = []
   whenNotToUse?: string[] = []
-  examples?: Array<{ description: string; arguments: Record<string, unknown> }> = []
+  examples?: Array<{
+    description: string
+    arguments: Record<string, unknown>
+  }> = []
   requiredScope?: string
   executionContext: 'server' | 'client' | 'both' = 'server'
   interruptionBehavior: 'cancel' | 'block' | 'graceful' = 'cancel'
 
   // Optional hooks
-  validateInput?: ( input: Record<string, unknown> ) => Promise<ValidationResult>
-  onBeforeExecute?: ( ctx: ToolExecutionContext, input: Record<string, unknown> ) => Promise<PreToolUseResult>
-  onAfterExecute?: ( ctx: ToolExecutionContext, result: ToolResult ) => Promise<void>
-  onProgress?: ( ctx: ToolExecutionContext, progress: ToolProgress ) => void
-
-  // cached schema for type safety
-  private _schema: z.ZodType<unknown>
-
-  constructor() {
-    super()
-    this._schema = this.schema as z.ZodType<unknown>
-  }
+  validateInput?: (input: Record<string, unknown>) => Promise<ValidationResult>
+  onBeforeExecute?: (
+    ctx: ToolExecutionContext,
+    input: Record<string, unknown>,
+  ) => Promise<PreToolUseResult>
+  onAfterExecute?: (
+    ctx: ToolExecutionContext,
+    result: ToolResult,
+  ) => Promise<void>
+  onProgress?: (ctx: ToolExecutionContext, progress: ToolProgress) => void
 
   /**
    * Main execution method - override this in subclasses
@@ -84,25 +85,25 @@ export abstract class BaseEnhancedTool extends StructuredTool {
   getFullDescription(): string {
     let desc = `${this.name}: ${this.description}\n\n`
 
-    if ( this.whenToUse && this.whenToUse.length > 0 ) {
-      desc += `When to use:\n${this.whenToUse.map( ( s ) => `  - ${s}` ).join( '\n' )}\n\n`
+    if (this.whenToUse && this.whenToUse.length > 0) {
+      desc += `When to use:\n${this.whenToUse.map((s) => `  - ${s}`).join('\n')}\n\n`
     }
 
-    if ( this.whenNotToUse && this.whenNotToUse.length > 0 ) {
-      desc += `When NOT to use:\n${this.whenNotToUse.map( ( s ) => `  - ${s}` ).join( '\n' )}\n\n`
+    if (this.whenNotToUse && this.whenNotToUse.length > 0) {
+      desc += `When NOT to use:\n${this.whenNotToUse.map((s) => `  - ${s}`).join('\n')}\n\n`
     }
 
-    if ( this.examples && this.examples.length > 0 ) {
+    if (this.examples && this.examples.length > 0) {
       desc += `Examples:\n`
-      for ( const ex of this.examples ) {
-        desc += `  ${ex.description}:\n    ${JSON.stringify( ex.arguments )}\n`
+      for (const ex of this.examples) {
+        desc += `  ${ex.description}:\n    ${JSON.stringify(ex.arguments)}\n`
       }
       desc += '\n'
     }
 
-    desc += `Capabilities: ${Object.entries( this.capabilities )
-      .map( ( [k, v] ) => `${k}: ${v}` )
-      .join( ', ' )}`
+    desc += `Capabilities: ${Object.entries(this.capabilities)
+      .map(([k, v]) => `${k}: ${v}`)
+      .join(', ')}`
 
     return desc
   }
@@ -112,7 +113,7 @@ export abstract class BaseEnhancedTool extends StructuredTool {
   /**
    * LangChain calls this - we adapt to our execute() method
    */
-  async _call( input: Record<string, unknown> ): Promise<string> {
+  async _call(input: Record<string, unknown>): Promise<string> {
     // This is the synchronous call interface used by LangChain
     // We'll wrap execute() and convert result to string
     const ctx: ToolExecutionContext = {
@@ -124,25 +125,16 @@ export abstract class BaseEnhancedTool extends StructuredTool {
     }
 
     try {
-      const result = await this.execute( input as z.infer<typeof this.schema>, ctx )
-      return typeof result === 'string' ? result : JSON.stringify( result, null, 2 )
-    } catch ( error ) {
+      const result = await this.execute(
+        input as z.infer<typeof this.schema>,
+        ctx,
+      )
+      return typeof result === 'string'
+        ? result
+        : JSON.stringify(result, null, 2)
+    } catch (error) {
       throw error
     }
-  }
-
-  /**
-   * Get the Zod schema for LangChain integration
-   */
-  get schema(): z.ZodType<unknown> {
-    return this._schema
-  }
-
-  /**
-   * Set schema (for constructor)
-   */
-  set schema( value: z.ZodObject<z.ZodRawShape> ) {
-    this._schema = value as z.ZodType<unknown>
   }
 
   /**
@@ -152,7 +144,7 @@ export abstract class BaseEnhancedTool extends StructuredTool {
     return {
       ...this,
       tool: this,
-      schema: this._schema,
+      schema: this.schema,
     } as EnhancedTool
   }
 }
@@ -201,12 +193,12 @@ export function enhanceTool(
  * Convenience wrapper: if tool already looks enhanced, return as-is; otherwise enhance.
  * This is useful when registering tools that may or may not already be EnhancedTool instances.
  */
-export function enhanceToolIfNeeded( tool: StructuredTool ): EnhancedTool {
+export function enhanceToolIfNeeded(tool: StructuredTool): EnhancedTool {
   // Check if tool already has enhanced properties
-  if ( 'capabilities' in tool && tool.capabilities ) {
+  if ('capabilities' in tool && tool.capabilities) {
     return tool as EnhancedTool
   }
-  return enhanceTool( tool )
+  return enhanceTool(tool)
 }
 
 /**
@@ -225,8 +217,8 @@ export const enhanceToolWithHeuristics = enhanceToolIfNeeded
  * export class ListFilesTool extends BaseEnhancedTool { ... }
  * ```
  */
-export function EnhancedTool( metadata: Partial<EnhancedTool> ) {
-  return function <T extends new ( ...args: unknown[] ) => BaseEnhancedTool>(
+export function EnhancedTool(metadata: Partial<EnhancedTool>) {
+  return function <T extends new (...args: unknown[]) => BaseEnhancedTool>(
     constructor: T,
   ): T {
     return class extends constructor {

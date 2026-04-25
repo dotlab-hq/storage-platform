@@ -1,12 +1,12 @@
 # Graph Report - storage-platform  (2026-04-26)
 
 ## Corpus Check
-- 2454 files · ~2,303,342 words
+- 2454 files · ~2,303,002 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 14432 nodes · 44973 edges · 76 communities detected
-- Extraction: 66% EXTRACTED · 34% INFERRED · 0% AMBIGUOUS · INFERRED: 15118 edges (avg confidence: 0.8)
+- 14430 nodes · 44973 edges · 51 communities detected
+- Extraction: 66% EXTRACTED · 34% INFERRED · 0% AMBIGUOUS · INFERRED: 15120 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -43,49 +43,24 @@
 - [[_COMMUNITY_Community 30|Community 30]]
 - [[_COMMUNITY_Community 31|Community 31]]
 - [[_COMMUNITY_Community 32|Community 32]]
-- [[_COMMUNITY_Community 33|Community 33]]
-- [[_COMMUNITY_Community 34|Community 34]]
 - [[_COMMUNITY_Community 35|Community 35]]
 - [[_COMMUNITY_Community 36|Community 36]]
-- [[_COMMUNITY_Community 37|Community 37]]
 - [[_COMMUNITY_Community 38|Community 38]]
 - [[_COMMUNITY_Community 39|Community 39]]
 - [[_COMMUNITY_Community 40|Community 40]]
 - [[_COMMUNITY_Community 41|Community 41]]
 - [[_COMMUNITY_Community 42|Community 42]]
-- [[_COMMUNITY_Community 43|Community 43]]
-- [[_COMMUNITY_Community 44|Community 44]]
 - [[_COMMUNITY_Community 45|Community 45]]
-- [[_COMMUNITY_Community 46|Community 46]]
+- [[_COMMUNITY_Community 48|Community 48]]
 - [[_COMMUNITY_Community 49|Community 49]]
-- [[_COMMUNITY_Community 50|Community 50]]
-- [[_COMMUNITY_Community 51|Community 51]]
-- [[_COMMUNITY_Community 52|Community 52]]
-- [[_COMMUNITY_Community 53|Community 53]]
-- [[_COMMUNITY_Community 54|Community 54]]
-- [[_COMMUNITY_Community 56|Community 56]]
-- [[_COMMUNITY_Community 57|Community 57]]
-- [[_COMMUNITY_Community 58|Community 58]]
 - [[_COMMUNITY_Community 59|Community 59]]
-- [[_COMMUNITY_Community 60|Community 60]]
-- [[_COMMUNITY_Community 61|Community 61]]
-- [[_COMMUNITY_Community 62|Community 62]]
-- [[_COMMUNITY_Community 63|Community 63]]
 - [[_COMMUNITY_Community 64|Community 64]]
-- [[_COMMUNITY_Community 69|Community 69]]
-- [[_COMMUNITY_Community 76|Community 76]]
-- [[_COMMUNITY_Community 77|Community 77]]
-- [[_COMMUNITY_Community 81|Community 81]]
-- [[_COMMUNITY_Community 85|Community 85]]
-- [[_COMMUNITY_Community 87|Community 87]]
-- [[_COMMUNITY_Community 89|Community 89]]
-- [[_COMMUNITY_Community 95|Community 95]]
-- [[_COMMUNITY_Community 97|Community 97]]
-- [[_COMMUNITY_Community 98|Community 98]]
-- [[_COMMUNITY_Community 104|Community 104]]
-- [[_COMMUNITY_Community 106|Community 106]]
-- [[_COMMUNITY_Community 130|Community 130]]
-- [[_COMMUNITY_Community 246|Community 246]]
+- [[_COMMUNITY_Community 66|Community 66]]
+- [[_COMMUNITY_Community 72|Community 72]]
+- [[_COMMUNITY_Community 74|Community 74]]
+- [[_COMMUNITY_Community 78|Community 78]]
+- [[_COMMUNITY_Community 102|Community 102]]
+- [[_COMMUNITY_Community 218|Community 218]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `logForDebugging()` - 796 edges
@@ -102,363 +77,255 @@
 ## Surprising Connections (you probably didn't know these)
 - `getSkills()` --calls--> `getBundledSkills()`  [INFERRED]
   claude-code-source-main\src\commands.ts → claude-code-source-main\src\skills\bundledSkills.ts
-- `round()` --calls--> `_temp()`  [INFERRED]
-  claude-code-source-main\src\cost-tracker.ts → claude-code-source-main\src\components\DevBar.tsx
 - `round()` --calls--> `tokenStatsToStatsigMetrics()`  [INFERRED]
   claude-code-source-main\src\cost-tracker.ts → claude-code-source-main\src\utils\contextAnalysis.ts
 - `round()` --calls--> `computeTargetDims()`  [INFERRED]
   claude-code-source-main\src\cost-tracker.ts → claude-code-source-main\src\utils\computerUse\executor.ts
-- `round()` --calls--> `qC()`  [INFERRED]
-  claude-code-source-main\src\cost-tracker.ts → playwright-report\trace\assets\defaultSettingsView-GTWI-W_B.js
+- `round()` --calls--> `formatRelativeDate()`  [INFERRED]
+  claude-code-source-main\src\cost-tracker.ts → src\components\ai-elements\commit.tsx
+- `incrementProjectOnboardingSeenCount()` --calls--> `saveCurrentProjectConfig()`  [INFERRED]
+  claude-code-source-main\src\projectOnboardingState.ts → claude-code-source-main\src\utils\config.ts
 
 ## Communities
 
 ### Community 0 - "Community 0"
 Cohesion: 0.0
-Nodes (364): getAgentModelOptions(), extractTranscript(), logContainsQuery(), parseArguments(), substituteArguments(), uniq(), AskUserQuestionResultMessage(), InvalidApiKeyMessage() (+356 more)
+Nodes (310): extractTranscript(), logContainsQuery(), AbortError, getSettingsWithAllErrors(), createApiQueryHook(), uniq(), InvalidApiKeyMessage(), countAutoModeAttachmentsSinceLastExit() (+302 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.0
-Nodes (1412): getAddDirEnabledPlugins(), getAddDirExtraMarketplaces(), optionForPermissionSaveDestination(), checkAdminRequestEligibility(), createAdminRequest(), getMyAdminRequests(), agenticSessionSearch(), readJsonFile() (+1404 more)
+Nodes (1135): formatAgentId(), parseAgentId(), backupTerminalPreferences(), checkAndRestoreTerminalBackup(), getTerminalPlistPath(), getTerminalRecoveryInfo(), markTerminalSetupComplete(), markTerminalSetupInProgress() (+1127 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.01
-Nodes (447): formatTime(), getProjectDir(), sanitizePath(), normalizeDirectToolCall(), af(), ef(), ff(), Ja() (+439 more)
+Cohesion: 0.0
+Nodes (566): getAgentModelDisplay(), getAgentModelOptions(), AgentEditor(), AgentNavigationFooter(), call(), AgentsMenu(), filterToolsForAgent(), AnimatedAsterisk() (+558 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.0
-Nodes (636): getContextFromEvent(), isApiEvent(), logActivity(), withActivityLogging(), ActivityManager, listAdminProviderContents(), normalizePrefix(), toFileEntry() (+628 more)
+Nodes (483): extractIncludePathsFromTokens(), parseFrontmatterPaths(), parseMemoryFileContent(), stripHtmlComments(), stripHtmlCommentsFromTokens(), af(), ef(), ff() (+475 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.01
-Nodes (679): createAbortController(), createChildAbortController(), getAgentColor(), isTeammateAgentContext(), runWithAgentContext(), AgentDetail(), getActualRelativeAgentFilePath(), getLocalAgentMemoryDir() (+671 more)
+Cohesion: 0.0
+Nodes (765): getContextFromEvent(), isApiEvent(), logActivity(), withActivityLogging(), listAdminProviderContents(), normalizePrefix(), toFileEntry(), toFolderEntry() (+757 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.0
-Nodes (530): getAgentModelDisplay(), AgentEditor(), AgentNavigationFooter(), call(), AgentsMenu(), AnimatedAsterisk(), ApiKeyStep(), AppStateProvider() (+522 more)
+Nodes (931): ActivityManager, registerMcpAddCommand(), optionForPermissionSaveDestination(), call(), canUserConfigureAdvisor(), getAdvisorConfig(), getAdvisorUsage(), getExperimentAdvisorModels() (+923 more)
 
 ### Community 6 - "Community 6"
 Cohesion: 0.01
-Nodes (394): App, handleMouseEvent(), processKeysInBatch(), resumeHandler(), flushAsciicastRecorder(), shouldSkipVersion(), getBidi(), hasRTLCharacters() (+386 more)
+Nodes (397): App, handleMouseEvent(), processKeysInBatch(), resumeHandler(), getBidi(), hasRTLCharacters(), needsBidi(), reorderBidi() (+389 more)
 
 ### Community 7 - "Community 7"
 Cohesion: 0.01
-Nodes (635): call(), canUserConfigureAdvisor(), getAdvisorConfig(), getAdvisorUsage(), getExperimentAdvisorModels(), getInitialAdvisorSetting(), isAdvisorEnabled(), isValidAdvisorModel() (+627 more)
+Nodes (575): getAddDirExtraMarketplaces(), isAgentMemoryPath(), applyVarToScope(), checkSemantics(), collectCommands(), collectCommandSubstitution(), containsAnyPlaceholder(), extractSafeCatHeredoc() (+567 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.01
-Nodes (448): isAgentMemoryPath(), applyVarToScope(), checkSemantics(), collectCommands(), collectCommandSubstitution(), containsAnyPlaceholder(), extractSafeCatHeredoc(), maskBracesInQuotedContexts() (+440 more)
+Nodes (478): createAbortController(), createChildAbortController(), isTeammateAgentContext(), runWithAgentContext(), getActualRelativeAgentFilePath(), getSessionMessages(), isAgentSwarmsEnabled(), isAgentTeamsFlagSet() (+470 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.01
-Nodes (228): formatAgentId(), parseAgentId(), getTaskReminderAttachments(), getTeamContextAttachment(), getSwarmSocketName(), isInITerm2(), isInsideTmux(), isInsideTmuxSync() (+220 more)
+Nodes (420): checkAdminRequestEligibility(), createAdminRequest(), getMyAdminRequests(), formatTime(), axiosGetWithRetry(), createDefaultEnvironment(), fetchCodeSessionsFromSessionsAPI(), fetchSession() (+412 more)
 
 ### Community 10 - "Community 10"
 Cohesion: 0.01
-Nodes (264): normalizeToolInput(), clearAllAsyncHooks(), finalizePendingAsyncHooks(), countPlanModeAttachmentsSinceLastExit(), createAttachmentMessage(), getDeferredToolsDeltaAttachment(), getMcpInstructionsDeltaAttachment(), getPlanModeAttachments() (+256 more)
+Nodes (393): getAddDirEnabledPlugins(), AddPermissionRules(), appendSystemContext(), AppStateProvider(), AskUserQuestionResultMessage(), readClientSecret(), installSelectedPlugins(), loadMarketplaceData() (+385 more)
 
 ### Community 11 - "Community 11"
 Cohesion: 0.01
-Nodes (186): backupTerminalPreferences(), checkAndRestoreTerminalBackup(), getTerminalPlistPath(), getTerminalRecoveryInfo(), markTerminalSetupComplete(), markTerminalSetupInProgress(), AskUserQuestionWithHighlight(), getAutoModeDenials() (+178 more)
+Nodes (187): checkAndRefreshOAuthTokenIfNeeded(), BigQueryMetricsExporter, CCRClient, fanOut(), getWatchTargets(), initialize(), notifyChange(), startMdmPoll() (+179 more)
 
 ### Community 12 - "Community 12"
 Cohesion: 0.01
-Nodes (198): getAgentContext(), getSubagentLogName(), isSubagentContext(), getTaskReminderTurnCounts(), getTodoReminderAttachments(), getTodoReminderTurnCounts(), suppressNextSkillListing(), Byline() (+190 more)
+Nodes (201): getSessionRecordingPaths(), countMemoryFileAccessFromEntries(), countUserPromptsFromEntries(), countUserPromptsInMessages(), getTranscriptStats(), isTerminalOutput(), getUserFromApiKey(), hasChatCompletionsScope() (+193 more)
 
 ### Community 13 - "Community 13"
-Cohesion: 0.02
-Nodes (177): consumeInvokingRequestId(), AuthCodeListener, addBetaInteractionAttributes(), addBetaLLMRequestAttributes(), addBetaLLMResponseAttributes(), addBetaToolInputAttributes(), addBetaToolResultAttributes(), extractSystemReminderContent() (+169 more)
+Cohesion: 0.01
+Nodes (146): countToolUses(), emitTaskProgress(), extractPartialResult(), finalizeAgentTool(), getLastToolUseName(), runAsyncAgentLifecycle(), finalizeHook(), getAgentPendingMessageAttachments() (+138 more)
 
 ### Community 14 - "Community 14"
 Cohesion: 0.01
-Nodes (100): validateUrl(), useChatShellActions(), handler(), formatRelativeDate(), handleActionsClick(), handleActionsKeyDown(), createServiceUnavailableResponse(), ab() (+92 more)
+Nodes (152): deleteAgentFromFile(), ensureAgentDirectoryExists(), formatAgentAsMarkdown(), getActualAgentFilePath(), getAgentDirectoryPath(), getNewAgentFilePath(), getNewRelativeAgentFilePath(), getRelativeAgentDirectoryPath() (+144 more)
 
 ### Community 15 - "Community 15"
 Cohesion: 0.02
-Nodes (152): countToolUses(), emitTaskProgress(), extractPartialResult(), finalizeAgentTool(), getLastToolUseName(), runAsyncAgentLifecycle(), getAgentPendingMessageAttachments(), getUnifiedTaskAttachments() (+144 more)
+Nodes (204): analyzeContextUsage(), approximateMessageTokens(), countBuiltInToolTokens(), countCustomAgentTokens(), countMcpToolTokens(), countMemoryFileTokens(), countSkillTokens(), countSlashCommandTokens() (+196 more)
 
 ### Community 16 - "Community 16"
 Cohesion: 0.02
-Nodes (137): generateFileAttachment(), tryGetPDFReference(), BaseTextInput(), contentContainsImages(), persistBlobToTextBlock(), processMCPResult(), transformResultContent(), getFileModificationTimeAsync() (+129 more)
+Nodes (153): getAgentContext(), getSubagentLogName(), isSubagentContext(), prependUserContext(), suppressNextSkillListing(), Byline(), getCommandName(), findCommand() (+145 more)
 
 ### Community 17 - "Community 17"
-Cohesion: 0.03
-Nodes (74): computeShimmerSegments(), Cursor, isVimPunctuation(), isVimWhitespace(), isVimWordChar(), MeasuredText, pushToKillRing(), WrappedLine (+66 more)
+Cohesion: 0.01
+Nodes (88): deleteProvider(), isNotFoundPayload(), resetProviderForm(), startEditingProvider(), submitProvider(), toggleProviderAvailability(), getOutputTokenUsageAttachment(), AuthCodeListener (+80 more)
 
 ### Community 18 - "Community 18"
-Cohesion: 0.01
-Nodes (86): deleteProvider(), isNotFoundPayload(), resetProviderForm(), startEditingProvider(), submitProvider(), toggleProviderAvailability(), assertMinVersion(), _call() (+78 more)
+Cohesion: 0.03
+Nodes (53): Cursor, isVimPunctuation(), isVimWhitespace(), isVimWordChar(), MeasuredText, pushToKillRing(), WrappedLine, lastGrapheme() (+45 more)
 
 ### Community 19 - "Community 19"
 Cohesion: 0.02
-Nodes (61): getOverrideSourceLabel(), resolveAgentOverrides(), deleteAgentFromFile(), ensureAgentDirectoryExists(), formatAgentAsMarkdown(), getActualAgentFilePath(), getAgentDirectoryPath(), getNewAgentFilePath() (+53 more)
+Nodes (133): getAgentMemoryDir(), getAgentMemoryEntrypoint(), getLocalAgentMemoryDir(), getMemoryScopeDisplay(), loadAgentMemoryPrompt(), sanitizeAgentTypeForPath(), checkAgentMemorySnapshot(), copySnapshotToLocal() (+125 more)
 
 ### Community 20 - "Community 20"
 Cohesion: 0.02
-Nodes (106): AddPermissionRules(), ComputerUseAppListPanel(), ComputerUseTccPanel(), call(), collectContextData(), formatContextAsMarkdownTable(), CollapseStatus(), looksLikeISO8601() (+98 more)
+Nodes (83): validateUrl(), useChatShellActions(), formatRelativeDate(), handleActionsClick(), handleActionsKeyDown(), ab(), handleKeyDown(), clampToViewport() (+75 more)
 
 ### Community 21 - "Community 21"
 Cohesion: 0.03
-Nodes (125): getAgentMemoryDir(), getAgentMemoryEntrypoint(), loadAgentMemoryPrompt(), sanitizeAgentTypeForPath(), checkAgentMemorySnapshot(), copySnapshotToLocal(), getSnapshotDirForAgent(), getSnapshotJsonPath() (+117 more)
+Nodes (91): registerBatchSkill(), extractBundledSkillFiles(), getBundledSkillExtractDir(), getBundledSkills(), registerBundledSkill(), resolveSkillFilePath(), safeWriteFile(), writeSkillFiles() (+83 more)
 
 ### Community 22 - "Community 22"
 Cohesion: 0.03
-Nodes (112): classifyHandoffIfNeeded(), getOutputTokenUsageAttachment(), autoModeConfigHandler(), autoModeCritiqueHandler(), autoModeDefaultsHandler(), formatRulesForCritique(), writeRules(), getBashPromptDenyDescriptions() (+104 more)
+Nodes (80): ansiToPng(), blitGlyph(), blitShade(), chunk(), crc32(), encodePng(), fillBackground(), roundCorners() (+72 more)
 
 ### Community 23 - "Community 23"
-Cohesion: 0.08
-Nodes (107): advance(), byteAt(), byteLengthUtf8(), checkBudget(), consumeKeyword(), ensureParserInitialized(), getParserModule(), isArithStop() (+99 more)
+Cohesion: 0.04
+Nodes (65): filterAppsForDescription(), sanitizeAppNames(), sanitizeCore(), sanitizeTrustedNames(), cleanupComputerUseAfterTurn(), contentContainsImages(), processMCPResult(), getTerminalBundleId() (+57 more)
 
 ### Community 24 - "Community 24"
-Cohesion: 0.05
-Nodes (68): registerMcpAddCommand(), AuthenticationCancelledError, ClaudeAuthProvider, clearMcpClientConfig(), clearServerTokensFromLocalStorage(), createAuthFetch(), fetchAuthServerMetadata(), getMcpClientConfig() (+60 more)
+Cohesion: 0.04
+Nodes (76): classifyHandoffIfNeeded(), clearApiKeyHelperCache(), clearAwsCredentialsCache(), clearGcpCredentialsCache(), autoModeConfigHandler(), autoModeCritiqueHandler(), autoModeDefaultsHandler(), formatRulesForCritique() (+68 more)
 
 ### Community 25 - "Community 25"
-Cohesion: 0.03
-Nodes (42): finalizeHook(), CircularBuffer, buildAuthUrl(), execHttpHook(), getHttpHookPolicy(), getSandboxProxyConfig(), interpolateEnvVars(), sanitizeHeaderValue() (+34 more)
+Cohesion: 0.16
+Nodes (79): advance(), byteAt(), byteLengthUtf8(), checkBudget(), consumeKeyword(), isArithStop(), isBaseDigit(), isDigit() (+71 more)
 
 ### Community 26 - "Community 26"
-Cohesion: 0.03
-Nodes (56): registerPendingAsyncHook(), refreshAwsAuth(), refreshGcpAuth(), AwsAuthStatusBox(), AwsAuthStatusManager, CCRClient, getChannelAllowlist(), isChannelAllowlisted() (+48 more)
+Cohesion: 0.04
+Nodes (73): applySettingsChange(), _temp(), getAutoModeExitAttachment(), getAutoModeFlagCli(), isAutoModeActive(), isAutoModeCircuitBroken(), setAutoModeActive(), setAutoModeCircuitBroken() (+65 more)
 
 ### Community 27 - "Community 27"
-Cohesion: 0.04
-Nodes (79): getDefaultAppState(), buildDeepLinkBanner(), mtimeOrUndefined(), readLastFetchTime(), tildify(), attributionRestoreStateFromLog(), computeContentHash(), computeFileModificationState() (+71 more)
+Cohesion: 0.05
+Nodes (38): getDiagnosticAttachments(), callIdeRpc(), DiagnosticTrackingService, escapeForDiff(), getPatchForDisplay(), getPatchFromContents(), HighlightedCodeFallback(), convertLeadingTabsToSpaces() (+30 more)
 
 ### Community 28 - "Community 28"
-Cohesion: 0.04
-Nodes (39): clearPendingHint(), extractClaudeCodeHints(), firstCommandToken(), hasShownHintThisSession(), setPendingHint(), isClaudeMdExcluded(), resolveExcludePatterns(), stripHtmlComments() (+31 more)
+Cohesion: 0.09
+Nodes (28): looksLikeISO8601(), commitTextField(), handleNavigation(), handleTextInputChange(), handleTextInputSubmit(), resolveFieldAsync(), setField(), unsetField() (+20 more)
 
 ### Community 29 - "Community 29"
-Cohesion: 0.04
-Nodes (19): _t(), be(), ce, ct(), de, Ee(), fe(), ge() (+11 more)
-
-### Community 30 - "Community 30"
-Cohesion: 0.04
-Nodes (74): applySettingsChange(), _temp(), getAutoModeExitAttachment(), isAutoModeActive(), setAutoModeActive(), EnterPlanModePermissionRequest(), handleEmptyPlanResponse(), handleResponse() (+66 more)
-
-### Community 31 - "Community 31"
-Cohesion: 0.06
-Nodes (47): filterAppsForDescription(), sanitizeAppNames(), sanitizeCore(), sanitizeTrustedNames(), cleanupComputerUseAfterTurn(), getTerminalBundleId(), isComputerUseMCPServer(), checkComputerUseLock() (+39 more)
-
-### Community 32 - "Community 32"
-Cohesion: 0.04
-Nodes (24): AbortError, isTransientNetworkError(), contentToText(), ExitPlanModeScanner, extractApprovedPlan(), extractTeleportPlan(), pollForApprovedExitPlanMode(), UltraplanPollError (+16 more)
-
-### Community 33 - "Community 33"
-Cohesion: 0.06
-Nodes (47): ansiToPng(), blitGlyph(), blitShade(), chunk(), crc32(), encodePng(), fillBackground(), roundCorners() (+39 more)
-
-### Community 34 - "Community 34"
-Cohesion: 0.06
-Nodes (39): InputEvent, parseKey(), KeybindingSetup(), useKeybindingWarnings(), loadKeybindingsSync(), getInkModifiers(), getKeyName(), matchesBinding() (+31 more)
-
-### Community 35 - "Community 35"
-Cohesion: 0.07
-Nodes (28): loadAgentsFromDirectory(), collectMarkdownFiles(), getCommandNameFromFile(), isSkillFile(), loadCommandsFromDirectory(), transformPluginSkillFiles(), loadOutputStylesFromDirectory(), copyTextOf() (+20 more)
-
-### Community 36 - "Community 36"
-Cohesion: 0.11
-Nodes (28): getModifiers(), isModifierPressed(), isNativeAudioAvailable(), isNativePlaying(), isNativeRecordingActive(), loadModule(), microphoneAuthorizationStatus(), prewarm() (+20 more)
-
-### Community 37 - "Community 37"
-Cohesion: 0.12
-Nodes (31): count(), countWorktreeChanges(), countModelVisibleMessagesSince(), isModelVisibleMessage(), executeBYOCPersistence(), executeCloudPersistence(), executeFilePersistence(), isFilePersistenceEnabled() (+23 more)
-
-### Community 38 - "Community 38"
-Cohesion: 0.11
-Nodes (32): getSettingsWithAllErrors(), getLargeMemoryFiles(), addCleanupResults(), cleanupNpmCacheForAnthropicPackages(), cleanupOldDebugLogs(), cleanupOldFileHistoryBackups(), cleanupOldFilesInDirectory(), cleanupOldMessageFiles() (+24 more)
-
-### Community 39 - "Community 39"
 Cohesion: 0.09
 Nodes (23): getFileSummaryLimits(), getFileSummaryModelName(), getFileSummaryOllamaBaseUrl(), toPositiveInteger(), getFileExtension(), getMimeTypeFromFileName(), isTextBasedFile(), isTextMimeType() (+15 more)
 
-### Community 40 - "Community 40"
+### Community 30 - "Community 30"
 Cohesion: 0.12
 Nodes (4): fromJsonTimestamp(), fromTimestamp(), fromJsonTimestamp(), fromTimestamp()
 
-### Community 41 - "Community 41"
-Cohesion: 0.15
-Nodes (9): getPluginErrorMessage(), formatErrorMessage(), getErrorGuidance(), buildErrorRows(), buildMarketplaceAction(), buildPluginAction(), getExtraMarketplaceSourceInfo(), getPluginNameFromError() (+1 more)
-
-### Community 42 - "Community 42"
+### Community 31 - "Community 31"
 Cohesion: 0.17
 Nodes (9): useChatPageData(), useFlatMessages(), useMessagePages(), filterThreads(), normalizeSearchText(), tokenizeQuery(), useFlatThreads(), useThreadPages() (+1 more)
 
-### Community 43 - "Community 43"
-Cohesion: 0.2
-Nodes (12): getRenderContext(), showInvalidConfigDialog(), getBaseRenderOptions(), getStdinOverride(), setStatsStore(), createStatsStore(), StatsProvider(), useCounter() (+4 more)
-
-### Community 44 - "Community 44"
-Cohesion: 0.18
-Nodes (4): filterToolsForAgent(), getMcpServerBuckets(), getToolBuckets(), ToolSelector()
-
-### Community 45 - "Community 45"
-Cohesion: 0.21
-Nodes (6): GeneralAgent, StorageAgent, buildSupervisorGraph(), createSupervisorNode(), createToolExecutionNode(), createWorkerNode()
-
-### Community 46 - "Community 46"
+### Community 32 - "Community 32"
 Cohesion: 0.15
 Nodes (6): DeleteFileTool, GetFileInfoTool, ListFilesTool, ReadFileTool, SearchFilesTool, WriteFileTool
 
-### Community 49 - "Community 49"
-Cohesion: 0.22
-Nodes (6): BoundedUUIDSet, handleIngressMessage(), isSDKControlRequest(), isSDKControlResponse(), isSDKMessage(), normalizeControlMessageKeys()
-
-### Community 50 - "Community 50"
-Cohesion: 0.22
-Nodes (3): FeedbackSurveyView(), TranscriptSharePrompt(), useDebouncedDigitInput()
-
-### Community 51 - "Community 51"
-Cohesion: 0.24
-Nodes (8): computeNextCronRun(), cronToHuman(), expandField(), parseCronExpression(), jitteredNextCronRunMs(), jitterFrac(), nextCronRunMs(), oneShotJitteredNextCronRunMs()
-
-### Community 52 - "Community 52"
+### Community 35 - "Community 35"
 Cohesion: 0.2
 Nodes (5): useFileSelectionUiStore(), RootLayout(), shouldHideDock(), useQuota(), useTinySession()
 
-### Community 53 - "Community 53"
+### Community 36 - "Community 36"
 Cohesion: 0.18
 Nodes (5): handleCreateThread(), useChatStoreSync(), updateChatUi(), useChatUiStore(), useStreamChatMessage()
 
-### Community 54 - "Community 54"
-Cohesion: 0.31
-Nodes (8): call(), exportWithReactRenderer(), extractFirstPrompt(), formatTimestamp(), sanitizeFilename(), renderMessagesToPlainText(), StaticKeybindingProvider(), streamRenderedMessages()
-
-### Community 56 - "Community 56"
+### Community 38 - "Community 38"
 Cohesion: 0.22
 Nodes (2): MicSelector(), useAudioDevices()
 
-### Community 57 - "Community 57"
+### Community 39 - "Community 39"
 Cohesion: 0.36
-Nodes (2): coalescePatches(), WorkerStateUploader
+Nodes (7): createStatsStore(), StatsProvider(), useCounter(), useGauge(), useSet(), useStats(), useTimer()
 
-### Community 58 - "Community 58"
+### Community 40 - "Community 40"
 Cohesion: 0.22
 Nodes (4): AddTool, DivideTool, MultiplyTool, SubtractTool
 
-### Community 59 - "Community 59"
-Cohesion: 0.29
-Nodes (1): EndTruncatingAccumulator
-
-### Community 60 - "Community 60"
-Cohesion: 0.39
-Nodes (6): detectFromColorFgBg(), getSystemThemeName(), hexComponent(), parseOscRgb(), resolveThemeSetting(), themeFromOscColor()
-
-### Community 61 - "Community 61"
-Cohesion: 0.29
-Nodes (3): fireRawRead(), startMdmRawRead(), refreshMdmSettings()
-
-### Community 62 - "Community 62"
+### Community 41 - "Community 41"
 Cohesion: 0.25
 Nodes (2): newPerson(), shuffle()
 
-### Community 63 - "Community 63"
-Cohesion: 0.48
-Nodes (5): containsHeredoc(), containsMultilineString(), hasStdinRedirect(), quoteShellCommand(), shouldAddStdinRedirect()
-
-### Community 64 - "Community 64"
+### Community 42 - "Community 42"
 Cohesion: 0.43
 Nodes (4): ConfirmationActions(), ConfirmationRejected(), ConfirmationTitle(), useConfirmation()
 
-### Community 69 - "Community 69"
+### Community 45 - "Community 45"
 Cohesion: 0.33
 Nodes (3): FileGrid(), getRect(), useBoxSelection()
 
-### Community 76 - "Community 76"
+### Community 48 - "Community 48"
+Cohesion: 0.33
+Nodes (2): isSessionExpired(), loadSessionOrThrow()
+
+### Community 49 - "Community 49"
 Cohesion: 0.6
-Nodes (4): formatUri(), parseUpdates(), _temp(), UserResourceUpdateMessage()
+Nodes (5): foldShutdown(), foldSpawn(), makeShutdownNotif(), makeSpawnNotif(), parseCount()
 
-### Community 77 - "Community 77"
-Cohesion: 0.4
-Nodes (3): AntSlowLogger, callerFrame(), addSlowOperation()
-
-### Community 81 - "Community 81"
+### Community 59 - "Community 59"
 Cohesion: 0.5
 Nodes (2): CarouselNext(), useCarousel()
 
-### Community 85 - "Community 85"
-Cohesion: 0.5
-Nodes (1): detectCodeIndexingFromMcpServerName()
-
-### Community 87 - "Community 87"
+### Community 64 - "Community 64"
 Cohesion: 0.67
 Nodes (2): getAttachmentLabel(), getMediaCategory()
 
-### Community 89 - "Community 89"
+### Community 66 - "Community 66"
 Cohesion: 0.67
 Nodes (2): TranscriptionSegment(), useTranscription()
 
-### Community 95 - "Community 95"
+### Community 72 - "Community 72"
 Cohesion: 0.5
 Nodes (2): WebRTCProvider(), useWebRTCConnection()
 
-### Community 97 - "Community 97"
+### Community 74 - "Community 74"
 Cohesion: 0.5
 Nodes (2): useAuth(), DeviceApprovePage()
 
-### Community 98 - "Community 98"
-Cohesion: 1.0
-Nodes (2): ExitFlow(), getRandomGoodbyeMessage()
-
-### Community 104 - "Community 104"
-Cohesion: 1.0
-Nodes (2): getRelativeMemoryPath(), MemoryUpdateNotification()
-
-### Community 106 - "Community 106"
+### Community 78 - "Community 78"
 Cohesion: 1.0
 Nodes (2): collapseTeammateShutdowns(), isTeammateShutdownAttachment()
 
-### Community 130 - "Community 130"
+### Community 102 - "Community 102"
 Cohesion: 1.0
 Nodes (2): generateFileSummaryForItem(), wait()
 
-### Community 246 - "Community 246"
+### Community 218 - "Community 218"
 Cohesion: 1.0
 Nodes (1): Tagify
 
 ## Knowledge Gaps
 - **48 isolated node(s):** `DOMException`, `CompileError`, `RuntimeError`, `Global`, `Instance` (+43 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 56`** (10 nodes): `MicSelector()`, `MicSelectorContent()`, `MicSelectorEmpty()`, `MicSelectorInput()`, `MicSelectorItem()`, `MicSelectorLabel()`, `MicSelectorList()`, `MicSelectorTrigger()`, `useAudioDevices()`, `mic-selector.tsx`
+- **Thin community `Community 38`** (10 nodes): `MicSelector()`, `MicSelectorContent()`, `MicSelectorEmpty()`, `MicSelectorInput()`, `MicSelectorItem()`, `MicSelectorLabel()`, `MicSelectorList()`, `MicSelectorTrigger()`, `useAudioDevices()`, `mic-selector.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 57`** (9 nodes): `WorkerStateUploader.ts`, `coalescePatches()`, `WorkerStateUploader`, `.close()`, `.constructor()`, `.drain()`, `.enqueue()`, `.retryDelay()`, `.sendWithRetry()`
+- **Thin community `Community 41`** (8 nodes): `makeData()`, `newPerson()`, `range()`, `shuffle()`, `ShuffleHero()`, `shuffleSquares()`, `shuffle-grid.tsx`, `demo-table-data.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 59`** (8 nodes): `EndTruncatingAccumulator`, `.append()`, `.clear()`, `.constructor()`, `.length()`, `.toString()`, `.totalBytes()`, `.truncated()`
+- **Thin community `Community 48`** (7 nodes): `webrtc-server.ts`, `isSessionExpired()`, `isSignalRecordValid()`, `loadSessionOrThrow()`, `parseWebrtcPermission()`, `readSignalQueue()`, `resolveSignalKey()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 62`** (8 nodes): `makeData()`, `newPerson()`, `range()`, `shuffle()`, `ShuffleHero()`, `shuffleSquares()`, `shuffle-grid.tsx`, `demo-table-data.ts`
+- **Thin community `Community 59`** (5 nodes): `Carousel()`, `CarouselNext()`, `cn()`, `useCarousel()`, `carousel.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 81`** (5 nodes): `Carousel()`, `CarouselNext()`, `cn()`, `useCarousel()`, `carousel.tsx`
+- **Thin community `Community 64`** (4 nodes): `cn()`, `getAttachmentLabel()`, `getMediaCategory()`, `attachments.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 85`** (4 nodes): `codeIndexing.ts`, `detectCodeIndexingFromCommand()`, `detectCodeIndexingFromMcpServerName()`, `detectCodeIndexingFromMcpTool()`
+- **Thin community `Community 66`** (4 nodes): `transcription.tsx`, `Transcription()`, `TranscriptionSegment()`, `useTranscription()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 87`** (4 nodes): `cn()`, `getAttachmentLabel()`, `getMediaCategory()`, `attachments.tsx`
+- **Thin community `Community 72`** (4 nodes): `WebRTCProvider()`, `provider.tsx`, `useWebRTCConnection.ts`, `useWebRTCConnection()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 89`** (4 nodes): `transcription.tsx`, `Transcription()`, `TranscriptionSegment()`, `useTranscription()`
+- **Thin community `Community 74`** (4 nodes): `useAuth()`, `DeviceApprovePage()`, `auth-client.ts`, `index.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 95`** (4 nodes): `WebRTCProvider()`, `provider.tsx`, `useWebRTCConnection.ts`, `useWebRTCConnection()`
+- **Thin community `Community 78`** (3 nodes): `collapseTeammateShutdowns.ts`, `collapseTeammateShutdowns()`, `isTeammateShutdownAttachment()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 97`** (4 nodes): `useAuth()`, `DeviceApprovePage()`, `auth-client.ts`, `index.tsx`
+- **Thin community `Community 102`** (3 nodes): `generateFileSummaryForItem()`, `wait()`, `client.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 98`** (3 nodes): `ExitFlow.tsx`, `ExitFlow()`, `getRandomGoodbyeMessage()`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 104`** (3 nodes): `MemoryUpdateNotification.tsx`, `getRelativeMemoryPath()`, `MemoryUpdateNotification()`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 106`** (3 nodes): `collapseTeammateShutdowns.ts`, `collapseTeammateShutdowns()`, `isTeammateShutdownAttachment()`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 130`** (3 nodes): `generateFileSummaryForItem()`, `wait()`, `client.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 246`** (2 nodes): `tagify.d.ts`, `Tagify`
+- **Thin community `Community 218`** (2 nodes): `tagify.d.ts`, `Tagify`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `logForDebugging()` connect `Community 1` to `Community 0`, `Community 2`, `Community 3`, `Community 4`, `Community 5`, `Community 6`, `Community 7`, `Community 8`, `Community 9`, `Community 10`, `Community 11`, `Community 12`, `Community 13`, `Community 15`, `Community 16`, `Community 19`, `Community 20`, `Community 21`, `Community 22`, `Community 23`, `Community 25`, `Community 26`, `Community 27`, `Community 28`, `Community 30`, `Community 31`, `Community 32`, `Community 35`, `Community 36`, `Community 37`, `Community 38`, `Community 49`, `Community 77`?**
+- **Why does `logForDebugging()` connect `Community 1` to `Community 0`, `Community 2`, `Community 3`, `Community 4`, `Community 5`, `Community 6`, `Community 7`, `Community 8`, `Community 9`, `Community 10`, `Community 11`, `Community 12`, `Community 13`, `Community 14`, `Community 15`, `Community 16`, `Community 17`, `Community 19`, `Community 21`, `Community 22`, `Community 23`, `Community 24`, `Community 26`?**
   _High betweenness centrality (0.098) - this node is a cross-community bridge._
-- **Why does `String()` connect `Community 1` to `Community 0`, `Community 2`, `Community 3`, `Community 4`, `Community 5`, `Community 6`, `Community 7`, `Community 8`, `Community 9`, `Community 10`, `Community 11`, `Community 12`, `Community 13`, `Community 15`, `Community 16`, `Community 17`, `Community 18`, `Community 19`, `Community 20`, `Community 24`, `Community 30`, `Community 32`, `Community 35`, `Community 36`, `Community 45`, `Community 54`?**
+- **Why does `String()` connect `Community 3` to `Community 0`, `Community 1`, `Community 2`, `Community 4`, `Community 5`, `Community 6`, `Community 7`, `Community 8`, `Community 9`, `Community 10`, `Community 11`, `Community 12`, `Community 13`, `Community 14`, `Community 15`, `Community 16`, `Community 17`, `Community 18`, `Community 19`, `Community 21`, `Community 24`, `Community 26`, `Community 28`?**
   _High betweenness centrality (0.034) - this node is a cross-community bridge._
-- **Why does `mt()` connect `Community 2` to `Community 1`, `Community 3`, `Community 5`, `Community 6`, `Community 10`, `Community 14`, `Community 28`?**
+- **Why does `mt()` connect `Community 3` to `Community 1`, `Community 2`, `Community 4`, `Community 6`, `Community 7`, `Community 9`, `Community 13`, `Community 20`?**
   _High betweenness centrality (0.030) - this node is a cross-community bridge._
 - **Are the 792 inferred relationships involving `logForDebugging()` (e.g. with `getSkills()` and `immediateFlushHistory()`) actually correct?**
   _`logForDebugging()` has 792 INFERRED edges - model-reasoned connections that need verification._

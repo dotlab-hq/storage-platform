@@ -1,7 +1,7 @@
 import type { StructuredTool } from '@langchain/core/tools'
 import { mathTools } from './-math-tools'
-import { TAVILY_TOOL } from './tavily-search'
-import { ENHANCED_STORAGE_TOOLS } from './enhanced-storage-tools'
+import { TAVILY_TOOL } from './-tavily-search'
+import { ENHANCED_STORAGE_TOOLS } from './-enhanced-storage-tools'
 import type { ApiScope } from '@/lib/permissions/scopes'
 import { hasAllScopes } from '@/lib/permissions/scopes'
 

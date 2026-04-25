@@ -1,6 +1,6 @@
 import { getTool } from './-tool-registry'
-import type { EnhancedTool } from './tool-types'
-import type { ToolExecutionContext, ToolResult } from './tool-types'
+import type { EnhancedTool } from './-tool-types'
+import type { ToolExecutionContext, ToolResult } from './-tool-types'
 
 export interface ToolExecutionResult {
   toolCallId: string

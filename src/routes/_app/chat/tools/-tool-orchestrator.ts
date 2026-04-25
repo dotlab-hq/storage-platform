@@ -8,7 +8,7 @@ import type {
   ToolResult,
   ToolProgress,
   PreToolUseResult,
-} from './tool-types'
+} from './-tool-types'
 import {
   runPreHooks,
   runPostHooks,
@@ -18,7 +18,7 @@ import {
   loggingPostHook,
   metricsPostHook,
   cacheInvalidationHook,
-} from './tool-hooks'
+} from './-tool-hooks'
 import { customAlphabet } from 'nanoid'
 
 const nanoid = customAlphabet('0123456789abcdef', 21)

@@ -1,6 +1,6 @@
 import { StructuredTool } from '@langchain/core/tools'
 import { MATH_TOOLS } from './-math-tools'
-import { ENHANCED_STORAGE_TOOLS } from './enhanced-storage-tools'
+import { ENHANCED_STORAGE_TOOLS } from './-enhanced-storage-tools'
 
 type ToolMap = Record<string, StructuredTool>
 

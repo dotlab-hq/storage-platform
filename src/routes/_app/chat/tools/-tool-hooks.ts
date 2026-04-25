@@ -4,7 +4,7 @@ import type {
   ToolExecutionContext,
   ToolResult,
   PreToolUseResult,
-} from './tool-types'
+} from './-tool-types'
 
 /**
  * Built-in pre-tool use hooks

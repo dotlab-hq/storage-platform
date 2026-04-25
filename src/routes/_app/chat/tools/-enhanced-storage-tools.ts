@@ -11,9 +11,9 @@
  * - State syncs to TanStack Query store for UI reactivity
  */
 
-import { BaseEnhancedTool } from './base-enhanced-tool'
+import { BaseEnhancedTool } from './-base-enhanced-tool'
 import { z } from 'zod'
-import type { ToolExecutionContext } from './tool-types'
+import type { ToolExecutionContext } from './-tool-types'
 
 // ============================================================================
 // List Files Tool

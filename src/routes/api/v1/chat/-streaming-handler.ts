@@ -51,7 +51,7 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
 
   // ToolOrchestrator creation
   const { ToolOrchestrator, createDefaultOrchestrator } =
-    await import('@/routes/_app/chat/tools/tool-orchestrator')
+    await import('@/routes/_app/chat/tools/-tool-orchestrator')
   const orchestrator = createDefaultOrchestrator()
 
   // Register enhanced tools
@@ -60,7 +60,7 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
     // Try to import enhanced metadata (lazy to avoid circular)
     try {
       const { enhanceToolWithHeuristics } =
-        await import('@/routes/_app/chat/tools/base-enhanced-tool')
+        await import('@/routes/_app/chat/tools/-base-enhanced-tool')
       const enhanced = enhanceToolWithHeuristics(tool)
       orchestrator.register(enhanced)
     } catch {
