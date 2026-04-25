@@ -68,6 +68,9 @@ async function createVirtualBucketRow(
     },
   ])
 
+  if (createdRows.length === 0) {
+    throw new Error('Failed to create virtual bucket')
+  }
   await upsertBucketContextCache({
     userId: input.userId,
     bucketId,

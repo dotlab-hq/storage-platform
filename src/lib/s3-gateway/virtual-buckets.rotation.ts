@@ -33,7 +33,7 @@ export async function rotateBucketCredentials(
   }
 
   // Increment credential version
-  const [updated] = await db
+  const updatedRows = await db
     .update(virtualBucket)
     .set({ credentialVersion: virtualBucket.credentialVersion + 1 })
     .where(eq(virtualBucket.id, row.id))
@@ -42,11 +42,11 @@ export async function rotateBucketCredentials(
       credentialVersion: virtualBucket.credentialVersion,
     })
 
-  if (updated.length === 0) {
+  if (updatedRows.length === 0) {
     throw new Error('Failed to update bucket')
   }
 
-  const newVersion = updated[0].credentialVersion
+  const newVersion = updatedRows[0].credentialVersion
 
   // Clear cache for this bucket so next resolve picks up new version
   await removeBucketContextCache({
