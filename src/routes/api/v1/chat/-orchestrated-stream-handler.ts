@@ -30,8 +30,12 @@ function messageContentToText(content: unknown): string {
       if (typeof part === 'string') {
         return part
       }
-      if (part && typeof part === 'object' && 'text' in part) {
-        const text = (part as { text?: unknown }).text
+      if (part && typeof part === 'object') {
+        const rec = part as { thought?: boolean; type?: string; text?: unknown }
+        if (rec.thought === true || rec.type === 'reasoning') {
+          return ''
+        }
+        const text = rec.text
         return typeof text === 'string' ? text : ''
       }
       return ''
@@ -84,6 +88,7 @@ export async function handleOrchestratedAgentStream(
     async start(controller) {
       let assistantMessageId: string | null = null
       let fullContent = ''
+      let emittedReasoning = ''
 
       try {
         const hasWebScope = hasScope(params.permissions, 'chat:tool:web')
@@ -142,8 +147,10 @@ export async function handleOrchestratedAgentStream(
             const rawContent = (last as { content?: unknown }).content
             const content = messageContentToText(rawContent)
             const reasoningChunks = extractReasoningChunks(rawContent)
+            const reasoningText = reasoningChunks.join('\n')
 
-            for (const reasoning of reasoningChunks) {
+            if (reasoningText && reasoningText !== emittedReasoning) {
+              emittedReasoning = reasoningText
               controller.enqueue(
                 encoder.encode(
                   toSseEvent(
@@ -151,7 +158,7 @@ export async function handleOrchestratedAgentStream(
                       id: `chatcmpl-${assistantMessageId || 'pending'}`,
                       created: Math.floor(Date.now() / 1000),
                       model: params.model,
-                      delta: { reasoning_content: reasoning },
+                      delta: { reasoning_content: reasoningText },
                       finishReason: null,
                     }),
                   ),
