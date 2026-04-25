@@ -1,21 +1,40 @@
-import { useState } from 'react'
+import * as React from 'react'
+import { useHotkey } from '@tanstack/react-hotkeys'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import { KeyboardShortcut } from '@/components/ui/keyboard-shortcut'
 
 type SearchBarProps = {
   onSearch: (query: string) => void
 }
 
 export function SearchBar({ onSearch }: SearchBarProps) {
-  const [query, setQuery] = useState('')
+  const formRef = React.useRef<HTMLFormElement>(null)
+  const [query, setQuery] = React.useState('')
+
+  const submitSearch = React.useEffectEvent(() => {
+    onSearch(query)
+  })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    onSearch(query)
+    submitSearch()
   }
 
+  useHotkey(
+    'Enter',
+    () => {
+      formRef.current?.requestSubmit()
+    },
+    { target: formRef },
+  )
+
   return (
-    <form onSubmit={handleSubmit} className="flex w-full max-w-xs">
+    <form
+      ref={formRef}
+      onSubmit={handleSubmit}
+      className="flex w-full max-w-xs"
+    >
       <Input
         placeholder="Search files and folders..."
         value={query}
@@ -24,6 +43,7 @@ export function SearchBar({ onSearch }: SearchBarProps) {
       />
       <Button type="submit" variant="outline" size="sm" className="ml-2">
         Search
+        <KeyboardShortcut keys="Enter" className="ml-2" />
       </Button>
     </form>
   )

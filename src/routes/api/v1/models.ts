@@ -1,5 +1,5 @@
-import { createFileRoute, json } from '@tanstack/react-start'
-﻿ï»¿
+import { createFileRoute } from '@tanstack/react-router'
+import { json } from '@tanstack/react-start'
 
 // @ts-expect-error - route type will be generated after router rebuild
 export const Route = createFileRoute('/api/v1/models')({
@@ -60,4 +60,3 @@ export async function GET() {
     },
   )
 }
-

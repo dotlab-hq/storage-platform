@@ -3,7 +3,8 @@
 import { isAdminRole, normalizeUserRole } from '@/lib/authz'
 import { loadAuth } from '@/lib/auth-loader'
 import { resolveTinySessionFromHeaders } from '@/lib/tiny-session'
-import { createMiddleware, redirect } from '@tanstack/react-start'
+import { redirect } from '@tanstack/react-router'
+import { createMiddleware } from '@tanstack/react-start'
 
 type AuthenticatedSessionContext = {
   session: {

@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { createFileRoute, Link } from '@tanstack/react-start'
+import { Link } from '@tanstack/react-router'
 import * as React from 'react'
 import { QrCode, RefreshCcw } from 'lucide-react'
 import { useMutation, useQuery } from '@tanstack/react-query'

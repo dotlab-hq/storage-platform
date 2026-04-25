@@ -1,5 +1,5 @@
-import { createFileRoute } from '@tanstack/react-start'
-﻿ï»¿import { PutObjectCommand } from '@aws-sdk/client-s3'
+import { createFileRoute } from '@tanstack/react-router'
+import { PutObjectCommand } from '@aws-sdk/client-s3'
 import { Readable } from 'node:stream'
 import { z } from 'zod'
 import { getAuthenticatedUser } from '@/lib/server-auth'
@@ -114,4 +114,3 @@ export const Route = createFileRoute('/api/storage/upload/proxy')({
     },
   },
 })
-

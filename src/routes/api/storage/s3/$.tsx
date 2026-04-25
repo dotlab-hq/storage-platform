@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { createFileRoute } from '@tanstack/react-start'
 import { handleS3Request } from '@/lib/s3-gateway/s3-dispatch'
 
 export const Route = createFileRoute('/api/storage/s3/$')({

@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { createFileRoute } from '@tanstack/react-start'
-'use client'
+;('use client')
 
 import { lazy, Suspense } from 'react'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'

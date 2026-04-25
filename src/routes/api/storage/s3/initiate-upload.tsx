@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { createFileRoute } from '@tanstack/react-start'
 import { z } from 'zod'
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import { initiateUpload } from '@/lib/s3-gateway/upload-attempts'
@@ -48,4 +47,3 @@ export const Route = createFileRoute('/api/storage/s3/initiate-upload')({
     },
   },
 })
-

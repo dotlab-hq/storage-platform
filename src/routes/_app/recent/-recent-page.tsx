@@ -1,5 +1,5 @@
-import { useNavigate } from '@tanstack/react-start'
-'use client'
+import { useNavigate } from '@tanstack/react-router'
+;('use client')
 
 import { useCallback, useMemo } from 'react'
 import { Separator } from '@/components/ui/separator'

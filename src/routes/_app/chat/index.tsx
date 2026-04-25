@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { ClientOnly, createFileRoute } from '@tanstack/react-start'
+import { ClientOnly } from '@tanstack/react-router'
 import { Suspense, lazy } from 'react'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
 import { getChatRouteSnapshotFn } from './-chat-loader-server'

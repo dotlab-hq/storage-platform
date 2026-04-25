@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { createFileRoute } from '@tanstack/react-start'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
 

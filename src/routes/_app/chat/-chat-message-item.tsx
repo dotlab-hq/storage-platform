@@ -1,4 +1,5 @@
-import { ClientOnly, createClientOnlyFn } from '@tanstack/react-start'
+import { ClientOnly } from '@tanstack/react-router'
+import { createClientOnlyFn } from '@tanstack/react-start'
 import { Copy, RefreshCw, Trash2, UserRound } from 'lucide-react'
 import { Suspense, lazy } from 'react'
 import { cn } from '@/lib/utils'

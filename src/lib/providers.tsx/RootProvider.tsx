@@ -9,6 +9,8 @@ import { useQuota } from '@/hooks/use-quota'
 import { ShaderBackdrop } from '@/components/background/shader-backdrop'
 import { lazy, Suspense } from 'react'
 import { useFileSelectionUiStore } from '@/lib/stores/file-selection-ui-store'
+import { ProfilerBoundary } from '@/components/app/profiler-boundary'
+import { Activity } from '@/components/ui/activity'
 
 const AppSidebar = lazy(() =>
   import('@/components/app-sidebar').then((m) => ({
@@ -58,21 +60,24 @@ export function RootLayout({ children }: RootLayoutProps) {
       <div className="min-h-screen">
         <ShaderBackdrop />
         <SidebarProvider>
-          <Suspense fallback={null}>
-            <AppSidebar quota={quota} />
-          </Suspense>
+          <ProfilerBoundary id="app-sidebar">
+            <Suspense fallback={null}>
+              <AppSidebar quota={quota} />
+            </Suspense>
+          </ProfilerBoundary>
           <div className="flex-1 flex flex-col min-h-[100dvh]">
-            {children}
-            {!hideDock && (
+            <ProfilerBoundary id="app-content">{children}</ProfilerBoundary>
+            <Activity when={!hideDock}>
               <Suspense fallback={null}>
                 <Dock />
               </Suspense>
-            )}
+            </Activity>
           </div>
-          {/* Global Upload Widget - appears bottom-right */}
-          <Suspense fallback={null}>
-            <UploadWidget />
-          </Suspense>
+          <ProfilerBoundary id="upload-widget">
+            <Suspense fallback={null}>
+              <UploadWidget />
+            </Suspense>
+          </ProfilerBoundary>
         </SidebarProvider>
       </div>
     </WebRTCProvider>

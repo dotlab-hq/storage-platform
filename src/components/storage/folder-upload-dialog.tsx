@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import { useRouter } from '@tanstack/react-router'
 import { createClientOnlyFn } from '@tanstack/react-start'
 import { FolderUp, X } from 'lucide-react'
 import { authClient } from '@/lib/auth-client'
@@ -28,8 +29,6 @@ type FolderUploadDialogProps = {
   setUploads: React.Dispatch<React.SetStateAction<UploadingFile[]>>
   onUploadComplete: () => Promise<void> | void
 }
-
-import { useRouter } from '@tanstack/react-start'
 
 export function FolderUploadDialog({
   open,

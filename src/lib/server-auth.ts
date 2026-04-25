@@ -1,4 +1,5 @@
-import { getRequest, notFound, redirect } from '@tanstack/react-start'
+import { notFound, redirect } from '@tanstack/react-router'
+import { getRequest } from '@tanstack/start-server-core'
 import { isAdminRole, normalizeUserRole } from '@/lib/authz'
 import { resolveTinySessionFromHeaders } from '@/lib/tiny-session'
 import { loadAuth } from '@/lib/auth-loader'

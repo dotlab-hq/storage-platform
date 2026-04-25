@@ -1,5 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { createFileRoute, useSearch, redirect } from '@tanstack/react-start'
+import { createFileRoute, redirect, useSearch } from '@tanstack/react-router'
 import * as React from 'react'
 import { useAuth } from '@/lib/auth-client'
 import { useMutation } from '@tanstack/react-query'

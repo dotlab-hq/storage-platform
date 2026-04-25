@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import { useRouter } from '@tanstack/react-router'
 import { createClientOnlyFn } from '@tanstack/react-start'
 import { Upload, X } from 'lucide-react'
 import { authClient } from '@/lib/auth-client'
@@ -18,7 +19,6 @@ import {
 import { formatFileSize } from '@/lib/file-utils'
 import type { StorageItem, UploadingFile } from '@/types/storage'
 import { cn } from '@/lib/utils'
-import { useRouter } from '@tanstack/react-start'
 
 type FileUploadDialogProps = {
   open: boolean

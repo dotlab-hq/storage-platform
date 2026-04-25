@@ -3,7 +3,7 @@ import {
   HeadContent,
   Scripts,
   createRootRouteWithContext,
-} from '@tanstack/react-start'
+} from '@tanstack/react-router'
 import { lazy, Suspense } from 'react'
 import { ThemeProvider } from 'next-themes'
 

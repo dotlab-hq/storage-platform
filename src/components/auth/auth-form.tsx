@@ -1,12 +1,21 @@
+import * as React from 'react'
+import { useMutation } from '@tanstack/react-query'
+import { useHotkey } from '@tanstack/react-hotkeys'
+import { createClientOnlyFn } from '@tanstack/react-start'
 import { StoneIcon } from 'lucide-react'
 import { FaGithub } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Field, FieldDescription, FieldGroup } from '@/components/ui/field'
+import { KeyboardShortcut } from '@/components/ui/keyboard-shortcut'
 import { authClient } from '@/lib/auth-client'
-import { createClientOnlyFn } from '@tanstack/react-start'
 
 export function AuthForm({ className, ...props }: React.ComponentProps<'div'>) {
+  const containerRef = React.useRef<HTMLDivElement>(null)
+  const [optimisticStatus, setOptimisticStatus] = React.useOptimistic<
+    'idle' | 'submitting'
+  >('idle')
+
   const callGithubOauth = createClientOnlyFn(async () => {
     const data = await authClient.signIn.social({
       provider: 'github',
@@ -23,8 +32,26 @@ export function AuthForm({ className, ...props }: React.ComponentProps<'div'>) {
     window.location.href = data.data.url
   })
 
+  const githubMutation = useMutation({
+    mutationFn: async () => {
+      setOptimisticStatus('submitting')
+      await callGithubOauth()
+    },
+  })
+
+  const submitGithub = React.useEffectEvent(() => {
+    void githubMutation.mutateAsync()
+  })
+
+  useHotkey('Mod+Enter', submitGithub, { target: containerRef })
+
   return (
-    <div className={cn('flex flex-col gap-6', className)} {...props}>
+    <div
+      ref={containerRef}
+      className={cn('flex flex-col gap-6', className)}
+      tabIndex={-1}
+      {...props}
+    >
       <form>
         <FieldGroup>
           <div className="flex flex-col items-center gap-2 text-center">
@@ -39,9 +66,17 @@ export function AuthForm({ className, ...props }: React.ComponentProps<'div'>) {
             </a>
             <h1 className="text-xl font-bold">Welcome to DOT. Storage</h1>
             <Field className="">
-              <Button variant="outline" type="button" onClick={callGithubOauth}>
+              <Button
+                variant="outline"
+                type="button"
+                onClick={submitGithub}
+                disabled={githubMutation.isPending}
+              >
                 <FaGithub className="size-4" />
-                Continue with GitHub
+                {githubMutation.isPending || optimisticStatus === 'submitting'
+                  ? 'Opening GitHub...'
+                  : 'Continue with GitHub'}
+                <KeyboardShortcut keys="Mod+Enter" className="ml-2" />
               </Button>
             </Field>
           </div>

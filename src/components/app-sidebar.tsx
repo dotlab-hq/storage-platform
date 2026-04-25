@@ -16,7 +16,8 @@ import {
   Wifi,
   MessagesSquare,
 } from 'lucide-react'
-import { ClientOnly, Link } from '@tanstack/react-start'
+import { ClientOnly, Link } from '@tanstack/react-router'
+import { createClientOnlyFn } from '@tanstack/react-start'
 
 import { NavMain } from '@/components/nav-main'
 import { NavUser } from '@/components/nav-user'

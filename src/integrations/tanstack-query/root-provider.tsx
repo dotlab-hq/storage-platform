@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react'
+import { HotkeysProvider } from '@tanstack/react-hotkeys'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ProfilerBoundary } from '@/components/app/profiler-boundary'
 
 let context:
   | {
@@ -29,6 +31,15 @@ export default function TanStackQueryProvider({
   const { queryClient } = getContext()
 
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      <HotkeysProvider
+        defaultOptions={{
+          hotkey: { preventDefault: true },
+          hotkeySequence: { timeout: 1500 },
+        }}
+      >
+        <ProfilerBoundary id="app-root">{children}</ProfilerBoundary>
+      </HotkeysProvider>
+    </QueryClientProvider>
   )
 }

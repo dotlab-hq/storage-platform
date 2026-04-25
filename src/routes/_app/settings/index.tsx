@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { createFileRoute } from '@tanstack/react-start'
-'use client'
+;('use client')
 
 import { useEffect, useState, lazy, Suspense } from 'react'
 import { Separator } from '@/components/ui/separator'
