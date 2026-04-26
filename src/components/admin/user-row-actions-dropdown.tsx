@@ -41,35 +41,7 @@ type UserRowActionsDropdownProps = {
   onUpdateStorage?: (storageLimitBytes: number) => Promise<void>
 }
 
-export function UserRowActionsDropdown({
-  user,
-  onViewFiles,
-  onRoleChange,
-  onBan,
-  onDelete,
-  onUpdateStorage,
-}: UserRowActionsDropdownProps) {
-  const [showStorageDialog, setShowStorageDialog] = useState(false)
-  const [storageInput, setStorageInput] = useState(
-    String(user.storageLimitBytes),
-  )
-  const [isUpdating, setIsUpdating] = useState(false)
-
-  const handleImpersonate = async () => {
-    setIsUpdating(true)
-    try {
-      await impersonateUserFn({ data: { userId: user.id } })
-      window.location.href = '/'
-    } catch (error) {
-      const message =
-        error instanceof Error ? error.message : 'Failed to impersonate user'
-      toast.error(message)
-    } finally {
-      setIsUpdating(false)
-    }
-  }
-
-  const handleStorageUpdate = async () => {
+const handleStorageUpdate = async () => {
     const bytes = Number(storageInput)
     if (!Number.isFinite(bytes) || bytes <= 0) {
       toast.error('Please enter a valid storage limit')
