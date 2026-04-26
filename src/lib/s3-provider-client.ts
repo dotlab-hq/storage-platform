@@ -50,16 +50,18 @@ async function getDefaultActiveProvider(): Promise<ProviderRow | null> {
 }
 
 function fromEnvironment(): ProviderClientConfig {
-  const accessKeyId = process.env.S3_ACCESS_KEY_ID?.replace(
-    /^["']|["']$/g,
-    '',
-  ).trim()
-  const secretAccessKey = process.env.S3_SECRET_ACCESS_KEY?.replace(
-    /^["']|["']$/g,
-    '',
-  ).trim()
-  const region = process.env.S3_REGION?.replace(/^["']|["']$/g, '').trim()
-  const endpoint = process.env.S3_ENDPOINT?.replace(/^["']|["']$/g, '').trim()
+  const accessKeyId = (process.env.S3_ACCESS_KEY_ID ?? '')
+    .replace(/^["']|["']$/g, '')
+    .trim()
+  const secretAccessKey = (process.env.S3_SECRET_ACCESS_KEY ?? '')
+    .replace(/^["']|["']$/g, '')
+    .trim()
+  const region = (process.env.S3_REGION ?? '')
+    .replace(/^["']|["']$/g, '')
+    .trim()
+  const endpoint = (process.env.S3_ENDPOINT ?? '')
+    .replace(/^["']|["']$/g, '')
+    .trim()
   if (!accessKeyId || !secretAccessKey || !region || !endpoint) {
     throw new Error('No storage provider exists for uploads')
   }
@@ -82,26 +84,36 @@ function fromEnvironment(): ProviderClientConfig {
 }
 
 function fromProviderRow(row: ProviderRow): ProviderClientConfig {
+  // Helper to safely extract and trim string from env or row
+  const safeTrim = (value: string | undefined): string =>
+    (value ?? '').replace(/^["']|["']$/g, '').trim()
+
+  // Access Key ID: use env if row indicates undetermined
   const accessKeyId =
     row.accessKeyIdEncrypted === UNDETERMINED_PROVIDER_VALUE
-      ? process.env.S3_ACCESS_KEY_ID?.replace(/^["']|["']$/g, '').trim()
-      : decryptProviderSecret(row.accessKeyIdEncrypted)
-          .replace(/^["']|["']$/g, '')
-          .trim()
+      ? safeTrim(process.env.S3_ACCESS_KEY_ID)
+      : safeTrim(decryptProviderSecret(row.accessKeyIdEncrypted))
+
+  // Secret Access Key: use env if row indicates undetermined
   const secretAccessKey =
     row.secretAccessKeyEncrypted === UNDETERMINED_PROVIDER_VALUE
-      ? process.env.S3_SECRET_ACCESS_KEY?.replace(/^["']|["']$/g, '').trim()
-      : decryptProviderSecret(row.secretAccessKeyEncrypted)
-          .replace(/^["']|["']$/g, '')
-          .trim()
+      ? safeTrim(process.env.S3_SECRET_ACCESS_KEY)
+      : safeTrim(decryptProviderSecret(row.secretAccessKeyEncrypted))
+
+  // Region: if row.region is empty or undetermined, fall back to env var
+  const rawRegion = safeTrim(row.region)
   const region =
-    row.region === UNDETERMINED_PROVIDER_VALUE
-      ? process.env.S3_REGION?.replace(/^["']|["']$/g, '').trim()
-      : row.region.replace(/^["']|["']$/g, '').trim()
+    rawRegion === '' || rawRegion === UNDETERMINED_PROVIDER_VALUE
+      ? safeTrim(process.env.S3_REGION)
+      : rawRegion
+
+  // Endpoint: if row.endpoint is empty or undetermined, fall back to env var
+  const rawEndpoint = safeTrim(row.endpoint)
   const endpoint =
-    row.endpoint === UNDETERMINED_PROVIDER_VALUE
-      ? process.env.S3_ENDPOINT?.replace(/^["']|["']$/g, '').trim()
-      : row.endpoint.replace(/^["']|["']$/g, '').trim()
+    rawEndpoint === '' || rawEndpoint === UNDETERMINED_PROVIDER_VALUE
+      ? safeTrim(process.env.S3_ENDPOINT)
+      : rawEndpoint
+
   if (!accessKeyId || !secretAccessKey || !region || !endpoint) {
     const missing: string[] = []
     if (!accessKeyId) missing.push('accessKeyId')

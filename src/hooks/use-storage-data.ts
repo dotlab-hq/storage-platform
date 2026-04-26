@@ -4,6 +4,7 @@ import {
   useLayoutEffect,
   useMemo,
   useRef,
+  useState,
   useTransition,
 } from 'react'
 import { createClientOnlyFn } from '@tanstack/react-start'
@@ -129,6 +130,8 @@ export function useStorageData( initialData?: HomeLoaderData ) {
   const shouldUseInitialSnapshot =
     skipFirstLoadRef.current && currentFolderId === null && !!initialMapped
 
+  const [optimisticItems, setOptimisticItems] = useState<StorageItem[] | null>(null)
+
   // Infinite query for folder items
   const itemsQuery = useInfiniteQuery( {
     queryKey: STORAGE_QUERY_KEYS.folderItems( currentFolderId ),
@@ -147,22 +150,25 @@ export function useStorageData( initialData?: HomeLoaderData ) {
       if ( mapped.items.length < PAGE_LIMIT ) return undefined
       return lastPage.page + 1
     },
-    enabled: !!userId && !skipFirstLoadRef.current,
-    initialData: initialMapped
-      ? {
-        pages: [
-          {
-            data: {
-              folders: initialData?.folders,
-              files: initialData?.files,
-              breadcrumbs: initialData?.breadcrumbs,
-            } as FetchResponse,
-            page: 1,
-          },
-        ],
-        pageParams: [1],
+    enabled: !!userId && !(skipFirstLoadRef.current && currentFolderId === null),
+    initialData: () => {
+      if (skipFirstLoadRef.current && currentFolderId === null && initialMapped) {
+        return {
+          pages: [
+            {
+              data: {
+                folders: initialData?.folders,
+                files: initialData?.files,
+                breadcrumbs: initialData?.breadcrumbs,
+              } as FetchResponse,
+              page: 1,
+            },
+          ],
+          pageParams: [1],
+        }
       }
-      : undefined,
+      return undefined
+    },
   } )
 
   // Quota query
@@ -235,10 +241,10 @@ export function useStorageData( initialData?: HomeLoaderData ) {
 
   // Sync to Zustand store using useLayoutEffect (before paint)
   useLayoutEffect( () => {
-    store.setItems( items )
+    store.setItems( optimisticItems ?? items )
     store.setFolders( folders )
     store.setBreadcrumbs( breadcrumbs )
-  }, [items, folders, breadcrumbs] )
+  }, [optimisticItems, items, folders, breadcrumbs] )
 
   useLayoutEffect( () => {
     store.setQuota( quotaQuery.data ?? null )
@@ -255,6 +261,11 @@ export function useStorageData( initialData?: HomeLoaderData ) {
     }
   }, [] )
 
+  // Clear optimistic items when server data updates
+  useEffect(() => {
+    setOptimisticItems(null)
+  }, [itemsQuery.data])
+
   const quota = useMemo(
     () => quotaQuery.data ?? null,
     [quotaQuery.data],
@@ -263,6 +274,7 @@ export function useStorageData( initialData?: HomeLoaderData ) {
   // Navigate to folder with useTransition
   const setCurrentFolderId = useCallback(
     ( id: string | null ) => {
+      setOptimisticItems(null)
       startNavTransition( () => {
         store.setCurrentFolderId( id )
       } )
@@ -277,6 +289,7 @@ export function useStorageData( initialData?: HomeLoaderData ) {
       const nextItems =
         typeof updater === 'function' ? updater( currentItems ) : updater
       store.setItems( nextItems )
+      setOptimisticItems( nextItems )
     },
     [store],
   )
@@ -304,6 +317,7 @@ export function useStorageData( initialData?: HomeLoaderData ) {
   )
 
   const isLoading =
+    itemsQuery.isPending ||
     itemsQuery.fetchStatus === 'fetching' ||
     store.isNavigating
 
@@ -314,7 +328,7 @@ export function useStorageData( initialData?: HomeLoaderData ) {
 
   return {
     userId,
-    items,
+    items: optimisticItems ?? items,
     setItems,
     folders,
     uploads,
