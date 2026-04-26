@@ -65,7 +65,7 @@ export async function isActionAllowed(input: {
       input.bucket,
       input.objectKey,
     )
-    if (objectPublic) {
+    if (objectPublic && !input.bucket.blockPublicAccess) {
       return true
     }
     if (input.bucket.blockPublicAccess) {

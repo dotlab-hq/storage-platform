@@ -406,6 +406,60 @@ export async function deleteObjectVersion(
   objectKey: string,
   versionId: string,
 ): Promise<{ isDeleteMarker: boolean }> {
+  if (versionId === 'null') {
+    const upstreamObjectKey = buildUpstreamObjectKey(
+      bucket.userId,
+      bucket.bucketId,
+      bucket.mappedFolderId,
+      objectKey,
+    )
+    const fileRows = await db
+      .select({ providerId: file.providerId })
+      .from(file)
+      .where(
+        and(
+          eq(file.userId, bucket.userId),
+          eq(file.objectKey, upstreamObjectKey),
+          eq(file.isDeleted, false),
+        ),
+      )
+      .limit(1)
+
+    const currentFile = fileRows[0]
+    if (!currentFile) {
+      throw new Error('NoSuchVersion')
+    }
+
+    const provider = await getProviderClientById(currentFile.providerId)
+    await provider.client.send(
+      new DeleteObjectCommand({
+        Bucket: provider.bucketName,
+        Key: upstreamObjectKey,
+      }),
+    )
+
+    await db
+      .update(file)
+      .set({ isDeleted: true, deletedAt: new Date() })
+      .where(
+        and(
+          eq(file.userId, bucket.userId),
+          eq(file.objectKey, upstreamObjectKey),
+        ),
+      )
+
+    await db
+      .delete(fileVersion)
+      .where(
+        and(
+          eq(fileVersion.bucketId, bucket.bucketId),
+          eq(fileVersion.objectKey, objectKey),
+          eq(fileVersion.versionId, 'null'),
+        ),
+      )
+    return { isDeleteMarker: false }
+  }
+
   const rows = await db
     .select({
       id: fileVersion.id,
@@ -442,6 +496,26 @@ export async function deleteObjectVersion(
   }
 
   await db.delete(fileVersion).where(eq(fileVersion.id, target.id))
+
+  if (target.isDeleteMarker) {
+    const latestVisible = await db
+      .select({ versionId: fileVersion.versionId })
+      .from(fileVersion)
+      .where(
+        and(
+          eq(fileVersion.bucketId, bucket.bucketId),
+          eq(fileVersion.objectKey, objectKey),
+          eq(fileVersion.isDeleteMarker, false),
+        ),
+      )
+      .orderBy(desc(fileVersion.createdAt))
+      .limit(1)
+    const latestVersionId = latestVisible[0]?.versionId
+    if (latestVersionId) {
+      await restoreObjectVersion(bucket, objectKey, latestVersionId)
+    }
+  }
+
   return { isDeleteMarker: target.isDeleteMarker }
 }
 

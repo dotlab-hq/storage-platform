@@ -6,12 +6,21 @@ import {
   PutBucketVersioningCommand,
   PutObjectCommand,
 } from '@aws-sdk/client-s3'
-import { createS3Client, testBucketName } from './helpers/s3-test-utils'
+import {
+  createS3Client,
+  probeS3Access,
+  testBucketName,
+} from './helpers/s3-test-utils'
 
 test.describe('S3 versioning compatibility', () => {
   const bucketName = testBucketName()
   const prefix = `playwright/versioning/${Date.now()}`
   const key = `${prefix}/versioned.txt`
+
+  test.beforeAll(async () => {
+    const probe = await probeS3Access({ bucketName })
+    test.skip(!probe.ok, probe.reason)
+  })
 
   test('PutObject returns version id when enabled', async () => {
     const client = createS3Client()

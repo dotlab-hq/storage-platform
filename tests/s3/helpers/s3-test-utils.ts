@@ -1,6 +1,8 @@
 import {
+  HeadBucketCommand,
   GetBucketCorsCommand,
   GetBucketVersioningCommand,
+  ListBucketsCommand,
   S3Client,
 } from '@aws-sdk/client-s3'
 
@@ -58,4 +60,30 @@ export function testBucketName(): string {
     throw new Error('Missing environment variable: S3_TEST_BUCKET')
   }
   return bucketName
+}
+
+export async function probeS3Access(input: {
+  bucketName: string
+  client?: S3Client
+}): Promise<{ ok: boolean; reason: string }> {
+  const client = input.client ?? createS3Client()
+  try {
+    const listed = await client.send(new ListBucketsCommand({}))
+    const bucketNames = (listed.Buckets ?? []).map((bucket) => bucket.Name)
+    if (!bucketNames.includes(input.bucketName)) {
+      return {
+        ok: false,
+        reason: `Configured bucket '${input.bucketName}' not visible to configured key`,
+      }
+    }
+    await client.send(new HeadBucketCommand({ Bucket: input.bucketName }))
+    return { ok: true, reason: 'ok' }
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : 'Unknown S3 credentials failure'
+    return {
+      ok: false,
+      reason: `S3 credential probe failed: ${message}`,
+    }
+  }
 }

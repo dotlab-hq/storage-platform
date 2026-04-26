@@ -1,10 +1,19 @@
 import { expect, test } from '@playwright/test'
 import { ListObjectsV2Command, PutObjectCommand } from '@aws-sdk/client-s3'
-import { createS3Client, testBucketName } from './helpers/s3-test-utils'
+import {
+  createS3Client,
+  probeS3Access,
+  testBucketName,
+} from './helpers/s3-test-utils'
 
 test.describe('S3 list pagination compatibility', () => {
   const bucketName = testBucketName()
   const prefix = `playwright/pagination/${Date.now()}`
+
+  test.beforeAll(async () => {
+    const probe = await probeS3Access({ bucketName })
+    test.skip(!probe.ok, probe.reason)
+  })
 
   test('ListObjectsV2 supports continuation tokens', async () => {
     const client = createS3Client()

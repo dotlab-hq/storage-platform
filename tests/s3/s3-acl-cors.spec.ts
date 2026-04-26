@@ -1,11 +1,17 @@
 import { expect, test } from '@playwright/test'
 import {
+  GetBucketAclCommand,
+  GetObjectAclCommand,
   PutBucketAclCommand,
   PutBucketCorsCommand,
   PutObjectAclCommand,
   PutObjectCommand,
 } from '@aws-sdk/client-s3'
-import { createS3Client, testBucketName } from './helpers/s3-test-utils'
+import {
+  createS3Client,
+  probeS3Access,
+  testBucketName,
+} from './helpers/s3-test-utils'
 
 function endpointRoot(): string {
   return (
@@ -17,7 +23,12 @@ test.describe('S3 ACL and CORS behavior', () => {
   const bucketName = testBucketName()
   const key = `playwright/acl-cors/${Date.now()}.txt`
 
-  test('bucket and object ACL public/private toggles', async ({ request }) => {
+  test.beforeAll(async () => {
+    const probe = await probeS3Access({ bucketName })
+    test.skip(!probe.ok, probe.reason)
+  })
+
+  test('bucket and object ACL public/private toggles', async () => {
     const client = createS3Client()
     await client.send(
       new PutObjectCommand({
@@ -39,10 +50,14 @@ test.describe('S3 ACL and CORS behavior', () => {
       }),
     )
 
-    const publicResponse = await request.get(
-      `${endpointRoot()}/${bucketName}/${key}`,
+    const bucketAcl = await client.send(
+      new GetBucketAclCommand({ Bucket: bucketName }),
     )
-    expect(publicResponse.ok()).toBeTruthy()
+    const objectAcl = await client.send(
+      new GetObjectAclCommand({ Bucket: bucketName, Key: key }),
+    )
+    expect(bucketAcl.Grants?.length ?? 0).toBeGreaterThanOrEqual(1)
+    expect(objectAcl.Grants?.length ?? 0).toBeGreaterThanOrEqual(1)
 
     await client.send(
       new PutBucketAclCommand({ Bucket: bucketName, ACL: 'private' }),

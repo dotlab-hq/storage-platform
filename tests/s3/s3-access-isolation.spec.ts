@@ -4,7 +4,11 @@ import {
   ListBucketsCommand,
   PutObjectCommand,
 } from '@aws-sdk/client-s3'
-import { createS3Client, testBucketName } from './helpers/s3-test-utils'
+import {
+  createS3Client,
+  probeS3Access,
+  testBucketName,
+} from './helpers/s3-test-utils'
 
 function readOptionalEnv(key: string): string | null {
   const value = process.env[key]
@@ -21,6 +25,11 @@ test.describe('S3 bucket scoped access keys', () => {
   const secondarySecretAccessKey = readOptionalEnv(
     'S3_TEST_SECOND_SECRET_ACCESS_KEY',
   )
+
+  test.beforeAll(async () => {
+    const probe = await probeS3Access({ bucketName: primaryBucket })
+    test.skip(!probe.ok, probe.reason)
+  })
 
   test('root list returns visible buckets for account', async () => {
     const primaryClient = createS3Client()

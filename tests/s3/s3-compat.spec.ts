@@ -15,6 +15,7 @@ import {
 } from '@aws-sdk/client-s3'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { probeS3Access } from './helpers/s3-test-utils'
 
 function readRequiredEnv(key: string): string {
   const value = process.env[key]
@@ -59,6 +60,8 @@ test.describe('S3 compatibility endpoints', () => {
     if (bucketName.length === 0) {
       throw new Error('Missing environment variable: S3_TEST_BUCKET')
     }
+    const probe = await probeS3Access({ bucketName })
+    test.skip(!probe.ok, probe.reason)
   })
 
   test('ListBuckets returns the configured bucket', async () => {

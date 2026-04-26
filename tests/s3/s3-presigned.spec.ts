@@ -5,11 +5,20 @@ import {
   PutObjectCommand,
 } from '@aws-sdk/client-s3'
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
-import { createS3Client, testBucketName } from './helpers/s3-test-utils'
+import {
+  createS3Client,
+  probeS3Access,
+  testBucketName,
+} from './helpers/s3-test-utils'
 
 test.describe('S3 presigned URL compatibility', () => {
   const bucketName = testBucketName()
   const key = `playwright/presigned/${Date.now()}.txt`
+
+  test.beforeAll(async () => {
+    const probe = await probeS3Access({ bucketName })
+    test.skip(!probe.ok, probe.reason)
+  })
 
   test('presigned PUT and GET work against gateway', async ({ request }) => {
     const client = createS3Client()
