@@ -69,11 +69,18 @@ export async function listObjectsByBtree( input: {
       )
 
     return rows
+      .filter(
+        ( row ): row is typeof row & { fullPath: string } =>
+          typeof row.fullPath === 'string' && row.fullPath.length > 0,
+      )
       .map( ( row ) => {
         const relativeKey = stripBasePath( row.fullPath, basePath )
         return {
           key: relativeKey,
-          size: row.sizeInBytes ?? 0,
+          size:
+            typeof row.sizeInBytes === 'number' && Number.isFinite( row.sizeInBytes )
+              ? row.sizeInBytes
+              : 0,
           eTag: row.etag ?? null,
           lastModified: row.lastModified ?? new Date( 0 ),
         }
