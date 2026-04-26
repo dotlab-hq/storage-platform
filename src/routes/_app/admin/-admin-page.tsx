@@ -1,23 +1,15 @@
 'use client'
 
-import { useState, lazy, Suspense, useEffect } from 'react'
+import { useState, lazy, Suspense } from 'react'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { Separator } from '@/components/ui/separator'
 import { toast } from '@/components/ui/sonner'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import {
-  deleteStorageProviderFn,
-  getAdminDashboardDataFn,
-  saveStorageProviderFn,
-  setStorageProviderAvailabilityFn,
-} from './-admin-server'
 import { formatBytes } from '@/lib/format-bytes'
-import type {
-  AdminProvider,
-  AdminSummary,
-  AdminUser,
-} from '@/lib/storage-provider-queries'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
+import { useQueryClient } from '@tanstack/react-query'
+import type { AdminProvider, AdminUser } from '@/lib/storage-provider-queries'
+import { useAdminUsers } from '@/hooks/use-admin-users'
 
 const MetricCard = lazy(() =>
   import('@/components/admin/dashboard-panels').then((m) => ({
@@ -51,7 +43,11 @@ const UserFilesModal = lazy(() =>
 )
 
 export type AdminDashboardData = {
-  summary: AdminSummary
+  summary: {
+    providerCount: number
+    userCount: number
+    totalUsedStorageBytes: number
+  }
   providers: AdminProvider[]
   users: AdminUser[]
 }
@@ -78,23 +74,33 @@ const emptyProviderForm = {
   proxyUploadsEnabled: false,
 }
 
-function isNotFoundPayload(value: unknown): value is { isNotFound: true } {
-  if (typeof value !== 'object' || value === null) {
-    return false
-  }
-  const candidate = value as { isNotFound?: unknown }
-  return candidate.isNotFound === true
-}
-
 type AdminDashboardPageProps = {
   initial?: AdminDashboardData
 }
 
+type ProviderTextField =
+  | 'name'
+  | 'endpoint'
+  | 'region'
+  | 'bucketName'
+  | 'accessKeyId'
+  | 'secretAccessKey'
+
 export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
-  const [data, setData] = useState<AdminDashboardData>(
-    initial ?? emptyDashboardData,
+  const queryClient = useQueryClient()
+
+  const [providers, setProviders] = useState<AdminProvider[]>(
+    initial?.providers ?? [],
+  )
+  const [summary, setSummary] = useState(
+    initial?.summary ?? {
+      providerCount: 0,
+      userCount: 0,
+      totalUsedStorageBytes: 0,
+    },
   )
   const [isSaving, setIsSaving] = useState(false)
+
   const [form, setForm] = useState(emptyProviderForm)
   const [editingProviderId, setEditingProviderId] = useState<string | null>(
     null,
@@ -111,16 +117,13 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
   const [isUserFilesModalOpen, setIsUserFilesModalOpen] = useState(false)
   const [selectedUser, setSelectedUser] = useState<AdminUser | null>(null)
   const [activeTab, setActiveTab] = useState('overview')
-  type ProviderTextField =
-    | 'name'
-    | 'endpoint'
-    | 'region'
-    | 'bucketName'
-    | 'accessKeyId'
-    | 'secretAccessKey'
+
   const setProviderField = (field: ProviderTextField, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }))
   }
+
+  const { data: usersData = [] } = useAdminUsers(initial?.users)
+
   const submitProvider = async () => {
     const parsedLimit = Number(storageLimitInput)
     const parsedFileSizeLimit = Number(fileSizeLimitInput)
@@ -140,52 +143,57 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
       toast.error('Provider name is required')
       return
     }
-    const optimisticProviderCount = editingProviderId
-      ? data.summary.providerCount
-      : data.summary.providerCount + 1
+
     setIsSaving(true)
-    setData((prev) => ({
+
+    const optimisticProviderCount = editingProviderId
+      ? providers.length
+      : providers.length + 1
+
+    setSummary((prev) => ({
       ...prev,
-      summary: {
-        ...prev.summary,
-        providerCount: optimisticProviderCount,
-      },
-      providers: editingProviderId
-        ? prev.providers.map((provider) =>
-            provider.id === editingProviderId
-              ? {
-                  ...provider,
-                  name: form.name,
-                  region: form.region || 'pending',
-                  endpoint: form.endpoint || 'pending',
-                  bucketName: form.bucketName || 'pending',
-                  storageLimitBytes: parsedLimit,
-                  fileSizeLimitBytes: parsedFileSizeLimit,
-                  proxyUploadsEnabled: form.proxyUploadsEnabled,
-                  availableStorageBytes:
-                    parsedLimit - provider.usedStorageBytes,
-                }
-              : provider,
-          )
-        : [
-            ...prev.providers,
-            {
-              id: `optimistic-${Date.now()}`,
-              name: form.name || 'New Provider',
-              region: form.region || 'pending',
-              endpoint: form.endpoint || 'pending',
-              bucketName: form.bucketName || 'pending',
-              storageLimitBytes: parsedLimit,
-              fileSizeLimitBytes: parsedFileSizeLimit,
-              proxyUploadsEnabled: form.proxyUploadsEnabled,
-              isActive: true,
-              createdAt: new Date(),
-              usedStorageBytes: 0,
-              availableStorageBytes: parsedLimit,
-            },
-          ],
+      providerCount: optimisticProviderCount,
     }))
+
+    const optimisticProviders = editingProviderId
+      ? providers.map((provider) =>
+          provider.id === editingProviderId
+            ? {
+                ...provider,
+                name: form.name,
+                region: form.region || 'pending',
+                endpoint: form.endpoint || 'pending',
+                bucketName: form.bucketName || 'pending',
+                storageLimitBytes: parsedLimit,
+                fileSizeLimitBytes: parsedFileSizeLimit,
+                proxyUploadsEnabled: form.proxyUploadsEnabled,
+                availableStorageBytes:
+                  parsedLimit - provider.usedStorageBytes,
+              }
+            : provider,
+        )
+      : [
+          ...providers,
+          {
+            id: `optimistic-${Date.now()}`,
+            name: form.name || 'New Provider',
+            region: form.region || 'pending',
+            endpoint: form.endpoint || 'pending',
+            bucketName: form.bucketName || 'pending',
+            storageLimitBytes: parsedLimit,
+            fileSizeLimitBytes: parsedFileSizeLimit,
+            proxyUploadsEnabled: form.proxyUploadsEnabled,
+            isActive: true,
+            createdAt: new Date(),
+            usedStorageBytes: 0,
+            availableStorageBytes: parsedLimit,
+          },
+        ]
+
+    setProviders(optimisticProviders)
+
     try {
+      const { saveStorageProviderFn } = await import('@/routes/_app/admin/-admin-server')
       const result = await saveStorageProviderFn({
         data: {
           providerId: editingProviderId ?? undefined,
@@ -196,12 +204,16 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
           isActive: true,
         },
       })
-      const refreshed = await getAdminDashboardDataFn()
-      if (refreshed && !isNotFoundPayload(refreshed)) {
-        setData(refreshed)
-      } else {
-        toast.error('Failed to refresh dashboard data after save')
-      }
+      const [{ getAdminProvidersFn }, { getAdminSummaryFn }] = await Promise.all([
+        import('@/routes/_app/admin/-admin-server'),
+        import('@/routes/_app/admin/-admin-server'),
+      ])
+      const [refreshedProviders, refreshedSummary] = await Promise.all([
+        getAdminProvidersFn(),
+        getAdminSummaryFn(),
+      ])
+      setProviders(refreshedProviders)
+      setSummary(refreshedSummary)
       setForm(emptyProviderForm)
       setEditingProviderId(null)
       setStorageLimitInput(String(emptyProviderForm.storageLimitBytes))
@@ -212,12 +224,16 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
           : 'Storage provider added',
       )
     } catch (error) {
-      const latest = await getAdminDashboardDataFn()
-      if (latest && !isNotFoundPayload(latest)) {
-        setData(latest)
-      } else {
-        toast.error('Failed to refresh dashboard data')
-      }
+      const [{ getAdminProvidersFn }, { getAdminSummaryFn }] = await Promise.all([
+        import('@/routes/_app/admin/-admin-server'),
+        import('@/routes/_app/admin/-admin-server'),
+      ])
+      const [refreshedProviders, refreshedSummary] = await Promise.all([
+        getAdminProvidersFn(),
+        getAdminSummaryFn(),
+      ])
+      setProviders(refreshedProviders)
+      setSummary(refreshedSummary)
       const message =
         error instanceof Error ? error.message : 'Failed to create provider'
       toast.error(message)
@@ -225,6 +241,115 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
       setIsSaving(false)
     }
   }
+    if (!Number.isFinite(parsedFileSizeLimit) || parsedFileSizeLimit <= 0) {
+      toast.error('File-size limit must be a positive number')
+      return
+    }
+    if (parsedFileSizeLimit > parsedLimit) {
+      toast.error('File-size limit cannot exceed storage limit')
+      return
+    }
+    if (!form.name.trim()) {
+      toast.error('Provider name is required')
+      return
+    }
+
+    const optimisticProviderCount = editingProviderId
+      ? providers.length
+      : providers.length + 1
+
+    setSummary((prev) => ({
+      ...prev,
+      providerCount: optimisticProviderCount,
+    }))
+
+    const optimisticProviders = editingProviderId
+      ? providers.map((provider) =>
+          provider.id === editingProviderId
+            ? {
+                ...provider,
+                name: form.name,
+                region: form.region || 'pending',
+                endpoint: form.endpoint || 'pending',
+                bucketName: form.bucketName || 'pending',
+                storageLimitBytes: parsedLimit,
+                fileSizeLimitBytes: parsedFileSizeLimit,
+                proxyUploadsEnabled: form.proxyUploadsEnabled,
+                availableStorageBytes: parsedLimit - provider.usedStorageBytes,
+              }
+            : provider,
+        )
+      : [
+          ...providers,
+          {
+            id: `optimistic-${Date.now()}`,
+            name: form.name || 'New Provider',
+            region: form.region || 'pending',
+            endpoint: form.endpoint || 'pending',
+            bucketName: form.bucketName || 'pending',
+            storageLimitBytes: parsedLimit,
+            fileSizeLimitBytes: parsedFileSizeLimit,
+            proxyUploadsEnabled: form.proxyUploadsEnabled,
+            isActive: true,
+            createdAt: new Date(),
+            usedStorageBytes: 0,
+            availableStorageBytes: parsedLimit,
+          },
+        ]
+
+    setProviders(optimisticProviders)
+
+    try {
+      const { saveStorageProviderFn } =
+        await import('@/routes/_app/admin/-admin-server')
+      const result = await saveStorageProviderFn({
+        data: {
+          providerId: editingProviderId ?? undefined,
+          ...form,
+          storageLimitBytes: parsedLimit,
+          fileSizeLimitBytes: parsedFileSizeLimit,
+          proxyUploadsEnabled: form.proxyUploadsEnabled,
+          isActive: true,
+        },
+      })
+      const [{ getAdminProvidersFn }, { getAdminSummaryFn }] =
+        await Promise.all([
+          import('@/routes/_app/admin/-admin-server'),
+          import('@/routes/_app/admin/-admin-server'),
+        ])
+      const [refreshedProviders, refreshedSummary] = await Promise.all([
+        getAdminProvidersFn(),
+        getAdminSummaryFn(),
+      ])
+      setProviders(refreshedProviders)
+      setSummary(refreshedSummary)
+      setForm(emptyProviderForm)
+      setEditingProviderId(null)
+      setStorageLimitInput(String(emptyProviderForm.storageLimitBytes))
+      setFileSizeLimitInput(String(emptyProviderForm.fileSizeLimitBytes))
+      toast.success(
+        result.operation === 'updated'
+          ? 'Storage provider updated'
+          : 'Storage provider added',
+      )
+    } catch (error) {
+      const [{ getAdminProvidersFn }, { getAdminSummaryFn }] =
+        await Promise.all([
+          import('@/routes/_app/admin/-admin-server'),
+          import('@/routes/_app/admin/-admin-server'),
+        ])
+      const [refreshedProviders, refreshedSummary] = await Promise.all([
+        getAdminProvidersFn(),
+        getAdminSummaryFn(),
+      ])
+      setProviders(refreshedProviders)
+      setSummary(refreshedSummary)
+      const message =
+        error instanceof Error ? error.message : 'Failed to create provider'
+      toast.error(message)
+    }
+  }
+
   const startEditingProvider = (provider: AdminProvider) => {
     setEditingProviderId(provider.id)
     setForm({
@@ -242,6 +367,7 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
     setFileSizeLimitInput(String(provider.fileSizeLimitBytes))
     setActiveTab('add')
   }
+
   const resetProviderForm = () => {
     setEditingProviderId(null)
     setForm(emptyProviderForm)
@@ -249,26 +375,30 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
     setFileSizeLimitInput(String(emptyProviderForm.fileSizeLimitBytes))
     setActiveTab('providers')
   }
+
   const toggleProviderAvailability = async (
     providerId: string,
     isActive: boolean,
   ) => {
-    setData((prev) => ({
-      ...prev,
-      providers: prev.providers.map((provider) =>
+    const previousProviders = providers
+    setProviders((prev) =>
+      prev.map((provider) =>
         provider.id === providerId ? { ...provider, isActive } : provider,
       ),
-    }))
+    )
     try {
+      const { setStorageProviderAvailabilityFn } =
+        await import('@/routes/_app/admin/-admin-server')
       await setStorageProviderAvailabilityFn({ data: { providerId, isActive } })
       toast.success(
         `Provider marked as ${isActive ? `available` : `unavailable`}`,
       )
     } catch (error) {
-      const refreshed = await getAdminDashboardDataFn()
-      if (refreshed && !isNotFoundPayload(refreshed)) {
-        setData(refreshed)
-      }
+      setProviders(previousProviders)
+      const { getAdminProvidersFn } =
+        await import('@/routes/_app/admin/-admin-server')
+      const refreshed = await getAdminProvidersFn()
+      setProviders(refreshed)
       const message =
         error instanceof Error
           ? error.message
@@ -276,21 +406,30 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
       toast.error(message)
     }
   }
+
   const deleteProvider = async (providerId: string) => {
     try {
+      const { deleteStorageProviderFn } =
+        await import('@/routes/_app/admin/-admin-server')
       await deleteStorageProviderFn({ data: { providerId } })
-      const refreshed = await getAdminDashboardDataFn()
-      if (refreshed && !isNotFoundPayload(refreshed)) {
-        setData(refreshed)
-      } else {
-        toast.error('Failed to refresh dashboard data after delete')
-      }
+      const { getAdminProvidersFn, getAdminSummaryFn } =
+        await import('@/routes/_app/admin/-admin-server')
+      const [refreshedProviders, refreshedSummary] = await Promise.all([
+        getAdminProvidersFn(),
+        getAdminSummaryFn(),
+      ])
+      setProviders(refreshedProviders)
+      setSummary(refreshedSummary)
       toast.success('Storage provider deleted')
     } catch (error) {
       const message =
         error instanceof Error ? error.message : 'Failed to delete provider'
       toast.error(message)
     }
+  }
+
+  const handleUserUpdate = async () => {
+    queryClient.invalidateQueries({ queryKey: ['admin-users'] })
   }
 
   return (
@@ -314,18 +453,15 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
           <TabsContent value="overview">
             <div className="grid gap-4 md:grid-cols-3">
               <Suspense fallback={<PageSkeleton className="h-24 w-full" />}>
-                <MetricCard
-                  title="Providers"
-                  value={data.summary.providerCount}
-                />
+                <MetricCard title="Providers" value={summary.providerCount} />
               </Suspense>
               <Suspense fallback={<PageSkeleton className="h-24 w-full" />}>
-                <MetricCard title="Users" value={data.summary.userCount} />
+                <MetricCard title="Users" value={summary.userCount} />
               </Suspense>
               <Suspense fallback={<PageSkeleton className="h-24 w-full" />}>
                 <MetricCard
                   title="Total Used"
-                  value={formatBytes(data.summary.totalUsedStorageBytes)}
+                  value={formatBytes(summary.totalUsedStorageBytes)}
                 />
               </Suspense>
             </div>
@@ -333,7 +469,7 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
           <TabsContent value="providers">
             <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
               <ProvidersPanel
-                providers={data.providers}
+                providers={providers}
                 onToggleAvailability={toggleProviderAvailability}
                 onDelete={deleteProvider}
                 onEdit={startEditingProvider}
@@ -347,13 +483,8 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
           <TabsContent value="users">
             <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
               <UsersPanel
-                users={data.users}
-                onUserUpdate={async () => {
-                  const refreshed = await getAdminDashboardDataFn()
-                  if (refreshed && !isNotFoundPayload(refreshed)) {
-                    setData(refreshed)
-                  }
-                }}
+                users={usersData}
+                onUserUpdate={handleUserUpdate}
                 onViewUserFiles={(user) => {
                   setSelectedUser(user)
                   setIsUserFilesModalOpen(true)

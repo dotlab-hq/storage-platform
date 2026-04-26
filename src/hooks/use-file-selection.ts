@@ -1,102 +1,63 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo } from 'react'
+import { useFileSelectionStore } from '@/stores/file-selection-store'
 import { setHasSelectedFiles } from '@/lib/stores/file-selection-ui-store'
 import type { StorageItem } from '@/types/storage'
 
-type SelectionState = {
-  selectedIds: Set<string>
-  lastSelectedId: string | null
-}
-
 export function useFileSelection(items: StorageItem[]) {
-  const [state, setState] = useState<SelectionState>({
-    selectedIds: new Set(),
-    lastSelectedId: null,
-  })
+  const selectedIds = useFileSelectionStore((s) => s.selectedIds)
+  const lastSelectedId = useFileSelectionStore((s) => s.lastSelectedId)
+  const storeSelect = useFileSelectionStore((s) => s.select)
+  const storeToggleSelect = useFileSelectionStore((s) => s.toggleSelect)
+  const storeClearSelection = useFileSelectionStore((s) => s.clearSelection)
+  const storeSelectMany = useFileSelectionStore((s) => s.selectMany)
+  const storeSelectAll = useFileSelectionStore((s) => s.selectAll)
 
-  useEffect(() => {
-    setHasSelectedFiles(state.selectedIds.size > 0)
-  }, [state.selectedIds.size])
+  // Sync UI store with useLayoutEffect (before paint)
+  useLayoutEffect(() => {
+    setHasSelectedFiles(selectedIds.size > 0)
+  }, [selectedIds.size])
 
   useEffect(() => {
     return () => setHasSelectedFiles(false)
   }, [])
 
+  // Memoize selected count to avoid recomputation
+  const selectedCount = useMemo(() => selectedIds.size, [selectedIds])
+
+  // Wrap store methods to inject items dependency
   const select = useCallback(
-    (id: string, shiftKey = false) => {
-      setState((prev) => {
-        if (shiftKey && prev.lastSelectedId) {
-          const lastIndex = items.findIndex(
-            (item) => item.id === prev.lastSelectedId,
-          )
-          const currentIndex = items.findIndex((item) => item.id === id)
-
-          if (lastIndex === -1 || currentIndex === -1) {
-            return { selectedIds: new Set([id]), lastSelectedId: id }
-          }
-
-          const start = Math.min(lastIndex, currentIndex)
-          const end = Math.max(lastIndex, currentIndex)
-          const rangeIds = items.slice(start, end + 1).map((item) => item.id)
-
-          return {
-            selectedIds: new Set([...prev.selectedIds, ...rangeIds]),
-            lastSelectedId: id,
-          }
-        }
-
-        return { selectedIds: new Set([id]), lastSelectedId: id }
-      })
-    },
-    [items],
+    (id: string, shiftKey = false) => storeSelect(id, shiftKey, items),
+    [items, storeSelect],
   )
 
-  const toggleSelect = useCallback((id: string) => {
-    setState((prev) => {
-      const next = new Set(prev.selectedIds)
-      if (next.has(id)) {
-        next.delete(id)
-      } else {
-        next.add(id)
-      }
-      return { selectedIds: next, lastSelectedId: id }
-    })
-  }, [])
+  const toggleSelect = useCallback(
+    (id: string) => storeToggleSelect(id),
+    [storeToggleSelect],
+  )
 
-  const clearSelection = useCallback(() => {
-    setState({ selectedIds: new Set(), lastSelectedId: null })
-  }, [])
+  const clearSelection = useCallback(
+    () => storeClearSelection(),
+    [storeClearSelection],
+  )
 
-  const selectMany = useCallback((ids: string[], append = false) => {
-    setState((prev) => {
-      const nextSelected = append
-        ? new Set(prev.selectedIds)
-        : new Set<string>()
-      ids.forEach((id) => nextSelected.add(id))
-      const lastId =
-        ids.length > 0
-          ? ids[ids.length - 1]
-          : append
-            ? prev.lastSelectedId
-            : null
-      return { selectedIds: nextSelected, lastSelectedId: lastId }
-    })
-  }, [])
+  const selectMany = useCallback(
+    (ids: string[], append = false) => storeSelectMany(ids, append),
+    [storeSelectMany],
+  )
 
-  const selectAll = useCallback(() => {
-    setState({
-      selectedIds: new Set(items.map((item) => item.id)),
-      lastSelectedId: items[items.length - 1]?.id ?? null,
-    })
-  }, [items])
+  const selectAll = useCallback(
+    () => storeSelectAll(items),
+    [items, storeSelectAll],
+  )
 
   const isSelected = useCallback(
-    (id: string) => state.selectedIds.has(id),
-    [state.selectedIds],
+    (id: string) => selectedIds.has(id),
+    [selectedIds],
   )
 
   return {
-    selectedIds: state.selectedIds,
-    selectedCount: state.selectedIds.size,
+    selectedIds,
+    selectedCount,
     select,
     toggleSelect,
     selectMany,

@@ -1,4 +1,5 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useOptimistic, useState, useTransition } from 'react'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from '@/components/ui/sonner'
 import { buildFileRedirectUrl, buildNavUrl } from '@/lib/nav-token'
 import { downloadFromUrl } from '@/lib/file-utils'
@@ -7,23 +8,12 @@ import { generateFileSummaryForItem } from '@/lib/file-summary/client'
 import { createFolderFn } from '@/lib/storage-actions-server'
 import { renameItemFn } from '@/lib/storage/mutations/rename'
 import { getFilePresignedUrlFn } from '@/lib/storage/mutations/urls'
+import { STORAGE_QUERY_KEYS } from '@/lib/query-keys'
 import type { StorageItem, ContextMenuAction } from '@/types/storage'
 import type { UseStorageActionsParams } from '@/hooks/storage-actions.types'
 
 function getErrorMessage(error: unknown, fallback: string): string {
   return error instanceof Error ? error.message : fallback
-}
-
-function withOptimisticRename(
-  setItems: React.Dispatch<React.SetStateAction<StorageItem[]>>,
-  itemId: string,
-  nextName: string,
-) {
-  setItems((previous) =>
-    previous.map((item) =>
-      item.id === itemId ? { ...item, name: nextName } : item,
-    ),
-  )
 }
 
 export function useStorageActions(params: UseStorageActionsParams) {
@@ -38,12 +28,101 @@ export function useStorageActions(params: UseStorageActionsParams) {
     onShareOpen,
   } = params
 
+  const queryClient = useQueryClient()
   const [renamingItemId, setRenamingItemId] = useState<string | null>(null)
+  const [, startTransition] = useTransition()
+
+  // Optimistic state for items during rename
+  const [optimisticItems, addOptimisticRename] = useOptimistic<
+    StorageItem[],
+    { itemId: string; newName: string }
+  >([], (currentItems, { itemId, newName }) =>
+    currentItems.map((item) =>
+      item.id === itemId ? { ...item, name: newName } : item,
+    ),
+  )
+
+  // Rename mutation with optimistic update
+  const renameMutation = useMutation({
+    mutationFn: async ({
+      item,
+      newName,
+    }: {
+      item: StorageItem
+      newName: string
+    }) => {
+      await renameItemFn({
+        data: { itemId: item.id, newName, itemType: item.type },
+      })
+    },
+    onMutate: ({ item, newName }) => {
+      // Optimistic rename
+      setItems((previous) =>
+        previous.map((i) =>
+          i.id === item.id ? { ...i, name: newName } : i,
+        ),
+      )
+      startTransition(() => {
+        addOptimisticRename({ itemId: item.id, newName })
+      })
+    },
+    onError: (error, { item }) => {
+      // Rollback on failure
+      setItems((previous) =>
+        previous.map((i) =>
+          i.id === item.id ? { ...i, name: item.name } : i,
+        ),
+      )
+      toast.error(`Rename failed: ${getErrorMessage(error, 'Unknown error')}`)
+    },
+    onSettled: () => {
+      void queryClient.invalidateQueries({
+        queryKey: STORAGE_QUERY_KEYS.folderItems(currentFolderId),
+      })
+    },
+  })
+
+  // Create folder mutation with optimistic update
+  const createFolderMutation = useMutation({
+    mutationFn: async (name: string) => {
+      const { folder: created } = await createFolderFn({
+        data: { name, parentFolderId: currentFolderId ?? undefined },
+      })
+      return created
+    },
+    onSuccess: (created) => {
+      if (!userId) return
+      const newFolder: StorageItem = {
+        id: created.id,
+        name: created.name,
+        type: 'folder',
+        userId,
+        parentFolderId: currentFolderId,
+        createdAt: new Date(created.createdAt),
+        updatedAt: new Date(created.createdAt),
+      }
+      startTransition(() => {
+        setItems((previous) => [newFolder, ...previous])
+      })
+    },
+    onError: (error) => {
+      toast.error(
+        `Folder creation failed: ${getErrorMessage(error, 'Unknown error')}`,
+      )
+    },
+    onSettled: () => {
+      void queryClient.invalidateQueries({
+        queryKey: STORAGE_QUERY_KEYS.folderItems(currentFolderId),
+      })
+    },
+  })
 
   const handleDoubleClick = useCallback(
     async (item: StorageItem) => {
       if (item.type === 'folder') {
-        setCurrentFolderId(item.id)
+        startTransition(() => {
+          setCurrentFolderId(item.id)
+        })
         return
       }
       if (!userId) return
@@ -64,19 +143,10 @@ export function useStorageActions(params: UseStorageActionsParams) {
   const handleRename = useCallback(
     async (item: StorageItem, newName: string) => {
       if (!userId) return
-
-      withOptimisticRename(setItems, item.id, newName)
       setRenamingItemId(null)
-      try {
-        await renameItemFn({
-          data: { itemId: item.id, newName, itemType: item.type },
-        })
-      } catch (error) {
-        withOptimisticRename(setItems, item.id, item.name)
-        toast.error(`Rename failed: ${getErrorMessage(error, 'Unknown error')}`)
-      }
+      renameMutation.mutate({ item, newName })
     },
-    [setItems, userId],
+    [userId, renameMutation],
   )
 
   const handleNewFolder = useCallback(
@@ -85,27 +155,9 @@ export function useStorageActions(params: UseStorageActionsParams) {
         toast.error('Session not ready')
         return
       }
-      try {
-        const { folder: created } = await createFolderFn({
-          data: { name, parentFolderId: currentFolderId ?? undefined },
-        })
-        const newFolder: StorageItem = {
-          id: created.id,
-          name: created.name,
-          type: 'folder',
-          userId,
-          parentFolderId: currentFolderId,
-          createdAt: new Date(created.createdAt),
-          updatedAt: new Date(created.createdAt),
-        }
-        setItems((previous) => [newFolder, ...previous])
-      } catch (error) {
-        toast.error(
-          `Folder creation failed: ${getErrorMessage(error, 'Unknown error')}`,
-        )
-      }
+      createFolderMutation.mutate(name)
     },
-    [currentFolderId, setItems, userId],
+    [userId, createFolderMutation],
   )
 
   const handleContextAction = useCallback(

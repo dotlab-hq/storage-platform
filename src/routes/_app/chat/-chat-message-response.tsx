@@ -3,11 +3,15 @@ import { cn } from '@/lib/utils'
 
 type MermaidPluginType = (typeof import('@streamdown/mermaid'))['mermaid']
 
-const StreamdownRenderer = lazy(
-  () => import('@/components/ai-elements/streamdown-renderer'),
+const StreamdownRenderer = lazy(() =>
+  import('@/components/ai-elements/streamdown-renderer').then((m) => ({
+    default: m.StreamdownRenderer,
+  })),
 )
-const ArtifactPreview = lazy(
-  () => import('@/components/ai-elements/artifact-preview'),
+const ArtifactPreview = lazy(() =>
+  import('@/components/ai-elements/artifact-preview').then((m) => ({
+    default: m.ArtifactPreview,
+  })),
 )
 
 const JSX_FENCE_PATTERN = /```(?:tsx|jsx)\s*([\s\S]*?)```/i

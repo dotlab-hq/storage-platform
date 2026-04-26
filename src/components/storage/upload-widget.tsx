@@ -21,102 +21,103 @@ import {
 } from '@/components/ui/tooltip'
 
 export function UploadWidget() {
-  const uploads = useUploadStore( ( state ) => state.uploads )
-  const [isExpanded, setIsExpanded] = React.useState( false )
-  const [isVisible, setIsVisible] = React.useState( false )
+  const uploads = useUploadStore((state) => state.uploads)
+  const [isExpanded, setIsExpanded] = React.useState(false)
+  const [isVisible, setIsVisible] = React.useState(false)
 
-  const activeUploads = uploads.filter( ( u ) => u.status === 'uploading' )
-  const completedCount = uploads.filter( ( u ) => u.status === 'completed' ).length
-  const failedCount = uploads.filter( ( u ) => u.status === 'failed' ).length
+  const activeUploads = uploads.filter((u) => u.status === 'uploading')
+  const completedCount = uploads.filter((u) => u.status === 'completed').length
+  const failedCount = uploads.filter((u) => u.status === 'failed').length
 
   // Calculate overall progress (0-100)
   const overallProgress =
     activeUploads.length > 0
       ? Math.round(
-        activeUploads.reduce( ( sum, u ) => sum + u.progress, 0 ) /
-        activeUploads.length,
-      )
+          activeUploads.reduce((sum, u) => sum + u.progress, 0) /
+            activeUploads.length,
+        )
       : completedCount > 0 || failedCount > 0
         ? 100
         : 0
 
-  // Show widget when there are any uploads
-  React.useEffect( () => {
-    if ( uploads.length > 0 ) {
-      setIsVisible( true )
+  // Auto-show widget when uploads appear
+  React.useEffect(() => {
+    if (uploads.length > 0) {
+      setIsVisible(true)
     }
-  }, [uploads.length] )
+  }, [uploads.length])
 
-  // Never auto-hide; user manually dismisses with X button
-  if ( !isVisible || uploads.length === 0 ) return null
-
-  const handleClose = () => {
-    setIsVisible( false )
-  }
-
-  const handleClearCompleted = () => {
-    uploads.forEach( ( u ) => {
-      if ( u.status === 'completed' ) removeUpload( u.id )
-    } )
-  }
-
-  const handleRetryUpload = React.useCallback( async ( uploadId: string ) => {
+  // Callbacks - defined before conditional return to maintain hook order
+  const handleRetryUpload = React.useCallback(async (uploadId: string) => {
     const { data } = await authClient.getSession()
     const uid = data?.user?.id
-    if ( !uid ) {
-      toast.error( 'Session not ready. Please sign in again.' )
+    if (!uid) {
+      toast.error('Session not ready. Please sign in again.')
       return
     }
 
-    const success = await retryUploadById( uploadId, uid )
-    if ( !success ) {
-      toast.error( 'Retry failed. Please try uploading again.' )
+    const success = await retryUploadById(uploadId, uid)
+    if (!success) {
+      toast.error('Retry failed. Please try uploading again.')
     }
-  }, [] )
+  }, [])
 
-  const handleRetryAll = React.useCallback( async () => {
+  const handleRetryAll = React.useCallback(async () => {
     const { data } = await authClient.getSession()
     const uid = data?.user?.id
-    if ( !uid ) {
-      toast.error( 'Session not ready. Please sign in again.' )
+    if (!uid) {
+      toast.error('Session not ready. Please sign in again.')
       return
     }
 
     const retryableIds = uploads
       .filter(
-        ( upload ) =>
+        (upload) =>
           upload.status === 'failed' &&
           !!upload.file &&
           !upload.folderName &&
           !upload.parentUploadId,
       )
-      .map( ( upload ) => upload.id )
+      .map((upload) => upload.id)
 
-    if ( retryableIds.length === 0 ) {
-      toast.error( 'No retryable uploads found.' )
+    if (retryableIds.length === 0) {
+      toast.error('No retryable uploads found.')
       return
     }
 
     const queue = [...retryableIds]
-    const workers = Math.min( 3, queue.length )
+    const workers = Math.min(3, queue.length)
     const worker = async () => {
-      while ( queue.length > 0 ) {
+      while (queue.length > 0) {
         const nextId = queue.shift()
-        if ( !nextId ) break
-        await retryUploadById( nextId, uid )
+        if (!nextId) break
+        await retryUploadById(nextId, uid)
       }
     }
 
-    await Promise.all( Array.from( { length: workers }, () => worker() ) )
-  }, [uploads] )
+    await Promise.all(Array.from({ length: workers }, () => worker()))
+  }, [uploads])
+
+  // Never auto-hide; user manually dismisses with X button
+  if (!isVisible || uploads.length === 0) return null
+
+  const handleClose = () => {
+    setIsVisible(false)
+  }
+
+  const handleClearCompleted = () => {
+    uploads.forEach((u) => {
+      if (u.status === 'completed') removeUpload(u.id)
+    })
+  }
 
   // Circular progress: SVG stroke-dasharray trick
   const size = 48
   const strokeWidth = 3
-  const radius = ( size - strokeWidth ) / 2
+  const radius = (size - strokeWidth) / 2
   const circumference = 2 * Math.PI * radius
   const strokeDashoffset =
-    circumference - ( overallProgress / 100 ) * circumference
+    circumference - (overallProgress / 100) * circumference
 
   return (
     <TooltipProvider>
@@ -132,7 +133,7 @@ export function UploadWidget() {
         <Tooltip>
           <TooltipTrigger asChild>
             <button
-              onClick={() => setIsExpanded( !isExpanded )}
+              onClick={() => setIsExpanded(!isExpanded)}
               className="relative flex items-center justify-center w-12 h-12 rounded-full bg-background border border-border shadow-lg hover:shadow-xl transition-shadow"
               aria-label={`Uploads: ${activeUploads.length} active, ${completedCount} completed, ${failedCount} failed`}
             >
@@ -192,7 +193,7 @@ export function UploadWidget() {
 
               {/* Close button - top right, always visible */}
               <button
-                onClick={( e ) => {
+                onClick={(e) => {
                   e.stopPropagation()
                   handleClose()
                 }}
@@ -227,9 +228,9 @@ export function UploadWidget() {
               <div className="flex items-center gap-1">
                 <button
                   type="button"
-                  onClick={( e ) => {
+                  onClick={(e) => {
                     e.stopPropagation()
-                    setIsExpanded( false )
+                    setIsExpanded(false)
                   }}
                   className="hover:bg-muted rounded p-1 transition-colors"
                   aria-label="Collapse"
@@ -238,10 +239,10 @@ export function UploadWidget() {
                 </button>
                 <button
                   type="button"
-                  onClick={( e ) => {
+                  onClick={(e) => {
                     e.stopPropagation()
-                    setIsExpanded( false )
-                    setIsVisible( false )
+                    setIsExpanded(false)
+                    setIsVisible(false)
                   }}
                   className="hover:bg-muted rounded p-1 transition-colors"
                   aria-label="Close upload widget"
@@ -253,7 +254,7 @@ export function UploadWidget() {
 
             {/* Upload list */}
             <div className="max-h-80 overflow-y-auto p-2 space-y-2">
-              {uploads.map( ( upload ) => (
+              {uploads.map((upload) => (
                 <div key={upload.id} className="relative group">
                   <UploadingCard
                     upload={upload}
@@ -264,19 +265,19 @@ export function UploadWidget() {
                     }
                     variant="compact"
                     onRemove={() => {
-                      if ( upload.folderName ) {
-                        removeUploadWithChildren( upload.id )
+                      if (upload.folderName) {
+                        removeUploadWithChildren(upload.id)
                       } else {
-                        removeUpload( upload.id )
+                        removeUpload(upload.id)
                       }
                     }}
                   />
                 </div>
-              ) )}
+              ))}
             </div>
 
             {/* Footer actions */}
-            {( completedCount > 0 || failedCount > 0 ) && (
+            {(completedCount > 0 || failedCount > 0) && (
               <div className="p-2 border-t flex gap-2">
                 {completedCount > 0 && (
                   <Button

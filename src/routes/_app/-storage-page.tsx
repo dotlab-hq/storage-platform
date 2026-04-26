@@ -1,4 +1,12 @@
-import { useState, useEffect, lazy, Suspense, useCallback, useRef } from 'react'
+import {
+  useEffect,
+  lazy,
+  Suspense,
+  useCallback,
+  useMemo,
+  useTransition,
+  useLayoutEffect,
+} from 'react'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
@@ -12,6 +20,7 @@ import { useStorageActions } from '@/hooks/use-storage-actions'
 import { useBulkActions } from '@/hooks/use-bulk-actions'
 import { useFolderHistory } from '@/hooks/use-folder-history'
 import { useHomeShellActions } from '@/hooks/use-home-shell-actions'
+import { useUiStore } from '@/stores/ui-store'
 import type { StorageItem } from '@/types/storage'
 import type { HomeLoaderData } from '../-home-server'
 
@@ -88,24 +97,16 @@ export function StoragePage({ initial, search }: StoragePageProps) {
     storage.quota?.fileSizeLimit ?? null,
   )
 
-  const [shareItem, setShareItem] = useState<StorageItem | null>(null)
-  const [moveOpen, setMoveOpen] = useState(false)
-  const [moveMode, setMoveMode] = useState<'move' | 'update-path'>('move')
-  const [deleteOpen, setDeleteOpen] = useState(false)
-  const [pendingDelete, setPendingDelete] = useState<{
-    ids: string[]
-    types: ('file' | 'folder')[]
-  } | null>(null)
-  const [uploadFileOpen, setUploadFileOpen] = useState(false)
-  const [uploadFolderOpen, setUploadFolderOpen] = useState(false)
-  const [urlImportOpen, setUrlImportOpen] = useState(false)
-  const [newFolderOpen, setNewFolderOpen] = useState(false)
+  // UI state from Zustand store
+  const ui = useUiStore()
+  const [, startTransition] = useTransition()
 
-  useEffect(() => {
+  // Sync upload search param with useLayoutEffect (before paint)
+  useLayoutEffect(() => {
     if (search.upload) {
-      setUploadFileOpen(true)
+      ui.setUploadFileOpen(true)
     }
-  }, [search.upload])
+  }, [search.upload]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useFolderHistory(storage.currentFolderId, storage.setCurrentFolderId)
   const actions = useStorageActions({
@@ -116,14 +117,20 @@ export function StoragePage({ initial, search }: StoragePageProps) {
     setCurrentFolderId: storage.setCurrentFolderId,
     select: selection.select,
     onDeleteOpen: (item: StorageItem) => {
-      setPendingDelete({ ids: [item.id], types: [item.type] })
-      setDeleteOpen(true)
+      startTransition(() => {
+        ui.openDeleteForItem(item)
+      })
     },
     onMoveOpen: (mode = 'move') => {
-      setMoveMode(mode)
-      setMoveOpen(true)
+      startTransition(() => {
+        ui.openMoveWithMode(mode)
+      })
     },
-    onShareOpen: (item) => setShareItem(item),
+    onShareOpen: (item) => {
+      startTransition(() => {
+        ui.setShareItem(item)
+      })
+    },
   })
   const bulk = useBulkActions({
     userId: storage.userId,
@@ -132,8 +139,8 @@ export function StoragePage({ initial, search }: StoragePageProps) {
     setItems: storage.setItems,
     clearSelection: selection.clearSelection,
     refresh: storage.refresh,
-    setDeleteOpen,
-    setMoveOpen,
+    setDeleteOpen: ui.setDeleteOpen,
+    setMoveOpen: ui.setMoveOpen,
   })
   useKeyboardShortcuts({
     'mod+a': () => selection.selectAll(),
@@ -143,18 +150,22 @@ export function StoragePage({ initial, search }: StoragePageProps) {
         const items = storage.items.filter((i) =>
           selection.selectedIds.has(i.id),
         )
-        setPendingDelete({
-          ids: items.map((i) => i.id),
-          types: items.map((i) => i.type),
+        startTransition(() => {
+          ui.setPendingDelete({
+            ids: items.map((i) => i.id),
+            types: items.map((i) => i.type),
+          })
+          ui.setDeleteOpen(true)
         })
-        setDeleteOpen(true)
       }
     },
   })
   useHomeShellActions()
 
-  const selectedItems = storage.items.filter((i) =>
-    selection.selectedIds.has(i.id),
+  // Memoize selected items to avoid recomputation on every render
+  const selectedItems = useMemo(
+    () => storage.items.filter((i) => selection.selectedIds.has(i.id)),
+    [storage.items, selection.selectedIds],
   )
 
   return (
@@ -194,14 +205,14 @@ export function StoragePage({ initial, search }: StoragePageProps) {
               setItems={storage.setItems}
               fileSizeLimit={storage.quota?.fileSizeLimit ?? null}
               isReadOnly={storage.tinySessionPermission === 'read'}
-              openUploadFiles={uploadFileOpen}
-              onOpenUploadFilesChange={setUploadFileOpen}
-              openUploadFolder={uploadFolderOpen}
-              onOpenUploadFolderChange={setUploadFolderOpen}
-              openUrlImport={urlImportOpen}
-              onOpenUrlImportChange={setUrlImportOpen}
-              openNewFolder={newFolderOpen}
-              onOpenNewFolderChange={setNewFolderOpen}
+              openUploadFiles={ui.uploadFileOpen}
+              onOpenUploadFilesChange={ui.setUploadFileOpen}
+              openUploadFolder={ui.uploadFolderOpen}
+              onOpenUploadFolderChange={ui.setUploadFolderOpen}
+              openUrlImport={ui.urlImportOpen}
+              onOpenUrlImportChange={ui.setUrlImportOpen}
+              openNewFolder={ui.newFolderOpen}
+              onOpenNewFolderChange={ui.setNewFolderOpen}
             />
           </div>
         </header>
@@ -238,8 +249,8 @@ export function StoragePage({ initial, search }: StoragePageProps) {
               onLoadMore={storage.loadMore}
               hasMore={storage.hasMore}
               isReadOnly={storage.tinySessionPermission === 'read'}
-              onUploadFiles={() => setUploadFileOpen(true)}
-              onUploadFolder={() => setUploadFolderOpen(true)}
+              onUploadFiles={() => ui.setUploadFileOpen(true)}
+              onUploadFolder={() => ui.setUploadFolderOpen(true)}
             />
           </Suspense>
         </div>
@@ -262,53 +273,60 @@ export function StoragePage({ initial, search }: StoragePageProps) {
         <FloatingActionBar
           selectedCount={selection.selectedCount}
           onDelete={() => {
-            setPendingDelete({
-              ids: selectedItems.map((i) => i.id),
-              types: selectedItems.map((i) => i.type),
+            startTransition(() => {
+              ui.setPendingDelete({
+                ids: selectedItems.map((i) => i.id),
+                types: selectedItems.map((i) => i.type),
+              })
+              ui.setDeleteOpen(true)
             })
-            setDeleteOpen(true)
           }}
           onShare={() => {
-            setShareItem(selectedItems.at(0) ?? null)
+            startTransition(() => {
+              ui.setShareItem(selectedItems.at(0) ?? null)
+            })
           }}
           onClear={selection.clearSelection}
         />
       </Suspense>
       <Suspense fallback={<PageSkeleton variant="modal" className="p-4" />}>
         <ShareModal
-          open={!!shareItem}
-          onOpenChange={(open) => !open && setShareItem(null)}
-          item={shareItem}
+          open={!!ui.shareItem}
+          onOpenChange={(open) => !open && ui.setShareItem(null)}
+          item={ui.shareItem}
           userId={storage.userId}
         />
         <MoveModal
-          open={moveOpen}
-          onOpenChange={setMoveOpen}
+          open={ui.moveOpen}
+          onOpenChange={ui.setMoveOpen}
           items={selectedItems}
           currentFolderId={storage.currentFolderId}
           onMove={bulk.handleMove}
           userId={storage.userId}
-          mode={moveMode}
+          mode={ui.moveMode}
         />
         <ConfirmDeleteModal
-          open={deleteOpen}
+          open={ui.deleteOpen}
           onOpenChange={(open) => {
-            setDeleteOpen(open)
-            if (!open) setPendingDelete(null)
+            ui.setDeleteOpen(open)
+            if (!open) ui.setPendingDelete(null)
           }}
           isPermanent={false}
-          itemCount={pendingDelete?.ids.length ?? 0}
+          itemCount={ui.pendingDelete?.ids.length ?? 0}
           onConfirm={() => {
-            if (pendingDelete) {
-              void bulk.handleDelete(pendingDelete.ids, pendingDelete.types)
+            if (ui.pendingDelete) {
+              void bulk.handleDelete(
+                ui.pendingDelete.ids,
+                ui.pendingDelete.types,
+              )
             }
           }}
         />
       </Suspense>
       <Suspense fallback={<PageSkeleton variant="modal" className="p-4" />}>
         <FileUploadDialog
-          open={uploadFileOpen}
-          onOpenChange={setUploadFileOpen}
+          open={ui.uploadFileOpen}
+          onOpenChange={ui.setUploadFileOpen}
           userId={storage.userId}
           currentFolderId={storage.currentFolderId}
           setUploads={storage.setUploads}
@@ -317,24 +335,24 @@ export function StoragePage({ initial, search }: StoragePageProps) {
           fileSizeLimit={storage.quota?.fileSizeLimit ?? null}
         />
         <FolderUploadDialog
-          open={uploadFolderOpen}
-          onOpenChange={setUploadFolderOpen}
+          open={ui.uploadFolderOpen}
+          onOpenChange={ui.setUploadFolderOpen}
           userId={storage.userId}
           currentFolderId={storage.currentFolderId}
           setUploads={storage.setUploads}
           onUploadComplete={storage.refresh}
         />
         <UrlImportDialog
-          open={urlImportOpen}
-          onOpenChange={setUrlImportOpen}
+          open={ui.urlImportOpen}
+          onOpenChange={ui.setUrlImportOpen}
           userId={storage.userId}
           currentFolderId={storage.currentFolderId}
           setItems={storage.setItems}
           onImportComplete={storage.refresh}
         />
         <NewFolderDialog
-          open={newFolderOpen}
-          onOpenChange={setNewFolderOpen}
+          open={ui.newFolderOpen}
+          onOpenChange={ui.setNewFolderOpen}
           onConfirm={actions.handleNewFolder}
         />
       </Suspense>

@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useCallback } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -8,12 +10,7 @@ import type { AdminProvider, AdminUser } from '@/lib/storage-provider-queries'
 import { formatBytes } from '@/lib/format-bytes'
 import { UsersTable } from './users-table'
 import { AdminFloatingActionBar } from './floating-action-bar'
-import {
-  banUsersFn,
-  deleteUsersFn,
-  updateUserStorageLimitFn,
-  updateUserRoleFn,
-} from '@/routes/_app/admin/-admin-server'
+import { useAdminUsersMutations } from '@/hooks/use-admin-users.mutations'
 
 type MetricCardProps = { title: string; value: string | number }
 
@@ -148,19 +145,91 @@ export function UsersPanel({
   const [selectedUserIds, setSelectedUserIds] = useState<string[]>([])
   const [isLoading, setIsLoading] = useState(false)
 
+  const {
+    updateRoleMutation,
+    banUsersMutation,
+    deleteUsersMutation,
+    updateStorageLimitMutation,
+  } = useAdminUsersMutations()
+
   const clearSelection = useCallback(() => {
     setSelectedUserIds([])
   }, [])
 
+  // Individual user actions
+  const handleRoleChange = useCallback(
+    async (userId: string, isAdmin: boolean) => {
+      try {
+        await updateRoleMutation.mutateAsync({ userId, isAdmin })
+        onUserUpdate?.()
+      } catch (error) {
+        const message =
+          error instanceof Error ? error.message : 'Failed to update user role'
+        toast.error(message)
+      }
+    },
+    [updateRoleMutation, onUserUpdate],
+  )
+
+  const handleBanUser = useCallback(
+    async (userId: string, banned: boolean) => {
+      try {
+        await banUsersMutation.mutateAsync({ userIds: [userId], banned })
+        onUserUpdate?.()
+      } catch (error) {
+        const message =
+          error instanceof Error ? error.message : 'Failed to update ban status'
+        toast.error(message)
+      }
+    },
+    [banUsersMutation, onUserUpdate],
+  )
+
+  const handleDeleteUser = useCallback(
+    async (userId: string) => {
+      const confirmed = window.confirm(
+        `Are you sure you want to delete this user? This cannot be undone.`,
+      )
+      if (!confirmed) {
+        return
+      }
+      try {
+        await deleteUsersMutation.mutateAsync({ userIds: [userId] })
+        onUserUpdate?.()
+      } catch (error) {
+        const message =
+          error instanceof Error ? error.message : 'Failed to delete user'
+        toast.error(message)
+      }
+    },
+    [deleteUsersMutation, onUserUpdate],
+  )
+
+  const handleUpdateStorageUser = useCallback(
+    async (userId: string, storageLimitBytes: number) => {
+      try {
+        await updateStorageLimitMutation.mutateAsync({
+          userId,
+          storageLimitBytes,
+        })
+        onUserUpdate?.()
+      } catch (error) {
+        const message =
+          error instanceof Error ? error.message : 'Failed to update storage'
+        toast.error(message)
+      }
+    },
+    [updateStorageLimitMutation, onUserUpdate],
+  )
+
+  // Bulk actions (for floating action bar)
   const handleBan = useCallback(
     async (banned: boolean) => {
       if (selectedUserIds.length === 0) return
 
       setIsLoading(true)
       try {
-        await banUsersFn({
-          data: { userIds: selectedUserIds, banned },
-        })
+        await banUsersMutation.mutateAsync({ userIds: selectedUserIds, banned })
         toast.success(banned ? 'User(s) banned' : 'User(s) unbanned')
         clearSelection()
         onUserUpdate?.()
@@ -174,7 +243,7 @@ export function UsersPanel({
         setIsLoading(false)
       }
     },
-    [selectedUserIds, clearSelection, onUserUpdate],
+    [selectedUserIds, banUsersMutation, clearSelection, onUserUpdate],
   )
 
   const handleDelete = useCallback(async () => {
@@ -187,9 +256,7 @@ export function UsersPanel({
 
     setIsLoading(true)
     try {
-      await deleteUsersFn({
-        data: { userIds: selectedUserIds },
-      })
+      await deleteUsersMutation.mutateAsync({ userIds: selectedUserIds })
       toast.success('User(s) deleted')
       clearSelection()
       onUserUpdate?.()
@@ -200,7 +267,7 @@ export function UsersPanel({
     } finally {
       setIsLoading(false)
     }
-  }, [selectedUserIds, clearSelection, onUserUpdate])
+  }, [selectedUserIds, deleteUsersMutation, clearSelection, onUserUpdate])
 
   const handleUpdateStorage = useCallback(
     async (storageLimitBytes: number) => {
@@ -209,8 +276,9 @@ export function UsersPanel({
       setIsLoading(true)
       try {
         for (const userId of selectedUserIds) {
-          await updateUserStorageLimitFn({
-            data: { userId, storageLimitBytes },
+          await updateStorageLimitMutation.mutateAsync({
+            userId,
+            storageLimitBytes,
           })
         }
         toast.success('Storage limit updated')
@@ -226,7 +294,7 @@ export function UsersPanel({
         setIsLoading(false)
       }
     },
-    [selectedUserIds, clearSelection, onUserUpdate],
+    [selectedUserIds, updateStorageLimitMutation, clearSelection, onUserUpdate],
   )
 
   const handleBulkRoleChange = useCallback(
@@ -236,9 +304,7 @@ export function UsersPanel({
       setIsLoading(true)
       try {
         for (const userId of selectedUserIds) {
-          await updateUserRoleFn({
-            data: { userId, isAdmin },
-          })
+          await updateRoleMutation.mutateAsync({ userId, isAdmin })
         }
         toast.success(`Users ${isAdmin ? 'made admin' : 'made regular users'}`)
         clearSelection()
@@ -251,7 +317,7 @@ export function UsersPanel({
         setIsLoading(false)
       }
     },
-    [selectedUserIds, clearSelection, onUserUpdate],
+    [selectedUserIds, updateRoleMutation, clearSelection, onUserUpdate],
   )
 
   return (
@@ -264,10 +330,13 @@ export function UsersPanel({
       </div>
       <UsersTable
         users={users}
-        onUserUpdate={onUserUpdate}
         selectedUsers={selectedUserIds}
         onSelectionChange={setSelectedUserIds}
         onViewUserFiles={onViewUserFiles}
+        onRoleChange={handleRoleChange}
+        onBan={handleBanUser}
+        onDelete={handleDeleteUser}
+        onUpdateStorage={handleUpdateStorageUser}
       />
       <AdminFloatingActionBar
         selectedCount={selectedUserIds.length}

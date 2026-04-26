@@ -1,3 +1,5 @@
+'use client'
+
 import { createColumnHelper } from '@tanstack/react-table'
 import type { ColumnDef } from '@tanstack/react-table'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -15,12 +17,23 @@ import type { AdminUser } from '@/lib/storage-provider-queries'
 export type UserTableRow = AdminUser & { isUpdating?: boolean }
 const columnHelper = createColumnHelper<UserTableRow>()
 
-export const getColumns = (
-  updatingUsers: Set<string>,
-  handleRoleChange: (userId: string, isAdmin: boolean) => Promise<void>,
-  onUserUpdate?: () => void,
-  onViewUserFiles?: (user: UserTableRow) => void,
-): ColumnDef<UserTableRow>[] => [
+interface ColumnCallbacks {
+  onRoleChange?: (userId: string, isAdmin: boolean) => Promise<void>
+  onBan?: (userId: string, banned: boolean) => Promise<void>
+  onDelete?: (userId: string) => Promise<void>
+  onUpdateStorage?: (userId: string, storageLimitBytes: number) => Promise<void>
+  onViewUserFiles?: (user: UserTableRow) => void
+  updatingUsers?: Set<string>
+}
+
+export const getColumns = ({
+  onRoleChange,
+  onBan,
+  onDelete,
+  onUpdateStorage,
+  onViewUserFiles,
+  updatingUsers = new Set(),
+}: ColumnCallbacks): ColumnDef<UserTableRow>[] => [
   {
     id: 'select',
     header: ({ table }) => (
@@ -71,7 +84,9 @@ export const getColumns = (
         <Select
           value={isAdmin ? 'admin' : 'user'}
           onValueChange={(value) => {
-            void handleRoleChange(row.id, value === 'admin')
+            if (onRoleChange) {
+              void onRoleChange(row.id, value === 'admin')
+            }
           }}
           disabled={isUpdating}
         >
@@ -144,8 +159,19 @@ export const getColumns = (
         <div className="flex justify-end">
           <UserRowActionsDropdown
             user={user}
-            onUserUpdate={onUserUpdate}
             onViewFiles={() => onViewUserFiles?.(user)}
+            onRoleChange={
+              onRoleChange
+                ? () => onRoleChange(user.id, !user.isAdmin)
+                : undefined
+            }
+            onBan={onBan ? (banned) => onBan(user.id, banned) : undefined}
+            onDelete={onDelete ? () => onDelete(user.id) : undefined}
+            onUpdateStorage={
+              onUpdateStorage
+                ? (bytes) => onUpdateStorage(user.id, bytes)
+                : undefined
+            }
           />
         </div>
       )

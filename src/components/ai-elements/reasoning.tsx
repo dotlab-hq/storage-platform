@@ -24,8 +24,10 @@ import {
 
 import { Shimmer } from './shimmer'
 
-const StreamdownRenderer = lazy(
-  () => import('@/components/ai-elements/streamdown-renderer'),
+const StreamdownRenderer = lazy(() =>
+  import('@/components/ai-elements/streamdown-renderer').then((m) => ({
+    default: m.StreamdownRenderer,
+  })),
 )
 
 interface ReasoningContextValue {

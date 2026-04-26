@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react'
 
 type Point = { x: number; y: number }
 type Rect = { left: number; top: number; width: number; height: number }
@@ -28,6 +28,14 @@ export function useBoxSelection() {
   const [current, setCurrent] = useState<Point | null>(null)
   const startRef = useRef<Point | null>(null)
   const currentRef = useRef<Point | null>(null)
+  const containerRef = useRef<HTMLElement | null>(null)
+
+  // useLayoutEffect to sync refs with state before paint
+  // This prevents visual tearing during selection drag
+  useLayoutEffect(() => {
+    startRef.current = start
+    currentRef.current = current
+  }, [start, current])
 
   const beginSelection = useCallback((x: number, y: number) => {
     const point = { x, y }
@@ -76,14 +84,21 @@ export function useBoxSelection() {
     setCurrent(null)
   }, [])
 
-  const selectionRect = start && current ? getRect(start, current) : null
+  // Memoize the selection rect to prevent unnecessary re-renders
+  const selectionRect = useMemo(
+    () => (start && current ? getRect(start, current) : null),
+    [start, current],
+  )
+
+  const isSelecting = useMemo(() => !!selectionRect, [selectionRect])
 
   return {
-    isSelecting: !!selectionRect,
+    isSelecting,
     selectionRect,
     beginSelection,
     updateSelection,
     completeSelection,
     cancelSelection,
+    containerRef,
   }
 }

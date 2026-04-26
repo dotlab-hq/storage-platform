@@ -1,11 +1,19 @@
 'use client'
 
-import { lazy, Suspense, useState, useMemo, useRef } from 'react'
+import {
+  lazy,
+  Suspense,
+  useState,
+  useMemo,
+  useTransition,
+  useLayoutEffect,
+} from 'react'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { Separator } from '@/components/ui/separator'
 import { Trash2, RotateCcw, AlertTriangle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useTrashData } from '@/hooks/use-trash-data'
+import { useFileSelectionStore } from '@/stores/file-selection-store'
 import { useShellView } from '@/components/shell/shell-actions-registry'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
 
@@ -22,74 +30,90 @@ const ConfirmDeleteModal = lazy(() =>
 )
 
 export function TrashPage() {
+  const trash = useTrashData()
+  const [, startTransition] = useTransition()
+
+  // Use Zustand store for selection (shared across components)
+  const selectedIds = useFileSelectionStore((s) => s.selectedIds)
+  const toggleSelect = useFileSelectionStore((s) => s.toggleSelect)
+  const clearSelection = useFileSelectionStore((s) => s.clearSelection)
+
+  // Local UI state for delete modal (trash-specific)
   const [deleteOpen, setDeleteOpen] = useState(false)
   const [pendingDelete, setPendingDelete] = useState<{
     ids: string[]
     types: ('file' | 'folder')[]
   } | null>(null)
   const [isDeleting, setIsDeleting] = useState(false)
-  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set())
-  const trash = useTrashData()
 
-  const toggleSelect = (id: string) => {
-    setSelectedIds((prev) => {
-      const next = new Set(prev)
-      if (next.has(id)) next.delete(id)
-      else next.add(id)
-      return next
-    })
-  }
+  // Clear selection on unmount via useLayoutEffect
+  useLayoutEffect(() => {
+    return () => clearSelection()
+  }, [clearSelection])
 
-  const clearSelection = () => setSelectedIds(new Set())
-
+  // Memoize selected items to avoid recomputation
   const selectedItems = useMemo(
     () => trash.items.filter((i) => selectedIds.has(i.id)),
     [trash.items, selectedIds],
   )
 
+  const selectedCount = useMemo(() => selectedIds.size, [selectedIds])
+
   const handleRestoreOne = (id: string, type: 'file' | 'folder') => {
-    void trash.handleRestore([id], [type])
+    startTransition(() => {
+      void trash.handleRestore([id], [type])
+    })
   }
 
   const handleDeleteOne = (id: string, type: 'file' | 'folder') => {
-    setPendingDelete({ ids: [id], types: [type] })
-    setDeleteOpen(true)
+    startTransition(() => {
+      setPendingDelete({ ids: [id], types: [type] })
+      setDeleteOpen(true)
+    })
   }
 
   const handleEmptyTrash = () => {
     if (trash.items.length === 0) return
-    setPendingDelete({
-      ids: trash.items.map((i) => i.id),
-      types: trash.items.map((i) => i.type),
+    startTransition(() => {
+      setPendingDelete({
+        ids: trash.items.map((i) => i.id),
+        types: trash.items.map((i) => i.type),
+      })
+      setDeleteOpen(true)
     })
-    setDeleteOpen(true)
   }
 
   const handleRestoreAll = () => {
     if (trash.items.length === 0) return
-    void trash.handleRestore(
-      trash.items.map((i) => i.id),
-      trash.items.map((i) => i.type),
-    )
+    startTransition(() => {
+      void trash.handleRestore(
+        trash.items.map((i) => i.id),
+        trash.items.map((i) => i.type),
+      )
+    })
   }
 
   const handleBulkRestore = () => {
     if (selectedItems.length === 0) return
-    void trash.handleRestore(
-      selectedItems.map((i) => i.id),
-      selectedItems.map((i) => i.type),
-    )
-    clearSelection()
+    startTransition(() => {
+      void trash.handleRestore(
+        selectedItems.map((i) => i.id),
+        selectedItems.map((i) => i.type),
+      )
+      clearSelection()
+    })
   }
 
   const handleBulkDelete = () => {
     if (selectedItems.length === 0) return
-    setPendingDelete({
-      ids: selectedItems.map((i) => i.id),
-      types: selectedItems.map((i) => i.type),
+    startTransition(() => {
+      setPendingDelete({
+        ids: selectedItems.map((i) => i.id),
+        types: selectedItems.map((i) => i.type),
+      })
+      setDeleteOpen(true)
+      clearSelection()
     })
-    setDeleteOpen(true)
-    clearSelection()
   }
 
   const confirmPermanentDelete = async () => {
@@ -98,12 +122,15 @@ export function TrashPage() {
     try {
       await trash.handlePermanentDelete(pendingDelete.ids, pendingDelete.types)
     } finally {
-      setIsDeleting(false)
-      setDeleteOpen(false)
-      setPendingDelete(null)
+      startTransition(() => {
+        setIsDeleting(false)
+        setDeleteOpen(false)
+        setPendingDelete(null)
+      })
     }
   }
 
+  // Memoize shell actions
   const trashShellActions = useMemo(
     () => ({
       commandActions: [],
@@ -151,10 +178,10 @@ export function TrashPage() {
         )}
       </header>
 
-      {selectedIds.size > 0 && (
+      {selectedCount > 0 && (
         <div className="mx-4 mt-4 flex items-center justify-between rounded-lg border bg-muted/50 px-4 py-2">
           <span className="text-sm font-medium">
-            {selectedIds.size} item{selectedIds.size !== 1 ? 's' : ''} selected
+            {selectedCount} item{selectedCount !== 1 ? 's' : ''} selected
           </span>
           <div className="flex items-center gap-2">
             <Button size="sm" variant="outline" onClick={handleBulkRestore}>

@@ -76,7 +76,7 @@ export const isAdminMiddleware = createMiddleware().server(
     }
 
     if (!resolved.user.isAdmin) {
-      throw notFound()
+      throw new Error('Forbidden: Admin access required')
     }
 
     return next({

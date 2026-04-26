@@ -35,6 +35,27 @@ export const getAdminDashboardDataFn = createServerFn({
   return { summary, providers, users }
 })
 
+export const getAdminSummaryFn = createServerFn({
+  method: 'GET',
+}).handler(async () => {
+  await requireAdminUser()
+  return getStorageAdminSummary()
+})
+
+export const getAdminProvidersFn = createServerFn({
+  method: 'GET',
+}).handler(async () => {
+  await requireAdminUser()
+  return listProvidersWithUsage()
+})
+
+export const getAdminUsersFn = createServerFn({
+  method: 'GET',
+}).handler(async () => {
+  await requireAdminUser()
+  return getUsersWithUsage()
+})
+
 export const setStorageProviderAvailabilityFn = createServerFn({
   method: 'POST',
 })

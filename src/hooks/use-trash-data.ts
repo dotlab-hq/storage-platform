@@ -1,7 +1,14 @@
-import { useCallback, useEffect, useState } from 'react'
+import {
+  useCallback,
+  useMemo,
+  useOptimistic,
+  useTransition,
+} from 'react'
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { createClientOnlyFn } from '@tanstack/react-start'
 import { authClient } from '@/lib/auth-client'
 import { toast } from '@/components/ui/sonner'
+import { STORAGE_QUERY_KEYS } from '@/lib/query-keys'
 import type { TrashItem } from '@/lib/trash-queries'
 import {
   listTrashItemsFn,
@@ -18,95 +25,142 @@ const checkAuthClient = createClientOnlyFn(async () => {
   return data.user.id
 })
 
-const fetchTrashItems = createClientOnlyFn(async () => {
-  const data = await listTrashItemsFn()
-  return data.items ?? []
-})
-
-const restoreOnClient = createClientOnlyFn(
-  async (ids: string[], types: ('file' | 'folder')[]) => {
-    await restoreTrashItemsFn({ data: { itemIds: ids, itemTypes: types } })
-  },
-)
-
-const permanentDeleteOnClient = createClientOnlyFn(
-  async (ids: string[], types: ('file' | 'folder')[]) => {
-    await permanentDeleteTrashItemsFn({
-      data: { itemIds: ids, itemTypes: types },
-    })
-  },
-)
-
 export function useTrashData() {
-  const [userId, setUserId] = useState<string | null>(null)
-  const [items, setItems] = useState<TrashItem[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+  const queryClient = useQueryClient()
+  const [isPending, startTransition] = useTransition()
 
-  const loadItems = useCallback(async () => {
-    setIsLoading(true)
-    try {
-      const data = await fetchTrashItems()
-      setItems(data)
-    } finally {
-      setIsLoading(false)
-    }
-  }, [])
+  // Query for trash items
+  const trashQuery = useQuery({
+    queryKey: STORAGE_QUERY_KEYS.trash,
+    queryFn: async () => {
+      const uid = await checkAuthClient()
+      if (!uid) throw new Error('Not authenticated')
+      const data = await listTrashItemsFn()
+      return { items: data.items ?? [], userId: uid }
+    },
+    staleTime: 10_000,
+  })
 
-  useEffect(() => {
-    void checkAuthClient().then(async (uid) => {
-      if (!uid) return
-      setUserId(uid)
-      await loadItems()
-    })
-  }, [])
+  const serverItems = useMemo(
+    () => trashQuery.data?.items ?? [],
+    [trashQuery.data],
+  )
+
+  const userId = useMemo(
+    () => trashQuery.data?.userId ?? null,
+    [trashQuery.data],
+  )
+
+  // Optimistic state for trash items
+  const [optimisticItems, removeOptimistic] = useOptimistic<
+    TrashItem[],
+    string[]
+  >(serverItems, (currentItems, idsToRemove) =>
+    currentItems.filter((item) => !idsToRemove.includes(item.id)),
+  )
+
+  // Restore mutation with optimistic update
+  const restoreMutation = useMutation({
+    mutationFn: async ({
+      itemIds,
+      itemTypes,
+    }: {
+      itemIds: string[]
+      itemTypes: ('file' | 'folder')[]
+    }) => {
+      await restoreTrashItemsFn({ data: { itemIds, itemTypes } })
+    },
+    onMutate: ({ itemIds }) => {
+      startTransition(() => {
+        removeOptimistic(itemIds)
+      })
+    },
+    onSuccess: (_, { itemIds }) => {
+      toast.success(
+        itemIds.length === 1
+          ? 'Item restored'
+          : `${itemIds.length} items restored`,
+      )
+    },
+    onError: (err) => {
+      toast.error(err instanceof Error ? err.message : 'Restore failed')
+    },
+    onSettled: () => {
+      void queryClient.invalidateQueries({
+        queryKey: STORAGE_QUERY_KEYS.trash,
+      })
+      void queryClient.invalidateQueries({
+        queryKey: STORAGE_QUERY_KEYS.quota,
+      })
+    },
+  })
+
+  // Permanent delete mutation with optimistic update
+  const permanentDeleteMutation = useMutation({
+    mutationFn: async ({
+      itemIds,
+      itemTypes,
+    }: {
+      itemIds: string[]
+      itemTypes: ('file' | 'folder')[]
+    }) => {
+      await permanentDeleteTrashItemsFn({ data: { itemIds, itemTypes } })
+    },
+    onMutate: ({ itemIds }) => {
+      startTransition(() => {
+        removeOptimistic(itemIds)
+      })
+    },
+    onSuccess: (_, { itemIds }) => {
+      toast.success(
+        itemIds.length === 1
+          ? 'Permanently deleted'
+          : `${itemIds.length} items deleted`,
+      )
+    },
+    onError: (err) => {
+      toast.error(err instanceof Error ? err.message : 'Delete failed')
+    },
+    onSettled: () => {
+      void queryClient.invalidateQueries({
+        queryKey: STORAGE_QUERY_KEYS.trash,
+      })
+      void queryClient.invalidateQueries({
+        queryKey: STORAGE_QUERY_KEYS.quota,
+      })
+    },
+  })
 
   const refresh = useCallback(async () => {
-    if (userId) await loadItems()
-  }, [userId, loadItems])
+    await queryClient.invalidateQueries({
+      queryKey: STORAGE_QUERY_KEYS.trash,
+    })
+  }, [queryClient])
 
   const handleRestore = useCallback(
     async (itemIds: string[], itemTypes: ('file' | 'folder')[]) => {
-      if (!userId) return
-      // Optimistic update
-      setItems((prev) => prev.filter((i) => !itemIds.includes(i.id)))
-      try {
-        await restoreOnClient(itemIds, itemTypes)
-        toast.success(
-          itemIds.length === 1
-            ? 'Item restored'
-            : `${itemIds.length} items restored`,
-        )
-      } catch (err) {
-        void refresh()
-        toast.error(err instanceof Error ? err.message : 'Restore failed')
-      }
+      if (!userId || itemIds.length === 0) return
+      restoreMutation.mutate({ itemIds, itemTypes })
     },
-    [userId, refresh],
+    [userId, restoreMutation],
   )
 
   const handlePermanentDelete = useCallback(
     async (itemIds: string[], itemTypes: ('file' | 'folder')[]) => {
-      if (!userId) return
-      // Optimistic update
-      setItems((prev) => prev.filter((i) => !itemIds.includes(i.id)))
-      try {
-        await permanentDeleteOnClient(itemIds, itemTypes)
-        toast.success(
-          itemIds.length === 1
-            ? 'Permanently deleted'
-            : `${itemIds.length} items deleted`,
-        )
-      } catch (err) {
-        void refresh()
-        toast.error(err instanceof Error ? err.message : 'Delete failed')
-      }
+      if (!userId || itemIds.length === 0) return
+      permanentDeleteMutation.mutate({ itemIds, itemTypes })
     },
-    [userId, refresh],
+    [userId, permanentDeleteMutation],
+  )
+
+  const isLoading = useMemo(
+    () => trashQuery.isLoading || isPending,
+    [trashQuery.isLoading, isPending],
   )
 
   return {
     userId,
-    items,
+    items: optimisticItems,
     isLoading,
     refresh,
     handleRestore,

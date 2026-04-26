@@ -1,21 +1,32 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useTransition,
+} from 'react'
 import { createClientOnlyFn } from '@tanstack/react-start'
+import { useInfiniteQuery, useQuery, useQueryClient } from '@tanstack/react-query'
 import { authClient } from '@/lib/auth-client'
 import {
   DEFAULT_ALLOCATED_STORAGE_BYTES,
   DEFAULT_FILE_SIZE_LIMIT_BYTES,
 } from '@/lib/storage-quota-constants'
-import type { HomeLoaderData } from '@/routes/-home-server'
+import { STORAGE_QUERY_KEYS } from '@/lib/query-keys'
+import { useStorageStore } from '@/stores/storage-store'
+import { uploadStore, useUploadStore } from '@/lib/stores/upload-store'
 import { mapBreadcrumbs, mapItems } from './storage-data-mapper'
 import type { FetchResponse } from './storage-data-mapper'
 import type {
   StorageItem,
-  StorageFolder,
   UploadingFile,
   UserQuota,
   BreadcrumbItem,
 } from '@/types/storage'
-import { uploadStore, useUploadStore } from '@/lib/stores/upload-store'
+import type { HomeLoaderData } from '@/routes/-home-server'
+
+const PAGE_LIMIT = 50
 
 // Dynamically load server functions to reduce initial client bundle
 async function loadGetFolderItemsFn() {
@@ -78,17 +89,15 @@ function mapInitialData(initialData?: HomeLoaderData) {
 }
 
 export function useStorageData(initialData?: HomeLoaderData) {
-  const initialMapped = mapInitialData(initialData)
+  const initialMapped = useMemo(() => mapInitialData(initialData), [initialData])
+  const queryClient = useQueryClient()
+  const [isNavigating, startNavTransition] = useTransition()
 
+  // Zustand store for cross-component access
+  const store = useStorageStore()
   const skipFirstLoadRef = useRef(Boolean(initialMapped))
-  const [userId, setUserId] = useState<string | null>(
-    initialMapped?.userId ?? null,
-  )
-  const [items, setItems] = useState<StorageItem[]>(initialMapped?.items ?? [])
-  const [folders, setFolders] = useState<StorageFolder[]>(
-    initialMapped?.folders ?? [],
-  )
-  // Use global upload store instead of local state
+
+  // Upload store (global)
   const uploads = useUploadStore((state) => state.uploads)
   const setUploads = useCallback(
     (updater: React.SetStateAction<UploadingFile[]>) => {
@@ -104,102 +113,189 @@ export function useStorageData(initialData?: HomeLoaderData) {
     },
     [],
   )
-  const [quota, setQuota] = useState<UserQuota | null>(
-    initialMapped?.quota ?? null,
-  )
-  const [isLoading, setIsLoading] = useState(!initialMapped)
-  const [currentFolderId, setCurrentFolderId] = useState<string | null>(null)
-  const [breadcrumbs, setBreadcrumbs] = useState<BreadcrumbItem[]>(
-    initialMapped?.breadcrumbs ?? [],
-  )
-  const [tinySessionPermission] = useState<'read' | 'read-write' | undefined>(
-    initialMapped?.tinySessionPermission ?? undefined,
-  )
 
-  const [page, setPage] = useState(1)
-  const [hasMore, setHasMore] = useState(true)
-  const limit = 50
+  // Auth check
+  useEffect(() => {
+    if (initialMapped) {
+      store.setUserId(initialMapped.userId)
+      store.setTinySessionPermission(initialMapped.tinySessionPermission)
+      return
+    }
+    void checkAuthClient().then((uid) => {
+      if (!uid) return
+      store.setUserId(uid)
+    })
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const loadItems = useCallback(
-    async (uid: string, folderId: string | null, reset: boolean = true) => {
-      setIsLoading(true)
-      try {
-        const targetPage = reset ? 1 : page + 1
-        const data = await fetchFolderItems(folderId, targetPage, limit)
-        const mapped = mapItems(data, uid)
+  const userId = store.userId
+  const currentFolderId = store.currentFolderId
 
-        if (reset) {
-          setItems(mapped.items)
-          setFolders(mapped.folders)
-          setPage(1)
-        } else {
-          setItems((prev) => {
-            const newItems = mapped.items.filter(
-              (i) => !prev.some((p) => p.id === i.id),
-            )
-            return [...prev, ...newItems]
-          })
-          setFolders((prev) => {
-            const newFolders = mapped.folders.filter(
-              (f) => !prev.some((p) => p.id === f.id),
-            )
-            return [...prev, ...newFolders]
-          })
-          setPage(targetPage)
-        }
-
-        if (mapped.items.length < limit) {
-          setHasMore(false)
-        } else {
-          setHasMore(true)
-        }
-
-        setBreadcrumbs(mapBreadcrumbs(data.breadcrumbs ?? []))
-      } finally {
-        setIsLoading(false)
-      }
+  // Infinite query for folder items
+  const itemsQuery = useInfiniteQuery({
+    queryKey: STORAGE_QUERY_KEYS.folderItems(currentFolderId),
+    queryFn: async ({ pageParam = 1 }) => {
+      if (!userId) throw new Error('Not authenticated')
+      const data = await fetchFolderItems(
+        currentFolderId,
+        pageParam as number,
+        PAGE_LIMIT,
+      )
+      return { data, page: pageParam as number }
     },
-    [page, limit],
-  )
+    initialPageParam: 1,
+    getNextPageParam: (lastPage) => {
+      const mapped = mapItems(lastPage.data, userId ?? '')
+      if (mapped.items.length < PAGE_LIMIT) return undefined
+      return lastPage.page + 1
+    },
+    enabled: !!userId && !skipFirstLoadRef.current,
+    initialData: initialMapped
+      ? {
+          pages: [
+            {
+              data: {
+                folders: initialData?.folders,
+                files: initialData?.files,
+                breadcrumbs: initialData?.breadcrumbs,
+              } as FetchResponse,
+              page: 1,
+            },
+          ],
+          pageParams: [1],
+        }
+      : undefined,
+  })
 
-  const loadQuota = useCallback(async () => {
-    try {
-      const q = await fetchUserQuota()
-      setQuota(q)
-    } catch {
-      // quota fetch is non-critical; leave as null
+  // Quota query
+  const quotaQuery = useQuery({
+    queryKey: STORAGE_QUERY_KEYS.quota,
+    queryFn: fetchUserQuota,
+    enabled: !!userId,
+    initialData: initialMapped?.quota ?? undefined,
+    staleTime: 30_000,
+  })
+
+  // Memoize flattened items from infinite query pages
+  const { items, folders, breadcrumbs } = useMemo(() => {
+    if (!itemsQuery.data?.pages?.length || !userId) {
+      return {
+        items: initialMapped?.items ?? [],
+        folders: initialMapped?.folders ?? [],
+        breadcrumbs: initialMapped?.breadcrumbs ?? [],
+      }
+    }
+
+    const allItems: StorageItem[] = []
+    const allFolders: typeof folders = []
+    const seenItemIds = new Set<string>()
+    const seenFolderIds = new Set<string>()
+    let latestBreadcrumbs: BreadcrumbItem[] = []
+
+    for (const page of itemsQuery.data.pages) {
+      const mapped = mapItems(page.data, userId)
+      for (const item of mapped.items) {
+        if (!seenItemIds.has(item.id)) {
+          seenItemIds.add(item.id)
+          allItems.push(item)
+        }
+      }
+      for (const folder of mapped.folders) {
+        if (!seenFolderIds.has(folder.id)) {
+          seenFolderIds.add(folder.id)
+          allFolders.push(folder)
+        }
+      }
+      if (page.data.breadcrumbs) {
+        latestBreadcrumbs = mapBreadcrumbs(page.data.breadcrumbs)
+      }
+    }
+
+    return {
+      items: allItems,
+      folders: allFolders,
+      breadcrumbs: latestBreadcrumbs,
+    }
+  }, [itemsQuery.data, userId, initialMapped])
+
+  // Sync to Zustand store using useLayoutEffect (before paint)
+  useLayoutEffect(() => {
+    store.setItems(items)
+    store.setFolders(folders)
+    store.setBreadcrumbs(breadcrumbs)
+  }, [items, folders, breadcrumbs]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  useLayoutEffect(() => {
+    store.setQuota(quotaQuery.data ?? null)
+  }, [quotaQuery.data]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  useLayoutEffect(() => {
+    store.setIsNavigating(isNavigating)
+  }, [isNavigating]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Mark first load done
+  useEffect(() => {
+    if (skipFirstLoadRef.current) {
+      skipFirstLoadRef.current = false
     }
   }, [])
 
-  useEffect(() => {
-    if (initialMapped) return
-    void checkAuthClient().then(async (uid) => {
-      if (!uid) return
-      setUserId(uid)
-      await loadQuota()
-    })
-  }, [initialMapped, loadQuota])
+  const quota = useMemo(
+    () => quotaQuery.data ?? null,
+    [quotaQuery.data],
+  )
 
-  useEffect(() => {
-    if (!userId) return
-    if (skipFirstLoadRef.current) {
-      skipFirstLoadRef.current = false
-      return
-    }
-    void loadItems(userId, currentFolderId, true)
-  }, [currentFolderId, userId, loadItems])
+  // Navigate to folder with useTransition
+  const setCurrentFolderId = useCallback(
+    (id: string | null) => {
+      startNavTransition(() => {
+        store.setCurrentFolderId(id)
+      })
+    },
+    [store], // eslint-disable-line react-hooks/exhaustive-deps
+  )
+
+  // setItems that both updates the query cache and the store
+  const setItems = useCallback(
+    (updater: React.SetStateAction<StorageItem[]>) => {
+      const currentItems = useStorageStore.getState().items
+      const nextItems =
+        typeof updater === 'function' ? updater(currentItems) : updater
+      store.setItems(nextItems)
+    },
+    [store],
+  )
 
   const refresh = useCallback(async () => {
-    if (userId) {
-      await Promise.all([loadItems(userId, currentFolderId, true), loadQuota()])
-    }
-  }, [userId, currentFolderId, loadItems, loadQuota])
+    await Promise.all([
+      queryClient.invalidateQueries({
+        queryKey: STORAGE_QUERY_KEYS.folderItems(currentFolderId),
+      }),
+      queryClient.invalidateQueries({
+        queryKey: STORAGE_QUERY_KEYS.quota,
+      }),
+    ])
+  }, [queryClient, currentFolderId])
 
   const loadMore = useCallback(() => {
-    if (!isLoading && hasMore && userId) {
-      void loadItems(userId, currentFolderId, false)
+    if (itemsQuery.hasNextPage && !itemsQuery.isFetchingNextPage) {
+      void itemsQuery.fetchNextPage()
     }
-  }, [isLoading, hasMore, userId, currentFolderId, loadItems])
+  }, [itemsQuery])
+
+  const hasMore = useMemo(
+    () => !!itemsQuery.hasNextPage,
+    [itemsQuery.hasNextPage],
+  )
+
+  const isLoading = useMemo(
+    () => itemsQuery.isLoading || isNavigating,
+    [itemsQuery.isLoading, isNavigating],
+  )
+
+  const tinySessionPermission = useMemo(
+    () => initialMapped?.tinySessionPermission,
+    [initialMapped],
+  )
 
   return {
     userId,
@@ -209,7 +305,7 @@ export function useStorageData(initialData?: HomeLoaderData) {
     uploads,
     setUploads,
     quota,
-    setQuota,
+    setQuota: store.setQuota,
     isLoading,
     currentFolderId,
     setCurrentFolderId,

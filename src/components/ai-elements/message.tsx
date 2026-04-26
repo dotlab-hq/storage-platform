@@ -24,8 +24,10 @@ import {
   lazy,
 } from 'react'
 
-const StreamdownRenderer = lazy(
-  () => import('@/components/ai-elements/streamdown-renderer'),
+const StreamdownRenderer = lazy(() =>
+  import('@/components/ai-elements/streamdown-renderer').then((m) => ({
+    default: m.StreamdownRenderer,
+  })),
 )
 
 export type MessageProps = HTMLAttributes<HTMLDivElement> & {

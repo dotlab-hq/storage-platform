@@ -72,9 +72,11 @@ export async function getAuthenticatedUser(): Promise<AuthenticatedUser> {
 
 export async function requireAdminUser(): Promise<AuthenticatedUser> {
   const currentUser = await getAuthenticatedUser()
-  if ( !currentUser.isAdmin ) {
-    throw notFound()
+  if (!currentUser.isAdmin) {
+    throw new Error('Forbidden: Admin access required')
   }
+  return currentUser
+}
   return currentUser
 }
 

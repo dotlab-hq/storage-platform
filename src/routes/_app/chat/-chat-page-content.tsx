@@ -21,9 +21,9 @@ export type ChatPageContentProps = {
 }
 
 const ChatPageContentRich = lazy(() =>
-  import('./-chat-page-content-rich').then(
-    (module) => module.ChatPageContentRich,
-  ),
+  import('./-chat-page-content-rich').then((module) => ({
+    default: module.ChatPageContentRich,
+  })),
 )
 
 export function ChatPageContent({

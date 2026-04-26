@@ -1,22 +1,16 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useMemo } from 'react'
+import { useQuery } from '@tanstack/react-query'
 import { getUserQuotaSnapshotFn } from '@/lib/server-functions/quota'
+import { STORAGE_QUERY_KEYS } from '@/lib/query-keys'
 import type { UserQuota } from '@/types/storage'
 
 export function useQuota() {
-  const [quota, setQuota] = useState<UserQuota | null>(null)
+  const { data } = useQuery<UserQuota>({
+    queryKey: STORAGE_QUERY_KEYS.quota,
+    queryFn: getUserQuotaSnapshotFn,
+    staleTime: 30_000,
+    retry: 2,
+  })
 
-  const load = useCallback(async () => {
-    try {
-      const q = await getUserQuotaSnapshotFn()
-      setQuota(q)
-    } catch (err) {
-      console.error('[useQuota] Failed to load quota:', err)
-    }
-  }, [])
-
-  useEffect(() => {
-    void load()
-  }, [load])
-
-  return quota
+  return useMemo(() => data ?? null, [data])
 }

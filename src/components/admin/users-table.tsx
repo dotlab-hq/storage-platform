@@ -1,3 +1,5 @@
+'use client'
+
 import {
   flexRender,
   getCoreRowModel,
@@ -6,17 +8,18 @@ import {
   useReactTable,
   type SortingState,
 } from '@tanstack/react-table'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useCallback } from 'react'
 import { ChevronDown, Search } from 'lucide-react'
 import { Input } from '@/components/ui/input'
-import { toast } from '@/components/ui/sonner'
 import type { AdminUser } from '@/lib/storage-provider-queries'
 import { getColumns, type UserTableRow } from './users-table-columns'
-import { updateUserRoleFn } from '@/routes/_app/admin/-admin-server'
 
 interface UsersTableProps {
   users: AdminUser[]
-  onUserUpdate?: () => void
+  onRoleChange?: (userId: string, isAdmin: boolean) => Promise<void>
+  onBan?: (userId: string, banned: boolean) => Promise<void>
+  onDelete?: (userId: string) => Promise<void>
+  onUpdateStorage?: (userId: string, storageLimitBytes: number) => Promise<void>
   selectedUsers?: string[]
   onSelectionChange?: (selectedIds: string[]) => void
   onViewUserFiles?: (user: AdminUser) => void
@@ -24,7 +27,10 @@ interface UsersTableProps {
 
 export function UsersTable({
   users,
-  onUserUpdate,
+  onRoleChange,
+  onBan,
+  onDelete,
+  onUpdateStorage,
   selectedUsers = [],
   onSelectionChange,
   onViewUserFiles,
@@ -32,7 +38,6 @@ export function UsersTable({
   const [sorting, setSorting] = useState<SortingState>([])
   const [globalFilter, setGlobalFilter] = useState('')
   const [updatingUsers, setUpdatingUsers] = useState<Set<string>>(new Set())
-  const [data] = useState<UserTableRow[]>(users)
   const [rowSelection, setRowSelection] = useState<Record<string, boolean>>(
     () => {
       const initial: Record<string, boolean> = {}
@@ -43,46 +48,104 @@ export function UsersTable({
     },
   )
 
-  const handleRoleChange = async (userId: string, isAdmin: boolean) => {
-    setUpdatingUsers((prev) => new Set([...prev, userId]))
-    try {
-      await updateUserRoleFn({ data: { userId, isAdmin } })
-      toast.success('User role updated')
-      onUserUpdate?.()
-    } catch (error) {
-      const message =
-        error instanceof Error ? error.message : 'Failed to update user role'
-      toast.error(message)
-    } finally {
-      setUpdatingUsers((prev) => {
-        const next = new Set(prev)
-        next.delete(userId)
-        return next
-      })
-    }
-  }
+  const handleRoleChange = useCallback(
+    async (userId: string, isAdmin: boolean) => {
+      if (!onRoleChange) return
+      setUpdatingUsers((prev) => new Set([...prev, userId]))
+      try {
+        await onRoleChange(userId, isAdmin)
+      } finally {
+        setUpdatingUsers((prev) => {
+          const next = new Set(prev)
+          next.delete(userId)
+          return next
+        })
+      }
+    },
+    [onRoleChange],
+  )
+
+  const handleBan = useCallback(
+    async (userId: string, banned: boolean) => {
+      if (!onBan) return
+      setUpdatingUsers((prev) => new Set([...prev, userId]))
+      try {
+        await onBan(userId, banned)
+      } finally {
+        setUpdatingUsers((prev) => {
+          const next = new Set(prev)
+          next.delete(userId)
+          return next
+        })
+      }
+    },
+    [onBan],
+  )
+
+  const handleDelete = useCallback(
+    async (userId: string) => {
+      if (!onDelete) return
+      setUpdatingUsers((prev) => new Set([...prev, userId]))
+      try {
+        await onDelete(userId)
+      } finally {
+        setUpdatingUsers((prev) => {
+          const next = new Set(prev)
+          next.delete(userId)
+          return next
+        })
+      }
+    },
+    [onDelete],
+  )
+
+  const handleUpdateStorage = useCallback(
+    async (userId: string, storageLimitBytes: number) => {
+      if (!onUpdateStorage) return
+      setUpdatingUsers((prev) => new Set([...prev, userId]))
+      try {
+        await onUpdateStorage(userId, storageLimitBytes)
+      } finally {
+        setUpdatingUsers((prev) => {
+          const next = new Set(prev)
+          next.delete(userId)
+          return next
+        })
+      }
+    },
+    [onUpdateStorage],
+  )
 
   const columns = useMemo(
     () =>
-      getColumns(
-        updatingUsers,
-        handleRoleChange,
-        onUserUpdate,
+      getColumns({
+        onRoleChange: handleRoleChange,
+        onBan: handleBan,
+        onDelete: handleDelete,
+        onUpdateStorage: handleUpdateStorage,
         onViewUserFiles,
-      ),
-    [updatingUsers, handleRoleChange, onUserUpdate, onViewUserFiles],
+        updatingUsers,
+      }),
+    [
+      handleRoleChange,
+      handleBan,
+      handleDelete,
+      handleUpdateStorage,
+      onViewUserFiles,
+      updatingUsers,
+    ],
   )
 
   const filteredData = useMemo(() => {
-    if (!globalFilter) return data
+    if (!globalFilter) return users as UserTableRow[]
 
     const lowerFilter = globalFilter.toLowerCase()
-    return data.filter(
+    return (users as UserTableRow[]).filter(
       (user) =>
         user.name.toLowerCase().includes(lowerFilter) ||
         user.email.toLowerCase().includes(lowerFilter),
     )
-  }, [data, globalFilter])
+  }, [users, globalFilter])
 
   const table = useReactTable({
     data: filteredData,
@@ -208,7 +271,7 @@ export function UsersTable({
 
       <div className="flex items-center justify-between text-sm text-muted-foreground">
         <div>
-          Showing {table.getRowModel().rows.length} of {data.length} users
+          Showing {table.getRowModel().rows.length} of {users.length} users
         </div>
       </div>
     </div>
