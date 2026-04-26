@@ -1,22 +1,22 @@
 import type { BucketContext } from '@/lib/s3-gateway/s3-context'
 import { getBucketCors } from '@/lib/s3-gateway/s3-bucket-controls'
 
-function includesCaseInsensitive(values: string[], expected: string): boolean {
-  return values.some((value) => value.toLowerCase() === expected.toLowerCase())
+function includesCaseInsensitive( values: string[], expected: string ): boolean {
+  return values.some( ( value ) => value.toLowerCase() === expected.toLowerCase() )
 }
 
-function originMatches(allowedOrigins: string[], origin: string): boolean {
-  if (allowedOrigins.includes('*')) return true
-  return includesCaseInsensitive(allowedOrigins, origin)
+function originMatches( allowedOrigins: string[], origin: string ): boolean {
+  if ( allowedOrigins.includes( '*' ) ) return true
+  return includesCaseInsensitive( allowedOrigins, origin )
 }
 
 function headersMatch(
   allowedHeaders: string[],
   requestedHeaders: string[],
 ): boolean {
-  if (allowedHeaders.length === 0 || allowedHeaders.includes('*')) return true
-  return requestedHeaders.every((header) =>
-    includesCaseInsensitive(allowedHeaders, header),
+  if ( allowedHeaders.length === 0 || allowedHeaders.includes( '*' ) ) return true
+  return requestedHeaders.every( ( header ) =>
+    includesCaseInsensitive( allowedHeaders, header ),
   )
 }
 
@@ -25,45 +25,45 @@ export async function applyBucketCors(
   response: Response,
   bucket: BucketContext | null,
 ): Promise<Response> {
-  const origin = request.headers.get('origin')
-  if (!origin || !bucket) {
+  const origin = request.headers.get( 'origin' )
+  if ( !origin || !bucket ) {
     return response
   }
 
-  const rules = await getBucketCors(bucket.bucketId)
-  if (rules.length === 0) {
+  const rules = await getBucketCors( bucket.bucketId )
+  if ( rules.length === 0 ) {
     return response
   }
 
   const method =
     request.method === 'OPTIONS'
-      ? (request.headers.get('access-control-request-method') ?? '')
+      ? ( request.headers.get( 'access-control-request-method' ) ?? '' )
       : request.method
   const requestedHeaders = (
-    request.headers.get('access-control-request-headers') ?? ''
+    request.headers.get( 'access-control-request-headers' ) ?? ''
   )
-    .split(',')
-    .map((item) => item.trim())
-    .filter((item) => item.length > 0)
+    .split( ',' )
+    .map( ( item ) => item.trim() )
+    .filter( ( item ) => item.length > 0 )
 
-  const matched = rules.find((rule) => {
+  const matched = rules.find( ( rule ) => {
     return (
-      originMatches(rule.allowedOrigins, origin) &&
-      includesCaseInsensitive(rule.allowedMethods, method) &&
-      headersMatch(rule.allowedHeaders, requestedHeaders)
+      originMatches( rule.allowedOrigins, origin ) &&
+      includesCaseInsensitive( rule.allowedMethods, method ) &&
+      headersMatch( rule.allowedHeaders, requestedHeaders )
     )
-  })
+  } )
 
-  if (!matched) {
+  if ( !matched ) {
     return response
   }
 
-  const headers = new Headers(response.headers)
-  headers.set('Access-Control-Allow-Origin', origin)
-  headers.set('Access-Control-Allow-Methods', matched.allowedMethods.join(','))
-  headers.set('Access-Control-Allow-Headers', matched.allowedHeaders.join(','))
-  headers.set('Access-Control-Expose-Headers', matched.exposeHeaders.join(','))
-  headers.set('Access-Control-Max-Age', String(matched.maxAgeSeconds ?? 300))
+  const headers = new Headers( response.headers )
+  headers.set( 'access-control-allow-origin', origin )
+  headers.set( 'access-control-allow-methods', matched.allowedMethods.join( ',' ) )
+  headers.set( 'access-control-allow-headers', matched.allowedHeaders.join( ',' ) )
+  headers.set( 'access-control-expose-headers', matched.exposeHeaders.join( ',' ) )
+  headers.set( 'access-control-max-age', String( matched.maxAgeSeconds ?? 300 ) )
   headers.set(
     'Vary',
     'Origin, Access-Control-Request-Headers, Access-Control-Request-Method',
@@ -72,9 +72,9 @@ export async function applyBucketCors(
   const normalizedStatus =
     response.status >= 200 && response.status <= 599 ? response.status : 500
 
-  return new Response(response.body, {
+  return new Response( response.body, {
     status: normalizedStatus,
     statusText: response.statusText,
     headers,
-  })
+  } )
 }
