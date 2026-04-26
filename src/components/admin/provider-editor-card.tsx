@@ -19,12 +19,11 @@ type ProviderFormState = {
   secretAccessKey: string
   proxyUploadsEnabled: boolean
   isActive: boolean
-  hideInSidebar: boolean
 }
 
 type ProviderTextField = Exclude<
   keyof ProviderFormState,
-  'proxyUploadsEnabled' | 'hideInSidebar'
+  'proxyUploadsEnabled' | 'isActive'
 >
 
 type ProviderEditorCardProps = {
@@ -37,7 +36,6 @@ type ProviderEditorCardProps = {
   onStorageLimitChange: (value: string) => void
   onFileSizeLimitChange: (value: string) => void
   onProxyUploadsEnabledChange: (value: boolean) => void
-  onHideInSidebarChange: (value: boolean) => void
   onSubmit: () => void
   onCancel: () => void
 }
@@ -52,7 +50,6 @@ export function ProviderEditorCard({
   onStorageLimitChange,
   onFileSizeLimitChange,
   onProxyUploadsEnabledChange,
-  onHideInSidebarChange,
   onSubmit,
   onCancel,
 }: ProviderEditorCardProps) {
@@ -140,22 +137,6 @@ export function ProviderEditorCard({
                     checked={form.proxyUploadsEnabled}
                     onCheckedChange={onProxyUploadsEnabledChange}
                     aria-label="Proxy uploads through server"
-                  />
-                </div>
-                <div className="flex items-start justify-between gap-4 rounded-md border p-3">
-                  <div className="space-y-1">
-                    <Label htmlFor="hide-in-sidebar">Hide in sidebar</Label>
-                    <p className="text-muted-foreground text-xs">
-                      When enabled, the max file size limit will be hidden from
-                      the sidebar and provider info panel. Useful for custom
-                      providers where you don't want to display limits.
-                    </p>
-                  </div>
-                  <Switch
-                    id="hide-in-sidebar"
-                    checked={form.hideInSidebar}
-                    onCheckedChange={onHideInSidebarChange}
-                    aria-label="Hide in sidebar"
                   />
                 </div>
               </AccordionContent>

@@ -120,16 +120,14 @@ export function ProviderInfoPanel({
               {formatBytes(provider.availableStorageBytes)}
             </p>
           </div>
-          {!provider.hideInSidebar && (
-            <div className="rounded-md border p-3 bg-background/50 space-y-1">
-              <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
-                Max File Size
-              </p>
-              <p className="text-sm font-medium">
-                {formatBytes(provider.fileSizeLimitBytes)}
-              </p>
-            </div>
-          )}
+          <div className="rounded-md border p-3 bg-background/50 space-y-1">
+            <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
+              Max File Size
+            </p>
+            <p className="text-sm font-medium">
+              {formatBytes(provider.fileSizeLimitBytes)}
+            </p>
+          </div>
         </div>
       </div>
     </div>

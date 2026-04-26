@@ -73,7 +73,6 @@ const emptyProviderForm = {
   fileSizeLimitBytes: 100 * 1024 * 1024,
   proxyUploadsEnabled: false,
   isActive: true,
-  hideInSidebar: false,
 }
 
 type AdminDashboardPageProps = {
@@ -185,7 +184,6 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
             fileSizeLimitBytes: parsedFileSizeLimit,
             proxyUploadsEnabled: form.proxyUploadsEnabled,
             isActive: true,
-            hideInSidebar: form.hideInSidebar,
             createdAt: new Date(),
             usedStorageBytes: 0,
             availableStorageBytes: parsedLimit,
@@ -205,7 +203,6 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
           fileSizeLimitBytes: parsedFileSizeLimit,
           proxyUploadsEnabled: form.proxyUploadsEnabled,
           isActive: true,
-          hideInSidebar: form.hideInSidebar,
         },
       })
       const [{ getAdminProvidersFn }, { getAdminSummaryFn }] =
@@ -261,7 +258,6 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
       fileSizeLimitBytes: provider.fileSizeLimitBytes,
       proxyUploadsEnabled: provider.proxyUploadsEnabled,
       isActive: provider.isActive,
-      hideInSidebar: provider.hideInSidebar,
     })
     setStorageLimitInput(String(provider.storageLimitBytes))
     setFileSizeLimitInput(String(provider.fileSizeLimitBytes))
@@ -405,9 +401,6 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
                 onFileSizeLimitChange={setFileSizeLimitInput}
                 onProxyUploadsEnabledChange={(value) => {
                   setForm((prev) => ({ ...prev, proxyUploadsEnabled: value }))
-                }}
-                onHideInSidebarChange={(value) => {
-                  setForm((prev) => ({ ...prev, hideInSidebar: value }))
                 }}
                 onSubmit={() => {
                   void submitProvider()

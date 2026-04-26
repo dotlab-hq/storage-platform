@@ -26,7 +26,7 @@ export function ProviderContentsModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="flex h-[90vh] max-w-4xl flex-col gap-0 overflow-hidden p-0">
+      <DialogContent className="flex h-[92vh] w-[min(96vw,1280px)] max-w-[1280px] flex-col gap-0 overflow-hidden p-0">
         <DialogHeader className="border-b bg-linear-to-br from-background via-background to-muted/20 px-6 py-5">
           <DialogTitle className="text-xl font-semibold">
             Provider Details

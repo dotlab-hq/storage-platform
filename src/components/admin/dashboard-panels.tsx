@@ -64,14 +64,8 @@ export function ProvidersPanel({
                 <p className="font-semibold text-foreground">{provider.name}</p>
                 <p className="text-xs text-muted-foreground">
                   Storage: {formatBytes(provider.usedStorageBytes)} /{' '}
-                  {formatBytes(provider.storageLimitBytes)}
-                  {!provider.hideInSidebar && (
-                    <>
-                      {' '}
-                      • Max file size:{' '}
-                      {formatBytes(provider.fileSizeLimitBytes)}
-                    </>
-                  )}
+                  {formatBytes(provider.storageLimitBytes)} • Max file size:{' '}
+                  {formatBytes(provider.fileSizeLimitBytes)}
                 </p>
               </div>
               <div className="flex flex-col gap-2">

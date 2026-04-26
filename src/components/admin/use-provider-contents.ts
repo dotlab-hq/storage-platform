@@ -6,12 +6,14 @@ type LoadProviderContentsArgs = {
   providerId: string
   prefix: string
   continuationToken?: string | null
+  scope: 'admin' | 'user'
 }
 
 async function loadProviderContents({
   providerId,
   prefix,
   continuationToken,
+  scope,
   searchQuery = '',
 }: LoadProviderContentsArgs & {
   searchQuery?: string
@@ -27,8 +29,13 @@ async function loadProviderContents({
     searchParams.set('search', searchQuery)
   }
 
+  const basePath =
+    scope === 'admin'
+      ? '/api/admin/storage-providers'
+      : '/api/storage-providers'
+
   const response = await fetch(
-    `/api/admin/storage-providers/${encodeURIComponent(providerId)}/contents${
+    `${basePath}/${encodeURIComponent(providerId)}/contents${
       searchParams.toString().length > 0 ? `?${searchParams.toString()}` : ''
     }`,
     {
@@ -46,7 +53,11 @@ async function loadProviderContents({
   return payload as AdminProviderContentsResponse
 }
 
-export function useProviderContents(providerId: string | null, open: boolean) {
+export function useProviderContents(
+  providerId: string | null,
+  open: boolean,
+  scope: 'admin' | 'user' = 'admin',
+) {
   const [prefix, setPrefix] = useState('')
   const [searchQuery, setSearchQuery] = useState('')
 
@@ -58,7 +69,7 @@ export function useProviderContents(providerId: string | null, open: boolean) {
   }, [open, providerId])
 
   const query = useInfiniteQuery({
-    queryKey: ['admin-provider-contents', providerId, prefix, searchQuery],
+    queryKey: ['provider-contents', scope, providerId, prefix, searchQuery],
     enabled: open && providerId !== null,
     initialPageParam: null as string | null,
     queryFn: async ({ pageParam }) => {
@@ -69,6 +80,7 @@ export function useProviderContents(providerId: string | null, open: boolean) {
         providerId,
         prefix,
         continuationToken: pageParam,
+        scope,
         searchQuery,
       })
     },

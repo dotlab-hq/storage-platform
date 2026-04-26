@@ -15,8 +15,9 @@ import {
   DialogDescription,
 } from '@/components/ui/dialog'
 import { ProviderEditorCard } from '@/components/admin/provider-editor-card'
+import { S3ViewerModal } from '@/components/storage/s3-viewer-modal'
 import { formatBytes } from '@/lib/format-bytes'
-import { Server, Plus, Edit, Trash2 } from 'lucide-react'
+import { Server, Plus, Edit, Trash2, Eye } from 'lucide-react'
 import type { UserProvider } from '@/lib/storage-provider-queries'
 import {
   getUserProvidersFn,
@@ -29,6 +30,19 @@ import {
 type Props = {
   initialProviders: UserProvider[]
   initialUseSystemProviders: boolean
+}
+
+type ProviderFormState = {
+  name: string
+  endpoint: string
+  region: string
+  bucketName: string
+  accessKeyId: string
+  secretAccessKey: string
+  storageLimitBytes: number
+  fileSizeLimitBytes: number
+  proxyUploadsEnabled: boolean
+  isActive: boolean
 }
 
 export function ProvidersSection({
@@ -76,7 +90,6 @@ export function ProvidersSection({
       fileSizeLimitBytes: number
       proxyUploadsEnabled: boolean
       isActive: boolean
-      hideInSidebar: boolean
     }) => saveUserProviderFn({ data }),
     onMutate: async (newData) => {
       await queryClient.cancelQueries({ queryKey: ['user-providers'] })
@@ -98,7 +111,6 @@ export function ProvidersSection({
                   fileSizeLimitBytes: newData.fileSizeLimitBytes,
                   proxyUploadsEnabled: newData.proxyUploadsEnabled,
                   isActive: newData.isActive,
-                  hideInSidebar: newData.hideInSidebar,
                 }
               : p,
           ),
@@ -115,7 +127,6 @@ export function ProvidersSection({
           fileSizeLimitBytes: newData.fileSizeLimitBytes,
           proxyUploadsEnabled: newData.proxyUploadsEnabled,
           isActive: newData.isActive,
-          hideInSidebar: newData.hideInSidebar,
           createdAt: new Date(),
           usedStorageBytes: 0,
           availableStorageBytes: newData.storageLimitBytes,
@@ -195,7 +206,7 @@ export function ProvidersSection({
   const [editingProvider, setEditingProvider] = useState<UserProvider | null>(
     null,
   )
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<ProviderFormState>({
     name: '',
     endpoint: '',
     region: '',
@@ -206,8 +217,8 @@ export function ProvidersSection({
     fileSizeLimitBytes: 100 * 1024 * 1024,
     proxyUploadsEnabled: false,
     isActive: true,
-    hideInSidebar: false,
   })
+  const [viewerBucketName, setViewerBucketName] = useState<string | null>(null)
   const [storageLimitInput, setStorageLimitInput] = useState(
     String(10 * 1024 * 1024 * 1024),
   )
@@ -228,7 +239,6 @@ export function ProvidersSection({
       fileSizeLimitBytes: 100 * 1024 * 1024,
       proxyUploadsEnabled: false,
       isActive: true,
-      hideInSidebar: false,
     })
     setStorageLimitInput(String(10 * 1024 * 1024 * 1024))
     setFileSizeLimitInput(String(100 * 1024 * 1024))
@@ -248,7 +258,6 @@ export function ProvidersSection({
       fileSizeLimitBytes: provider.fileSizeLimitBytes,
       proxyUploadsEnabled: provider.proxyUploadsEnabled,
       isActive: provider.isActive,
-      hideInSidebar: provider.hideInSidebar,
     })
     setStorageLimitInput(String(provider.storageLimitBytes))
     setFileSizeLimitInput(String(provider.fileSizeLimitBytes))
@@ -300,7 +309,6 @@ export function ProvidersSection({
       fileSizeLimitBytes: parsedFileSize,
       proxyUploadsEnabled: form.proxyUploadsEnabled,
       isActive: form.isActive,
-      hideInSidebar: form.hideInSidebar,
     }
 
     saveMutation.mutate(payload)
@@ -396,13 +404,6 @@ export function ProvidersSection({
                       <p className="text-muted-foreground text-xs">
                         Storage: {formatBytes(provider.usedStorageBytes)} /{' '}
                         {formatBytes(provider.storageLimitBytes)}
-                        {!provider.hideInSidebar && (
-                          <>
-                            {' '}
-                            • Max file:{' '}
-                            {formatBytes(provider.fileSizeLimitBytes)}
-                          </>
-                        )}
                       </p>
                     </div>
                     <div className="flex items-center gap-2">
@@ -416,6 +417,13 @@ export function ProvidersSection({
                         }}
                         aria-label={`Toggle ${provider.name} active`}
                       />
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => setViewerBucketName(provider.bucketName)}
+                      >
+                        <Eye className="h-4 w-4" />
+                      </Button>
                       <Button
                         variant="ghost"
                         size="icon"
@@ -479,15 +487,12 @@ export function ProvidersSection({
               storageLimitInput={storageLimitInput}
               fileSizeLimitInput={fileSizeLimitInput}
               onChange={(field, value) =>
-                setForm((prev) => ({ ...prev, [field]: value }) as any)
+                setForm((prev) => ({ ...prev, [field]: value }))
               }
               onStorageLimitChange={setStorageLimitInput}
               onFileSizeLimitChange={setFileSizeLimitInput}
               onProxyUploadsEnabledChange={(value) =>
                 setForm((prev) => ({ ...prev, proxyUploadsEnabled: value }))
-              }
-              onHideInSidebarChange={(value) =>
-                setForm((prev) => ({ ...prev, hideInSidebar: value }))
               }
               onSubmit={handleSave}
               onCancel={() => setIsDialogOpen(false)}
@@ -495,6 +500,15 @@ export function ProvidersSection({
           </div>
         </DialogContent>
       </Dialog>
+      <S3ViewerModal
+        open={viewerBucketName !== null}
+        onOpenChange={(open) => {
+          if (!open) {
+            setViewerBucketName(null)
+          }
+        }}
+        bucketName={viewerBucketName}
+      />
     </div>
   )
 }

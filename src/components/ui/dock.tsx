@@ -67,7 +67,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     const location = useLocation()
 
     const handleUploadClick = () => {
-      const searchParams = new URLSearchParams(location.search)
+      const searchParams = new URLSearchParams(window.location.search)
 
       // Preserve existing query params (like nav=) and add upload flag
       if (!searchParams.has('upload')) {
@@ -79,7 +79,8 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
       if (isOnStoragePage) {
         // If already on storage page, just update the URL with the upload flag
         const newSearch = searchParams.toString()
-        if (newSearch !== location.search) {
+        const currentSearch = window.location.search.replace(/^\?/, '')
+        if (newSearch !== currentSearch) {
           window.history.replaceState(
             null,
             '',
@@ -90,9 +91,13 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
         window.dispatchEvent(new CustomEvent('dot:open-upload'))
       } else {
         // Navigate to storage page preserving all query params
+        const nav = searchParams.get('nav') ?? undefined
         navigate({
           to: '/',
-          search: Object.fromEntries(searchParams.entries()),
+          search: {
+            nav,
+            upload: true,
+          },
         })
       }
     }

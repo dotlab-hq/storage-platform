@@ -1,17 +1,23 @@
 import { useEffect, useMemo, useRef } from 'react'
-import { ChevronRight, Loader2, RefreshCw } from 'lucide-react'
+import {
+  ChevronRight,
+  FileText,
+  Folder,
+  Loader2,
+  RefreshCw,
+} from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
-import { ProviderContentsStackedTable } from '@/components/admin/provider-contents-stacked-table'
 import { SearchBar } from '@/components/admin/search-bar'
+import { formatBytes } from '@/lib/format-bytes'
 import type { UseProviderContentsResult } from './use-provider-contents'
 
 type ProviderContentsPanelProps = {
   viewer: UseProviderContentsResult
 }
 
-export function ProviderContentsPanel( { viewer }: ProviderContentsPanelProps ) {
-  const scrollContainerRef = useRef<HTMLDivElement | null>( null )
+export function ProviderContentsPanel({ viewer }: ProviderContentsPanelProps) {
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null)
 
   const breadcrumbNodes = useMemo(
     () => [{ label: 'Root', value: '' }, ...viewer.breadcrumbs],
@@ -20,37 +26,37 @@ export function ProviderContentsPanel( { viewer }: ProviderContentsPanelProps ) 
 
   const maybeLoadMore = () => {
     const container = scrollContainerRef.current
-    if ( !container || !viewer.hasNextPage || viewer.isFetchingNextPage ) {
+    if (!container || !viewer.hasNextPage || viewer.isFetchingNextPage) {
       return
     }
 
     const { scrollTop, scrollHeight, clientHeight } = container
-    if ( scrollHeight <= clientHeight ) {
+    if (scrollHeight <= clientHeight) {
       void viewer.loadMore()
       return
     }
 
-    const progress = ( scrollTop + clientHeight ) / scrollHeight
-    if ( progress >= 0.7 ) {
+    const progress = (scrollTop + clientHeight) / scrollHeight
+    if (progress >= 0.7) {
       void viewer.loadMore()
     }
   }
 
-  useEffect( () => {
+  useEffect(() => {
     maybeLoadMore()
   }, [
     viewer.files.length,
     viewer.folders.length,
     viewer.hasNextPage,
     viewer.isFetchingNextPage,
-  ] )
+  ])
 
   return (
     <div className="flex-1 overflow-hidden p-6 flex flex-col">
       <div className="mb-4 flex shrink-0 flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
-            {breadcrumbNodes.map( ( crumb, index ) => (
+            {breadcrumbNodes.map((crumb, index) => (
               <div
                 key={`${crumb.label}-${crumb.value}`}
                 className="flex items-center gap-1"
@@ -61,16 +67,16 @@ export function ProviderContentsPanel( { viewer }: ProviderContentsPanelProps ) 
                   variant="ghost"
                   size="sm"
                   className="h-8 px-2"
-                  onClick={() => viewer.setPrefix( crumb.value )}
+                  onClick={() => viewer.setPrefix(crumb.value)}
                 >
                   {crumb.label}
                 </Button>
               </div>
-            ) )}
+            ))}
           </div>
 
           <div className="flex items-center gap-3">
-            <SearchBar onSearch={( query ) => viewer.setSearchQuery( query )} />
+            <SearchBar onSearch={(query) => viewer.setSearchQuery(query)} />
             <Button
               type="button"
               variant="outline"
@@ -125,14 +131,99 @@ export function ProviderContentsPanel( { viewer }: ProviderContentsPanelProps ) 
             </div>
           </div>
         ) : (
-          <ProviderContentsStackedTable
-            folders={viewer.folders}
-            files={viewer.files}
-            isFetchingNextPage={viewer.isFetchingNextPage}
-            hasNextPage={viewer.hasNextPage}
-            onLoadMore={() => void viewer.loadMore()}
-            onFolderClick={viewer.setPrefix}
-          />
+          <div className="rounded-lg border border-border/60">
+            <div className="flex items-center px-4 py-2.5 border-b bg-muted/30 rounded-t-lg">
+              <div className="flex-1 min-w-0">
+                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Name
+                </span>
+              </div>
+              <div className="w-28 text-right">
+                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Size
+                </span>
+              </div>
+              <div className="w-32 text-right">
+                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Modified
+                </span>
+              </div>
+            </div>
+            <div className="divide-y">
+              {viewer.folders.map((folder) => (
+                <button
+                  key={folder.prefix}
+                  type="button"
+                  onDoubleClick={() => viewer.setPrefix(folder.prefix)}
+                  className="group flex w-full items-center px-4 py-3 text-left transition-colors hover:bg-muted/50"
+                >
+                  <div className="mr-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50">
+                    <Folder className="h-5 w-5 text-amber-500" />
+                  </div>
+                  <div className="mr-4 min-w-0 flex-1">
+                    <p className="truncate text-sm font-medium text-foreground">
+                      {folder.name}
+                    </p>
+                    <p className="truncate text-xs text-muted-foreground">
+                      {folder.prefix}
+                    </p>
+                  </div>
+                  <div className="w-28 text-right text-sm text-muted-foreground">
+                    -
+                  </div>
+                  <div className="w-32 text-right text-sm text-muted-foreground">
+                    -
+                  </div>
+                </button>
+              ))}
+              {viewer.files.map((file) => (
+                <div
+                  key={file.key}
+                  className="group flex items-center px-4 py-3 transition-colors hover:bg-muted/50"
+                >
+                  <div className="mr-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-50">
+                    <FileText className="h-5 w-5 text-sky-500" />
+                  </div>
+                  <div className="mr-4 min-w-0 flex-1">
+                    <p className="truncate text-sm font-medium text-foreground">
+                      {file.name}
+                    </p>
+                    <p className="truncate text-xs text-muted-foreground">
+                      {file.key}
+                    </p>
+                  </div>
+                  <div className="w-28 text-right text-sm text-muted-foreground">
+                    {formatBytes(file.sizeInBytes)}
+                  </div>
+                  <div className="w-32 text-right text-sm text-muted-foreground">
+                    {file.lastModified
+                      ? new Date(file.lastModified).toLocaleDateString()
+                      : '-'}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center justify-between border-t px-4 py-3 text-sm text-muted-foreground">
+              {viewer.isFetchingNextPage ? (
+                <span className="inline-flex items-center gap-2">
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  Loading more...
+                </span>
+              ) : (
+                <span>{viewer.folders.length + viewer.files.length} items</span>
+              )}
+              {viewer.hasNextPage && !viewer.isFetchingNextPage ? (
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => void viewer.loadMore()}
+                >
+                  Load more
+                </Button>
+              ) : null}
+            </div>
+          </div>
         )}
       </div>
     </div>
