@@ -10,6 +10,13 @@ import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { useQueryClient } from '@tanstack/react-query'
 import type { AdminProvider, AdminUser } from '@/lib/storage-provider-queries'
 import { useAdminUsers } from '@/hooks/use-admin-users'
+import {
+  setStorageProviderAvailabilityFn,
+  deleteStorageProviderFn,
+  getAdminProvidersFn,
+  getAdminSummaryFn,
+  saveStorageProviderFn,
+} from '@/routes/_app/admin/-admin-server'
 
 const MetricCard = lazy(() =>
   import('@/components/admin/dashboard-panels').then((m) => ({
@@ -193,8 +200,6 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
     setProviders(optimisticProviders)
 
     try {
-      const { saveStorageProviderFn } =
-        await import('@/routes/_app/admin/-admin-server')
       const result = await saveStorageProviderFn({
         data: {
           providerId: editingProviderId ?? undefined,
@@ -205,11 +210,6 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
           isActive: true,
         },
       })
-      const [{ getAdminProvidersFn }, { getAdminSummaryFn }] =
-        await Promise.all([
-          import('@/routes/_app/admin/-admin-server'),
-          import('@/routes/_app/admin/-admin-server'),
-        ])
       const [refreshedProviders, refreshedSummary] = await Promise.all([
         getAdminProvidersFn(),
         getAdminSummaryFn(),
@@ -226,11 +226,6 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
           : 'Storage provider added',
       )
     } catch (error) {
-      const [{ getAdminProvidersFn }, { getAdminSummaryFn }] =
-        await Promise.all([
-          import('@/routes/_app/admin/-admin-server'),
-          import('@/routes/_app/admin/-admin-server'),
-        ])
       const [refreshedProviders, refreshedSummary] = await Promise.all([
         getAdminProvidersFn(),
         getAdminSummaryFn(),
@@ -283,16 +278,12 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
       ),
     )
     try {
-      const { setStorageProviderAvailabilityFn } =
-        await import('@/routes/_app/admin/-admin-server')
       await setStorageProviderAvailabilityFn({ data: { providerId, isActive } })
       toast.success(
         `Provider marked as ${isActive ? `available` : `unavailable`}`,
       )
     } catch (error) {
       setProviders(previousProviders)
-      const { getAdminProvidersFn } =
-        await import('@/routes/_app/admin/-admin-server')
       const refreshed = await getAdminProvidersFn()
       setProviders(refreshed)
       const message =
@@ -305,11 +296,7 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
 
   const deleteProvider = async (providerId: string) => {
     try {
-      const { deleteStorageProviderFn } =
-        await import('@/routes/_app/admin/-admin-server')
       await deleteStorageProviderFn({ data: { providerId } })
-      const { getAdminProvidersFn, getAdminSummaryFn } =
-        await import('@/routes/_app/admin/-admin-server')
       const [refreshedProviders, refreshedSummary] = await Promise.all([
         getAdminProvidersFn(),
         getAdminSummaryFn(),
