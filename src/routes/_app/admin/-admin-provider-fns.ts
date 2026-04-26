@@ -4,7 +4,7 @@ export * from './-admin-provider-save'
 import { db } from '@/db'
 import { file } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'
-import { and, count, eq } from 'drizzle-orm'
+import { and, count, eq, isNull } from 'drizzle-orm'
 import { z } from 'zod'
 import { requireAdminUser } from '@/lib/server-auth'
 import {
@@ -66,7 +66,12 @@ export const setStorageProviderAvailabilityFn = createServerFn({
       const providers = await db
         .update(storageProvider)
         .set({ isActive: data.isActive })
-        .where(eq(storageProvider.id, data.providerId))
+        .where(
+          and(
+            eq(storageProvider.id, data.providerId),
+            isNull(storageProvider.userId),
+          ),
+        )
         .returning({
           id: storageProvider.id,
           isActive: storageProvider.isActive,
@@ -122,7 +127,12 @@ export const deleteStorageProviderFn = createServerFn({ method: 'POST' })
 
       const deleted = await db
         .delete(storageProvider)
-        .where(eq(storageProvider.id, data.providerId))
+        .where(
+          and(
+            eq(storageProvider.id, data.providerId),
+            isNull(storageProvider.userId),
+          ),
+        )
         .returning({ id: storageProvider.id })
 
       if (deleted.length === 0) {

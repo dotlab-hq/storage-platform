@@ -1,7 +1,6 @@
 import { S3Client } from '@aws-sdk/client-s3'
 import { file } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'
-import { user } from '@/db/schema/auth-schema'
 import { UNDETERMINED_PROVIDER_VALUE } from '@/lib/storage-provider-constants'
 import { decryptProviderSecret } from '@/lib/provider-crypto'
 import { and, eq, isNotNull, isNull, sql } from 'drizzle-orm'
@@ -19,6 +18,14 @@ type ProviderRow = typeof storageProvider.$inferSelect
 
 const DEFAULT_PROVIDER_NAME = 'default provider'
 const MAIN_PROVIDER_NAME = 'main'
+const DEFAULT_S3_REGION = 'us-east-1'
+const INVALID_REGION_SENTINELS = new Set([
+  '',
+  UNDETERMINED_PROVIDER_VALUE,
+  'pending',
+  'null',
+  'undefined',
+])
 
 async function loadDb() {
   const { db } = await import('@/db')
@@ -30,7 +37,9 @@ async function getDefaultActiveProvider(): Promise<ProviderRow | null> {
   const providerRows = await db
     .select()
     .from(storageProvider)
-    .where(eq(storageProvider.isActive, true))
+    .where(
+      and(eq(storageProvider.isActive, true), isNull(storageProvider.userId)),
+    )
     .orderBy(
       sql`CASE
                 WHEN lower(${storageProvider.name}) = ${DEFAULT_PROVIDER_NAME} THEN 0
@@ -49,20 +58,40 @@ async function getDefaultActiveProvider(): Promise<ProviderRow | null> {
   return providerRows[0]
 }
 
+function safeTrim(value: string | null | undefined): string {
+  return (value ?? '').replace(/^["']|["']$/g, '').trim()
+}
+
+function resolveRegion(rawRegion?: string | null): string {
+  const normalizedRegion = safeTrim(rawRegion).toLowerCase()
+  if (!INVALID_REGION_SENTINELS.has(normalizedRegion)) {
+    return safeTrim(rawRegion)
+  }
+
+  const envRegion = safeTrim(process.env.S3_REGION)
+  if (envRegion.length > 0) {
+    return envRegion
+  }
+
+  const compatRegion = safeTrim(process.env.S3_COMPAT_REGION)
+  if (compatRegion.length > 0) {
+    return compatRegion
+  }
+
+  const awsRegion = safeTrim(process.env.AWS_REGION)
+  if (awsRegion.length > 0) {
+    return awsRegion
+  }
+
+  return DEFAULT_S3_REGION
+}
+
 function fromEnvironment(): ProviderClientConfig {
-  const accessKeyId = (process.env.S3_ACCESS_KEY_ID ?? '')
-    .replace(/^["']|["']$/g, '')
-    .trim()
-  const secretAccessKey = (process.env.S3_SECRET_ACCESS_KEY ?? '')
-    .replace(/^["']|["']$/g, '')
-    .trim()
-  const region = (process.env.S3_REGION ?? '')
-    .replace(/^["']|["']$/g, '')
-    .trim()
-  const endpoint = (process.env.S3_ENDPOINT ?? '')
-    .replace(/^["']|["']$/g, '')
-    .trim()
-  if (!accessKeyId || !secretAccessKey || !region || !endpoint) {
+  const accessKeyId = safeTrim(process.env.S3_ACCESS_KEY_ID)
+  const secretAccessKey = safeTrim(process.env.S3_SECRET_ACCESS_KEY)
+  const region = resolveRegion(process.env.S3_REGION)
+  const endpoint = safeTrim(process.env.S3_ENDPOINT)
+  if (!accessKeyId || !secretAccessKey || !endpoint) {
     throw new Error('No storage provider exists for uploads')
   }
   return {
@@ -84,10 +113,6 @@ function fromEnvironment(): ProviderClientConfig {
 }
 
 function fromProviderRow(row: ProviderRow): ProviderClientConfig {
-  // Helper to safely extract and trim string from env or row
-  const safeTrim = (value: string | undefined): string =>
-    (value ?? '').replace(/^["']|["']$/g, '').trim()
-
   // Access Key ID: use env if row indicates undetermined
   const accessKeyId =
     row.accessKeyIdEncrypted === UNDETERMINED_PROVIDER_VALUE
@@ -101,11 +126,7 @@ function fromProviderRow(row: ProviderRow): ProviderClientConfig {
       : safeTrim(decryptProviderSecret(row.secretAccessKeyEncrypted))
 
   // Region: if row.region is empty or undetermined, fall back to env var
-  const rawRegion = safeTrim(row.region)
-  const region =
-    rawRegion === '' || rawRegion === UNDETERMINED_PROVIDER_VALUE
-      ? safeTrim(process.env.S3_REGION)
-      : rawRegion
+  const region = resolveRegion(row.region)
 
   // Endpoint: if row.endpoint is empty or undetermined, fall back to env var
   const rawEndpoint = safeTrim(row.endpoint)
@@ -114,11 +135,10 @@ function fromProviderRow(row: ProviderRow): ProviderClientConfig {
       ? safeTrim(process.env.S3_ENDPOINT)
       : rawEndpoint
 
-  if (!accessKeyId || !secretAccessKey || !region || !endpoint) {
+  if (!accessKeyId || !secretAccessKey || !endpoint) {
     const missing: string[] = []
     if (!accessKeyId) missing.push('accessKeyId')
     if (!secretAccessKey) missing.push('secretAccessKey')
-    if (!region) missing.push('region')
     if (!endpoint) missing.push('endpoint')
     throw new Error(
       `Storage provider "${row.name}" is missing required credentials: ${missing}`,
@@ -171,10 +191,47 @@ export async function getProviderClientById(
   return fromProviderRow(provider)
 }
 
+export async function getSystemProviderClientById(
+  providerId: string,
+): Promise<ProviderClientConfig> {
+  const db = await loadDb()
+  const providerRows = await db
+    .select()
+    .from(storageProvider)
+    .where(
+      and(eq(storageProvider.id, providerId), isNull(storageProvider.userId)),
+    )
+    .limit(1)
+
+  if (providerRows.length === 0) {
+    throw new Error('Storage provider not found')
+  }
+
+  return fromProviderRow(providerRows[0])
+}
+
 export async function resolveProviderId(
   providerId: string | null | undefined,
 ): Promise<string | null> {
+  const db = await loadDb()
+
   if (providerId) {
+    const providerRows = await db
+      .select({ id: storageProvider.id })
+      .from(storageProvider)
+      .where(
+        and(
+          eq(storageProvider.id, providerId),
+          isNull(storageProvider.userId),
+          eq(storageProvider.isActive, true),
+        ),
+      )
+      .limit(1)
+
+    if (providerRows.length === 0) {
+      throw new Error('Only active system providers can be used for uploads')
+    }
+
     return providerId
   }
 
@@ -188,26 +245,15 @@ export async function resolveProviderId(
 
 export async function selectProviderForUpload(
   incomingFileSize: number,
-  userId: string,
+  _userId: string,
 ): Promise<ProviderClientConfig> {
   const db = await loadDb()
-  // Get user's provider preference
-  const userRows = await db
-    .select({ use_system_providers: user.use_system_providers })
-    .from(user)
-    .where(eq(user.id, userId))
-    .limit(1)
-  const useSystem = userRows[0]?.use_system_providers ?? true
-
-  // Query providers based on preference
-  const providerOwnershipCondition = useSystem
-    ? isNull(storageProvider.userId)
-    : eq(storageProvider.userId, userId)
-
   const providers = await db
     .select()
     .from(storageProvider)
-    .where(and(eq(storageProvider.isActive, true), providerOwnershipCondition))
+    .where(
+      and(eq(storageProvider.isActive, true), isNull(storageProvider.userId)),
+    )
 
   if (providers.length === 0) {
     return fromEnvironment()

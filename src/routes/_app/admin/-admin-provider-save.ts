@@ -48,7 +48,12 @@ export const saveStorageProviderFn = createServerFn({ method: 'POST' })
         const [existing] = await db
           .select()
           .from(storageProvider)
-          .where(eq(storageProvider.id, data.providerId))
+          .where(
+            and(
+              eq(storageProvider.id, data.providerId),
+              isNull(storageProvider.userId),
+            ),
+          )
           .limit(1)
 
         if (!existing) {

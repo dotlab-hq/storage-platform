@@ -1,5 +1,5 @@
 import { ListObjectsV2Command } from '@aws-sdk/client-s3'
-import { getProviderClientById } from '@/lib/s3-provider-client'
+import { getSystemProviderClientById } from '@/lib/s3-provider-client'
 
 export type AdminProviderFolderEntry = {
   name: string
@@ -58,7 +58,7 @@ export async function listAdminProviderContents(
   continuationToken?: string | null,
   searchQuery?: string,
 ): Promise<AdminProviderContentsResponse> {
-  const provider = await getProviderClientById(providerId)
+  const provider = await getSystemProviderClientById(providerId)
   const normalizedPrefix = normalizePrefix(prefix)
   const result = await provider.client.send(
     new ListObjectsV2Command({

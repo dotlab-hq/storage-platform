@@ -33,6 +33,7 @@ export async function listProvidersWithUsage() {
       createdAt: storageProvider.createdAt,
     })
     .from(storageProvider)
+    .where(isNull(storageProvider.userId))
 
   const usageByProvider = await db
     .select({
