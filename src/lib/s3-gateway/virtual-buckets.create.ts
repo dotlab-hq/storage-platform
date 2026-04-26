@@ -19,6 +19,23 @@ async function createVirtualBucketRow(
 ): Promise<S3BucketItem> {
   const bucketId = crypto.randomUUID()
 
+  // Check for existing bucket with same name for this user
+  const existing = await db
+    .select({ id: virtualBucket.id })
+    .from(virtualBucket)
+    .where(
+      and(
+        eq(virtualBucket.userId, input.userId),
+        eq(virtualBucket.name, input.bucketName),
+        eq(virtualBucket.isActive, true),
+      ),
+    )
+    .limit(1)
+
+  if (existing.length > 0) {
+    throw new Error('A bucket with this name already exists')
+  }
+
   const createdFolders = await db
     .insert(folder)
     .values({
