@@ -92,7 +92,10 @@ export async function handleDelete(
     deleteCachedS3Object(cacheKey)
     return new Response(null, {
       status: 204,
-      headers: { 'x-amz-version-id': markerVersionId },
+      headers: {
+        'x-amz-version-id': markerVersionId,
+        'x-amz-delete-marker': 'true',
+      },
     })
   }
 

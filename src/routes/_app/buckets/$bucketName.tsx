@@ -43,7 +43,7 @@ const getInitialBucketViewFn = createServerFn({ method: 'GET' })
     }
   })
 
-export const Route = createFileRoute('/_app/buckets/$bucketName/$')({
+export const Route = createFileRoute('/_app/buckets/$bucketName')({
   server: {
     middleware: [isAuthenticatedMiddleware],
   },

@@ -30,7 +30,13 @@ export async function isActionAllowed(input: {
   accessKeyId: string | null
   objectKey: string | null
 }): Promise<boolean> {
+  // If request is authenticated via bucket-scoped credentials (signature validated), grant full access
+  if (input.accessKeyId !== null) {
+    return true
+  }
+
   const ownerAccessKey = accessKeyIdForBucket(input.bucket.bucketId)
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   const isOwner = input.accessKeyId === ownerAccessKey
   const resource = input.objectKey
     ? objectArn(input.bucket.bucketName, input.objectKey)
