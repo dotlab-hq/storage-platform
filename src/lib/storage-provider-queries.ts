@@ -30,6 +30,7 @@ export async function listProvidersWithUsage() {
       fileSizeLimitBytes: storageProvider.fileSizeLimitBytes,
       proxyUploadsEnabled: storageProvider.proxyUploadsEnabled,
       isActive: storageProvider.isActive,
+      hideInSidebar: storageProvider.hideInSidebar,
       createdAt: storageProvider.createdAt,
     })
     .from(storageProvider)
@@ -87,6 +88,7 @@ export async function listUserProvidersWithUsage(userId: string) {
       fileSizeLimitBytes: storageProvider.fileSizeLimitBytes,
       proxyUploadsEnabled: storageProvider.proxyUploadsEnabled,
       isActive: storageProvider.isActive,
+      hideInSidebar: storageProvider.hideInSidebar,
       createdAt: storageProvider.createdAt,
     })
     .from(storageProvider)

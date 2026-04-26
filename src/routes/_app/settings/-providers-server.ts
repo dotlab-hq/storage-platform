@@ -25,6 +25,7 @@ const SaveUserProviderSchema = z.object({
   fileSizeLimitBytes: z.number().int().positive(),
   proxyUploadsEnabled: z.boolean().default(false),
   isActive: z.boolean().default(true),
+  hideInSidebar: z.boolean().default(false),
 })
 
 export const getUserProvidersFn = createServerFn({ method: 'GET' }).handler(
@@ -101,6 +102,7 @@ export const saveUserProviderFn = createServerFn({ method: 'POST' })
             fileSizeLimitBytes: data.fileSizeLimitBytes,
             proxyUploadsEnabled: data.proxyUploadsEnabled,
             isActive: data.isActive,
+            hideInSidebar: data.hideInSidebar,
           })
           .where(eq(storageProvider.id, data.providerId))
           .returning({
@@ -145,6 +147,7 @@ export const saveUserProviderFn = createServerFn({ method: 'POST' })
             fileSizeLimitBytes: data.fileSizeLimitBytes,
             proxyUploadsEnabled: data.proxyUploadsEnabled,
             isActive: data.isActive,
+            hideInSidebar: data.hideInSidebar,
           })
           .returning({
             id: storageProvider.id,

@@ -15,13 +15,13 @@ type CopyButtonProps = {
   label: string
 }
 
-function CopyButton( { value, label }: CopyButtonProps ) {
-  const [copied, setCopied] = useState( false )
+function CopyButton({ value, label }: CopyButtonProps) {
+  const [copied, setCopied] = useState(false)
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText( value )
-    setCopied( true )
-    setTimeout( () => setCopied( false ), 2000 )
+    await navigator.clipboard.writeText(value)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
   }
 
   return (
@@ -33,11 +33,16 @@ function CopyButton( { value, label }: CopyButtonProps ) {
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <p className="line-clamp-1 break-all text-sm font-medium" title={value}>
+              <p
+                className="line-clamp-1 break-all text-sm font-medium"
+                title={value}
+              >
                 {value}
               </p>
             </TooltipTrigger>
-            <TooltipContent className="max-w-md break-all">{value}</TooltipContent>
+            <TooltipContent className="max-w-md break-all">
+              {value}
+            </TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </div>
@@ -58,12 +63,12 @@ function CopyButton( { value, label }: CopyButtonProps ) {
   )
 }
 
-export function ProviderInfoPanel( {
+export function ProviderInfoPanel({
   provider,
 }: {
   provider: AdminProvider | null
-} ) {
-  if ( !provider )
+}) {
+  if (!provider)
     return (
       <div className="p-6 text-sm text-muted-foreground">
         No provider selected
@@ -96,7 +101,7 @@ export function ProviderInfoPanel( {
               Total Limit
             </p>
             <p className="text-sm font-medium">
-              {formatBytes( provider.storageLimitBytes )}
+              {formatBytes(provider.storageLimitBytes)}
             </p>
           </div>
           <div className="rounded-md border p-3 bg-background/50 space-y-1">
@@ -104,7 +109,7 @@ export function ProviderInfoPanel( {
               Used Storage
             </p>
             <p className="text-sm font-medium">
-              {formatBytes( provider.usedStorageBytes )}
+              {formatBytes(provider.usedStorageBytes)}
             </p>
           </div>
           <div className="rounded-md border p-3 bg-background/50 space-y-1">
@@ -112,17 +117,19 @@ export function ProviderInfoPanel( {
               Available Storage
             </p>
             <p className="text-sm font-medium">
-              {formatBytes( provider.availableStorageBytes )}
+              {formatBytes(provider.availableStorageBytes)}
             </p>
           </div>
-          <div className="rounded-md border p-3 bg-background/50 space-y-1">
-            <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
-              Max File Size
-            </p>
-            <p className="text-sm font-medium">
-              {formatBytes( provider.fileSizeLimitBytes )}
-            </p>
-          </div>
+          {!provider.hideInSidebar && (
+            <div className="rounded-md border p-3 bg-background/50 space-y-1">
+              <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
+                Max File Size
+              </p>
+              <p className="text-sm font-medium">
+                {formatBytes(provider.fileSizeLimitBytes)}
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>

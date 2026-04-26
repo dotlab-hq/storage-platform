@@ -35,6 +35,9 @@ export const storageProvider = schema.table(
       .default(false)
       .notNull(),
     isActive: integer('is_active', { mode: 'boolean' }).default(true).notNull(),
+    hideInSidebar: integer('hide_in_sidebar', { mode: 'boolean' })
+      .default(false)
+      .notNull(),
     userId: text('user_id').references(() => user.id, { onDelete: 'cascade' }),
     createdAt: integer('created_at', { mode: 'timestamp' })
       .$defaultFn(() => new Date())

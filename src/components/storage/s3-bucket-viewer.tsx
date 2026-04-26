@@ -15,14 +15,24 @@ import {
   S3ViewerUploadingFileListItem,
 } from '@/components/storage/s3-bucket-viewer-cards'
 import { useS3BucketViewer } from '@/components/storage/use-s3-bucket-viewer'
+import type { S3ListResponse } from '@/components/storage/use-s3-bucket-viewer'
 import { useCallback, useRef } from 'react'
 
 type S3BucketViewerProps = {
   bucketName: string
+  initialPrefix?: string
+  initialData?: S3ListResponse
 }
 
-export function S3BucketViewer({ bucketName }: S3BucketViewerProps) {
-  const viewer = useS3BucketViewer(bucketName)
+export function S3BucketViewer({
+  bucketName,
+  initialPrefix,
+  initialData,
+}: S3BucketViewerProps) {
+  const viewer = useS3BucketViewer(bucketName, {
+    initialPrefix,
+    initialData,
+  })
   const scrollContainerRef = useRef<HTMLDivElement>(null)
 
   const totalItems =

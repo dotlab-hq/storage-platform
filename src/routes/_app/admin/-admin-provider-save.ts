@@ -20,6 +20,7 @@ const SaveProviderSchema = z.object({
   fileSizeLimitBytes: z.number().int().positive(),
   proxyUploadsEnabled: z.boolean().default(false),
   isActive: z.boolean().default(true),
+  hideInSidebar: z.boolean().default(false),
 })
 
 export const saveStorageProviderFn = createServerFn({ method: 'POST' })
@@ -74,6 +75,7 @@ export const saveStorageProviderFn = createServerFn({ method: 'POST' })
             fileSizeLimitBytes: data.fileSizeLimitBytes,
             proxyUploadsEnabled: data.proxyUploadsEnabled,
             isActive: data.isActive,
+            hideInSidebar: data.hideInSidebar,
           })
           .where(eq(storageProvider.id, existing.id))
           .returning({ id: storageProvider.id, name: storageProvider.name })
@@ -108,6 +110,7 @@ export const saveStorageProviderFn = createServerFn({ method: 'POST' })
             fileSizeLimitBytes: data.fileSizeLimitBytes,
             proxyUploadsEnabled: data.proxyUploadsEnabled,
             isActive: data.isActive,
+            hideInSidebar: data.hideInSidebar,
           })
           .returning({ id: storageProvider.id, name: storageProvider.name })
 

@@ -76,6 +76,7 @@ export function ProvidersSection({
       fileSizeLimitBytes: number
       proxyUploadsEnabled: boolean
       isActive: boolean
+      hideInSidebar: boolean
     }) => saveUserProviderFn({ data }),
     onMutate: async (newData) => {
       await queryClient.cancelQueries({ queryKey: ['user-providers'] })
@@ -97,6 +98,7 @@ export function ProvidersSection({
                   fileSizeLimitBytes: newData.fileSizeLimitBytes,
                   proxyUploadsEnabled: newData.proxyUploadsEnabled,
                   isActive: newData.isActive,
+                  hideInSidebar: newData.hideInSidebar,
                 }
               : p,
           ),
@@ -113,6 +115,7 @@ export function ProvidersSection({
           fileSizeLimitBytes: newData.fileSizeLimitBytes,
           proxyUploadsEnabled: newData.proxyUploadsEnabled,
           isActive: newData.isActive,
+          hideInSidebar: newData.hideInSidebar,
           createdAt: new Date(),
           usedStorageBytes: 0,
           availableStorageBytes: newData.storageLimitBytes,
@@ -203,6 +206,7 @@ export function ProvidersSection({
     fileSizeLimitBytes: 100 * 1024 * 1024,
     proxyUploadsEnabled: false,
     isActive: true,
+    hideInSidebar: false,
   })
   const [storageLimitInput, setStorageLimitInput] = useState(
     String(10 * 1024 * 1024 * 1024),
@@ -224,6 +228,7 @@ export function ProvidersSection({
       fileSizeLimitBytes: 100 * 1024 * 1024,
       proxyUploadsEnabled: false,
       isActive: true,
+      hideInSidebar: false,
     })
     setStorageLimitInput(String(10 * 1024 * 1024 * 1024))
     setFileSizeLimitInput(String(100 * 1024 * 1024))
@@ -243,6 +248,7 @@ export function ProvidersSection({
       fileSizeLimitBytes: provider.fileSizeLimitBytes,
       proxyUploadsEnabled: provider.proxyUploadsEnabled,
       isActive: provider.isActive,
+      hideInSidebar: provider.hideInSidebar,
     })
     setStorageLimitInput(String(provider.storageLimitBytes))
     setFileSizeLimitInput(String(provider.fileSizeLimitBytes))
@@ -294,6 +300,7 @@ export function ProvidersSection({
       fileSizeLimitBytes: parsedFileSize,
       proxyUploadsEnabled: form.proxyUploadsEnabled,
       isActive: form.isActive,
+      hideInSidebar: form.hideInSidebar,
     }
 
     saveMutation.mutate(payload)
@@ -388,8 +395,14 @@ export function ProvidersSection({
                       </div>
                       <p className="text-muted-foreground text-xs">
                         Storage: {formatBytes(provider.usedStorageBytes)} /{' '}
-                        {formatBytes(provider.storageLimitBytes)} • Max file:{' '}
-                        {formatBytes(provider.fileSizeLimitBytes)}
+                        {formatBytes(provider.storageLimitBytes)}
+                        {!provider.hideInSidebar && (
+                          <>
+                            {' '}
+                            • Max file:{' '}
+                            {formatBytes(provider.fileSizeLimitBytes)}
+                          </>
+                        )}
                       </p>
                     </div>
                     <div className="flex items-center gap-2">
@@ -472,6 +485,9 @@ export function ProvidersSection({
               onFileSizeLimitChange={setFileSizeLimitInput}
               onProxyUploadsEnabledChange={(value) =>
                 setForm((prev) => ({ ...prev, proxyUploadsEnabled: value }))
+              }
+              onHideInSidebarChange={(value) =>
+                setForm((prev) => ({ ...prev, hideInSidebar: value }))
               }
               onSubmit={handleSave}
               onCancel={() => setIsDialogOpen(false)}
