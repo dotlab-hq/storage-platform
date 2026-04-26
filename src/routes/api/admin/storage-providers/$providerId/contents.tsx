@@ -58,6 +58,7 @@ export const Route = createFileRoute(
             query.prefix ?? '',
             query.maxKeys ?? 250,
             query.continuationToken ?? null,
+            query.search,
           )
 
           return Response.json(contents)

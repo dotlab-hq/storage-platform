@@ -18,6 +18,21 @@ async function loadProviderContents({
 }: LoadProviderContentsArgs & {
   searchQuery?: string
 }): Promise<AdminProviderContentsResponse> {
+  if (scope === 'user') {
+    const { getUserProviderContentsFn } =
+      await import('@/routes/_app/settings/-provider-contents-server')
+
+    return getUserProviderContentsFn({
+      data: {
+        providerId,
+        prefix,
+        continuationToken: continuationToken ?? null,
+        maxKeys: 250,
+        search: searchQuery.length > 0 ? searchQuery : undefined,
+      },
+    })
+  }
+
   const searchParams = new URLSearchParams()
   if (prefix.length > 0) {
     searchParams.set('prefix', prefix)
@@ -29,10 +44,7 @@ async function loadProviderContents({
     searchParams.set('search', searchQuery)
   }
 
-  const basePath =
-    scope === 'admin'
-      ? '/api/admin/storage-providers'
-      : '/api/storage-providers'
+  const basePath = '/api/admin/storage-providers'
 
   const response = await fetch(
     `${basePath}/${encodeURIComponent(providerId)}/contents${

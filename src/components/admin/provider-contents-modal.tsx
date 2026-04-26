@@ -15,14 +15,16 @@ type ProviderContentsModalProps = {
   open: boolean
   onOpenChange: (open: boolean) => void
   provider: AdminProvider | null
+  scope?: 'admin' | 'user'
 }
 
 export function ProviderContentsModal({
   open,
   onOpenChange,
   provider,
+  scope = 'admin',
 }: ProviderContentsModalProps) {
-  const viewer = useProviderContents(provider?.id ?? null, open)
+  const viewer = useProviderContents(provider?.id ?? null, open, scope)
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>

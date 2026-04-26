@@ -15,10 +15,13 @@ import {
   DialogDescription,
 } from '@/components/ui/dialog'
 import { ProviderEditorCard } from '@/components/admin/provider-editor-card'
-import { S3ViewerModal } from '@/components/storage/s3-viewer-modal'
+import { ProviderContentsModal } from '@/components/admin/provider-contents-modal'
 import { formatBytes } from '@/lib/format-bytes'
 import { Server, Plus, Edit, Trash2, Eye } from 'lucide-react'
-import type { UserProvider } from '@/lib/storage-provider-queries'
+import type {
+  AdminProvider,
+  UserProvider,
+} from '@/lib/storage-provider-queries'
 import {
   getUserProvidersFn,
   saveUserProviderFn,
@@ -43,6 +46,12 @@ type ProviderFormState = {
   fileSizeLimitBytes: number
   proxyUploadsEnabled: boolean
   isActive: boolean
+}
+
+function toAdminProvider(provider: UserProvider): AdminProvider {
+  return {
+    ...provider,
+  }
 }
 
 export function ProvidersSection({
@@ -218,7 +227,9 @@ export function ProvidersSection({
     proxyUploadsEnabled: false,
     isActive: true,
   })
-  const [viewerBucketName, setViewerBucketName] = useState<string | null>(null)
+  const [viewerProvider, setViewerProvider] = useState<UserProvider | null>(
+    null,
+  )
   const [storageLimitInput, setStorageLimitInput] = useState(
     String(10 * 1024 * 1024 * 1024),
   )
@@ -420,7 +431,7 @@ export function ProvidersSection({
                       <Button
                         variant="ghost"
                         size="icon"
-                        onClick={() => setViewerBucketName(provider.bucketName)}
+                        onClick={() => setViewerProvider(provider)}
                       >
                         <Eye className="h-4 w-4" />
                       </Button>
@@ -500,14 +511,15 @@ export function ProvidersSection({
           </div>
         </DialogContent>
       </Dialog>
-      <S3ViewerModal
-        open={viewerBucketName !== null}
+      <ProviderContentsModal
+        open={viewerProvider !== null}
         onOpenChange={(open) => {
           if (!open) {
-            setViewerBucketName(null)
+            setViewerProvider(null)
           }
         }}
-        bucketName={viewerBucketName}
+        provider={viewerProvider ? toAdminProvider(viewerProvider) : null}
+        scope="user"
       />
     </div>
   )

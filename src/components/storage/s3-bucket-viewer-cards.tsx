@@ -162,8 +162,10 @@ export function S3ViewerFolderCard({
     <button
       type="button"
       className="rounded-2xl border bg-background/50 p-3 text-left hover:bg-muted/30"
-      onDoubleClick={() => onOpen(entry.prefix)}
-      onClick={() => onSelect(entry.prefix)}
+      onClick={() => {
+        onSelect(entry.prefix)
+        onOpen(entry.prefix)
+      }}
     >
       <Folder className="mb-2 h-6 w-6 text-sky-500" />
       <p className="truncate text-sm font-semibold">{entry.name}</p>
@@ -223,7 +225,7 @@ export function S3ViewerFolderListItem({ entry, onOpen }: FolderListItemProps) {
   return (
     <button
       type="button"
-      onDoubleClick={() => onOpen(entry.prefix)}
+      onClick={() => onOpen(entry.prefix)}
       className="group flex items-center w-full px-4 py-3 hover:bg-muted/50 transition-colors text-left"
     >
       {/* Icon */}

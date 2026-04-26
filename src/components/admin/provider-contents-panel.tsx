@@ -154,7 +154,7 @@ export function ProviderContentsPanel({ viewer }: ProviderContentsPanelProps) {
                 <button
                   key={folder.prefix}
                   type="button"
-                  onDoubleClick={() => viewer.setPrefix(folder.prefix)}
+                  onClick={() => viewer.setPrefix(folder.prefix)}
                   className="group flex w-full items-center px-4 py-3 text-left transition-colors hover:bg-muted/50"
                 >
                   <div className="mr-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50">

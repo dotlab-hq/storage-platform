@@ -1,7 +1,7 @@
 import { user } from '@/db/schema/auth-schema'
 import { file, userStorage } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'
-import { count, eq, sql, sum, and, isNotNull } from 'drizzle-orm'
+import { count, eq, sql, sum, and, isNotNull, isNull } from 'drizzle-orm'
 import { DEFAULT_ALLOCATED_STORAGE_BYTES } from '@/lib/storage-quota-constants'
 
 async function loadDb() {
@@ -140,6 +140,7 @@ export async function getStorageAdminSummary() {
       count: count(),
     })
     .from(storageProvider)
+    .where(isNull(storageProvider.userId))
   const [userCountRow] = await db
     .select({
       count: count(),
