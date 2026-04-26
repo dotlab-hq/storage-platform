@@ -36,17 +36,11 @@ export const saveStorageProviderFn = createServerFn({ method: 'POST' })
         throw new Error('Provider name is required')
       }
 
-      const endpoint = data.endpoint.trim() || UNDETERMINED_PROVIDER_VALUE
-      const region = data.region.trim() || UNDETERMINED_PROVIDER_VALUE
-      const bucketName = data.bucketName.trim() || UNDETERMINED_PROVIDER_VALUE
+      const endpoint = data.endpoint.trim()
+      const region = data.region.trim()
+      const bucketName = data.bucketName.trim()
       const accessKeyId = data.accessKeyId.trim()
       const secretAccessKey = data.secretAccessKey.trim()
-      const nextAccessKeyIdEncrypted = accessKeyId
-        ? encryptProviderSecret(accessKeyId)
-        : UNDETERMINED_PROVIDER_VALUE
-      const nextSecretAccessKeyEncrypted = secretAccessKey
-        ? encryptProviderSecret(secretAccessKey)
-        : UNDETERMINED_PROVIDER_VALUE
 
       let provider: { id: string; name: string } | null = null
 
@@ -61,13 +55,23 @@ export const saveStorageProviderFn = createServerFn({ method: 'POST' })
           throw new Error('Storage provider not found')
         }
 
+        const nextEndpoint = endpoint || existing.endpoint
+        const nextRegion = region || existing.region
+        const nextBucketName = bucketName || existing.bucketName
+        const nextAccessKeyIdEncrypted = accessKeyId
+          ? encryptProviderSecret(accessKeyId)
+          : existing.accessKeyIdEncrypted
+        const nextSecretAccessKeyEncrypted = secretAccessKey
+          ? encryptProviderSecret(secretAccessKey)
+          : existing.secretAccessKeyEncrypted
+
         const updatedProvider = await db
           .update(storageProvider)
           .set({
             name: trimmedName,
-            endpoint,
-            region,
-            bucketName,
+            endpoint: nextEndpoint,
+            region: nextRegion,
+            bucketName: nextBucketName,
             accessKeyIdEncrypted: nextAccessKeyIdEncrypted,
             secretAccessKeyEncrypted: nextSecretAccessKeyEncrypted,
             storageLimitBytes: data.storageLimitBytes,
@@ -80,6 +84,16 @@ export const saveStorageProviderFn = createServerFn({ method: 'POST' })
 
         provider = updatedProvider[0]
       } else {
+        const nextEndpoint = endpoint || UNDETERMINED_PROVIDER_VALUE
+        const nextRegion = region || UNDETERMINED_PROVIDER_VALUE
+        const nextBucketName = bucketName || UNDETERMINED_PROVIDER_VALUE
+        const nextAccessKeyIdEncrypted = accessKeyId
+          ? encryptProviderSecret(accessKeyId)
+          : UNDETERMINED_PROVIDER_VALUE
+        const nextSecretAccessKeyEncrypted = secretAccessKey
+          ? encryptProviderSecret(secretAccessKey)
+          : UNDETERMINED_PROVIDER_VALUE
+
         const duplicateRows = await db
           .select({ id: storageProvider.id })
           .from(storageProvider)
@@ -99,9 +113,9 @@ export const saveStorageProviderFn = createServerFn({ method: 'POST' })
           .insert(storageProvider)
           .values({
             name: trimmedName,
-            endpoint,
-            region,
-            bucketName,
+            endpoint: nextEndpoint,
+            region: nextRegion,
+            bucketName: nextBucketName,
             accessKeyIdEncrypted: nextAccessKeyIdEncrypted,
             secretAccessKeyEncrypted: nextSecretAccessKeyEncrypted,
             storageLimitBytes: data.storageLimitBytes,

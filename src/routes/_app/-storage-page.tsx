@@ -106,7 +106,7 @@ export function StoragePage({ initial, search }: StoragePageProps) {
     if (search.upload) {
       ui.setUploadFileOpen(true)
     }
-  }, [search.upload]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [search.upload])
 
   useFolderHistory(storage.currentFolderId, storage.setCurrentFolderId)
   const actions = useStorageActions({

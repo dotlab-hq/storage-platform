@@ -16,11 +16,11 @@ const ProviderIdSchema = z.object({
 const SaveUserProviderSchema = z.object({
   providerId: z.string().min(1).optional(),
   name: z.string().min(2).max(120),
-  endpoint: z.string().min(1),
-  region: z.string().min(1),
-  bucketName: z.string().min(1),
-  accessKeyId: z.string().min(1),
-  secretAccessKey: z.string().min(1),
+  endpoint: z.string().default(''),
+  region: z.string().default(''),
+  bucketName: z.string().default(''),
+  accessKeyId: z.string().default(''),
+  secretAccessKey: z.string().default(''),
   storageLimitBytes: z.number().int().positive(),
   fileSizeLimitBytes: z.number().int().positive(),
   proxyUploadsEnabled: z.boolean().default(false),
@@ -48,11 +48,11 @@ export const saveUserProviderFn = createServerFn({ method: 'POST' })
         throw new Error('Provider name is required')
       }
 
-      // Encrypt credentials
+      const endpoint = data.endpoint.trim()
+      const region = data.region.trim()
+      const bucketName = data.bucketName.trim()
       const accessKeyId = data.accessKeyId.trim()
       const secretAccessKey = data.secretAccessKey.trim()
-      const encryptedAccessKey = encryptProviderSecret(accessKeyId)
-      const encryptedSecret = encryptProviderSecret(secretAccessKey)
 
       if (data.providerId) {
         // Update existing provider owned by user
@@ -70,6 +70,16 @@ export const saveUserProviderFn = createServerFn({ method: 'POST' })
         if (!existing) {
           throw new Error('Storage provider not found or unauthorized')
         }
+
+        const nextEndpoint = endpoint || existing.endpoint
+        const nextRegion = region || existing.region
+        const nextBucketName = bucketName || existing.bucketName
+        const nextAccessKeyEncrypted = accessKeyId
+          ? encryptProviderSecret(accessKeyId)
+          : existing.accessKeyIdEncrypted
+        const nextSecretKeyEncrypted = secretAccessKey
+          ? encryptProviderSecret(secretAccessKey)
+          : existing.secretAccessKeyEncrypted
 
         // Check for duplicate name among user's other providers
         const duplicate = await db
@@ -92,11 +102,11 @@ export const saveUserProviderFn = createServerFn({ method: 'POST' })
           .update(storageProvider)
           .set({
             name: trimmedName,
-            endpoint: data.endpoint,
-            region: data.region,
-            bucketName: data.bucketName,
-            accessKeyIdEncrypted: encryptedAccessKey,
-            secretAccessKeyEncrypted: encryptedSecret,
+            endpoint: nextEndpoint,
+            region: nextRegion,
+            bucketName: nextBucketName,
+            accessKeyIdEncrypted: nextAccessKeyEncrypted,
+            secretAccessKeyEncrypted: nextSecretKeyEncrypted,
             storageLimitBytes: data.storageLimitBytes,
             fileSizeLimitBytes: data.fileSizeLimitBytes,
             proxyUploadsEnabled: data.proxyUploadsEnabled,
@@ -114,6 +124,21 @@ export const saveUserProviderFn = createServerFn({ method: 'POST' })
 
         return { success: true, provider: updated[0], operation: 'updated' }
       } else {
+        if (
+          !endpoint ||
+          !region ||
+          !bucketName ||
+          !accessKeyId ||
+          !secretAccessKey
+        ) {
+          throw new Error(
+            'Endpoint, region, bucket name, access key, and secret key are required when creating a provider',
+          )
+        }
+
+        const encryptedAccessKey = encryptProviderSecret(accessKeyId)
+        const encryptedSecret = encryptProviderSecret(secretAccessKey)
+
         // Create new provider for user
         const duplicate = await db
           .select()
@@ -136,9 +161,9 @@ export const saveUserProviderFn = createServerFn({ method: 'POST' })
             id: crypto.randomUUID(),
             userId: authUser.id,
             name: trimmedName,
-            endpoint: data.endpoint,
-            region: data.region,
-            bucketName: data.bucketName,
+            endpoint,
+            region,
+            bucketName,
             accessKeyIdEncrypted: encryptedAccessKey,
             secretAccessKeyEncrypted: encryptedSecret,
             storageLimitBytes: data.storageLimitBytes,
