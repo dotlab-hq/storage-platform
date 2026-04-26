@@ -2,6 +2,7 @@ import { copyObject, putObject } from '@/lib/s3-gateway/s3-object-store'
 import {
   createObjectVersionFromCurrent,
   getBucketVersioningState,
+  getResponseVersionIdForCurrentObject,
 } from '@/lib/s3-gateway/s3-versioning'
 import { createVirtualBucket } from '@/lib/s3-gateway/virtual-buckets'
 import {
@@ -232,10 +233,28 @@ export async function handlePut(
       bucket,
       parsed.objectKey,
     )
+    const copyVersioningState = await getBucketVersioningState(bucket.bucketId)
+    let copyVersionId: string | null = null
+    if (copyVersioningState === 'enabled') {
+      copyVersionId = await createObjectVersionFromCurrent(
+        bucket,
+        parsed.objectKey,
+      )
+    }
+    if (copyVersioningState === 'suspended') {
+      copyVersionId = await createObjectVersionFromCurrent(
+        bucket,
+        parsed.objectKey,
+        'null',
+      )
+    }
     return xmlResponse(
-      copyObjectXml(copied.eTag ?? '', copied.lastModified),
+      copyObjectXml(copied.eTag ?? '', copied.lastModified, copyVersionId),
       200,
-      { ETag: copied.eTag ?? '' },
+      {
+        ETag: copied.eTag ?? '',
+        ...(copyVersionId ? { 'x-amz-version-id': copyVersionId } : {}),
+      },
     )
   }
 
@@ -283,14 +302,34 @@ export async function handlePut(
         )
 
   const versioningState = await getBucketVersioningState(bucket.bucketId)
-  if (versioningState === 'enabled')
-    await createObjectVersionFromCurrent(bucket, parsed.objectKey)
-  if (versioningState === 'suspended')
-    await createObjectVersionFromCurrent(bucket, parsed.objectKey, 'null')
+  let responseVersionId: string | null = null
+  if (versioningState === 'enabled') {
+    responseVersionId = await createObjectVersionFromCurrent(
+      bucket,
+      parsed.objectKey,
+    )
+  }
+  if (versioningState === 'suspended') {
+    responseVersionId = await createObjectVersionFromCurrent(
+      bucket,
+      parsed.objectKey,
+      'null',
+    )
+  }
+  if (!responseVersionId && versioningState !== 'disabled') {
+    responseVersionId = await getResponseVersionIdForCurrentObject(
+      bucket,
+      parsed.objectKey,
+    )
+  }
   await persistSseMetadata(
     bucket,
     parsed.objectKey,
     request.headers.get('x-amz-server-side-encryption'),
   )
-  return new Response(null, { status: 200, headers: { ETag: eTag ?? '' } })
+  const headers = new Headers({ ETag: eTag ?? '' })
+  if (responseVersionId) {
+    headers.set('x-amz-version-id', responseVersionId)
+  }
+  return new Response(null, { status: 200, headers })
 }

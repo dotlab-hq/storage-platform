@@ -54,6 +54,9 @@ export async function isActionAllowed(input: {
   }
 
   if (input.action === 's3:ListBucket') {
+    if (input.bucket.blockPublicAccess) {
+      return false
+    }
     return isBucketPublicReadable(input.bucket.bucketId)
   }
 
@@ -64,6 +67,9 @@ export async function isActionAllowed(input: {
     )
     if (objectPublic) {
       return true
+    }
+    if (input.bucket.blockPublicAccess) {
+      return false
     }
     return isBucketPublicReadable(input.bucket.bucketId)
   }

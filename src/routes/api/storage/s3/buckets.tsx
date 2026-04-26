@@ -53,7 +53,15 @@ export const Route = createFileRoute('/api/storage/s3/buckets')({
           )
           return Response.json({ ok: true, bucket })
         } catch (error) {
-          const status = error instanceof z.ZodError ? 400 : 500
+          let status = 500
+          if (error instanceof z.ZodError) {
+            status = 400
+          } else if (
+            error instanceof Error &&
+            error.message.includes('already exists')
+          ) {
+            status = 409
+          }
           return Response.json(
             {
               ok: false,

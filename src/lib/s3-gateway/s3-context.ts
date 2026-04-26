@@ -13,6 +13,7 @@ export type BucketContext = {
   bucketId: string
   bucketName: string
   mappedFolderId: string | null
+  blockPublicAccess: boolean
   createdAt: Date
   credentialVersion: number
 }
@@ -22,6 +23,7 @@ type BucketRow = {
   id: string
   name: string
   mappedFolderId: string | null
+  blockPublicAccess: boolean
   createdAt: Date
   credentialVersion: number
 }
@@ -355,6 +357,7 @@ function toContext(row: BucketRow): BucketContext {
     bucketId: row.id,
     bucketName: row.name,
     mappedFolderId: row.mappedFolderId,
+    blockPublicAccess: row.blockPublicAccess,
     createdAt: row.createdAt,
     credentialVersion: row.credentialVersion,
   }
@@ -374,6 +377,7 @@ export async function resolveBucketByName(
       id: virtualBucket.id,
       name: virtualBucket.name,
       mappedFolderId: virtualBucket.mappedFolderId,
+      blockPublicAccess: virtualBucket.blockPublicAccess,
       createdAt: virtualBucket.createdAt,
       credentialVersion: virtualBucket.credentialVersion,
     })
@@ -404,6 +408,7 @@ export async function resolveBucketByAccessKey(
       id: virtualBucket.id,
       name: virtualBucket.name,
       mappedFolderId: virtualBucket.mappedFolderId,
+      blockPublicAccess: virtualBucket.blockPublicAccess,
       createdAt: virtualBucket.createdAt,
       credentialVersion: virtualBucket.credentialVersion,
     })

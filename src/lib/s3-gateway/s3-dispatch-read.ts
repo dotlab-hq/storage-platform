@@ -9,6 +9,7 @@ import {
 } from '@/lib/s3-gateway/s3-object-tagging'
 import {
   getObjectVersionResponse,
+  getResponseVersionIdForCurrentObject,
   listObjectVersions,
 } from '@/lib/s3-gateway/s3-versioning'
 import { getBucketAclXml, getObjectAclXml } from '@/lib/s3-gateway/s3-acl'
@@ -46,6 +47,7 @@ import {
   s3ErrorResponse,
   xmlResponse,
 } from '@/lib/s3-gateway/s3-xml'
+import { listVirtualBuckets } from '@/lib/s3-gateway/virtual-buckets'
 import {
   cacheS3ObjectFromStream,
   getCachedS3Object,
@@ -100,6 +102,98 @@ function parsePositiveContentLength(value: string | null): number | null {
   return Number.isFinite(parsed) && parsed > 0 ? parsed : null
 }
 
+function parseMaxKeys(url: URL): number {
+  const value = url.searchParams.get('max-keys')
+  if (!value) return 1000
+  const parsed = Number.parseInt(value, 10)
+  if (!Number.isFinite(parsed) || parsed < 0) {
+    return 1000
+  }
+  return Math.min(parsed, 1000)
+}
+
+function decodeContinuationToken(token: string | null): string | null {
+  if (!token) return null
+  try {
+    return atob(token)
+  } catch {
+    return token
+  }
+}
+
+function encodeContinuationToken(value: string | null): string | null {
+  if (!value) return null
+  return btoa(value)
+}
+
+function applyPagination(
+  items: S3ObjectItem[],
+  commonPrefixes: string[],
+  maxKeys: number,
+  startAfterKey: string | null,
+): {
+  objects: S3ObjectItem[]
+  commonPrefixes: string[]
+  isTruncated: boolean
+  nextToken: string | null
+  nextMarker: string | null
+} {
+  const combined: Array<
+    | { type: 'object'; key: string; value: S3ObjectItem }
+    | { type: 'prefix'; key: string; value: string }
+  > = [
+    ...items.map((item) => ({
+      type: 'object' as const,
+      key: item.key,
+      value: item,
+    })),
+    ...commonPrefixes.map((prefix) => ({
+      type: 'prefix' as const,
+      key: prefix,
+      value: prefix,
+    })),
+  ].sort((left, right) => left.key.localeCompare(right.key))
+
+  const filtered = startAfterKey
+    ? combined.filter((entry) => entry.key > startAfterKey)
+    : combined
+
+  if (maxKeys === 0) {
+    return {
+      objects: [],
+      commonPrefixes: [],
+      isTruncated: filtered.length > 0,
+      nextToken:
+        filtered.length > 0 ? encodeContinuationToken(filtered[0].key) : null,
+      nextMarker: filtered.length > 0 ? filtered[0].key : null,
+    }
+  }
+
+  const page = filtered.slice(0, maxKeys)
+  const remaining = filtered.slice(maxKeys)
+  const pagedObjects = page
+    .filter(
+      (entry): entry is { type: 'object'; key: string; value: S3ObjectItem } =>
+        entry.type === 'object',
+    )
+    .map((entry) => entry.value)
+  const pagedPrefixes = page
+    .filter(
+      (entry): entry is { type: 'prefix'; key: string; value: string } =>
+        entry.type === 'prefix',
+    )
+    .map((entry) => entry.value)
+  const nextKey = remaining[0]?.key ?? null
+
+  return {
+    objects: pagedObjects,
+    commonPrefixes: pagedPrefixes,
+    isTruncated: remaining.length > 0,
+    nextToken: encodeContinuationToken(nextKey),
+    nextMarker: nextKey,
+  }
+}
+
 export async function handleGet(
   request: Request,
   parsed: { bucketName: string | null; objectKey: string | null },
@@ -111,7 +205,15 @@ export async function handleGet(
     const bucket = await resolveBucketByAccessKey(accessKeyId)
     if (!bucket)
       return s3ErrorResponse(403, 'AccessDenied', 'Invalid credentials', '/')
-    return xmlResponse(listBucketsXml(bucket.bucketName, bucket.createdAt))
+    const buckets = await listVirtualBuckets(bucket.userId)
+    return xmlResponse(
+      listBucketsXml(
+        buckets.map((item) => ({
+          name: item.name,
+          createdAt: item.createdAt ? new Date(item.createdAt) : new Date(),
+        })),
+      ),
+    )
   }
 
   const bucket = await resolveAuthorizedBucket(request, parsed.bucketName)
@@ -209,13 +311,28 @@ export async function handleGet(
       return xmlResponse(
         listObjectVersionsXml(
           resolvedBucket.bucketName,
-          await listObjectVersions(resolvedBucket.bucketId),
+          await listObjectVersions(resolvedBucket.bucketId, {
+            prefix: url.searchParams.get('prefix') ?? '',
+            keyMarker: url.searchParams.get('key-marker'),
+            versionIdMarker: url.searchParams.get('version-id-marker'),
+            maxKeys: parseMaxKeys(url),
+          }),
         ),
       )
     const prefix = listPrefix(request.url)
     const delimiter = listDelimiter(request.url)
     const objects = await listObjectsV2(resolvedBucket, prefix)
     const projected = applyDelimiterProjection(objects, prefix, delimiter)
+    const paginationToken =
+      decodeContinuationToken(url.searchParams.get('continuation-token')) ??
+      url.searchParams.get('start-after') ??
+      url.searchParams.get('marker')
+    const paged = applyPagination(
+      projected.objects,
+      projected.commonPrefixes,
+      parseMaxKeys(url),
+      paginationToken,
+    )
     if (!listTypeIsV2(request.url)) {
       const marker = url.searchParams.get('marker') ?? ''
       return xmlResponse(
@@ -223,18 +340,24 @@ export async function handleGet(
           resolvedBucket.bucketName,
           prefix,
           marker,
-          projected.objects,
+          paged.objects,
           {
             delimiter,
-            commonPrefixes: projected.commonPrefixes,
+            commonPrefixes: paged.commonPrefixes,
+            maxKeys: parseMaxKeys(url),
+            isTruncated: paged.isTruncated,
+            nextMarker: paged.nextMarker,
           },
         ),
       )
     }
     return xmlResponse(
-      listObjectsV2Xml(resolvedBucket.bucketName, prefix, projected.objects, {
+      listObjectsV2Xml(resolvedBucket.bucketName, prefix, paged.objects, {
         delimiter,
-        commonPrefixes: projected.commonPrefixes,
+        commonPrefixes: paged.commonPrefixes,
+        maxKeys: parseMaxKeys(url),
+        isTruncated: paged.isTruncated,
+        nextContinuationToken: paged.nextToken,
       }),
     )
   }
@@ -341,8 +464,23 @@ export async function handleGet(
       cacheControl: cached.cacheControl,
       includeDefaultCacheControl: false,
     })
+    const responseVersionId = await getResponseVersionIdForCurrentObject(
+      resolvedBucket,
+      parsed.objectKey,
+    )
+    if (responseVersionId) {
+      cachedHeaders.set('x-amz-version-id', responseVersionId)
+    }
     cachedHeaders.set('Content-Type', cached.contentType)
     cachedHeaders.set('Content-Length', String(cached.contentLength))
+    const queryResponseType = query.get('response-content-type')
+    if (queryResponseType) {
+      cachedHeaders.set('Content-Type', queryResponseType)
+    }
+    const queryDisposition = query.get('response-content-disposition')
+    if (queryDisposition) {
+      cachedHeaders.set('Content-Disposition', queryDisposition)
+    }
     return new Response(new Uint8Array(cached.body), {
       status: 200,
       headers: cachedHeaders,
@@ -365,6 +503,22 @@ export async function handleGet(
   const shortCacheControl = resolveShortObjectCacheControl()
   const responseHeaders = new Headers(object.headers)
   responseHeaders.set('Cache-Control', shortCacheControl)
+  const responseVersionId = await getResponseVersionIdForCurrentObject(
+    resolvedBucket,
+    parsed.objectKey,
+  )
+  if (responseVersionId) {
+    responseHeaders.set('x-amz-version-id', responseVersionId)
+  }
+
+  const queryResponseType = query.get('response-content-type')
+  if (queryResponseType) {
+    responseHeaders.set('Content-Type', queryResponseType)
+  }
+  const queryDisposition = query.get('response-content-disposition')
+  if (queryDisposition) {
+    responseHeaders.set('Content-Disposition', queryDisposition)
+  }
 
   const contentLength = parsePositiveContentLength(
     responseHeaders.get('content-length'),
@@ -429,10 +583,26 @@ export async function handleHead(
     parsed.objectKey,
   )
   if (!allowed) return new Response(null, { status: 403 })
-  return (
-    (await headObject(bucket, parsed.objectKey, {
-      ifNoneMatch: request.headers.get('if-none-match'),
-      ifModifiedSince: request.headers.get('if-modified-since'),
-    })) ?? new Response(null, { status: 404 })
+  const objectHead = await headObject(bucket, parsed.objectKey, {
+    ifNoneMatch: request.headers.get('if-none-match'),
+    ifModifiedSince: request.headers.get('if-modified-since'),
+  })
+  if (!objectHead) {
+    return new Response(null, { status: 404 })
+  }
+  const responseVersionId = await getResponseVersionIdForCurrentObject(
+    bucket,
+    parsed.objectKey,
   )
+  if (!responseVersionId) {
+    return objectHead
+  }
+
+  const headers = new Headers(objectHead.headers)
+  headers.set('x-amz-version-id', responseVersionId)
+  return new Response(null, {
+    status: objectHead.status,
+    statusText: objectHead.statusText,
+    headers,
+  })
 }

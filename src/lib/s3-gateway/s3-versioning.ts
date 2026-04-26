@@ -1,16 +1,46 @@
 import {
   CopyObjectCommand,
+  DeleteObjectCommand,
   GetObjectCommand,
   HeadObjectCommand,
 } from '@aws-sdk/client-s3'
+import { and, desc, eq } from 'drizzle-orm'
 import { db } from '@/db'
 import { fileVersion } from '@/db/schema/s3-controls'
 import { virtualBucket } from '@/db/schema/s3-gateway'
 import { file } from '@/db/schema/storage'
 import type { BucketContext } from '@/lib/s3-gateway/s3-context'
 import { getProviderClientById } from '@/lib/s3-provider-client'
-import { and, desc, eq } from 'drizzle-orm'
 import { buildUpstreamObjectKey } from '@/lib/s3-gateway/upload-key-utils'
+
+type VersioningState = 'enabled' | 'suspended' | 'disabled'
+
+type VersionListOptions = {
+  prefix: string
+  keyMarker: string | null
+  versionIdMarker: string | null
+  maxKeys: number
+}
+
+type VersionListRow = {
+  key: string
+  versionId: string
+  isDeleteMarker: boolean
+  lastModified: Date
+  etag: string | null
+  size: number
+}
+
+export type ListedVersionResponse = {
+  prefix: string
+  keyMarker: string
+  versionIdMarker: string
+  maxKeys: number
+  isTruncated: boolean
+  nextKeyMarker: string | null
+  nextVersionIdMarker: string | null
+  versions: Array<VersionListRow & { isLatest: boolean }>
+}
 
 function newVersionId(): string {
   return crypto.randomUUID().replaceAll('-', '')
@@ -20,15 +50,41 @@ function versionedObjectKey(baseKey: string, versionId: string): string {
   return `${baseKey}.__versions/${versionId}`
 }
 
+function compareVersionRows(
+  left: VersionListRow,
+  right: VersionListRow,
+): number {
+  if (left.key === right.key) {
+    return right.lastModified.getTime() - left.lastModified.getTime()
+  }
+  return left.key.localeCompare(right.key)
+}
+
+function normalizeOptions(
+  options: Partial<VersionListOptions>,
+): VersionListOptions {
+  const max = options.maxKeys ?? 1000
+  return {
+    prefix: options.prefix ?? '',
+    keyMarker: options.keyMarker ?? null,
+    versionIdMarker: options.versionIdMarker ?? null,
+    maxKeys: Math.max(0, Math.min(max, 1000)),
+  }
+}
+
 export async function getBucketVersioningState(
   bucketId: string,
-): Promise<string> {
+): Promise<VersioningState> {
   const rows = await db
     .select({ state: virtualBucket.versioningState })
     .from(virtualBucket)
     .where(eq(virtualBucket.id, bucketId))
     .limit(1)
-  return rows[0]?.state ?? 'disabled'
+  const raw = rows[0]?.state
+  if (raw === 'enabled' || raw === 'suspended' || raw === 'disabled') {
+    return raw
+  }
+  return 'disabled'
 }
 
 export async function createObjectVersionFromCurrent(
@@ -51,7 +107,6 @@ export async function createObjectVersionFromCurrent(
       sizeInBytes: file.sizeInBytes,
       mimeType: file.mimeType,
       etag: file.etag,
-      userId: file.userId,
     })
     .from(file)
     .where(
@@ -63,34 +118,59 @@ export async function createObjectVersionFromCurrent(
     )
     .limit(1)
 
-  if (rows.length === 0) {
+  if (!rows[0]) {
     return null
   }
+
   const current = rows[0]
-
   const provider = await getProviderClientById(current.providerId)
-  const archivedKey = versionedObjectKey(current.objectKey, targetVersionId)
-  await provider.client.send(
-    new CopyObjectCommand({
-      Bucket: provider.bucketName,
-      Key: archivedKey,
-      CopySource: `/${provider.bucketName}/${current.objectKey}`,
-    }),
-  )
+  let storedVersionObjectKey: string | null = current.objectKey
 
-  await db.insert(fileVersion).values({
-    bucketId: bucket.bucketId,
-    fileId: current.fileId,
-    objectKey,
-    versionId: targetVersionId,
-    isDeleteMarker: false,
-    etag: current.etag,
-    sizeInBytes: current.sizeInBytes,
-    contentType: current.mimeType,
-    storageProviderId: current.providerId,
-    upstreamObjectKey: archivedKey,
-    createdByUserId: bucket.userId,
-  })
+  if (targetVersionId !== 'null') {
+    const archivedKey = versionedObjectKey(current.objectKey, targetVersionId)
+    await provider.client.send(
+      new CopyObjectCommand({
+        Bucket: provider.bucketName,
+        Key: archivedKey,
+        CopySource: `/${provider.bucketName}/${current.objectKey}`,
+      }),
+    )
+    storedVersionObjectKey = archivedKey
+  }
+
+  await db
+    .insert(fileVersion)
+    .values({
+      bucketId: bucket.bucketId,
+      fileId: current.fileId,
+      objectKey,
+      versionId: targetVersionId,
+      isDeleteMarker: false,
+      etag: current.etag,
+      sizeInBytes: current.sizeInBytes,
+      contentType: current.mimeType,
+      storageProviderId: current.providerId,
+      upstreamObjectKey: storedVersionObjectKey,
+      createdByUserId: bucket.userId,
+    })
+    .onConflictDoUpdate({
+      target: [
+        fileVersion.bucketId,
+        fileVersion.objectKey,
+        fileVersion.versionId,
+      ],
+      set: {
+        fileId: current.fileId,
+        isDeleteMarker: false,
+        etag: current.etag,
+        sizeInBytes: current.sizeInBytes,
+        contentType: current.mimeType,
+        storageProviderId: current.providerId,
+        upstreamObjectKey: storedVersionObjectKey,
+        createdByUserId: bucket.userId,
+        createdAt: new Date(),
+      },
+    })
 
   return targetVersionId
 }
@@ -130,12 +210,94 @@ export async function createDeleteMarkerVersion(
   return versionId
 }
 
+export async function getResponseVersionIdForCurrentObject(
+  bucket: BucketContext,
+  objectKey: string,
+): Promise<string | null> {
+  const state = await getBucketVersioningState(bucket.bucketId)
+  if (state === 'disabled') {
+    return null
+  }
+  if (state === 'suspended') {
+    return 'null'
+  }
+
+  const rows = await db
+    .select({ versionId: fileVersion.versionId })
+    .from(fileVersion)
+    .where(
+      and(
+        eq(fileVersion.bucketId, bucket.bucketId),
+        eq(fileVersion.objectKey, objectKey),
+        eq(fileVersion.isDeleteMarker, false),
+      ),
+    )
+    .orderBy(desc(fileVersion.createdAt))
+    .limit(1)
+  return rows[0]?.versionId ?? 'null'
+}
+
 export async function getObjectVersionResponse(
   bucket: BucketContext,
   objectKey: string,
   versionId: string,
   headOnly: boolean,
 ): Promise<Response | null> {
+  const isNullVersion = versionId === 'null'
+  if (isNullVersion) {
+    const upstreamObjectKey = buildUpstreamObjectKey(
+      bucket.userId,
+      bucket.bucketId,
+      bucket.mappedFolderId,
+      objectKey,
+    )
+    const rows = await db
+      .select({ providerId: file.providerId })
+      .from(file)
+      .where(
+        and(
+          eq(file.userId, bucket.userId),
+          eq(file.objectKey, upstreamObjectKey),
+          eq(file.isDeleted, false),
+        ),
+      )
+      .limit(1)
+    if (!rows[0]) {
+      return null
+    }
+    const provider = await getProviderClientById(rows[0].providerId)
+    const command = headOnly
+      ? new HeadObjectCommand({
+          Bucket: provider.bucketName,
+          Key: upstreamObjectKey,
+        })
+      : new GetObjectCommand({
+          Bucket: provider.bucketName,
+          Key: upstreamObjectKey,
+        })
+    const result = await provider.client.send(command)
+    const headers = new Headers()
+    headers.set('x-amz-version-id', 'null')
+    headers.set(
+      'Content-Type',
+      result.ContentType ?? 'application/octet-stream',
+    )
+    headers.set('Content-Length', String(result.ContentLength ?? 0))
+    if (result.ETag) headers.set('ETag', result.ETag)
+    if (result.LastModified) {
+      headers.set('Last-Modified', result.LastModified.toUTCString())
+    }
+    return headOnly
+      ? new Response(null, { status: 200, headers })
+      : new Response(
+          'Body' in result ? (result.Body as BodyInit | null) : null,
+          {
+            status: 200,
+            headers,
+          },
+        )
+  }
+
   const rows = await db
     .select({
       isDeleteMarker: fileVersion.isDeleteMarker,
@@ -156,11 +318,8 @@ export async function getObjectVersionResponse(
     )
     .limit(1)
 
-  if (rows.length === 0) {
-    return null
-  }
   const version = rows[0]
-  if (version.isDeleteMarker || !version.upstreamObjectKey) {
+  if (!version || version.isDeleteMarker || !version.upstreamObjectKey) {
     return null
   }
 
@@ -190,16 +349,11 @@ export async function getObjectVersionResponse(
   return new Response(body, { status: 200, headers })
 }
 
-export async function listObjectVersions(bucketId: string): Promise<
-  Array<{
-    key: string
-    versionId: string
-    isDeleteMarker: boolean
-    lastModified: Date
-    etag: string | null
-    size: number
-  }>
-> {
+export async function listObjectVersions(
+  bucketId: string,
+  options: Partial<VersionListOptions> = {},
+): Promise<ListedVersionResponse> {
+  const normalized = normalizeOptions(options)
   const rows = await db
     .select({
       key: fileVersion.objectKey,
@@ -211,9 +365,84 @@ export async function listObjectVersions(bucketId: string): Promise<
     })
     .from(fileVersion)
     .where(eq(fileVersion.bucketId, bucketId))
-    .orderBy(fileVersion.objectKey, desc(fileVersion.createdAt))
 
-  return rows
+  const filteredByPrefix = rows
+    .filter((row) => row.key.startsWith(normalized.prefix))
+    .sort(compareVersionRows)
+
+  const markerFiltered = normalized.keyMarker
+    ? filteredByPrefix.filter((row) => {
+        if (row.key > normalized.keyMarker!) return true
+        if (row.key < normalized.keyMarker!) return false
+        if (!normalized.versionIdMarker) return false
+        return row.versionId < normalized.versionIdMarker
+      })
+    : filteredByPrefix
+
+  const page = markerFiltered.slice(0, normalized.maxKeys)
+  const remainder = markerFiltered.slice(normalized.maxKeys)
+  const latestByKey = new Set<string>()
+  const versionsWithLatest = page.map((item) => {
+    const isLatest = !latestByKey.has(item.key)
+    latestByKey.add(item.key)
+    return { ...item, isLatest }
+  })
+  const next = remainder[0] ?? null
+
+  return {
+    prefix: normalized.prefix,
+    keyMarker: normalized.keyMarker ?? '',
+    versionIdMarker: normalized.versionIdMarker ?? '',
+    maxKeys: normalized.maxKeys,
+    isTruncated: remainder.length > 0,
+    nextKeyMarker: next?.key ?? null,
+    nextVersionIdMarker: next?.versionId ?? null,
+    versions: versionsWithLatest,
+  }
+}
+
+export async function deleteObjectVersion(
+  bucket: BucketContext,
+  objectKey: string,
+  versionId: string,
+): Promise<{ isDeleteMarker: boolean }> {
+  const rows = await db
+    .select({
+      id: fileVersion.id,
+      isDeleteMarker: fileVersion.isDeleteMarker,
+      storageProviderId: fileVersion.storageProviderId,
+      upstreamObjectKey: fileVersion.upstreamObjectKey,
+    })
+    .from(fileVersion)
+    .where(
+      and(
+        eq(fileVersion.bucketId, bucket.bucketId),
+        eq(fileVersion.objectKey, objectKey),
+        eq(fileVersion.versionId, versionId),
+      ),
+    )
+    .limit(1)
+  const target = rows[0]
+  if (!target) {
+    throw new Error('NoSuchVersion')
+  }
+
+  if (
+    !target.isDeleteMarker &&
+    target.storageProviderId &&
+    target.upstreamObjectKey
+  ) {
+    const provider = await getProviderClientById(target.storageProviderId)
+    await provider.client.send(
+      new DeleteObjectCommand({
+        Bucket: provider.bucketName,
+        Key: target.upstreamObjectKey,
+      }),
+    )
+  }
+
+  await db.delete(fileVersion).where(eq(fileVersion.id, target.id))
+  return { isDeleteMarker: target.isDeleteMarker }
 }
 
 export async function restoreObjectVersion(
@@ -237,7 +466,7 @@ export async function restoreObjectVersion(
     )
     .limit(1)
 
-  const version = rows.at(0)
+  const version = rows[0]
   if (!version || !version.upstreamObjectKey) {
     throw new Error('NoSuchVersion')
   }

@@ -68,6 +68,11 @@ const UpdateBucketSchema = z.discriminatedUnion('action', [
     bucketName: z.string().min(3),
     cannedAcl: z.enum(['private', 'public-read']),
   }),
+  z.object({
+    action: z.literal('public-access'),
+    bucketName: z.string().min(3),
+    blockPublicAccess: z.boolean(),
+  }),
 ])
 
 function toError(error: unknown, fallback: string): string {
@@ -82,6 +87,7 @@ type LoadedBucket = {
   region: string
   objectOwnershipMode: string
   blockPublicAccess: boolean
+  credentialVersion: number
 }
 
 async function loadUserBucket(
@@ -95,6 +101,7 @@ async function loadUserBucket(
       region: virtualBucket.region,
       objectOwnershipMode: virtualBucket.objectOwnershipMode,
       blockPublicAccess: virtualBucket.blockPublicAccess,
+      credentialVersion: virtualBucket.credentialVersion,
     })
     .from(virtualBucket)
     .where(
@@ -138,7 +145,9 @@ export const Route = createFileRoute('/api/storage/s3/bucket-settings')({
               bucketId: bucket.id,
               bucketName: bucket.name,
               mappedFolderId: null,
+              blockPublicAccess: bucket.blockPublicAccess,
               createdAt: new Date(),
+              credentialVersion: bucket.credentialVersion,
             }),
           ])
 
@@ -195,10 +204,18 @@ export const Route = createFileRoute('/api/storage/s3/bucket-settings')({
                 bucketId: bucket.id,
                 bucketName: bucket.name,
                 mappedFolderId: null,
+                blockPublicAccess: bucket.blockPublicAccess,
                 createdAt: new Date(),
+                credentialVersion: bucket.credentialVersion,
               },
               headers,
             )
+          }
+          if (payload.action === 'public-access') {
+            await db
+              .update(virtualBucket)
+              .set({ blockPublicAccess: payload.blockPublicAccess })
+              .where(eq(virtualBucket.id, bucket.id))
           }
 
           return Response.json({ ok: true })

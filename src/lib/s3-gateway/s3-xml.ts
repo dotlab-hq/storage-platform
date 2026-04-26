@@ -37,9 +37,16 @@ export function s3ErrorResponse(
   return xmlResponse(body, status)
 }
 
-export function listBucketsXml(bucketName: string, createdAt: Date): string {
-  const creationDate = createdAt.toISOString()
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<ListAllMyBucketsResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Buckets><Bucket><Name>${escapeXml(bucketName)}</Name><CreationDate>${escapeXml(creationDate)}</CreationDate></Bucket></Buckets></ListAllMyBucketsResult>`
+export function listBucketsXml(
+  buckets: Array<{ name: string; createdAt: Date }>,
+): string {
+  const bucketEntries = buckets
+    .map(
+      (bucket) =>
+        `<Bucket><Name>${escapeXml(bucket.name)}</Name><CreationDate>${escapeXml(bucket.createdAt.toISOString())}</CreationDate></Bucket>`,
+    )
+    .join('')
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<ListAllMyBucketsResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Buckets>${bucketEntries}</Buckets></ListAllMyBucketsResult>`
 }
 
 export type S3ObjectItem = {
@@ -52,6 +59,11 @@ export type S3ObjectItem = {
 type ListObjectsXmlOptions = {
   delimiter?: string | null
   commonPrefixes?: string[]
+  maxKeys?: number
+  isTruncated?: boolean
+  nextContinuationToken?: string | null
+  marker?: string | null
+  nextMarker?: string | null
 }
 
 function commonPrefixesXml(prefixes: string[]): string {
@@ -80,8 +92,13 @@ export function listObjectsV2Xml(
     : ''
   const commonPrefixes = commonPrefixesXml(options?.commonPrefixes ?? [])
   const keyCount = items.length + (options?.commonPrefixes?.length ?? 0)
+  const maxKeys = options?.maxKeys ?? 1000
+  const isTruncated = options?.isTruncated ?? false
+  const nextContinuationToken = options?.nextContinuationToken
+    ? `<NextContinuationToken>${escapeXml(options.nextContinuationToken)}</NextContinuationToken>`
+    : ''
 
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<ListBucketResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Name>${escapeXml(bucketName)}</Name><Prefix>${escapeXml(prefix)}</Prefix>${delimiterTag}<KeyCount>${keyCount}</KeyCount><MaxKeys>1000</MaxKeys><IsTruncated>false</IsTruncated>${commonPrefixes}${contents}</ListBucketResult>`
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<ListBucketResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Name>${escapeXml(bucketName)}</Name><Prefix>${escapeXml(prefix)}</Prefix>${delimiterTag}<KeyCount>${keyCount}</KeyCount><MaxKeys>${maxKeys}</MaxKeys><IsTruncated>${isTruncated}</IsTruncated>${nextContinuationToken}${commonPrefixes}${contents}</ListBucketResult>`
 }
 
 export function listObjectsXml(
@@ -101,8 +118,14 @@ export function listObjectsXml(
     ? `<Delimiter>${escapeXml(options.delimiter)}</Delimiter>`
     : ''
   const commonPrefixes = commonPrefixesXml(options?.commonPrefixes ?? [])
+  const maxKeys = options?.maxKeys ?? 1000
+  const isTruncated = options?.isTruncated ?? false
+  const nextMarker =
+    options?.nextMarker && options.nextMarker.length > 0
+      ? `<NextMarker>${escapeXml(options.nextMarker)}</NextMarker>`
+      : ''
 
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<ListBucketResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Name>${escapeXml(bucketName)}</Name><Prefix>${escapeXml(prefix)}</Prefix><Marker>${escapeXml(marker)}</Marker>${delimiterTag}<MaxKeys>1000</MaxKeys><IsTruncated>false</IsTruncated>${commonPrefixes}${contents}</ListBucketResult>`
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<ListBucketResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Name>${escapeXml(bucketName)}</Name><Prefix>${escapeXml(prefix)}</Prefix><Marker>${escapeXml(marker)}</Marker>${delimiterTag}<MaxKeys>${maxKeys}</MaxKeys><IsTruncated>${isTruncated}</IsTruncated>${nextMarker}${commonPrefixes}${contents}</ListBucketResult>`
 }
 
 export function createMultipartUploadXml(
@@ -117,10 +140,21 @@ export function completeMultipartUploadXml(
   bucketName: string,
   key: string,
   eTag: string,
+  versionId: string | null = null,
 ): string {
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<CompleteMultipartUploadResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Location></Location><Bucket>${escapeXml(bucketName)}</Bucket><Key>${escapeXml(key)}</Key><ETag>${escapeXml(eTag)}</ETag></CompleteMultipartUploadResult>`
+  const versionTag = versionId
+    ? `<VersionId>${escapeXml(versionId)}</VersionId>`
+    : ''
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<CompleteMultipartUploadResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Location></Location><Bucket>${escapeXml(bucketName)}</Bucket><Key>${escapeXml(key)}</Key><ETag>${escapeXml(eTag)}</ETag>${versionTag}</CompleteMultipartUploadResult>`
 }
 
-export function copyObjectXml(eTag: string, lastModified: Date): string {
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<CopyObjectResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><LastModified>${escapeXml(lastModified.toISOString())}</LastModified><ETag>${escapeXml(eTag)}</ETag></CopyObjectResult>`
+export function copyObjectXml(
+  eTag: string,
+  lastModified: Date,
+  versionId: string | null = null,
+): string {
+  const versionTag = versionId
+    ? `<VersionId>${escapeXml(versionId)}</VersionId>`
+    : ''
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<CopyObjectResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><LastModified>${escapeXml(lastModified.toISOString())}</LastModified><ETag>${escapeXml(eTag)}</ETag>${versionTag}</CopyObjectResult>`
 }

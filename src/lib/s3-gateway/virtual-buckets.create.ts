@@ -93,6 +93,7 @@ async function createVirtualBucketRow(
     bucketId,
     bucketName: input.bucketName,
     mappedFolderId: createdFolders[0].id,
+    blockPublicAccess: true,
     createdAt: createdRows[0].createdAt,
     credentialVersion: createdRows[0].credentialVersion,
   })

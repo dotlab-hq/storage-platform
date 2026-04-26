@@ -116,6 +116,21 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
           },
         )
       }
+      if (
+        actionPayload.action === 'public-access' &&
+        'blockPublicAccess' in actionPayload
+      ) {
+        queryClient.setQueryData<BucketSettingsPayload>(
+          ['bucket-settings', bucketName],
+          {
+            ...previous,
+            bucket: {
+              ...previous.bucket,
+              blockPublicAccess: Boolean(actionPayload.blockPublicAccess),
+            },
+          },
+        )
+      }
       if (actionPayload.action === 'policy' && 'policyJson' in actionPayload) {
         queryClient.setQueryData<BucketSettingsPayload>(
           ['bucket-settings', bucketName],
@@ -281,6 +296,40 @@ export function BucketSettingsDialog(props: BucketSettingsDialogProps) {
             </div>
             <div className="text-xs text-muted-foreground mt-2">
               Current ACL: <strong>{payload.acl}</strong>
+            </div>
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              <span className="text-xs text-muted-foreground">
+                Block Public Access:{' '}
+                <strong>
+                  {payload.bucket.blockPublicAccess ? 'Enabled' : 'Disabled'}
+                </strong>
+              </span>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() =>
+                  mutation.mutate({
+                    action: 'public-access',
+                    bucketName,
+                    blockPublicAccess: false,
+                  })
+                }
+              >
+                Allow Public ACL
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() =>
+                  mutation.mutate({
+                    action: 'public-access',
+                    bucketName,
+                    blockPublicAccess: true,
+                  })
+                }
+              >
+                Enforce Private Access
+              </Button>
             </div>
           </div>
         )}

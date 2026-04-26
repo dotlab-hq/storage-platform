@@ -7,7 +7,10 @@ import { deleteObject } from '@/lib/s3-gateway/s3-object-store'
 import { parseCompleteMultipartUploadParts } from '@/lib/s3-gateway/s3-multipart-complete-parser'
 import {
   createDeleteMarkerVersion,
+  createObjectVersionFromCurrent,
+  deleteObjectVersion,
   getBucketVersioningState,
+  getResponseVersionIdForCurrentObject,
 } from '@/lib/s3-gateway/s3-versioning'
 import { deleteVirtualBucket } from '@/lib/s3-gateway/virtual-buckets'
 import {
@@ -62,6 +65,22 @@ export async function handleDelete(
   if (new URL(request.url).searchParams.has('tagging')) {
     await deleteObjectTags(bucket, parsed.objectKey)
     return new Response(null, { status: 204 })
+  }
+
+  const versionId = new URL(request.url).searchParams.get('versionId')
+  if (versionId) {
+    const deleted = await deleteObjectVersion(
+      bucket,
+      parsed.objectKey,
+      versionId,
+    )
+    return new Response(null, {
+      status: 204,
+      headers: {
+        'x-amz-version-id': versionId,
+        'x-amz-delete-marker': String(deleted.isDeleteMarker),
+      },
+    })
   }
 
   if ((await getBucketVersioningState(bucket.bucketId)) === 'enabled') {
@@ -119,8 +138,36 @@ export async function handlePost(
       uploadId,
       parseCompleteMultipartUploadParts(await request.text()),
     )
+    const versioningState = await getBucketVersioningState(bucket.bucketId)
+    let responseVersionId: string | null = null
+    if (versioningState === 'enabled') {
+      responseVersionId = await createObjectVersionFromCurrent(
+        bucket,
+        parsed.objectKey,
+      )
+    }
+    if (versioningState === 'suspended') {
+      responseVersionId = await createObjectVersionFromCurrent(
+        bucket,
+        parsed.objectKey,
+        'null',
+      )
+    }
+    if (!responseVersionId && versioningState !== 'disabled') {
+      responseVersionId = await getResponseVersionIdForCurrentObject(
+        bucket,
+        parsed.objectKey,
+      )
+    }
     return xmlResponse(
-      completeMultipartUploadXml(bucket.bucketName, parsed.objectKey, eTag),
+      completeMultipartUploadXml(
+        bucket.bucketName,
+        parsed.objectKey,
+        eTag,
+        responseVersionId,
+      ),
+      200,
+      responseVersionId ? { 'x-amz-version-id': responseVersionId } : undefined,
     )
   }
 

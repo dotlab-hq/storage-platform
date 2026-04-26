@@ -58,6 +58,8 @@ type ResolvedOwnedObject = {
 type OwnedBucket = {
   id: string
   mappedFolderId: string | null
+  blockPublicAccess: boolean
+  credentialVersion: number
 }
 
 async function resolveOwnedBucket(
@@ -68,6 +70,8 @@ async function resolveOwnedBucket(
     .select({
       id: virtualBucket.id,
       mappedFolderId: virtualBucket.mappedFolderId,
+      blockPublicAccess: virtualBucket.blockPublicAccess,
+      credentialVersion: virtualBucket.credentialVersion,
     })
     .from(virtualBucket)
     .where(
@@ -269,7 +273,9 @@ export const Route = createFileRoute('/api/storage/s3/object-settings')({
                 bucketId: bucket.id,
                 bucketName: payload.bucketName,
                 mappedFolderId: bucket.mappedFolderId,
+                blockPublicAccess: bucket.blockPublicAccess,
                 createdAt: new Date(),
+                credentialVersion: bucket.credentialVersion,
               },
               payload.objectKey,
               payload.versionId,
