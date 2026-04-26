@@ -167,114 +167,6 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
                 storageLimitBytes: parsedLimit,
                 fileSizeLimitBytes: parsedFileSizeLimit,
                 proxyUploadsEnabled: form.proxyUploadsEnabled,
-                availableStorageBytes:
-                  parsedLimit - provider.usedStorageBytes,
-              }
-            : provider,
-        )
-      : [
-          ...providers,
-          {
-            id: `optimistic-${Date.now()}`,
-            name: form.name || 'New Provider',
-            region: form.region || 'pending',
-            endpoint: form.endpoint || 'pending',
-            bucketName: form.bucketName || 'pending',
-            storageLimitBytes: parsedLimit,
-            fileSizeLimitBytes: parsedFileSizeLimit,
-            proxyUploadsEnabled: form.proxyUploadsEnabled,
-            isActive: true,
-            createdAt: new Date(),
-            usedStorageBytes: 0,
-            availableStorageBytes: parsedLimit,
-          },
-        ]
-
-    setProviders(optimisticProviders)
-
-    try {
-      const { saveStorageProviderFn } = await import('@/routes/_app/admin/-admin-server')
-      const result = await saveStorageProviderFn({
-        data: {
-          providerId: editingProviderId ?? undefined,
-          ...form,
-          storageLimitBytes: parsedLimit,
-          fileSizeLimitBytes: parsedFileSizeLimit,
-          proxyUploadsEnabled: form.proxyUploadsEnabled,
-          isActive: true,
-        },
-      })
-      const [{ getAdminProvidersFn }, { getAdminSummaryFn }] = await Promise.all([
-        import('@/routes/_app/admin/-admin-server'),
-        import('@/routes/_app/admin/-admin-server'),
-      ])
-      const [refreshedProviders, refreshedSummary] = await Promise.all([
-        getAdminProvidersFn(),
-        getAdminSummaryFn(),
-      ])
-      setProviders(refreshedProviders)
-      setSummary(refreshedSummary)
-      setForm(emptyProviderForm)
-      setEditingProviderId(null)
-      setStorageLimitInput(String(emptyProviderForm.storageLimitBytes))
-      setFileSizeLimitInput(String(emptyProviderForm.fileSizeLimitBytes))
-      toast.success(
-        result.operation === 'updated'
-          ? 'Storage provider updated'
-          : 'Storage provider added',
-      )
-    } catch (error) {
-      const [{ getAdminProvidersFn }, { getAdminSummaryFn }] = await Promise.all([
-        import('@/routes/_app/admin/-admin-server'),
-        import('@/routes/_app/admin/-admin-server'),
-      ])
-      const [refreshedProviders, refreshedSummary] = await Promise.all([
-        getAdminProvidersFn(),
-        getAdminSummaryFn(),
-      ])
-      setProviders(refreshedProviders)
-      setSummary(refreshedSummary)
-      const message =
-        error instanceof Error ? error.message : 'Failed to create provider'
-      toast.error(message)
-    } finally {
-      setIsSaving(false)
-    }
-  }
-    if (!Number.isFinite(parsedFileSizeLimit) || parsedFileSizeLimit <= 0) {
-      toast.error('File-size limit must be a positive number')
-      return
-    }
-    if (parsedFileSizeLimit > parsedLimit) {
-      toast.error('File-size limit cannot exceed storage limit')
-      return
-    }
-    if (!form.name.trim()) {
-      toast.error('Provider name is required')
-      return
-    }
-
-    const optimisticProviderCount = editingProviderId
-      ? providers.length
-      : providers.length + 1
-
-    setSummary((prev) => ({
-      ...prev,
-      providerCount: optimisticProviderCount,
-    }))
-
-    const optimisticProviders = editingProviderId
-      ? providers.map((provider) =>
-          provider.id === editingProviderId
-            ? {
-                ...provider,
-                name: form.name,
-                region: form.region || 'pending',
-                endpoint: form.endpoint || 'pending',
-                bucketName: form.bucketName || 'pending',
-                storageLimitBytes: parsedLimit,
-                fileSizeLimitBytes: parsedFileSizeLimit,
-                proxyUploadsEnabled: form.proxyUploadsEnabled,
                 availableStorageBytes: parsedLimit - provider.usedStorageBytes,
               }
             : provider,
@@ -347,6 +239,8 @@ export function AdminDashboardPage({ initial }: AdminDashboardPageProps) {
       const message =
         error instanceof Error ? error.message : 'Failed to create provider'
       toast.error(message)
+    } finally {
+      setIsSaving(false)
     }
   }
 
