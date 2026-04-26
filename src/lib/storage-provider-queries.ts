@@ -80,6 +80,7 @@ export async function listUserProvidersWithUsage(userId: string) {
   const providers = await db
     .select({
       id: storageProvider.id,
+      userId: storageProvider.userId,
       name: storageProvider.name,
       region: storageProvider.region,
       endpoint: storageProvider.endpoint,

@@ -108,10 +108,10 @@ export function FileCard({
   return (
     <div
       className={cn(
-        'file-card group relative cursor-pointer rounded-xl border p-4 transition-all duration-200',
+        'file-card group relative cursor-pointer rounded-xl p-4 transition-all duration-200',
         'hover:shadow-md hover:-translate-y-0.5 hover:bg-accent/50',
-        isSelected && 'ring-primary/50 border-primary/30 bg-primary/5 ring-2',
-        !isSelected && 'bg-card',
+        isSelected && 'ring-primary/50 bg-primary/5 ring-2 shadow',
+        !isSelected && 'bg-card shadow-sm',
       )}
       data-file-card="true"
       data-storage-item-id={item.id}

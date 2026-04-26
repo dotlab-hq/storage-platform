@@ -67,6 +67,10 @@ export function ProvidersSection({
     initialData: initialProviders,
   })
 
+  const customProviders = providers.filter((provider) =>
+    Boolean(provider.userId),
+  )
+
   // Preference mutation
   const prefMutation = useMutation({
     mutationFn: (val: boolean) =>
@@ -128,6 +132,7 @@ export function ProvidersSection({
         // create
         const optimistic: UserProvider = {
           id: `temp-${Date.now()}`,
+          userId: 'optimistic-user',
           name: newData.name,
           region: newData.region,
           endpoint: newData.endpoint,
@@ -381,7 +386,7 @@ export function ProvidersSection({
         </div>
       ) : (
         <div className="space-y-4">
-          {providers.length === 0 ? (
+          {customProviders.length === 0 ? (
             <div className="rounded-lg border border-dashed p-8 text-center">
               <p className="text-muted-foreground">
                 You haven't added any storage providers yet.
@@ -397,7 +402,7 @@ export function ProvidersSection({
             </div>
           ) : (
             <div className="space-y-3">
-              {providers.map((provider) => (
+              {customProviders.map((provider) => (
                 <div
                   key={provider.id}
                   className="group relative overflow-hidden rounded-lg border border-border/50 bg-card p-4 transition-all hover:border-border/80"

@@ -9,6 +9,35 @@ type LoadProviderContentsArgs = {
   scope: 'admin' | 'user'
 }
 
+function toErrorMessage(error: unknown): string {
+  if (error instanceof Error) {
+    return error.message
+  }
+  if (
+    typeof error === 'object' &&
+    error !== null &&
+    'message' in error &&
+    typeof (error as { message?: unknown }).message === 'string'
+  ) {
+    return (error as { message: string }).message
+  }
+  if (
+    typeof error === 'object' &&
+    error !== null &&
+    'data' in error &&
+    typeof (error as { data?: unknown }).data === 'object' &&
+    (error as { data?: unknown }).data !== null &&
+    'message' in
+      ((error as { data: { message?: unknown } }).data as {
+        message?: unknown
+      }) &&
+    typeof (error as { data: { message?: unknown } }).data.message === 'string'
+  ) {
+    return (error as { data: { message: string } }).data.message
+  }
+  return 'Failed to load provider contents'
+}
+
 async function loadProviderContents({
   providerId,
   prefix,
@@ -19,18 +48,22 @@ async function loadProviderContents({
   searchQuery?: string
 }): Promise<AdminProviderContentsResponse> {
   if (scope === 'user') {
-    const { getUserProviderContentsFn } =
-      await import('@/routes/_app/settings/-provider-contents-server')
+    try {
+      const { getUserProviderContentsFn } =
+        await import('@/routes/_app/settings/-provider-contents-server')
 
-    return getUserProviderContentsFn({
-      data: {
-        providerId,
-        prefix,
-        continuationToken: continuationToken ?? null,
-        maxKeys: 250,
-        search: searchQuery.length > 0 ? searchQuery : undefined,
-      },
-    })
+      return await getUserProviderContentsFn({
+        data: {
+          providerId,
+          prefix,
+          continuationToken: continuationToken ?? null,
+          maxKeys: 250,
+          search: searchQuery.length > 0 ? searchQuery : undefined,
+        },
+      })
+    } catch (error) {
+      throw new Error(toErrorMessage(error))
+    }
   }
 
   const searchParams = new URLSearchParams()

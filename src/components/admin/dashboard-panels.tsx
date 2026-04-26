@@ -77,6 +77,12 @@ export function ProvidersPanel({
                     type="button"
                     variant="outline"
                     size="sm"
+                    disabled={provider.id.startsWith('optimistic-')}
+                    title={
+                      provider.id.startsWith('optimistic-')
+                        ? 'Provider is still being created'
+                        : 'View contents'
+                    }
                     onClick={() => {
                       onViewContents(provider)
                     }}
