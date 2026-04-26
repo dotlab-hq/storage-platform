@@ -3,7 +3,7 @@ import { db } from '@/db'
 import { storageProvider } from '@/db/schema/storage-provider'
 import { encryptProviderSecret } from '@/lib/provider-crypto'
 import { requireAdminUser } from '@/lib/server-auth'
-import { eq } from 'drizzle-orm'
+import { eq, isNull, and } from 'drizzle-orm'
 import { z } from 'zod'
 import { UNDETERMINED_PROVIDER_VALUE } from '@/lib/storage-provider-constants'
 import { logActivity } from '@/lib/activity'
@@ -83,7 +83,12 @@ export const saveStorageProviderFn = createServerFn({ method: 'POST' })
         const duplicateRows = await db
           .select({ id: storageProvider.id })
           .from(storageProvider)
-          .where(eq(storageProvider.name, trimmedName))
+          .where(
+            and(
+              eq(storageProvider.name, trimmedName),
+              isNull(storageProvider.userId),
+            ),
+          )
           .limit(1)
 
         if (duplicateRows.length > 0) {

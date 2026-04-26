@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { notFound } from '@tanstack/react-router'
 import { lazy, Suspense } from 'react'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { isAdminMiddleware } from '@/middlewares/isAdmin'
@@ -36,7 +35,7 @@ export const Route = createFileRoute('/_app/admin/')({
   loader: async () => {
     const data = await getAdminDashboardDataFn()
     if (isNotFoundPayload(data)) {
-      throw notFound()
+      throw Response.json({ error: 'Admin access required' }, { status: 404 })
     }
     return data
   },

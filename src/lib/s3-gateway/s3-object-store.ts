@@ -229,7 +229,10 @@ export async function putObject(
     return `"{empty-${Date.now()}}"`
   }
 
-  const provider = await selectProviderForUpload(contentLength ?? 0)
+  const provider = await selectProviderForUpload(
+    contentLength ?? 0,
+    bucket.userId,
+  )
   const upstreamKey = buildUpstreamObjectKey(
     bucket.userId,
     bucket.bucketId,

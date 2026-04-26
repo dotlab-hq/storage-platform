@@ -76,7 +76,7 @@ export const importFileFromUrl = createServerFn({ method: 'POST' })
         : ''
     const objectKey = `${userId}/${crypto.randomUUID()}-${base}${ext}`
 
-    const provider = await selectProviderForUpload(fileSize)
+    const provider = await selectProviderForUpload(fileSize, userId)
     const { PutObjectCommand } = await import('@aws-sdk/client-s3')
     const { getSignedUrl } = await import('@aws-sdk/s3-request-presigner')
     const command = new PutObjectCommand({

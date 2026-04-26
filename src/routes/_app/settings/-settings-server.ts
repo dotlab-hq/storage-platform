@@ -2,12 +2,13 @@ import { createServerFn } from '@tanstack/react-start'
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import { loadAuth } from '@/lib/auth-loader'
 import { db } from '@/db'
-import { account, apikey } from '@/db/schema/auth-schema'
+import { account, apikey, user } from '@/db/schema/auth-schema'
 import { getRequest } from '@tanstack/react-start/server'
 import { and, eq } from 'drizzle-orm'
 import { z } from 'zod'
 import { getAllScopes } from '@/lib/permissions/scopes'
 import type { ApiScope } from '@/lib/permissions/scopes'
+import { listUserProvidersWithUsage } from '@/lib/storage-provider-queries'
 
 const ALL_SCOPES = getAllScopes() as readonly ApiScope[]
 
@@ -129,6 +130,18 @@ export const getSettingsSnapshotFn = createServerFn({ method: 'GET' }).handler(
     if (!session?.user) throw new Error('Unauthorized')
     const sessionUser = session.user as SessionUserWith2FA
     const twoFactorEnabled = Boolean(sessionUser.twoFactorEnabled)
+
+    // Fetch user provider preference and custom providers
+    const [userSettings] = await db
+      .select({ use_system_providers: user.use_system_providers })
+      .from(user)
+      .where(eq(user.id, currentUser.id))
+      .limit(1)
+
+    const use_system_providers = userSettings?.use_system_providers ?? true
+
+    const providers = await listUserProvidersWithUsage(currentUser.id)
+
     return {
       user: {
         id: currentUser.id,
@@ -171,6 +184,8 @@ export const getSettingsSnapshotFn = createServerFn({ method: 'GET' }).handler(
         active: [],
         recent: [],
       },
+      use_system_providers: use_system_providers,
+      providers,
     }
   },
 )

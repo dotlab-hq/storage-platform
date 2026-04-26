@@ -51,7 +51,7 @@ export async function createMultipartUpload(
   contentType: string | null,
 ): Promise<string> {
   const attemptId = crypto.randomUUID()
-  const provider = await selectProviderForUpload(1)
+  const provider = await selectProviderForUpload(1, bucket.userId)
   const upstreamObjectKey = buildUpstreamObjectKey(
     bucket.userId,
     bucket.bucketId,

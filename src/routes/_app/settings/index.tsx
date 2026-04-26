@@ -40,6 +40,11 @@ const ApiKeysSection = lazy(() =>
     default: m.ApiKeysSection,
   })),
 )
+const ProvidersSection = lazy(() =>
+  import('./-components/providers-section').then((m) => ({
+    default: m.ProvidersSection,
+  })),
+)
 
 export const Route = createFileRoute('/_app/settings/')({
   server: {
@@ -51,6 +56,7 @@ export const Route = createFileRoute('/_app/settings/')({
 
 type SettingsTab =
   | 'profile'
+  | 'providers'
   | 'auth'
   | '2fa'
   | 'password'
@@ -59,6 +65,7 @@ type SettingsTab =
 
 const tabs: { id: SettingsTab; label: string }[] = [
   { id: 'profile', label: 'Profile' },
+  { id: 'providers', label: 'Providers' },
   { id: 'auth', label: 'Auth Methods' },
   { id: '2fa', label: 'Two-Factor' },
   { id: 'password', label: 'Password' },
@@ -94,7 +101,7 @@ function SettingsPage() {
             value={activeTab}
             onValueChange={(value) => setActiveTab(value as SettingsTab)}
           >
-            <TabsList className="mb-4 flex h-auto w-full flex-nowrap overflow-x-auto gap-1 p-1 md:grid md:grid-cols-6">
+            <TabsList className="mb-4 flex h-auto w-full flex-nowrap overflow-x-auto gap-1 p-1 md:grid md:grid-cols-7">
               {tabs.map((tab) => (
                 <TabsTrigger
                   key={tab.id}
@@ -108,6 +115,14 @@ function SettingsPage() {
           </Tabs>
           <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
             {activeTab === 'profile' && <ProfileSection initial={initial} />}
+          </Suspense>
+          <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
+            {activeTab === 'providers' && (
+              <ProvidersSection
+                initialProviders={initial.providers}
+                initialUseSystemProviders={initial.use_system_providers}
+              />
+            )}
           </Suspense>
           <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
             {activeTab === 'auth' && <AuthMethodsSection initial={initial} />}

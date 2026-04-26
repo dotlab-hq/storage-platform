@@ -1,4 +1,4 @@
-import { notFound, redirect } from '@tanstack/react-router'
+import { redirect } from '@tanstack/react-router'
 import { getRequest } from '@tanstack/react-start/server'
 import { isAdminRole, normalizeUserRole } from '@/lib/authz'
 import { resolveTinySessionFromHeaders } from '@/lib/tiny-session'
@@ -13,23 +13,23 @@ export type AuthenticatedUser = Pick<AuthUser, 'id' | 'email' | 'name'> & {
   tinySessionPermission?: 'read' | 'read-write'
 }
 
-function shouldRedirectToAuth( request: Request ): boolean {
-  const secFetchDest = request.headers.get( 'sec-fetch-dest' )
-  if ( secFetchDest === 'document' ) {
+function shouldRedirectToAuth(request: Request): boolean {
+  const secFetchDest = request.headers.get('sec-fetch-dest')
+  if (secFetchDest === 'document') {
     return true
   }
 
-  const acceptHeader = request.headers.get( 'accept' ) ?? ''
-  const acceptsHtml = acceptHeader.includes( 'text/html' )
-  const acceptsJson = acceptHeader.includes( 'application/json' )
+  const acceptHeader = request.headers.get('accept') ?? ''
+  const acceptsHtml = acceptHeader.includes('text/html')
+  const acceptsJson = acceptHeader.includes('application/json')
   return acceptsHtml && !acceptsJson
 }
 
-function throwUnauthenticated( request: Request ): never {
-  if ( shouldRedirectToAuth( request ) ) {
-    throw redirect( { to: '/auth' } )
+function throwUnauthenticated(request: Request): never {
+  if (shouldRedirectToAuth(request)) {
+    throw redirect({ to: '/auth' })
   }
-  throw new Error( 'UNAUTHORIZED' )
+  throw new Error('UNAUTHORIZED')
 }
 
 export async function getAuthenticatedUser(): Promise<AuthenticatedUser> {
@@ -39,28 +39,28 @@ export async function getAuthenticatedUser(): Promise<AuthenticatedUser> {
 
   let session: Awaited<ReturnType<typeof auth.api.getSession>> | null = null
   try {
-    session = await auth.api.getSession( { headers } )
+    session = await auth.api.getSession({ headers })
   } catch {
     session = null
   }
 
-  if ( !session?.user ) {
-    const tinySession = await resolveTinySessionFromHeaders( headers )
-    if ( !tinySession ) {
-      throwUnauthenticated( request )
+  if (!session?.user) {
+    const tinySession = await resolveTinySessionFromHeaders(headers)
+    if (!tinySession) {
+      throwUnauthenticated(request)
     }
     return {
       id: tinySession.user.id,
       email: tinySession.user.email,
       name: tinySession.user.name,
-      role: normalizeUserRole( tinySession.user.role ),
+      role: normalizeUserRole(tinySession.user.role),
       isAdmin: tinySession.user.isAdmin,
       tinySessionPermission: tinySession.permission,
     }
   }
 
-  const role = normalizeUserRole( session.user.role )
-  const isAdmin = isAdminRole( role )
+  const role = normalizeUserRole(session.user.role)
+  const isAdmin = isAdminRole(role)
   return {
     id: session.user.id,
     email: session.user.email,
@@ -73,7 +73,7 @@ export async function getAuthenticatedUser(): Promise<AuthenticatedUser> {
 export async function requireAdminUser(): Promise<AuthenticatedUser> {
   const currentUser = await getAuthenticatedUser()
   if (!currentUser.isAdmin) {
-    throw new Error('Forbidden: Admin access required')
+    throw Response.json({ error: 'Admin access required' }, { status: 404 })
   }
   return currentUser
 }
@@ -82,8 +82,8 @@ export async function requireAuthenticatedServerOnlySession(): Promise<void> {
   await getAuthenticatedUser()
 }
 
-export function requireWritePermission( user: AuthenticatedUser ): void {
-  if ( user.tinySessionPermission === 'read' ) {
-    throw new Error( 'You have read-only access and cannot perform this action' )
+export function requireWritePermission(user: AuthenticatedUser): void {
+  if (user.tinySessionPermission === 'read') {
+    throw new Error('You have read-only access and cannot perform this action')
   }
 }

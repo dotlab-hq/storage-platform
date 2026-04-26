@@ -38,7 +38,7 @@ export async function initiateUpload(input: InitiateUploadInput) {
   }
 
   const bucket = bucketRows[0]
-  const provider = await selectProviderForUpload(input.fileSize)
+  const provider = await selectProviderForUpload(input.fileSize, input.userId)
   const attemptId = crypto.randomUUID()
   const expiresAt = new Date(Date.now() + 15 * 60 * 1000)
   const upstreamObjectKey = buildUpstreamObjectKey(

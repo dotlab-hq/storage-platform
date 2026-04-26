@@ -31,7 +31,7 @@ export async function uploadSingleFile({
     import('@/db/schema/storage'),
   ])
 
-  const provider = await selectProviderForUpload(file.size)
+  const provider = await selectProviderForUpload(file.size, userId)
 
   console.log(
     `[Server] Starting upload for file: ${file.name} (${file.size} bytes)`,

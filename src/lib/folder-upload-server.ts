@@ -3,7 +3,7 @@ import { z } from 'zod'
 import { getAuthenticatedUser } from '@/lib/server-auth'
 import {
   resolveProviderId,
-  getProviderClientById,
+  selectProviderForUpload,
 } from '@/lib/s3-provider-client'
 
 import { db } from '@/db'
@@ -31,7 +31,7 @@ export const abortFolderUpload = createServerFn({ method: 'POST' })
       },
       async () => {
         const { DeleteObjectsCommand } = await import('@aws-sdk/client-s3')
-        const provider = await getProviderClientById(null)
+        const provider = await selectProviderForUpload(0, authUser.id)
 
         const objectsToDelete = data.objectKeys.map((key) => ({ Key: key }))
 

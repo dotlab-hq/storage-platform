@@ -1,9 +1,10 @@
 import { S3Client } from '@aws-sdk/client-s3'
 import { file } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'
+import { user } from '@/db/schema/auth-schema'
 import { UNDETERMINED_PROVIDER_VALUE } from '@/lib/storage-provider-constants'
 import { decryptProviderSecret } from '@/lib/provider-crypto'
-import { and, eq, isNotNull, sql } from 'drizzle-orm'
+import { and, eq, isNotNull, isNull, sql } from 'drizzle-orm'
 
 type ProviderClientConfig = {
   providerId: string | null
@@ -175,12 +176,26 @@ export async function resolveProviderId(
 
 export async function selectProviderForUpload(
   incomingFileSize: number,
+  userId: string,
 ): Promise<ProviderClientConfig> {
   const db = await loadDb()
+  // Get user's provider preference
+  const userRows = await db
+    .select({ use_system_providers: user.use_system_providers })
+    .from(user)
+    .where(eq(user.id, userId))
+    .limit(1)
+  const useSystem = userRows[0]?.use_system_providers ?? true
+
+  // Query providers based on preference
+  const providerOwnershipCondition = useSystem
+    ? isNull(storageProvider.userId)
+    : eq(storageProvider.userId, userId)
+
   const providers = await db
     .select()
     .from(storageProvider)
-    .where(eq(storageProvider.isActive, true))
+    .where(and(eq(storageProvider.isActive, true), providerOwnershipCondition))
 
   if (providers.length === 0) {
     return fromEnvironment()

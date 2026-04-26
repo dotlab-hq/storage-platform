@@ -1,6 +1,8 @@
-import { integer, index, text } from 'drizzle-orm/sqlite-core'
+import { integer, index, text, uniqueIndex } from 'drizzle-orm/sqlite-core'
 import { schema } from './schema'
 import { UNDETERMINED_PROVIDER_VALUE } from '@/lib/storage-provider-constants'
+import { user } from './auth-schema'
+import { sql } from 'drizzle-orm'
 
 const DEFAULT_PROVIDER_LIMIT_BYTES = 50 * 1024 * 1024 * 1024
 const DEFAULT_PROVIDER_FILE_SIZE_LIMIT_BYTES = DEFAULT_PROVIDER_LIMIT_BYTES
@@ -11,8 +13,7 @@ export const storageProvider = schema.table(
     id: text('id')
       .$defaultFn(() => crypto.randomUUID())
       .primaryKey(),
-    name: text('name').notNull().unique(),
-    // "undetermined" means this value can be supplied from environment configuration at runtime.
+    name: text('name').notNull(),
     endpoint: text('endpoint').default(UNDETERMINED_PROVIDER_VALUE).notNull(),
     region: text('region').default(UNDETERMINED_PROVIDER_VALUE).notNull(),
     bucketName: text('bucket_name')
@@ -34,6 +35,7 @@ export const storageProvider = schema.table(
       .default(false)
       .notNull(),
     isActive: integer('is_active', { mode: 'boolean' }).default(true).notNull(),
+    userId: text('user_id').references(() => user.id, { onDelete: 'cascade' }),
     createdAt: integer('created_at', { mode: 'timestamp' })
       .$defaultFn(() => new Date())
       .notNull(),
@@ -42,5 +44,12 @@ export const storageProvider = schema.table(
       .$onUpdate(() => /* @__PURE__ */ new Date())
       .notNull(),
   },
-  (table) => [index('storageProvider_isActive_idx').on(table.isActive)],
+  (table) => [
+    index('storageProvider_isActive_idx').on(table.isActive),
+    index('storageProvider_userId_idx').on(table.userId),
+    uniqueIndex('storageProvider_userId_name_unq').on(table.userId, table.name),
+    uniqueIndex('storageProvider_system_name_unq')
+      .on(table.name)
+      .where(sql`user_id IS NULL`),
+  ],
 )
