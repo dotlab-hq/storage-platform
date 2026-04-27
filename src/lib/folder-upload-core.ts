@@ -1,4 +1,5 @@
 import { authClient } from '@/lib/auth-client'
+import { uploadFileViaProxy } from '@/lib/upload-proxy-client'
 import { prepareUploadTarget } from '@/lib/upload-target-server'
 import type { UploadingFile } from '@/types/storage'
 
@@ -100,39 +101,14 @@ export async function uploadSingleFileWithProgress(
     })
 
     if (target.uploadMethod === 'proxy') {
-      const total = file.size
-      let loaded = 0
-
-      const progressTransform = new TransformStream({
-        transform(chunk: Uint8Array, controller) {
-          loaded += chunk.byteLength
-          onProgress(Math.min(90, Math.round((loaded / total) * 100)))
-          controller.enqueue(chunk)
-        },
+      return await uploadFileViaProxy({
+        uploadUrl: target.uploadUrl,
+        providerId: target.providerId ?? null,
+        objectKey,
+        file,
+        contentType,
+        onProgress: (progress) => onProgress(Math.min(90, progress)),
       })
-
-      const bodyStream = file.stream().pipeThrough(progressTransform)
-
-      const response = await fetch(target.uploadUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': contentType,
-          'X-Upload-Object-Key': objectKey,
-          'X-Upload-File-Size': String(file.size),
-          'X-Upload-Provider-Id': target.providerId ?? '',
-        },
-        body: bodyStream,
-        duplex: 'half',
-      })
-
-      if (!response.ok) {
-        const errorBody = await response.text()
-        throw new Error(
-          `Proxy upload failed: HTTP ${response.status} - ${errorBody}`,
-        )
-      }
-
-      return target.providerId ?? null
     } else {
       await new Promise<void>((resolve, reject) => {
         const xhr = new XMLHttpRequest()

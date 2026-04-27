@@ -3,11 +3,9 @@ import {
   uploadMultipartComplete,
   registerFile,
 } from './upload-server'
+import { uploadFileViaProxy } from './upload-proxy-client'
 import { prepareUploadTarget } from './upload-target-server'
-import {
-  updateUpload,
-  uploadStore,
-} from '@/lib/stores/upload-store'
+import { updateUpload, uploadStore } from '@/lib/stores/upload-store'
 
 const MIN_PART_SIZE_BYTES = 5 * 1024 * 1024
 const MAX_MULTIPART_PARTS = 10000
@@ -29,7 +27,7 @@ type UploadTarget =
   | { uploadMethod: 'direct'; providerId: string | null; presignedUrl: string }
   | { uploadMethod: 'proxy'; providerId: string | null; uploadUrl: string }
 
-function toErrorMessage( error: unknown, fallback: string ): string {
+function toErrorMessage(error: unknown, fallback: string): string {
   return error instanceof Error ? error.message : fallback
 }
 
@@ -39,10 +37,10 @@ async function fetchUploadTarget(
   fileSize: number,
 ): Promise<UploadTarget> {
   try {
-    const data = await prepareUploadTarget( {
+    const data = await prepareUploadTarget({
       data: { objectKey, contentType, fileSize },
-    } )
-    if ( data.uploadMethod === 'proxy' ) {
+    })
+    if (data.uploadMethod === 'proxy') {
       return {
         uploadMethod: 'proxy',
         providerId: data.providerId ?? null,
@@ -55,8 +53,8 @@ async function fetchUploadTarget(
       providerId: data.providerId ?? null,
       presignedUrl: data.presignedUrl,
     }
-  } catch ( error: unknown ) {
-    throw new Error( toErrorMessage( error, 'Failed to prepare upload target' ) )
+  } catch (error: unknown) {
+    throw new Error(toErrorMessage(error, 'Failed to prepare upload target'))
   }
 }
 
@@ -72,17 +70,17 @@ async function fetchMultipartSession(
   partUrls: { partNumber: number; presignedUrl: string }[]
 }> {
   try {
-    const data = await uploadMultipartInit( {
+    const data = await uploadMultipartInit({
       data: { objectKey, contentType, fileSize, partCount, providerId },
-    } )
+    })
     return {
       uploadId: data.uploadId,
       providerId: data.providerId ?? null,
       partUrls: data.partUrls,
     }
-  } catch ( error: unknown ) {
+  } catch (error: unknown) {
     throw new Error(
-      toErrorMessage( error, 'Failed to initialize multipart upload' ),
+      toErrorMessage(error, 'Failed to initialize multipart upload'),
     )
   }
 }
@@ -93,52 +91,52 @@ async function completeMultipartUpload(
   providerId: string | null,
 ): Promise<void> {
   try {
-    await uploadMultipartComplete( {
+    await uploadMultipartComplete({
       data: { objectKey, uploadId, providerId },
-    } )
-  } catch ( error: unknown ) {
+    })
+  } catch (error: unknown) {
     throw new Error(
-      toErrorMessage( error, 'Failed to finalize multipart upload' ),
+      toErrorMessage(error, 'Failed to finalize multipart upload'),
     )
   }
 }
 
-function computePartSize( fileSize: number ): number {
+function computePartSize(fileSize: number): number {
   return Math.max(
     MIN_PART_SIZE_BYTES,
-    Math.ceil( fileSize / TARGET_PART_COUNT ),
-    Math.ceil( fileSize / MAX_MULTIPART_PARTS ),
+    Math.ceil(fileSize / TARGET_PART_COUNT),
+    Math.ceil(fileSize / MAX_MULTIPART_PARTS),
   )
 }
 
 function uploadPartWithXhr(
   presignedUrl: string,
   chunk: Blob,
-  onPartProgress: ( loadedBytes: number ) => void,
+  onPartProgress: (loadedBytes: number) => void,
 ): Promise<void> {
-  return new Promise<void>( ( resolve, reject ) => {
+  return new Promise<void>((resolve, reject) => {
     const xhr = new XMLHttpRequest()
 
-    xhr.upload.onprogress = ( e ) => {
-      if ( e.lengthComputable ) {
-        onPartProgress( e.loaded )
+    xhr.upload.onprogress = (e) => {
+      if (e.lengthComputable) {
+        onPartProgress(e.loaded)
       }
     }
 
     xhr.onload = () => {
-      if ( xhr.status >= 200 && xhr.status < 300 ) {
-        onPartProgress( chunk.size )
+      if (xhr.status >= 200 && xhr.status < 300) {
+        onPartProgress(chunk.size)
         resolve()
       } else {
-        reject( new Error( `Multipart upload part failed: HTTP ${xhr.status}` ) )
+        reject(new Error(`Multipart upload part failed: HTTP ${xhr.status}`))
       }
     }
 
     xhr.onerror = () =>
-      reject( new Error( 'Network error during multipart upload' ) )
-    xhr.open( 'PUT', presignedUrl )
-    xhr.send( chunk )
-  } )
+      reject(new Error('Network error during multipart upload'))
+    xhr.open('PUT', presignedUrl)
+    xhr.send(chunk)
+  })
 }
 
 async function uploadFileMultipart(
@@ -146,10 +144,10 @@ async function uploadFileMultipart(
   objectKey: string,
   contentType: string,
   providerId: string | null,
-  onProgress: ( progress: number ) => void,
+  onProgress: (progress: number) => void,
 ): Promise<string | null> {
-  const partSize = computePartSize( file.size )
-  const partCount = Math.ceil( file.size / partSize )
+  const partSize = computePartSize(file.size)
+  const partCount = Math.ceil(file.size / partSize)
 
   const {
     uploadId,
@@ -164,93 +162,50 @@ async function uploadFileMultipart(
   )
 
   const sortedPartUrls = [...partUrls].sort(
-    ( a, b ) => a.partNumber - b.partNumber,
+    (a, b) => a.partNumber - b.partNumber,
   )
-  if ( sortedPartUrls.length !== partCount ) {
+  if (sortedPartUrls.length !== partCount) {
     throw new Error(
       'Multipart upload initialization returned an unexpected number of part URLs',
     )
   }
 
-  const loadedByPart = new Array<number>( partCount ).fill( 0 )
+  const loadedByPart = new Array<number>(partCount).fill(0)
   let totalLoaded = 0
   let nextPartIndex = 0
 
   const uploadWorker = async () => {
-    while ( true ) {
+    while (true) {
       const currentIndex = nextPartIndex
       nextPartIndex += 1
-      if ( currentIndex >= partCount ) {
+      if (currentIndex >= partCount) {
         break
       }
 
       const partNumber = currentIndex + 1
       const start = currentIndex * partSize
-      const end = Math.min( start + partSize, file.size )
-      const chunk = file.slice( start, end )
+      const end = Math.min(start + partSize, file.size)
+      const chunk = file.slice(start, end)
       const presignedUrl = sortedPartUrls[currentIndex]?.presignedUrl
 
-      if ( !presignedUrl ) {
-        throw new Error( `Missing presigned URL for part ${partNumber}` )
+      if (!presignedUrl) {
+        throw new Error(`Missing presigned URL for part ${partNumber}`)
       }
 
-      await uploadPartWithXhr( presignedUrl, chunk, ( loadedBytes ) => {
+      await uploadPartWithXhr(presignedUrl, chunk, (loadedBytes) => {
         totalLoaded += loadedBytes - loadedByPart[currentIndex]
         loadedByPart[currentIndex] = loadedBytes
-        onProgress( Math.min( 99, Math.round( ( totalLoaded / file.size ) * 100 ) ) )
-      } )
+        onProgress(Math.min(99, Math.round((totalLoaded / file.size) * 100)))
+      })
     }
   }
 
-  const workerCount = Math.min( SINGLE_FILE_PART_CONCURRENCY, partCount )
-  await Promise.all( Array.from( { length: workerCount }, () => uploadWorker() ) )
+  const workerCount = Math.min(SINGLE_FILE_PART_CONCURRENCY, partCount)
+  await Promise.all(Array.from({ length: workerCount }, () => uploadWorker()))
 
-  await completeMultipartUpload( objectKey, uploadId, multipartProviderId )
-  onProgress( 100 )
+  await completeMultipartUpload(objectKey, uploadId, multipartProviderId)
+  onProgress(100)
   return multipartProviderId
-}
-
-async function uploadFileViaProxy(
-  uploadUrl: string,
-  providerId: string | null,
-  objectKey: string,
-  file: File,
-  contentType: string,
-  onProgress: ( progress: number ) => void,
-): Promise<string | null> {
-  const total = file.size
-  let loaded = 0
-
-  const progressTransform = new TransformStream( {
-    transform( chunk: Uint8Array, controller ) {
-      loaded += chunk.byteLength
-      onProgress( Math.round( ( loaded / total ) * 100 ) )
-      controller.enqueue( chunk )
-    },
-  } )
-
-  const bodyStream = file.stream().pipeThrough( progressTransform )
-
-  const response = await fetch( uploadUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': contentType,
-      'X-Upload-Object-Key': objectKey,
-      'X-Upload-File-Size': String( file.size ),
-      'X-Upload-Provider-Id': providerId ?? '',
-    },
-    body: bodyStream,
-    duplex: 'half',
-  } )
-
-  if ( !response.ok ) {
-    const errorBody = await response.text()
-    throw new Error(
-      `Proxy upload failed: HTTP ${response.status} - ${errorBody}`,
-    )
-  }
-
-  return providerId
 }
 
 /**
@@ -266,7 +221,7 @@ async function registerFileInDb(
   providerId: string | null,
 ): Promise<CompletedFileInfo> {
   try {
-    const data = await registerFile( {
+    const data = await registerFile({
       data: {
         fileName,
         objectKey,
@@ -275,9 +230,9 @@ async function registerFileInDb(
         parentFolderId,
         providerId,
       },
-    } )
-    if ( !data.file ) {
-      throw new Error( 'Failed to register file' )
+    })
+    if (!data.file) {
+      throw new Error('Failed to register file')
     }
     return {
       id: data.file.id,
@@ -287,8 +242,8 @@ async function registerFileInDb(
       objectKey: data.file.objectKey,
       createdAt: new Date(),
     }
-  } catch ( error: unknown ) {
-    throw new Error( toErrorMessage( error, 'Failed to register file' ) )
+  } catch (error: unknown) {
+    throw new Error(toErrorMessage(error, 'Failed to register file'))
   }
 }
 
@@ -300,20 +255,20 @@ export async function uploadFileToS3(
   file: File,
   userId: string,
   folderId: string | null,
-  onProgress: ( progress: number ) => void,
+  onProgress: (progress: number) => void,
 ): Promise<CompletedFileInfo> {
-  if ( !userId ) {
-    throw new Error( 'User ID is required for upload' )
+  if (!userId) {
+    throw new Error('User ID is required for upload')
   }
 
-  const dotIndex = file.name.lastIndexOf( '.' )
+  const dotIndex = file.name.lastIndexOf('.')
   const base =
-    ( dotIndex > 0 ? file.name.slice( 0, dotIndex ) : file.name )
-      .replace( /\s+/g, '_' )
-      .replace( /[^a-zA-Z0-9._-]/g, '' ) || 'file'
+    (dotIndex > 0 ? file.name.slice(0, dotIndex) : file.name)
+      .replace(/\s+/g, '_')
+      .replace(/[^a-zA-Z0-9._-]/g, '') || 'file'
   const ext =
     dotIndex > 0
-      ? `.${file.name.slice( dotIndex + 1 ).replace( /[^a-zA-Z0-9]/g, '' )}`
+      ? `.${file.name.slice(dotIndex + 1).replace(/[^a-zA-Z0-9]/g, '')}`
       : ''
   const objectKey = `${userId}/${crypto.randomUUID()}-${base}${ext}`
   const contentType = file.type || 'application/octet-stream'
@@ -325,16 +280,16 @@ export async function uploadFileToS3(
   )
   let providerId: string | null
 
-  if ( uploadTarget.uploadMethod === 'proxy' ) {
-    providerId = await uploadFileViaProxy(
-      uploadTarget.uploadUrl,
-      uploadTarget.providerId,
+  if (uploadTarget.uploadMethod === 'proxy') {
+    providerId = await uploadFileViaProxy({
+      uploadUrl: uploadTarget.uploadUrl,
+      providerId: uploadTarget.providerId,
       objectKey,
       file,
       contentType,
       onProgress,
-    )
-  } else if ( file.size >= MIN_MULTIPART_FILE_SIZE_BYTES ) {
+    })
+  } else if (file.size >= MIN_MULTIPART_FILE_SIZE_BYTES) {
     providerId = await uploadFileMultipart(
       file,
       objectKey,
@@ -344,28 +299,28 @@ export async function uploadFileToS3(
     )
   } else {
     providerId = uploadTarget.providerId
-    await new Promise<void>( ( resolve, reject ) => {
+    await new Promise<void>((resolve, reject) => {
       const xhr = new XMLHttpRequest()
 
-      xhr.upload.onprogress = ( e ) => {
-        if ( e.lengthComputable ) {
-          onProgress( Math.round( ( e.loaded / e.total ) * 100 ) )
+      xhr.upload.onprogress = (e) => {
+        if (e.lengthComputable) {
+          onProgress(Math.round((e.loaded / e.total) * 100))
         }
       }
 
       xhr.onload = () => {
-        if ( xhr.status >= 200 && xhr.status < 300 ) {
+        if (xhr.status >= 200 && xhr.status < 300) {
           resolve()
         } else {
-          reject( new Error( `S3 upload failed: HTTP ${xhr.status}` ) )
+          reject(new Error(`S3 upload failed: HTTP ${xhr.status}`))
         }
       }
 
-      xhr.onerror = () => reject( new Error( 'Network error during S3 upload' ) )
-      xhr.open( 'PUT', uploadTarget.presignedUrl )
-      xhr.setRequestHeader( 'Content-Type', contentType )
-      xhr.send( file )
-    } )
+      xhr.onerror = () => reject(new Error('Network error during S3 upload'))
+      xhr.open('PUT', uploadTarget.presignedUrl)
+      xhr.setRequestHeader('Content-Type', contentType)
+      xhr.send(file)
+    })
   }
 
   // Step 3: Register file in database and return file info
@@ -390,7 +345,7 @@ export async function uploadBatch(
   userId: string,
   folderId: string | null,
   concurrency: number,
-  onFileUploaded?: ( file: CompletedFileInfo ) => void,
+  onFileUploaded?: (file: CompletedFileInfo) => void,
 ): Promise<number> {
   let completed = 0
   const queue = [...files]
@@ -402,48 +357,48 @@ export async function uploadBatch(
     let attempt = 0
     let lastError = 'Upload failed'
 
-    while ( attempt < maxAttempts ) {
+    while (attempt < maxAttempts) {
       attempt += 1
 
       try {
-        updateUpload( task.id, {
+        updateUpload(task.id, {
           status: 'uploading',
           error: undefined,
           progress: 0,
-        } )
+        })
 
         const fileInfo = await uploadFileToS3(
           task.file,
           userId,
           folderId,
-          ( progress ) => {
-            updateUpload( task.id, { progress } )
+          (progress) => {
+            updateUpload(task.id, { progress })
           },
         )
 
-        updateUpload( task.id, { progress: 100, status: 'completed' } )
-        onFileUploaded?.( fileInfo )
+        updateUpload(task.id, { progress: 100, status: 'completed' })
+        onFileUploaded?.(fileInfo)
         completed++
         return
-      } catch ( err ) {
-        lastError = err instanceof Error ? err.message : String( err )
+      } catch (err) {
+        lastError = err instanceof Error ? err.message : String(err)
       }
     }
 
-    updateUpload( task.id, { status: 'failed', error: lastError } )
+    updateUpload(task.id, { status: 'failed', error: lastError })
   }
 
   const worker = async () => {
-    while ( queue.length > 0 ) {
+    while (queue.length > 0) {
       const task = queue.shift()
-      if ( !task ) break
-      await runTaskWithRetry( task, DEFAULT_UPLOAD_ATTEMPTS )
+      if (!task) break
+      await runTaskWithRetry(task, DEFAULT_UPLOAD_ATTEMPTS)
       // Do NOT auto-remove; let user clear manually via widget
     }
   }
 
-  const workerCount = Math.min( concurrency, files.length )
-  await Promise.all( Array.from( { length: workerCount }, () => worker() ) )
+  const workerCount = Math.min(concurrency, files.length)
+  await Promise.all(Array.from({ length: workerCount }, () => worker()))
   return completed
 }
 
@@ -453,17 +408,17 @@ export async function retryUploadById(
 ): Promise<boolean> {
   const upload = uploadStore
     .getState()
-    .uploads.find( ( currentUpload ) => currentUpload.id === uploadId )
+    .uploads.find((currentUpload) => currentUpload.id === uploadId)
 
-  if ( !upload?.file ) {
+  if (!upload?.file) {
     return false
   }
 
-  updateUpload( uploadId, {
+  updateUpload(uploadId, {
     status: 'uploading',
     error: undefined,
     progress: 0,
-  } )
+  })
 
   try {
     await uploadBatch(
