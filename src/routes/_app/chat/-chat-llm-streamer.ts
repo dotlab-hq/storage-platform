@@ -3,6 +3,7 @@ import { parseToolCallChunks } from '@/routes/api/v1/-converters'
 import { countTokens, extractUsageFromChunk } from '@/lib/token-counter'
 import type { Usage } from '@/lib/token-counter'
 import type { StructuredTool } from '@langchain/core/tools'
+import { normalizeOpenAiContent } from '@/utils/normalize-openai-message'
 
 /**
  * Stream chunk emitted to client
@@ -65,9 +66,9 @@ export async function* generateAssistantReplyStream(
   const { llm } = await import('@/llm/gemini.llm')
 
   // Bind tools using LangChain's bindTools for proper schema conversion
-  let streamingLLM = llm
+  let streamingLLM: { stream: typeof llm.stream } = llm
   if (tools && tools.length > 0) {
-    streamingLLM = llm.bindTools(tools, { toolChoice })
+    streamingLLM = llm.bindTools(tools, { tool_choice: toolChoice })
     console.log(
       '[LLM] Bound tools:',
       tools.map((t) => t.name),
@@ -122,70 +123,29 @@ export async function* generateAssistantReplyStream(
         finalUsage = chunkUsage
       }
 
-      // Check for content blocks (separates reasoning from text when available)
-      const chunkObj = chunk as {
-        contentBlocks?: Array<{
-          type: string
-          text?: string
-          reasoning?: string
-        }>
+      const chunkRecord =
+        chunk && typeof chunk === 'object'
+          ? (chunk as unknown as Record<string, unknown>)
+          : {}
+      const rawContent = chunkRecord.contentBlocks ?? chunkRecord.content
+      const normalizedContent = normalizeOpenAiContent(rawContent)
+
+      if (normalizedContent.reasoning) {
+        yield { type: 'reasoning', reasoning: normalizedContent.reasoning }
       }
-      const contentBlocks = chunkObj.contentBlocks
 
-      if (contentBlocks && Array.isArray(contentBlocks)) {
-        // Process each block separately to emit reasoning and content in separate chunks
-        for (const block of contentBlocks) {
-          if (block.type === 'reasoning' && block.reasoning) {
-            yield { type: 'reasoning', reasoning: block.reasoning }
-          } else if (block.type === 'text' && block.text) {
-            fullContent += block.text
-            if (streamDelayMs > 0) {
-              for await (const char of streamWithCadence(
-                block.text,
-                signal,
-                streamDelayMs,
-              )) {
-                yield { type: 'content', content: char }
-              }
-            } else {
-              yield { type: 'content', content: block.text }
-            }
+      if (normalizedContent.text) {
+        fullContent += normalizedContent.text
+        if (streamDelayMs > 0) {
+          for await (const char of streamWithCadence(
+            normalizedContent.text,
+            signal,
+            streamDelayMs,
+          )) {
+            yield { type: 'content', content: char }
           }
-        }
-      } else {
-        // Fallback: Extract content from chunk.content (legacy behavior)
-        let content: string = ''
-        if (chunk && typeof chunk === 'object') {
-          const chunkContent = (chunk as { content?: unknown }).content
-          if (typeof chunkContent === 'string') {
-            content = chunkContent
-          } else if (Array.isArray(chunkContent)) {
-            content = chunkContent
-              .map((part) => {
-                if (typeof part === 'string') return part
-                if (part && typeof part === 'object' && 'text' in part) {
-                  const text = (part as { text?: string }).text
-                  return typeof text === 'string' ? text : ''
-                }
-                return ''
-              })
-              .join('')
-          }
-        }
-
-        if (content) {
-          fullContent += content
-          if (streamDelayMs > 0) {
-            for await (const char of streamWithCadence(
-              content,
-              signal,
-              streamDelayMs,
-            )) {
-              yield { type: 'content', content: char }
-            }
-          } else {
-            yield { type: 'content', content }
-          }
+        } else {
+          yield { type: 'content', content: normalizedContent.text }
         }
       }
 
@@ -226,7 +186,9 @@ export async function* generateAssistantReplyStream(
     let computedUsage: Usage | undefined
     if (!finalUsage && fullContent) {
       const messagesText = messages
-        .map((msg) => `${msg.getType()}: ${String(msg.content)}`)
+        .map(
+          (msg) => `${msg.getType()}: ${normalizeOpenAiContent(msg.content).text}`,
+        )
         .join('\n\n')
       const promptTokens = countTokens(messagesText)
       const completionTokens = countTokens(fullContent)

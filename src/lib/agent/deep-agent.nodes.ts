@@ -1,6 +1,7 @@
 import type { BaseMessage } from '@langchain/core/messages'
 import type { DeepAgentState, DeepAgentMetadata } from './deep-agent.state'
 import type { StructuredTool } from '@langchain/core/tools'
+import { normalizeOpenAiContent } from '@/utils/normalize-openai-message'
 
 /**
  * Start node - Entry point of the agent graph
@@ -46,9 +47,9 @@ export const createAgentNode = (tools: StructuredTool[]) => {
 
     try {
       // Bind tools to LLM for proper schema handling
-      let llmWithTools = llm
+      let llmWithTools: { stream: typeof llm.stream } = llm
       if (tools.length > 0) {
-        llmWithTools = llm.bindTools(tools, { toolChoice: 'auto' })
+        llmWithTools = llm.bindTools(tools, { tool_choice: 'auto' })
         console.log(
           '[DeepAgent] Bound tools:',
           tools.map((t) => t.name),
@@ -70,8 +71,14 @@ export const createAgentNode = (tools: StructuredTool[]) => {
 
       // Yield intermediate states as we stream
       for await (const chunk of stream) {
-        // Extract content and tool calls
-        const content = (chunk as { content?: string })?.content || ''
+        const chunkRecord =
+          chunk && typeof chunk === 'object'
+            ? (chunk as unknown as Record<string, unknown>)
+            : {}
+        const normalizedContent = normalizeOpenAiContent(
+          chunkRecord.contentBlocks ?? chunkRecord.content,
+        )
+        const content = normalizedContent.text
         if (content) {
           fullContent += content
           // Yield partial content for streaming
@@ -115,10 +122,11 @@ export const createAgentNode = (tools: StructuredTool[]) => {
       const { AIMessage } = await import('@langchain/core/messages')
       const assistantMessage = new AIMessage(fullContent)
       if (parsedToolCalls.length > 0) {
-        ;(assistantMessage as any).tool_calls = parsedToolCalls.map((tc) => ({
+        assistantMessage.tool_calls = parsedToolCalls.map((tc) => ({
           id: tc.id,
           name: tc.name,
-          arguments: tc.arguments,
+          args: tc.arguments,
+          type: 'tool_call' as const,
         }))
       }
 
@@ -247,7 +255,7 @@ export const reflectNode = async (
 /**
  * Parse tool call chunks from LLM stream
  */
-function parseToolCallChunks(chunks: any[]): Array<{
+function parseToolCallChunks(chunks: unknown[]): Array<{
   id: string
   name: string
   arguments: Record<string, unknown>
@@ -259,17 +267,24 @@ function parseToolCallChunks(chunks: any[]): Array<{
   }> = []
 
   for (const chunk of chunks) {
-    if (chunk.index !== undefined && !result[chunk.index]) {
-      result[chunk.index] = { id: '', name: '', arguments: {} }
+    if (!chunk || typeof chunk !== 'object') continue
+    const record = chunk as Record<string, unknown>
+    if (typeof record.index !== 'number') continue
+    if (!result[record.index]) {
+      result[record.index] = { id: '', name: '', arguments: {} }
     }
-    const target = result[chunk.index]
+    const target = result[record.index]
     if (!target) continue
 
-    if (chunk.id) target.id = chunk.id
-    if (chunk.name) target.name = chunk.name
-    if (chunk.arguments) {
+    if (typeof record.id === 'string') target.id = record.id
+    if (typeof record.name === 'string') target.name = record.name
+    if (typeof record.args === 'string') {
       try {
-        target.arguments = JSON.parse(chunk.arguments)
+        const parsedArgs: unknown = JSON.parse(record.args)
+        target.arguments =
+          parsedArgs && typeof parsedArgs === 'object'
+            ? (parsedArgs as Record<string, unknown>)
+            : {}
       } catch {
         target.arguments = {}
       }

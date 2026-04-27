@@ -155,7 +155,9 @@ export async function getProviderClientById(
     if (defaultProvider) {
       return fromProviderRow(defaultProvider)
     }
-    return fromEnvironment()
+    throw new Error(
+      'No storage provider found. Please add one in the admin settings.',
+    )
   }
   const providerRows = await db
     .select()
@@ -234,7 +236,9 @@ export async function selectProviderForUpload(
     )
 
   if (providers.length === 0) {
-    return fromEnvironment()
+    throw new Error(
+      'No storage providers configured. Please add one in the admin settings.',
+    )
   }
 
   const usageRows = await db

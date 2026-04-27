@@ -11,11 +11,11 @@ import { logActivity } from '@/lib/activity'
 const SaveProviderSchema = z.object({
   providerId: z.string().min(1).optional(),
   name: z.string().min(2),
-  endpoint: z.string().default(''),
-  region: z.string().default(''),
-  bucketName: z.string().default(''),
-  accessKeyId: z.string().default(''),
-  secretAccessKey: z.string().default(''),
+  endpoint: z.string().min(1),
+  region: z.string().default('auto'),
+  bucketName: z.string().default('auto'),
+  accessKeyId: z.string().min(1),
+  secretAccessKey: z.string().min(1),
   storageLimitBytes: z.number().int().positive(),
   fileSizeLimitBytes: z.number().int().positive(),
   proxyUploadsEnabled: z.boolean().default(false),
@@ -41,6 +41,12 @@ export const saveStorageProviderFn = createServerFn({ method: 'POST' })
       const bucketName = data.bucketName.trim()
       const accessKeyId = data.accessKeyId.trim()
       const secretAccessKey = data.secretAccessKey.trim()
+
+      if (!accessKeyId || !secretAccessKey || !endpoint) {
+        throw new Error(
+          'Access key ID, secret access key, and endpoint are required',
+        )
+      }
 
       let provider: { id: string; name: string } | null = null
 
@@ -92,12 +98,9 @@ export const saveStorageProviderFn = createServerFn({ method: 'POST' })
         const nextEndpoint = endpoint || 'auto'
         const nextRegion = region || 'auto'
         const nextBucketName = bucketName || 'auto'
-        const nextAccessKeyIdEncrypted = accessKeyId
-          ? encryptProviderSecret(accessKeyId)
-          : UNDETERMINED_PROVIDER_VALUE
-        const nextSecretAccessKeyEncrypted = secretAccessKey
-          ? encryptProviderSecret(secretAccessKey)
-          : UNDETERMINED_PROVIDER_VALUE
+        const nextAccessKeyIdEncrypted = encryptProviderSecret(accessKeyId)
+        const nextSecretAccessKeyEncrypted =
+          encryptProviderSecret(secretAccessKey)
 
         const duplicateRows = await db
           .select({ id: storageProvider.id })

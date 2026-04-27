@@ -12,6 +12,7 @@ import {
 import { refreshThreadLatestMessage } from '@/routes/_app/chat/-chat-server-db'
 import type { LLMStreamParams } from '@/routes/_app/chat/-chat-llm-streamer'
 import type { OpenAiToolCall } from '@/routes/api/v1/-schemas'
+import { normalizeOpenAiContent } from '@/utils/normalize-openai-message'
 
 export interface NonStreamingHandlerParams {
   messages: BaseMessage[]
@@ -125,10 +126,7 @@ export async function handleNonStreamingResponse(
     if (!finalUsage) {
       const messagesForUsage = params.messages.map((msg) => ({
         role: msg.getType(),
-        content:
-          typeof msg.content === 'string'
-            ? msg.content
-            : JSON.stringify(msg.content),
+        content: normalizeOpenAiContent(msg.content).text,
       }))
       finalUsage = calculateUsage(messagesForUsage, fullContent)
     }
