@@ -18,7 +18,7 @@ type ProviderRow = typeof storageProvider.$inferSelect
 
 const DEFAULT_PROVIDER_NAME = 'default provider'
 const MAIN_PROVIDER_NAME = 'main'
-const DEFAULT_S3_REGION = 'us-east-1'
+const DEFAULT_S3_REGION = 'auto'
 const INVALID_REGION_SENTINELS = new Set([
   '',
   UNDETERMINED_PROVIDER_VALUE,
@@ -99,30 +99,22 @@ function fromEnvironment(): ProviderClientConfig {
 }
 
 function fromProviderRow(row: ProviderRow): ProviderClientConfig {
-  // Access Key ID: use env if row indicates undetermined
-  const accessKeyId =
-    row.accessKeyIdEncrypted === UNDETERMINED_PROVIDER_VALUE
-      ? safeTrim(process.env.S3_ACCESS_KEY_ID)
-      : safeTrim(decryptProviderSecret(row.accessKeyIdEncrypted))
+  // Access Key ID: must be in DB
+  const accessKeyId = safeTrim(decryptProviderSecret(row.accessKeyIdEncrypted))
 
-  // Secret Access Key: use env if row indicates undetermined
-  const secretAccessKey =
-    row.secretAccessKeyEncrypted === UNDETERMINED_PROVIDER_VALUE
-      ? safeTrim(process.env.S3_SECRET_ACCESS_KEY)
-      : safeTrim(decryptProviderSecret(row.secretAccessKeyEncrypted))
+  // Secret Access Key: must be in DB
+  const secretAccessKey = safeTrim(
+    decryptProviderSecret(row.secretAccessKeyEncrypted),
+  )
 
-  // Region: if row.region is empty/undetermined, use a hardcoded default (no env)
+  // Region: if row.region is empty/undetermined, use default
   let region = safeTrim(row.region)
   if (!region || INVALID_REGION_SENTINELS.has(region.toLowerCase())) {
     region = DEFAULT_S3_REGION
   }
 
-  // Endpoint: if row.endpoint is empty or undetermined, fall back to env var
-  const rawEndpoint = safeTrim(row.endpoint)
-  const endpoint =
-    rawEndpoint === '' || rawEndpoint === UNDETERMINED_PROVIDER_VALUE
-      ? safeTrim(process.env.S3_ENDPOINT)
-      : rawEndpoint
+  // Endpoint: must be in DB
+  const endpoint = safeTrim(row.endpoint)
 
   if (!accessKeyId || !secretAccessKey || !endpoint) {
     const missing: string[] = []
@@ -136,10 +128,7 @@ function fromProviderRow(row: ProviderRow): ProviderClientConfig {
   return {
     providerId: row.id,
     providerName: row.name,
-    bucketName:
-      row.bucketName === UNDETERMINED_PROVIDER_VALUE
-        ? (process.env.S3_BUCKET_NAME ?? 'dot-storage')
-        : row.bucketName,
+    bucketName: row.bucketName,
     endpoint,
     proxyUploadsEnabled: row.proxyUploadsEnabled,
     client: new S3Client({

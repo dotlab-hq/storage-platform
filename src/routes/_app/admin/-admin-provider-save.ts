@@ -60,9 +60,9 @@ export const saveStorageProviderFn = createServerFn({ method: 'POST' })
           throw new Error('Storage provider not found')
         }
 
-        const nextEndpoint = endpoint || existing.endpoint
-        const nextRegion = region || existing.region
-        const nextBucketName = bucketName || existing.bucketName
+        const nextEndpoint = endpoint || existing.endpoint || 'auto'
+        const nextRegion = region || existing.region || 'auto'
+        const nextBucketName = bucketName || existing.bucketName || 'auto'
         const nextAccessKeyIdEncrypted = accessKeyId
           ? encryptProviderSecret(accessKeyId)
           : existing.accessKeyIdEncrypted
@@ -89,9 +89,9 @@ export const saveStorageProviderFn = createServerFn({ method: 'POST' })
 
         provider = updatedProvider[0]
       } else {
-        const nextEndpoint = endpoint || UNDETERMINED_PROVIDER_VALUE
-        const nextRegion = region || UNDETERMINED_PROVIDER_VALUE
-        const nextBucketName = bucketName || UNDETERMINED_PROVIDER_VALUE
+        const nextEndpoint = endpoint || 'auto'
+        const nextRegion = region || 'auto'
+        const nextBucketName = bucketName || 'auto'
         const nextAccessKeyIdEncrypted = accessKeyId
           ? encryptProviderSecret(accessKeyId)
           : UNDETERMINED_PROVIDER_VALUE

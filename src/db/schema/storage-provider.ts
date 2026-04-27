@@ -14,8 +14,8 @@ export const storageProvider = schema.table(
       .$defaultFn(() => crypto.randomUUID())
       .primaryKey(),
     name: text('name').notNull(),
-    endpoint: text('endpoint').default(UNDETERMINED_PROVIDER_VALUE).notNull(),
-    region: text('region').default(UNDETERMINED_PROVIDER_VALUE).notNull(),
+    endpoint: text('endpoint').default('auto').notNull(),
+    region: text('region').default('auto').notNull(),
     bucketName: text('bucket_name')
       .default(UNDETERMINED_PROVIDER_VALUE)
       .notNull(),
