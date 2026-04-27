@@ -30,83 +30,83 @@ type BucketRow = {
 
 const SKEW_WINDOW_MS = 5 * 60 * 1000
 
-function compareAscii( left: string, right: string ): number {
-  if ( left < right ) return -1
-  if ( left > right ) return 1
+function compareAscii(left: string, right: string): number {
+  if (left < right) return -1
+  if (left > right) return 1
   return 0
 }
 
-function hmacHex( key: string | Buffer, value: string ): string {
-  return createHmac( 'sha256', key ).update( value ).digest( 'hex' )
+function hmacHex(key: string | Buffer, value: string): string {
+  return createHmac('sha256', key).update(value).digest('hex')
 }
 
-function hmac( key: string | Buffer, value: string ): Buffer {
-  return createHmac( 'sha256', key ).update( value ).digest()
+function hmac(key: string | Buffer, value: string): Buffer {
+  return createHmac('sha256', key).update(value).digest()
 }
 
-function sha256Hex( value: string ): string {
-  return createHash( 'sha256' ).update( value ).digest( 'hex' )
+function sha256Hex(value: string): string {
+  return createHash('sha256').update(value).digest('hex')
 }
 
-function queryParamEqualsIgnoreCase( key: string, expected: string ): boolean {
+function queryParamEqualsIgnoreCase(key: string, expected: string): boolean {
   return key.toLowerCase() === expected.toLowerCase()
 }
 
-function getQueryParamCaseInsensitive( url: URL, key: string ): string | null {
-  for ( const [entryKey, value] of url.searchParams.entries() ) {
-    if ( queryParamEqualsIgnoreCase( entryKey, key ) ) {
+function getQueryParamCaseInsensitive(url: URL, key: string): string | null {
+  for (const [entryKey, value] of url.searchParams.entries()) {
+    if (queryParamEqualsIgnoreCase(entryKey, key)) {
       return value
     }
   }
   return null
 }
 
-function parseAmzDate( value: string ): Date | null {
-  const match = value.match( /^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z$/ )
-  if ( !match ) {
+function parseAmzDate(value: string): Date | null {
+  const match = value.match(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z$/)
+  if (!match) {
     return null
   }
   const [, year, month, day, hour, minute, second] = match
   return new Date(
     Date.UTC(
-      Number( year ),
-      Number( month ) - 1,
-      Number( day ),
-      Number( hour ),
-      Number( minute ),
-      Number( second ),
+      Number(year),
+      Number(month) - 1,
+      Number(day),
+      Number(hour),
+      Number(minute),
+      Number(second),
     ),
   )
 }
 
-function encodeRfc3986( value: string ): string {
-  return encodeURIComponent( value )
-    .replaceAll( '!', '%21' )
-    .replaceAll( "'", '%27' )
-    .replaceAll( '(', '%28' )
-    .replaceAll( ')', '%29' )
-    .replaceAll( '*', '%2A' )
+function encodeRfc3986(value: string): string {
+  return encodeURIComponent(value)
+    .replaceAll('!', '%21')
+    .replaceAll("'", '%27')
+    .replaceAll('(', '%28')
+    .replaceAll(')', '%29')
+    .replaceAll('*', '%2A')
 }
 
-function canonicalQueryString( url: URL, includeSignature: boolean ): string {
+function canonicalQueryString(url: URL, includeSignature: boolean): string {
   const pairs: Array<{ key: string; value: string }> = []
-  for ( const [key, value] of url.searchParams.entries() ) {
+  for (const [key, value] of url.searchParams.entries()) {
     if (
       !includeSignature &&
-      queryParamEqualsIgnoreCase( key, 'X-Amz-Signature' )
+      queryParamEqualsIgnoreCase(key, 'X-Amz-Signature')
     ) {
       continue
     }
-    pairs.push( { key, value } )
+    pairs.push({ key, value })
   }
-  pairs.sort( ( a, b ) => {
-    const k = compareAscii( a.key, b.key )
-    if ( k !== 0 ) return k
-    return compareAscii( a.value, b.value )
-  } )
+  pairs.sort((a, b) => {
+    const k = compareAscii(a.key, b.key)
+    if (k !== 0) return k
+    return compareAscii(a.value, b.value)
+  })
   return pairs
-    .map( ( pair ) => `${encodeRfc3986( pair.key )}=${encodeRfc3986( pair.value )}` )
-    .join( '&' )
+    .map((pair) => `${encodeRfc3986(pair.key)}=${encodeRfc3986(pair.value)}`)
+    .join('&')
 }
 
 function canonicalQueryStringWithoutEmptyEquals(
@@ -114,31 +114,31 @@ function canonicalQueryStringWithoutEmptyEquals(
   includeSignature: boolean,
 ): string {
   const pairs: Array<{ key: string; value: string }> = []
-  for ( const [key, value] of url.searchParams.entries() ) {
+  for (const [key, value] of url.searchParams.entries()) {
     if (
       !includeSignature &&
-      queryParamEqualsIgnoreCase( key, 'X-Amz-Signature' )
+      queryParamEqualsIgnoreCase(key, 'X-Amz-Signature')
     ) {
       continue
     }
-    pairs.push( { key, value } )
+    pairs.push({ key, value })
   }
-  pairs.sort( ( a, b ) => {
-    const k = compareAscii( a.key, b.key )
-    if ( k !== 0 ) return k
-    return compareAscii( a.value, b.value )
-  } )
+  pairs.sort((a, b) => {
+    const k = compareAscii(a.key, b.key)
+    if (k !== 0) return k
+    return compareAscii(a.value, b.value)
+  })
   return pairs
-    .map( ( pair ) =>
+    .map((pair) =>
       pair.value.length === 0
-        ? encodeRfc3986( pair.key )
-        : `${encodeRfc3986( pair.key )}=${encodeRfc3986( pair.value )}`,
+        ? encodeRfc3986(pair.key)
+        : `${encodeRfc3986(pair.key)}=${encodeRfc3986(pair.value)}`,
     )
-    .join( '&' )
+    .join('&')
 }
 
-function normalizeHeaderValue( value: string ): string {
-  return value.trim().replace( /\s+/g, ' ' )
+function normalizeHeaderValue(value: string): string {
+  return value.trim().replace(/\s+/g, ' ')
 }
 
 function canonicalHeaders(
@@ -146,16 +146,16 @@ function canonicalHeaders(
   signedHeaders: string[],
 ): { headers: string; signedHeaders: string } {
   const lowered = signedHeaders
-    .map( ( header ) => header.trim().toLowerCase() )
-    .filter( ( header ) => header.length > 0 )
-  const unique = Array.from( new Set( lowered ) ).sort()
+    .map((header) => header.trim().toLowerCase())
+    .filter((header) => header.length > 0)
+  const unique = Array.from(new Set(lowered)).sort()
   const parts = unique.map(
-    ( name ) =>
-      `${name}:${normalizeHeaderValue( request.headers.get( name ) ?? '' )}`,
+    (name) =>
+      `${name}:${normalizeHeaderValue(request.headers.get(name) ?? '')}`,
   )
   return {
-    headers: `${parts.join( '\n' )}\n`,
-    signedHeaders: unique.join( ';' ),
+    headers: `${parts.join('\n')}\n`,
+    signedHeaders: unique.join(';'),
   }
 }
 
@@ -165,18 +165,18 @@ function canonicalHeadersWithOverrides(
   overrides: Partial<Record<string, string>>,
 ): { headers: string; signedHeaders: string } {
   const lowered = signedHeaders
-    .map( ( header ) => header.trim().toLowerCase() )
-    .filter( ( header ) => header.length > 0 )
-  const unique = Array.from( new Set( lowered ) ).sort()
-  const parts = unique.map( ( name ) => {
+    .map((header) => header.trim().toLowerCase())
+    .filter((header) => header.length > 0)
+  const unique = Array.from(new Set(lowered)).sort()
+  const parts = unique.map((name) => {
     const override = overrides[name]
     const value =
-      override !== undefined ? override : ( request.headers.get( name ) ?? '' )
-    return `${name}:${normalizeHeaderValue( value )}`
-  } )
+      override !== undefined ? override : (request.headers.get(name) ?? '')
+    return `${name}:${normalizeHeaderValue(value)}`
+  })
   return {
-    headers: `${parts.join( '\n' )}\n`,
-    signedHeaders: unique.join( ';' ),
+    headers: `${parts.join('\n')}\n`,
+    signedHeaders: unique.join(';'),
   }
 }
 
@@ -184,17 +184,17 @@ function canonicalHeaderCandidates(
   request: Request,
   signedHeaders: string[],
 ): Array<{ headers: string; signedHeaders: string }> {
-  const lowered = signedHeaders.map( ( header ) => header.trim().toLowerCase() )
-  if ( !lowered.includes( 'accept-encoding' ) ) {
-    return [canonicalHeaders( request, signedHeaders )]
+  const lowered = signedHeaders.map((header) => header.trim().toLowerCase())
+  if (!lowered.includes('accept-encoding')) {
+    return [canonicalHeaders(request, signedHeaders)]
   }
 
-  const raw = request.headers.get( 'accept-encoding' ) ?? ''
-  const variants = Array.from( new Set( [raw, 'identity', 'gzip', ''] ) )
-  return variants.map( ( value ) =>
-    canonicalHeadersWithOverrides( request, signedHeaders, {
+  const raw = request.headers.get('accept-encoding') ?? ''
+  const variants = Array.from(new Set([raw, 'identity', 'gzip', '']))
+  return variants.map((value) =>
+    canonicalHeadersWithOverrides(request, signedHeaders, {
       'accept-encoding': value,
-    } ),
+    }),
   )
 }
 
@@ -204,32 +204,32 @@ function deriveSigningKey(
   region: string,
   service: string,
 ): Buffer {
-  const kDate = hmac( `AWS4${secretAccessKey}`, dateStamp )
-  const kRegion = hmac( kDate, region )
-  const kService = hmac( kRegion, service )
-  return hmac( kService, 'aws4_request' )
+  const kDate = hmac(`AWS4${secretAccessKey}`, dateStamp)
+  const kRegion = hmac(kDate, region)
+  const kService = hmac(kRegion, service)
+  return hmac(kService, 'aws4_request')
 }
 
-function canonicalUri( url: URL ): string {
+function canonicalUri(url: URL): string {
   return url.pathname
-    .split( '/' )
-    .map( ( segment ) => encodeRfc3986( decodeURIComponent( segment ) ) )
-    .join( '/' )
+    .split('/')
+    .map((segment) => encodeRfc3986(decodeURIComponent(segment)))
+    .join('/')
 }
 
-function canonicalUriRaw( url: URL ): string {
+function canonicalUriRaw(url: URL): string {
   return url.pathname
 }
 
-function normalizeCredentialValue( value: string ): string {
+function normalizeCredentialValue(value: string): string {
   try {
-    return decodeURIComponent( value )
+    return decodeURIComponent(value)
   } catch {
     return value
   }
 }
 
-function isHeaderSignatureMatch( input: {
+function isHeaderSignatureMatch(input: {
   request: Request
   url: URL
   amzDate: string
@@ -240,20 +240,20 @@ function isHeaderSignatureMatch( input: {
   signature: string
   payloadHash: string
   signedHeaders: string[]
-} ): boolean {
+}): boolean {
   const canonicalCandidates = canonicalHeaderCandidates(
     input.request,
     input.signedHeaders,
   )
-  const canonicalUris = [canonicalUri( input.url ), canonicalUriRaw( input.url )]
+  const canonicalUris = [canonicalUri(input.url), canonicalUriRaw(input.url)]
   const canonicalQueries = [
-    canonicalQueryString( input.url, true ),
-    canonicalQueryStringWithoutEmptyEquals( input.url, true ),
+    canonicalQueryString(input.url, true),
+    canonicalQueryStringWithoutEmptyEquals(input.url, true),
   ]
 
-  for ( const uri of canonicalUris ) {
-    for ( const query of canonicalQueries ) {
-      for ( const canonical of canonicalCandidates ) {
+  for (const uri of canonicalUris) {
+    for (const query of canonicalQueries) {
+      for (const canonical of canonicalCandidates) {
         const canonicalRequest = [
           input.request.method,
           uri,
@@ -261,17 +261,17 @@ function isHeaderSignatureMatch( input: {
           canonical.headers,
           canonical.signedHeaders,
           input.payloadHash,
-        ].join( '\n' )
+        ].join('\n')
 
         const stringToSign = [
           'AWS4-HMAC-SHA256',
           input.amzDate,
           `${input.dateStamp}/${input.region}/${input.service}/aws4_request`,
-          sha256Hex( canonicalRequest ),
-        ].join( '\n' )
+          sha256Hex(canonicalRequest),
+        ].join('\n')
 
-        const expectedSignature = hmacHex( input.signingKey, stringToSign )
-        if ( expectedSignature.toLowerCase() === input.signature.toLowerCase() ) {
+        const expectedSignature = hmacHex(input.signingKey, stringToSign)
+        if (expectedSignature.toLowerCase() === input.signature.toLowerCase()) {
           return true
         }
       }
@@ -281,7 +281,7 @@ function isHeaderSignatureMatch( input: {
   return false
 }
 
-function isQuerySignatureMatch( input: {
+function isQuerySignatureMatch(input: {
   request: Request
   url: URL
   amzDate: string
@@ -291,20 +291,20 @@ function isQuerySignatureMatch( input: {
   signingKey: Buffer
   signature: string
   signedHeadersRaw: string
-} ): boolean {
+}): boolean {
   const canonicalCandidates = canonicalHeaderCandidates(
     input.request,
-    input.signedHeadersRaw.split( ';' ),
+    input.signedHeadersRaw.split(';'),
   )
-  const canonicalUris = [canonicalUri( input.url ), canonicalUriRaw( input.url )]
+  const canonicalUris = [canonicalUri(input.url), canonicalUriRaw(input.url)]
   const canonicalQueries = [
-    canonicalQueryString( input.url, false ),
-    canonicalQueryStringWithoutEmptyEquals( input.url, false ),
+    canonicalQueryString(input.url, false),
+    canonicalQueryStringWithoutEmptyEquals(input.url, false),
   ]
 
-  for ( const uri of canonicalUris ) {
-    for ( const query of canonicalQueries ) {
-      for ( const canonical of canonicalCandidates ) {
+  for (const uri of canonicalUris) {
+    for (const query of canonicalQueries) {
+      for (const canonical of canonicalCandidates) {
         const canonicalRequest = [
           input.request.method,
           uri,
@@ -312,17 +312,17 @@ function isQuerySignatureMatch( input: {
           canonical.headers,
           canonical.signedHeaders,
           'UNSIGNED-PAYLOAD',
-        ].join( '\n' )
+        ].join('\n')
 
         const stringToSign = [
           'AWS4-HMAC-SHA256',
           input.amzDate,
           `${input.dateStamp}/${input.region}/${input.service}/aws4_request`,
-          sha256Hex( canonicalRequest ),
-        ].join( '\n' )
+          sha256Hex(canonicalRequest),
+        ].join('\n')
 
-        const expectedSignature = hmacHex( input.signingKey, stringToSign )
-        if ( expectedSignature.toLowerCase() === input.signature.toLowerCase() ) {
+        const expectedSignature = hmacHex(input.signingKey, stringToSign)
+        if (expectedSignature.toLowerCase() === input.signature.toLowerCase()) {
           return true
         }
       }
@@ -332,30 +332,30 @@ function isQuerySignatureMatch( input: {
   return false
 }
 
-function isWithinSkew( requestDate: Date ): boolean {
+function isWithinSkew(requestDate: Date): boolean {
   const now = Date.now()
-  return Math.abs( now - requestDate.getTime() ) <= SKEW_WINDOW_MS
+  return Math.abs(now - requestDate.getTime()) <= SKEW_WINDOW_MS
 }
 
 function signingSecret(): string {
   const secret =
     process.env.S3_GATEWAY_CREDENTIAL_SECRET ?? process.env.BETTER_AUTH_SECRET
-  if ( !secret ) {
-    throw new Error( 'Missing credential signing secret' )
+  if (!secret) {
+    throw new Error('Missing credential signing secret')
   }
   return secret
 }
 
-function accessKeyForBucket( bucketId: string ): string {
-  return `sp_${bucketId.replaceAll( '-', '' ).slice( 0, 20 )}`
+function accessKeyForBucket(bucketId: string): string {
+  return `sp_${bucketId.replaceAll('-', '').slice(0, 20)}`
 }
 
-export function accessKeyIdForBucket( bucketId: string ): string {
-  return accessKeyForBucket( bucketId )
+export function accessKeyIdForBucket(bucketId: string): string {
+  return accessKeyForBucket(bucketId)
 }
 
-export function canonicalIdForUser( userId: string ): string {
-  return createHash( 'sha256' ).update( userId ).digest( 'hex' )
+export function canonicalIdForUser(userId: string): string {
+  return createHash('sha256').update(userId).digest('hex')
 }
 
 function secretForBucket(
@@ -364,13 +364,13 @@ function secretForBucket(
   bucketName: string,
   credentialVersion: number,
 ): string {
-  const digest = createHmac( 'sha256', signingSecret() )
-    .update( `${userId}:${bucketId}:${bucketName}:${credentialVersion}` )
-    .digest( 'hex' )
-  return `${digest}${digest.slice( 0, 24 )}`
+  const digest = createHmac('sha256', signingSecret())
+    .update(`${userId}:${bucketId}:${bucketName}:${credentialVersion}`)
+    .digest('hex')
+  return `${digest}${digest.slice(0, 24)}`
 }
 
-function toContext( row: BucketRow ): BucketContext {
+function toContext(row: BucketRow): BucketContext {
   return {
     userId: row.userId,
     bucketId: row.id,
@@ -385,13 +385,13 @@ function toContext( row: BucketRow ): BucketContext {
 export async function resolveBucketByName(
   bucketName: string,
 ): Promise<BucketContext | null> {
-  const cached = await getCachedBucketByName( bucketName )
-  if ( cached ) {
+  const cached = await getCachedBucketByName(bucketName)
+  if (cached) {
     return cached
   }
 
   const rows = await db
-    .select( {
+    .select({
       userId: virtualBucket.userId,
       id: virtualBucket.id,
       name: virtualBucket.name,
@@ -399,30 +399,51 @@ export async function resolveBucketByName(
       blockPublicAccess: virtualBucket.blockPublicAccess,
       createdAt: virtualBucket.createdAt,
       credentialVersion: virtualBucket.credentialVersion,
-    } )
-    .from( virtualBucket )
+    })
+    .from(virtualBucket)
     .where(
-      and( eq( virtualBucket.name, bucketName ), eq( virtualBucket.isActive, true ) ),
+      and(eq(virtualBucket.name, bucketName), eq(virtualBucket.isActive, true)),
     )
-    .limit( 1 )
+    .limit(1)
 
-  const context = rows[0] ? toContext( rows[0] ) : null
-  if ( context ) {
-    await upsertBucketContextCache( context )
+  const context = rows[0] ? toContext(rows[0]) : null
+  if (context) {
+    await upsertBucketContextCache(context)
   }
   return context
+}
+
+export async function resolveBucketsByName(
+  bucketName: string,
+): Promise<BucketContext[]> {
+  const rows = await db
+    .select({
+      userId: virtualBucket.userId,
+      id: virtualBucket.id,
+      name: virtualBucket.name,
+      mappedFolderId: virtualBucket.mappedFolderId,
+      blockPublicAccess: virtualBucket.blockPublicAccess,
+      createdAt: virtualBucket.createdAt,
+      credentialVersion: virtualBucket.credentialVersion,
+    })
+    .from(virtualBucket)
+    .where(
+      and(eq(virtualBucket.name, bucketName), eq(virtualBucket.isActive, true)),
+    )
+
+  return rows.map((row) => toContext(row))
 }
 
 export async function resolveBucketByAccessKey(
   accessKeyId: string,
 ): Promise<BucketContext | null> {
-  const cached = await getCachedBucketByAccessKey( accessKeyId )
-  if ( cached ) {
+  const cached = await getCachedBucketByAccessKey(accessKeyId)
+  if (cached) {
     return cached
   }
 
   const rows = await db
-    .select( {
+    .select({
       userId: virtualBucket.userId,
       id: virtualBucket.id,
       name: virtualBucket.name,
@@ -430,44 +451,41 @@ export async function resolveBucketByAccessKey(
       blockPublicAccess: virtualBucket.blockPublicAccess,
       createdAt: virtualBucket.createdAt,
       credentialVersion: virtualBucket.credentialVersion,
-    } )
-    .from( virtualBucket )
-    .where( eq( virtualBucket.isActive, true ) )
+    })
+    .from(virtualBucket)
+    .where(eq(virtualBucket.isActive, true))
 
-  const matched = rows.find( ( row ) => accessKeyForBucket( row.id ) === accessKeyId )
-  const context = matched ? toContext( matched ) : null
-  if ( context ) {
-    await upsertBucketContextCache( context )
+  const matched = rows.find((row) => accessKeyForBucket(row.id) === accessKeyId)
+  const context = matched ? toContext(matched) : null
+  if (context) {
+    await upsertBucketContextCache(context)
   }
   return context
 }
 
-export function parseAccessKeyId( request: Request ): string | null {
-  const authorization = request.headers.get( 'authorization' )
-  if ( authorization ) {
-    const credentialMatch = authorization.match( /Credential=([^,\s]+)/ )
+export function parseAccessKeyId(request: Request): string | null {
+  const authorization = request.headers.get('authorization')
+  if (authorization) {
+    const credentialMatch = authorization.match(/Credential=([^,\s]+)/)
     const credential = credentialMatch?.[1]
-      ? normalizeCredentialValue( credentialMatch[1] )
+      ? normalizeCredentialValue(credentialMatch[1])
       : undefined
-    const accessKey = credential?.split( '/' )[0]
-    if ( accessKey ) {
+    const accessKey = credential?.split('/')[0]
+    if (accessKey) {
       return accessKey
     }
   }
 
-  const url = new URL( request.url )
-  const queryCredential = getQueryParamCaseInsensitive(
-    url,
-    'X-Amz-Credential',
-  )
-  if ( queryCredential ) {
-    return normalizeCredentialValue( queryCredential ).split( '/' )[0] ?? null
+  const url = new URL(request.url)
+  const queryCredential = getQueryParamCaseInsensitive(url, 'X-Amz-Credential')
+  if (queryCredential) {
+    return normalizeCredentialValue(queryCredential).split('/')[0] ?? null
   }
 
   return null
 }
 
-export function isSecretValid( bucket: BucketContext, secret: string ): boolean {
+export function isSecretValid(bucket: BucketContext, secret: string): boolean {
   return (
     secretForBucket(
       bucket.userId,
@@ -478,10 +496,10 @@ export function isSecretValid( bucket: BucketContext, secret: string ): boolean 
   )
 }
 
-export function isSigV4Valid( request: Request, bucket: BucketContext ): boolean {
-  const url = new URL( request.url )
-  const authorization = request.headers.get( 'authorization' )
-  const querySignature = getQueryParamCaseInsensitive( url, 'X-Amz-Signature' )
+export function isSigV4Valid(request: Request, bucket: BucketContext): boolean {
+  const url = new URL(request.url)
+  const authorization = request.headers.get('authorization')
+  const querySignature = getQueryParamCaseInsensitive(url, 'X-Amz-Signature')
   const secretAccessKey = secretForBucket(
     bucket.userId,
     bucket.bucketId,
@@ -489,43 +507,43 @@ export function isSigV4Valid( request: Request, bucket: BucketContext ): boolean
     bucket.credentialVersion,
   )
 
-  if ( authorization ) {
-    const credentialMatch = authorization.match( /Credential=([^,\s]+)/ )
-    const signedHeadersMatch = authorization.match( /SignedHeaders=([^,\s]+)/ )
-    const signatureMatch = authorization.match( /Signature=([a-fA-F0-9]+)/ )
-    if ( !credentialMatch || !signedHeadersMatch || !signatureMatch ) {
+  if (authorization) {
+    const credentialMatch = authorization.match(/Credential=([^,\s]+)/)
+    const signedHeadersMatch = authorization.match(/SignedHeaders=([^,\s]+)/)
+    const signatureMatch = authorization.match(/Signature=([a-fA-F0-9]+)/)
+    if (!credentialMatch || !signedHeadersMatch || !signatureMatch) {
       return false
     }
 
-    const credential = normalizeCredentialValue( credentialMatch[1] )
-    const scopeParts = credential.split( '/' )
-    if ( scopeParts.length < 5 ) {
+    const credential = normalizeCredentialValue(credentialMatch[1])
+    const scopeParts = credential.split('/')
+    if (scopeParts.length < 5) {
       return false
     }
     const [accessKeyId, dateStamp, region, service] = scopeParts
-    if ( accessKeyId !== parseAccessKeyId( request ) ) {
+    if (accessKeyId !== parseAccessKeyId(request)) {
       return false
     }
 
-    const amzDate = request.headers.get( 'x-amz-date' )
-    if ( !amzDate ) {
+    const amzDate = request.headers.get('x-amz-date')
+    if (!amzDate) {
       return false
     }
-    const parsedDate = parseAmzDate( amzDate )
-    if ( !parsedDate || !isWithinSkew( parsedDate ) ) {
+    const parsedDate = parseAmzDate(amzDate)
+    if (!parsedDate || !isWithinSkew(parsedDate)) {
       return false
     }
 
     const payloadHash =
-      request.headers.get( 'x-amz-content-sha256' ) ?? 'UNSIGNED-PAYLOAD'
-    const signedHeaders = signedHeadersMatch[1].split( ';' )
+      request.headers.get('x-amz-content-sha256') ?? 'UNSIGNED-PAYLOAD'
+    const signedHeaders = signedHeadersMatch[1].split(';')
     const signingKey = deriveSigningKey(
       secretAccessKey,
       dateStamp,
       region,
       service,
     )
-    return isHeaderSignatureMatch( {
+    return isHeaderSignatureMatch({
       request,
       url,
       amzDate,
@@ -536,14 +554,14 @@ export function isSigV4Valid( request: Request, bucket: BucketContext ): boolean
       signature: signatureMatch[1],
       payloadHash,
       signedHeaders,
-    } )
+    })
   }
 
-  if ( querySignature ) {
-    const algorithm = getQueryParamCaseInsensitive( url, 'X-Amz-Algorithm' )
-    const credential = getQueryParamCaseInsensitive( url, 'X-Amz-Credential' )
-    const amzDate = getQueryParamCaseInsensitive( url, 'X-Amz-Date' )
-    const expires = getQueryParamCaseInsensitive( url, 'X-Amz-Expires' )
+  if (querySignature) {
+    const algorithm = getQueryParamCaseInsensitive(url, 'X-Amz-Algorithm')
+    const credential = getQueryParamCaseInsensitive(url, 'X-Amz-Credential')
+    const amzDate = getQueryParamCaseInsensitive(url, 'X-Amz-Date')
+    const expires = getQueryParamCaseInsensitive(url, 'X-Amz-Expires')
     const signedHeadersRaw = getQueryParamCaseInsensitive(
       url,
       'X-Amz-SignedHeaders',
@@ -558,32 +576,32 @@ export function isSigV4Valid( request: Request, bucket: BucketContext ): boolean
       return false
     }
 
-    const scopeParts = normalizeCredentialValue( credential ).split( '/' )
-    if ( scopeParts.length < 5 ) {
+    const scopeParts = normalizeCredentialValue(credential).split('/')
+    if (scopeParts.length < 5) {
       return false
     }
     const [accessKeyId, dateStamp, region, service] = scopeParts
-    if ( accessKeyId !== parseAccessKeyId( request ) ) {
+    if (accessKeyId !== parseAccessKeyId(request)) {
       return false
     }
 
-    const expiresSeconds = Number.parseInt( expires, 10 )
+    const expiresSeconds = Number.parseInt(expires, 10)
     if (
-      !Number.isFinite( expiresSeconds ) ||
+      !Number.isFinite(expiresSeconds) ||
       expiresSeconds < 1 ||
       expiresSeconds > 604800
     ) {
       return false
     }
 
-    const parsedDate = parseAmzDate( amzDate )
-    if ( !parsedDate ) {
+    const parsedDate = parseAmzDate(amzDate)
+    if (!parsedDate) {
       return false
     }
     const now = Date.now()
     const start = parsedDate.getTime() - SKEW_WINDOW_MS
     const end = parsedDate.getTime() + expiresSeconds * 1000
-    if ( now < start || now > end ) {
+    if (now < start || now > end) {
       return false
     }
 
@@ -593,7 +611,7 @@ export function isSigV4Valid( request: Request, bucket: BucketContext ): boolean
       region,
       service,
     )
-    return isQuerySignatureMatch( {
+    return isQuerySignatureMatch({
       request,
       url,
       amzDate,
@@ -603,7 +621,7 @@ export function isSigV4Valid( request: Request, bucket: BucketContext ): boolean
       signingKey,
       signature: querySignature,
       signedHeadersRaw,
-    } )
+    })
   }
 
   return false

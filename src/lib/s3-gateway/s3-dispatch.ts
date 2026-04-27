@@ -1,5 +1,7 @@
 import {
   parseAccessKeyId,
+  resolveBucketByAccessKey,
+  resolveBucketsByName,
   resolveBucketByName,
 } from '@/lib/s3-gateway/s3-context'
 import { applyBucketCors } from '@/lib/s3-gateway/s3-cors'
@@ -53,16 +55,23 @@ export async function handleS3Request(request: Request): Promise<Response> {
     bucketName: null,
     objectKey: null,
   }
-  let bucketForCors: Awaited<ReturnType<typeof resolveBucketByName>> | null =
-    null
+  let bucketForCors:
+    | Awaited<ReturnType<typeof resolveBucketByName>>
+    | Awaited<ReturnType<typeof resolveBucketsByName>>
+    | null = null
   let accessKeyId: string | null = null
 
   try {
     parsedPath = parseS3Path(request.url)
-    bucketForCors = parsedPath.bucketName
-      ? await resolveBucketByName(parsedPath.bucketName)
-      : null
     accessKeyId = parseAccessKeyId(request)
+    if (parsedPath.bucketName) {
+      if (accessKeyId) {
+        bucketForCors = await resolveBucketByAccessKey(accessKeyId)
+      }
+      if (!bucketForCors) {
+        bucketForCors = await resolveBucketsByName(parsedPath.bucketName)
+      }
+    }
 
     await ensureS3FileSchemaCompatibility()
 
@@ -93,7 +102,9 @@ export async function handleS3Request(request: Request): Promise<Response> {
       requestId,
       startedAt,
       parsedPath,
-      userId: bucketForCors?.userId ?? null,
+      userId: Array.isArray(bucketForCors)
+        ? (bucketForCors[0]?.userId ?? null)
+        : (bucketForCors?.userId ?? null),
       accessKeyId,
       errorCode: corsResponse.status >= 400 ? 'Error' : null,
     })
@@ -148,7 +159,9 @@ export async function handleS3Request(request: Request): Promise<Response> {
       requestId,
       startedAt,
       parsedPath,
-      userId: bucketForCors?.userId ?? null,
+      userId: Array.isArray(bucketForCors)
+        ? (bucketForCors[0]?.userId ?? null)
+        : (bucketForCors?.userId ?? null),
       accessKeyId,
       errorCode,
     })

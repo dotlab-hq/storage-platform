@@ -23,7 +23,7 @@ import {
   getProviderClientById,
   selectProviderForUpload,
 } from '@/lib/s3-provider-client'
-import { and, eq, isNull } from 'drizzle-orm'
+import { and, eq, isNull, like } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, folder, userStorage } from '@/db/schema/storage'
 import {
@@ -38,12 +38,12 @@ import { backfillStorageBtree } from '@/lib/storage-btree/backfill'
 import { deleteNodeByEntity } from '@/lib/storage-btree/index'
 import { patchQuotaUsedStorage } from '@/lib/cache-invalidation'
 
-function parsePositiveInt( value: string | undefined, fallback: number ): number {
-  if ( !value ) {
+function parsePositiveInt(value: string | undefined, fallback: number): number {
+  if (!value) {
     return fallback
   }
-  const parsed = Number.parseInt( value, 10 )
-  return Number.isFinite( parsed ) && parsed > 0 ? parsed : fallback
+  const parsed = Number.parseInt(value, 10)
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback
 }
 
 const PROVIDER_METADATA_HEAD_TIMEOUT_MS = parsePositiveInt(
@@ -56,9 +56,9 @@ async function* streamWebChunks(
 ): AsyncGenerator<Uint8Array> {
   const reader = stream.getReader()
   try {
-    for ( ; ; ) {
+    for (;;) {
       const { done, value } = await reader.read()
-      if ( done ) {
+      if (done) {
         return
       }
       yield value
@@ -68,11 +68,11 @@ async function* streamWebChunks(
   }
 }
 
-function toNodeReadable( stream: ReadableStream<Uint8Array> ): Readable {
-  return Readable.from( streamWebChunks( stream ) )
+function toNodeReadable(stream: ReadableStream<Uint8Array>): Readable {
+  return Readable.from(streamWebChunks(stream))
 }
 
-function upstreamKeyFor( bucket: BucketContext, objectKey: string ): string {
+function upstreamKeyFor(bucket: BucketContext, objectKey: string): string {
   return buildUpstreamObjectKey(
     bucket.userId,
     bucket.bucketId,
@@ -88,26 +88,46 @@ export type ListedS3Object = {
   lastModified: Date
 }
 
+async function hasBucketObjects(bucket: BucketContext): Promise<boolean> {
+  const objectKeyPrefix = `s3/${bucket.userId}/${bucket.bucketId}/%`
+  const rows = await db
+    .select({ id: file.id })
+    .from(file)
+    .where(
+      and(
+        eq(file.userId, bucket.userId),
+        eq(file.isDeleted, false),
+        like(file.objectKey, objectKeyPrefix),
+      ),
+    )
+    .limit(1)
+  return rows.length > 0
+}
+
 export async function listObjectsV2(
   bucket: BucketContext,
   prefix: string,
 ): Promise<ListedS3Object[]> {
-  const btreeResults = await listObjectsByBtree( {
+  const btreeResults = await listObjectsByBtree({
     userId: bucket.userId,
     mappedFolderId: bucket.mappedFolderId,
     prefix,
-  } )
-  if ( btreeResults.length > 0 ) {
+  })
+  if (btreeResults.length > 0) {
     return btreeResults
   }
 
-  await backfillStorageBtree( bucket.userId )
-  const btreeAfterBackfill = await listObjectsByBtree( {
+  if (!(await hasBucketObjects(bucket))) {
+    return []
+  }
+
+  await backfillStorageBtree(bucket.userId)
+  const btreeAfterBackfill = await listObjectsByBtree({
     userId: bucket.userId,
     mappedFolderId: bucket.mappedFolderId,
     prefix,
-  } )
-  if ( btreeAfterBackfill.length > 0 ) {
+  })
+  if (btreeAfterBackfill.length > 0) {
     return btreeAfterBackfill
   }
 
@@ -120,91 +140,91 @@ export async function listObjectsV2(
     updatedAt?: Date
   }> = [{ folderId: bucket.mappedFolderId, path: '' }]
 
-  while ( queue.length > 0 ) {
+  while (queue.length > 0) {
     const current = queue.shift()!
-    if ( current.folderId && visited.has( current.folderId ) ) {
+    if (current.folderId && visited.has(current.folderId)) {
       continue
     }
-    if ( current.folderId ) {
-      visited.add( current.folderId )
+    if (current.folderId) {
+      visited.add(current.folderId)
     }
 
     const folderCondition = current.folderId
-      ? eq( folder.parentFolderId, current.folderId )
-      : isNull( folder.parentFolderId )
+      ? eq(folder.parentFolderId, current.folderId)
+      : isNull(folder.parentFolderId)
 
     const childFolders = await db
-      .select( {
+      .select({
         id: folder.id,
         name: folder.name,
         updatedAt: folder.updatedAt,
-      } )
-      .from( folder )
+      })
+      .from(folder)
       .where(
         and(
-          eq( folder.userId, bucket.userId ),
-          eq( folder.isDeleted, false ),
+          eq(folder.userId, bucket.userId),
+          eq(folder.isDeleted, false),
           folderCondition,
         ),
       )
 
     const fileCondition = current.folderId
-      ? eq( file.folderId, current.folderId )
-      : isNull( file.folderId )
+      ? eq(file.folderId, current.folderId)
+      : isNull(file.folderId)
 
     const childFiles = await db
-      .select( {
+      .select({
         name: file.name,
         sizeInBytes: file.sizeInBytes,
         etag: file.etag,
         lastModified: file.lastModified,
         updatedAt: file.updatedAt,
-      } )
-      .from( file )
+      })
+      .from(file)
       .where(
         and(
-          eq( file.userId, bucket.userId ),
-          eq( file.isDeleted, false ),
+          eq(file.userId, bucket.userId),
+          eq(file.isDeleted, false),
           fileCondition,
         ),
       )
 
-    if ( childFolders.length === 0 && childFiles.length === 0 && current.path ) {
+    if (childFolders.length === 0 && childFiles.length === 0 && current.path) {
       const matchPrefix =
-        current.path.startsWith( prefix ) ||
+        current.path.startsWith(prefix) ||
         prefix === current.path ||
         prefix === current.path + '/'
-      if ( matchPrefix ) {
-        results.push( {
+      if (matchPrefix) {
+        results.push({
           key: current.path + '/',
           size: 0,
           eTag: null,
-          lastModified: current.updatedAt ?? new Date( 0 ),
-        } )
+          lastModified: current.updatedAt ?? new Date(0),
+        })
       }
     }
 
-    for ( const f of childFolders ) {
+    for (const f of childFolders) {
       const newPath = current.path ? `${current.path}/${f.name}` : f.name
       if (
-        prefix.startsWith( newPath + '/' ) ||
-        newPath.startsWith( prefix ) ||
+        prefix.startsWith(newPath + '/') ||
+        newPath.startsWith(prefix) ||
         prefix === newPath ||
         prefix === ''
       ) {
-        queue.push( { folderId: f.id, path: newPath, updatedAt: f.updatedAt } )
+        queue.push({ folderId: f.id, path: newPath, updatedAt: f.updatedAt })
       }
     }
 
-    for ( const f of childFiles ) {
+    for (const f of childFiles) {
       const newPath = current.path ? `${current.path}/${f.name}` : f.name
-      if ( newPath.startsWith( prefix ) ) {
-        results.push( {
+      if (newPath.startsWith(prefix)) {
+        results.push({
           key: newPath,
           size: f.sizeInBytes,
           eTag: f.etag,
-          lastModified: f.lastModified ?? f.updatedAt ?? new Date( 0 ),
-        } )
+          lastModified: f.lastModified ?? f.updatedAt ?? new Date(0),
+        })
       }
     }
   }
@@ -226,9 +246,9 @@ export async function putObject(
     metadata: Record<string, string>
   },
 ): Promise<string | null> {
-  const cacheKey = getS3ObjectCacheKey( bucket.bucketId, objectKey )
-  deleteCachedS3Object( cacheKey )
-  const { folderPath, fileName, isDirectory } = splitObjectKey( objectKey )
+  const cacheKey = getS3ObjectCacheKey(bucket.bucketId, objectKey)
+  deleteCachedS3Object(cacheKey)
+  const { folderPath, fileName, isDirectory } = splitObjectKey(objectKey)
 
   // Resolve the destination folder ID
   const targetFolderId = await resolveVirtualFolder(
@@ -237,7 +257,7 @@ export async function putObject(
     folderPath,
   )
 
-  if ( isDirectory ) {
+  if (isDirectory) {
     // Just create the directory structure, do not upload to S3
     return `"{empty-${Date.now()}}"`
   }
@@ -252,23 +272,23 @@ export async function putObject(
     targetFolderId,
     objectKey,
   )
-  const result = await sendWithProviderTimeout( ( abortSignal ) =>
+  const result = await sendWithProviderTimeout((abortSignal) =>
     provider.client.send(
-      new PutObjectCommand( {
+      new PutObjectCommand({
         Bucket: provider.bucketName,
         Key: upstreamKey,
-        Body: toNodeReadable( body ),
+        Body: toNodeReadable(body),
         ContentType: contentType ?? 'application/octet-stream',
         CacheControl: metadataInput?.cacheControl ?? undefined,
         ContentDisposition: metadataInput?.contentDisposition ?? undefined,
         ContentEncoding: metadataInput?.contentEncoding ?? undefined,
         ContentLanguage: metadataInput?.contentLanguage ?? undefined,
         Metadata:
-          metadataInput && Object.keys( metadataInput.metadata ).length > 0
+          metadataInput && Object.keys(metadataInput.metadata).length > 0
             ? metadataInput.metadata
             : undefined,
         ContentLength: contentLength ?? undefined,
-      } ),
+      }),
       { abortSignal },
     ),
   )
@@ -285,10 +305,10 @@ export async function putObject(
       PROVIDER_METADATA_HEAD_TIMEOUT_MS,
     )
     const metadata = await provider.client.send(
-      new HeadObjectCommand( {
+      new HeadObjectCommand({
         Bucket: provider.bucketName,
         Key: upstreamKey,
-      } ),
+      }),
       { abortSignal: metadataAbortController.signal },
     )
     metadataETag = metadata.ETag
@@ -298,7 +318,7 @@ export async function putObject(
       typeof metadata.ContentLength === 'number'
         ? metadata.ContentLength
         : undefined
-  } catch ( error ) {
+  } catch (error) {
     const message =
       error instanceof Error
         ? `${error.name}: ${error.message}`
@@ -308,59 +328,59 @@ export async function putObject(
       message,
     )
   } finally {
-    if ( metadataTimer ) {
-      clearTimeout( metadataTimer )
+    if (metadataTimer) {
+      clearTimeout(metadataTimer)
     }
   }
 
-  await upsertCommittedFile( {
+  await upsertCommittedFile({
     userId: bucket.userId,
     providerId: provider.providerId,
     objectKey: upstreamKey,
     contentType,
     mappedFolderId: targetFolderId,
-    fileName: fileName || deriveFileName( objectKey ),
+    fileName: fileName || deriveFileName(objectKey),
     sizeInBytes: metadataContentLength ?? contentLength ?? 0,
     // Prefer HEAD metadata ETag because provider PutObject responses may omit ETag in some configurations.
-    etag: resolvePersistedETag( metadataETag, result.ETag ),
+    etag: resolvePersistedETag(metadataETag, result.ETag),
     cacheControl: metadataCacheControl ?? null,
     lastModified: metadataLastModified ?? new Date(),
-  } )
+  })
 
   return result.ETag ?? null
 }
 
-function copySourcePath( bucketName: string, key: string ): string {
+function copySourcePath(bucketName: string, key: string): string {
   const encodedKey = key
-    .split( '/' )
-    .map( ( part ) => encodeURIComponent( part ) )
-    .join( '/' )
+    .split('/')
+    .map((part) => encodeURIComponent(part))
+    .join('/')
   return `/${bucketName}/${encodedKey}`
 }
 
 function toProviderPutBody(
   body: unknown,
 ): Readable | ReadableStream<Uint8Array> {
-  if ( body instanceof ReadableStream ) {
-    return toNodeReadable( body )
+  if (body instanceof ReadableStream) {
+    return toNodeReadable(body)
   }
   if (
     typeof body === 'object' &&
     body !== null &&
     'transformToWebStream' in body &&
-    typeof ( body as { transformToWebStream?: unknown } ).transformToWebStream ===
-    'function'
+    typeof (body as { transformToWebStream?: unknown }).transformToWebStream ===
+      'function'
   ) {
     const webStream = (
       body as { transformToWebStream: () => ReadableStream<Uint8Array> }
     ).transformToWebStream()
-    return toNodeReadable( webStream )
+    return toNodeReadable(webStream)
   }
-  throw new Error( 'Unsupported provider response body for copy fallback' )
+  throw new Error('Unsupported provider response body for copy fallback')
 }
 
-function toBodyInit( body: unknown ): BodyInit | null {
-  if ( body === null || body === undefined ) {
+function toBodyInit(body: unknown): BodyInit | null {
+  if (body === null || body === undefined) {
     return null
   }
   if (
@@ -373,16 +393,16 @@ function toBodyInit( body: unknown ): BodyInit | null {
   ) {
     return body
   }
-  if ( body instanceof Uint8Array ) {
-    const cloned = new Uint8Array( body.byteLength )
-    cloned.set( body )
+  if (body instanceof Uint8Array) {
+    const cloned = new Uint8Array(body.byteLength)
+    cloned.set(body)
     return cloned.buffer
   }
   if (
     typeof body === 'object' &&
     'transformToWebStream' in body &&
-    typeof ( body as { transformToWebStream?: unknown } ).transformToWebStream ===
-    'function'
+    typeof (body as { transformToWebStream?: unknown }).transformToWebStream ===
+      'function'
   ) {
     const transformed = (
       body as { transformToWebStream: () => ReadableStream<Uint8Array> }
@@ -400,26 +420,26 @@ function resolvePersistedETag(
   metadataETag: string | undefined,
   putResultETag: string | undefined,
 ): string | null {
-  if ( metadataETag !== undefined ) return normalizeETag( metadataETag )
-  if ( putResultETag !== undefined ) return normalizeETag( putResultETag )
+  if (metadataETag !== undefined) return normalizeETag(metadataETag)
+  if (putResultETag !== undefined) return normalizeETag(putResultETag)
   return null
 }
 
-async function softDeleteMissingStoredObject( input: {
+async function softDeleteMissingStoredObject(input: {
   userId: string
   upstreamObjectKey: string
-} ): Promise<void> {
+}): Promise<void> {
   await db
-    .update( file )
-    .set( {
+    .update(file)
+    .set({
       isDeleted: true,
       deletedAt: new Date(),
-    } )
+    })
     .where(
       and(
-        eq( file.userId, input.userId ),
-        eq( file.objectKey, input.upstreamObjectKey ),
-        eq( file.isDeleted, false ),
+        eq(file.userId, input.userId),
+        eq(file.objectKey, input.upstreamObjectKey),
+        eq(file.isDeleted, false),
       ),
     )
 }
@@ -429,36 +449,36 @@ export async function getObject(
   objectKey: string,
   conditionals: ObjectConditionalHeaders,
 ): Promise<Response | null> {
-  const stored = await findStoredObject( bucket, objectKey )
-  if ( !stored ) {
+  const stored = await findStoredObject(bucket, objectKey)
+  if (!stored) {
     return null
   }
 
-  const provider = await getProviderClientById( stored.providerId )
+  const provider = await getProviderClientById(stored.providerId)
   const effectiveLastModified = stored.lastModified ?? stored.updatedAt
-  const should304 = shouldReturnNotModified( {
+  const should304 = shouldReturnNotModified({
     eTag: stored.etag,
     lastModified: effectiveLastModified,
     ifNoneMatch: conditionals.ifNoneMatch,
     ifModifiedSince: conditionals.ifModifiedSince,
-  } )
-  if ( should304 ) {
-    return new Response( null, {
+  })
+  if (should304) {
+    return new Response(null, {
       status: 304,
-      headers: buildCacheHeaders( {
+      headers: buildCacheHeaders({
         eTag: stored.etag,
         lastModified: effectiveLastModified,
         cacheControl: stored.cacheControl,
         includeDefaultCacheControl: false,
-      } ),
-    } )
+      }),
+    })
   }
 
-  const command = new GetObjectCommand( {
+  const command = new GetObjectCommand({
     Bucket: provider.bucketName,
     Key: stored.objectKey,
     ResponseContentType: stored.mimeType ?? undefined,
-  } )
+  })
   let upstream: {
     Body?: unknown
     ContentType?: string
@@ -466,31 +486,31 @@ export async function getObject(
     Metadata?: Record<string, unknown>
   }
   try {
-    upstream = await sendWithProviderTimeout( ( abortSignal ) =>
-      provider.client.send( command, { abortSignal } ),
+    upstream = await sendWithProviderTimeout((abortSignal) =>
+      provider.client.send(command, { abortSignal }),
     )
-  } catch ( error ) {
+  } catch (error) {
     if (
-      isStatusMetadataError( error ) &&
+      isStatusMetadataError(error) &&
       error.$metadata?.httpStatusCode === 404
     ) {
-      await softDeleteMissingStoredObject( {
+      await softDeleteMissingStoredObject({
         userId: bucket.userId,
         upstreamObjectKey: stored.objectKey,
-      } )
+      })
       return null
     }
     throw error
   }
-  const headers = buildCacheHeaders( {
+  const headers = buildCacheHeaders({
     eTag: stored.etag,
     lastModified: effectiveLastModified,
     cacheControl: stored.cacheControl,
-  } )
-  if ( upstream.Metadata ) {
-    for ( const [key, value] of Object.entries( upstream.Metadata ) ) {
-      if ( typeof value === 'string' ) {
-        headers.set( `x-amz-meta-${key}`, value )
+  })
+  if (upstream.Metadata) {
+    for (const [key, value] of Object.entries(upstream.Metadata)) {
+      if (typeof value === 'string') {
+        headers.set(`x-amz-meta-${key}`, value)
       }
     }
   }
@@ -500,13 +520,13 @@ export async function getObject(
   )
   headers.set(
     'Content-Length',
-    String( upstream.ContentLength ?? stored.sizeInBytes ),
+    String(upstream.ContentLength ?? stored.sizeInBytes),
   )
 
-  return new Response( toBodyInit( upstream.Body ), {
+  return new Response(toBodyInit(upstream.Body), {
     status: 200,
     headers,
-  } )
+  })
 }
 
 export async function headObject(
@@ -514,31 +534,31 @@ export async function headObject(
   objectKey: string,
   conditionals: ObjectConditionalHeaders,
 ): Promise<Response | null> {
-  const stored = await findStoredObject( bucket, objectKey )
-  if ( !stored ) {
+  const stored = await findStoredObject(bucket, objectKey)
+  if (!stored) {
     return null
   }
 
   const effectiveLastModified = stored.lastModified ?? stored.updatedAt
-  const should304 = shouldReturnNotModified( {
+  const should304 = shouldReturnNotModified({
     eTag: stored.etag,
     lastModified: effectiveLastModified,
     ifNoneMatch: conditionals.ifNoneMatch,
     ifModifiedSince: conditionals.ifModifiedSince,
-  } )
-  if ( should304 ) {
-    return new Response( null, {
+  })
+  if (should304) {
+    return new Response(null, {
       status: 304,
-      headers: buildCacheHeaders( {
+      headers: buildCacheHeaders({
         eTag: stored.etag,
         lastModified: effectiveLastModified,
         cacheControl: stored.cacheControl,
         includeDefaultCacheControl: false,
-      } ),
-    } )
+      }),
+    })
   }
 
-  const provider = await getProviderClientById( stored.providerId )
+  const provider = await getProviderClientById(stored.providerId)
   let upstreamHead: {
     ETag?: string
     LastModified?: Date
@@ -548,77 +568,77 @@ export async function headObject(
     Metadata?: Record<string, unknown>
   }
   try {
-    upstreamHead = await sendWithProviderTimeout( ( abortSignal ) =>
+    upstreamHead = await sendWithProviderTimeout((abortSignal) =>
       provider.client.send(
-        new HeadObjectCommand( {
+        new HeadObjectCommand({
           Bucket: provider.bucketName,
           Key: stored.objectKey,
-        } ),
+        }),
         { abortSignal },
       ),
     )
-  } catch ( error ) {
+  } catch (error) {
     if (
-      isStatusMetadataError( error ) &&
+      isStatusMetadataError(error) &&
       error.$metadata?.httpStatusCode === 404
     ) {
-      await softDeleteMissingStoredObject( {
+      await softDeleteMissingStoredObject({
         userId: bucket.userId,
         upstreamObjectKey: stored.objectKey,
-      } )
+      })
       return null
     }
     throw error
   }
 
-  const headers = buildCacheHeaders( {
-    eTag: resolvePersistedETag( upstreamHead.ETag, stored.etag ?? undefined ),
+  const headers = buildCacheHeaders({
+    eTag: resolvePersistedETag(upstreamHead.ETag, stored.etag ?? undefined),
     lastModified: upstreamHead.LastModified ?? effectiveLastModified,
     cacheControl: upstreamHead.CacheControl ?? stored.cacheControl,
-  } )
+  })
   headers.set(
     'Content-Type',
     upstreamHead.ContentType ?? stored.mimeType ?? 'application/octet-stream',
   )
   headers.set(
     'Content-Length',
-    String( upstreamHead.ContentLength ?? stored.sizeInBytes ),
+    String(upstreamHead.ContentLength ?? stored.sizeInBytes),
   )
-  if ( upstreamHead.Metadata ) {
-    for ( const [key, value] of Object.entries( upstreamHead.Metadata ) ) {
-      if ( typeof value === 'string' ) {
-        headers.set( `x-amz-meta-${key}`, value )
+  if (upstreamHead.Metadata) {
+    for (const [key, value] of Object.entries(upstreamHead.Metadata)) {
+      if (typeof value === 'string') {
+        headers.set(`x-amz-meta-${key}`, value)
       }
     }
   }
 
-  return new Response( null, {
+  return new Response(null, {
     status: 200,
     headers,
-  } )
+  })
 }
 
 export async function deleteObject(
   bucket: BucketContext,
   objectKey: string,
 ): Promise<void> {
-  const cacheKey = getS3ObjectCacheKey( bucket.bucketId, objectKey )
-  const upstreamKey = upstreamKeyFor( bucket, objectKey )
-  const stored = await findStoredObject( bucket, objectKey )
-  const provider = await getProviderClientById( stored?.providerId ?? null )
+  const cacheKey = getS3ObjectCacheKey(bucket.bucketId, objectKey)
+  const upstreamKey = upstreamKeyFor(bucket, objectKey)
+  const stored = await findStoredObject(bucket, objectKey)
+  const provider = await getProviderClientById(stored?.providerId ?? null)
 
   try {
-    await sendWithProviderTimeout( ( abortSignal ) =>
+    await sendWithProviderTimeout((abortSignal) =>
       provider.client.send(
-        new DeleteObjectCommand( {
+        new DeleteObjectCommand({
           Bucket: provider.bucketName,
           Key: upstreamKey,
-        } ),
+        }),
         { abortSignal },
       ),
     )
-  } catch ( error ) {
-    if ( error instanceof ProviderRequestTimeoutError ) {
+  } catch (error) {
+    if (error instanceof ProviderRequestTimeoutError) {
       throw error
     }
     const providerMessage =
@@ -633,57 +653,57 @@ export async function deleteObject(
 
   try {
     const existingRows = await db
-      .select( { id: file.id, sizeInBytes: file.sizeInBytes } )
-      .from( file )
+      .select({ id: file.id, sizeInBytes: file.sizeInBytes })
+      .from(file)
       .where(
         and(
-          eq( file.userId, bucket.userId ),
-          eq( file.objectKey, upstreamKey ),
-          eq( file.isDeleted, false ),
+          eq(file.userId, bucket.userId),
+          eq(file.objectKey, upstreamKey),
+          eq(file.isDeleted, false),
         ),
       )
 
     const deletedBytes = existingRows.reduce(
-      ( total, row ) => total + row.sizeInBytes,
+      (total, row) => total + row.sizeInBytes,
       0,
     )
 
     await db
-      .delete( file )
+      .delete(file)
       .where(
         and(
-          eq( file.userId, bucket.userId ),
-          eq( file.objectKey, upstreamKey ),
-          eq( file.isDeleted, false ),
+          eq(file.userId, bucket.userId),
+          eq(file.objectKey, upstreamKey),
+          eq(file.isDeleted, false),
         ),
       )
 
     await Promise.all(
-      existingRows.map( ( row ) =>
-        deleteNodeByEntity( bucket.userId, 'file', row.id ),
+      existingRows.map((row) =>
+        deleteNodeByEntity(bucket.userId, 'file', row.id),
       ),
     )
 
-    if ( deletedBytes > 0 ) {
+    if (deletedBytes > 0) {
       const storageRows = await db
-        .select( { usedStorage: userStorage.usedStorage } )
-        .from( userStorage )
-        .where( eq( userStorage.userId, bucket.userId ) )
-        .limit( 1 )
+        .select({ usedStorage: userStorage.usedStorage })
+        .from(userStorage)
+        .where(eq(userStorage.userId, bucket.userId))
+        .limit(1)
 
-      if ( storageRows.length > 0 ) {
+      if (storageRows.length > 0) {
         const nextUsedStorage = Math.max(
           0,
           storageRows[0].usedStorage - deletedBytes,
         )
         await db
-          .update( userStorage )
-          .set( { usedStorage: nextUsedStorage } )
-          .where( eq( userStorage.userId, bucket.userId ) )
+          .update(userStorage)
+          .set({ usedStorage: nextUsedStorage })
+          .where(eq(userStorage.userId, bucket.userId))
       }
-      await patchQuotaUsedStorage( bucket.userId, -deletedBytes )
+      await patchQuotaUsedStorage(bucket.userId, -deletedBytes)
     }
-  } catch ( error ) {
+  } catch (error) {
     const message =
       error instanceof Error
         ? `${error.name}: ${error.message}`
@@ -694,7 +714,7 @@ export async function deleteObject(
     )
   }
 
-  deleteCachedS3Object( cacheKey )
+  deleteCachedS3Object(cacheKey)
 }
 
 export async function copyObject(
@@ -707,10 +727,10 @@ export async function copyObject(
     destinationBucket.bucketId,
     destinationObjectKey,
   )
-  deleteCachedS3Object( destinationCacheKey )
-  const sourceStored = await findStoredObject( sourceBucket, sourceObjectKey )
+  deleteCachedS3Object(destinationCacheKey)
+  const sourceStored = await findStoredObject(sourceBucket, sourceObjectKey)
   const sourceUpstreamKey =
-    sourceStored?.objectKey ?? upstreamKeyFor( sourceBucket, sourceObjectKey )
+    sourceStored?.objectKey ?? upstreamKeyFor(sourceBucket, sourceObjectKey)
   const destinationUpstreamKey = upstreamKeyFor(
     destinationBucket,
     destinationObjectKey,
@@ -722,23 +742,23 @@ export async function copyObject(
   let copiedEtag: string | undefined
   let copiedLastModified: Date | undefined
   try {
-    const copied = await sendWithProviderTimeout( ( abortSignal ) =>
+    const copied = await sendWithProviderTimeout((abortSignal) =>
       sourceProvider.client.send(
-        new CopyObjectCommand( {
+        new CopyObjectCommand({
           Bucket: sourceProvider.bucketName,
           Key: destinationUpstreamKey,
           CopySource: copySourcePath(
             sourceProvider.bucketName,
             sourceUpstreamKey,
           ),
-        } ),
+        }),
         { abortSignal },
       ),
     )
     copiedEtag = copied.CopyObjectResult?.ETag
     copiedLastModified = copied.CopyObjectResult?.LastModified
-  } catch ( error ) {
-    if ( error instanceof ProviderRequestTimeoutError ) {
+  } catch (error) {
+    if (error instanceof ProviderRequestTimeoutError) {
       throw error
     }
 
@@ -751,22 +771,22 @@ export async function copyObject(
       message,
     )
 
-    const sourceGet = await sendWithProviderTimeout( ( abortSignal ) =>
+    const sourceGet = await sendWithProviderTimeout((abortSignal) =>
       sourceProvider.client.send(
-        new GetObjectCommand( {
+        new GetObjectCommand({
           Bucket: sourceProvider.bucketName,
           Key: sourceUpstreamKey,
-        } ),
+        }),
         { abortSignal },
       ),
     )
 
-    await sendWithProviderTimeout( ( abortSignal ) =>
+    await sendWithProviderTimeout((abortSignal) =>
       sourceProvider.client.send(
-        new PutObjectCommand( {
+        new PutObjectCommand({
           Bucket: sourceProvider.bucketName,
           Key: destinationUpstreamKey,
-          Body: toProviderPutBody( sourceGet.Body ),
+          Body: toProviderPutBody(sourceGet.Body),
           ContentType:
             sourceGet.ContentType ??
             sourceStored?.mimeType ??
@@ -777,41 +797,41 @@ export async function copyObject(
             typeof sourceGet.ContentLength === 'number'
               ? sourceGet.ContentLength
               : undefined,
-        } ),
+        }),
         { abortSignal },
       ),
     )
   }
 
-  const head = await sendWithProviderTimeout( ( abortSignal ) =>
+  const head = await sendWithProviderTimeout((abortSignal) =>
     sourceProvider.client.send(
-      new HeadObjectCommand( {
+      new HeadObjectCommand({
         Bucket: sourceProvider.bucketName,
         Key: destinationUpstreamKey,
-      } ),
+      }),
       { abortSignal },
     ),
   )
 
-  const persistedEtag = resolvePersistedETag( head.ETag, copiedEtag )
+  const persistedEtag = resolvePersistedETag(head.ETag, copiedEtag)
   const persistedLastModified =
     head.LastModified ?? copiedLastModified ?? new Date()
 
-  await upsertCommittedFile( {
+  await upsertCommittedFile({
     userId: destinationBucket.userId,
     providerId: sourceProvider.providerId,
     objectKey: destinationUpstreamKey,
     contentType: head.ContentType ?? sourceStored?.mimeType ?? null,
     mappedFolderId: destinationBucket.mappedFolderId,
-    fileName: deriveFileName( destinationObjectKey ),
+    fileName: deriveFileName(destinationObjectKey),
     sizeInBytes:
       typeof head.ContentLength === 'number'
         ? head.ContentLength
-        : ( sourceStored?.sizeInBytes ?? 0 ),
+        : (sourceStored?.sizeInBytes ?? 0),
     etag: persistedEtag,
     cacheControl: head.CacheControl ?? sourceStored?.cacheControl ?? null,
     lastModified: persistedLastModified,
-  } )
+  })
 
   return {
     eTag: persistedEtag,
