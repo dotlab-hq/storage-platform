@@ -1,4 +1,4 @@
-import { eq, and } from 'drizzle-orm'
+import { eq, and, inArray } from 'drizzle-orm'
 import { getProviderClientById } from '@/lib/s3-provider-client'
 import {
   deleteNodeByEntity,
@@ -215,14 +215,14 @@ export async function permanentDeleteItems(
 
 export async function restoreAllTrash(userId: string) {
   const allItems = await listTrashItems(userId)
-  const fileIds = allItems.filter((i) => i.type === 'file').map((i) => i.id)
-  const folderIds = allItems.filter((i) => i.type === 'folder').map((i) => i.id)
-  return restoreItems(userId, fileIds, folderIds)
+  const itemIds = allItems.map((i) => i.id)
+  const itemTypes = allItems.map((i) => i.type)
+  return restoreItems(userId, itemIds, itemTypes)
 }
 
 export async function emptyAllTrash(userId: string) {
   const allItems = await listTrashItems(userId)
-  const fileIds = allItems.filter((i) => i.type === 'file').map((i) => i.id)
-  const folderIds = allItems.filter((i) => i.type === 'folder').map((i) => i.id)
-  return permanentDeleteItems(userId, fileIds, folderIds)
+  const itemIds = allItems.map((i) => i.id)
+  const itemTypes = allItems.map((i) => i.type)
+  return permanentDeleteItems(userId, itemIds, itemTypes)
 }

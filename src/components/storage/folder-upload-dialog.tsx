@@ -176,6 +176,8 @@ export function FolderUploadDialog({
       return
     }
 
+    onOpenChange(false)
+
     let uploadedCount = 0
     let failedCount = 0
 
@@ -201,7 +203,6 @@ export function FolderUploadDialog({
     }
 
     setSelectedFolders([])
-    onOpenChange(false)
     router.invalidate()
     await onUploadComplete()
     setIsUploading(false)

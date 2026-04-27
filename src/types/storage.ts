@@ -25,16 +25,20 @@ export type StorageFolder = {
 }
 
 export type StorageItem =
-  | ( StorageFile & { type: 'file' } )
-  | ( StorageFolder & { type: 'folder' } )
+  | (StorageFile & { type: 'file' })
+  | (StorageFolder & { type: 'folder' })
 
 export type UploadingFile = {
   id: string
   file?: File // Optional: for file uploads; undefined for folder-level entries
+  fileBlob?: Blob
+  fileName?: string
   targetFolderId?: string | null
   progress: number
   status: 'uploading' | 'completed' | 'failed'
   error?: string
+  relativePath?: string
+  folderUploadRootId?: string
   // Optional: For files belonging to a folder upload
   parentUploadId?: string
   // Optional: For folder-level entries

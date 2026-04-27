@@ -55,6 +55,17 @@ export function removeUpload(id: string): void {
 }
 
 /**
+ * Remove all uploads that belong to a folder root upload.
+ */
+export function removeUploadsByFolderRoot(folderUploadRootId: string): void {
+  uploadStore.setState((state) => ({
+    uploads: state.uploads.filter(
+      (u) => u.folderUploadRootId !== folderUploadRootId,
+    ),
+  }))
+}
+
+/**
  * Remove an upload and all its child uploads (e.g., files in a folder upload)
  */
 export function removeUploadWithChildren(id: string): void {

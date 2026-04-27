@@ -6,6 +6,7 @@ import {
 import { uploadFileViaProxy } from './upload-proxy-client'
 import { prepareUploadTarget } from './upload-target-server'
 import { updateUpload, uploadStore } from '@/lib/stores/upload-store'
+import type { UploadingFile } from '@/types/storage'
 
 const MIN_PART_SIZE_BYTES = 5 * 1024 * 1024
 const MAX_MULTIPART_PARTS = 10000
@@ -410,7 +411,12 @@ export async function retryUploadById(
     .getState()
     .uploads.find((currentUpload) => currentUpload.id === uploadId)
 
-  if (!upload?.file) {
+  if (!upload) {
+    return false
+  }
+
+  const retryFile = toRetryFile(upload)
+  if (!retryFile) {
     return false
   }
 
@@ -418,11 +424,14 @@ export async function retryUploadById(
     status: 'uploading',
     error: undefined,
     progress: 0,
+    file: retryFile,
+    fileBlob: retryFile.slice(0, retryFile.size, retryFile.type),
+    fileName: retryFile.name,
   })
 
   try {
     await uploadBatch(
-      [{ id: uploadId, file: upload.file }],
+      [{ id: uploadId, file: retryFile }],
       userId,
       upload.targetFolderId ?? null,
       1,
@@ -431,4 +440,19 @@ export async function retryUploadById(
   } catch {
     return false
   }
+}
+
+function toRetryFile(upload: UploadingFile): File | null {
+  if (upload.file) {
+    return upload.file
+  }
+
+  if (!upload.fileBlob) {
+    return null
+  }
+
+  const safeName = upload.fileName ?? 'retry-upload.bin'
+  return new File([upload.fileBlob], safeName, {
+    type: upload.fileBlob.type || 'application/octet-stream',
+  })
 }
