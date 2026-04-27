@@ -2,8 +2,14 @@ import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { getAuthenticatedUser, requireWritePermission } from '@/lib/server-auth'
 import { listTrashItems } from '@/lib/trash-queries'
-import { restoreItems, permanentDeleteItems } from '@/lib/trash-mutations'
+import {
+  restoreItems,
+  permanentDeleteItems,
+  restoreAllTrash,
+  emptyAllTrash,
+} from '@/lib/trash-mutations'
 import { withActivityLogging } from '@/lib/activity-logging'
+import { listTrashFolderContents } from '@/lib/trash-queries'
 
 export const listTrashItemsFn = createServerFn({ method: 'GET' }).handler(
   async () => {
@@ -66,3 +72,56 @@ export const permanentDeleteTrashItemsFn = createServerFn({ method: 'POST' })
       },
     )
   })
+
+export const listTrashFolderContentsFn = createServerFn({ method: 'GET' })
+  .inputValidator(
+    z.object({
+      parentFolderId: z.string().optional().nullable(),
+    }),
+  )
+  .handler(async ({ data }) => {
+    const user = await getAuthenticatedUser()
+    const items = await listTrashFolderContents(
+      user.id,
+      data.parentFolderId ?? null,
+    )
+    return { items }
+  })
+
+export const restoreAllTrashFn = createServerFn({ method: 'POST' }).handler(
+  async ({ context }) => {
+    const user = await getAuthenticatedUser()
+    return withActivityLogging(
+      user.id,
+      'file_restore',
+      {
+        tags: ['Trash', 'Files'],
+        meta: { all: true },
+      },
+      async () => {
+        requireWritePermission(user)
+        const result = await restoreAllTrash(user.id)
+        return result
+      },
+    )
+  },
+)
+
+export const emptyAllTrashFn = createServerFn({ method: 'POST' }).handler(
+  async ({ context }) => {
+    const user = await getAuthenticatedUser()
+    return withActivityLogging(
+      user.id,
+      'trash_empty',
+      {
+        tags: ['Trash'],
+        meta: { all: true },
+      },
+      async () => {
+        requireWritePermission(user)
+        const result = await emptyAllTrash(user.id)
+        return result
+      },
+    )
+  },
+)

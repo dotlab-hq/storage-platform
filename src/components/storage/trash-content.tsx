@@ -20,6 +20,7 @@ type TrashContentProps = {
   onToggleSelect: (id: string) => void
   onRestore: (id: string, type: 'file' | 'folder') => void
   onDelete: (id: string, type: 'file' | 'folder') => void
+  onFolderClick?: (id: string, name: string) => void
 }
 
 export function TrashContent({
@@ -29,6 +30,7 @@ export function TrashContent({
   onToggleSelect,
   onRestore,
   onDelete,
+  onFolderClick,
 }: TrashContentProps) {
   if (isLoading) {
     return (
@@ -73,7 +75,13 @@ export function TrashContent({
               className={cn(
                 'group relative rounded-lg border bg-card p-4 transition-colors hover:bg-muted/50',
                 isSelected && 'border-primary ring-1 ring-primary',
+                item.type === 'folder' && 'cursor-pointer',
               )}
+              onDoubleClick={() => {
+                if (item.type === 'folder') {
+                  onFolderClick?.(item.id, item.name)
+                }
+              }}
             >
               <div className="flex items-start gap-3">
                 <Checkbox

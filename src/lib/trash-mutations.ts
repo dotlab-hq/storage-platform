@@ -5,6 +5,7 @@ import {
   markFolderSubtreeDeleted,
 } from '@/lib/storage-btree/index'
 import { seedNodeById } from '@/lib/storage-btree/seed'
+import { listTrashItems } from './trash-queries'
 
 export async function restoreItems(
   userId: string,
@@ -143,4 +144,18 @@ export async function permanentDeleteItems(
     deletedFolders: folderIds.length,
     freedBytes,
   }
+}
+
+export async function restoreAllTrash(userId: string) {
+  const allItems = await listTrashItems(userId)
+  const fileIds = allItems.filter((i) => i.type === 'file').map((i) => i.id)
+  const folderIds = allItems.filter((i) => i.type === 'folder').map((i) => i.id)
+  return restoreItems(userId, fileIds, folderIds)
+}
+
+export async function emptyAllTrash(userId: string) {
+  const allItems = await listTrashItems(userId)
+  const fileIds = allItems.filter((i) => i.type === 'file').map((i) => i.id)
+  const folderIds = allItems.filter((i) => i.type === 'folder').map((i) => i.id)
+  return permanentDeleteItems(userId, fileIds, folderIds)
 }

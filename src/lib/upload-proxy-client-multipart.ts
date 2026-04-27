@@ -47,6 +47,39 @@ function uploadProxyPart(args: {
   })
 }
 
+// Simple semaphore to limit concurrent operations
+function createSemaphore(limit: number) {
+  let current = 0
+  const queue: (() => void)[] = []
+
+  const run = <T>(fn: () => Promise<T>): Promise<T> => {
+    return new Promise((resolve, reject) => {
+      const execute = async () => {
+        current++
+        try {
+          const result = await fn()
+          resolve(result)
+        } catch (err) {
+          reject(err)
+        } finally {
+          current--
+          if (queue.length > 0) {
+            const next = queue.shift()!
+            next()
+          }
+        }
+      }
+      if (current < limit) {
+        execute()
+      } else {
+        queue.push(execute)
+      }
+    })
+  }
+
+  return { run }
+}
+
 export async function uploadProxyMultipart(args: {
   uploadUrl: string
   providerId: string | null
@@ -60,6 +93,7 @@ export async function uploadProxyMultipart(args: {
   const partSize = computePartSize(file.size)
   const partCount = Math.ceil(file.size / partSize)
 
+  // Initiate multipart upload
   const initiateResponse = await fetch(uploadUrl, {
     method: 'POST',
     headers: {
@@ -81,44 +115,47 @@ export async function uploadProxyMultipart(args: {
     )
   }
 
-  const { uploadId } = (await initiateResponse.json()) as { uploadId?: string }
+  const data = await initiateResponse.json<{ uploadId: string }>()
+  const uploadId = data.uploadId
   if (!uploadId) {
     throw new Error('Proxy multipart init did not return an upload id')
   }
 
+  // Track per-part progress
   const loadedByPart = new Array<number>(partCount).fill(0)
   let totalLoaded = 0
-  let nextPartIndex = 0
 
-  const worker = async () => {
-    while (true) {
-      const currentIndex = nextPartIndex
-      nextPartIndex += 1
-      if (currentIndex >= partCount) return
+  // Wrapper to upload a single part with progress tracking
+  const uploadPart = async (partIndex: number): Promise<void> => {
+    const partNumber = partIndex + 1
+    const start = partIndex * partSize
+    const end = Math.min(start + partSize, file.size)
+    const chunk = file.slice(start, end)
 
-      const partNumber = currentIndex + 1
-      const start = currentIndex * partSize
-      const end = Math.min(start + partSize, file.size)
-      const chunk = file.slice(start, end)
-      await uploadProxyPart({
-        uploadUrl,
-        providerId,
-        objectKey,
-        uploadId,
-        partNumber,
-        chunk,
-        onPartProgress: (loadedBytes) => {
-          totalLoaded += loadedBytes - loadedByPart[currentIndex]
-          loadedByPart[currentIndex] = loadedBytes
-          onProgress(Math.min(99, Math.round((totalLoaded / file.size) * 100)))
-        },
-      })
-    }
+    await uploadProxyPart({
+      uploadUrl,
+      providerId,
+      objectKey,
+      uploadId,
+      partNumber,
+      chunk,
+      onPartProgress: (loadedBytes) => {
+        totalLoaded += loadedBytes - loadedByPart[partIndex]
+        loadedByPart[partIndex] = loadedBytes
+        onProgress(Math.min(99, Math.round((totalLoaded / file.size) * 100)))
+      },
+    })
   }
 
-  const workerCount = Math.min(PROXY_PART_CONCURRENCY, partCount)
-  await Promise.all(Array.from({ length: workerCount }, () => worker()))
+  // Preemptive concurrency pool: start next part as soon as any slot frees up
+  const semaphore = createSemaphore(PROXY_PART_CONCURRENCY)
+  const partPromises = Array.from({ length: partCount }, (_, i) =>
+    semaphore.run(() => uploadPart(i)),
+  )
 
+  await Promise.all(partPromises)
+
+  // Complete the multipart upload
   const completeResponse = await fetch(uploadUrl, {
     method: 'POST',
     headers: {

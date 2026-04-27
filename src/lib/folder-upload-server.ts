@@ -186,9 +186,72 @@ export const completeFolderUpload = createServerFn({ method: 'POST' })
           })
           .returning({ id: folder.id })
 
-        let totalUploadedSize = 0
+        // Map from directory path to its folder ID. Empty string represents the root folder.
+        const folderPathToId = new Map<string, string>()
+        folderPathToId.set('', createdFolder.id)
 
+        // If there are files, create any nested directories.
+        if (data.files.length > 0) {
+          // Collect all unique directory paths from the file names.
+          const dirPaths = new Set<string>()
+          for (const file of data.files) {
+            const fileName = file.fileName
+            const lastSlash = fileName.lastIndexOf('/')
+            if (lastSlash > 0) {
+              const dir = fileName.slice(0, lastSlash)
+              dirPaths.add(dir)
+            }
+          }
+
+          // Expand to all parent prefixes (e.g., "a/b" => include "a")
+          const allPaths: string[] = []
+          for (const dir of dirPaths) {
+            const parts = dir.split('/')
+            let prefix = ''
+            for (const part of parts) {
+              prefix = prefix ? `${prefix}/${part}` : part
+              if (!folderPathToId.has(prefix)) {
+                allPaths.push(prefix)
+              }
+            }
+          }
+
+          // Sort by depth so parents are created before children.
+          allPaths.sort((a, b) => a.split('/').length - b.split('/').length)
+
+          // Create subfolders.
+          for (const path of allPaths) {
+            const parentPath = path.includes('/')
+              ? path.substring(0, path.lastIndexOf('/'))
+              : ''
+            const parentId = folderPathToId.get(parentPath)!
+            const folderName = path.split('/').pop()!
+            const [newFolder] = await db
+              .insert(folder)
+              .values({
+                name: folderName,
+                userId: authUser.id,
+                parentFolderId: parentId,
+                isPrivatelyLocked,
+              })
+              .returning({ id: folder.id })
+            folderPathToId.set(path, newFolder.id)
+          }
+        }
+
+        // Insert files with correct parent folder.
+        let totalUploadedSize = 0
         for (const file of data.files) {
+          const fileName = file.fileName
+          const lastSlash = fileName.lastIndexOf('/')
+          let parentFolderId: string
+          if (lastSlash === -1) {
+            parentFolderId = createdFolder.id
+          } else {
+            const dir = fileName.slice(0, lastSlash)
+            parentFolderId = folderPathToId.get(dir)!
+          }
+
           const resolvedProviderId = await resolveProviderId(
             file.providerId ?? data.providerId,
           )
@@ -199,7 +262,7 @@ export const completeFolderUpload = createServerFn({ method: 'POST' })
             mimeType: file.mimeType || null,
             sizeInBytes: file.fileSize,
             userId: authUser.id,
-            folderId: createdFolder.id,
+            folderId: parentFolderId,
             providerId: resolvedProviderId,
             isPrivatelyLocked,
           })

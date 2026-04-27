@@ -7,15 +7,15 @@ import {
   useMemo,
   useTransition,
   useLayoutEffect,
+  useCallback,
 } from 'react'
-import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
-import { Separator } from '@/components/ui/separator'
-import { Trash2, RotateCcw, AlertTriangle } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { SidebarInset } from '@/components/ui/sidebar'
 import { useTrashData } from '@/hooks/use-trash-data'
 import { useFileSelectionStore } from '@/stores/file-selection-store'
-import { useShellView } from '@/components/shell/shell-actions-registry'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
+import { TrashHeader } from './trash-header'
+import { BulkActionBar } from './bulk-action-bar'
+import { useTrashShellActions } from './use-trash-shell-actions'
 
 const TrashContent = lazy(() =>
   import('@/components/storage/trash-content').then((m) => ({
@@ -30,13 +30,47 @@ const ConfirmDeleteModal = lazy(() =>
 )
 
 export function TrashPage() {
-  const trash = useTrashData()
+  // Navigation state for folder hierarchy (must be declared before useTrashData)
+  const [currentFolderId, setCurrentFolderId] = useState<string | undefined>(
+    undefined,
+  )
+  const [folderPath, setFolderPath] = useState<
+    Array<{ id: string; name: string }>
+  >([])
+
+  const trash = useTrashData({ parentFolderId: currentFolderId })
   const [, startTransition] = useTransition()
 
   // Use Zustand store for selection (shared across components)
   const selectedIds = useFileSelectionStore((s) => s.selectedIds)
   const toggleSelect = useFileSelectionStore((s) => s.toggleSelect)
   const clearSelection = useFileSelectionStore((s) => s.clearSelection)
+
+  // When navigating into a folder
+  const handleFolderClick = useCallback(
+    (folderId: string, folderName: string) => {
+      startTransition(() => {
+        clearSelection() // clear selection when navigating
+        setCurrentFolderId(folderId)
+        setFolderPath((prev) => [...prev, { id: folderId, name: folderName }])
+      })
+    },
+    [clearSelection],
+  )
+
+  // When clicking "Up" in breadcrumb
+  const handleNavigateUp = useCallback(() => {
+    startTransition(() => {
+      clearSelection()
+      if (folderPath.length === 0) {
+        setCurrentFolderId(undefined)
+      } else {
+        const newPath = folderPath.slice(0, -1)
+        setFolderPath(newPath)
+        setCurrentFolderId(newPath[newPath.length - 1]?.id)
+      }
+    })
+  }, [folderPath, clearSelection])
 
   // Local UI state for delete modal (trash-specific)
   const [deleteOpen, setDeleteOpen] = useState(false)
@@ -130,74 +164,24 @@ export function TrashPage() {
     }
   }
 
-  // Memoize shell actions
-  const trashShellActions = useMemo(
-    () => ({
-      commandActions: [],
-      contextActions: [
-        {
-          id: 'ctx-trash-restore-all',
-          label: 'Restore All',
-          onSelect: handleRestoreAll,
-        },
-        {
-          id: 'ctx-trash-empty',
-          label: 'Empty Trash',
-          onSelect: handleEmptyTrash,
-          destructive: true,
-        },
-      ],
-    }),
-    [handleRestoreAll, handleEmptyTrash],
-  )
-  useShellView('trash', trashShellActions)
+  // Register shell actions for command palette
+  useTrashShellActions(handleRestoreAll, handleEmptyTrash)
 
   return (
     <SidebarInset>
-      <header className="flex h-14 shrink-0 items-center justify-between gap-2 px-4">
-        <div className="flex items-center gap-2">
-          <SidebarTrigger className="-ml-1" />
-          <Separator
-            orientation="vertical"
-            className="mr-2 data-[orientation=vertical]:h-4"
-          />
-          <Trash2 className="text-muted-foreground h-4 w-4" />
-          <h1 className="text-sm font-semibold">Trash</h1>
-        </div>
-        {trash.items.length > 0 && (
-          <div className="flex items-center gap-2">
-            <Button size="sm" variant="outline" onClick={handleRestoreAll}>
-              <RotateCcw className="mr-1 h-3 w-3" />
-              Restore all
-            </Button>
-            <Button size="sm" variant="destructive" onClick={handleEmptyTrash}>
-              <AlertTriangle className="mr-1 h-3 w-3" />
-              Empty trash
-            </Button>
-          </div>
-        )}
-      </header>
-
-      {selectedCount > 0 && (
-        <div className="mx-4 mt-4 flex items-center justify-between rounded-lg border bg-muted/50 px-4 py-2">
-          <span className="text-sm font-medium">
-            {selectedCount} item{selectedCount !== 1 ? 's' : ''} selected
-          </span>
-          <div className="flex items-center gap-2">
-            <Button size="sm" variant="outline" onClick={handleBulkRestore}>
-              <RotateCcw className="mr-1 h-3 w-3" />
-              Restore
-            </Button>
-            <Button size="sm" variant="destructive" onClick={handleBulkDelete}>
-              <AlertTriangle className="mr-1 h-3 w-3" />
-              Delete
-            </Button>
-            <Button size="sm" variant="ghost" onClick={clearSelection}>
-              Cancel
-            </Button>
-          </div>
-        </div>
-      )}
+      <TrashHeader
+        onRestoreAll={handleRestoreAll}
+        onEmptyTrash={handleEmptyTrash}
+        itemCount={trash.items.length}
+        breadcrumbPath={folderPath}
+        onNavigateUp={handleNavigateUp}
+      />
+      <BulkActionBar
+        selectedCount={selectedCount}
+        onBulkRestore={handleBulkRestore}
+        onBulkDelete={handleBulkDelete}
+        onCancel={clearSelection}
+      />
 
       <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>
         <TrashContent
@@ -207,6 +191,7 @@ export function TrashPage() {
           onToggleSelect={toggleSelect}
           onRestore={handleRestoreOne}
           onDelete={handleDeleteOne}
+          onFolderClick={handleFolderClick}
         />
       </Suspense>
 

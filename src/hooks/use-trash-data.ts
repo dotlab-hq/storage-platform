@@ -1,17 +1,12 @@
-import {
-  useCallback,
-  useMemo,
-  useOptimistic,
-  useTransition,
-} from 'react'
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { useCallback, useMemo, useOptimistic, useTransition } from 'react'
 import { createClientOnlyFn } from '@tanstack/react-start'
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { authClient } from '@/lib/auth-client'
 import { toast } from '@/components/ui/sonner'
 import { STORAGE_QUERY_KEYS } from '@/lib/query-keys'
 import type { TrashItem } from '@/lib/trash-queries'
 import {
-  listTrashItemsFn,
+  listTrashFolderContentsFn,
   restoreTrashItemsFn,
   permanentDeleteTrashItemsFn,
 } from '@/lib/storage/mutations/trash'
@@ -25,18 +20,19 @@ const checkAuthClient = createClientOnlyFn(async () => {
   return data.user.id
 })
 
-export function useTrashData() {
+export function useTrashData(params: { parentFolderId?: string | null } = {}) {
+  const { parentFolderId = null } = params
   const queryClient = useQueryClient()
   const [isPending, startTransition] = useTransition()
 
   // Query for trash items
   const trashQuery = useQuery({
-    queryKey: STORAGE_QUERY_KEYS.trash,
+    queryKey: ['trash-items', parentFolderId],
     queryFn: async () => {
       const uid = await checkAuthClient()
       if (!uid) throw new Error('Not authenticated')
-      const data = await listTrashItemsFn()
-      return { items: data.items ?? [], userId: uid }
+      const data = await listTrashFolderContentsFn({ data: { parentFolderId } })
+      return { items: data.items, userId: uid }
     },
     staleTime: 10_000,
   })
@@ -87,7 +83,7 @@ export function useTrashData() {
     },
     onSettled: () => {
       void queryClient.invalidateQueries({
-        queryKey: STORAGE_QUERY_KEYS.trash,
+        queryKey: ['trash-items'],
       })
       void queryClient.invalidateQueries({
         queryKey: STORAGE_QUERY_KEYS.quota,
@@ -123,7 +119,7 @@ export function useTrashData() {
     },
     onSettled: () => {
       void queryClient.invalidateQueries({
-        queryKey: STORAGE_QUERY_KEYS.trash,
+        queryKey: ['trash-items'],
       })
       void queryClient.invalidateQueries({
         queryKey: STORAGE_QUERY_KEYS.quota,
@@ -133,7 +129,7 @@ export function useTrashData() {
 
   const refresh = useCallback(async () => {
     await queryClient.invalidateQueries({
-      queryKey: STORAGE_QUERY_KEYS.trash,
+      queryKey: ['trash-items'],
     })
   }, [queryClient])
 
