@@ -208,7 +208,7 @@ export async function POST({ request }: { request: Request }) {
       tools: availableTools,
       toolChoice: validated.tool_choice,
       responseFormat: validated.response_format,
-      streamDelayMs: 0,
+      streamDelayMs: validated.stream ? 1 : 0,
     }
 
     // Routing: Use orchestrated agent for streaming, standard for non-streaming

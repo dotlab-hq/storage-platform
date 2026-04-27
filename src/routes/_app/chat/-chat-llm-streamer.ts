@@ -131,7 +131,17 @@ export async function* generateAssistantReplyStream(
       const normalizedContent = normalizeOpenAiContent(rawContent)
 
       if (normalizedContent.reasoning) {
-        yield { type: 'reasoning', reasoning: normalizedContent.reasoning }
+        if (streamDelayMs > 0) {
+          for await (const char of streamWithCadence(
+            normalizedContent.reasoning,
+            signal,
+            streamDelayMs,
+          )) {
+            yield { type: 'reasoning', reasoning: char }
+          }
+        } else {
+          yield { type: 'reasoning', reasoning: normalizedContent.reasoning }
+        }
       }
 
       if (normalizedContent.text) {
