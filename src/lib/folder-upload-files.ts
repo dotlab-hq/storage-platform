@@ -23,9 +23,10 @@ type UploadFolderFilesArgs = {
   uploadId: string
   fileConcurrency: number
   maxAttempts: number
+  folderName?: string
 }
 
-async function uploadFolderFiles({
+async function uploadFolderFiles( {
   files,
   userId,
   rootFolderId,
@@ -33,94 +34,92 @@ async function uploadFolderFiles({
   uploadId,
   fileConcurrency,
   maxAttempts,
-}: UploadFolderFilesArgs): Promise<number> {
-  const uploadEntries = createUploadEntries(uploadId, rootFolderId, files)
-  const entryIdByPath = new Map<string, string>()
-  for (let i = 0; i < files.length; i += 1) {
-    entryIdByPath.set(files[i].name, uploadEntries[i].id)
-  }
-  setUploads((prev) => [...uploadEntries, ...prev])
+  folderName,
+}: UploadFolderFilesArgs ): Promise<number> {
+  const uploadEntries = createUploadEntries( uploadId, rootFolderId, files, folderName )
+  const folderEntryId = uploadEntries[0].id
+  setUploads( ( prev ) => [...uploadEntries, ...prev] )
 
   const folderIdsByPath = new Map<string, string>()
   const queue: FlatFolderFile[] = [...files]
   let succeeded = 0
 
+  const updateFolderProgress = ( uploadedCount: number ) => {
+    const totalCount = files.length
+    const progress = totalCount > 0 ? Math.round( ( uploadedCount / totalCount ) * 100 ) : 0
+    setUploads( ( prev ) =>
+      prev.map( ( u ) =>
+        u.id === folderEntryId
+          ? {
+            ...u,
+            progress,
+            uploadedFilesCount: uploadedCount,
+          }
+          : u,
+      ),
+    )
+  }
+
   const worker = async () => {
-    while (queue.length > 0) {
+    while ( queue.length > 0 ) {
       const fileData = queue.shift()
-      if (!fileData) break
-      const entryId = entryIdByPath.get(fileData.name)
-      if (!entryId) continue
+      if ( !fileData ) break
 
       let attempt = 0
       let lastError = 'Folder file upload failed'
-      while (attempt < maxAttempts) {
+      while ( attempt < maxAttempts ) {
         attempt += 1
         try {
-          const targetPath = getParentPath(fileData.name)
+          const targetPath = getParentPath( fileData.name )
           const targetFolderId = await resolvePathFolderId(
             targetPath,
             rootFolderId,
             folderIdsByPath,
-          )
-
-          setUploads((prev) =>
-            prev.map((u) =>
-              u.id === entryId
-                ? {
-                    ...u,
-                    status: 'uploading' as const,
-                    error: undefined,
-                    targetFolderId,
-                    folderUploadRootId: rootFolderId,
-                  }
-                : u,
-            ),
+            userId,
           )
 
           await uploadFileToS3(
             fileData.file,
             userId,
             targetFolderId,
-            (progress) => {
-              setUploads((prev) =>
-                prev.map((u) => (u.id === entryId ? { ...u, progress } : u)),
-              )
+            ( _progress ) => {
+              // Individual file progress not needed - folder shows aggregate
             },
           )
 
-          setUploads((prev) =>
-            prev.map((u) =>
-              u.id === entryId
-                ? { ...u, progress: 100, status: 'completed' as const }
-                : u,
-            ),
-          )
           succeeded += 1
+          updateFolderProgress( succeeded )
           break
-        } catch (error: unknown) {
+        } catch ( error: unknown ) {
           lastError =
             error instanceof Error ? error.message : 'Folder file upload failed'
         }
       }
-
-      if (attempt >= maxAttempts) {
-        setUploads((prev) =>
-          prev.map((u) =>
-            u.id === entryId
-              ? { ...u, status: 'failed' as const, error: lastError }
-              : u,
-          ),
-        )
-      }
     }
   }
 
-  await Promise.all(Array.from({ length: fileConcurrency }, () => worker()))
+  await Promise.all( Array.from( { length: fileConcurrency }, () => worker() ) )
+
+  // Final status update
+  const allSucceeded = succeeded === files.length
+  setUploads( ( prev ) =>
+    prev.map( ( u ) =>
+      u.id === folderEntryId
+        ? {
+          ...u,
+          progress: 100,
+          status: allSucceeded ? 'completed' : 'failed',
+          uploadedFilesCount: succeeded,
+          error: allSucceeded ? undefined : 'Some files failed to upload',
+        }
+        : u,
+    ),
+  )
+
   return succeeded
 }
 
-export async function uploadFolderFromFiles({
+export async function uploadFolderFromFiles( {
   folderName,
   files,
   userId,
@@ -137,17 +136,17 @@ export async function uploadFolderFromFiles({
     fileConcurrency?: number
     maxAttempts?: number
   }
-}): Promise<FolderUploadResult> {
+} ): Promise<FolderUploadResult> {
   const uploadId = crypto.randomUUID()
-  const fileMap = await computeFilesHashes(files)
-  const flatFiles = flattenFileMap(fileMap)
-  if (flatFiles.length === 0) {
+  const fileMap = await computeFilesHashes( files )
+  const flatFiles = flattenFileMap( fileMap )
+  if ( flatFiles.length === 0 ) {
     return { success: false, error: 'No files found in folder' }
   }
 
-  const { folder: rootFolder } = await createFolderFn({
+  const { folder: rootFolder } = await createFolderFn( {
     data: { name: folderName, parentFolderId },
-  })
+  } )
 
   const fileConcurrency = Math.max(
     1,
@@ -161,7 +160,7 @@ export async function uploadFolderFromFiles({
     options?.maxAttempts ?? DEFAULT_FILE_UPLOAD_ATTEMPTS,
   )
 
-  const succeeded = await uploadFolderFiles({
+  const succeeded = await uploadFolderFiles( {
     files: flatFiles,
     userId,
     rootFolderId: rootFolder.id,
@@ -169,18 +168,19 @@ export async function uploadFolderFromFiles({
     uploadId,
     fileConcurrency,
     maxAttempts,
-  })
+    folderName,
+  } )
 
   return succeeded > 0
     ? {
-        success: true,
-        folderId: rootFolder.id,
-        folderName,
-        filesCount: succeeded,
-      }
+      success: true,
+      folderId: rootFolder.id,
+      folderName,
+      filesCount: succeeded,
+    }
     : {
-        success: false,
-        folderName,
-        error: 'All files failed to upload',
-      }
+      success: false,
+      folderName,
+      error: 'All files failed to upload',
+    }
 }
