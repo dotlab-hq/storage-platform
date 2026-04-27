@@ -54,7 +54,7 @@ export function UserFilesModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="flex h-[90vh] max-w-5xl flex-col gap-0 overflow-hidden p-0">
+      <DialogContent className="flex h-[94vh] w-[min(98vw,1540px)] max-w-[1540px] flex-col gap-0 overflow-hidden p-0">
         <DialogHeader className="border-b bg-linear-to-br from-background via-background to-muted/20 px-6 py-5">
           <DialogTitle className="text-xl font-semibold">
             {user.name}'s Files

@@ -93,10 +93,7 @@ function resolveCompatEndpoint(): string {
 }
 
 function resolveCompatRegion(): string {
-  const region = process.env.S3_COMPAT_REGION?.trim()
-  if (region && region.length > 0) {
-    return region
-  }
+  // Hardcoded default - no environment variable lookup
   return 'us-east-1'
 }
 

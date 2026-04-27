@@ -1,4 +1,4 @@
-import { and, eq, like } from 'drizzle-orm'
+import { and, eq, inArray, like } from 'drizzle-orm'
 import { db } from '@/db'
 import { storageNodeBtree } from '@/db/schema/storage-btree'
 import { joinPath, normalizePath } from '@/lib/storage-btree/path'
@@ -12,38 +12,38 @@ export type BtreeListedObject = {
   lastModified: Date
 }
 
-function stripBasePath( fullPath: string, basePath: string ): string {
-  const base = normalizePath( basePath )
-  if ( !base ) return fullPath
+function stripBasePath(fullPath: string, basePath: string): string {
+  const base = normalizePath(basePath)
+  if (!base) return fullPath
   const prefix = `${base}/`
-  if ( fullPath === base ) return ''
-  if ( fullPath.startsWith( prefix ) ) {
-    return fullPath.slice( prefix.length )
+  if (fullPath === base) return ''
+  if (fullPath.startsWith(prefix)) {
+    return fullPath.slice(prefix.length)
   }
   return fullPath
 }
 
-export async function listObjectsByBtree( input: {
+export async function listObjectsByBtree(input: {
   userId: string
   mappedFolderId: string | null
   prefix: string
-} ): Promise<BtreeListedObject[]> {
+}): Promise<BtreeListedObject[]> {
   try {
-    if ( input.mappedFolderId ) {
-      const base = await resolveFolderPath( input.userId, input.mappedFolderId )
-      if ( !base ) {
-        await seedNodeById( input.userId, 'folder', input.mappedFolderId )
+    if (input.mappedFolderId) {
+      const base = await resolveFolderPath(input.userId, input.mappedFolderId)
+      if (!base) {
+        await seedNodeById(input.userId, 'folder', input.mappedFolderId)
       }
     }
 
     const basePath = input.mappedFolderId
-      ? await resolveFolderPath( input.userId, input.mappedFolderId )
+      ? await resolveFolderPath(input.userId, input.mappedFolderId)
       : ''
-    if ( input.mappedFolderId && basePath.length === 0 ) {
+    if (input.mappedFolderId && basePath.length === 0) {
       return []
     }
-    const requestedPrefix = normalizePath( input.prefix )
-    const fullPrefix = joinPath( basePath, requestedPrefix )
+    const requestedPrefix = normalizePath(input.prefix)
+    const fullPrefix = joinPath(basePath, requestedPrefix)
     const likePattern =
       fullPrefix.length === 0
         ? '%'
@@ -52,41 +52,52 @@ export async function listObjectsByBtree( input: {
           : `${fullPrefix}%`
 
     const rows = await db
-      .select( {
+      .select({
+        nodeType: storageNodeBtree.nodeType,
         fullPath: storageNodeBtree.fullPath,
         sizeInBytes: storageNodeBtree.sizeInBytes,
         etag: storageNodeBtree.etag,
         lastModified: storageNodeBtree.lastModified,
-      } )
-      .from( storageNodeBtree )
+      })
+      .from(storageNodeBtree)
       .where(
         and(
-          eq( storageNodeBtree.userId, input.userId ),
-          eq( storageNodeBtree.nodeType, 'file' ),
-          eq( storageNodeBtree.isDeleted, false ),
-          like( storageNodeBtree.fullPath, likePattern ),
+          eq(storageNodeBtree.userId, input.userId),
+          inArray(storageNodeBtree.nodeType, ['file', 'folder']),
+          eq(storageNodeBtree.isDeleted, false),
+          like(storageNodeBtree.fullPath, likePattern),
         ),
       )
 
     return rows
       .filter(
-        ( row ): row is typeof row & { fullPath: string } =>
+        (row): row is typeof row & { fullPath: string } =>
           typeof row.fullPath === 'string' && row.fullPath.length > 0,
       )
-      .map( ( row ) => {
-        const relativeKey = stripBasePath( row.fullPath, basePath )
+      .map((row) => {
+        const relativePath = stripBasePath(row.fullPath, basePath)
+        const key =
+          row.nodeType === 'folder' ? `${relativePath}/` : relativePath
         return {
-          key: relativeKey,
+          key,
           size:
-            typeof row.sizeInBytes === 'number' && Number.isFinite( row.sizeInBytes )
-              ? row.sizeInBytes
-              : 0,
-          eTag: row.etag ?? null,
-          lastModified: row.lastModified ?? new Date( 0 ),
+            row.nodeType === 'folder'
+              ? 0
+              : typeof row.sizeInBytes === 'number' &&
+                  Number.isFinite(row.sizeInBytes)
+                ? row.sizeInBytes
+                : 0,
+          eTag: row.nodeType === 'folder' ? null : (row.etag ?? null),
+          lastModified: row.lastModified ?? new Date(0),
         }
-      } )
-      .filter( ( row ) => row.key.startsWith( requestedPrefix ) )
-  } catch ( error ) {
+      })
+      .filter((row) => {
+        if (row.key.length === 0) {
+          return false
+        }
+        return row.key.startsWith(requestedPrefix)
+      })
+  } catch (error) {
     const message =
       error instanceof Error
         ? `${error.name}: ${error.message}`

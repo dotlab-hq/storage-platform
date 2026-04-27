@@ -236,7 +236,7 @@ export function useS3BucketViewer(
     async (event: React.ChangeEvent<HTMLInputElement>) => {
       const file = event.target.files?.[0]
       if (!file) return
-      const uploadingId = `${Date.now()}-${file.name}`
+      const uploadingId = crypto.randomUUID()
       try {
         await uploadMutation.mutateAsync({ file, uploadingId })
       } finally {

@@ -78,6 +78,12 @@ export async function getViewerClient(
     )
   }
 
+  console.log('[getViewerClient] Creating client:', {
+    bucketName,
+    region: credentials.region,
+    endpoint: credentials.endpoint,
+  })
+
   const requestScopedEndpoint = resolveRequestScopedEndpoint(
     credentials.endpoint,
     getRequestOrigin(),

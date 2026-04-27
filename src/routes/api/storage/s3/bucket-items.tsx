@@ -15,9 +15,16 @@ function errorToMessage(error: unknown): string {
     return error.issues[0]?.message ?? 'Invalid request'
   }
   if (error instanceof Error) {
+    // Log full error for debugging
+    console.error('[bucket-items] Error:', {
+      message: error.message,
+      stack: error.stack,
+      name: error.name,
+    })
     return error.message
   }
-  return 'Failed to list bucket files'
+  console.error('[bucket-items] Unknown error:', error)
+  return 'Unknown error occurred'
 }
 
 export const Route = createFileRoute('/api/storage/s3/bucket-items')({

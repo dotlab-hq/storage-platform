@@ -150,32 +150,28 @@ export function ProviderContentsPanel({ viewer }: ProviderContentsPanelProps) {
               </div>
             </div>
             <div className="divide-y">
-              {viewer.folders.map((folder) => (
-                <button
-                  key={folder.prefix}
-                  type="button"
-                  onClick={() => viewer.setPrefix(folder.prefix)}
-                  className="group flex w-full items-center px-4 py-3 text-left transition-colors hover:bg-muted/50"
-                >
-                  <div className="mr-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50">
-                    <Folder className="h-5 w-5 text-amber-500" />
+              {viewer.folders.length > 0 ? (
+                <div className="border-b p-4">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Folders
+                  </p>
+                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+                    {viewer.folders.map((folder) => (
+                      <button
+                        key={folder.prefix}
+                        type="button"
+                        className="rounded-2xl border bg-background/50 p-3 text-left transition-colors hover:bg-muted/30"
+                        onClick={() => viewer.setPrefix(folder.prefix)}
+                      >
+                        <Folder className="mb-2 h-6 w-6 text-amber-500" />
+                        <p className="truncate text-sm font-semibold">
+                          {folder.name}
+                        </p>
+                      </button>
+                    ))}
                   </div>
-                  <div className="mr-4 min-w-0 flex-1">
-                    <p className="truncate text-sm font-medium text-foreground">
-                      {folder.name}
-                    </p>
-                    <p className="truncate text-xs text-muted-foreground">
-                      {folder.prefix}
-                    </p>
-                  </div>
-                  <div className="w-28 text-right text-sm text-muted-foreground">
-                    -
-                  </div>
-                  <div className="w-32 text-right text-sm text-muted-foreground">
-                    -
-                  </div>
-                </button>
-              ))}
+                </div>
+              ) : null}
               {viewer.files.map((file) => (
                 <div
                   key={file.key}

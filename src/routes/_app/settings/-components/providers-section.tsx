@@ -482,7 +482,7 @@ export function ProvidersSection({
           }
         }}
       >
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="w-[min(96vw,1100px)] max-w-[1100px]">
           <DialogHeader>
             <DialogTitle>
               {editingProvider

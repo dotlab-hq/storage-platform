@@ -89,19 +89,31 @@ export type ListedS3Object = {
 }
 
 async function hasBucketObjects(bucket: BucketContext): Promise<boolean> {
-  const objectKeyPrefix = `s3/${bucket.userId}/${bucket.bucketId}/%`
-  const rows = await db
-    .select({ id: file.id })
-    .from(file)
-    .where(
-      and(
-        eq(file.userId, bucket.userId),
-        eq(file.isDeleted, false),
-        like(file.objectKey, objectKeyPrefix),
-      ),
+  try {
+    const objectKeyPrefix = `s3/${bucket.userId}/${bucket.bucketId}/%`
+    const rows = await db
+      .select({ id: file.id })
+      .from(file)
+      .where(
+        and(
+          eq(file.userId, bucket.userId),
+          eq(file.isDeleted, false),
+          like(file.objectKey, objectKeyPrefix),
+        ),
+      )
+      .limit(1)
+    return rows.length > 0
+  } catch (error) {
+    const message =
+      error instanceof Error
+        ? `${error.name}: ${error.message}`
+        : 'Unknown hasBucketObjects query error'
+    console.warn(
+      '[S3 Gateway] hasBucketObjects fallback to backfill/traversal due to schema mismatch:',
+      message,
     )
-    .limit(1)
-  return rows.length > 0
+    return true
+  }
 }
 
 export async function listObjectsV2(
@@ -259,7 +271,7 @@ export async function putObject(
 
   if (isDirectory) {
     // Just create the directory structure, do not upload to S3
-    return `"{empty-${Date.now()}}"`
+    return '"empty-dir"'
   }
 
   const provider = await selectProviderForUpload(

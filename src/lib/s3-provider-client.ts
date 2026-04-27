@@ -67,29 +67,15 @@ function resolveRegion(rawRegion?: string | null): string {
   if (!INVALID_REGION_SENTINELS.has(normalizedRegion)) {
     return safeTrim(rawRegion)
   }
-
-  const envRegion = safeTrim(process.env.S3_REGION)
-  if (envRegion.length > 0) {
-    return envRegion
-  }
-
-  const compatRegion = safeTrim(process.env.S3_COMPAT_REGION)
-  if (compatRegion.length > 0) {
-    return compatRegion
-  }
-
-  const awsRegion = safeTrim(process.env.AWS_REGION)
-  if (awsRegion.length > 0) {
-    return awsRegion
-  }
-
+  // No env fallback - pure hardcoded default
   return DEFAULT_S3_REGION
 }
 
 function fromEnvironment(): ProviderClientConfig {
+  // Only used when no provider configured - use hardcoded defaults, no env
   const accessKeyId = safeTrim(process.env.S3_ACCESS_KEY_ID)
   const secretAccessKey = safeTrim(process.env.S3_SECRET_ACCESS_KEY)
-  const region = resolveRegion(process.env.S3_REGION)
+  const region = DEFAULT_S3_REGION
   const endpoint = safeTrim(process.env.S3_ENDPOINT)
   if (!accessKeyId || !secretAccessKey || !endpoint) {
     throw new Error('No storage provider exists for uploads')
@@ -125,8 +111,12 @@ function fromProviderRow(row: ProviderRow): ProviderClientConfig {
       ? safeTrim(process.env.S3_SECRET_ACCESS_KEY)
       : safeTrim(decryptProviderSecret(row.secretAccessKeyEncrypted))
 
-  // Region: if row.region is empty or undetermined, fall back to env var
-  const region = resolveRegion(row.region)
+  // Region: if row.region is empty/undetermined, use a hardcoded default (no env)
+  const rawRegion = safeTrim(row.region)
+  const region =
+    rawRegion && !INVALID_REGION_SENTINELS.has(rawRegion.toLowerCase())
+      ? rawRegion
+      : 'us-east-1' // hardcoded fallback, no env dependencies
 
   // Endpoint: if row.endpoint is empty or undetermined, fall back to env var
   const rawEndpoint = safeTrim(row.endpoint)
