@@ -73,10 +73,7 @@ export function UploadWidget() {
     const retryableIds = uploads
       .filter(
         (upload) =>
-          upload.status === 'failed' &&
-          !!upload.file &&
-          !upload.folderName &&
-          !upload.parentUploadId,
+          upload.status === 'failed' && !!upload.file && !upload.folderName,
       )
       .map((upload) => upload.id)
 
@@ -258,11 +255,7 @@ export function UploadWidget() {
                 <div key={upload.id} className="relative group">
                   <UploadingCard
                     upload={upload}
-                    onRetry={
-                      !upload.folderName && !upload.parentUploadId
-                        ? handleRetryUpload
-                        : undefined
-                    }
+                    onRetry={!upload.folderName ? handleRetryUpload : undefined}
                     variant="compact"
                     onRemove={() => {
                       if (upload.folderName) {

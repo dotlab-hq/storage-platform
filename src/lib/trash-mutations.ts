@@ -24,6 +24,48 @@ export async function restoreItems(
     else folderIds.push(itemIds[i])
   }
 
+  // For folders, collect all descendant folder IDs to restore their files too
+  const allFolderIdsToRestore = new Set(folderIds)
+  if (folderIds.length > 0) {
+    const visitedFolderIds = new Set(folderIds)
+    let toProcess: string[] = [...folderIds]
+    let depth = 0
+
+    while (toProcess.length > 0) {
+      const children = await db
+        .select({ id: folder.id })
+        .from(folder)
+        .where(
+          and(
+            eq(folder.userId, userId),
+            eq(folder.isDeleted, true),
+            inArray(folder.parentFolderId, toProcess),
+          ),
+        )
+      const childIds = children
+        .map((c) => c.id)
+        .filter((childId) => {
+          if (visitedFolderIds.has(childId)) {
+            return false
+          }
+          visitedFolderIds.add(childId)
+          return true
+        })
+
+      if (childIds.length === 0) {
+        break
+      }
+
+      childIds.forEach((id) => allFolderIdsToRestore.add(id))
+      toProcess = childIds
+      depth += 1
+
+      if (depth > 1024) {
+        throw new Error('Folder restore traversal exceeded safe depth')
+      }
+    }
+  }
+
   await Promise.all([
     ...fileIds.map((id) =>
       db
@@ -39,11 +81,36 @@ export async function restoreItems(
     ),
   ])
 
+  // Restore all descendant files of the restored folders
+  if (allFolderIdsToRestore.size > 0) {
+    await db
+      .update(storageFile)
+      .set({ isDeleted: false, deletedAt: null })
+      .where(
+        and(
+          inArray(storageFile.folderId, Array.from(allFolderIdsToRestore)),
+          eq(storageFile.userId, userId),
+        ),
+      )
+  }
+
   await Promise.all(fileIds.map((id) => seedNodeById(userId, 'file', id)))
   for (const id of folderIds) {
     await seedNodeById(userId, 'folder', id)
     await markFolderSubtreeDeleted(userId, id, false)
   }
+
+  // Also seed the btree for all descendant files that were just restored
+  const filesToSeed = await db
+    .select({ id: storageFile.id })
+    .from(storageFile)
+    .where(
+      and(
+        inArray(storageFile.folderId, Array.from(allFolderIdsToRestore)),
+        eq(storageFile.userId, userId),
+      ),
+    )
+  await Promise.all(filesToSeed.map((f) => seedNodeById(userId, 'file', f.id)))
 
   const { invalidateFolderCache, invalidateQuotaCache } =
     await import('@/lib/cache-invalidation')
