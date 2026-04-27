@@ -3,16 +3,13 @@ import { db } from '@/db'
 import { chatMessage, chatThread } from '@/db/schema/chat'
 import { and, eq } from 'drizzle-orm'
 import { openAIMessagesToLangChain } from '@/routes/_app/chat/-converters'
-import {
-  getToolsByName,
-  getAllTools,
-} from '@/routes/_app/chat/tools/-tool-registry'
+import { getAllTools } from '@/routes/_app/chat/tools/-tool-registry'
 import { getFilteredTools } from '@/routes/_app/chat/tools/-tool-registry-scoped'
 import { OpenAIChatCompletionsSchema } from '../-schemas'
 import type { LLMStreamParams } from '@/routes/_app/chat/-chat-llm-streamer'
 import { handleNonStreamingResponse } from './-non-streaming-handler'
+import { handleStreamingResponse } from './-streaming-handler'
 import { handleDeepAgentStream } from './-deep-agent-stream-handler'
-import { handleOrchestratedAgentStream } from './-orchestrated-stream-handler'
 import { getUserFromApiKey } from './-auth-helpers'
 import { createExternalPassthroughTools } from './-external-tools'
 import { createFileRoute } from '@tanstack/react-router'
@@ -96,23 +93,19 @@ export async function POST({ request }: { request: Request }) {
     const user = currentUser ?? apiKeyUser!
     const apiKeyPermissions = apiKeyUser?.permissions || null
 
-    // Determine tools based on permissions (scope-based)
-    const initialAvailableTools =
+    // Internal tools stay available even when external tools are requested.
+    const internalAvailableTools =
       apiKeyUser && apiKeyPermissions
         ? getFilteredTools(apiKeyPermissions)
-        : validated.tools && validated.tools.length > 0
-          ? getToolsByName(validated.tools.map((t) => t.function.name))
-          : getAllTools()
-
-    if (validated.tools && validated.tools.length > 0 && !apiKeyUser) {
-      // Append external passthrough tools for session auth
-      const externalPassthroughTools = createExternalPassthroughTools(
-        validated.tools,
-        initialAvailableTools.map((tool) => tool.name),
-      )
-      // Use array spread to combine
-      initialAvailableTools.push(...externalPassthroughTools)
-    }
+        : getAllTools()
+    const externalPassthroughTools = createExternalPassthroughTools(
+      validated.tools,
+      internalAvailableTools.map((tool) => tool.name),
+    )
+    const availableTools = [
+      ...internalAvailableTools,
+      ...externalPassthroughTools,
+    ]
 
     console.log(
       '[Chat] User:',
@@ -120,7 +113,7 @@ export async function POST({ request }: { request: Request }) {
       '| Auth:',
       apiKeyUser ? 'API Key' : 'Session',
       '| Tools:',
-      initialAvailableTools.map((t) => t.name),
+      availableTools.map((t) => t.name),
       '| Scopes:',
       apiKeyPermissions,
     )
@@ -195,28 +188,8 @@ export async function POST({ request }: { request: Request }) {
       })
       .returning({ id: chatMessage.id })
 
-    // Determine tools - always include default tools if none specified
-    const requestedToolNames =
-      validated.tools?.map((t) => t.function.name) || []
-    const internalTools = getToolsByName(requestedToolNames)
-    const externalPassthroughTools = createExternalPassthroughTools(
-      validated.tools,
-      internalTools.map((tool) => tool.name),
-    )
-    let availableTools = [...internalTools, ...externalPassthroughTools]
-
-    // If no tools explicitly requested, provide all available tools by default
-    if (requestedToolNames.length === 0) {
-      availableTools = getAllTools()
-      console.log('[Chat] No tools requested, enabling all available tools')
-    }
-
-    console.log(
-      '[Chat] Requested tools:',
-      requestedToolNames,
-      '| Resolved:',
-      availableTools.map((t) => t.name),
-    )
+    const requestedToolNames = validated.tools?.map((t) => t.function.name) || []
+    console.log('[Chat] Requested tools:', requestedToolNames)
 
     const stopSequences =
       typeof validated.stop === 'string'
@@ -232,7 +205,7 @@ export async function POST({ request }: { request: Request }) {
       maxOutputTokens: validated.max_tokens,
       stopSequences,
       seed: validated.seed,
-      tools: initialAvailableTools,
+      tools: availableTools,
       toolChoice: validated.tool_choice,
       responseFormat: validated.response_format,
       streamDelayMs: 0,
@@ -258,8 +231,8 @@ export async function POST({ request }: { request: Request }) {
           model: validated.model,
         })
       } else {
-        // New Orchestrated Multi-Agent system
-        return handleOrchestratedAgentStream({
+        // OpenAI-compatible streaming with iterative tool execution
+        return handleStreamingResponse({
           messages: langchainMessages,
           params: llmParams,
           threadId,
@@ -271,9 +244,7 @@ export async function POST({ request }: { request: Request }) {
       }
     } else {
       if (useDeepAgentLegacy) {
-        console.warn(
-          '[Chat] Legacy DeepAgent non-streaming not supported, falling back to standard',
-        )
+        console.warn('[Chat] DeepAgent requested for non-streaming, using standard')
       }
       return handleNonStreamingResponse({
         messages: langchainMessages,

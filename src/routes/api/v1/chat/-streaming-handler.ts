@@ -15,6 +15,7 @@ import { refreshThreadLatestMessage } from '@/routes/_app/chat/-chat-server-db'
 import type { LLMStreamParams } from '@/routes/_app/chat/-chat-llm-streamer'
 import type { OpenAiToolCall } from '@/routes/api/v1/-schemas'
 import { customAlphabet } from 'nanoid'
+import type { ToolExecutionContext } from '@/routes/_app/chat/tools/-tool-types'
 
 const nanoid = customAlphabet('0123456789abcdef', 21)
 
@@ -48,10 +49,12 @@ function parseToolArguments(argStr: string): Record<string, unknown> {
  */
 export async function handleStreamingResponse(params: StreamingHandlerParams) {
   const encoder = new TextEncoder()
+  const completionId = `chatcmpl-${nanoid()}`
 
   // ToolOrchestrator creation
-  const { ToolOrchestrator, createDefaultOrchestrator } =
-    await import('@/routes/_app/chat/tools/-tool-orchestrator')
+  const { createDefaultOrchestrator } = await import(
+    '@/routes/_app/chat/tools/-tool-orchestrator'
+  )
   const orchestrator = createDefaultOrchestrator()
 
   // Register enhanced tools
@@ -112,7 +115,7 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                   encoder.encode(
                     toSseEvent(
                       toOpenAiChunk({
-                        id: `chatcmpl-${assistantMessageId || 'pending'}`,
+                        id: completionId,
                         created: Math.floor(Date.now() / 1000),
                         model: params.model,
                         delta: { role: 'assistant' },
@@ -129,7 +132,7 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                   encoder.encode(
                     toSseEvent(
                       toOpenAiChunk({
-                        id: `chatcmpl-${assistantMessageId || 'pending'}`,
+                        id: completionId,
                         created: Math.floor(Date.now() / 1000),
                         model: params.model,
                         delta: { content: chunk.content },
@@ -143,7 +146,7 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                   encoder.encode(
                     toSseEvent(
                       toOpenAiChunk({
-                        id: `chatcmpl-${assistantMessageId || 'pending'}`,
+                        id: completionId,
                         created: Math.floor(Date.now() / 1000),
                         model: params.model,
                         delta: { reasoning_content: chunk.reasoning },
@@ -160,7 +163,7 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                   encoder.encode(
                     toSseEvent(
                       toOpenAiChunk({
-                        id: `chatcmpl-${assistantMessageId || 'pending'}`,
+                        id: completionId,
                         created: Math.floor(Date.now() / 1000),
                         model: params.model,
                         delta: { content: `\n\n[Error: ${errorMessage}]` },
@@ -233,7 +236,7 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                       encoder.encode(
                         toSseEvent(
                           toOpenAiChunk({
-                            id: `chatcmpl-${assistantMessageId || 'pending'}`,
+                            id: completionId,
                             created: toolCallCreated,
                             model: params.model,
                             delta: {
@@ -322,21 +325,7 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
 
                     const executions = await orchestrator.execute(
                       internalToolCalls,
-                      {
-                        onProgress: (progress) => {
-                          // Optional: stream progress updates to client
-                          controller.enqueue(
-                            encoder.encode(
-                              toSseEvent({
-                                type: 'tool_progress',
-                                tool_name: progress.message.split(' ')[0] || '',
-                                elapsed_time_seconds: 0,
-                                progress,
-                              } as any),
-                            ),
-                          )
-                        },
-                      },
+                      context,
                     )
 
                     // Save results & build messages
@@ -395,7 +384,7 @@ export async function handleStreamingResponse(params: StreamingHandlerParams) {
                       encoder.encode(
                         toSseEvent(
                           toOpenAiChunkWithUsage({
-                            id: `chatcmpl-${assistantMessageId}`,
+                            id: completionId,
                             created: Math.floor(Date.now() / 1000),
                             model: params.model,
                             usage: finalUsage,
