@@ -70,6 +70,14 @@ export async function getViewerClient(
 ): Promise<ViewerClient> {
   const user = await getAuthenticatedUser()
   const credentials = await getVirtualBucketCredentials(user.id, bucketName)
+
+  // Defensive: credentials must have a valid region
+  if (!credentials.region || !credentials.region.trim()) {
+    throw new Error(
+      `S3 region is missing for bucket ${bucketName}. Check bucket configuration.`,
+    )
+  }
+
   const requestScopedEndpoint = resolveRequestScopedEndpoint(
     credentials.endpoint,
     getRequestOrigin(),

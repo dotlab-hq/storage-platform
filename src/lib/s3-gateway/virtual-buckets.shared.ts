@@ -112,7 +112,7 @@ export function createBucketCredentials(
     .digest('hex')
   const compactBucketId = bucketId.replaceAll('-', '').slice(0, 20)
 
-  // Treat empty or whitespace-only region as missing, fallback to env/default
+  // Always ensure region is non-empty: use provided (trimmed), else fallback
   const effectiveRegion =
     region && region.trim() ? region.trim() : resolveCompatRegion()
 

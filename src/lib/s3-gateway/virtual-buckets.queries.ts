@@ -37,11 +37,17 @@ export async function getVirtualBucketCredentials(
     throw new Error('Virtual bucket not found')
   }
 
-  return createBucketCredentials(
-    userId,
-    row.id,
-    row.name,
-    row.credentialVersion,
-    row.region,
-  )
+  // Ensure region is never empty - normalize at the source
+  const region = row.region?.trim() || resolveCompatRegion()
+
+  return {
+    ...createBucketCredentials(
+      userId,
+      row.id,
+      row.name,
+      row.credentialVersion,
+      region,
+    ),
+    region, // override with normalized region
+  }
 }

@@ -10,8 +10,11 @@ import { requireAuthenticatedServerOnlySession } from '@/lib/server-auth'
 const BUCKET_NAME = 'dot-storage'
 
 const s3Client = new S3Client({
-  region: process.env.S3_REGION,
-  endpoint: process.env.S3_ENDPOINT,
+  region:
+    process.env.S3_REGION?.trim() ||
+    process.env.S3_COMPAT_REGION?.trim() ||
+    'us-east-1',
+  endpoint: process.env.S3_ENDPOINT!,
   forcePathStyle: true,
   bucketEndpoint: false,
 

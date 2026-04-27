@@ -59,6 +59,13 @@ export async function listBucketItems(
     params.bucketName,
   )
 
+  // Defensive: ensure region is never empty
+  if (!credentials.region || !credentials.region.trim()) {
+    throw new Error(
+      `S3 region is missing for bucket ${params.bucketName}. Check provider configuration.`,
+    )
+  }
+
   const client = new S3Client({
     region: credentials.region,
     endpoint: credentials.endpoint,
