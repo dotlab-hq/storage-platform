@@ -112,11 +112,15 @@ export function createBucketCredentials(
     .digest('hex')
   const compactBucketId = bucketId.replaceAll('-', '').slice(0, 20)
 
+  // Treat empty or whitespace-only region as missing, fallback to env/default
+  const effectiveRegion =
+    region && region.trim() ? region.trim() : resolveCompatRegion()
+
   return {
     accessKeyId: `sp_${compactBucketId}`,
     secretAccessKey: `${digest}${digest.slice(0, 24)}`,
     bucket: bucketName,
     endpoint: resolveCompatEndpoint(),
-    region: region ?? resolveCompatRegion(),
+    region: effectiveRegion,
   }
 }

@@ -47,6 +47,7 @@ import { Route as ApiStorageS3BucketSettingsRouteImport } from './routes/api/sto
 import { Route as ApiStorageS3BucketItemsRouteImport } from './routes/api/storage/s3/bucket-items'
 import { Route as ApiStorageS3BucketCredentialsRouteImport } from './routes/api/storage/s3/bucket-credentials'
 import { Route as ApiStorageS3SplatRouteImport } from './routes/api/storage/s3/$'
+import { Route as ApiStorageDownloadProxyRouteImport } from './routes/api/storage/download/proxy'
 import { Route as ApiAdminUsersUserIdFolderItemsRouteImport } from './routes/api/admin/users/$userId/folder-items'
 import { Route as ApiAdminStorageProvidersProviderIdContentsRouteImport } from './routes/api/admin/storage-providers/$providerId/contents'
 
@@ -247,6 +248,11 @@ const ApiStorageS3SplatRoute = ApiStorageS3SplatRouteImport.update({
   path: '/$',
   getParentRoute: () => ApiStorageS3Route,
 } as any)
+const ApiStorageDownloadProxyRoute = ApiStorageDownloadProxyRouteImport.update({
+  id: '/api/storage/download/proxy',
+  path: '/api/storage/download/proxy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAdminUsersUserIdFolderItemsRoute =
   ApiAdminUsersUserIdFolderItemsRouteImport.update({
     id: '/api/admin/users/$userId/folder-items',
@@ -283,6 +289,7 @@ export interface FileRoutesByFullPath {
   '/trash/': typeof AppTrashIndexRoute
   '/webrtc/': typeof AppWebrtcIndexRoute
   '/device/approve/': typeof DeviceApproveIndexRoute
+  '/api/storage/download/proxy': typeof ApiStorageDownloadProxyRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
@@ -323,6 +330,7 @@ export interface FileRoutesByTo {
   '/trash': typeof AppTrashIndexRoute
   '/webrtc': typeof AppWebrtcIndexRoute
   '/device/approve': typeof DeviceApproveIndexRoute
+  '/api/storage/download/proxy': typeof ApiStorageDownloadProxyRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
@@ -366,6 +374,7 @@ export interface FileRoutesById {
   '/_app/trash/': typeof AppTrashIndexRoute
   '/_app/webrtc/': typeof AppWebrtcIndexRoute
   '/device/approve/': typeof DeviceApproveIndexRoute
+  '/api/storage/download/proxy': typeof ApiStorageDownloadProxyRoute
   '/api/storage/s3/$': typeof ApiStorageS3SplatRoute
   '/api/storage/s3/bucket-credentials': typeof ApiStorageS3BucketCredentialsRoute
   '/api/storage/s3/bucket-items': typeof ApiStorageS3BucketItemsRoute
@@ -409,6 +418,7 @@ export interface FileRouteTypes {
     | '/trash/'
     | '/webrtc/'
     | '/device/approve/'
+    | '/api/storage/download/proxy'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
     | '/api/storage/s3/bucket-items'
@@ -449,6 +459,7 @@ export interface FileRouteTypes {
     | '/trash'
     | '/webrtc'
     | '/device/approve'
+    | '/api/storage/download/proxy'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
     | '/api/storage/s3/bucket-items'
@@ -491,6 +502,7 @@ export interface FileRouteTypes {
     | '/_app/trash/'
     | '/_app/webrtc/'
     | '/device/approve/'
+    | '/api/storage/download/proxy'
     | '/api/storage/s3/$'
     | '/api/storage/s3/bucket-credentials'
     | '/api/storage/s3/bucket-items'
@@ -524,6 +536,7 @@ export interface RootRouteChildren {
   ApiStorageS3Route: typeof ApiStorageS3RouteWithChildren
   ApiV1ModelsRoute: typeof ApiV1ModelsRoute
   DeviceApproveIndexRoute: typeof DeviceApproveIndexRoute
+  ApiStorageDownloadProxyRoute: typeof ApiStorageDownloadProxyRoute
   ApiStorageUploadProxyRoute: typeof ApiStorageUploadProxyRoute
   ApiV1ChatCompletionsRoute: typeof ApiV1ChatCompletionsRoute
   ApiAdminStorageProvidersProviderIdContentsRoute: typeof ApiAdminStorageProvidersProviderIdContentsRoute
@@ -798,6 +811,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStorageS3SplatRouteImport
       parentRoute: typeof ApiStorageS3Route
     }
+    '/api/storage/download/proxy': {
+      id: '/api/storage/download/proxy'
+      path: '/api/storage/download/proxy'
+      fullPath: '/api/storage/download/proxy'
+      preLoaderRoute: typeof ApiStorageDownloadProxyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/admin/users/$userId/folder-items': {
       id: '/api/admin/users/$userId/folder-items'
       path: '/api/admin/users/$userId/folder-items'
@@ -893,6 +913,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiStorageS3Route: ApiStorageS3RouteWithChildren,
   ApiV1ModelsRoute: ApiV1ModelsRoute,
   DeviceApproveIndexRoute: DeviceApproveIndexRoute,
+  ApiStorageDownloadProxyRoute: ApiStorageDownloadProxyRoute,
   ApiStorageUploadProxyRoute: ApiStorageUploadProxyRoute,
   ApiV1ChatCompletionsRoute: ApiV1ChatCompletionsRoute,
   ApiAdminStorageProvidersProviderIdContentsRoute:
