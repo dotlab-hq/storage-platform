@@ -5,9 +5,33 @@ import {
   S3ViewerFileListItem,
   S3ViewerUploadingFileListItem,
 } from '@/components/storage/s3-bucket-viewer-cards'
-import type { useS3BucketViewer } from '@/components/storage/use-s3-bucket-viewer'
 
-type ViewerState = ReturnType<typeof useS3BucketViewer>
+type ViewerState = {
+  folders: { name: string; prefix: string }[]
+  files: {
+    key: string
+    name: string
+    sizeInBytes: number
+    eTag: string | null
+    lastModified: string | null
+  }[]
+  uploadingFiles: {
+    id: string
+    name: string
+    sizeInBytes: number
+    progress: number
+    status: 'uploading' | 'completed' | 'error'
+    errorMessage?: string
+  }[]
+  isLoading: boolean
+  isFetchingNextPage: boolean
+  busy: boolean
+  message: string | null
+  refresh: (nextPrefix?: string) => Promise<void>
+  loadMore: () => Promise<void>
+  openFile: (key: string) => Promise<void>
+  deleteFile: (key: string) => Promise<void>
+}
 
 type S3BucketViewerBrowserProps = {
   viewer: ViewerState
