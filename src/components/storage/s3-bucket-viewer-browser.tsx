@@ -2,7 +2,7 @@ import { FileText, FolderPlus, Loader2 } from 'lucide-react'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
 import {
   S3ViewerFolderCard,
-  S3ViewerFileListItem,
+  S3ViewerFileCard,
   S3ViewerUploadingFileListItem,
 } from '@/components/storage/s3-bucket-viewer-cards'
 
@@ -100,36 +100,17 @@ export function S3BucketViewerBrowser(props: S3BucketViewerBrowserProps) {
           ) : null}
 
           {viewer.files.length > 0 ? (
-            <div className="overflow-hidden rounded-xl border">
-              <div className="flex items-center border-b bg-muted/30 px-4 py-2.5">
-                <div className="min-w-0 flex-1">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    Name
-                  </span>
-                </div>
-                <div className="w-28 text-right">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    Size
-                  </span>
-                </div>
-                <div className="w-32 text-right">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    Modified
-                  </span>
-                </div>
-                <div className="w-10" />
-              </div>
-              <div className="divide-y">
+            <div>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Files
+              </p>
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
                 {viewer.files.map((file) => (
-                  <S3ViewerFileListItem
+                  <S3ViewerFileCard
                     key={file.key}
                     entry={file}
-                    onOpen={(key) => {
-                      void viewer.openFile(key)
-                    }}
-                    onDelete={(key) => {
-                      void viewer.deleteFile(key)
-                    }}
+                    onOpen={viewer.openFile}
+                    onDelete={viewer.deleteFile}
                   />
                 ))}
               </div>

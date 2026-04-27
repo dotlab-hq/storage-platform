@@ -2,7 +2,7 @@
 
 import { SidebarTrigger } from '@/components/ui/sidebar'
 import { Separator } from '@/components/ui/separator'
-import { Trash2, RotateCcw, AlertTriangle, ArrowUpNarrowWide } from 'lucide-react'
+import { Trash2, RotateCcw, AlertTriangle, ArrowUpNarrowWide, ArrowUp } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 type TrashHeaderProps = {
@@ -43,7 +43,7 @@ export function TrashHeader({
                 className="h-6 px-2"
                 onClick={onNavigateUp}
               >
-                <ArrowUpNarrowWide className="h-3 w-3" />
+                <ArrowUp className="h-3 w-3" />
               </Button>
               {breadcrumbPath.map((folder) => (
                 <span key={folder.id} className="flex items-center gap-1">

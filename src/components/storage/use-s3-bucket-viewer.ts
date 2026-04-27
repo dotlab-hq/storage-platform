@@ -13,17 +13,11 @@ import { uploadFileWithMultipartPresignedUrl } from '@/components/storage/s3-vie
 import type {
   S3ViewerFileEntry,
   S3ViewerFolderEntry,
-} from '@/components/storage/s3-bucket-viewer-cards'
+  UploadingFile,
+} from '@/components/storage/s3-viewer-types'
 
-export type UploadingFile = {
-  id: string
-  name: string
-  sizeInBytes: number
-  progress: number
-  status: 'uploading' | 'completed' | 'error'
-  errorMessage?: string
+  }
 }
-
 export interface S3ListResponse {
   prefix: string
   keyCount: number
