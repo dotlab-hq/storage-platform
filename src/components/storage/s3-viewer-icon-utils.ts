@@ -6,7 +6,6 @@ import {
   FileMusic,
   FileText,
   FileVideo,
-  Folder,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 

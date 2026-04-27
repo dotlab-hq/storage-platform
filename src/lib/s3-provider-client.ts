@@ -112,11 +112,10 @@ function fromProviderRow(row: ProviderRow): ProviderClientConfig {
       : safeTrim(decryptProviderSecret(row.secretAccessKeyEncrypted))
 
   // Region: if row.region is empty/undetermined, use a hardcoded default (no env)
-  const rawRegion = safeTrim(row.region)
-  const region =
-    rawRegion && !INVALID_REGION_SENTINELS.has(rawRegion.toLowerCase())
-      ? rawRegion
-      : 'us-east-1' // hardcoded fallback, no env dependencies
+  let region = safeTrim(row.region)
+  if (!region || INVALID_REGION_SENTINELS.has(region.toLowerCase())) {
+    region = DEFAULT_S3_REGION
+  }
 
   // Endpoint: if row.endpoint is empty or undetermined, fall back to env var
   const rawEndpoint = safeTrim(row.endpoint)

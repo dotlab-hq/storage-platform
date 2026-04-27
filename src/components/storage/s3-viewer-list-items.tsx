@@ -1,18 +1,5 @@
 import { Button } from '@/components/ui/button'
-import {
-  File,
-  FileArchive,
-  FileCode,
-  FileImage,
-  FileMusic,
-  FileText,
-  FileVideo,
-  Folder,
-  Loader2,
-  Trash2,
-  XCircle,
-  CheckCircle2,
-} from 'lucide-react'
+import { Folder, Loader2, Trash2, XCircle, CheckCircle2 } from 'lucide-react'
 import { formatBytes } from '@/lib/format-bytes'
 import {
   getFileIcon,

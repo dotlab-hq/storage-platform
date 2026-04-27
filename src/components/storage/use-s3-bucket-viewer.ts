@@ -16,8 +16,6 @@ import type {
   UploadingFile,
 } from '@/components/storage/s3-viewer-types'
 
-  }
-}
 export interface S3ListResponse {
   prefix: string
   keyCount: number
