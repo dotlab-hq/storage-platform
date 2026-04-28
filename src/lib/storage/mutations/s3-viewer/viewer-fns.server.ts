@@ -10,7 +10,7 @@ import {
 } from '@aws-sdk/client-s3'
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 import { getAuthenticatedUser } from '@/lib/server-auth.server'
-import { getVirtualBucketCredentials } from '@/lib/s3-gateway/virtual-buckets'
+import { getVirtualBucketCredentials } from '@/lib/s3-gateway/virtual-buckets.server'
 import { DEFAULT_ASSETS_BUCKET_NAME } from '@/lib/storage/assets-bucket'
 import {
   BucketSchema,

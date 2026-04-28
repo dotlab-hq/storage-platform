@@ -25,18 +25,16 @@ export async function scheduled(
 
   for (let i = 0; i < Math.min(candidates.length, BATCH_SIZE); i++) {
     const item = candidates[i]
-    const table = item.itemType === 'file' ? db.file : db.folder
-    const idColumn = item.itemType === 'file' ? db.file.id : db.folder.id
+    const table = item.itemType === 'file' ? file : folder
+    const idColumn = item.itemType === 'file' ? file.id : folder.id
     const userIdColumn =
-      item.itemType === 'file' ? db.file.userId : db.folder.userId
+      item.itemType === 'file' ? file.userId : folder.userId
     const isDeletedCol =
-      item.itemType === 'file' ? db.file.isDeleted : db.folder.isDeleted
+      item.itemType === 'file' ? file.isDeleted : folder.isDeleted
     const isTrashedCol =
-      item.itemType === 'file' ? db.file.isTrashed : db.folder.isTrashed
+      item.itemType === 'file' ? file.isTrashed : folder.isTrashed
     const queuedAtCol =
-      item.itemType === 'file'
-        ? db.file.deletionQueuedAt
-        : db.folder.deletionQueuedAt
+      item.itemType === 'file' ? file.deletionQueuedAt : folder.deletionQueuedAt
 
     const result = await db
       .update(table)
@@ -51,7 +49,7 @@ export async function scheduled(
         ),
       )
 
-    if result.changes && result.changes > 0) {
+    if (result.changes && result.changes > 0) {
       toEnqueue.push(item)
     }
   }

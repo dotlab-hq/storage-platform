@@ -3,8 +3,9 @@ import {
   CreateMultipartUploadCommand,
   UploadPartCommand,
 } from '@aws-sdk/client-s3'
+import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 import { createServerFn } from '@tanstack/react-start'
-import { getSignedUrl, getViewerClient } from './viewer-fns'
+import { getViewerClient } from './viewer-fns.server'
 import { MultipartCompleteSchema, MultipartInitSchema } from './schemas'
 
 export const createS3ViewerUploadPresignUrlFn = createServerFn({

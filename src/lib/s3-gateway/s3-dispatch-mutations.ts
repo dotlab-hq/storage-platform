@@ -12,7 +12,7 @@ import {
   getBucketVersioningState,
   getResponseVersionIdForCurrentObject,
 } from '@/lib/s3-gateway/s3-versioning'
-import { deleteVirtualBucket } from '@/lib/s3-gateway/virtual-buckets'
+import { deleteVirtualBucket } from '@/lib/s3-gateway/virtual-buckets.server'
 import {
   deleteBucketPolicy,
   replaceBucketCors,
@@ -38,84 +38,84 @@ export async function handleDelete(
   request: Request,
   parsed: { bucketName: string | null; objectKey: string | null },
 ): Promise<Response> {
-  if (!parsed.bucketName) return new Response(null, { status: 400 })
-  const bucket = await resolveAuthorizedBucket(request, parsed.bucketName)
-  if (!bucket) return new Response(null, { status: 403 })
+  if ( !parsed.bucketName ) return new Response( null, { status: 400 } )
+  const bucket = await resolveAuthorizedBucket( request, parsed.bucketName )
+  if ( !bucket ) return new Response( null, { status: 403 } )
 
-  if (!parsed.objectKey) {
-    const url = new URL(request.url)
-    if (url.searchParams.has('policy')) {
-      await deleteBucketPolicy(bucket.bucketId)
-      return new Response(null, { status: 204 })
+  if ( !parsed.objectKey ) {
+    const url = new URL( request.url )
+    if ( url.searchParams.has( 'policy' ) ) {
+      await deleteBucketPolicy( bucket.bucketId )
+      return new Response( null, { status: 204 } )
     }
-    if (url.searchParams.has('cors')) {
-      await replaceBucketCors(bucket.bucketId, [])
-      return new Response(null, { status: 204 })
+    if ( url.searchParams.has( 'cors' ) ) {
+      await replaceBucketCors( bucket.bucketId, [] )
+      return new Response( null, { status: 204 } )
     }
-    await deleteVirtualBucket(bucket.userId, bucket.bucketName)
-    return new Response(null, { status: 204 })
+    await deleteVirtualBucket( bucket.userId, bucket.bucketName )
+    return new Response( null, { status: 204 } )
   }
 
-  const uploadId = multipartUploadId(request.url)
-  if (uploadId) {
-    await abortMultipartUpload(bucket, uploadId)
-    return new Response(null, { status: 204 })
+  const uploadId = multipartUploadId( request.url )
+  if ( uploadId ) {
+    await abortMultipartUpload( bucket, uploadId )
+    return new Response( null, { status: 204 } )
   }
 
-  if (new URL(request.url).searchParams.has('tagging')) {
-    await deleteObjectTags(bucket, parsed.objectKey)
-    return new Response(null, { status: 204 })
+  if ( new URL( request.url ).searchParams.has( 'tagging' ) ) {
+    await deleteObjectTags( bucket, parsed.objectKey )
+    return new Response( null, { status: 204 } )
   }
 
-  const versionId = new URL(request.url).searchParams.get('versionId')
-  if (versionId) {
+  const versionId = new URL( request.url ).searchParams.get( 'versionId' )
+  if ( versionId ) {
     const deleted = await deleteObjectVersion(
       bucket,
       parsed.objectKey,
       versionId,
     )
-    return new Response(null, {
+    return new Response( null, {
       status: 204,
       headers: {
         'x-amz-version-id': versionId,
-        'x-amz-delete-marker': String(deleted.isDeleteMarker),
+        'x-amz-delete-marker': String( deleted.isDeleteMarker ),
       },
-    })
+    } )
   }
 
-  if ((await getBucketVersioningState(bucket.bucketId)) === 'enabled') {
+  if ( ( await getBucketVersioningState( bucket.bucketId ) ) === 'enabled' ) {
     const markerVersionId = await createDeleteMarkerVersion(
       bucket,
       parsed.objectKey,
     )
-    const cacheKey = getS3ObjectCacheKey(bucket.bucketId, parsed.objectKey)
-    deleteCachedS3Object(cacheKey)
-    return new Response(null, {
+    const cacheKey = getS3ObjectCacheKey( bucket.bucketId, parsed.objectKey )
+    deleteCachedS3Object( cacheKey )
+    return new Response( null, {
       status: 204,
       headers: {
         'x-amz-version-id': markerVersionId,
         'x-amz-delete-marker': 'true',
       },
-    })
+    } )
   }
 
-  await deleteObject(bucket, parsed.objectKey)
-  return new Response(null, { status: 204 })
+  await deleteObject( bucket, parsed.objectKey )
+  return new Response( null, { status: 204 } )
 }
 
 export async function handlePost(
   request: Request,
   parsed: { bucketName: string | null; objectKey: string | null },
 ): Promise<Response> {
-  if (!parsed.bucketName || !parsed.objectKey)
+  if ( !parsed.bucketName || !parsed.objectKey )
     return s3ErrorResponse(
       400,
       'InvalidRequest',
       'Bucket and key are required',
       '/',
     )
-  const bucket = await resolveAuthorizedBucket(request, parsed.bucketName)
-  if (!bucket)
+  const bucket = await resolveAuthorizedBucket( request, parsed.bucketName )
+  if ( !bucket )
     return s3ErrorResponse(
       403,
       'AccessDenied',
@@ -123,40 +123,40 @@ export async function handlePost(
       `/${parsed.bucketName}/${parsed.objectKey}`,
     )
 
-  if (hasMultipartCreateFlag(request.url)) {
+  if ( hasMultipartCreateFlag( request.url ) ) {
     const uploadId = await createMultipartUpload(
       bucket,
       parsed.objectKey,
-      request.headers.get('content-type'),
+      request.headers.get( 'content-type' ),
     )
     return xmlResponse(
-      createMultipartUploadXml(bucket.bucketName, parsed.objectKey, uploadId),
+      createMultipartUploadXml( bucket.bucketName, parsed.objectKey, uploadId ),
     )
   }
 
-  const uploadId = multipartUploadId(request.url)
-  if (uploadId) {
+  const uploadId = multipartUploadId( request.url )
+  if ( uploadId ) {
     const eTag = await completeMultipartUpload(
       bucket,
       uploadId,
-      parseCompleteMultipartUploadParts(await request.text()),
+      parseCompleteMultipartUploadParts( await request.text() ),
     )
-    const versioningState = await getBucketVersioningState(bucket.bucketId)
+    const versioningState = await getBucketVersioningState( bucket.bucketId )
     let responseVersionId: string | null = null
-    if (versioningState === 'enabled') {
+    if ( versioningState === 'enabled' ) {
       responseVersionId = await createObjectVersionFromCurrent(
         bucket,
         parsed.objectKey,
       )
     }
-    if (versioningState === 'suspended') {
+    if ( versioningState === 'suspended' ) {
       responseVersionId = await createObjectVersionFromCurrent(
         bucket,
         parsed.objectKey,
         'null',
       )
     }
-    if (!responseVersionId && versioningState !== 'disabled') {
+    if ( !responseVersionId && versioningState !== 'disabled' ) {
       responseVersionId = await getResponseVersionIdForCurrentObject(
         bucket,
         parsed.objectKey,

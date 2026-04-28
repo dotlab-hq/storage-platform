@@ -7,7 +7,7 @@ import {
   banUsersFn,
   deleteUsersFn,
   updateUserStorageLimitFn,
-} from '@/routes/_app/admin/-admin-server'
+} from '@/routes/_app/admin/-components/-admin-server'
 
 const ADMIN_USERS_QUERY_KEY = ['admin-users'] as const
 
