@@ -1,5 +1,5 @@
 PRAGMA foreign_keys=OFF;--> statement-breakpoint
-CREATE TABLE `__new_qr_login_offer` (
+CREATE TABLE IF NOT EXISTS `__new_qr_login_offer` (
 	`id` text PRIMARY KEY NOT NULL,
 	`code` text NOT NULL,
 	`poll_key` text NOT NULL,

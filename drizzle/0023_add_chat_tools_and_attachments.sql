@@ -14,7 +14,7 @@ ALTER TABLE `chat_message` ADD COLUMN `tool_calls` text;
 -- CHECK (role IN ('user', 'assistant', 'tool'))
 
 -- 3. Create chat_message_attachment table
-CREATE TABLE `chat_message_attachment` (
+CREATE TABLE IF NOT EXISTS `chat_message_attachment` (
   `id` text PRIMARY KEY NOT NULL,
   `message_id` text NOT NULL,
   `bucket_name` text NOT NULL,
@@ -26,6 +26,6 @@ CREATE TABLE `chat_message_attachment` (
   FOREIGN KEY (`message_id`) REFERENCES `chat_message`(`id`) ON UPDATE no action ON DELETE cascade
 );
 --> statement-breakpoint
-CREATE INDEX `chatMessageAttachment_messageId_idx` ON `chat_message_attachment` (`message_id`);
+CREATE INDEX IF NOT EXISTS `chatMessageAttachment_messageId_idx` ON `chat_message_attachment` (`message_id`);
 --> statement-breakpoint
-CREATE INDEX `chatMessageAttachment_bucket_object_idx` ON `chat_message_attachment` (`bucket_name`, `object_key`);
+CREATE INDEX IF NOT EXISTS `chatMessageAttachment_bucket_object_idx` ON `chat_message_attachment` (`bucket_name`, `object_key`);

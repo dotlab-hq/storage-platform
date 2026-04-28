@@ -164,7 +164,6 @@ CREATE TABLE IF NOT EXISTS `storage_provider` (
 --> statement-breakpoint
 CREATE UNIQUE INDEX IF NOT EXISTS `storage_provider_name_unique` ON `storage_provider` (`name`);
 --> statement-breakpoint
-CREATE INDEX IF NOT EXISTS `storageProvider_isActive_idx` ON `storage_provider` (`is_active`);
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS `file` (
     `id` text PRIMARY KEY NOT NULL,
