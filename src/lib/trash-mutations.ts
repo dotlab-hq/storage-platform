@@ -95,7 +95,6 @@ export async function permanentDeleteItems(
       await db
         .update(storageFile)
         .set({
-          isTrashed: false,
           isDeleted: true,
           deletedAt: now,
           deletionQueuedAt: null,

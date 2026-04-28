@@ -4,20 +4,19 @@ import { file, folder } from '@/db/schema/storage'
 import type { TrashDeletionItem } from './params'
 
 /**
- * Find all items ready for deletion (isTrashed=true, deletedAt != null) that are
- * top-level (no ancestor is also marked for deletion) and not already queued.
- * Returns up to limit items, ordered by deletedAt (oldest first) to prioritize
- * items that have been waiting longest.
+ * Find all items in trash (isTrashed=true) that are not yet queued for deletion
+ * (deletionQueuedAt = null) and are top-level (no ancestor is also in trash).
+ * Returns up to limit items.
  */
 export async function getDeletableItems(
   limit: number = 1000,
 ): Promise<TrashDeletionItem[]> {
   const items: TrashDeletionItem[] = []
 
-  console.log('Querying for deletable items with isTrashed=true...')
+  console.log('Querying for deletable items (isTrashed=true, not queued)...')
 
-  // Get candidate folders: isTrashed=true, deletedAt IS NOT NULL, deletionQueuedAt IS NULL,
-  // and no parent folder also marked for deletion
+  // Get candidate folders: isTrashed=true, deletionQueuedAt IS NULL,
+  // and no parent folder also in trash
   const candidateFolders = await db
     .select({
       id: folder.id,
@@ -27,13 +26,11 @@ export async function getDeletableItems(
     .where(
       and(
         eq(folder.isTrashed, true),
-        sql`${folder.deletedAt} IS NOT NULL`,
         isNull(folder.deletionQueuedAt),
-        // Exclude folders whose parent is also marked for deletion (will be handled by parent)
+        // Exclude folders whose parent is also in trash (will be handled by parent)
         sql`NOT EXISTS (
             SELECT 1 FROM folder parent
             WHERE parent.id = folder.parent_folder_id
-              AND parent.deleted_at IS NOT NULL
               AND parent.is_trashed = true
           )`,
       ),
@@ -61,13 +58,11 @@ export async function getDeletableItems(
     .where(
       and(
         eq(file.isTrashed, true),
-        sql`${file.deletedAt} IS NOT NULL`,
         isNull(file.deletionQueuedAt),
-        // Exclude files that are inside a deleted folder (those will be handled with folder)
+        // Exclude files that are inside a trashed folder (those will be handled with folder)
         sql`NOT EXISTS (
             SELECT 1 FROM folder f2
             WHERE f2.id = file.folder_id
-              AND f2.deleted_at IS NOT NULL
               AND f2.is_trashed = true
           )`,
       ),

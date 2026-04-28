@@ -6,11 +6,7 @@ import { getDeletableItems, enqueueItems } from '@/lib/trash-deletion/enqueue'
 
 const BATCH_SIZE = 75
 
-export async function scheduled(
-  event,
-  env,
-  ctx
-): Promise<void> {
+export async function scheduled(event, env, ctx): Promise<void> {
   const candidates = await getDeletableItems(1000)
 
   console.log('[Trash Cron] Candidates found:', candidates.length)
