@@ -12,31 +12,37 @@ export async function scheduled(
   env: Env,
   _ctx: ExecutionContext,
 ): Promise<void> {
-  const candidates = await getDeletableItems(1000)
+  const candidates = await getDeletableItems( 1000 )
 
-  console.log('[Trash Cron] Candidates found:', candidates.length)
-  if (candidates.length > 0) {
-    console.log('[Trash Cron] First 3 items:', candidates.slice(0, 3))
+  console.log( '[Trash Cron] Candidates found:', candidates.length )
+  if ( candidates.length > 0 ) {
+    console.log( '[Trash Cron] First 3 items:', candidates.slice( 0, 3 ) )
   }
 
-  if (candidates.length === 0) {
-    console.log('[Trash Cron] No items ready for permanent deletion')
+  if ( candidates.length === 0 ) {
+    console.log( '[Trash Cron] No items ready for permanent deletion' )
     return
   }
 
   const toEnqueue: TrashDeletionItem[] = []
-  for (let i = 0; i < Math.min(candidates.length, BATCH_SIZE); i++) {
-    toEnqueue.push(candidates[i])
+  for ( let i = 0; i < Math.min( candidates.length, BATCH_SIZE ); i++ ) {
+    toEnqueue.push( candidates[i] )
   }
 
-  const claimed = await claimItems(toEnqueue)
-  if (claimed > 0) {
-    const sent = await enqueueItems(env.TRASH_DELETION_QUEUE, toEnqueue)
+  const claimed = await claimItems( toEnqueue )
+  if ( claimed > 0 ) {
+    // Adapt the queue to match the expected interface
+    const queue = {
+      send: async ( msg: TrashDeletionItem ) => {
+        await env.TRASH_DELETION_QUEUE.send( msg )
+      },
+    }
+    const sent = await enqueueItems( queue, toEnqueue )
     console.log(
       `[Trash Cron] Claimed ${claimed} items and enqueued ${sent}/${toEnqueue.length} for deletion`,
     )
     return
   }
 
-  console.log('[Trash Cron] No items could be claimed (possibly already claimed)')
+  console.log( '[Trash Cron] No items could be claimed (possibly already claimed)' )
 }

@@ -23,6 +23,7 @@ export async function enqueueTrashDeletionItems(
   if (items.length === 0) return 0
 
   const sentItems: TrashDeletionItem[] = []
+  const errors: string[] = []
 
   for (const item of items) {
     try {
@@ -30,7 +31,16 @@ export async function enqueueTrashDeletionItems(
       sentItems.push(item)
     } catch (error) {
       console.error('[Trash Producer] Failed to enqueue item:', item, error)
+      errors.push(
+        error instanceof Error
+          ? `${item.itemType}:${item.itemId}:${error.message}`
+          : `${item.itemType}:${item.itemId}:unknown enqueue failure`,
+      )
     }
+  }
+
+  if (errors.length > 0) {
+    throw new Error(`Trash queue enqueue failed for ${errors.join(', ')}`)
   }
 
   if (sentItems.length === 0) return 0
