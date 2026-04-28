@@ -41,17 +41,17 @@
     },
   ],
   "queues": {
-
+    
     "producers": [
       {
 
         "binding": "TRASH_DELETION_QUEUE",
-        "queue": "095c184dd358405898cf7b6d3fc8f51e",
+        "queue": "trash-deletion-queue",
       },
     ],
     "consumers": [
       {
-        "queue": "095c184dd358405898cf7b6d3fc8f51e",
+        "queue": "trash-deletion-queue",
       },
     ],
   },
