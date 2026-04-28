@@ -8,6 +8,7 @@ import { scheduled as trashCron } from './workers/trash-cron'
 // Export Durable Objects as named exports
 // Export the workflow class so Wrangler can bind it
 export { TrashDeletionWorkflow } from './workers/trash-queue-consumer'
+export { TrashDeletionStateDO } from './lib/trash-deletion/trash-deletion-do'
 
 export default {
   fetch: handler.fetch,
