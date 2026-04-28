@@ -100,7 +100,12 @@ export async function claimItems(items: TrashDeletionItem[]): Promise<number> {
   if (fileIds.length > 0) {
     const result = await db
       .update(file)
-      .set({ isDeleted: true, deletedAt: now, deletionQueuedAt: now })
+      .set({
+        isDeleted: true,
+        deletedAt: now,
+        deletionQueuedAt: now,
+        updatedAt: now,
+      })
       .where(
         and(
           inArray(file.id, fileIds),
@@ -114,7 +119,12 @@ export async function claimItems(items: TrashDeletionItem[]): Promise<number> {
   if (folderIds.length > 0) {
     const result = await db
       .update(folder)
-      .set({ isDeleted: true, deletedAt: now, deletionQueuedAt: now })
+      .set({
+        isDeleted: true,
+        deletedAt: now,
+        deletionQueuedAt: now,
+        updatedAt: now,
+      })
       .where(
         and(
           inArray(folder.id, folderIds),
