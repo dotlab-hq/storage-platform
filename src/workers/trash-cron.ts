@@ -106,13 +106,7 @@ export async function scheduled(
         deletionQueuedAt: now,
         updatedAt: now,
       })
-      .where(
-        and(
-          inArray(file.id, fileIds),
-          eq(file.isDeleted, true),
-          isNull(file.deletionQueuedAt),
-        ),
-      )
+      .where(inArray(file.id, fileIds))
     affected += result.changes ?? 0
   }
   if (folderIds.length > 0) {
@@ -124,13 +118,7 @@ export async function scheduled(
         deletionQueuedAt: now,
         updatedAt: now,
       })
-      .where(
-        and(
-          inArray(folder.id, folderIds),
-          eq(folder.isDeleted, true),
-          isNull(folder.deletionQueuedAt),
-        ),
-      )
+      .where(inArray(folder.id, folderIds))
     affected += result.changes ?? 0
   }
   const claimed = affected
