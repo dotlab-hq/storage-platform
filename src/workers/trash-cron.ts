@@ -1,4 +1,4 @@
-import { eq, and, isNull, sql } from 'drizzle-orm'
+import { eq, and } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, folder } from '@/db/schema/storage'
 import type { TrashDeletionItem } from '@/lib/trash-deletion/params'
@@ -29,18 +29,18 @@ export async function scheduled(event, env, ctx): Promise<void> {
     const userIdColumn = item.itemType === 'file' ? file.userId : folder.userId
     const isTrashedCol =
       item.itemType === 'file' ? file.isTrashed : folder.isTrashed
-    const queuedAtCol =
-      item.itemType === 'file' ? file.deletionQueuedAt : folder.deletionQueuedAt
+    const isDeletedCol =
+      item.itemType === 'file' ? file.isDeleted : folder.isDeleted
 
     const result = await db
       .update(table)
-      .set({ deletionQueuedAt: now })
+      .set({ isDeleted: true, deletedAt: now, deletionQueuedAt: now })
       .where(
         and(
           eq(idColumn, item.itemId),
           eq(userIdColumn, item.userId),
           eq(isTrashedCol, true),
-          isNull(queuedAtCol),
+          eq(isDeletedCol, false),
         ),
       )
 

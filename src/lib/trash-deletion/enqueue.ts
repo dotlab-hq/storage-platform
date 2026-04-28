@@ -4,50 +4,46 @@ import { file, folder } from '@/db/schema/storage'
 import type { TrashDeletionItem } from './params'
 
 /**
- * Find all items in trash (isTrashed=true) that are not yet queued for deletion
- * (deletionQueuedAt = null) and are top-level (no ancestor is also in trash).
- * Returns up to limit items.
+ * Find all items in trash (isTrashed=true) that should be permanently deleted.
+ * Returns only top-level items whose parent is NOT in trash.
  */
 export async function getDeletableItems(
   limit: number = 1000,
 ): Promise<TrashDeletionItem[]> {
   const items: TrashDeletionItem[] = []
 
-  console.log('Querying for deletable items (isTrashed=true, not queued)...')
+  console.log('Querying for deletable items (isTrashed=true)...')
 
-  // Get candidate folders: isTrashed=true, deletionQueuedAt IS NULL,
-  // and no parent folder also in trash
+  // Get folders: isTrashed=true, isDeleted=false (not permanently deleted yet)
   const candidateFolders = await db
     .select({
       id: folder.id,
       userId: folder.userId,
+      parentFolderId: folder.parentFolderId,
     })
     .from(folder)
-    .where(
-      and(
-        eq(folder.isTrashed, true),
-        isNull(folder.deletionQueuedAt),
-        // Exclude folders whose parent is also in trash (will be handled by parent)
-        sql`NOT EXISTS (
-            SELECT 1 FROM folder parent
-            WHERE parent.id = folder.parent_folder_id
-              AND parent.is_trashed = true
-          )`,
-      ),
-    )
+    .where(and(eq(folder.isTrashed, true), eq(folder.isDeleted, false)))
     .limit(limit)
 
   console.log('Candidate folders found:', candidateFolders.length)
-  if (candidateFolders.length > 0) {
-    console.log('Sample folder:', candidateFolders[0])
-  }
 
+  // Filter to only top-level folders (parent not in trash)
   for (const f of candidateFolders) {
-    items.push({ userId: f.userId, itemId: f.id, itemType: 'folder' })
+    if (!f.parentFolderId) {
+      items.push({ userId: f.userId, itemId: f.id, itemType: 'folder' })
+      continue
+    }
+    const parent = await db
+      .select({ id: folder.id, isTrashed: folder.isTrashed })
+      .from(folder)
+      .where(eq(folder.id, f.parentFolderId))
+      .limit(1)
+    if (parent.length === 0 || !parent[0].isTrashed) {
+      items.push({ userId: f.userId, itemId: f.id, itemType: 'folder' })
+    }
   }
 
-  // Get candidate files: isDeleted=true, deletedAt IS NOT NULL, deletionQueuedAt IS NULL,
-  // and their folder (if any) is not also marked for deletion
+  // Get files: isTrashed=true, isDeleted=false (not permanently deleted yet)
   const candidateFiles = await db
     .select({
       id: file.id,
@@ -55,40 +51,43 @@ export async function getDeletableItems(
       folderId: file.folderId,
     })
     .from(file)
-    .where(
-      and(
-        eq(file.isTrashed, true),
-        isNull(file.deletionQueuedAt),
-        // Exclude files that are inside a trashed folder (those will be handled with folder)
-        sql`NOT EXISTS (
-            SELECT 1 FROM folder f2
-            WHERE f2.id = file.folder_id
-              AND f2.is_trashed = true
-          )`,
-      ),
-    )
+    .where(and(eq(file.isTrashed, true), eq(file.isDeleted, false)))
     .limit(limit)
 
+  console.log('Candidate files found:', candidateFiles.length)
+
+  // Filter to only files whose parent folder is NOT in trash
   for (const f of candidateFiles) {
-    items.push({ userId: f.userId, itemId: f.id, itemType: 'file' })
+    if (!f.folderId) {
+      items.push({ userId: f.userId, itemId: f.id, itemType: 'file' })
+      continue
+    }
+    const parent = await db
+      .select({ id: folder.id, isTrashed: folder.isTrashed })
+      .from(folder)
+      .where(eq(folder.id, f.folderId))
+      .limit(1)
+    if (parent.length === 0 || !parent[0].isTrashed) {
+      items.push({ userId: f.userId, itemId: f.id, itemType: 'file' })
+    }
   }
 
-  // Sort by oldest deletedAt? Actually we don't have deletedAt in query; we could order by deletedAt.
-  // For now order doesn't matter; we'll just return as is.
+  console.log('Total deletable items:', items.length)
+  if (items.length > 0) {
+    console.log('Sample item:', items[0])
+  }
+
   return items
 }
 
 /**
- * Claim items for deletion by setting deletionQueuedAt = now.
- * Updates only if deletionQueuedAt is still NULL (atomic).
- * Returns the number of rows claimed.
+ * Claim items for deletion by setting isDeleted=true and deletionQueuedAt=now.
  */
 export async function claimItems(items: TrashDeletionItem[]): Promise<number> {
   if (items.length === 0) return 0
 
   const now = new Date()
 
-  // Claim files
   const fileIds = items
     .filter((i) => i.itemType === 'file')
     .map((i) => i.itemId)
@@ -101,13 +100,12 @@ export async function claimItems(items: TrashDeletionItem[]): Promise<number> {
   if (fileIds.length > 0) {
     const result = await db
       .update(file)
-      .set({ deletionQueuedAt: now })
+      .set({ isDeleted: true, deletedAt: now, deletionQueuedAt: now })
       .where(
         and(
           inArray(file.id, fileIds),
-          eq(file.isTrashed, false),
-          sql`${file.deletedAt} IS NOT NULL`,
-          isNull(file.deletionQueuedAt),
+          eq(file.isTrashed, true),
+          eq(file.isDeleted, false),
         ),
       )
     affected += result.changes ?? 0
@@ -116,13 +114,12 @@ export async function claimItems(items: TrashDeletionItem[]): Promise<number> {
   if (folderIds.length > 0) {
     const result = await db
       .update(folder)
-      .set({ deletionQueuedAt: now })
+      .set({ isDeleted: true, deletedAt: now, deletionQueuedAt: now })
       .where(
         and(
           inArray(folder.id, folderIds),
-          eq(folder.isTrashed, false),
-          sql`${folder.deletedAt} IS NOT NULL`,
-          isNull(folder.deletionQueuedAt),
+          eq(folder.isTrashed, true),
+          eq(folder.isDeleted, false),
         ),
       )
     affected += result.changes ?? 0
@@ -133,7 +130,6 @@ export async function claimItems(items: TrashDeletionItem[]): Promise<number> {
 
 /**
  * Enqueue a batch of items to the Cloudflare Queue.
- * Returns number of messages successfully sent.
  */
 export async function enqueueItems(
   queue: { send: (msg: TrashDeletionItem) => Promise<void> },
