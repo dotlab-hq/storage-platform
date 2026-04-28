@@ -9,13 +9,14 @@ export async function queue(
   const items: TrashDeletionItem[] = []
   for (const msg of batch.messages) {
     try {
-      // Cloudflare Queues uses msg.body (string), not msg.json()
+      // Queue messages are sent as JSON strings
       const item = JSON.parse(msg.body as string) as TrashDeletionItem
       items.push(item)
     } catch (err) {
       console.error('Failed to parse queue message:', err)
       throw err
     }
+  }
   }
 
   if (items.length === 0) return
