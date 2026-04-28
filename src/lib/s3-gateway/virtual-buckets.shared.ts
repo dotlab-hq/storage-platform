@@ -28,12 +28,15 @@ export function toBucketItem(row: {
 export async function getActiveBucketRow(userId: string, bucketName: string) {
   const rows = await db
     .select({
+      userId: virtualBucket.userId,
       id: virtualBucket.id,
       name: virtualBucket.name,
       mappedFolderId: virtualBucket.mappedFolderId,
       isActive: virtualBucket.isActive,
       credentialVersion: virtualBucket.credentialVersion,
       region: virtualBucket.region,
+      blockPublicAccess: virtualBucket.blockPublicAccess,
+      createdAt: virtualBucket.createdAt,
     })
     .from(virtualBucket)
     .where(

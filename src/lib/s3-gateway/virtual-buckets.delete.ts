@@ -14,6 +14,7 @@ import {
   softDeleteByPrefix,
 } from '@/lib/s3-gateway/virtual-buckets.fallback'
 import { removeBucketContextCache } from '@/lib/s3-gateway/virtual-bucket-kv-cache'
+import { removeS3ObjectRecordsByPrefix } from '@/lib/s3-gateway/virtual-buckets.records'
 
 export async function emptyVirtualBucket(
   userId: string,
@@ -38,6 +39,7 @@ export async function emptyVirtualBucket(
     0,
   )
   await softDeleteByPrefix(userId, prefix)
+  await removeS3ObjectRecordsByPrefix(userId, row, prefix)
   await decrementUserStorage(userId, totalBytes)
 }
 

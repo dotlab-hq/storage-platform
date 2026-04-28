@@ -701,7 +701,16 @@ export async function deleteObject(
   const cacheKey = getS3ObjectCacheKey(bucket.bucketId, objectKey)
   const upstreamKey = upstreamKeyFor(bucket, objectKey)
   const stored = await findStoredObject(bucket, objectKey)
-  const provider = await getProviderClientById(stored?.providerId ?? null)
+  if (!stored) {
+    await softDeleteMissingStoredObject({
+      userId: bucket.userId,
+      upstreamObjectKey: upstreamKey,
+    })
+    deleteCachedS3Object(cacheKey)
+    return
+  }
+
+  const provider = await getProviderClientById(stored.providerId)
 
   try {
     await sendWithProviderTimeout((abortSignal) =>

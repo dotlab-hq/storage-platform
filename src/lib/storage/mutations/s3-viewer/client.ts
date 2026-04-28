@@ -29,6 +29,14 @@ export function resolveS3Endpoint(endpoint: string): string {
   return `${trimmed}/api/storage/s3`
 }
 
+export function normalizeBucketEndpoint(
+  endpoint: string,
+  bucketName: string,
+): string {
+  const base = resolveS3Endpoint(endpoint)
+  return `${base}/${encodeURIComponent(bucketName)}`
+}
+
 function resolveRequestScopedEndpoint(
   configuredEndpoint: string,
   requestOrigin: string | null,

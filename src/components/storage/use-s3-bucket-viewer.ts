@@ -265,6 +265,11 @@ export function useS3BucketViewer(
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey })
     },
+    onError: (error) => {
+      const message =
+        error instanceof Error ? error.message : 'Failed to delete object'
+      console.error('Failed to delete object:', message)
+    },
   })
 
   const deleteFile = useCallback(

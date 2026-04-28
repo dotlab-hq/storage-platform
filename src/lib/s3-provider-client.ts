@@ -80,6 +80,12 @@ function fromEnvironment(): ProviderClientConfig {
   if (!accessKeyId || !secretAccessKey || !endpoint) {
     throw new Error('No storage provider exists for uploads')
   }
+
+  console.log('[fromEnvironment] Creating S3 client:', {
+    region,
+    endpoint,
+  })
+
   return {
     providerId: null,
     providerName: 'Default Provider',
@@ -108,9 +114,14 @@ function fromProviderRow(row: ProviderRow): ProviderClientConfig {
   )
 
   // Region: if row.region is empty/undetermined, use default
-  let region = safeTrim(row.region)
-  if (!region || INVALID_REGION_SENTINELS.has(region.toLowerCase())) {
-    region = DEFAULT_S3_REGION
+  const rawRegion = safeTrim(row.region)
+  let region = DEFAULT_S3_REGION // Default to "auto"
+  if (
+    rawRegion &&
+    rawRegion.length > 0 &&
+    !INVALID_REGION_SENTINELS.has(rawRegion.toLowerCase())
+  ) {
+    region = rawRegion
   }
 
   // Endpoint: must be in DB
@@ -125,6 +136,15 @@ function fromProviderRow(row: ProviderRow): ProviderClientConfig {
       `Storage provider "${row.name}" is missing required credentials: ${missing}`,
     )
   }
+
+  console.log('[fromProviderRow] Creating S3 client:', {
+    providerId: row.id,
+    providerName: row.name,
+    bucketName: row.bucketName,
+    region,
+    endpoint,
+  })
+
   return {
     providerId: row.id,
     providerName: row.name,

@@ -6,6 +6,7 @@ import {
   PutObjectCommand,
   getSignedUrl,
   getViewerClient,
+  normalizeBucketEndpoint,
 } from './client'
 import {
   BucketSchema,
@@ -110,14 +111,36 @@ export const createS3ViewerFolderFn = createServerFn({ method: 'POST' })
 export const deleteS3ViewerObjectFn = createServerFn({ method: 'POST' })
   .inputValidator(ObjectKeySchema)
   .handler(async ({ data }) => {
-    const { client } = await getViewerClient(data.bucketName)
-    await client.send(
-      new DeleteObjectCommand({
-        Bucket: data.bucketName,
-        Key: data.objectKey,
-      }),
-    )
-    return { ok: true }
+    try {
+      const { client, credentials } = await getViewerClient(data.bucketName)
+      const endpoint = normalizeBucketEndpoint(
+        credentials.endpoint,
+        data.bucketName,
+      )
+      const objectPath = `${endpoint}/${encodeURIComponent(data.objectKey)}`
+      const response = await fetch(objectPath, {
+        method: 'DELETE',
+        headers: {
+          'x-s3-secret-access-key': credentials.secretAccessKey,
+        },
+      })
+      if (!response.ok && response.status !== 204) {
+        let body = ''
+        try {
+          body = await response.text()
+        } catch {
+          body = ''
+        }
+        throw new Error(
+          body.length > 0 ? body : `Delete failed with ${response.status}`,
+        )
+      }
+      return { ok: true }
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : 'Failed to delete object'
+      throw new Error(message)
+    }
   })
 
 export const uploadS3ViewerObjectFn = createServerFn({ method: 'POST' })
