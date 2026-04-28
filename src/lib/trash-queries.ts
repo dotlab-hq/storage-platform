@@ -1,4 +1,4 @@
-import { eq, and } from 'drizzle-orm'
+import { eq, and, desc } from 'drizzle-orm'
 
 export type TrashItem = {
   id: string
@@ -11,11 +11,17 @@ export type TrashItem = {
   parentFolderId?: string | null // for folders: parent folder ID
 }
 
-export async function listTrashItems(userId: string): Promise<TrashItem[]> {
+export async function listTrashItems(
+  userId: string,
+  options?: { limit?: number; offset?: number },
+): Promise<TrashItem[]> {
   const [{ db }, { file: storageFile, folder }] = await Promise.all([
     import('@/db'),
     import('@/db/schema/storage'),
   ])
+
+  const limit = options?.limit ?? 100
+  const offset = options?.offset ?? 0
 
   const [deletedFiles, deletedFolders] = await Promise.all([
     db
@@ -29,7 +35,10 @@ export async function listTrashItems(userId: string): Promise<TrashItem[]> {
       .from(storageFile)
       .where(
         and(eq(storageFile.userId, userId), eq(storageFile.isTrashed, true)),
-      ),
+      )
+      .orderBy(desc(storageFile.deletedAt))
+      .limit(limit)
+      .offset(offset),
     db
       .select({
         id: folder.id,
@@ -37,7 +46,10 @@ export async function listTrashItems(userId: string): Promise<TrashItem[]> {
         deletedAt: folder.deletedAt,
       })
       .from(folder)
-      .where(and(eq(folder.userId, userId), eq(folder.isTrashed, true))),
+      .where(and(eq(folder.userId, userId), eq(folder.isTrashed, true)))
+      .orderBy(desc(folder.deletedAt))
+      .limit(limit)
+      .offset(offset),
   ])
 
   const items: TrashItem[] = [
@@ -57,7 +69,7 @@ export async function listTrashItems(userId: string): Promise<TrashItem[]> {
     })),
   ]
 
-  // Sort by deletedAt descending (most recently deleted first)
+  // Already sorted by DB; combine and re-sort (folders+files interleaved by deletedAt)
   items.sort((a, b) => {
     const da = a.deletedAt ? new Date(a.deletedAt).getTime() : 0
     const db2 = b.deletedAt ? new Date(b.deletedAt).getTime() : 0
@@ -86,6 +98,7 @@ export async function listTrashFolderContents(
     })
     .from(folder)
     .where(and(eq(folder.userId, userId), eq(folder.isTrashed, true)))
+    .orderBy(desc(folder.deletedAt))
 
   // Fetch all deleted files
   const allDeletedFiles = await db
@@ -99,6 +112,7 @@ export async function listTrashFolderContents(
     })
     .from(storageFile)
     .where(and(eq(storageFile.userId, userId), eq(storageFile.isTrashed, true)))
+    .orderBy(desc(storageFile.deletedAt))
 
   const deletedFolderIds = new Set(allDeletedFolders.map((f) => f.id))
 

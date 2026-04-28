@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth.server'
+import { isAdminMiddleware } from '@/middlewares/isAdmin'
 import { listFolderItems, getFolderBreadcrumbs } from '@/lib/storage-queries'
 import { mapBreadcrumbs } from '@/hooks/storage-data-mapper'
 
@@ -23,16 +23,12 @@ function errorToMessage(error: unknown): string {
 export const Route = createFileRoute('/api/admin/users/$userId/folder-items')({
   component: () => null,
   server: {
+    middleware: [isAdminMiddleware],
     handlers: {
-      GET: async ({ request, params }) => {
+      GET: async ({ context, request, params }) => {
         try {
-          const currentUser = await getAuthenticatedUser()
-          if (!currentUser.isAdmin) {
-            return Response.json(
-              { error: 'Admin access is required to view user items' },
-              { status: 403 },
-            )
-          }
+          // Admin already verified by middleware; user is in context
+          const currentUser = context.user
 
           const query = AdminUserItemsQuerySchema.parse(
             Object.fromEntries(new URL(request.url).searchParams.entries()),
