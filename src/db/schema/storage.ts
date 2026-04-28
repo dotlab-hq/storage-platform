@@ -34,8 +34,7 @@ export const folder = schema.table(
       .notNull(),
     deletedAt: integer('deleted_at', { mode: 'timestamp' }),
     isTrashed: integer('is_trashed', { mode: 'boolean' })
-      .default(false)
-      .notNull(),
+      .default(false),
     deletionQueuedAt: integer('deletion_queued_at', { mode: 'timestamp' }),
     lastOpenedAt: integer('last_opened_at', { mode: 'timestamp' }),
     createdAt: integer('created_at', { mode: 'timestamp' })
@@ -84,8 +83,7 @@ export const file = schema.table(
       .notNull(),
     deletedAt: integer('deleted_at', { mode: 'timestamp' }),
     isTrashed: integer('is_trashed', { mode: 'boolean' })
-      .default(false)
-      .notNull(),
+      .default(false),
     deletionQueuedAt: integer('deletion_queued_at', { mode: 'timestamp' }),
     lastOpenedAt: integer('last_opened_at', { mode: 'timestamp' }),
     createdAt: integer('created_at', { mode: 'timestamp' })

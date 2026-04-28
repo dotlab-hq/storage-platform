@@ -240,8 +240,8 @@ export async function emptyAllTrash(userId: string) {
   const itemIds = allItems.map((i) => i.id)
   const itemTypes = allItems.map((i) => i.type)
 
-  // Mark all items as isDeleted=true, isTrashed=false (queued for deletion)
-  // Actual S3 deletion will be handled by Cloudflare Workflow via cron
+  // Mark all items as out of trash (isTrashed=false) for permanent deletion.
+  // Actual S3 deletion is handled asynchronously by Cloudflare Workflow via cron.
 
   const [{ db }, { file: storageFile, folder }] = await Promise.all([
     import('@/db'),
@@ -258,11 +258,11 @@ export async function emptyAllTrash(userId: string) {
     else folderIds.push(itemIds[i])
   }
 
-  // Update files: set isDeleted=true, isTrashed=false
+  // Update files: set isTrashed=false so cron can pick them up
   if (fileIds.length > 0) {
     await db
       .update(storageFile)
-      .set({ isDeleted: true, isTrashed: false, deletedAt: now })
+      .set({ isTrashed: false, deletedAt: now, deletionQueuedAt: null })
       .where(
         and(
           inArray(storageFile.id, fileIds),
@@ -272,7 +272,7 @@ export async function emptyAllTrash(userId: string) {
       )
   }
 
-  // Update folders: set isDeleted=true, isTrashed=false
+  // Update folders: set isTrashed=false
   // Also cascade to all descendant files/folders
   if (folderIds.length > 0) {
     // Collect all descendant folder IDs
@@ -317,7 +317,7 @@ export async function emptyAllTrash(userId: string) {
     // Update all folders
     await db
       .update(folder)
-      .set({ isDeleted: true, isTrashed: false, deletedAt: now })
+      .set({ isTrashed: false, deletedAt: now, deletionQueuedAt: null })
       .where(
         and(
           inArray(folder.id, allFolderIds),
@@ -329,7 +329,7 @@ export async function emptyAllTrash(userId: string) {
     // Update all files in those folders
     await db
       .update(storageFile)
-      .set({ isDeleted: true, isTrashed: false, deletedAt: now })
+      .set({ isTrashed: false, deletedAt: now, deletionQueuedAt: null })
       .where(
         and(
           inArray(storageFile.folderId, allFolderIds),

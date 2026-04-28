@@ -1,4 +1,4 @@
-import { eq, and, isNull } from 'drizzle-orm'
+import { eq, and, isNull, sql } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, folder } from '@/db/schema/storage'
 import type { TrashDeletionItem } from '@/lib/trash-deletion/params'
@@ -27,12 +27,11 @@ export async function scheduled(
     const item = candidates[i]
     const table = item.itemType === 'file' ? file : folder
     const idColumn = item.itemType === 'file' ? file.id : folder.id
-    const userIdColumn =
-      item.itemType === 'file' ? file.userId : folder.userId
-    const isDeletedCol =
-      item.itemType === 'file' ? file.isDeleted : folder.isDeleted
+    const userIdColumn = item.itemType === 'file' ? file.userId : folder.userId
     const isTrashedCol =
       item.itemType === 'file' ? file.isTrashed : folder.isTrashed
+    const deletedAtCol =
+      item.itemType === 'file' ? file.deletedAt : folder.deletedAt
     const queuedAtCol =
       item.itemType === 'file' ? file.deletionQueuedAt : folder.deletionQueuedAt
 
@@ -43,8 +42,8 @@ export async function scheduled(
         and(
           eq(idColumn, item.itemId),
           eq(userIdColumn, item.userId),
-          eq(isDeletedCol, true),
           eq(isTrashedCol, false),
+          sql`${deletedAtCol} IS NOT NULL`,
           isNull(queuedAtCol),
         ),
       )
@@ -59,6 +58,8 @@ export async function scheduled(
     const sent = await enqueueItems(env.TRASH_DELETION_QUEUE, toEnqueue)
     console.log(`Enqueued ${sent}/${toEnqueue.length} items for deletion`)
   } else {
-    console.log('No items were claimed (possibly already claimed by another run)')
+    console.log(
+      'No items were claimed (possibly already claimed by another run)',
+    )
   }
 }

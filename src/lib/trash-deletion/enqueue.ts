@@ -4,7 +4,7 @@ import { file, folder } from '@/db/schema/storage'
 import type { TrashDeletionItem } from './params'
 
 /**
- * Find all items ready for deletion (isDeleted=true, isTrashed=false) that are
+ * Find all items ready for deletion (isTrashed=false, deletedAt != null) that are
  * top-level (no ancestor is also marked for deletion) and not already queued.
  * Returns up to limit items, ordered by deletedAt (oldest first) to prioritize
  * items that have been waiting longest.
@@ -14,7 +14,7 @@ export async function getDeletableItems(
 ): Promise<TrashDeletionItem[]> {
   const items: TrashDeletionItem[] = []
 
-  // Get candidate folders: isDeleted=true, isTrashed=false, deletionQueuedAt IS NULL,
+  // Get candidate folders: isTrashed=false, deletedAt IS NOT NULL, deletionQueuedAt IS NULL,
   // and no parent folder also marked for deletion
   const candidateFolders = await db
     .select({
@@ -24,14 +24,14 @@ export async function getDeletableItems(
     .from(folder)
     .where(
       and(
-        eq(folder.isDeleted, true),
         eq(folder.isTrashed, false),
+        sql`${folder.deletedAt} IS NOT NULL`,
         isNull(folder.deletionQueuedAt),
         // Exclude folders whose parent is also marked for deletion (will be handled by parent)
         sql`NOT EXISTS (
             SELECT 1 FROM folder parent
             WHERE parent.id = folder.parent_folder_id
-              AND parent.is_deleted = true
+              AND parent.deleted_at IS NOT NULL
               AND parent.is_trashed = false
           )`,
       ),
@@ -42,7 +42,7 @@ export async function getDeletableItems(
     items.push({ userId: f.userId, itemId: f.id, itemType: 'folder' })
   }
 
-  // Get candidate files: isDeleted=true, isTrashed=false, deletionQueuedAt IS NULL,
+  // Get candidate files: isTrashed=false, deletedAt IS NOT NULL, deletionQueuedAt IS NULL,
   // and their folder (if any) is not also marked for deletion
   const candidateFiles = await db
     .select({
@@ -53,14 +53,14 @@ export async function getDeletableItems(
     .from(file)
     .where(
       and(
-        eq(file.isDeleted, true),
         eq(file.isTrashed, false),
+        sql`${file.deletedAt} IS NOT NULL`,
         isNull(file.deletionQueuedAt),
         // Exclude files that are inside a deleted folder (those will be handled with folder)
         sql`NOT EXISTS (
             SELECT 1 FROM folder f2
             WHERE f2.id = file.folder_id
-              AND f2.is_deleted = true
+              AND f2.deleted_at IS NOT NULL
               AND f2.is_trashed = false
           )`,
       ),
@@ -103,8 +103,8 @@ export async function claimItems(items: TrashDeletionItem[]): Promise<number> {
       .where(
         and(
           inArray(file.id, fileIds),
-          eq(file.isDeleted, true),
           eq(file.isTrashed, false),
+          sql`${file.deletedAt} IS NOT NULL`,
           isNull(file.deletionQueuedAt),
         ),
       )
@@ -118,8 +118,8 @@ export async function claimItems(items: TrashDeletionItem[]): Promise<number> {
       .where(
         and(
           inArray(folder.id, folderIds),
-          eq(folder.isDeleted, true),
           eq(folder.isTrashed, false),
+          sql`${folder.deletedAt} IS NOT NULL`,
           isNull(folder.deletionQueuedAt),
         ),
       )

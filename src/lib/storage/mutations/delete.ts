@@ -55,7 +55,12 @@ export const deleteItemsFn = createServerFn({ method: 'POST' })
 
           await db
             .update(storageFile)
-            .set({ isTrashed: true, deletedAt: null })
+            .set({
+              isDeleted: false,
+              isTrashed: true,
+              deletedAt: now,
+              deletionQueuedAt: null,
+            })
             .where(
               and(
                 inArray(storageFile.id, fileIds),
@@ -109,14 +114,24 @@ export const deleteItemsFn = createServerFn({ method: 'POST' })
 
           await db
             .update(folder)
-            .set({ isTrashed: true, deletedAt: null })
+            .set({
+              isDeleted: false,
+              isTrashed: true,
+              deletedAt: now,
+              deletionQueuedAt: null,
+            })
             .where(
               and(inArray(folder.id, allFolderIds), eq(folder.userId, userId)),
             )
 
           await db
             .update(storageFile)
-            .set({ isTrashed: true, deletedAt: null })
+            .set({
+              isDeleted: false,
+              isTrashed: true,
+              deletedAt: now,
+              deletionQueuedAt: null,
+            })
             .where(
               and(
                 inArray(storageFile.folderId, allFolderIds),

@@ -119,8 +119,8 @@ export async function gatherFolderDescendants(
       and(
         eq(file.userId, userId),
         inArray(file.folderId, folderIdsToQuery),
-        eq(file.isDeleted, true),
         eq(file.isTrashed, false),
+        sql`${file.deletedAt} IS NOT NULL`,
       ),
     )
 
@@ -152,8 +152,8 @@ export async function enqueueDescendants(
         and(
           eq(file.id, fileId),
           eq(file.userId, userId),
-          eq(file.isDeleted, true),
           eq(file.isTrashed, false),
+          sql`${file.deletedAt} IS NOT NULL`,
           isNull(file.deletionQueuedAt),
         ),
       )
@@ -173,8 +173,8 @@ export async function enqueueDescendants(
         and(
           eq(folder.id, folderId),
           eq(folder.userId, userId),
-          eq(folder.isDeleted, true),
           eq(folder.isTrashed, false),
+          sql`${folder.deletedAt} IS NOT NULL`,
           isNull(folder.deletionQueuedAt),
         ),
       )

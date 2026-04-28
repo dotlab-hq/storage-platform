@@ -64,7 +64,7 @@ export const uploadAttempt = schema.table(
     }),
     objectKey: text('object_key').notNull(),
     upstreamObjectKey: text('upstream_object_key').notNull(),
-    uploadId: text('upload_id').unique(),
+    uploadId: text('upload_id'),
     initiatedByUserId: text('initiated_by_user_id').references(() => user.id, {
       onDelete: 'set null',
     }),
@@ -91,7 +91,7 @@ export const uploadAttempt = schema.table(
     index('uploadAttempt_bucketId_idx').on(table.bucketId),
     index('uploadAttempt_status_idx').on(table.status),
     index('uploadAttempt_providerId_idx').on(table.providerId),
-    index('uploadAttempt_uploadId_idx').on(table.uploadId),
+    uniqueIndex('uploadAttempt_uploadId_unq').on(table.uploadId),
   ],
 )
 
