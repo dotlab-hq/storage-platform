@@ -41,7 +41,7 @@ export async function listProvidersWithUsage() {
       usedBytes: sum(file.sizeInBytes).mapWith(Number),
     })
     .from(file)
-    .where(eq(file.isDeleted, false))
+    .where(and(eq(file.isDeleted, false), eq(file.isTrashed, false)))
     .groupBy(file.providerId)
 
   const usageMap = new Map(
@@ -104,6 +104,7 @@ export async function listUserProvidersWithUsage(userId: string) {
       and(
         eq(file.userId, userId),
         eq(file.isDeleted, false),
+        eq(file.isTrashed, false),
         isNotNull(file.providerId),
       ),
     )
@@ -151,7 +152,7 @@ export async function getStorageAdminSummary() {
   const [totalUsedRow] = await db
     .select({ total: sum(file.sizeInBytes).mapWith(Number) })
     .from(file)
-    .where(eq(file.isDeleted, false))
+    .where(and(eq(file.isDeleted, false), eq(file.isTrashed, false)))
   const providerCount = Number(providerCountRow?.count ?? 0)
   const userCount = Number(userCountRow?.count ?? 0)
   const totalUsedStorageBytes = toNonNegativeBytes(totalUsedRow.total)

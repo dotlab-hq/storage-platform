@@ -35,6 +35,7 @@ export async function findCommittedFile(
         eq(file.userId, userId),
         eq(file.objectKey, upstreamObjectKey),
         eq(file.isDeleted, false),
+        eq(file.isTrashed, false),
       ),
     )
     .limit(1)
@@ -51,6 +52,7 @@ function pathCondition(input: {
     eq(file.userId, input.userId),
     eq(file.name, input.fileName),
     eq(file.isDeleted, false),
+    eq(file.isTrashed, false),
     input.mappedFolderId
       ? eq(file.folderId, input.mappedFolderId)
       : isNull(file.folderId),

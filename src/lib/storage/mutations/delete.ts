@@ -8,7 +8,6 @@ import {
 import { db } from '@/db'
 import { folder, file as storageFile } from '@/db/schema/storage'
 import { withActivityLogging } from '@/lib/activity-logging'
-import { markFolderSubtreeDeleted } from '@/lib/storage-btree/index'
 import { seedNodeById } from '@/lib/storage-btree/seed'
 
 const DeleteItemsSchema = z.object({
@@ -74,44 +73,16 @@ export const deleteItemsFn = createServerFn({ method: 'POST' })
         }
 
         if (folderIds.length > 0) {
-          const allFolderIds: string[] = [...folderIds]
-          const visitedFolderIds = new Set<string>(folderIds)
-          let toProcess: string[] = [...folderIds]
-          let depth = 0
+          // Get parent folders for cache invalidation
+          const folders = await db
+            .select({ parentFolderId: folder.parentFolderId })
+            .from(folder)
+            .where(
+              and(inArray(folder.id, folderIds), eq(folder.userId, userId)),
+            )
+          folders.forEach((f) => distinctParents.add(f.parentFolderId))
 
-          while (toProcess.length > 0) {
-            const children = await db
-              .select({ id: folder.id })
-              .from(folder)
-              .where(
-                and(
-                  eq(folder.userId, userId),
-                  inArray(folder.parentFolderId, toProcess),
-                ),
-              )
-            const childIds = children
-              .map((c) => c.id)
-              .filter((childId) => {
-                if (visitedFolderIds.has(childId)) {
-                  return false
-                }
-                visitedFolderIds.add(childId)
-                return true
-              })
-
-            if (childIds.length === 0) {
-              break
-            }
-
-            allFolderIds.push(...childIds)
-            toProcess = childIds
-            depth += 1
-
-            if (depth > 1024) {
-              throw new Error('Folder deletion traversal exceeded safe depth')
-            }
-          }
-
+          // Mark only the selected folders as trashed (no recursion)
           await db
             .update(folder)
             .set({
@@ -121,41 +92,18 @@ export const deleteItemsFn = createServerFn({ method: 'POST' })
               deletionQueuedAt: null,
             })
             .where(
-              and(inArray(folder.id, allFolderIds), eq(folder.userId, userId)),
+              and(inArray(folder.id, folderIds), eq(folder.userId, userId)),
             )
 
-          await db
-            .update(storageFile)
-            .set({
-              isDeleted: false,
-              isTrashed: true,
-              deletedAt: now,
-              deletionQueuedAt: null,
-            })
-            .where(
-              and(
-                inArray(storageFile.folderId, allFolderIds),
-                eq(storageFile.userId, userId),
-              ),
-            )
-
-          for (const folderId of folderIds) {
-            await seedNodeById(userId, 'folder', folderId)
-            await markFolderSubtreeDeleted(userId, folderId, true)
-          }
+          // Sync btree nodes for the folders (non-recursive; seedNodeById will use isTrashed flag)
+          await Promise.all(
+            folderIds.map((id) => seedNodeById(userId, 'folder', id)),
+          )
         }
 
         const { patchFolderCache, invalidateQuotaCache } =
           await import('@/lib/cache-invalidation')
         await invalidateQuotaCache(userId)
-
-        if (folderIds.length > 0) {
-          const folders = await db
-            .select({ parentFolderId: folder.parentFolderId })
-            .from(folder)
-            .where(inArray(folder.id, folderIds))
-          folders.forEach((f) => distinctParents.add(f.parentFolderId))
-        }
 
         for (const parentId of Array.from(distinctParents)) {
           await patchFolderCache(userId, parentId, {

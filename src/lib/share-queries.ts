@@ -97,7 +97,9 @@ export async function getShareByToken(token: string) {
         isPrivatelyLocked: storageFile.isPrivatelyLocked,
       })
       .from(storageFile)
-      .where(eq(storageFile.id, link.fileId))
+      .where(
+        and(eq(storageFile.id, link.fileId), eq(storageFile.isTrashed, false)),
+      )
       .limit(1)
     if (fileRows.length === 0) return null
     const fileRow = fileRows[0]
@@ -114,7 +116,7 @@ export async function getShareByToken(token: string) {
         name: folder.name,
       })
       .from(folder)
-      .where(eq(folder.id, link.folderId))
+      .where(and(eq(folder.id, link.folderId), eq(folder.isTrashed, false)))
       .limit(1)
     if (folderRows.length === 0) return null
     const folderRow = folderRows[0]
@@ -171,12 +173,14 @@ export async function getSharedFolderTreeByToken(token: string) {
             WHERE f.id = ${rootFolderId}
               AND f.user_id = ${ownerId}
               AND f.is_deleted = false
+              AND f.is_trashed = false
             UNION ALL
             SELECT child.id, child.name, child.parent_folder_id AS "parentFolderId", folder_tree.depth + 1 AS depth
                         FROM "folder" child
             INNER JOIN folder_tree ON child.parent_folder_id = folder_tree.id
             WHERE child.user_id = ${ownerId}
               AND child.is_deleted = false
+              AND child.is_trashed = false
         )
         SELECT id, name, "parentFolderId", depth
         FROM folder_tree
@@ -190,12 +194,14 @@ export async function getSharedFolderTreeByToken(token: string) {
             WHERE f.id = ${rootFolderId}
               AND f.user_id = ${ownerId}
               AND f.is_deleted = false
+              AND f.is_trashed = false
             UNION ALL
             SELECT child.id
                         FROM "folder" child
             INNER JOIN folder_tree ON child.parent_folder_id = folder_tree.id
             WHERE child.user_id = ${ownerId}
               AND child.is_deleted = false
+              AND child.is_trashed = false
         )
         SELECT fl.id, fl.name, fl.mime_type AS "mimeType", fl.size_in_bytes AS "sizeInBytes", fl.folder_id AS "folderId",
                fl.is_privately_locked AS "isPrivatelyLocked"
@@ -203,6 +209,7 @@ export async function getSharedFolderTreeByToken(token: string) {
         INNER JOIN folder_tree ON fl.folder_id = folder_tree.id
         WHERE fl.user_id = ${ownerId}
           AND fl.is_deleted = false
+          AND fl.is_trashed = false
           AND (fl.is_privately_locked = false OR ${share.link.consentedPrivatelyUnlock} = true)
         ORDER BY fl.name ASC
     `)

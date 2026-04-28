@@ -114,6 +114,7 @@ export async function createObjectVersionFromCurrent(
         eq(file.userId, bucket.userId),
         eq(file.objectKey, upstreamObjectKey),
         eq(file.isDeleted, false),
+        eq(file.isTrashed, false),
       ),
     )
     .limit(1)
@@ -204,6 +205,7 @@ export async function createDeleteMarkerVersion(
         eq(file.userId, bucket.userId),
         eq(file.objectKey, upstreamObjectKey),
         eq(file.isDeleted, false),
+        eq(file.isTrashed, false),
       ),
     )
 
@@ -259,6 +261,7 @@ export async function getObjectVersionResponse(
           eq(file.userId, bucket.userId),
           eq(file.objectKey, upstreamObjectKey),
           eq(file.isDeleted, false),
+          eq(file.isTrashed, false),
         ),
       )
       .limit(1)
@@ -421,6 +424,7 @@ export async function deleteObjectVersion(
           eq(file.userId, bucket.userId),
           eq(file.objectKey, upstreamObjectKey),
           eq(file.isDeleted, false),
+          eq(file.isTrashed, false),
         ),
       )
       .limit(1)

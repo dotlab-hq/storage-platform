@@ -38,7 +38,7 @@ export function FloatingActionBar({
           className="text-destructive hover:text-destructive"
         >
           <Trash2 className="mr-1 h-4 w-4" />
-          Delete
+          Trash
         </Button>
         <Button size="sm" variant="ghost" onClick={onShare}>
           <Share2 className="mr-1 h-4 w-4" />

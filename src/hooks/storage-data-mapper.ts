@@ -38,6 +38,9 @@ export function mapItems(data: FetchResponse, uid: string) {
     createdAt: new Date(folder.createdAt),
     updatedAt: new Date(folder.createdAt),
     isPrivatelyLocked: Boolean(folder.isPrivatelyLocked),
+    isTrashed: false,
+    isDeleted: false,
+    deletedAt: null,
   }))
   const fileItems: StorageItem[] = (data.files ?? []).map((file) => ({
     ...file,
@@ -49,6 +52,9 @@ export function mapItems(data: FetchResponse, uid: string) {
     createdAt: new Date(file.createdAt),
     updatedAt: new Date(file.createdAt),
     isPrivatelyLocked: Boolean(file.isPrivatelyLocked),
+    isTrashed: false,
+    isDeleted: false,
+    deletedAt: null,
   }))
   const folders: StorageFolder[] = (data.folders ?? []).map((folder) => ({
     ...folder,
@@ -57,6 +63,9 @@ export function mapItems(data: FetchResponse, uid: string) {
     createdAt: new Date(folder.createdAt),
     updatedAt: new Date(folder.createdAt),
     isPrivatelyLocked: Boolean(folder.isPrivatelyLocked),
+    isTrashed: false,
+    isDeleted: false,
+    deletedAt: null,
   }))
   return { items: [...folderItems, ...fileItems], folders }
 }

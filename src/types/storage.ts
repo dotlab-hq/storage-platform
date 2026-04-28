@@ -10,6 +10,7 @@ export type StorageFile = {
   updatedAt: Date
   isShared?: boolean
   isPrivatelyLocked?: boolean
+  isTrashed?: boolean
   isDeleted?: boolean
   deletedAt?: Date | null
 }
@@ -22,6 +23,9 @@ export type StorageFolder = {
   createdAt: Date
   updatedAt: Date
   isPrivatelyLocked?: boolean
+  isTrashed?: boolean
+  isDeleted?: boolean
+  deletedAt?: Date | null
 }
 
 export type StorageItem =

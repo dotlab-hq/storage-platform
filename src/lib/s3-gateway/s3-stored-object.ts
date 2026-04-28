@@ -43,6 +43,7 @@ export async function findStoredObject(
           eq(file.userId, bucket.userId),
           eq(file.objectKey, upstreamKey),
           eq(file.isDeleted, false),
+          eq(file.isTrashed, false),
         ),
       )
       .limit(1)

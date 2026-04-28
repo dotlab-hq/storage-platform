@@ -135,6 +135,7 @@ export async function createNewFolder({
             eq(folder.userId, userId),
             eq(folder.parentFolderId, parentFolderId),
             eq(folder.isDeleted, false),
+            eq(folder.isTrashed, false),
             isNull(folder.virtualBucketId),
             EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
           )
@@ -142,6 +143,7 @@ export async function createNewFolder({
             eq(folder.userId, userId),
             isNull(folder.parentFolderId),
             eq(folder.isDeleted, false),
+            eq(folder.isTrashed, false),
             isNull(folder.virtualBucketId),
             EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
           ),
@@ -207,6 +209,7 @@ export async function listRootItems(userId: string) {
         eq(folder.userId, userId),
         isNull(folder.parentFolderId),
         eq(folder.isDeleted, false),
+        eq(folder.isTrashed, false),
         isNull(folder.virtualBucketId),
         EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
       ),
@@ -227,6 +230,7 @@ export async function listRootItems(userId: string) {
         eq(storageFile.userId, userId),
         isNull(storageFile.folderId),
         eq(storageFile.isDeleted, false),
+        eq(storageFile.isTrashed, false),
       ),
     )
     .orderBy(storageFile.createdAt)

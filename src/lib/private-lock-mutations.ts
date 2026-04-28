@@ -48,6 +48,7 @@ export async function setFolderPrivateLock(
         and(
           eq(folder.userId, userId),
           eq(folder.isDeleted, false),
+          eq(folder.isTrashed, false),
           inArray(folder.parentFolderId, newFrontier),
         ),
       )

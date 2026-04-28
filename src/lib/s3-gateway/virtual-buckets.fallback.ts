@@ -84,6 +84,7 @@ export async function softDeleteByPrefix(
       and(
         eq(file.userId, userId),
         eq(file.isDeleted, false),
+        eq(file.isTrashed, false),
         like(file.objectKey, prefix),
       ),
     )
@@ -96,6 +97,7 @@ export async function softDeleteByPrefix(
         and(
           eq(file.userId, userId),
           eq(file.isDeleted, false),
+          eq(file.isTrashed, false),
           like(file.objectKey, prefix),
         ),
       )
@@ -150,6 +152,7 @@ export async function hasActiveObjects(
         and(
           eq(file.userId, userId),
           eq(file.isDeleted, false),
+          eq(file.isTrashed, false),
           like(file.objectKey, prefix),
         ),
       )

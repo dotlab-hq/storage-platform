@@ -46,6 +46,7 @@ export async function listVirtualBucketItems(
         eq(file.userId, userId),
         eq(file.folderId, mappedFolderId),
         eq(file.isDeleted, false),
+        eq(file.isTrashed, false),
       ),
     )
     .orderBy(file.createdAt)

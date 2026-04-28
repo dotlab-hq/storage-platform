@@ -91,17 +91,35 @@ export const getHomeDashboardDataFn = createServerFn({ method: 'GET' }).handler(
       db
         .select({ count: count() })
         .from(file)
-        .where(eq(file.userId, currentUser.id), eq(file.isDeleted, false))
+        .where(
+          and(
+            eq(file.userId, currentUser.id),
+            eq(file.isDeleted, false),
+            eq(file.isTrashed, false),
+          ),
+        )
         .limit(1),
       db
         .select({ count: count() })
         .from(folder)
-        .where(eq(folder.userId, currentUser.id), eq(folder.isDeleted, false))
+        .where(
+          and(
+            eq(folder.userId, currentUser.id),
+            eq(folder.isDeleted, false),
+            eq(folder.isTrashed, false),
+          ),
+        )
         .limit(1),
       db
         .select({ sum: sum(file.sizeInBytes) })
         .from(file)
-        .where(eq(file.userId, currentUser.id), eq(file.isDeleted, false))
+        .where(
+          and(
+            eq(file.userId, currentUser.id),
+            eq(file.isDeleted, false),
+            eq(file.isTrashed, false),
+          ),
+        )
         .limit(1),
       db
         .select({
@@ -156,29 +174,38 @@ export const getFolderStatsFn = createServerFn({ method: 'GET' })
         .select({ count: count() })
         .from(file)
         .where(
-          eq(file.userId, currentUser.id),
-          eq(file.isDeleted, false),
-          folderId ? eq(file.folderId, folderId) : isNull(file.folderId),
+          and(
+            eq(file.userId, currentUser.id),
+            eq(file.isDeleted, false),
+            eq(file.isTrashed, false),
+            folderId ? eq(file.folderId, folderId) : isNull(file.folderId),
+          ),
         )
         .limit(1),
       db
         .select({ count: count() })
         .from(folder)
         .where(
-          eq(folder.userId, currentUser.id),
-          eq(folder.isDeleted, false),
-          folderId
-            ? eq(folder.parentFolderId, folderId)
-            : isNull(folder.parentFolderId),
+          and(
+            eq(folder.userId, currentUser.id),
+            eq(folder.isDeleted, false),
+            eq(folder.isTrashed, false),
+            folderId
+              ? eq(folder.parentFolderId, folderId)
+              : isNull(folder.parentFolderId),
+          ),
         )
         .limit(1),
       db
         .select({ sum: sum(file.sizeInBytes) })
         .from(file)
         .where(
-          eq(file.userId, currentUser.id),
-          eq(file.isDeleted, false),
-          folderId ? eq(file.folderId, folderId) : isNull(file.folderId),
+          and(
+            eq(file.userId, currentUser.id),
+            eq(file.isDeleted, false),
+            eq(file.isTrashed, false),
+            folderId ? eq(file.folderId, folderId) : isNull(file.folderId),
+          ),
         )
         .limit(1),
     ])

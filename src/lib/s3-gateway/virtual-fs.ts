@@ -47,6 +47,7 @@ export async function resolveVirtualFolder(
         ? eq(folder.parentFolderId, currentFolderId)
         : isNull(folder.parentFolderId),
       eq(folder.isDeleted, false),
+      eq(folder.isTrashed, false),
     )
 
     const rows = await db

@@ -98,6 +98,7 @@ async function hasBucketObjects(bucket: BucketContext): Promise<boolean> {
         and(
           eq(file.userId, bucket.userId),
           eq(file.isDeleted, false),
+          eq(file.isTrashed, false),
           like(file.objectKey, objectKeyPrefix),
         ),
       )
@@ -176,6 +177,7 @@ export async function listObjectsV2(
         and(
           eq(folder.userId, bucket.userId),
           eq(folder.isDeleted, false),
+          eq(folder.isTrashed, false),
           folderCondition,
         ),
       )
@@ -197,6 +199,7 @@ export async function listObjectsV2(
         and(
           eq(file.userId, bucket.userId),
           eq(file.isDeleted, false),
+          eq(file.isTrashed, false),
           fileCondition,
         ),
       )
@@ -449,9 +452,10 @@ async function softDeleteMissingStoredObject(input: {
     })
     .where(
       and(
-        eq(file.userId, input.userId),
-        eq(file.objectKey, input.upstreamObjectKey),
+        eq(file.userId, bucket.userId),
+        eq(file.objectKey, upstreamKey),
         eq(file.isDeleted, false),
+        eq(file.isTrashed, false),
       ),
     )
 }
@@ -745,6 +749,7 @@ export async function deleteObject(
           eq(file.userId, bucket.userId),
           eq(file.objectKey, upstreamKey),
           eq(file.isDeleted, false),
+          eq(file.isTrashed, false),
         ),
       )
 
@@ -760,6 +765,7 @@ export async function deleteObject(
           eq(file.userId, bucket.userId),
           eq(file.objectKey, upstreamKey),
           eq(file.isDeleted, false),
+          eq(file.isTrashed, false),
         ),
       )
 

@@ -16,7 +16,14 @@ export async function createShareLink(
     const fileRows = await db
       .select({ isPrivatelyLocked: storageFile.isPrivatelyLocked })
       .from(storageFile)
-      .where(and(eq(storageFile.id, itemId), eq(storageFile.userId, userId)))
+      .where(
+        and(
+          eq(storageFile.id, itemId),
+          eq(storageFile.userId, userId),
+          eq(storageFile.isDeleted, false),
+          eq(storageFile.isTrashed, false),
+        ),
+      )
       .limit(1)
     if (fileRows.length === 0) {
       throw new Error('File not found')
@@ -29,7 +36,14 @@ export async function createShareLink(
     const folderRows = await db
       .select({ isPrivatelyLocked: folder.isPrivatelyLocked })
       .from(folder)
-      .where(and(eq(folder.id, itemId), eq(folder.userId, userId)))
+      .where(
+        and(
+          eq(folder.id, itemId),
+          eq(folder.userId, userId),
+          eq(folder.isDeleted, false),
+          eq(folder.isTrashed, false),
+        ),
+      )
       .limit(1)
     if (folderRows.length === 0) {
       throw new Error('Folder not found')

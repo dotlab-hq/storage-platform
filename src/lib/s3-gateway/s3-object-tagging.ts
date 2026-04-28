@@ -41,6 +41,7 @@ async function resolveFileId(
         eq(file.userId, bucket.userId),
         eq(file.objectKey, upstreamKey),
         eq(file.isDeleted, false),
+        eq(file.isTrashed, false),
       ),
     )
     .limit(1)

@@ -1,5 +1,4 @@
 import { eq, and, inArray } from 'drizzle-orm'
-import { markFolderSubtreeDeleted } from '@/lib/storage-btree/index'
 import { seedNodeById } from '@/lib/storage-btree/seed'
 
 export async function restoreItems(
@@ -19,17 +18,9 @@ export async function restoreItems(
     else folderIds.push(itemIds[i])
   }
 
-  // For folders, collect all descendant folder IDs to restore their files too
-  const allFolderIdsToRestore = new Set(folderIds)
-  if (folderIds.length > 0) {
-    allFolderIdsToRestore.add(
-      ...(await collectAllDescendantFolderIds(userId, folderIds)),
-    )
-  }
-
   const CHUNK_SIZE = 500
 
-  // Restore files (including descendants of folders)
+  // Restore files (only the explicitly selected files)
   if (fileIds.length > 0) {
     for (let i = 0; i < fileIds.length; i += CHUNK_SIZE) {
       const chunk = fileIds.slice(i, i + CHUNK_SIZE)
@@ -47,11 +38,10 @@ export async function restoreItems(
     }
   }
 
-  // Restore folders
+  // Restore folders (only the explicitly selected folders)
   if (folderIds.length > 0) {
-    const allFolderArray = Array.from(allFolderIdsToRestore)
-    for (let i = 0; i < allFolderArray.length; i += CHUNK_SIZE) {
-      const chunk = allFolderArray.slice(i, i + CHUNK_SIZE)
+    for (let i = 0; i < folderIds.length; i += CHUNK_SIZE) {
+      const chunk = folderIds.slice(i, i + CHUNK_SIZE)
       await db
         .update(folder)
         .set({
@@ -64,49 +54,11 @@ export async function restoreItems(
     }
   }
 
-  // Restore descendant files of all folders
-  if (allFolderIdsToRestore.size > 0) {
-    const descendantFileIds: string[] = []
-    const allFolderArray = Array.from(allFolderIdsToRestore)
-    for (let i = 0; i < allFolderArray.length; i += CHUNK_SIZE) {
-      const folderChunk = allFolderArray.slice(i, i + CHUNK_SIZE)
-      const fileRows = await db
-        .select({ id: storageFile.id })
-        .from(storageFile)
-        .where(
-          and(
-            inArray(storageFile.folderId, folderChunk),
-            eq(storageFile.userId, userId),
-          ),
-        )
-      descendantFileIds.push(...fileRows.map((f) => f.id))
-    }
-
-    for (let i = 0; i < descendantFileIds.length; i += CHUNK_SIZE) {
-      const chunk = descendantFileIds.slice(i, i + CHUNK_SIZE)
-      await db
-        .update(storageFile)
-        .set({
-          isDeleted: false,
-          isTrashed: false,
-          deletedAt: null,
-          deletionQueuedAt: null,
-        })
-        .where(
-          and(eq(storageFile.userId, userId), inArray(storageFile.id, chunk)),
-        )
-    }
-  }
-
-  // Seed btree nodes
+  // Seed btree nodes for restored items (will sync isDeleted flag based on isTrashed/isDeleted)
   await Promise.all([
     ...fileIds.map((id) => seedNodeById(userId, 'file', id)),
     ...folderIds.map((id) => seedNodeById(userId, 'folder', id)),
   ])
-
-  for (const folderId of folderIds) {
-    await markFolderSubtreeDeleted(userId, folderId, false)
-  }
 
   const { invalidateFolderCache, invalidateQuotaCache } =
     await import('@/lib/cache-invalidation')
@@ -144,6 +96,7 @@ export async function permanentDeleteItems(
         .update(storageFile)
         .set({
           isTrashed: false,
+          isDeleted: true,
           deletedAt: now,
           deletionQueuedAt: null,
         })
@@ -165,6 +118,7 @@ export async function permanentDeleteItems(
         .update(folder)
         .set({
           isTrashed: false,
+          isDeleted: true,
           deletedAt: now,
           deletionQueuedAt: null,
         })
@@ -253,7 +207,12 @@ export async function emptyAllTrash(userId: string) {
     fileChunks.map((chunk) =>
       db
         .update(storageFile)
-        .set({ isTrashed: false, deletedAt: now, deletionQueuedAt: null })
+        .set({
+          isTrashed: false,
+          isDeleted: true,
+          deletedAt: now,
+          deletionQueuedAt: null,
+        })
         .where(
           and(
             inArray(storageFile.id, chunk),
@@ -273,7 +232,12 @@ export async function emptyAllTrash(userId: string) {
     folderChunks.map((chunk) =>
       db
         .update(folder)
-        .set({ isTrashed: false, deletedAt: now, deletionQueuedAt: null })
+        .set({
+          isTrashed: false,
+          isDeleted: true,
+          deletedAt: now,
+          deletionQueuedAt: null,
+        })
         .where(
           and(
             inArray(folder.id, chunk),

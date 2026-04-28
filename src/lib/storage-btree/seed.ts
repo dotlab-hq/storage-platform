@@ -16,17 +16,19 @@ export async function seedNodeById(
         name: folder.name,
         parentFolderId: folder.parentFolderId,
         isDeleted: folder.isDeleted,
+        isTrashed: folder.isTrashed,
       })
       .from(folder)
       .where(and(eq(folder.id, nodeId), eq(folder.userId, userId)))
       .limit(1)
     if (rows[0]) {
+      const nodeIsDeleted = rows[0].isDeleted || rows[0].isTrashed
       await upsertFolderNode({
         userId,
         folderId: rows[0].id,
         name: rows[0].name,
         parentFolderId: rows[0].parentFolderId,
-        isDeleted: rows[0].isDeleted,
+        isDeleted: nodeIsDeleted,
       })
     }
     return
@@ -38,6 +40,7 @@ export async function seedNodeById(
       name: file.name,
       folderId: file.folderId,
       isDeleted: file.isDeleted,
+      isTrashed: file.isTrashed,
       sizeInBytes: file.sizeInBytes,
       etag: file.etag,
       lastModified: file.lastModified,
@@ -46,12 +49,13 @@ export async function seedNodeById(
     .where(and(eq(file.id, nodeId), eq(file.userId, userId)))
     .limit(1)
   if (rows[0]) {
+    const nodeIsDeleted = rows[0].isDeleted || rows[0].isTrashed
     await upsertFileNode({
       userId,
       fileId: rows[0].id,
       name: rows[0].name,
       folderId: rows[0].folderId,
-      isDeleted: rows[0].isDeleted,
+      isDeleted: nodeIsDeleted,
       sizeInBytes: rows[0].sizeInBytes,
       etag: rows[0].etag,
       lastModified: rows[0].lastModified,

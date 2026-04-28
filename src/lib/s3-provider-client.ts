@@ -267,7 +267,13 @@ export async function selectProviderForUpload(
       usedBytes: sql<number>`COALESCE(SUM(${file.sizeInBytes}), 0)`,
     })
     .from(file)
-    .where(and(eq(file.isDeleted, false), isNotNull(file.providerId)))
+    .where(
+      and(
+        eq(file.isDeleted, false),
+        eq(file.isTrashed, false),
+        isNotNull(file.providerId),
+      ),
+    )
     .groupBy(file.providerId)
   const usageByProvider = new Map(
     usageRows.map((row) => [row.providerId ?? '', row.usedBytes]),

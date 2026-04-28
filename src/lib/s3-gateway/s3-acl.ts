@@ -100,7 +100,14 @@ async function resolveObjectFileId(
   const rows = await db
     .select({ id: file.id })
     .from(file)
-    .where(and(eq(file.userId, bucket.userId), eq(file.objectKey, upstreamKey)))
+    .where(
+      and(
+        eq(file.userId, bucket.userId),
+        eq(file.objectKey, upstreamKey),
+        eq(file.isDeleted, false),
+        eq(file.isTrashed, false),
+      ),
+    )
     .limit(1)
   return rows[0]?.id ?? null
 }

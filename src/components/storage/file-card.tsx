@@ -211,7 +211,7 @@ export function FileCard({
               onClick={() => onContextAction('delete', item)}
               disabled={isReadOnly}
             >
-              <Trash2 className="mr-2 h-4 w-4" /> Delete
+              <Trash2 className="mr-2 h-4 w-4" /> Trash
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
