@@ -1,5 +1,5 @@
 import handler from "@tanstack/react-start/server-entry";
-import { queue as trashQueue } from "./workers/trash-queue-consumer";
+import { TrashDeletionWorkflow, queue as trashQueue } from "./workers/trash-queue-consumer";
 import { scheduled as trashCron } from "./workers/trash-cron";
 
 // Export Durable Objects as named exports
@@ -47,4 +47,6 @@ export default {
         }
         console.log( "Cron triggered:", event.cron );
     },
+
+    TrashDeletionWorkflow
 };
