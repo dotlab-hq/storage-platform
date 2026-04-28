@@ -26,8 +26,8 @@ export async function scheduled(
     const table = item.itemType === 'file' ? file : folder
     const idColumn = item.itemType === 'file' ? file.id : folder.id
     const userIdColumn = item.itemType === 'file' ? file.userId : folder.userId
-    const isTrashedCol =
-      item.itemType === 'file' ? file.isTrashed : folder.isTrashed
+    const isDeletedCol =
+      item.itemType === 'file' ? file.isDeleted : folder.isDeleted
     const deletedAtCol =
       item.itemType === 'file' ? file.deletedAt : folder.deletedAt
     const queuedAtCol =
@@ -40,7 +40,7 @@ export async function scheduled(
         and(
           eq(idColumn, item.itemId),
           eq(userIdColumn, item.userId),
-          eq(isTrashedCol, false),
+          eq(isDeletedCol, true),
           sql`${deletedAtCol} IS NOT NULL`,
           isNull(queuedAtCol),
         ),
