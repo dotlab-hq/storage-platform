@@ -1,11 +1,13 @@
+import type { TrashDeletionItem } from '@/lib/trash-deletion/params'
+
 export async function queue(
-  messages: QueueMessage[],
+  batch: MessageBatch<unknown>,
   env: Env,
   _ctx: ExecutionContext,
 ): Promise<void> {
   // Aggregate items from all messages
   const items: TrashDeletionItem[] = []
-  for (const msg of messages) {
+  for (const msg of batch.messages) {
     try {
       const item = (await msg.json()) as TrashDeletionItem
       items.push(item)

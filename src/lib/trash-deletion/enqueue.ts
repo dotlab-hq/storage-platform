@@ -1,10 +1,11 @@
-import { eq, and, inArray, sql, isNull } from 'drizzle-orm'
+import { eq, and, inArray, isNull } from 'drizzle-orm'
 import { db } from '@/db'
 import { file, folder } from '@/db/schema/storage'
 import type { TrashDeletionItem } from './params'
+import { enqueueTrashDeletionItems } from './producer'
 
 /**
- * Find all items in trash (isTrashed=true) that should be permanently deleted.
+ * Find deleted items that have not yet been handed off to the queue.
  * Returns only top-level items whose parent is NOT in trash.
  */
 export async function getDeletableItems(
@@ -12,9 +13,8 @@ export async function getDeletableItems(
 ): Promise<TrashDeletionItem[]> {
   const items: TrashDeletionItem[] = []
 
-  console.log('Querying for deletable items (isTrashed=true)...')
+  console.log('Querying for deleted items with no queue handoff...')
 
-  // Get folders: isTrashed=true, isDeleted=false (not permanently deleted yet)
   const candidateFolders = await db
     .select({
       id: folder.id,
@@ -22,7 +22,7 @@ export async function getDeletableItems(
       parentFolderId: folder.parentFolderId,
     })
     .from(folder)
-    .where(and(eq(folder.isTrashed, true), eq(folder.isDeleted, false)))
+    .where(and(eq(folder.isDeleted, true), isNull(folder.deletionQueuedAt)))
     .limit(limit)
 
   console.log('Candidate folders found:', candidateFolders.length)
@@ -34,16 +34,15 @@ export async function getDeletableItems(
       continue
     }
     const parent = await db
-      .select({ id: folder.id, isTrashed: folder.isTrashed })
+      .select({ id: folder.id, isDeleted: folder.isDeleted })
       .from(folder)
       .where(eq(folder.id, f.parentFolderId))
       .limit(1)
-    if (parent.length === 0 || !parent[0].isTrashed) {
+    if (parent.length === 0 || !parent[0].isDeleted) {
       items.push({ userId: f.userId, itemId: f.id, itemType: 'folder' })
     }
   }
 
-  // Get files: isTrashed=true, isDeleted=false (not permanently deleted yet)
   const candidateFiles = await db
     .select({
       id: file.id,
@@ -51,7 +50,7 @@ export async function getDeletableItems(
       folderId: file.folderId,
     })
     .from(file)
-    .where(and(eq(file.isTrashed, true), eq(file.isDeleted, false)))
+    .where(and(eq(file.isDeleted, true), isNull(file.deletionQueuedAt)))
     .limit(limit)
 
   console.log('Candidate files found:', candidateFiles.length)
@@ -63,11 +62,11 @@ export async function getDeletableItems(
       continue
     }
     const parent = await db
-      .select({ id: folder.id, isTrashed: folder.isTrashed })
+      .select({ id: folder.id, isDeleted: folder.isDeleted })
       .from(folder)
       .where(eq(folder.id, f.folderId))
       .limit(1)
-    if (parent.length === 0 || !parent[0].isTrashed) {
+    if (parent.length === 0 || !parent[0].isDeleted) {
       items.push({ userId: f.userId, itemId: f.id, itemType: 'file' })
     }
   }
@@ -81,7 +80,7 @@ export async function getDeletableItems(
 }
 
 /**
- * Claim items for deletion by setting isDeleted=true and deletionQueuedAt=now.
+ * Claim items for queue handoff by setting deletionQueuedAt.
  */
 export async function claimItems(items: TrashDeletionItem[]): Promise<number> {
   if (items.length === 0) return 0
@@ -109,8 +108,8 @@ export async function claimItems(items: TrashDeletionItem[]): Promise<number> {
       .where(
         and(
           inArray(file.id, fileIds),
-          eq(file.isTrashed, true),
-          eq(file.isDeleted, false),
+          eq(file.isDeleted, true),
+          isNull(file.deletionQueuedAt),
         ),
       )
     affected += result.changes ?? 0
@@ -128,8 +127,8 @@ export async function claimItems(items: TrashDeletionItem[]): Promise<number> {
       .where(
         and(
           inArray(folder.id, folderIds),
-          eq(folder.isTrashed, true),
-          eq(folder.isDeleted, false),
+          eq(folder.isDeleted, true),
+          isNull(folder.deletionQueuedAt),
         ),
       )
     affected += result.changes ?? 0
@@ -145,14 +144,5 @@ export async function enqueueItems(
   queue: { send: (msg: TrashDeletionItem) => Promise<void> },
   items: TrashDeletionItem[],
 ): Promise<number> {
-  let sent = 0
-  for (const item of items) {
-    try {
-      await queue.send(item)
-      sent++
-    } catch (err) {
-      console.error('Failed to enqueue deletion item:', err)
-    }
-  }
-  return sent
+  return enqueueTrashDeletionItems(queue, items)
 }

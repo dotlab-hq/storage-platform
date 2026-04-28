@@ -33,9 +33,7 @@ export async function listTrashItems(
         mimeType: storageFile.mimeType,
       })
       .from(storageFile)
-      .where(
-        and(eq(storageFile.userId, userId), eq(storageFile.isTrashed, true)),
-      )
+      .where(and(eq(storageFile.userId, userId), eq(storageFile.isDeleted, true)))
       .orderBy(desc(storageFile.deletedAt))
       .limit(limit)
       .offset(offset),
@@ -46,7 +44,7 @@ export async function listTrashItems(
         deletedAt: folder.deletedAt,
       })
       .from(folder)
-      .where(and(eq(folder.userId, userId), eq(folder.isTrashed, true)))
+      .where(and(eq(folder.userId, userId), eq(folder.isDeleted, true)))
       .orderBy(desc(folder.deletedAt))
       .limit(limit)
       .offset(offset),
@@ -97,7 +95,7 @@ export async function listTrashFolderContents(
       parentFolderId: folder.parentFolderId,
     })
     .from(folder)
-    .where(and(eq(folder.userId, userId), eq(folder.isTrashed, true)))
+    .where(and(eq(folder.userId, userId), eq(folder.isDeleted, true)))
     .orderBy(desc(folder.deletedAt))
 
   // Fetch all deleted files
@@ -111,7 +109,7 @@ export async function listTrashFolderContents(
       folderId: storageFile.folderId,
     })
     .from(storageFile)
-    .where(and(eq(storageFile.userId, userId), eq(storageFile.isTrashed, true)))
+    .where(and(eq(storageFile.userId, userId), eq(storageFile.isDeleted, true)))
     .orderBy(desc(storageFile.deletedAt))
 
   const deletedFolderIds = new Set(allDeletedFolders.map((f) => f.id))

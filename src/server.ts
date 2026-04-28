@@ -14,14 +14,14 @@ export default {
   fetch: handler.fetch,
 
   // Handle Queue messages. Route to the trash deletion consumer when available.
-  async queue(batch, env, ctx) {
+  async queue(batch: MessageBatch<unknown>, env: Env, ctx: ExecutionContext) {
     // If the trash workflow binding is present, use the specialized consumer.
     if (
       env &&
       Object.prototype.hasOwnProperty.call(env, 'TRASH_DELETION_WORKFLOW')
     ) {
       try {
-        await trashQueue(batch.messages, env, ctx)
+        await trashQueue(batch, env, ctx)
         // Acknowledge messages only after successful processing
         for (const message of batch.messages) {
           message.ack()
@@ -42,7 +42,11 @@ export default {
   },
 
   // Handle Cron Triggers — delegate to the trash cron when the workflow binding is available.
-  async scheduled(event, env, ctx) {
+  async scheduled(
+    event: ScheduledController,
+    env: Env,
+    ctx: ExecutionContext,
+  ) {
     if (
       env &&
       Object.prototype.hasOwnProperty.call(env, 'TRASH_DELETION_WORKFLOW')
