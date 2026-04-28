@@ -240,9 +240,6 @@ export async function restoreAllTrash(userId: string) {
   return restoreItems(userId, itemIds, itemTypes)
 }
 
-  return { restored: totalRestored }
-}
-
 export async function emptyAllTrash(userId: string) {
   const [{ db }, { file: storageFile, folder }] = await Promise.all([
     import('@/db'),
