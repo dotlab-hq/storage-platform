@@ -4,7 +4,7 @@ import { file, folder } from '@/db/schema/storage'
 import type { TrashDeletionItem } from './params'
 
 /**
- * Find all items ready for deletion (isDeleted=true, deletedAt != null) that are
+ * Find all items ready for deletion (isTrashed=true, deletedAt != null) that are
  * top-level (no ancestor is also marked for deletion) and not already queued.
  * Returns up to limit items, ordered by deletedAt (oldest first) to prioritize
  * items that have been waiting longest.
@@ -14,7 +14,9 @@ export async function getDeletableItems(
 ): Promise<TrashDeletionItem[]> {
   const items: TrashDeletionItem[] = []
 
-  // Get candidate folders: isDeleted=true, deletedAt IS NOT NULL, deletionQueuedAt IS NULL,
+  console.log('Querying for deletable items with isTrashed=true...')
+
+  // Get candidate folders: isTrashed=true, deletedAt IS NOT NULL, deletionQueuedAt IS NULL,
   // and no parent folder also marked for deletion
   const candidateFolders = await db
     .select({
@@ -24,7 +26,7 @@ export async function getDeletableItems(
     .from(folder)
     .where(
       and(
-        eq(folder.isDeleted, true),
+        eq(folder.isTrashed, true),
         sql`${folder.deletedAt} IS NOT NULL`,
         isNull(folder.deletionQueuedAt),
         // Exclude folders whose parent is also marked for deletion (will be handled by parent)
@@ -32,11 +34,16 @@ export async function getDeletableItems(
             SELECT 1 FROM folder parent
             WHERE parent.id = folder.parent_folder_id
               AND parent.deleted_at IS NOT NULL
-              AND parent.is_deleted = true
+              AND parent.is_trashed = true
           )`,
       ),
     )
     .limit(limit)
+
+  console.log('Candidate folders found:', candidateFolders.length)
+  if (candidateFolders.length > 0) {
+    console.log('Sample folder:', candidateFolders[0])
+  }
 
   for (const f of candidateFolders) {
     items.push({ userId: f.userId, itemId: f.id, itemType: 'folder' })
@@ -53,7 +60,7 @@ export async function getDeletableItems(
     .from(file)
     .where(
       and(
-        eq(file.isDeleted, true),
+        eq(file.isTrashed, true),
         sql`${file.deletedAt} IS NOT NULL`,
         isNull(file.deletionQueuedAt),
         // Exclude files that are inside a deleted folder (those will be handled with folder)
@@ -61,7 +68,7 @@ export async function getDeletableItems(
             SELECT 1 FROM folder f2
             WHERE f2.id = file.folder_id
               AND f2.deleted_at IS NOT NULL
-              AND f2.is_deleted = true
+              AND f2.is_trashed = true
           )`,
       ),
     )
