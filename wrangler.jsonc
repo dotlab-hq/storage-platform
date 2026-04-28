@@ -45,18 +45,16 @@
       {
         "binding": "TRASH_DELETION_QUEUE",
         "queue": "trash-deletion-queue",
-      }
+      },
     ],
     "consumers": [
       {
         "queue": "trash-deletion-queue",
-      }
-    ]
+      },
+    ],
   },
   "triggers": {
-    "crons": [
-      "* * * * *"
-    ],
+    "crons": ["* * * * *"],
   },
   "workflows": [
     {
@@ -65,4 +63,12 @@
       "class_name": "TrashDeletionWorkflow",
     },
   ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "binding": "TRASH_DELETION_STATE",
+        "class_name": "TrashDeletionStateDO",
+      },
+    ],
+  },
 }

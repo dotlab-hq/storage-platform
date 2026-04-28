@@ -11,15 +11,13 @@ export async function scheduled(
   env: Env,
   ctx: ExecutionContext,
 ): Promise<void> {
-  // Step 1: Get candidate items (up to 1000 to have a pool)
   const candidates = await getDeletableItems(1000)
 
   if (candidates.length === 0) {
-    console.log('No trash items ready for deletion')
+    console.log('[Trash Cron] No items ready for permanent deletion')
     return
   }
 
-  // Step 2: Claim items atomically, one by one, up to BATCH_SIZE
   const toEnqueue: TrashDeletionItem[] = []
   const now = new Date()
 
@@ -53,13 +51,14 @@ export async function scheduled(
     }
   }
 
-  // Step 3: Enqueue claimed items to the queue
   if (toEnqueue.length > 0) {
     const sent = await enqueueItems(env.TRASH_DELETION_QUEUE, toEnqueue)
-    console.log(`Enqueued ${sent}/${toEnqueue.length} items for deletion`)
+    console.log(
+      `[Trash Cron] Enqueued ${sent}/${toEnqueue.length} items for deletion`,
+    )
   } else {
     console.log(
-      'No items were claimed (possibly already claimed by another run)',
+      '[Trash Cron] No items could be claimed (possibly already claimed)',
     )
   }
 }

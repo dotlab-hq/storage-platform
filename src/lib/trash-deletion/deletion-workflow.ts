@@ -14,11 +14,9 @@ export class TrashDeletionWorkflow extends WorkflowEntrypoint<
     const items = event.payload?.items
     if (!items || items.length === 0) return
 
-    // Use the bound env available on the entrypoint instance
-    const queue = (this as any).env
-      .TRASH_DELETION_QUEUE as Env['TRASH_DELETION_QUEUE']
+    const env = this.env as Env
+    const queue = env.TRASH_DELETION_QUEUE
 
-    // Process this batch; any failures will retry automatically
-    await processDeletionBatch(items, queue)
+    await processDeletionBatch(items, env, queue)
   }
 }
