@@ -54,7 +54,9 @@
     ],
   },
   "triggers": {
-    "crons": ["* * * * *"],
+    "crons": [
+      "* * * * *"
+    ],
   },
   "workflows": [
     {
@@ -66,9 +68,17 @@
   "durable_objects": {
     "bindings": [
       {
-        "binding": "TRASH_DELETION_STATE",
+        "name": "TRASH_DELETION_STATE",
         "class_name": "TrashDeletionStateDO",
       },
-    ],
+    ]
   },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "TrashDeletionStateDO",
+      ],
+    },
+  ],
 }
