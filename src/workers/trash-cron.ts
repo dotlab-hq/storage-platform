@@ -27,8 +27,6 @@ export async function scheduled(event, env, ctx): Promise<void> {
     const table = item.itemType === 'file' ? file : folder
     const idColumn = item.itemType === 'file' ? file.id : folder.id
     const userIdColumn = item.itemType === 'file' ? file.userId : folder.userId
-    const isTrashedCol =
-      item.itemType === 'file' ? file.isTrashed : folder.isTrashed
     const isDeletedCol =
       item.itemType === 'file' ? file.isDeleted : folder.isDeleted
 
@@ -44,7 +42,6 @@ export async function scheduled(event, env, ctx): Promise<void> {
         and(
           eq(idColumn, item.itemId),
           eq(userIdColumn, item.userId),
-          eq(isTrashedCol, true),
           eq(isDeletedCol, false),
         ),
       )
