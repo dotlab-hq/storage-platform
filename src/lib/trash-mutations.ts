@@ -70,13 +70,23 @@ export async function restoreItems(
     ...fileIds.map((id) =>
       db
         .update(storageFile)
-        .set({ isDeleted: false, deletedAt: null })
+        .set({
+          isDeleted: false,
+          isTrashed: false,
+          deletedAt: null,
+          deletionQueuedAt: null,
+        })
         .where(and(eq(storageFile.id, id), eq(storageFile.userId, userId))),
     ),
     ...folderIds.map((id) =>
       db
         .update(folder)
-        .set({ isDeleted: false, deletedAt: null })
+        .set({
+          isDeleted: false,
+          isTrashed: false,
+          deletedAt: null,
+          deletionQueuedAt: null,
+        })
         .where(and(eq(folder.id, id), eq(folder.userId, userId))),
     ),
   ])
@@ -85,7 +95,12 @@ export async function restoreItems(
   if (allFolderIdsToRestore.size > 0) {
     await db
       .update(storageFile)
-      .set({ isDeleted: false, deletedAt: null })
+      .set({
+        isDeleted: false,
+        isTrashed: false,
+        deletedAt: null,
+        deletionQueuedAt: null,
+      })
       .where(
         and(
           inArray(storageFile.folderId, Array.from(allFolderIdsToRestore)),
@@ -224,5 +239,113 @@ export async function emptyAllTrash(userId: string) {
   const allItems = await listTrashItems(userId)
   const itemIds = allItems.map((i) => i.id)
   const itemTypes = allItems.map((i) => i.type)
-  return permanentDeleteItems(userId, itemIds, itemTypes)
+
+  // Mark all items as isDeleted=true, isTrashed=false (queued for deletion)
+  // Actual S3 deletion will be handled by Cloudflare Workflow via cron
+
+  const [{ db }, { file: storageFile, folder }] = await Promise.all([
+    import('@/db'),
+    import('@/db/schema/storage'),
+  ])
+
+  const now = new Date()
+
+  // Separate files and folders
+  const fileIds: string[] = []
+  const folderIds: string[] = []
+  for (let i = 0; i < itemIds.length; i++) {
+    if (itemTypes[i] === 'file') fileIds.push(itemIds[i])
+    else folderIds.push(itemIds[i])
+  }
+
+  // Update files: set isDeleted=true, isTrashed=false
+  if (fileIds.length > 0) {
+    await db
+      .update(storageFile)
+      .set({ isDeleted: true, isTrashed: false, deletedAt: now })
+      .where(
+        and(
+          inArray(storageFile.id, fileIds),
+          eq(storageFile.userId, userId),
+          eq(storageFile.isTrashed, true), // Only if currently trashed
+        ),
+      )
+  }
+
+  // Update folders: set isDeleted=true, isTrashed=false
+  // Also cascade to all descendant files/folders
+  if (folderIds.length > 0) {
+    // Collect all descendant folder IDs
+    const allFolderIds: string[] = [...folderIds]
+    const visitedFolderIds = new Set(folderIds)
+    let toProcess: string[] = [...folderIds]
+    let depth = 0
+
+    while (toProcess.length > 0) {
+      const children = await db
+        .select({ id: folder.id })
+        .from(folder)
+        .where(
+          and(
+            eq(folder.userId, userId),
+            inArray(folder.parentFolderId, toProcess),
+          ),
+        )
+      const childIds = children
+        .map((c) => c.id)
+        .filter((childId) => {
+          if (visitedFolderIds.has(childId)) {
+            return false
+          }
+          visitedFolderIds.add(childId)
+          return true
+        })
+
+      if (childIds.length === 0) {
+        break
+      }
+
+      allFolderIds.push(...childIds)
+      toProcess = childIds
+      depth += 1
+
+      if (depth > 1024) {
+        throw new Error('Folder empty trash traversal exceeded safe depth')
+      }
+    }
+
+    // Update all folders
+    await db
+      .update(folder)
+      .set({ isDeleted: true, isTrashed: false, deletedAt: now })
+      .where(
+        and(
+          inArray(folder.id, allFolderIds),
+          eq(folder.userId, userId),
+          eq(folder.isTrashed, true),
+        ),
+      )
+
+    // Update all files in those folders
+    await db
+      .update(storageFile)
+      .set({ isDeleted: true, isTrashed: false, deletedAt: now })
+      .where(
+        and(
+          inArray(storageFile.folderId, allFolderIds),
+          eq(storageFile.userId, userId),
+          eq(storageFile.isTrashed, true),
+        ),
+      )
+  }
+
+  const { invalidateFolderCache, invalidateQuotaCache } =
+    await import('@/lib/cache-invalidation')
+  await invalidateQuotaCache(userId)
+  await invalidateFolderCache(userId, null)
+
+  return {
+    deletedFiles: fileIds.length,
+    deletedFolders: folderIds.length,
+  }
 }

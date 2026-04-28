@@ -28,7 +28,7 @@ import {
   deleteUserProviderFn,
   toggleUserProviderActiveFn,
   updateProviderPreferenceFn,
-} from '../-providers-server'
+} from './-providers-server'
 
 type Props = {
   initialProviders: UserProvider[]

@@ -2,7 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { db } from '@/db'
 import { chatMessage, chatThread } from '@/db/schema/chat'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import {
   deriveThreadTitle,
   toMessageSnapshot,

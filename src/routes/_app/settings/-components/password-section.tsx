@@ -10,16 +10,16 @@ import { Label } from '@/components/ui/label'
 import { Activity } from '@/components/ui/activity'
 import { KeyboardShortcut } from '@/components/ui/keyboard-shortcut'
 import { KeyRound, Lock } from 'lucide-react'
-import { updateSettings, useSettingsStore } from '../-store'
-import { changePasswordSettingsFn } from '../-settings-server'
+import { updateSettings, useSettingsStore } from './-store'
+import { changePasswordSettingsFn } from './-settings-server'
 
 export function PasswordSection() {
-  const [passwords, setPasswords] = useState( {
+  const [passwords, setPasswords] = useState({
     currentPassword: '',
     newPassword: '',
-  } )
+  })
   const isChangingPassword = useSettingsStore(
-    ( state ) => state.isChangingPassword,
+    (state) => state.isChangingPassword,
   )
 
   const canSubmit =
@@ -27,31 +27,31 @@ export function PasswordSection() {
     passwords.currentPassword.trim().length > 0 &&
     passwords.newPassword.trim().length > 0
 
-  const changePasswordMutation = useMutation( {
+  const changePasswordMutation = useMutation({
     mutationFn: async () => {
-      await changePasswordSettingsFn( { data: passwords } )
+      await changePasswordSettingsFn({ data: passwords })
     },
     onMutate: () => {
-      updateSettings( { isChangingPassword: true } )
+      updateSettings({ isChangingPassword: true })
     },
     onSuccess: () => {
-      setPasswords( { currentPassword: '', newPassword: '' } )
-      toast.success( 'Password updated.' )
+      setPasswords({ currentPassword: '', newPassword: '' })
+      toast.success('Password updated.')
     },
-    onError: ( error ) => {
+    onError: (error) => {
       toast.error(
         error instanceof Error ? error.message : 'Failed to update password.',
       )
     },
     onSettled: () => {
-      updateSettings( { isChangingPassword: false } )
+      updateSettings({ isChangingPassword: false })
     },
-  } )
+  })
 
   useHotkey(
     'Mod+Enter',
     () => {
-      if ( canSubmit ) {
+      if (canSubmit) {
         changePasswordMutation.mutate()
       }
     },
@@ -78,11 +78,11 @@ export function PasswordSection() {
           <Input
             type="password"
             value={passwords.currentPassword}
-            onChange={( e ) =>
-              setPasswords( ( prev ) => ( {
+            onChange={(e) =>
+              setPasswords((prev) => ({
                 ...prev,
                 currentPassword: e.target.value,
-              } ) )
+              }))
             }
             placeholder="Enter current password"
           />
@@ -92,11 +92,11 @@ export function PasswordSection() {
           <Input
             type="password"
             value={passwords.newPassword}
-            onChange={( e ) =>
-              setPasswords( ( prev ) => ( {
+            onChange={(e) =>
+              setPasswords((prev) => ({
                 ...prev,
                 newPassword: e.target.value,
-              } ) )
+              }))
             }
             placeholder="Enter new password"
           />

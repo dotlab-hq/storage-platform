@@ -33,6 +33,10 @@ export const folder = schema.table(
       .default(false)
       .notNull(),
     deletedAt: integer('deleted_at', { mode: 'timestamp' }),
+    isTrashed: integer('is_trashed', { mode: 'boolean' })
+      .default(false)
+      .notNull(),
+    deletionQueuedAt: integer('deletion_queued_at', { mode: 'timestamp' }),
     lastOpenedAt: integer('last_opened_at', { mode: 'timestamp' }),
     createdAt: integer('created_at', { mode: 'timestamp' })
       .$defaultFn(() => new Date())
@@ -45,6 +49,8 @@ export const folder = schema.table(
   (table) => [
     index('folder_userId_idx').on(table.userId),
     index('folder_parentFolderId_idx').on(table.parentFolderId),
+    index('folder_isTrashed_idx').on(table.isTrashed),
+    index('folder_deletionQueuedAt_idx').on(table.deletionQueuedAt),
   ],
 )
 
@@ -77,6 +83,10 @@ export const file = schema.table(
       .default(false)
       .notNull(),
     deletedAt: integer('deleted_at', { mode: 'timestamp' }),
+    isTrashed: integer('is_trashed', { mode: 'boolean' })
+      .default(false)
+      .notNull(),
+    deletionQueuedAt: integer('deletion_queued_at', { mode: 'timestamp' }),
     lastOpenedAt: integer('last_opened_at', { mode: 'timestamp' }),
     createdAt: integer('created_at', { mode: 'timestamp' })
       .$defaultFn(() => new Date())
@@ -90,6 +100,8 @@ export const file = schema.table(
     index('file_userId_idx').on(table.userId),
     index('file_providerId_idx').on(table.providerId),
     index('file_folderId_idx').on(table.folderId),
+    index('file_isTrashed_idx').on(table.isTrashed),
+    index('file_deletionQueuedAt_idx').on(table.deletionQueuedAt),
   ],
 )
 

@@ -1,5 +1,7 @@
+'use server'
+
 import { createServerFn } from '@tanstack/react-start'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import { loadAuth } from '@/lib/auth-loader'
 import { db } from '@/db'
 import { account, apikey, user } from '@/db/schema/auth-schema'

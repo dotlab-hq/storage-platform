@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth'
 import { listAdminProviderContents } from '@/lib/admin-provider-browser'
+import { getAuthenticatedUser } from '@/lib/server-auth'
 
 const ContentsQuerySchema = z.object({
   prefix: z.string().optional(),

@@ -1,5 +1,10 @@
+'use server'
+
 import { createServerFn } from '@tanstack/react-start'
-import { requireAdminUser, getAuthenticatedUser } from '@/lib/server-auth'
+import {
+  requireAdminUser,
+  getAuthenticatedUser,
+} from '@/lib/server-auth.server'
 import { loadAuth } from '@/lib/auth-loader'
 import { z } from 'zod'
 import { logActivity } from '@/lib/activity'

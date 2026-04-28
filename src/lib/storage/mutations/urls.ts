@@ -4,7 +4,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { eq, and } from 'drizzle-orm'
 
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import { db } from '@/db'
 import { file as storageFile } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'

@@ -1,3 +1,5 @@
+'use server'
+
 import { getRequest } from '@tanstack/react-start/server'
 
 type WorkflowBinding = {

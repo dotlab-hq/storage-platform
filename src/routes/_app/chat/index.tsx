@@ -1,23 +1,22 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { ClientOnly } from '@tanstack/react-router'
+import { createFileRoute, ClientOnly } from '@tanstack/react-router'
 import { Suspense, lazy } from 'react'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
-import { getChatRouteSnapshotFn } from './-chat-loader-server'
-import { ChatRouteSkeleton } from './-chat-loading-skeletons'
+import { getChatRouteSnapshotFn } from './-components/-chat-loader-server'
+import { ChatRouteSkeleton } from './-components/-chat-loading-skeletons'
 
-const ChatPage = lazy(() =>
-  import('./-chat-page').then((module) => ({
+const ChatPage = lazy( () =>
+  import( './-components/-chat-page' ).then( ( module ) => ( {
     default: module.ChatPage,
-  })),
+  } ) ),
 )
 
-export const Route = createFileRoute('/_app/chat/')({
+export const Route = createFileRoute( '/_app/chat/' )( {
   server: {
     middleware: [isAuthenticatedMiddleware],
   },
   loader: () => getChatRouteSnapshotFn(),
   component: ChatRoutePage,
-})
+} )
 
 function ChatRoutePage() {
   const initial = Route.useLoaderData()

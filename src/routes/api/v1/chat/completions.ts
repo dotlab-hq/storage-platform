@@ -1,4 +1,4 @@
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import { db } from '@/db'
 import { chatMessage, chatThread } from '@/db/schema/chat'
 import { and, eq } from 'drizzle-orm'
@@ -188,7 +188,8 @@ export async function POST({ request }: { request: Request }) {
       })
       .returning({ id: chatMessage.id })
 
-    const requestedToolNames = validated.tools?.map((t) => t.function.name) || []
+    const requestedToolNames =
+      validated.tools?.map((t) => t.function.name) || []
     console.log('[Chat] Requested tools:', requestedToolNames)
 
     const stopSequences =
@@ -244,7 +245,9 @@ export async function POST({ request }: { request: Request }) {
       }
     } else {
       if (useDeepAgentLegacy) {
-        console.warn('[Chat] DeepAgent requested for non-streaming, using standard')
+        console.warn(
+          '[Chat] DeepAgent requested for non-streaming, using standard',
+        )
       }
       return handleNonStreamingResponse({
         messages: langchainMessages,

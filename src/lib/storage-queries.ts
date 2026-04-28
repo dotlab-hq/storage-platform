@@ -25,6 +25,7 @@ export async function listFolderItems(
         eq(folder.userId, userId),
         eq(folder.parentFolderId, folderId),
         eq(folder.isDeleted, false),
+        eq(folder.isTrashed, false),
         isNull(folder.virtualBucketId),
         EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
       )
@@ -32,6 +33,7 @@ export async function listFolderItems(
         eq(folder.userId, userId),
         isNull(folder.parentFolderId),
         eq(folder.isDeleted, false),
+        eq(folder.isTrashed, false),
         isNull(folder.virtualBucketId),
         EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
       )
@@ -41,11 +43,13 @@ export async function listFolderItems(
         eq(storageFile.userId, userId),
         eq(storageFile.folderId, folderId),
         eq(storageFile.isDeleted, false),
+        eq(storageFile.isTrashed, false),
       )
     : and(
         eq(storageFile.userId, userId),
         isNull(storageFile.folderId),
         eq(storageFile.isDeleted, false),
+        eq(storageFile.isTrashed, false),
       )
 
   const offset = (page - 1) * limit
@@ -107,6 +111,7 @@ export async function searchItems(userId: string, query: string) {
           eq(folder.userId, userId),
           ilike(folder.name, pattern),
           eq(folder.isDeleted, false),
+          eq(folder.isTrashed, false),
           isNull(folder.virtualBucketId),
           EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
         ),
@@ -128,6 +133,7 @@ export async function searchItems(userId: string, query: string) {
           eq(storageFile.userId, userId),
           ilike(storageFile.name, pattern),
           eq(storageFile.isDeleted, false),
+          eq(storageFile.isTrashed, false),
         ),
       )
       .limit(50),
@@ -247,6 +253,7 @@ export async function getAllFolders(userId: string) {
       and(
         eq(folder.userId, userId),
         eq(folder.isDeleted, false),
+        eq(folder.isTrashed, false),
         isNull(folder.virtualBucketId),
         EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
       ),
@@ -277,6 +284,7 @@ export async function getRecentItems(userId: string) {
         and(
           eq(folder.userId, userId),
           eq(folder.isDeleted, false),
+          eq(folder.isTrashed, false),
           isNull(folder.virtualBucketId),
           EXCLUDE_VIRTUAL_BUCKET_FOLDERS,
           gte(folder.lastOpenedAt, cutoff),
@@ -299,6 +307,7 @@ export async function getRecentItems(userId: string) {
         and(
           eq(storageFile.userId, userId),
           eq(storageFile.isDeleted, false),
+          eq(storageFile.isTrashed, false),
           gte(storageFile.lastOpenedAt, cutoff),
         ),
       )

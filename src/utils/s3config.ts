@@ -5,7 +5,7 @@ import {
   GetObjectCommand,
 } from '@aws-sdk/client-s3'
 import { createServerOnlyFn } from '@tanstack/react-start'
-import { requireAuthenticatedServerOnlySession } from '@/lib/server-auth'
+import { requireAuthenticatedServerOnlySession } from '@/lib/server-auth.server'
 
 const BUCKET_NAME = 'dot-storage'
 

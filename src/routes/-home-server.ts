@@ -1,7 +1,7 @@
 import { createServerFn } from '@tanstack/react-start'
 import { count, eq, sum, isNull } from 'drizzle-orm'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import { listFolderItems } from '@/lib/storage-queries'
 import { getUserQuotaSnapshotByUserId } from '@/lib/server-functions/quota.server'
 import { db } from '@/db'

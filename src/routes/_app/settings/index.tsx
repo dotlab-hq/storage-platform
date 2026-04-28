@@ -1,58 +1,58 @@
 import { createFileRoute } from '@tanstack/react-router'
-;('use client')
+  ; ( 'use client' )
 
 import { useEffect, useState, lazy, Suspense } from 'react'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { getSettingsSnapshotFn } from './-settings-server'
-import { updateSettings } from './-store'
+import { getSettingsSnapshotFn } from './-components/-settings-server'
+import { updateSettings } from './-components/-store'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
 import { PageSkeleton } from '@/components/ui/page-skeleton'
 
-const ProfileSection = lazy(() =>
-  import('./-components/profile-section').then((m) => ({
+const ProfileSection = lazy( () =>
+  import( './-components/profile-section' ).then( ( m ) => ( {
     default: m.ProfileSection,
-  })),
+  } ) ),
 )
-const AuthMethodsSection = lazy(() =>
-  import('./-components/auth-methods-section').then((m) => ({
+const AuthMethodsSection = lazy( () =>
+  import( './-components/auth-methods-section' ).then( ( m ) => ( {
     default: m.AuthMethodsSection,
-  })),
+  } ) ),
 )
-const TwoFactorSection = lazy(() =>
-  import('./-components/two-factor-section').then((m) => ({
+const TwoFactorSection = lazy( () =>
+  import( './-components/two-factor-section' ).then( ( m ) => ( {
     default: m.TwoFactorSection,
-  })),
+  } ) ),
 )
-const PasswordSection = lazy(() =>
-  import('./-components/password-section').then((m) => ({
+const PasswordSection = lazy( () =>
+  import( './-components/password-section' ).then( ( m ) => ( {
     default: m.PasswordSection,
-  })),
+  } ) ),
 )
-const TinySessionsSection = lazy(() =>
-  import('./-components/tiny-sessions-section').then((m) => ({
+const TinySessionsSection = lazy( () =>
+  import( './-components/tiny-sessions-section' ).then( ( m ) => ( {
     default: m.TinySessionsSection,
-  })),
+  } ) ),
 )
-const ApiKeysSection = lazy(() =>
-  import('./-components/api-keys-section').then((m) => ({
+const ApiKeysSection = lazy( () =>
+  import( './-components/api-keys-section' ).then( ( m ) => ( {
     default: m.ApiKeysSection,
-  })),
+  } ) ),
 )
-const ProvidersSection = lazy(() =>
-  import('./-components/providers-section').then((m) => ({
+const ProvidersSection = lazy( () =>
+  import( './-components/providers-section' ).then( ( m ) => ( {
     default: m.ProvidersSection,
-  })),
+  } ) ),
 )
 
-export const Route = createFileRoute('/_app/settings/')({
+export const Route = createFileRoute( '/_app/settings/' )( {
   server: {
     middleware: [isAuthenticatedMiddleware],
   },
   component: SettingsPage,
   loader: () => getSettingsSnapshotFn(),
-})
+} )
 
 type SettingsTab =
   | 'profile'
@@ -75,15 +75,15 @@ const tabs: { id: SettingsTab; label: string }[] = [
 
 function SettingsPage() {
   const initial = Route.useLoaderData()
-  const [activeTab, setActiveTab] = useState<SettingsTab>('profile')
+  const [activeTab, setActiveTab] = useState<SettingsTab>( 'profile' )
 
-  useEffect(() => {
-    updateSettings({
+  useEffect( () => {
+    updateSettings( {
       name: initial.user.name,
       image: initial.user.image,
       twoFactorEnabled: initial.security.twoFactorEnabled,
-    })
-  }, [initial])
+    } )
+  }, [initial] )
 
   return (
     <SidebarInset>
@@ -99,10 +99,10 @@ function SettingsPage() {
         <main className="flex-1 overflow-auto">
           <Tabs
             value={activeTab}
-            onValueChange={(value) => setActiveTab(value as SettingsTab)}
+            onValueChange={( value ) => setActiveTab( value as SettingsTab )}
           >
             <TabsList className="mb-4 flex h-auto w-full flex-nowrap overflow-x-auto gap-1 p-1 md:grid md:grid-cols-7">
-              {tabs.map((tab) => (
+              {tabs.map( ( tab ) => (
                 <TabsTrigger
                   key={tab.id}
                   value={tab.id}
@@ -110,7 +110,7 @@ function SettingsPage() {
                 >
                   {tab.label}
                 </TabsTrigger>
-              ))}
+              ) )}
             </TabsList>
           </Tabs>
           <Suspense fallback={<PageSkeleton className="h-96 w-full" />}>

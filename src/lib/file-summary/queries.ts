@@ -3,7 +3,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { db } from '@/db'
 import { fileSummaryJob } from '@/db/schema/file-summary'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import { toSummaryJobSnapshot } from './serialization'
 
 const GetLatestSummarySchema = z.object({

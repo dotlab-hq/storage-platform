@@ -28,7 +28,7 @@ export async function listTrashItems(userId: string): Promise<TrashItem[]> {
       })
       .from(storageFile)
       .where(
-        and(eq(storageFile.userId, userId), eq(storageFile.isDeleted, true)),
+        and(eq(storageFile.userId, userId), eq(storageFile.isTrashed, true)),
       ),
     db
       .select({
@@ -37,7 +37,7 @@ export async function listTrashItems(userId: string): Promise<TrashItem[]> {
         deletedAt: folder.deletedAt,
       })
       .from(folder)
-      .where(and(eq(folder.userId, userId), eq(folder.isDeleted, true))),
+      .where(and(eq(folder.userId, userId), eq(folder.isTrashed, true))),
   ])
 
   const items: TrashItem[] = [
@@ -85,7 +85,7 @@ export async function listTrashFolderContents(
       parentFolderId: folder.parentFolderId,
     })
     .from(folder)
-    .where(and(eq(folder.userId, userId), eq(folder.isDeleted, true)))
+    .where(and(eq(folder.userId, userId), eq(folder.isTrashed, true)))
 
   // Fetch all deleted files
   const allDeletedFiles = await db
@@ -98,7 +98,7 @@ export async function listTrashFolderContents(
       folderId: storageFile.folderId,
     })
     .from(storageFile)
-    .where(and(eq(storageFile.userId, userId), eq(storageFile.isDeleted, true)))
+    .where(and(eq(storageFile.userId, userId), eq(storageFile.isTrashed, true)))
 
   const deletedFolderIds = new Set(allDeletedFolders.map((f) => f.id))
 

@@ -1,7 +1,10 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { eq, and, inArray } from 'drizzle-orm'
-import { getAuthenticatedUser, requireWritePermission } from '@/lib/server-auth'
+import {
+  getAuthenticatedUser,
+  requireWritePermission,
+} from '@/lib/server-auth.server'
 import { db } from '@/db'
 import { folder, file as storageFile } from '@/db/schema/storage'
 import { withActivityLogging } from '@/lib/activity-logging'
@@ -52,7 +55,7 @@ export const deleteItemsFn = createServerFn({ method: 'POST' })
 
           await db
             .update(storageFile)
-            .set({ isDeleted: true, deletedAt: now })
+            .set({ isTrashed: true, deletedAt: null })
             .where(
               and(
                 inArray(storageFile.id, fileIds),
@@ -106,14 +109,14 @@ export const deleteItemsFn = createServerFn({ method: 'POST' })
 
           await db
             .update(folder)
-            .set({ isDeleted: true, deletedAt: now })
+            .set({ isTrashed: true, deletedAt: null })
             .where(
               and(inArray(folder.id, allFolderIds), eq(folder.userId, userId)),
             )
 
           await db
             .update(storageFile)
-            .set({ isDeleted: true, deletedAt: now })
+            .set({ isTrashed: true, deletedAt: null })
             .where(
               and(
                 inArray(storageFile.folderId, allFolderIds),

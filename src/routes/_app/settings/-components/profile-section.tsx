@@ -9,68 +9,68 @@ import { Label } from '@/components/ui/label'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Activity } from '@/components/ui/activity'
 import { KeyboardShortcut } from '@/components/ui/keyboard-shortcut'
-import { updateSettings, useSettingsStore } from '../-store'
-import { updateProfileSettingsFn } from '../-settings-server'
+import { updateSettings, useSettingsStore } from './-store'
+import { updateProfileSettingsFn } from './-settings-server'
 import { useRef } from 'react'
 
-export function ProfileSection( {
+export function ProfileSection({
   initial,
 }: {
   initial: { user: { name: string; image?: string | null } }
-} ) {
-  const name = useSettingsStore( ( state ) => state.name )
-  const image = useSettingsStore( ( state ) => state.image )
-  const isSavingProfile = useSettingsStore( ( state ) => state.isSavingProfile )
-  const fileInputRef = useRef<HTMLInputElement>( null )
+}) {
+  const name = useSettingsStore((state) => state.name)
+  const image = useSettingsStore((state) => state.image)
+  const isSavingProfile = useSettingsStore((state) => state.isSavingProfile)
+  const fileInputRef = useRef<HTMLInputElement>(null)
   const canSave = !isSavingProfile && name.trim().length > 0
 
-  const getInitials = ( name: string ) => {
+  const getInitials = (name: string) => {
     return name
-      .split( ' ' )
-      .map( ( n ) => n[0] )
-      .join( '' )
+      .split(' ')
+      .map((n) => n[0])
+      .join('')
       .toUpperCase()
-      .slice( 0, 2 )
+      .slice(0, 2)
   }
 
-  const handleImageUpload = ( e: React.ChangeEvent<HTMLInputElement> ) => {
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
-    if ( file ) {
+    if (file) {
       const reader = new FileReader()
       reader.onloadend = () => {
-        updateSettings( { image: reader.result as string } )
+        updateSettings({ image: reader.result as string })
       }
-      reader.readAsDataURL( file )
+      reader.readAsDataURL(file)
     }
   }
 
-  const saveProfileMutation = useMutation( {
+  const saveProfileMutation = useMutation({
     mutationFn: async () => {
-      await updateProfileSettingsFn( { data: { name, image } } )
+      await updateProfileSettingsFn({ data: { name, image } })
     },
     onMutate: () => {
-      updateSettings( { isSavingProfile: true } )
+      updateSettings({ isSavingProfile: true })
     },
     onSuccess: () => {
-      toast.success( 'Profile saved.' )
+      toast.success('Profile saved.')
     },
-    onError: ( error ) => {
+    onError: (error) => {
       const previous = { name: initial.user.name, image: initial.user.image }
-      updateSettings( { name: previous.name, image: previous.image ?? '' } )
+      updateSettings({ name: previous.name, image: previous.image ?? '' })
       toast.error(
         error instanceof Error ? error.message : 'Failed to save profile.',
       )
     },
     onSettled: () => {
-      updateSettings( { isSavingProfile: false } )
+      updateSettings({ isSavingProfile: false })
     },
-  } )
+  })
 
   const saveProfile = () => {
     const previous = { name: initial.user.name, image: initial.user.image }
-    if ( name.trim().length === 0 ) {
-      updateSettings( { name: previous.name, image: previous.image ?? '' } )
-      toast.error( 'Name is required.' )
+    if (name.trim().length === 0) {
+      updateSettings({ name: previous.name, image: previous.image ?? '' })
+      toast.error('Name is required.')
       return
     }
     saveProfileMutation.mutate()
@@ -79,7 +79,7 @@ export function ProfileSection( {
   useHotkey(
     'Mod+Enter',
     () => {
-      if ( canSave ) {
+      if (canSave) {
         saveProfile()
       }
     },
@@ -100,7 +100,7 @@ export function ProfileSection( {
             <Avatar className="size-24 ring-4 ring-background shadow-lg">
               <AvatarImage src={image || undefined} alt={name} />
               <AvatarFallback className="bg-linear-to-br from-primary/20 to-primary/40 text-lg font-semibold">
-                {getInitials( name || 'User' )}
+                {getInitials(name || 'User')}
               </AvatarFallback>
             </Avatar>
             <Button
@@ -126,7 +126,7 @@ export function ProfileSection( {
               <Label className="text-sm font-medium">Full Name</Label>
               <Input
                 value={name}
-                onChange={( e ) => updateSettings( { name: e.target.value } )}
+                onChange={(e) => updateSettings({ name: e.target.value })}
                 placeholder="Enter your full name"
                 className="max-w-md"
               />

@@ -7,7 +7,7 @@ import { toast } from '@/components/ui/sonner'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { updateSettings, useSettingsStore } from '../-store'
+import { updateSettings, useSettingsStore } from './-store'
 import { Activity } from '@/components/ui/activity'
 import { KeyboardShortcut } from '@/components/ui/keyboard-shortcut'
 import { Shield, Key, AlertTriangle } from 'lucide-react'
@@ -23,84 +23,84 @@ import {
   enableTwoFactorSettingsFn,
   verifyTwoFactorSettingsFn,
   disableTwoFactorSettingsFn,
-} from '../-settings-server'
+} from './-settings-server'
 
 export function TwoFactorSection() {
-  const [twoFactorPassword, setTwoFactorPassword] = useState( '' )
-  const [totpCode, setTotpCode] = useState( '' )
+  const [twoFactorPassword, setTwoFactorPassword] = useState('')
+  const [totpCode, setTotpCode] = useState('')
 
-  const twoFactorEnabled = useSettingsStore( ( state ) => state.twoFactorEnabled )
-  const isUpdating2FA = useSettingsStore( ( state ) => state.isUpdating2FA )
-  const backupCodes = useSettingsStore( ( state ) => state.backupCodes )
+  const twoFactorEnabled = useSettingsStore((state) => state.twoFactorEnabled)
+  const isUpdating2FA = useSettingsStore((state) => state.isUpdating2FA)
+  const backupCodes = useSettingsStore((state) => state.backupCodes)
 
-  const enableMutation = useMutation( {
+  const enableMutation = useMutation({
     mutationFn: async () => {
-      return enableTwoFactorSettingsFn( {
+      return enableTwoFactorSettingsFn({
         data: { password: twoFactorPassword },
-      } )
+      })
     },
     onMutate: () => {
-      updateSettings( { isUpdating2FA: true, twoFactorEnabled: true } )
+      updateSettings({ isUpdating2FA: true, twoFactorEnabled: true })
     },
-    onSuccess: ( result ) => {
-      updateSettings( { backupCodes: result.backupCodes } )
-      toast.success( 'Scan QR from your authenticator, then verify code below.' )
+    onSuccess: (result) => {
+      updateSettings({ backupCodes: result.backupCodes })
+      toast.success('Scan QR from your authenticator, then verify code below.')
     },
-    onError: ( error ) => {
-      updateSettings( { twoFactorEnabled: false } )
+    onError: (error) => {
+      updateSettings({ twoFactorEnabled: false })
       toast.error(
         error instanceof Error ? error.message : 'Failed to enable 2FA.',
       )
     },
     onSettled: () => {
-      updateSettings( { isUpdating2FA: false } )
+      updateSettings({ isUpdating2FA: false })
     },
-  } )
+  })
 
-  const verifyMutation = useMutation( {
+  const verifyMutation = useMutation({
     mutationFn: async () => {
-      await verifyTwoFactorSettingsFn( { data: { code: totpCode } } )
+      await verifyTwoFactorSettingsFn({ data: { code: totpCode } })
     },
     onMutate: () => {
-      updateSettings( { isUpdating2FA: true } )
+      updateSettings({ isUpdating2FA: true })
     },
     onSuccess: () => {
-      setTotpCode( '' )
-      toast.success( '2FA verified.' )
+      setTotpCode('')
+      toast.success('2FA verified.')
     },
-    onError: ( error ) => {
+    onError: (error) => {
       toast.error(
         error instanceof Error ? error.message : 'Failed to verify 2FA code.',
       )
     },
     onSettled: () => {
-      updateSettings( { isUpdating2FA: false } )
+      updateSettings({ isUpdating2FA: false })
     },
-  } )
+  })
 
-  const disableMutation = useMutation( {
+  const disableMutation = useMutation({
     mutationFn: async () => {
-      await disableTwoFactorSettingsFn( {
+      await disableTwoFactorSettingsFn({
         data: { password: twoFactorPassword },
-      } )
+      })
     },
     onMutate: () => {
-      updateSettings( { isUpdating2FA: true, twoFactorEnabled: false } )
+      updateSettings({ isUpdating2FA: true, twoFactorEnabled: false })
     },
     onSuccess: () => {
-      updateSettings( { backupCodes: [] } )
-      toast.success( '2FA disabled.' )
+      updateSettings({ backupCodes: [] })
+      toast.success('2FA disabled.')
     },
-    onError: ( error ) => {
-      updateSettings( { twoFactorEnabled: true } )
+    onError: (error) => {
+      updateSettings({ twoFactorEnabled: true })
       toast.error(
         error instanceof Error ? error.message : 'Failed to disable 2FA.',
       )
     },
     onSettled: () => {
-      updateSettings( { isUpdating2FA: false } )
+      updateSettings({ isUpdating2FA: false })
     },
-  } )
+  })
 
   const canEnable = !isUpdating2FA && twoFactorPassword.trim().length >= 8
   const canVerify = !isUpdating2FA && totpCode.trim().length === 6
@@ -108,15 +108,18 @@ export function TwoFactorSection() {
   useHotkey(
     'Mod+Enter',
     () => {
-      if ( !twoFactorEnabled && canEnable ) {
+      if (!twoFactorEnabled && canEnable) {
         enableMutation.mutate()
         return
       }
-      if ( twoFactorEnabled && canVerify ) {
+      if (twoFactorEnabled && canVerify) {
         verifyMutation.mutate()
       }
     },
-    { enabled: ( !twoFactorEnabled && canEnable ) || ( twoFactorEnabled && canVerify ) },
+    {
+      enabled:
+        (!twoFactorEnabled && canEnable) || (twoFactorEnabled && canVerify),
+    },
   )
 
   return (
@@ -140,8 +143,9 @@ export function TwoFactorSection() {
         <div className="flex items-center justify-between rounded-xl border bg-card p-4">
           <div className="flex items-center gap-3">
             <div
-              className={`size-3 rounded-full ${twoFactorEnabled ? 'bg-green-500' : 'bg-amber-500'
-                }`}
+              className={`size-3 rounded-full ${
+                twoFactorEnabled ? 'bg-green-500' : 'bg-amber-500'
+              }`}
             />
             <span className="font-medium">
               {twoFactorEnabled ? 'Protected' : 'Not Protected'}
@@ -150,7 +154,11 @@ export function TwoFactorSection() {
           <Activity
             when={twoFactorEnabled}
             fallback={
-              <Button size="sm" disabled={isUpdating2FA} onClick={() => enableMutation.mutate()}>
+              <Button
+                size="sm"
+                disabled={isUpdating2FA}
+                onClick={() => enableMutation.mutate()}
+              >
                 Enable 2FA
               </Button>
             }
@@ -189,7 +197,7 @@ export function TwoFactorSection() {
                     <Label>Authenticator Code</Label>
                     <Input
                       value={totpCode}
-                      onChange={( e ) => setTotpCode( e.target.value )}
+                      onChange={(e) => setTotpCode(e.target.value)}
                       placeholder="000000"
                       maxLength={6}
                     />
@@ -199,7 +207,8 @@ export function TwoFactorSection() {
                     disabled={!canVerify}
                     onClick={() => verifyMutation.mutate()}
                   >
-                    Verify <KeyboardShortcut keys="Mod+Enter" className="ml-2" />
+                    Verify{' '}
+                    <KeyboardShortcut keys="Mod+Enter" className="ml-2" />
                   </Button>
                 </div>
               </div>
@@ -223,7 +232,7 @@ export function TwoFactorSection() {
                         </TableRow>
                       </TableHeader>
                       <TableBody>
-                        {backupCodes.map( ( code, idx ) => (
+                        {backupCodes.map((code, idx) => (
                           <TableRow key={idx}>
                             <TableCell className="font-mono text-sm">
                               {code}
@@ -235,7 +244,7 @@ export function TwoFactorSection() {
                               </span>
                             </TableCell>
                           </TableRow>
-                        ) )}
+                        ))}
                       </TableBody>
                     </Table>
                   </div>
@@ -250,7 +259,7 @@ export function TwoFactorSection() {
               <Input
                 type="password"
                 value={twoFactorPassword}
-                onChange={( e ) => setTwoFactorPassword( e.target.value )}
+                onChange={(e) => setTwoFactorPassword(e.target.value)}
                 placeholder="Enter your password"
               />
             </div>

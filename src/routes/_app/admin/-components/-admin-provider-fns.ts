@@ -6,7 +6,7 @@ import { file } from '@/db/schema/storage'
 import { storageProvider } from '@/db/schema/storage-provider'
 import { and, count, eq, isNull } from 'drizzle-orm'
 import { z } from 'zod'
-import { requireAdminUser } from '@/lib/server-auth'
+import { requireAdminUser } from '@/lib/server-auth.server'
 import {
   getStorageAdminSummary,
   getUsersWithUsage,

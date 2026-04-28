@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
 import { db } from '@/db'
 import { virtualBucket } from '@/db/schema/s3-gateway'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import { and, eq } from 'drizzle-orm'
 import {
   getBucketCors,

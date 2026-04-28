@@ -4,7 +4,7 @@ import { z } from 'zod'
 import { db } from '@/db'
 import { storageProvider } from '@/db/schema/storage-provider'
 import { listAdminProviderContents } from '@/lib/admin-provider-browser'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 
 const UserProviderContentsSchema = z.object({
   providerId: z.string().min(1),

@@ -20,7 +20,7 @@ import { TagInput } from '@/components/ui/tag-input'
 import { toast } from 'sonner'
 import type { ApiScope } from '@/lib/permissions/scopes'
 import { getScopeDisplayName } from '@/lib/permissions/scopes'
-import { updateChatApiKeyFn } from '../-settings-server'
+import { updateChatApiKeyFn } from './-settings-server'
 
 type EditApiKeyModalProps = {
   open: boolean

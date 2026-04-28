@@ -1,3 +1,5 @@
+'use server'
+
 import { redirect } from '@tanstack/react-router'
 import { getRequest } from '@tanstack/react-start/server'
 import { isAdminRole, normalizeUserRole } from '@/lib/authz'

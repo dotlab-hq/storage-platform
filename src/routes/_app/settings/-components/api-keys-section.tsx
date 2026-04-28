@@ -26,7 +26,7 @@ import {
   TableBody,
   TableCell,
 } from '@/components/ui/table'
-import { createChatApiKeyFn, deleteChatApiKeyFn } from '../-settings-server'
+import { createChatApiKeyFn, deleteChatApiKeyFn } from './-settings-server'
 import { EditApiKeyModal } from './edit-api-key-modal'
 
 type ApiKeySnapshot = {

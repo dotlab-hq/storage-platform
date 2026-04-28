@@ -3,7 +3,7 @@ import { and, desc, eq, sql } from 'drizzle-orm'
 import { z } from 'zod'
 import { db } from '@/db'
 import { chatThread } from '@/db/schema/chat'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import type { PaginatedThreads } from './-chat-types'
 import { toThreadSnapshot } from './-chat-server-utils'
 

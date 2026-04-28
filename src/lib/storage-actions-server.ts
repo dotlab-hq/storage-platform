@@ -1,7 +1,10 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { createNewFolder } from '@/lib/storage-server'
-import { getAuthenticatedUser, requireWritePermission } from '@/lib/server-auth'
+import {
+  getAuthenticatedUser,
+  requireWritePermission,
+} from '@/lib/server-auth.server'
 
 const CreateFolderSchema = z.object({
   name: z.string().min(1),

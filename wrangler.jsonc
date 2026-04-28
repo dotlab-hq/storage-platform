@@ -1,13 +1,16 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "storage",
-  "main": "@tanstack/react-start/server-entry",
+  "main": "./src/server.ts",
   "assets": {
     "binding": "ASSETS",
     "directory": "./public",
   },
   "compatibility_date": "2026-03-24",
-  "compatibility_flags": ["nodejs_compat","no_handle_cross_request_promise_resolution"],
+  "compatibility_flags": [
+    "nodejs_compat",
+    "no_handle_cross_request_promise_resolution",
+  ],
   "observability": {
     "enabled": false,
     "head_sampling_rate": 1,
@@ -21,15 +24,6 @@
     "region": "aws:ap-south-1",
   },
   "keep_vars": true,
-  // "vars": {
-  //   "MY_VAR": "my-variable"
-  // },
-  // "hyperdrive": [
-  //   {
-  //     "binding": "DB",
-  //     "id": "3c26563cafef4f44a700a5ec0b63b693",
-  //   }
-  // ],
   "d1_databases": [
     {
       "binding": "DB_D1",
@@ -46,10 +40,29 @@
       "remote": true,
     },
   ],
-  // "r2_buckets": [
-  //   {
-  //     "binding": "MY_BUCKET",
-  //     "bucket_name": "my-bucket"
-  //   }
-  // ],
+  "queues": {
+    "producers": [
+      {
+        "binding": "TRASH_DELETION_QUEUE",
+        "queue": "trash-deletion-queue",
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "trash-deletion-queue",
+      }
+    ]
+  },
+  "triggers": {
+    "crons": [
+      "0 * * * *"
+    ],
+  },
+  "workflows": [
+    {
+      "binding": "TRASH_DELETION_WORKFLOW",
+      "name": "trash-deletion-workflow",
+      "class_name": "TrashDeletionWorkflow",
+    },
+  ],
 }

@@ -2,7 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { listFolderItems, getFolderBreadcrumbs } from '@/lib/storage-queries'
 import { touchFolderOpenedFn } from '@/lib/storage/mutations/touch'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import { eq } from 'drizzle-orm'
 import { Cache } from '@/lib/Cache'
 import {

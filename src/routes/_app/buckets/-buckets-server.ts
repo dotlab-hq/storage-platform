@@ -1,6 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import { listVirtualBucketItems } from '@/lib/s3-gateway/virtual-bucket-items'
 
 const BucketItemsInputSchema = z.object({

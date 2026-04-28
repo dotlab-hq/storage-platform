@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import { getVirtualBucketCredentials } from '@/lib/s3-gateway/virtual-buckets'
 import { DEFAULT_ASSETS_BUCKET_NAME } from '@/lib/storage/assets-bucket'
 

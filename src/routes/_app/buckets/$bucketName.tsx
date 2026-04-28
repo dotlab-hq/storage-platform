@@ -8,7 +8,7 @@ import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { Separator } from '@/components/ui/separator'
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { listBucketItems } from '@/lib/s3-gateway/list-bucket-items.server'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
 
 const InitialBucketViewSchema = z.object({

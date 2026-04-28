@@ -1,6 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import { saveTextFileFn as contentSaveTextFileFn } from '@/lib/storage/mutations/content'
 import { db } from '@/db'
 import { file as storageFile } from '@/db/schema/storage'

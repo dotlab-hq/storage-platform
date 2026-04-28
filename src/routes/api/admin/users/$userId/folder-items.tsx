@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import { listFolderItems, getFolderBreadcrumbs } from '@/lib/storage-queries'
 import { mapBreadcrumbs } from '@/hooks/storage-data-mapper'
 

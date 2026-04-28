@@ -5,7 +5,7 @@ import {
   getRequestHeaders,
 } from '@tanstack/react-start/server'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import {
   buildQrLoginPayload,
   createPollKey,

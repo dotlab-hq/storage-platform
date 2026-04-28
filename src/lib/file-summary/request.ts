@@ -1,6 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import { getSummaryTarget } from './target'
 import { createSourceProfile } from './source'
 import { getFileSummaryLimits, getFileSummaryModelName } from './config'

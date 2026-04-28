@@ -1,5 +1,5 @@
 import { createServerFn } from '@tanstack/react-start'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 
 export const getUserQuotaSnapshotFn = createServerFn({ method: 'GET' }).handler(
   async () => {

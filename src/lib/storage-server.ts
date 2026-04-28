@@ -1,6 +1,6 @@
 import { and, eq, isNull, sql } from 'drizzle-orm'
 import { selectProviderForUpload } from '@/lib/s3-provider-client'
-import { requireAuthenticatedServerOnlySession } from '@/lib/server-auth'
+import { requireAuthenticatedServerOnlySession } from '@/lib/server-auth.server'
 
 const EXCLUDE_VIRTUAL_BUCKET_FOLDERS = sql<boolean>`
     NOT EXISTS (

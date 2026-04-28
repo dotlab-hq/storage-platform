@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import { handleProxyUploadRequest } from '@/lib/upload-proxy-server'
 
 export const Route = createFileRoute('/api/storage/upload/proxy')({

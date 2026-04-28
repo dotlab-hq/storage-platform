@@ -1,7 +1,10 @@
 import { createServerFn } from '@tanstack/react-start'
 import { z } from 'zod'
 import { eq, and } from 'drizzle-orm'
-import { getAuthenticatedUser, requireWritePermission } from '@/lib/server-auth'
+import {
+  getAuthenticatedUser,
+  requireWritePermission,
+} from '@/lib/server-auth.server'
 import { db } from '@/db'
 import { folder, file as storageFile } from '@/db/schema/storage'
 import { withActivityLogging } from '@/lib/activity-logging'

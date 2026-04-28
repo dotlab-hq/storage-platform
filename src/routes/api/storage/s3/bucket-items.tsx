@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import { listBucketItems } from '@/lib/s3-gateway/list-bucket-items.server'
 
 const BucketItemsQuerySchema = z.object({

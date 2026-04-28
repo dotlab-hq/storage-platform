@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
-import { getAuthenticatedUser } from '@/lib/server-auth'
+import { getAuthenticatedUser } from '@/lib/server-auth.server'
 import { initiateUpload } from '@/lib/s3-gateway/upload-attempts'
 
 const InitiateUploadSchema = z.object({

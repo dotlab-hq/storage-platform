@@ -4,7 +4,7 @@ import { PageSkeleton } from '@/components/ui/page-skeleton'
 import { isAuthenticatedMiddleware } from '@/middlewares/isAuthenticated'
 
 const TrashPage = lazy(() =>
-  import('./-trash-page').then((m) => ({
+  import('./-components/-trash-page').then((m) => ({
     default: m.TrashPage,
   })),
 )
